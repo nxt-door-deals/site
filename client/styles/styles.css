@@ -1,0 +1,36 @@
+@import "./fonts/Axiforma/stylesheet.css";
+@import "./fonts/GothamPro/stylesheet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Navbar custom styles */
+.basic-nav {
+  @apply flex items-start justify-between w-full;
+}
+
+.nav-item {
+  @apply mr-6 z-20 text-base font-axiforma font-semibold transform transition duration-300 ease-in-out;
+}
+
+.menu-nav-item {
+  @apply z-30 text-brand-purple text-base uppercase font-axiforma font-bold mb-12 cursor-pointer;
+}
+
+.sm-flex {
+  @apply flex justify-center items-center;
+}
+
+.overlay-toggle {
+  @apply opacity-95 top-0 left-0 right-0 w-screen bg-purple-300 fixed h-full transition-all duration-300 z-10;
+}
+
+.overlay-items {
+  @apply transition duration-300 ease-in-out menu-nav-item transform;
+}
+
+/* Apartment search custom styles */
+.apartment-search-results {
+  @apply font-gotham absolute mt-1 p-2 border-2 border-solid border-purple-400 bg-white z-20 rounded-lg  text-brand-gray;
+}

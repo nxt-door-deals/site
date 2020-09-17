@@ -1,0 +1,27 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "formik": "^2.1.5",
+    "framer-motion": "^2.6.10",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.7.5"
+  }
+}
