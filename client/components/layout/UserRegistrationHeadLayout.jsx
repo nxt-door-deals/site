@@ -2,28 +2,32 @@ import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
 
-const HomeHeadLayout = (props) => {
+const UserLoginHeadLayout = (props) => {
   return (
     <Fragment>
       <Head>
         <CommonHeadLayout />
-        <title>NXT Door Deals | Your neighbourhood marketplace</title>
+        <title>NXT Door Deals | Create Your Account</title>
         <meta
           name="description"
-          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Your neighbourhood marketplace"
+          content="NXT Door Deals | Create Your Account"
         />
         <meta
           property="og:description"
-          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
         />
-        <meta property="og:url" content="https://nxtdoordeals.com/" />
+        <meta
+          property="og:url"
+          content="https://nxtdoordeals.com/userregistration"
+        />
         <meta property="og:site_name" content="NXT Door Deals" />
+        <meta property="og:image" content="/favicon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -35,7 +39,7 @@ const HomeHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": ""
+                    "@value": "NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
                   }
                 ],
                 "http://schema.org/inLanguage": [
@@ -50,7 +54,7 @@ const HomeHeadLayout = (props) => {
                 ]
               },
               {
-                "@id": "https://nxtdoordeals.com/#webpage",
+                "@id": "https://nxtdoordeals.com/login/#webpage",
                 "@type": [
                   "http://schema.org/WebPage"
                 ],
@@ -62,7 +66,7 @@ const HomeHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Your one-stop shop to find amazing deals for preloved items in your neighbourhood."
+                    "@value": "Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
                   }
                 ],
                 "http://schema.org/inLanguage": [
@@ -82,14 +86,14 @@ const HomeHeadLayout = (props) => {
                     ],
                     "http://schema.org/target": [
                       {
-                        "@value": "https://nxtdoordeals.com/"
+                        "@value": "https://nxtdoordeals.com/userregistration"
                       }
                     ]
                   }
                 ],
                 "http://schema.org/url": [
                   {
-                    "@id": "https://nxtdoordeals.com/"
+                    "@id": "https://nxtdoordeals.com/userregistration"
                   }
                 ]
               }
@@ -102,4 +106,4 @@ const HomeHeadLayout = (props) => {
   );
 };
 
-export default HomeHeadLayout;
+export default UserLoginHeadLayout;

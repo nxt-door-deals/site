@@ -12,12 +12,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.20.0",
     "formik": "^2.1.5",
     "framer-motion": "^2.6.10",
     "next": "^9.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "universal-cookie": "^4.0.3",
     "yup": "^0.29.3"
   },
   "devDependencies": {

@@ -5,6 +5,12 @@ import Router from "next/router";
 import Link from "next/link";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faMapPin,
+  faBuilding,
+} from "@fortawesome/free-solid-svg-icons";
 
 const apartmentSearchValidationSchema = Yup.object({
   apartment: Yup.string().required("Please select your neighbourhood"),
@@ -47,27 +53,34 @@ const ApartmentSearch = () => {
               if (e.key === "Enter") e.preventDefault();
             }}
           >
-            <div className="flex items-center mt-6 border-2 rounded-lg border-brand-purple">
-              {/* Search icon on the text box */}
-              <img
-                src="/search.svg"
+            <div
+              className={`"flex mt-6 border-2 rounded-md " ${
+                props.errors.apartment && props.touched.apartment
+                  ? "border-red-900"
+                  : "border-purple-900"
+              }`}
+            >
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="inline align-middle text-lg fill-current text-gray-600 opacity-50 ml-2"
                 alt="Search Apartment"
-                className=" fill-current text-gray-600 opacity-75 ml-2"
               />
               <Field
                 id="apartment"
                 name="apartment"
                 type="input"
                 placeholder="Search Apartment"
-                className="font-gotham border-opacity-0 p-3 w-11/12 lg:w-9/12 xl:w-11/12 placeholder-purple-900"
+                className="textbox-input lg:w-9/12 xl:w-11/12 placeholder-purple-900 placeholder-opacity-50"
                 maxLength="100"
+                autoComplete="off"
+                autoFocus
                 onKeyUp={searchApartment}
               />
             </div>
 
             {/* Validation errors */}
             {props.touched.apartment && props.errors.apartment ? (
-              <div className="font-gotham absolute text-xs text-red-800 p-1">
+              <div className="font-axiforma absolute text-xs text-red-800 p-1">
                 {props.errors.apartment}
               </div>
             ) : null}
@@ -77,7 +90,7 @@ const ApartmentSearch = () => {
               <div
                 className={
                   numApartmentsFetched > 0
-                    ? "apartment-search-results w-full overflow-auto" +
+                    ? "search-results border-purple-400 w-full overflow-auto" +
                       " " +
                       parentDiv
                     : "invisible"
@@ -98,11 +111,9 @@ const ApartmentSearch = () => {
                           setparentDiv("invisible");
                         }}
                       >
-                        <img
-                          src="/apartment.svg"
-                          className="inline mr-2 align-middle"
-                          height="20px"
-                          width="20px"
+                        <FontAwesomeIcon
+                          icon={faBuilding}
+                          className="inline mr-2 text-lg align-middle"
                         />
                         <p
                           className="text-base align-middle inline"
@@ -112,11 +123,9 @@ const ApartmentSearch = () => {
                           {o.name}
                         </p>
                         <br />
-                        <img
-                          src="/location.svg"
+                        <FontAwesomeIcon
+                          icon={faMapPin}
                           className="inline mr-1 align-middle"
-                          height="16px"
-                          width="16px"
                         />
                         <p className="text-xs mt-1 mb-1 inline align-middle">
                           {o.address1}, {o.city} - {o.pincode}
@@ -153,14 +162,20 @@ const ApartmentSearch = () => {
               </div>
             </div>
             <div>
-              <button
+              <motion.button
                 type="submit"
                 disabled={props.isSubmitting}
-                className="mt-8 p-0 w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide shadow-buttonshadow cursor-pointer transition hover:text-brand-purple hover:bg-purple-300 duration-300 ease-in-out transform hover:translate-y-2"
+                className="mt-8 p-0 w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
+                whileTap={{
+                  backgroundColor: "#D6BCFA",
+                  color: "#550052",
+                  y: "5px",
+                  boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
+                }}
                 aria-label="Browse Advertisements"
               >
                 {!props.isSubmitting ? "Browse Ads" : "Searching..."}
-              </button>
+              </motion.button>
             </div>
           </Form>
         )}

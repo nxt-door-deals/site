@@ -10,6 +10,9 @@ const CommonHeadLayout = () => {
       />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <meta property="og:image" content="/images/site/icon.png" />
+      <meta property="og:image:width" content="256" />
+      <meta property="og:image:height" content="256" />
     </Fragment>
   );
 };

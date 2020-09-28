@@ -1,5 +1,6 @@
 import "../styles/styles.css";
 import SiteState from "../context/site/SiteState";
+import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
 
 const pageVariants = {
@@ -19,9 +20,11 @@ export default function MyApp({ Component, pageProps, router }) {
       initial="pageInitial"
       animate="pageAnimate"
     >
-      <SiteState>
-        <Component {...pageProps} />
-      </SiteState>
+      <AuthState>
+        <SiteState>
+          <Component {...pageProps} />
+        </SiteState>
+      </AuthState>
     </motion.div>
   );
 }

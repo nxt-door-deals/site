@@ -1,11 +1,28 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Cookies from "universal-cookie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+
+const cookie = new Cookies();
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
+  const [cookiePresent, setCookiePresent] = useState(false);
+
+  useEffect(() => {
+    if (cookie.get("nddToken")) {
+      setCookiePresent(true);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", () => handleScroll);
+    };
+  }, []);
 
   const toggleNav = (e) => {
     setExpanded(!expanded);
@@ -20,14 +37,6 @@ const Navbar = () => {
       setStickyNav(false);
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", () => handleScroll);
-    };
-  }, []);
 
   return (
     <Fragment>
@@ -64,18 +73,18 @@ const Navbar = () => {
         {/* Menu icons - humburger or close */}
         <div className="lg:hidden mt-2 mr-4 z-20" onClick={toggleNav}>
           {!expanded ? (
-            <img
-              src="/menu.svg"
-              className={`cursor-pointer fill-current mt-4 ${
+            <FontAwesomeIcon
+              icon={faBars}
+              className={`cursor-pointer fill-current text-lg mt-4 ${
                 stickyNav ? "text-purple-900" : "text-white"
               }`}
-              alt="Menu"
+              alt="Open Menu"
             />
           ) : (
-            <img
-              src="/close.svg"
-              className="cursor-pointer fill-current mt-4 text-purple-900"
-              alt="Close menu"
+            <FontAwesomeIcon
+              icon={faTimes}
+              className="cursor-pointer fill-current mt-4 text-purple-900 text-lg"
+              alt="Close Menu"
             />
           )}
         </div>
@@ -100,15 +109,30 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item lg:mr-10 xl:mr-12 hover:scale-110">
-              <Link href="/login">
-                <a>Login</a>
-              </Link>
+              {!cookiePresent ? (
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
+              ) : (
+                <Link href="/logout">
+                  <a>Logout</a>
+                </Link>
+              )}
             </li>
             <li className="nav-item lg:mr-10 xl:mr-12 hover:scale-110">
               <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
-                <Link href="/register">
-                  <a>Sign Up</a>
-                </Link>
+                {!cookiePresent ? (
+                  <Link href="/registeruser">
+                    <a>Sign Up</a>
+                  </Link>
+                ) : (
+                  <Link href="/register">
+                    <a>
+                      <span className="text-brand-purple">My</span>{" "}
+                      Neighbourhood
+                    </a>
+                  </Link>
+                )}
               </span>
             </li>
           </ul>
@@ -149,18 +173,26 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="overlay-items md:text-2xl hover:scale-125 hover:text-brand-purple">
-              <Link href="/login">
-                <span>
+              {!cookiePresent ? (
+                <Link href="/login">
                   <a>Login</a>
-                </span>
-              </Link>
+                </Link>
+              ) : (
+                <Link href="/logout">
+                  <a>Logout</a>
+                </Link>
+              )}
             </li>
             <li className="overlay-items md:text-2xl hover:scale-125 hover:text-brand-purple">
-              <Link href="/register">
-                <span>
+              {!cookiePresent ? (
+                <Link href="/registeruser">
                   <a>Sign Up</a>
-                </span>
-              </Link>
+                </Link>
+              ) : (
+                <Link href="/register">
+                  <a>My Neighbourhood</a>
+                </Link>
+              )}
             </li>
           </ul>
         </div>
