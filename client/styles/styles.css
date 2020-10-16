@@ -32,7 +32,7 @@
 
 /* Apartment search custom styles */
 .search-results {
-  @apply font-gotham absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-lg  text-brand-gray;
+  @apply font-axiforma absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-lg  text-brand-gray;
 }
 
 /* Input style */
@@ -43,4 +43,9 @@
 /* 404 page buttons */
 .btn-style {
   @apply w-40 h-12 text-sm text-white font-axiforma font-semibold rounded-md uppercase tracking-wide;
+}
+
+/* The OTP text box styles */
+.otp-text {
+  @apply align-middle p-1 leading-8 outline-none text-lg text-center w-10 border-2 rounded-md uppercase ml-2;
 }

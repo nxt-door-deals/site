@@ -5,6 +5,7 @@ import axios from "axios";
 
 import {
   FETCH_APARTMENT,
+  FETCH_APARTMENT_ERROR,
   LOADING,
   CLEAR_APARTMENT_SEARCH_RESULTS,
 } from "../Types";
@@ -12,6 +13,7 @@ import {
 const SiteState = (props) => {
   const initialState = {
     numApartmentsFetched: "",
+    fetchError: null,
     loading: false,
     apartmentData: "",
   };
@@ -19,12 +21,18 @@ const SiteState = (props) => {
   const [state, dispatch] = useReducer(siteReducer, initialState);
 
   const fetchApartments = async (aptName) => {
-    const res = await axios.get(
-      `http://localhost:8000/api/v1/apartments/search/?name=${aptName}`
-    );
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_PROXY}/apartments/search/?name=${aptName}`
+      );
 
-    var aptData = res.data;
-    dispatch({ type: FETCH_APARTMENT, payload: aptData });
+      dispatch({ type: FETCH_APARTMENT, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: FETCH_APARTMENT_ERROR,
+        payload: err.response.data.detail,
+      });
+    }
   };
 
   const clearApartmentSearchResults = () => {
@@ -41,6 +49,7 @@ const SiteState = (props) => {
         numApartmentsFetched: state.numApartmentsFetched,
         loading: state.loading,
         apartmentData: state.apartmentData,
+        fetchError: state.fetchError,
         fetchApartments,
         clearApartmentSearchResults,
         setLoading,

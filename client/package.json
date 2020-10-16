@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -21,7 +22,10 @@
     "framer-motion": "^2.6.10",
     "next": "^9.5.2",
     "react": "^16.13.1",
+    "react-countdown": "^2.2.2",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
+    "reactjs-popup": "^2.0.4",
     "universal-cookie": "^4.0.3",
     "yup": "^0.29.3"
   },

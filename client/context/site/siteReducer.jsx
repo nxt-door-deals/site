@@ -1,5 +1,6 @@
 import {
   FETCH_APARTMENT,
+  FETCH_APARTMENT_ERROR,
   LOADING,
   CLEAR_APARTMENT_SEARCH_RESULTS,
 } from "../Types";
@@ -12,6 +13,11 @@ const siteReducer = (state, action) => {
         apartmentData: action.payload,
         numApartmentsFetched: action.payload.length,
         loading: false,
+      };
+    case FETCH_APARTMENT_ERROR:
+      return {
+        ...state,
+        fetchError: action.payload,
       };
     case CLEAR_APARTMENT_SEARCH_RESULTS:
       return {

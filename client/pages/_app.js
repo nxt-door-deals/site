@@ -2,6 +2,7 @@ import "../styles/styles.css";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
+import Cookies from "universal-cookie";
 
 const pageVariants = {
   pageInitial: {

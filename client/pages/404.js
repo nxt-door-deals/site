@@ -11,7 +11,7 @@ const cookie = new Cookies();
 
 const Custom404 = () => {
   const authContext = useContext(AuthContext);
-  const { loadUser, user } = authContext;
+  const { loadUser, user, logout } = authContext;
 
   useEffect(() => {
     loadUser();
@@ -20,7 +20,7 @@ const Custom404 = () => {
   return (
     <Fragment>
       <BrandHeader />
-      <div className="flex justify-center items-center mt-24 -z-20">
+      <div className="flex justify-center items-center pt-16 -z-20">
         <img
           src="/images/error/404.svg"
           alt="404 not found"
@@ -44,7 +44,7 @@ const Custom404 = () => {
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}
               transition={{ delay: 0.2, duration: 1 }}
-              className="btn-style bg-gradient-to-r from-purple-500 to-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 Router.push("/");
               }}
@@ -55,7 +55,7 @@ const Custom404 = () => {
               initial={{ y: "100vh" }}
               animate={{ y: 0 }}
               transition={{ delay: 0.4, duration: 1 }}
-              className="btn-style bg-gradient-to-r from-pink-600 to-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 user !== null && Router.push(`/ads/${user.apartment_name}`);
               }}
@@ -66,9 +66,10 @@ const Custom404 = () => {
               initial={{ x: "100vw" }}
               animate={{ x: 0 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="btn-style bg-gradient-to-r from-gray-600 to-gray-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                Router.push("/logout");
+                logout();
+                Router.push("/login")
               }}
             >
               Logout
@@ -80,7 +81,7 @@ const Custom404 = () => {
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="btn-style bg-gradient-to-r from-purple-500 to-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 Router.push("/");
               }}
@@ -91,7 +92,7 @@ const Custom404 = () => {
               initial={{ y: "100vh" }}
               animate={{ y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="btn-style bg-gradient-to-r from-pink-600 to-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 Router.push("/registeruser");
               }}
@@ -102,7 +103,7 @@ const Custom404 = () => {
               initial={{ x: "100vw" }}
               animate={{ x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="btn-style bg-gradient-to-r from-gray-600 to-gray-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 Router.push("/login");
               }}

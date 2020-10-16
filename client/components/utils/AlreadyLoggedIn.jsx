@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const AlreadyLoggedIn = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, user } = authContext;
+  const { loadUser, user, logout } = authContext;
 
   useEffect(() => {
     loadUser();
@@ -16,9 +16,6 @@ const AlreadyLoggedIn = () => {
     Router.push("/");
   };
 
-  const logoutClick = () => {
-    Router.push("/logout");
-  };
 
   return (
     <Fragment>
@@ -26,10 +23,9 @@ const AlreadyLoggedIn = () => {
         <h1>
           Hello,{" "}
           <span className="text-brand-purple font-semibold">
-            {user !== null ? user.first_name : "friend"}
+            {user !== null ? user.name : "friend"}
           </span>
-          ! Unfortunately, there is nothing here. However, we're oh so glad that you are
-          exploring our site :)
+          ! You are seeing this page because you are already logged in. Please logout if you want to register or login as another user.
         </h1>
       </div>
 
@@ -54,7 +50,10 @@ const AlreadyLoggedIn = () => {
             color: "#550052",
             y: "5px",
           }}
-          onClick={logoutClick}
+          onClick={() => {
+            logout();
+            Router.push("/login")
+          }}
           aria-label="Logout button"
         >
           Logout

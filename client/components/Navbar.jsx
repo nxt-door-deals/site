@@ -1,5 +1,7 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import Router from "next/router";
+import AuthContext from "../context/auth/authContext";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +13,9 @@ const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
   const [cookiePresent, setCookiePresent] = useState(false);
+
+  const authContext = useContext(AuthContext);
+  const { logout } = authContext;
 
   useEffect(() => {
     if (cookie.get("nddToken")) {
@@ -99,7 +104,7 @@ const Navbar = () => {
         >
           <ul className="flex">
             <li className="nav-item lg:mr-12 hover:scale-110">
-              <Link href="/process">
+              <Link href="#how-it-works">
                 <a>How It Works</a>
               </Link>
             </li>
@@ -114,15 +119,21 @@ const Navbar = () => {
                   <a>Login</a>
                 </Link>
               ) : (
-                <Link href="/logout">
-                  <a>Logout</a>
-                </Link>
+                <div
+                  className="cursor-pointer"
+                  onClick={() => {
+                    logout();
+                    Router.push("/login");
+                  }}
+                >
+                  Logout
+                </div>
               )}
             </li>
             <li className="nav-item lg:mr-10 xl:mr-12 hover:scale-110">
               <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
                 {!cookiePresent ? (
-                  <Link href="/registeruser">
+                  <Link href="/registeruser" as="register">
                     <a>Sign Up</a>
                   </Link>
                 ) : (
@@ -178,9 +189,15 @@ const Navbar = () => {
                   <a>Login</a>
                 </Link>
               ) : (
-                <Link href="/logout">
-                  <a>Logout</a>
-                </Link>
+                <div
+                  className="cursor-pointer"
+                  onClick={() => {
+                    logout();
+                    Router.push("/login");
+                  }}
+                >
+                  Logout
+                </div>
               )}
             </li>
             <li className="overlay-items md:text-2xl hover:scale-125 hover:text-brand-purple">

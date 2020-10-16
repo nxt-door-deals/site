@@ -25,6 +25,8 @@ const loginValidationSchema = Yup.object({
   password: Yup.string().required("Please enter your password").trim(),
 });
 
+const alertTheme = "bg-purple-200 text-brand-purple";
+
 const UserLogin = () => {
   const [displayPassword, setDisplayPassword] = useState(false);
   const authContext = useContext(AuthContext);
@@ -33,9 +35,9 @@ const UserLogin = () => {
   useEffect(() => {
     if (isAuthenticated) {
       loadUser();
-
-      user !== null && Router.push(`/ads/${user.apartment_name}`);
     }
+
+    if (user !== null) Router.push(`/ads/${user.apartment_name}`);
   }, [isAuthenticated, user]);
 
   const setPasswordDisplay = () => {
@@ -58,7 +60,7 @@ const UserLogin = () => {
             <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
               Welcome Back!
             </h2>
-            <Alert authError={authError} />
+            <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div
                 className={`"flex items-center justify-center relative border-2 rounded-md " ${
@@ -160,7 +162,7 @@ const UserLogin = () => {
             <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">
               Don't have an account?{" "}
               <motion.button
-                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-gray p-3 shadow-sm z-30 font-semibold"
+                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-gray p-3 shadow-sm z-30 font-semibold focus:outline-none"
                 whileHover={{
                   backgroundColor: "#550052",
                   color: "#FFFFFF",

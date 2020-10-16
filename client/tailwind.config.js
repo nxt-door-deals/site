@@ -5,12 +5,14 @@ module.exports = {
       fontFamily: {
         axiforma: ["Axiforma"],
         gotham: ["Gothan Pro"],
+        fontAwesome: ["FontAwesome"],
       },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
         boxshadowlogin: "0px -5px 8px 2px rgba(207, 139, 207, 0.2)",
         navshadow: "0px 1px 5px rgba(255, 0, 255, 0.3)",
         boxshadowregister: "0px -5px 8px 2px rgba(151, 201, 251, 0.2)",
+        boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
       },
       zIndex: {
         "-10": "-10",
@@ -29,6 +31,8 @@ module.exports = {
       colors: {
         "brand-purple": "#550052",
         "brand-gray": "#292d34",
+        "footer-gradient-from": "#834d9b",
+        "footer-gradient-to": "#d04ed6",
       },
       screens: {
         tablet: "1366",
@@ -45,10 +49,19 @@ module.exports = {
         100: "25rem",
         128: "32rem",
       },
+      height: {
+        80: "20rem",
+        100: "25rem",
+        128: "32rem",
+      },
       backgroundImage: (theme) => ({
         "login-background": "url(/images/login/background.svg)",
         "user-registration-background":
           "url(/images/user_registration/user-registration.svg)",
+        "email-verification-background":
+          "url(/images/email/email-verification.svg)",
+        "forgot-password-background":
+          "url(/images/forgotpassword/fp-background.svg)",
       }),
     },
   },

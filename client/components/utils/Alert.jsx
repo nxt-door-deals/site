@@ -15,20 +15,14 @@ const Alert = (props) => {
     >
       <p
         className={
-          props.authError
-            ? "border-2 text-center align-middle p-2 mb-2 bg-purple-200 text-brand-purple font-axiforma font-semibold rounded-md tracking-wide text-sm leading-7"
+          props.authError || props.genericMessage
+            ? props.alertTheme +
+              " border-2 text-center align-middle p-2 mb-2 font-axiforma font-semibold rounded-md text-sm"
             : "hidden"
         }
       >
-        {/* <img
-          src="/images/alert/info.svg"
-          alt="Alert Information Icon"
-          height="20px"
-          width="20px"
-          className="inline align-middle mr-2 opacity-50"
-        /> */}
         <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
-        {props.authError}{" "}
+        {props.authError ? props.authError : props.genericMessage}{" "}
       </p>
     </motion.div>
   );

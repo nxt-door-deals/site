@@ -15,6 +15,9 @@ class MyDocument extends Document {
           <NextScript />
           <style jsx global>{`
             /* Other global styles such as 'html, body' etc... */
+            body {
+              fontfamily: "axiforma";
+            }
 
             #__next {
               height: 200%;

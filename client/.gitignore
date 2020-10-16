@@ -76,6 +76,7 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -111,5 +112,8 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 .vscode
+
+# Next.js related
+.next
 
 # End of https://www.toptal.com/developers/gitignore/api/node

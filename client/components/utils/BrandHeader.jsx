@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const BrandHeader = () => {
   return (
     <div>
-      <div className="w-full z-50">
+      <div className="w-full z-50 absolute">
         <motion.div
           className="absolute top-0 left-0 ml-2 lg:ml-4 lg:pl-4"
           initial={{ y: "-100vh" }}
@@ -21,7 +21,7 @@ const BrandHeader = () => {
               <img
                 src="/brand.svg"
                 alt="Logo for the NXT Door Deals brand"
-                className="w-24 h-24 xl:w-28 xl:h-28 z-40"
+                className="w-24 h-24 xl:w-28 xl:h-28 z-50"
               />
             </a>
           </Link>
