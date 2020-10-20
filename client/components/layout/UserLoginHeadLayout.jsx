@@ -24,7 +24,6 @@ const UserLoginHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/login" />
         <meta property="og:site_name" content="NXT Door Deals" />
-        <meta property="og:image" content="/favicon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
