@@ -36,7 +36,7 @@ const cookie = new Cookies();
 var currentYear = new Date().getFullYear();
 
 // Email sender
-const fromEmail = process.env.NEXT_PUBLIC_FROM_EMAIL;
+const fromEmail = process.env.FROM_EMAIL;
 
 const AuthState = (props) => {
   const initialState = {
@@ -74,7 +74,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/register/user`,
+        `${process.env.API_PROXY}/register/user`,
         jsonPayload,
         {
           headers: {
@@ -97,7 +97,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/auth/current_user`
+        `${process.env.API_PROXY}/auth/current_user`
       );
 
       dispatch({ type: USER_LOADED, payload: res.data });
@@ -115,7 +115,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/auth`,
+        `${process.env.API_PROXY}/auth`,
         formData,
         {
           headers: {
@@ -145,7 +145,7 @@ const AuthState = (props) => {
 
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/email/send`,
+        `${process.env.API_PROXY}/email/send`,
         jsonPayload,
         {
           headers: {
@@ -165,7 +165,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/email_timestamp/refresh`,
+        `${process.env.API_PROXY}/email_timestamp/refresh`,
         jsonPayload,
         {
           headers: {
@@ -196,7 +196,7 @@ const AuthState = (props) => {
 
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/email/send/otp`,
+        `${process.env.API_PROXY}/email/send/otp`,
         jsonPayload,
         {
           headers: {
@@ -224,7 +224,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/email/send/contact`,
+        `${process.env.API_PROXY}/email/send/contact`,
         jsonPayload,
         {
           headers: {
@@ -246,7 +246,7 @@ const AuthState = (props) => {
     const utcTime = new Date().toJSON();
     try {
       const res = await axios.put(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/user/emailverification/${token}`,
+        `${process.env.API_PROXY}/user/emailverification/${token}`,
         {
           timestamp: utcTime,
         },
@@ -270,7 +270,7 @@ const AuthState = (props) => {
   const validateEmail = async (email) => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/user/validate_email/${email}`
+        `${process.env.API_PROXY}/user/validate_email/${email}`
       );
 
       dispatch({ type: EMAIL_FOUND, payload: res.data });
@@ -289,7 +289,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/user/otp_generation`,
+        `${process.env.API_PROXY}/user/otp_generation`,
         jsonPayload,
         {
           headers: {
@@ -311,7 +311,7 @@ const AuthState = (props) => {
     const utcTime = new Date().toJSON();
     try {
       await axios.get(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
+        `${process.env.API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
       );
 
       dispatch({ type: OTP_VALIDATED_SUCCESS });
@@ -332,7 +332,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/user/password/${userId}`,
+        `${process.env.API_PROXY}/user/password/${userId}`,
         jsonPayload,
         {
           headers: {

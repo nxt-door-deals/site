@@ -46,7 +46,7 @@ const OtpForm = (props) => {
               width="200px"
             />
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 pl-4 pr-4">
             <p className="text-gray-600">
               We have sent a one-time password (OTP) to your email id,{" "}
               <span className="font-bold text-purple-600">

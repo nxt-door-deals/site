@@ -73,7 +73,6 @@ const ApartmentSearch = () => {
                 className="textbox-input lg:w-9/12 xl:w-11/12 placeholder-purple-900 placeholder-opacity-50"
                 maxLength="100"
                 autoComplete="off"
-                autoFocus
                 onKeyUp={searchApartment}
               />
             </div>

@@ -6,8 +6,7 @@ if [ $TRAVIS_BRANCH == 'main' ] ; then
   ssh-add ~/.ssh/id_rsa
 
   cd client
-  rsync -a .next package.json package-lock.json travis@68.183.94.49:/home/nxtdoordeals/site
-  rsync -a public travis@68.183.94.49:/home/nxtdoordeals/site/.next
+  rsync -a .next package.json package-lock.json public travis@68.183.94.49:/home/nxtdoordeals/site
   echo "Deployed successfully!"
 else
   echo "Not deploying, since the branch isn't main."

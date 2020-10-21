@@ -63,7 +63,7 @@ const ChangePassword = (props) => {
               width="200px"
             />
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 pl-2 pr-2">
             <p className="text-gray-600">
               Time to think of a new super secret password.
             </p>
@@ -73,7 +73,7 @@ const ChangePassword = (props) => {
               Enter your new password
             </h2>
           </div>
-          <div className="mt-3 w-full">
+          <div className="mt-3 w-full pl-2 pr-2">
             <Formik
               initialValues={{
                 password: "",
