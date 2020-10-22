@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import siteReducer from "./siteReducer";
 import SiteContext from "./siteContext";
 import axios from "axios";
+import {API_PROXY} from "../../utils/keys"
 
 import {
   FETCH_APARTMENT,
@@ -23,7 +24,7 @@ const SiteState = (props) => {
   const fetchApartments = async (aptName) => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_PROXY}/apartments/search/?name=${aptName}`
+        `${API_PROXY}/apartments/search/?name=${aptName}`
       );
 
       dispatch({ type: FETCH_APARTMENT, payload: res.data });

@@ -4,6 +4,7 @@ import AuthContext from "./authContext";
 import setAuthToken from "../../utils/setToken";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import {API_PROXY, SENDGRID_API_KEY, FROM_EMAIL} from "../../utils/keys"
 
 import {
   REGISTER_SUCCESS,
@@ -36,7 +37,7 @@ const cookie = new Cookies();
 var currentYear = new Date().getFullYear();
 
 // Email sender
-const fromEmail = process.env.FROM_EMAIL;
+const fromEmail = FROM_EMAIL;
 
 const AuthState = (props) => {
   const initialState = {
@@ -74,7 +75,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.API_PROXY}/register/user`,
+        `${API_PROXY}/register/user`,
         jsonPayload,
         {
           headers: {
@@ -97,7 +98,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.get(
-        `${process.env.API_PROXY}/auth/current_user`
+        `${API_PROXY}/auth/current_user`
       );
 
       dispatch({ type: USER_LOADED, payload: res.data });
@@ -115,7 +116,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.API_PROXY}/auth`,
+        `${API_PROXY}/auth`,
         formData,
         {
           headers: {
@@ -132,7 +133,7 @@ const AuthState = (props) => {
 
   // Send email - user registration, welcome etc...
   const sendEmail = async (name, email, verificationUrl) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(SENDGRID_API_KEY);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -145,7 +146,7 @@ const AuthState = (props) => {
 
     try {
       await axios.post(
-        `${process.env.API_PROXY}/email/send`,
+        `${API_PROXY}/email/send`,
         jsonPayload,
         {
           headers: {
@@ -165,7 +166,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.API_PROXY}/email_timestamp/refresh`,
+        `${API_PROXY}/email_timestamp/refresh`,
         jsonPayload,
         {
           headers: {
@@ -185,7 +186,7 @@ const AuthState = (props) => {
 
   // Email the otp to the user during password change
   const sendOtpByEmail = async (email) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(SENDGRID_API_KEY);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -196,7 +197,7 @@ const AuthState = (props) => {
 
     try {
       await axios.post(
-        `${process.env.API_PROXY}/email/send/otp`,
+        `${API_PROXY}/email/send/otp`,
         jsonPayload,
         {
           headers: {
@@ -212,7 +213,7 @@ const AuthState = (props) => {
 
   // Send the contact us email
   const sendContactUsEmail = async (email, message) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(SENDGRID_API_KEY);
 
     var emailBody = `${email} wrote: \n\n${message}`;
 
@@ -224,7 +225,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(
-        `${process.env.API_PROXY}/email/send/contact`,
+        `${API_PROXY}/email/send/contact`,
         jsonPayload,
         {
           headers: {
@@ -246,7 +247,7 @@ const AuthState = (props) => {
     const utcTime = new Date().toJSON();
     try {
       const res = await axios.put(
-        `${process.env.API_PROXY}/user/emailverification/${token}`,
+        `${API_PROXY}/user/emailverification/${token}`,
         {
           timestamp: utcTime,
         },
@@ -270,7 +271,7 @@ const AuthState = (props) => {
   const validateEmail = async (email) => {
     try {
       const res = await axios.get(
-        `${process.env.API_PROXY}/user/validate_email/${email}`
+        `${API_PROXY}/user/validate_email/${email}`
       );
 
       dispatch({ type: EMAIL_FOUND, payload: res.data });
@@ -289,7 +290,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.API_PROXY}/user/otp_generation`,
+        `${API_PROXY}/user/otp_generation`,
         jsonPayload,
         {
           headers: {
@@ -311,7 +312,7 @@ const AuthState = (props) => {
     const utcTime = new Date().toJSON();
     try {
       await axios.get(
-        `${process.env.API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
+        `${API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
       );
 
       dispatch({ type: OTP_VALIDATED_SUCCESS });
@@ -332,7 +333,7 @@ const AuthState = (props) => {
 
     try {
       await axios.put(
-        `${process.env.API_PROXY}/user/password/${userId}`,
+        `${API_PROXY}/user/password/${userId}`,
         jsonPayload,
         {
           headers: {

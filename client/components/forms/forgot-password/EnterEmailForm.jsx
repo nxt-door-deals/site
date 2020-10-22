@@ -100,7 +100,6 @@ const EnterEmailForm = (props) => {
                       placeholder="Email"
                       maxLength="50"
                       autoComplete="off"
-                      autoFocus
                       className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
                     />
                   </div>

@@ -107,7 +107,6 @@ const ChangePassword = (props) => {
                       placeholder="Password*"
                       maxLength="50"
                       autoComplete="off"
-                      autoFocus=""
                       className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
@@ -148,7 +147,6 @@ const ChangePassword = (props) => {
                       placeholder="Confirm Password*"
                       maxLength="50"
                       autoComplete="off"
-                      autoFocus=""
                       className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
