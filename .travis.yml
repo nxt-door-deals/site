@@ -3,6 +3,11 @@ node_js:
   - "12.16"
 addons:
   ssh_known_hosts: 68.183.94.49
+cache:
+  directories:
+    - $HOME/.cache/npm
+    - node_modules
+    - .next/cache
 before_install:
   - openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv
     -in travis_rsa.enc -out travis_rsa -d

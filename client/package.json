@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd next -p 3001",
-    "build": "next build",
+    "build": "env-cmd next build",
     "start": "env-cmd next start -p 3001"
   },
   "keywords": [],
