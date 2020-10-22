@@ -63,7 +63,7 @@ const UserLogin = () => {
             <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div
-                className={`"flex items-center justify-center relative border-2 rounded-md " ${
+                className={`"flex iteams-center justify-center relative border-2 rounded-md " ${
                   props.touched.email && props.errors.email
                     ? "mb-1 border-red-800"
                     : "mb-8 border-gray-300"

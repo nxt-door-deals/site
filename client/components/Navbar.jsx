@@ -133,7 +133,7 @@ const Navbar = () => {
             <li className="nav-item lg:mr-10 xl:mr-12 hover:scale-110">
               <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
                 {!cookiePresent ? (
-                  <Link href="/registeruser" as="register">
+                  <Link href="/registeruser">
                     <a>Sign Up</a>
                   </Link>
                 ) : (

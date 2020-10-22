@@ -1,1 +1,0 @@
-{"ast":null,"code":"import axios from \"axios\";\n\nvar setAuthToken = function setAuthToken(token) {\n  if (token) {\n    axios.defaults.headers.common.Authorization = \"Bearer \" + token;\n  } else {\n    delete axios.defaults.headers.common.Authorization;\n  }\n};\n\nexport default setAuthToken;","map":null,"metadata":{},"sourceType":"module"}
