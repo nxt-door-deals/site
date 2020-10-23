@@ -1,5 +1,14 @@
-module.exports = {
-    API_PROXY: process.env.NEXT_PUBLIC_API_PROXY,
-    FROM_EMAIL: process.env.NEXT_PUBLIC_FROM_EMAIL,
-    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY
-};
+const env = process.env.ENV || "development";
+
+const keys = {
+    development: {
+        API_PROXY: "http://localhost:8000/api/v1",
+        FROM_EMAIL: "contact@nxtdoordeals.com"
+    },
+    production: {
+        API_PROXY: "https://api.nxtdoordeals.com/api/v1",
+        FROM_EMAIL: "contact@nxtdoordeals.com"
+    }
+}[env];
+
+export default keys;
