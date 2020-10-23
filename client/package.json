@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development ENV=development next -r dotenv/config -p 3001",
-    "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production ENV=production next start -p 3001"
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next start -p 3001"
   },
   "keywords": [],
   "author": "",

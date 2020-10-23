@@ -19,7 +19,7 @@ install:
 script:
   - "true"
 after_success:
-  - NODE_ENV=production ENV=production npm run build
+  - cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production npm run build
   - cd ..
   - bash ./deploy.sh
 notifications:
