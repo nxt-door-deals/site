@@ -1,6 +1,4 @@
-const env = process.env.ENV || "development";
-
-console.log(env)
+const env = process.env.NEXT_PUBLIC_ENV || "development";
 
 const keys = {
     development: {
