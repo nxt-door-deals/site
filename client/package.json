@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development ENV=development next -r dotenv/config -p 3001",
+    "dev": "NODE_ENV=development ENV=development next -p 3001",
     "build": "next build",
     "start": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next start -p 3001"
   },

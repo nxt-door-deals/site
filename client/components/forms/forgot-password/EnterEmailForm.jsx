@@ -51,13 +51,13 @@ const EnterEmailForm = (props) => {
         >
           <div className="flex justify-center">
             <img
-              src="/images/forgotpassword/forgot-password.svg"
+              src="/images/forgotpassword/forgot-password.png"
               alt="Forgot Password"
               height="200px"
               width="200px"
             />
           </div>
-          <div className="mt-4 pl-4 pr-4">
+          <div className="text-center mt-4 pl-4 pr-4">
             <p className=" text-gray-600">
               Forgot your password? No worries! Let's quickly reset it.
             </p>
