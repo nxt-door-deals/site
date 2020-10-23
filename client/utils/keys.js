@@ -1,5 +1,7 @@
 const env = process.env.ENV || "development";
 
+console.log(env)
+
 const keys = {
     development: {
         API_PROXY: "http://localhost:8000/api/v1",
