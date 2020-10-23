@@ -19,7 +19,7 @@ install:
 script:
   - "true"
 after_success:
-  - npm run build
+  - NODE_ENV=production ENV=production npm run build
   - cd ..
   - bash ./deploy.sh
 notifications:
