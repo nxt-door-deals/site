@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development ENV=development next -r dotenv/config -p 3001",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production ENV=production next start -p 3001"
   },
   "keywords": [],
