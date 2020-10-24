@@ -62,6 +62,8 @@ module.exports = {
           "url(/images/email/email-verification.svg)",
         "forgot-password-background":
           "url(/images/forgotpassword/fp-background.svg)",
+        "howitworks-background":
+          "url(/images/howitworks/howitworks-bg.svg)"
       }),
     },
   },

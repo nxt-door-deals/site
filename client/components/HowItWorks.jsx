@@ -19,8 +19,8 @@ const HowItWorks = () => {
 
   return (
     <AnimatePresence>
-      <div className="bg-purple-100 pb-3 font-axiforma">
-        <div className="flex justify-center mt-16 pt-16">
+      <div className="bg-howitworks-background bg-cover bg-no-repeat pb-3 font-axiforma">
+        <div className="flex justify-center mt-16 pt-32">
           <button
             className={
               "font-bold py-2 px-4 rounded-l uppercase focus:outline-none " +
