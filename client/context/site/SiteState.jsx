@@ -9,6 +9,7 @@ import {
   FETCH_APARTMENT_ERROR,
   LOADING,
   CLEAR_APARTMENT_SEARCH_RESULTS,
+  CLEAR_ERROR
 } from "../Types";
 
 const SiteState = (props) => {
@@ -40,6 +41,11 @@ const SiteState = (props) => {
     dispatch({ type: CLEAR_APARTMENT_SEARCH_RESULTS });
   };
 
+  const validateApartmentSelection = async (message) => {
+    dispatch({type: FETCH_APARTMENT_ERROR, payload: message})
+    setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+  }
+
   const setLoading = () => {
     dispatch({ type: LOADING });
   };
@@ -53,6 +59,7 @@ const SiteState = (props) => {
         fetchError: state.fetchError,
         fetchApartments,
         clearApartmentSearchResults,
+        validateApartmentSelection,
         setLoading,
       }}
     >

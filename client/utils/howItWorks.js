@@ -16,13 +16,13 @@ const buy = [
     image: "/images/buy/buy-3.svg",
     alt: "Chat with the seller",
     heading: "Chat with the seller",
-    content: "Contact the seller and finalize the deal.",
+    content: "Contact the seller, finalize the deal and make a new friend.",
   },
   {
     image: "/images/buy/buy-4.svg",
     alt: "Complete the purchase",
     heading: "Complete the purchase",
-    content: "Meet the seller and complete your purchase.",
+    content: "Meet your new friend within the apartment premises and complete your purchase.",
   },
 ];
 
@@ -45,13 +45,13 @@ const sell = [
     image: "/images/sell/sell-3.svg",
     alt: "Chat with the buyer",
     heading: "Chat with the buyer",
-    content: "Chat with the buyer and finalize the deal.",
+    content: "Chat with the buyer, finalize the deal and make a new friend",
   },
   {
     image: "/images/sell/sell-4.svg",
     alt: "Finish the sale",
     heading: "Finish the sale",
-    content: "Meet the buyer and complete the sale/giveaway.",
+    content: "Meet your new friend within the apartment premises and complete the sale or giveaway.",
   },
 ];
 

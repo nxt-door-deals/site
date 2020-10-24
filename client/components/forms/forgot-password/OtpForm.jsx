@@ -104,6 +104,7 @@ const OtpForm = (props) => {
                           ? "border-red-800 otp-text"
                           : "border-gray-300 otp-text"
                       }
+                      onKeyUp={() => otp2.focus()}
                     />
                     <Field
                       id="otp2"
@@ -116,6 +117,7 @@ const OtpForm = (props) => {
                           ? "border-red-800 otp-text"
                           : "border-gray-300 otp-text"
                       }
+                      onKeyUp={() => otp3.focus()}
                     />
                     <Field
                       id="otp3"
@@ -128,6 +130,7 @@ const OtpForm = (props) => {
                           ? "border-red-800 otp-text"
                           : "border-gray-300 otp-text"
                       }
+                      onKeyUp={() => otp4.focus()}
                     />
                     <Field
                       id="otp4"
@@ -140,6 +143,7 @@ const OtpForm = (props) => {
                           ? "border-red-800 otp-text"
                           : "border-gray-300 otp-text"
                       }
+                      onKeyUp={() => otp5.focus()}
                     />
                     <Field
                       id="otp5"
@@ -152,6 +156,7 @@ const OtpForm = (props) => {
                           ? "border-red-800 otp-text"
                           : "border-gray-300 otp-text"
                       }
+                      onKeyUp={() => otp6.focus()}
                     />
                     <Field
                       id="otp6"

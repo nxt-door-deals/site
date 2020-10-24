@@ -4,8 +4,6 @@ import Router from "next/router";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
 
-// Component imports
-import BrandHeader from "../components/utils/BrandHeader";
 
 const cookie = new Cookies();
 
@@ -19,8 +17,7 @@ const Custom404 = () => {
 
   return (
     <Fragment>
-      <BrandHeader />
-      <div className="flex justify-center items-center pt-16 -z-20">
+      <div className="flex justify-center items-center w-full pt-12 -z-20">
         <img
           src="/images/error/404.svg"
           alt="404 not found"

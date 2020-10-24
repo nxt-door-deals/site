@@ -355,6 +355,7 @@ const AuthState = (props) => {
     dispatch({ type: LOGOUT });
   };
 
+
   return (
     <AuthContext.Provider
       value={{

@@ -15,14 +15,14 @@ const Alert = (props) => {
     >
       <p
         className={
-          props.authError || props.genericMessage
+          props.authError || props.genericMessage || props.fetchError
             ? props.alertTheme +
               " border-2 text-center align-middle p-2 mb-2 font-axiforma font-semibold rounded-md text-sm"
             : "hidden"
         }
       >
         <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
-        {props.authError ? props.authError : props.genericMessage}{" "}
+        {props.authError ? props.authError : (props.genericMessage ? props.genericMessage : props.fetchError)}{" "}
       </p>
     </motion.div>
   );

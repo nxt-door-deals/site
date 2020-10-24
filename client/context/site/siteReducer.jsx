@@ -3,6 +3,7 @@ import {
   FETCH_APARTMENT_ERROR,
   LOADING,
   CLEAR_APARTMENT_SEARCH_RESULTS,
+  CLEAR_ERROR,
 } from "../Types";
 
 const siteReducer = (state, action) => {
@@ -30,6 +31,11 @@ const siteReducer = (state, action) => {
         ...state,
         loading: true,
       };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        fetchError: null
+      }
     default:
       return state;
   }

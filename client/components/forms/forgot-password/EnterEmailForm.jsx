@@ -30,11 +30,15 @@ const EnterEmailForm = (props) => {
     authError,
     generateOtp,
     sendOtpByEmail,
+    otpGenerated
   } = authContext;
 
   useEffect(() => {
     if (user) {
       generateOtp(user.id, user.email);
+    }
+
+    if (otpGenerated) {
       sendOtpByEmail(user.email);
       setShowForm(false);
     }

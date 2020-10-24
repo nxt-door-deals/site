@@ -21,7 +21,7 @@ const VerifyEmail = ({ user }) => {
     user.email_verification_hash !== null && user.email_verification_hash;
 
   const fullVerificationString = email_hash + "|" + id;
-  const verificationUrl = `http://localhost:3000/verifyemail/${fullVerificationString}`;
+  const verificationUrl = `http://68.183.94.49/verifyemail/${fullVerificationString}`;
 
   useEffect(() => {
     sendEmail(name, email, verificationUrl);

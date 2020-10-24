@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +13,7 @@ import {
   faEnvelope,
   faLock,
   faPhoneAlt,
+  faSearch,
   faBuilding,
   faExclamationTriangle,
   faMapPin,
@@ -35,7 +37,7 @@ const userRegistrationValidationSchema = Yup.object({
     .min(8, "Your password should have at least 8 characters")
     .trim(),
   mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
-  apartment: Yup.string().required("Please select your apartment/property"),
+  apartment: Yup.string().required("Please select your apartment/property")
 });
 
 const alertTheme = "bg-blue-200 text-blue-800";
@@ -45,9 +47,10 @@ const UserRegistration = () => {
   const [displayPassword, setDisplayPassword] = useState(false);
   const [parentDiv, setparentDiv] = useState("visible");
   const [showForm, setShowForm] = useState(true);
+  const [enableFormSubmission, setEnableFormSubmission] = useState(false)
 
   const siteContext = useContext(SiteContext);
-  const { fetchApartments, numApartmentsFetched, apartmentData } = siteContext;
+  const { fetchApartments, numApartmentsFetched, apartmentData, validateApartmentSelection, fetchError } = siteContext;
 
   const authContext = useContext(AuthContext);
   const {
@@ -55,7 +58,7 @@ const UserRegistration = () => {
     user,
     registerUser,
     isAuthenticated,
-    authError,
+    authError
   } = authContext;
 
   useEffect(() => {
@@ -98,11 +101,16 @@ const UserRegistration = () => {
               apartment: "",
             }}
             validationSchema={userRegistrationValidationSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              setSubmitting(true);
+            onSubmit={async (values, { setSubmitting }) => {
+              setSubmitting(true)
+
               apartmentId = apartmentData.find(
                 (o) => o.name === values.apartment
               );
+
+              if (!apartmentId){
+                validateApartmentSelection("Please select an apartment from the list")
+              }
 
               registerUser(
                 values.name,
@@ -119,7 +127,7 @@ const UserRegistration = () => {
                 <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
                   Let's begin!
                 </h2>
-                <Alert authError={authError} alertTheme={alertTheme} />
+                <Alert authError={authError} fetchError={fetchError} alertTheme={alertTheme} />
                 <Form>
                   {/* Name Fields */}
                   <div
@@ -266,14 +274,14 @@ const UserRegistration = () => {
                     }`}
                   >
                     <FontAwesomeIcon
-                      icon={faBuilding}
+                      icon={faSearch}
                       className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
                     />
                     <Field
                       id="apartment"
                       name="apartment"
                       type="text"
-                      placeholder="Search Apartment*"
+                      placeholder="Your Apartment*"
                       maxLength="100"
                       autoComplete="off"
                       autoFocus=""
@@ -370,6 +378,14 @@ const UserRegistration = () => {
                     </div>
                   </div>
 
+                  <ReCAPTCHA
+                    id="recaptcha"
+                    name="recaptcha"
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    className="mt-4"
+                    onChange={() => setEnableFormSubmission(!enableFormSubmission)}
+                  />
+
                   <div>
                     <motion.button
                       whileTap={{
@@ -377,9 +393,10 @@ const UserRegistration = () => {
                         y: "5px",
                         boxShadow: "0px 8px 15px rgba(151, 201, 251, 0.2)",
                       }}
-                      className="mt-6 mb-8 w-64 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none"
+                      className={ "mt-4 mb-8 w-64 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
                       type="submit"
                       arira-aria-label="User registration button"
+                      disabled={!enableFormSubmission ? "disabled" : null}
                     >
                       Register
                     </motion.button>
