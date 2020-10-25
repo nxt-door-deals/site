@@ -15,8 +15,8 @@ const PageNotFound = () => {
     }, []);
 
     return (
-            <div>
-                <div className="flex justify-center items-center w-full pt-16 -z-20">
+        <div>
+            <div className="flex justify-center pt-16 -z-20">
                 <img
                 src="/images/error/404.svg"
                 alt="404 not found"
@@ -37,8 +37,8 @@ const PageNotFound = () => {
                 {cookie.get("nddToken") ? (
                 <div className="flex-col">
                     <motion.button
-                    initial={{ x: "-100vw" }}
-                    animate={{ x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 1 }}
                     className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
@@ -48,8 +48,8 @@ const PageNotFound = () => {
                     Home
                     </motion.button>
                     <motion.button
-                    initial={{ y: "100vh" }}
-                    animate={{ y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 1 }}
                     className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
@@ -59,8 +59,8 @@ const PageNotFound = () => {
                     My Neighbourhood
                     </motion.button>
                     <motion.button
-                    initial={{ x: "100vw" }}
-                    animate={{ x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 1 }}
                     className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
@@ -74,8 +74,8 @@ const PageNotFound = () => {
                 ) : (
                 <div className="flex flex-col md:flex-row">
                     <motion.button
-                    initial={{ x: "-100vw" }}
-                    animate={{ x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                     className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
@@ -85,8 +85,8 @@ const PageNotFound = () => {
                     Home
                     </motion.button>
                     <motion.button
-                    initial={{ y: "100vh" }}
-                    animate={{ y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
@@ -96,8 +96,8 @@ const PageNotFound = () => {
                     Register
                     </motion.button>
                     <motion.button
-                    initial={{ x: "100vw" }}
-                    animate={{ x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                     className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
                     onClick={() => {
