@@ -394,7 +394,7 @@ const UserRegistration = () => {
                         y: "5px",
                         boxShadow: "0px 8px 15px rgba(151, 201, 251, 0.2)",
                       }}
-                      className={ "mt-4 mb-8 w-64 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
+                      className={ "mt-4 mb-8 w-80 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
                       type="submit"
                       arira-aria-label="User registration button"
                       disabled={!enableFormSubmission ? "disabled" : null}

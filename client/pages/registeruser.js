@@ -27,7 +27,7 @@ const RegisterUser = () => {
       <UserRegistrationHeadLayout>
         <Fragment>
           <BrandHeader />
-          <div className="flex justify-center items-center h-screen bg-user-registration-background bg-cover bg-no-repeat overflow-auto -z-20 pt-32">
+          <div className="flex justify-center items-center h-screen bg-user-registration-background bg-cover bg-no-repeat overflow-auto -z-20 pt-64">
             <div className="ml-8 mr-8 mb-16 pt-20 lg:pt-0">
               <UserRegistration />
             </div>

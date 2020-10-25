@@ -6,7 +6,7 @@ const Sell = () => {
   return (
     <div
       id="sell"
-      className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-6"
+      className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-8 md:gap-6"
     >
       {sell.map((item, index) => {
         return (
