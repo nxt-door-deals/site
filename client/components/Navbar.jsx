@@ -170,7 +170,7 @@ const Navbar = () => {
               ></img>
             </li>
             <li className="overlay-items md:text-2xl hover:scale-125 hover:text-brand-purple">
-              <Link href="/process">
+              <Link href="#how-it-works">
                 <span className="">
                   <a>How It Works</a>
                 </span>

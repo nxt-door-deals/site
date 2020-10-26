@@ -16,7 +16,7 @@ const PageNotFound = () => {
 
     return (
         <div>
-            <div className="flex justify-center pt-16 -z-20">
+            <div className="flex justify-center pt-8 -z-20">
                 <img
                 src="/images/error/404.svg"
                 alt="404 not found"
