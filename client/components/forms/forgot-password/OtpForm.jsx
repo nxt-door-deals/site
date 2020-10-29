@@ -53,7 +53,7 @@ const OtpForm = (props) => {
                 {props.user.email}
               </span>
               . Please enter the six-character OTP below. The OTP is valid for{" "}
-              <span className="font-semibold">10 minutes only</span>.{" "}
+              <span className="font-semibold">only 10 minutes</span>.{" "}
             </p>
           </div>
           <div className="text-center mt-6">

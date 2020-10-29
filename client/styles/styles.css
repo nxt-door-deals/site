@@ -10,11 +10,11 @@
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-base font-axiforma font-semibold transform transition duration-300 ease-in-out;
+  @apply mr-6 z-20 text-sm font-axiforma font-semibold transform transition duration-300 ease-in-out;
 }
 
 .menu-nav-item {
-  @apply z-30 text-brand-purple text-base uppercase font-axiforma font-bold mb-12 cursor-pointer;
+  @apply z-30 text-base uppercase font-axiforma font-bold mb-12 cursor-pointer;
 }
 
 .sm-flex {
@@ -22,7 +22,7 @@
 }
 
 .overlay-toggle {
-  @apply opacity-95 top-0 left-0 right-0 w-screen bg-purple-300 fixed h-full transition-all duration-300 z-10;
+  @apply opacity-95 top-0 left-0 right-0 w-screen fixed h-full transition-all duration-300;
 }
 
 .overlay-items {

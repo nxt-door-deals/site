@@ -63,7 +63,8 @@ const AuthState = (props) => {
     email,
     mobile = null,
     password,
-    apartment
+    apartmentNumber,
+    apartment,
   ) => {
     const jsonPayload = {
       name: name,
@@ -71,6 +72,7 @@ const AuthState = (props) => {
       mobile: mobile,
       password: password,
       apartment_id: apartment,
+      apartment_number: apartmentNumber
     };
 
     try {
@@ -235,10 +237,10 @@ const AuthState = (props) => {
       );
 
       dispatch({ type: EMAIL_SEND_SUCCESS, payload: res.data });
-      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 4000);
     } catch (error) {
       dispatch({ type: EMAIL_SEND_FAILURE, payload: res.data });
-      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 4000);
     }
   };
 

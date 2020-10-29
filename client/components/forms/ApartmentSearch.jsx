@@ -62,7 +62,7 @@ const ApartmentSearch = () => {
             >
               <FontAwesomeIcon
                 icon={faSearch}
-                className="inline align-middle text-lg fill-current text-gray-600 opacity-50 ml-2"
+                className="inline align-middle text-lg fill-current text-gray-500 opacity-50 ml-2"
                 alt="Search Apartment"
               />
               <Field

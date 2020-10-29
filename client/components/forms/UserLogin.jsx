@@ -45,7 +45,7 @@ const UserLogin = () => {
   };
 
   return (
-    <div className="rounded-md shadow-boxshadowlogin z-50 bg-white pt-5 pl-10 pr-10 pb-10">
+    <div className="rounded-md shadow-boxshadowlogin bg-white pt-5 pl-10 pr-10 pb-10">
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={loginValidationSchema}
@@ -57,13 +57,14 @@ const UserLogin = () => {
       >
         {(props) => (
           <div>
-            <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
+            <h2               
+              className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
               Welcome Back!
             </h2>
             <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div
-                className={`"flex iteams-center justify-center relative border-2 rounded-md " ${
+                className={`"flex iteams-center justify-center border-2 rounded-md " ${
                   props.touched.email && props.errors.email
                     ? "mb-1 border-red-800"
                     : "mb-8 border-gray-300"
@@ -71,7 +72,7 @@ const UserLogin = () => {
               >
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-2"
+                  className="align-middle fill-current text-gray-500 text-lg ml-2"
                 />
                 <Field
                   id="email"
@@ -80,8 +81,7 @@ const UserLogin = () => {
                   placeholder="Email"
                   maxLength="50"
                   autoComplete="off"
-                  autoFocus=""
-                  className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                  className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
                 />
               </div>
 
@@ -94,7 +94,7 @@ const UserLogin = () => {
               ) : null}
 
               <div
-                className={`"flex items-center justify-center relative border-2 rounded-md " ${
+                className={`"flex items-center justify-center border-2 rounded-md " ${
                   props.touched.password && props.errors.password
                     ? "mb-1 border-red-800"
                     : "mb-8 border-gray-300"
@@ -102,7 +102,7 @@ const UserLogin = () => {
               >
                 <FontAwesomeIcon
                   icon={faLock}
-                  className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-2"
+                  className="inline align-middle fill-current text-gray-500 text-lg ml-2"
                 />
                 <Field
                   id="password"
@@ -110,11 +110,11 @@ const UserLogin = () => {
                   type={!displayPassword ? "password" : "text"}
                   placeholder="Password"
                   maxLength="50"
-                  className="textbox-input md:w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                  className="textbox-input md:w-10/12 placeholder-purple-900 placeholder-opacity-75"
                 />
                 <FontAwesomeIcon
                   icon={!displayPassword ? faEye : faEyeSlash}
-                  className="absolute text-sm align-middle top-0 right-0 mt-4 mr-2 opacity-50 cursor-pointer"
+                  className="inline text-sm align-middle top-0 right-0 mr-2 text-gray-500 cursor-pointer"
                   onClick={setPasswordDisplay}
                   aria-label={
                     !displayPassword ? "Show Password" : "Hide Password"
@@ -162,9 +162,9 @@ const UserLogin = () => {
             <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">
               Don't have an account?{" "}
               <motion.button
-                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-gray p-3 shadow-sm z-30 font-semibold focus:outline-none"
+                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-purple p-3 shadow-sm font-semibold focus:outline-none"
                 whileHover={{
-                  backgroundColor: "#550052",
+                  backgroundColor: "#9F7AEA",
                   color: "#FFFFFF",
                 }}
                 onClick={() => {

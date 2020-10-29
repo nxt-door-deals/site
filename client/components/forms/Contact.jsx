@@ -39,11 +39,15 @@ const Contact = (props) => {
         exit={{ y: "100vh", transition: { duration: 1 } }}
         className="h-128 w-100 bg-white border-brand-purple border-dashed border-2 p-4 font-axiforma"
       >
-        <FontAwesomeIcon
-          icon={faTimes}
-          className="absolute text-lg right-0 mr-4 text-brand-purple cursor-pointer"
+        <motion.div
+          className="absolute text-lg right-0 mr-4 text-purple-900 cursor-pointer"
           onClick={() => props.setIsModalOpen(false)}
-        />
+          alt="Close Menu"
+        >
+          <FontAwesomeIcon
+            icon={faTimes}
+          />
+        </motion.div>
         <div className="flex justify-center">
           <img
             src="/images/contact/typewriter.svg"

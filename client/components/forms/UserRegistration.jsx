@@ -18,6 +18,7 @@ import {
   faBuilding,
   faExclamationTriangle,
   faMapPin,
+  faDoorOpen
 } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import Router from "next/router";
@@ -38,7 +39,8 @@ const userRegistrationValidationSchema = Yup.object({
     .min(8, "Your password should have at least 8 characters")
     .trim(),
   mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
-  apartment: Yup.string().required("Please select your apartment/property")
+  apartment: Yup.string().required("Please select your apartment/property"),
+  apartmentNumber: Yup.string().required("Please enter your apartment number")
 });
 
 const alertTheme = "bg-blue-200 text-blue-800";
@@ -83,6 +85,8 @@ const UserRegistration = () => {
     setDisplayPassword(!displayPassword);
   };
 
+  
+
   return (
     <AnimatePresence exitBeforeEnter>
       {showForm ? (
@@ -91,7 +95,7 @@ const UserRegistration = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          className="rounded-md shadow-boxshadowregister bg-white p-12"
+          className="rounded-md shadow-boxshadowregister bg-white p-8 mb-4"
         >
           <Formik
             initialValues={{
@@ -100,6 +104,7 @@ const UserRegistration = () => {
               mobile: "",
               password: "",
               apartment: "",
+              apartmentNumber: ""
             }}
             validationSchema={userRegistrationValidationSchema}
             onSubmit={async (values, { setSubmitting }) => {
@@ -118,6 +123,7 @@ const UserRegistration = () => {
                 values.email,
                 values.mobile,
                 values.password,
+                values.apartmentNumber,
                 apartmentId.id
               );
               setSubmitting(false);
@@ -140,7 +146,7 @@ const UserRegistration = () => {
                   >
                     <FontAwesomeIcon
                       icon={faUser}
-                      className="inline fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline fill-current text-gray-500 text-lg  ml-4"
                     />
                     <Field
                       id="name"
@@ -150,7 +156,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
                     />
                   </div>
 
@@ -172,7 +178,7 @@ const UserRegistration = () => {
                   >
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg z-10 ml-4"
                     />
                     <Field
                       id="email"
@@ -182,7 +188,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
                     />
                   </div>
 
@@ -204,7 +210,7 @@ const UserRegistration = () => {
                   >
                     <FontAwesomeIcon
                       icon={faPhoneAlt}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
                     />
                     <Field
                       id="mobile"
@@ -214,7 +220,7 @@ const UserRegistration = () => {
                       maxLength="15"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
                     />
                   </div>
 
@@ -226,7 +232,7 @@ const UserRegistration = () => {
                     </div>
                   ) : null}
 
-                  {/* Password Fields */}
+                  {/* Password Field */}
                   <div
                     className={`"flex items-center justify-center border-2 rounded-md " ${
                       props.touched.password && props.errors.password
@@ -236,7 +242,7 @@ const UserRegistration = () => {
                   >
                     <FontAwesomeIcon
                       icon={faLock}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
                     />
                     <Field
                       id="password"
@@ -246,11 +252,11 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-9/12 md:w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-9/12 md:w-10/12 placeholder-purple-900 placeholder-opacity-75"
                     />
                     <FontAwesomeIcon
                       icon={!displayPassword ? faEye : faEyeSlash}
-                      className="text-sm align-middle top-0 right-0 opacity-50 cursor-pointer"
+                      className="text-sm align-middle top-0 right-0 text-gray-500 cursor-pointer"
                       onClick={setPasswordDisplay}
                       aria-label={
                         !displayPassword ? "Show Password" : "Hide Password"
@@ -271,12 +277,12 @@ const UserRegistration = () => {
                     className={`"flex items-center justify-center border-2 rounded-md " ${
                       props.touched.apartment && props.errors.apartment
                         ? "mb-1 border-red-800"
-                        : "border-gray-300"
+                        : "mb-1 border-gray-300"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faSearch}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
                     />
                     <Field
                       id="apartment"
@@ -287,7 +293,7 @@ const UserRegistration = () => {
                       autoComplete="off"
                       autoFocus=""
                       onKeyUp={searchApartment}
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
                     />
                   </div>
 
@@ -379,6 +385,37 @@ const UserRegistration = () => {
                     </div>
                   </div>
 
+                  {/* Apartment number */}
+                  <div
+                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                      props.touched.apartmentNumber && props.errors.apartmentNumber
+                        ? "mb-1 border-red-800"
+                        : "mb-4 mt-4 border-gray-300"
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={faDoorOpen}
+                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
+                    />
+                    <Field
+                      id="apartmentNumber"
+                      name="apartmentNumber"
+                      type="text"
+                      placeholder="Flat/house number* (Ex: 77, A2, C123)"
+                      maxLength="10"
+                      autoComplete="off"
+                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                    />
+                  </div>
+
+                  {/* Validation errors */}
+                  {props.touched.apartmentNumber && props.errors.apartmentNumber ? (
+                    <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                      {props.errors.apartmentNumber}
+                    </div>
+                  ) : null}
+
                   <ReCAPTCHA
                     id="recaptcha"
                     name="recaptcha"
@@ -387,14 +424,14 @@ const UserRegistration = () => {
                     onChange={() => setEnableFormSubmission(!enableFormSubmission)}
                   />
 
-                  <div>
+                  <div className="text-center">
                     <motion.button
                       whileTap={{
                         backgroundColor: "#7F9CF5",
                         y: "5px",
                         boxShadow: "0px 8px 15px rgba(151, 201, 251, 0.2)",
                       }}
-                      className={ "mt-4 mb-8 w-80 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
+                      className={ "mt-4 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
                       type="submit"
                       arira-aria-label="User registration button"
                       disabled={!enableFormSubmission ? "disabled" : null}
@@ -403,12 +440,18 @@ const UserRegistration = () => {
                     </motion.button>
                   </div>
                 </Form>
+                <div className="font-axiforma text-blue-700 text-center text-xs">
+                  By registering, you acknowledge that you have read and understood our<br /> {"  "} 
+                  <Link href="/"><a className="underline">Cookie Policy</a></Link>,{"  "}
+                  <Link href="/"><a className="underline">Privacy Policy</a></Link> and our{"  "} 
+                  <Link href="/"><a className="underline">Terms of Use</a></Link>.
+                </div>
                 <div className="font-axiforma text-blue-700 text-center mt-4 text-sm  lg:text-md">
                   Already have an account?{" "}
                   <motion.button
-                    className="ml-2 inline bg-opacity-25 bg-blue-400 text-brand-gray p-3 shadow-sm  font-semibold focus:outline-none"
+                    className="ml-2 inline bg-opacity-25 bg-blue-400 text-blue-800 p-3 shadow-sm  font-semibold focus:outline-none"
                     whileHover={{
-                      backgroundColor: "#4C51BF",
+                      backgroundColor: "#3182CE",
                       color: "#FFFFFF",
                     }}
                     onClick={() => {
