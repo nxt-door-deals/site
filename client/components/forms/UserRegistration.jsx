@@ -401,7 +401,7 @@ const UserRegistration = () => {
                       id="apartmentNumber"
                       name="apartmentNumber"
                       type="text"
-                      placeholder="Flat/house number* (Ex: 77, A2, C123)"
+                      placeholder="Flat/house number* (Ex: 77, A2)"
                       maxLength="10"
                       autoComplete="off"
                       className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"

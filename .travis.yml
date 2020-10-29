@@ -23,6 +23,12 @@ after_success:
   - cd ..
   - bash ./deploy.sh
 notifications:
+  email:
+    recipients:
+      - abhi_ap@hotmail.com
+      - aparna121@gmail.com
+    on_success: always
+    on_failure: always
   slack:
     rooms:
       secure: eE0VEk2CV99UfO7Ks6OqfE1Odeh0zHb78DwIfJwxiyB1BVMOPPf8n22x939n+e7iRb0BSOu+WgdIu1rqtti0CgKTSEzkqrBFSwXpshG3SJZSu3DGnvo8asYs14XSA3QQAGVHoo4+LTesxN2wSfvJzxnXEKg1LawzcIhoUXoR8HgPyFxEQslUdzna2xa7Fu8DmnOPYta+fj+qcsZcmzSecE6abFymjEz1rH93h3Q7Hjians/Q/AtrlqJVXmniHy/MRLJXmEsXcxNZccugRFDbokzVFhUlYkSoH6HDc5jNq2ltzK8M5dlk2w8zhwQVZNfSMIEJ7cdMZKq2uAWWY9n6DE0b5twMPmaxJzisY4kQoNVvupJmuTUHiB+8nWuys6rWeJgxQmUzio6yIlB1k5GgKJXmIgM7BhXOkF517xDATxVut3YD1FYJdGrpAXDUlT7YGpbxcf/nAIIX4F2mPpETxLpGvBbJ4GxPqnxzJ26uPtCIsUv5PA1XyAH3JMCxPVYbr+6dtZAgQ4dddPGKR2wAvBWkyYX/A8jtpII/9XxLtYeuAAd3JIUhWBPYc8sfmnOUfaKX09wcpiedP3/3oL3Dm1oXZtdgvRzYg67Y1pBqeWUoAP95yK1phzBCsUmZ28PRXuz/8sLPNcDaGzva3p/BdD4NXPosIZNFdTruIqs+v5w=
