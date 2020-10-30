@@ -10,6 +10,7 @@ import { faTimes, faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
   faInstagramSquare,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
 // Component imports
@@ -298,6 +299,16 @@ const Navbar = (props) => {
                   className="mr-4"
                 >
                   <FontAwesomeIcon icon={faInstagramSquare} className={props.navOverlayTextColor}/>
+                </motion.a>
+              </Link>{" "}
+              <Link href="https://linkedin.com" passHref={true}>
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  target="_blank"
+                  className="mr-4"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className={props.navOverlayTextColor}/>
                 </motion.a>
               </Link>{" "}
               <motion.div

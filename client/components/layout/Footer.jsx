@@ -17,6 +17,7 @@ import {
 import {
   faFacebookSquare,
   faInstagramSquare,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
 // Component import
@@ -125,6 +126,7 @@ const Footer = () => {
         </Link>{" "}
       </div>
 
+      {/* Social icons */}
       <div className="flex justify-center pb-4 text-3xl">
         <Link href="https://facebook.com" passHref={true}>
           <motion.a
@@ -144,6 +146,16 @@ const Footer = () => {
             className="mr-4"
           >
             <FontAwesomeIcon icon={faInstagramSquare} />
+          </motion.a>
+        </Link>{" "}
+        <Link href="https://linkedin.com" passHref={true}>
+          <motion.a
+            variants={variants}
+            whileHover="hover"
+            target="_blank"
+            className="mr-4"
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
           </motion.a>
         </Link>{" "}
         <motion.div
@@ -176,7 +188,7 @@ const Footer = () => {
         onRequestClose={() => setIsModalOpen(false)}
         shouldCloseOnEsc={true}
         shouldFocusAfterRender={true}
-        className="absolute bottom-0 m-4 outline-none rounded-md"
+        className="absolute right-0 bottom-0 mb-5 mr-5 ml-4 outline-none rounded-md"
       >
         <Contact setIsModalOpen={setIsModalOpen} />
       </Modal>
