@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development ENV=development next -p 3001",
-    "build": "next build",
+    "dev": "NODE_ENV=development NEXT_PUBLIC_ENV=development next -p 3001",
+    "build": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next build",
     "start": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next start -p 3001"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.20.0",
+    "cross-env": "^7.0.2",
     "formik": "^2.1.5",
     "framer-motion": "^2.6.10",
     "next": "^9.5.2",
@@ -31,7 +32,6 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.7.5"
   }

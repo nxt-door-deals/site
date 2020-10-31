@@ -37,7 +37,7 @@ const Contact = (props) => {
         initial={{ y: "100vh" }}
         animate={{ y: 0, transition: { duration: 1 } }}
         exit={{ y: "100vh", transition: { duration: 1 } }}
-        className="h-128 w-80 md:w-100 bg-white border-brand-purple border-dashed border-2 p-3 font-axiforma"
+        className="h-128 w-88 md:w-100 bg-white border-brand-purple border-dashed border-2 p-3 font-axiforma"
       >
         <motion.div
           className="absolute text-lg right-0 mr-4 text-purple-900 cursor-pointer"
@@ -98,7 +98,7 @@ const Contact = (props) => {
                     placeholder="Email*"
                     maxLength="50"
                     autoComplete="off"
-                    className="textbox-input w-11/12 placeholder-purple-900 placeholder-opacity-50"
+                    className="textbox-input w-10/12 md:w-11/12 placeholder-purple-900 placeholder-opacity-50"
                   />
                 </div>
 
@@ -129,7 +129,7 @@ const Contact = (props) => {
                     placeholder="Message*"
                     maxLength="1000"
                     autoComplete="off"
-                    className="text-sm p-2 leading-6 outline-none w-11/12 placeholder-purple-900 placeholder-opacity-50"
+                    className="text-sm p-2 leading-6 outline-none w-10/12 md:w-11/12 placeholder-purple-900 placeholder-opacity-50"
                   />
                 </div>
 
