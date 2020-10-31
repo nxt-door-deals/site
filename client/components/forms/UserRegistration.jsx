@@ -28,7 +28,7 @@ import VerifyEmail from "../utils/VerifyEmail";
 import Alert from "../utils/Alert";
 
 const userRegistrationValidationSchema = Yup.object({
-  name: Yup.string().required("Please enter your name").max(100).trim(),
+  name: Yup.string().matches(/^[aA-zZ\s]+$/, "Only alphabets and spaces allowed").required("Please enter your name").max(100).trim(),
   email: Yup.string()
     .email("Please enter a valid email id")
     .required("Please enter your email id")
@@ -85,7 +85,7 @@ const UserRegistration = () => {
     setDisplayPassword(!displayPassword);
   };
 
-  
+
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -441,9 +441,9 @@ const UserRegistration = () => {
                   </div>
                 </Form>
                 <div className="font-axiforma text-blue-700 text-center text-xs">
-                  By registering, you acknowledge that you have read and understood our<br /> {"  "} 
+                  By registering, you acknowledge that you have read and understood our<br /> {"  "}
                   <Link href="/"><a className="underline">Cookie Policy</a></Link>,{"  "}
-                  <Link href="/"><a className="underline">Privacy Policy</a></Link> and our{"  "} 
+                  <Link href="/"><a className="underline">Privacy Policy</a></Link> and our{"  "}
                   <Link href="/"><a className="underline">Terms of Use</a></Link>.
                 </div>
                 <div className="font-axiforma text-blue-700 text-center mt-4 text-sm  lg:text-md">

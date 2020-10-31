@@ -22,7 +22,8 @@ import {
   OTP_VALIDATED_FAILURE,
   PASSWORD_CHANGE_SUCCESS,
   PASSWORD_CHANGE_FAILURE,
-  EMAIL_VERIFICATION_TIMESTAMP_UPDATED
+  EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
+  OTP_VERIFICATION_TIMESTAMP_UPDATED
 } from "../Types";
 
 const cookie = new Cookies();
@@ -135,6 +136,7 @@ const authReducer = (state, action) => {
         authError: action.payload,
       };
     case EMAIL_VERIFICATION_TIMESTAMP_UPDATED:
+    case OTP_VERIFICATION_TIMESTAMP_UPDATED:
       return {
         ...state,
         genericMessage: action.payload,

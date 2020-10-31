@@ -57,7 +57,7 @@ const UserLogin = () => {
       >
         {(props) => (
           <div>
-            <h2               
+            <h2
               className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
               Welcome Back!
             </h2>

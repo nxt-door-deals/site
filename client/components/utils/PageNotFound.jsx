@@ -9,7 +9,7 @@ const cookie = new Cookies();
 const PageNotFound = () => {
     const authContext = useContext(AuthContext);
     const { loadUser, user, logout } = authContext;
-  
+
     useEffect(() => {
       loadUser();
     }, []);

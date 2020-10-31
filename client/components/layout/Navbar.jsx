@@ -43,7 +43,7 @@ const Navbar = (props) => {
     }
 
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => {
       window.removeEventListener("scroll", () => handleScroll);
     };
@@ -106,15 +106,14 @@ const Navbar = (props) => {
               alt="Open Menu"
             />
           ) : (
-            <motion.div
-              whileHover={{rotate: 180, style: {origin: 0}, transition: {duration: 0.5}}}
+            <div
               className="cursor-pointer mt-4 text-purple-900 text-lg"
               alt="Close Menu"
             >
               <FontAwesomeIcon
                 icon={faTimes}
               />
-            </motion.div>
+            </div>
           )}
         </div>
 
@@ -123,7 +122,7 @@ const Navbar = (props) => {
           className={
             stickyNav
               ? "hidden lg:mt-10 lg:block uppercase " + props.navOverlayTextColor
-              : "hidden lg:mt-4 lg:block uppercase " + props.navTextColor 
+              : "hidden lg:mt-4 lg:block uppercase " + props.navTextColor
           }
         >
 
@@ -182,7 +181,7 @@ const Navbar = (props) => {
           </ul>}
 
           {/* Navbar on the login and user register pages */}
-          {(props.pathname == "/registeruser" || props.pathname == "/login") && <ul className="flex">
+          {(props.pathname == "/registeruser" || props.pathname == "/login" || props.pathname == "/forgotpassword") && <ul className="flex">
             <li className="nav-item lg:mr-12 hover:scale-110">
               <Link href="/#how-it-works">
                 <a>How It Works</a>
@@ -260,10 +259,10 @@ const Navbar = (props) => {
                 </Link>
               )}
             </li></Fragment>}
-            
+
             {/* Overlay icons for the login and register pages */}
-            {(props.pathname == "/registeruser" || props.pathname == "/login") && <Fragment><li className={"overlay-items md:text-2xl hover:scale-125 " + props.navOverlayTextColor}>
-              <Link href="/#how-it-works">          
+            {(props.pathname == "/registeruser" || props.pathname == "/login" || props.pathname == "/forgotpassword") && <Fragment><li className={"overlay-items md:text-2xl hover:scale-125 " + props.navOverlayTextColor}>
+              <Link href="/#how-it-works">
                   <a>How It Works</a>
               </Link>
             </li>
@@ -275,7 +274,7 @@ const Navbar = (props) => {
               </Link>
             </li></Fragment>}
           </ul>
-          
+
           {/* Social icons */}
           <div className="p-4">
             <hr className={`${"border-" + props.hrTextColor} ${"bg-" + props.hrTextColor} border-1 border-dotted`}></hr>
@@ -331,7 +330,7 @@ const Navbar = (props) => {
           onRequestClose={() => setIsModalOpen(false)}
           shouldCloseOnEsc={true}
           shouldFocusAfterRender={true}
-          className="absolute bottom-0 m-4 outline-none rounded-md"
+          className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none rounded-md"
         >
           <Contact setIsModalOpen={setIsModalOpen} />
         </Modal>

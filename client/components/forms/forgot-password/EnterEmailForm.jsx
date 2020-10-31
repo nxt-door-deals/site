@@ -30,16 +30,12 @@ const EnterEmailForm = (props) => {
     authError,
     generateOtp,
     sendOtpByEmail,
-    otpGenerated
   } = authContext;
 
   useEffect(() => {
     if (user) {
       generateOtp(user.id, user.email);
-    }
-
-    if (otpGenerated) {
-      sendOtpByEmail(user.email);
+      // sendOtpByEmail(user.email);
       setShowForm(false);
     }
   }, [user]);
@@ -95,7 +91,7 @@ const EnterEmailForm = (props) => {
                   >
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-2"
+                      className="inline align-middle fill-current text-gray-500 text-lg ml-2"
                     />
                     <Field
                       id="email"

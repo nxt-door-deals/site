@@ -4,12 +4,14 @@ const keys = {
     development: {
         API_PROXY: "http://localhost:8000/api/v1",
         FROM_EMAIL: "contact@nxtdoordeals.com",
-        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: "6Ld-xtoZAAAAAB2FrlEY9pGNl69GlPEW_0YKYitH"
+        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: "6Ld-xtoZAAAAAB2FrlEY9pGNl69GlPEW_0YKYitH",
+        SERVER: "localhost:3001"
     },
     production: {
         API_PROXY: "https://api.nxtdoordeals.com/api/v1",
         FROM_EMAIL: "contact@nxtdoordeals.com",
-        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: "6Ld-xtoZAAAAAB2FrlEY9pGNl69GlPEW_0YKYitH"
+        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: "6Ld-xtoZAAAAAB2FrlEY9pGNl69GlPEW_0YKYitH",
+        SERVER: "68.183.94.49"
     }
 }[env];
 

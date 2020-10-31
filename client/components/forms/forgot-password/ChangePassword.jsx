@@ -98,7 +98,7 @@ const ChangePassword = (props) => {
                   >
                     <FontAwesomeIcon
                       icon={faLock}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg ml-4"
                     />
                     <Field
                       id="password"
@@ -111,7 +111,7 @@ const ChangePassword = (props) => {
                     />
                     <FontAwesomeIcon
                       icon={!displayPassword ? faEye : faEyeSlash}
-                      className="text-sm align-middle top-0 right-0 opacity-50 cursor-pointer"
+                      className="text-sm align-middle top-0 right-0 text-gray-500 cursor-pointer"
                       onClick={setPasswordDisplay}
                       aria-label={
                         !displayPassword ? "Show Password" : "Hide Password"
@@ -138,7 +138,7 @@ const ChangePassword = (props) => {
                   >
                     <FontAwesomeIcon
                       icon={faLock}
-                      className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-4"
+                      className="inline align-middle fill-current text-gray-500 text-lg ml-4"
                     />
                     <Field
                       id="confirmPassword"
@@ -151,7 +151,7 @@ const ChangePassword = (props) => {
                     />
                     <FontAwesomeIcon
                       icon={!displayConfirmPassword ? faEye : faEyeSlash}
-                      className="text-sm align-middle top-0 right-0 opacity-50 cursor-pointer"
+                      className="text-sm align-middle top-0 right-0 text-gray-500 cursor-pointer"
                       onClick={setConfirmPasswordDisplay}
                       aria-label={
                         !displayConfirmPassword

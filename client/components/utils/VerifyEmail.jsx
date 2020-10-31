@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Popup from "reactjs-popup";
+import keys from "../../utils/keys"
 
 const VerifyEmail = ({ user }) => {
   const authContext = useContext(AuthContext);
@@ -21,7 +22,7 @@ const VerifyEmail = ({ user }) => {
     user.email_verification_hash !== null && user.email_verification_hash;
 
   const fullVerificationString = email_hash + "|" + id;
-  const verificationUrl = `http://68.183.94.49/verifyemail/${fullVerificationString}`;
+  const verificationUrl = `http://${keys.SERVER}/verifyemail/${fullVerificationString}`;
 
   useEffect(() => {
     sendEmail(name, email, verificationUrl);
@@ -62,7 +63,7 @@ const VerifyEmail = ({ user }) => {
           y: "2px",
           boxShadow: "0px 8px 15px rgba(144, 181, 218, 0.15)",
         }}
-        className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500 
+        className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500
         uppercase mb-4 focus:outline-none"
         onClick={() => {
           user !== null && Router.push(`/ads/${user.apartment_name}`);

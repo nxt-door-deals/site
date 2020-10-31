@@ -118,4 +118,7 @@ dist
 # Next.js related
 .next
 
+# Pre-commit
+.pre-commit-config.yaml
+
 # End of https://www.toptal.com/developers/gitignore/api/node

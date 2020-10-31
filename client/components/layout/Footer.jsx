@@ -50,14 +50,14 @@ const Footer = () => {
               <motion.a
                 variants={variants}
                 whileHover="hover"
-                
+
               >
                 <FontAwesomeIcon icon={faBook} className="mr-1" />
                 Our Story
               </motion.a>
             </Link>{" "}
           </li>
-        
+
           <li className="pl-3 pb-1">
             <Link href="/">
               <motion.a
@@ -69,7 +69,7 @@ const Footer = () => {
               </motion.a>
             </Link>{" "}
           </li>
-        
+
           <li className="pl-3 pb-1">
             <Link href="/">
               <motion.a
@@ -80,24 +80,24 @@ const Footer = () => {
               </motion.a>
             </Link>{" "}
           </li>
-        
+
           <li className="pl-3 pb-1">
             <Link href="/">
-              <motion.a 
-                variants={variants} 
-                whileHover="hover" 
+              <motion.a
+                variants={variants}
+                whileHover="hover"
               >
                 <FontAwesomeIcon icon={faClipboardList} className="mr-1" /> Terms of
                 Use
               </motion.a>
             </Link>{" "}
           </li>
-        
+
           <li className="pl-3 pb-1">
             <Link href="/">
-              <motion.a 
-                variants={variants} 
-                whileHover="hover" 
+              <motion.a
+                variants={variants}
+                whileHover="hover"
               >
                 <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" /> FAQs
               </motion.a>
@@ -117,7 +117,7 @@ const Footer = () => {
             Browse Ads
           </motion.a>
         </Link>{" "}
-        
+
         <Link href="/">
           <motion.a variants={variants} whileHover="hover" className="pl-2">
             <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
@@ -188,7 +188,7 @@ const Footer = () => {
         onRequestClose={() => setIsModalOpen(false)}
         shouldCloseOnEsc={true}
         shouldFocusAfterRender={true}
-        className="absolute right-0 bottom-0 mb-5 mr-5 ml-4 outline-none rounded-md"
+        className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none rounded-md"
       >
         <Contact setIsModalOpen={setIsModalOpen} />
       </Modal>

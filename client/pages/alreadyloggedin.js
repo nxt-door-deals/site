@@ -1,7 +1,18 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import AuthContext from "../../context/auth/authContext";
+import AuthContext from "../context/auth/authContext";
 import Router from "next/router";
-import { motion } from "framer-motion";
+import { motion, VisibilityAction } from "framer-motion";
+
+const variants = {
+  hidden: {opacity: 0},
+  btn1Visible: {opacity: 1, transition: {delay: 0.5, duration: 0.3}},
+  btn2Visible: {opacity: 1, transition: {delay: 1, duration: 0.3}},
+  tap: {
+    backgroundColor: "#D6BCFA",
+    color: "#550052",
+    y: "5px",
+  }
+}
 
 const AlreadyLoggedIn = () => {
   const authContext = useContext(AuthContext);
@@ -16,10 +27,9 @@ const AlreadyLoggedIn = () => {
     Router.push("/");
   };
 
-
   return (
     <Fragment>
-      <div className="pt-28 pr-20 pb-10 pl-20 text-center font-axiforma text-xl text-gray-600">
+      <div className="pt-24 md:pt-24 pr-20 pl-20 text-center font-axiforma text-xl text-gray-600">
         <h1>
           Hello,{" "}
           <span className="text-brand-purple font-semibold">
@@ -29,30 +39,27 @@ const AlreadyLoggedIn = () => {
         </h1>
       </div>
 
-      <div className="flex justify-center p-5 pt-3">
+      <div className="flex justify-center p-5 mt-5">
         <motion.button
+          variants={variants}
+          initial="hidden"
+          animate="btn1Visible"
+          whileTap="tap"
           className="w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
-          whileTap={{
-            backgroundColor: "#D6BCFA",
-            color: "#550052",
-            y: "5px",
-          }}
           onClick={homeClick}
           aria-label="Home button"
         >
           Home
         </motion.button>
         <motion.button
-          type="button"
+          variants={variants}
+          initial="hidden"
+          animate="btn2Visible"
+          whileTap="tap"
           className="w-48 h-12 rounded-lg bg-pink-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
-          whileTap={{
-            backgroundColor: "#FED7E2",
-            color: "#550052",
-            y: "5px",
-          }}
           onClick={() => {
             logout();
-            Router.push("/login")
+            Router.push("/")
           }}
           aria-label="Logout button"
         >

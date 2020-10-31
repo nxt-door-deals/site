@@ -4,9 +4,6 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import AuthContext from "../../context/auth/authContext";
 
-// Component imports
-import BrandHeader from "../../components/utils/BrandHeader";
-
 const VerifyEmail = () => {
   const router = useRouter();
   const { token } = router.query;
@@ -14,12 +11,13 @@ const VerifyEmail = () => {
   const { verifyEmail, emailVerified, verificationStatus } = authContext;
 
   useEffect(() => {
-    if (token !== undefined) verifyEmail(token);
+    if (token !== undefined) {
+      verifyEmail(token);
+    }
   }, [token]);
 
   return (
     <Fragment>
-      <BrandHeader />
       <div className="flex justify-center items-center rounded-md shadow-boxshadowemail border-blue-600 border-b-8 m-12 lg:ml-64 lg:mr-64 mt-28 pt-16 pb-16 z-50">
         <div className="flex flex-col items-center m-5">
           {emailVerified !== null && emailVerified ? (

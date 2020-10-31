@@ -21,9 +21,9 @@ const Home = () => {
 
   return (
     <HomeHeadLayout>
-      <Navbar navBgColor={navBgColor} 
-              navTextColor={navTextColor} 
-              hrTextColor={hrTextColor} 
+      <Navbar navBgColor={navBgColor}
+              navTextColor={navTextColor}
+              hrTextColor={hrTextColor}
               navShadow={navShadow}
               faIconTextcolor={faIconTextcolor}
               navOverlayTextColor={navOverlayTextColor}

@@ -29,6 +29,7 @@ import {
   PASSWORD_CHANGE_SUCCESS,
   PASSWORD_CHANGE_FAILURE,
   EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
+  OTP_VERIFICATION_TIMESTAMP_UPDATED
 } from "../Types";
 
 const cookie = new Cookies();
@@ -181,6 +182,30 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
+        payload: err.response.data.detail,
+      });
+    }
+  };
+
+   // Refresh the otp verification timestamp
+   const updateOtpVerificationTimestamp = async (id) => {
+    const jsonPayload = { id: id };
+
+    try {
+      await axios.put(
+        `${keys.API_PROXY}/otp_timestamp/refresh`,
+        jsonPayload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      dispatch({ type: null });
+    } catch (err) {
+      dispatch({
+        type: OTP_VERIFICATION_TIMESTAMP_UPDATED,
         payload: err.response.data.detail,
       });
     }
@@ -381,6 +406,7 @@ const AuthState = (props) => {
         verifyEmail,
         validateEmail,
         updateEmailVerificationTimestamp,
+        updateOtpVerificationTimestamp,
         sendContactUsEmail,
         generateOtp,
         validateOtp,
