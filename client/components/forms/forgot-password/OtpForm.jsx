@@ -80,7 +80,7 @@ const OtpForm = (props) => {
                   e.preventDefault();
                   generateOtp(user.id, user.email);
                   updateOtpVerificationTimestamp(user.id);
-                  {/* sendOtpByEmail(user.email); */}
+                  sendOtpByEmail(user.email);
                   setModalOpen(true)
                   setMinutes(10)
                   setSeconds(0)

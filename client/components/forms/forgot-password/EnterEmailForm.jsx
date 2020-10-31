@@ -35,7 +35,7 @@ const EnterEmailForm = (props) => {
   useEffect(() => {
     if (user) {
       generateOtp(user.id, user.email);
-      // sendOtpByEmail(user.email);
+      sendOtpByEmail(user.email);
       setShowForm(false);
     }
   }, [user]);

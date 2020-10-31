@@ -1,4 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHourglassHalf,
+  faHourglassEnd,
+} from "@fortawesome/free-solid-svg-icons";
 
 // props passed down from the otp form
 const Timer = (props) => {
@@ -26,7 +31,7 @@ const Timer = (props) => {
     return (
         <div className="font-axiforma text-xs text-red-800">
             { props.minutes === 0 && props.seconds === 0 ?
-             "Time's up! Please regenerate the OTP" : <p>Time remaining: {props.minutes}:{props.seconds < 10 ? `0${props.seconds}` : props.seconds}</p>}
+             <p><FontAwesomeIcon icon={faHourglassEnd} /> Time's up! Please regenerate the OTP</p> : <p><FontAwesomeIcon icon={faHourglassHalf} /> Time remaining: {props.minutes}:{props.seconds < 10 ? `0${props.seconds}` : props.seconds}</p>}
         </div>
     )
 }
