@@ -1,47 +1,45 @@
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 
 import Cookies from "universal-cookie";
 
 // Component import
 import UserRegistrationHeadLayout from "../components/layout/UserRegistrationHeadLayout";
 import UserRegistration from "../components/forms/UserRegistration";
-import Navbar from "../components/layout/Navbar"
+import Navbar from "../components/layout/Navbar";
 
 var cookie = new Cookies();
 
-// Custom navbar tailwind styles
-const navBgColor = "bg-indigo-100"
-const navTextColor = "text-blue-800"
-const navOverlayTextColor = "text-blue-800"
-const hrTextColor = "blue-800"
-const navShadow = "altNavShadow"
-const faIconTextcolor = "text-white"
-
 const RegisterUser = () => {
-  const router = useRouter()
+  const router = useRouter();
   const pathname = router.pathname;
 
+  // Custom navbar tailwind styles
+  const navStyle = {
+    navBgColor: "lg:bg-indigo-100",
+    navOverlayBgColor: "bg-indigo-100",
+    navTextColor: "text-blue-800",
+    navOverlayTextColor: "text-blue-800",
+    hrTextColor: "blue-800",
+    navShadow: "lg:altNavShadow",
+    faIconTextcolor: "text-white",
+    pathname: pathname,
+  };
+
   if (cookie.get("nddToken")) {
-    router.push("/alreadyloggedin", "/registeruser")
+    router.push("/alreadyloggedin", "/registeruser");
   }
 
-return (
-  <UserRegistrationHeadLayout>
-      <Navbar navBgColor={navBgColor}
-              navTextColor={navTextColor}
-              navOverlayTextColor={navOverlayTextColor}
-              hrTextColor={hrTextColor}
-              navShadow={navShadow}
-              faIconTextcolor={faIconTextcolor}
-              pathname={pathname}
-              />
+  return (
+    <UserRegistrationHeadLayout>
+      <Navbar navStyle={navStyle} />
       <div className="flex justify-center items-center h-full bg-user-registration-background bg-cover -z-20 pt-32">
         <div className="ml-8 mr-8 mb-16">
           <UserRegistration />
         </div>
       </div>
-  </UserRegistrationHeadLayout>
-)};
+    </UserRegistrationHeadLayout>
+  );
+};
 
 export default RegisterUser;

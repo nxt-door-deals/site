@@ -12,12 +12,12 @@ import {
   faHeart,
   faBinoculars,
   faPlusCircle,
-  faQuestionCircle
+  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
   faInstagramSquare,
-  faLinkedin
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 // Component import
@@ -33,73 +33,60 @@ const variants = {
     transition: {
       duration: 0.5,
     },
-    color: "#D6BCFA",
     cursor: "pointer",
   },
 };
 
-const Footer = () => {
+const Footer = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r from-footer-gradient-from to-footer-gradient-to p-5 text-white  font-axiforma">
+    <div
+      className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 text-white font-axiforma"`}
+    >
       <div className="flex justify-center items-center flex-col md:flex-row pb-4 text-sm">
-        <ul className="md:flex">
-          <li className="pl-3 pb-1">
+        <ul className="md:flex md:divide-x-2 md:divide-white">
+          <li className="pb-1 px-2">
             <Link href="/">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-
-              >
+              <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faBook} className="mr-1" />
                 Our Story
               </motion.a>
             </Link>{" "}
           </li>
 
-          <li className="pl-3 pb-1">
+          <li className="pb-1 px-2">
             <Link href="/">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-              >
+              <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faUserSecret} className="mr-1" /> Privacy
                 Policy
               </motion.a>
             </Link>{" "}
           </li>
 
-          <li className="pl-3 pb-1">
+          <li className="pb-1 px-2">
             <Link href="/">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-              >
-                <FontAwesomeIcon icon={faCookie} className="mr-1" /> Cookie Policy
+              <motion.a variants={variants} whileHover="hover">
+                <FontAwesomeIcon icon={faCookie} className="mr-1" /> Cookie
+                Policy
               </motion.a>
             </Link>{" "}
           </li>
 
-          <li className="pl-3 pb-1">
+          <li className="pb-1 px-2">
             <Link href="/">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-              >
-                <FontAwesomeIcon icon={faClipboardList} className="mr-1" /> Terms of
-                Use
+              <motion.a variants={variants} whileHover="hover">
+                <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
+                Terms of Use
               </motion.a>
             </Link>{" "}
           </li>
 
-          <li className="pl-3 pb-1">
+          <li className="pb-1 px-2">
             <Link href="/">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-              >
-                <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" /> FAQs
+              <motion.a variants={variants} whileHover="hover">
+                <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
+                FAQs
               </motion.a>
             </Link>
           </li>
@@ -117,8 +104,7 @@ const Footer = () => {
             Browse Ads
           </motion.a>
         </Link>{" "}
-
-        <Link href="/">
+        <Link href="/postad">
           <motion.a variants={variants} whileHover="hover" className="pl-2">
             <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
             Post Ad

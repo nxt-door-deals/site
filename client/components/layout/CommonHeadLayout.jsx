@@ -8,7 +8,7 @@ const CommonHeadLayout = () => {
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <meta
         property="og:image"
-        content="http://localhost:3000/images/site/icon.png"
+        content="https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/icon.png"
       />
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />

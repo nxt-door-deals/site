@@ -6,7 +6,7 @@ const Buy = () => {
   return (
     <div
       id="buy"
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-8 md:gap-6"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-8 md:gap-6 mx-5 md:mx-0"
     >
       {buy.map((item, index) => {
         return (
@@ -16,7 +16,7 @@ const Buy = () => {
               transition: { duration: 0.5 },
             }}
             key={index}
-            className="rounded-md overflow-hidden shadow-lg"
+            className="rounded-xl overflow-hidden shadow-lg"
           >
             <img class="w-full h-48 mb-2" src={item.image} alt={item.alt} />
             <div class="px-6 py-4">

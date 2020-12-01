@@ -1,12 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import SiteContext from "../../context/site/siteContext";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha"
-import keys from "../../utils/keys"
+import ReCAPTCHA from "react-google-recaptcha";
+import keys from "../../utils/keys";
+import BouncingBalls from "../loaders/BouncingBalls";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,7 +19,7 @@ import {
   faBuilding,
   faExclamationTriangle,
   faMapPin,
-  faDoorOpen
+  faDoorOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import Router from "next/router";
@@ -26,9 +27,14 @@ import Router from "next/router";
 // Component import
 import VerifyEmail from "../utils/VerifyEmail";
 import Alert from "../utils/Alert";
+import Terms from "../utils/Terms";
 
 const userRegistrationValidationSchema = Yup.object({
-  name: Yup.string().matches(/^[aA-zZ\s]+$/, "Only alphabets and spaces allowed").required("Please enter your name").max(100).trim(),
+  name: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets and spaces allowed")
+    .required("Please enter your name")
+    .max(100)
+    .trim(),
   email: Yup.string()
     .email("Please enter a valid email id")
     .required("Please enter your email id")
@@ -40,20 +46,54 @@ const userRegistrationValidationSchema = Yup.object({
     .trim(),
   mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
   apartment: Yup.string().required("Please select your apartment/property"),
-  apartmentNumber: Yup.string().required("Please enter your apartment number")
+  apartmentNumber: Yup.string()
+    .required("Please enter your apartment number")
+    .matches(/^[^=<>'"`]+$/, "Apartment number cannot contain = \" ' > < or `"),
 });
 
-const alertTheme = "bg-blue-200 text-blue-800";
+// Alert style
+const alertTheme = "bg-blue-200 text-blue-600";
+
+// Terms link style
+const termsLinksStyle = "underline text-blue-600";
+
+const variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
+  searchResultsHover: {
+    color: "#667EEA",
+    fontWeight: "bold",
+  },
+  buttonHover: {
+    backgroundColor: "#1E40AF",
+  },
+  buttonTap: {
+    backgroundColor: "#2563EB",
+    y: "2px",
+  },
+  secondaryButtonHover: {
+    backgroundColor: "#3182CE",
+    color: "#FFFFFF",
+  },
+};
 
 const UserRegistration = () => {
   var apartmentId;
   const [displayPassword, setDisplayPassword] = useState(false);
   const [parentDiv, setparentDiv] = useState("visible");
   const [showForm, setShowForm] = useState(true);
-  const [enableFormSubmission, setEnableFormSubmission] = useState(false)
+  const selectedApartment = useRef(null);
+  const [enableFormSubmission, setEnableFormSubmission] = useState(false);
 
   const siteContext = useContext(SiteContext);
-  const { fetchApartments, numApartmentsFetched, apartmentData, validateApartmentSelection, fetchError } = siteContext;
+  const {
+    fetchApartments,
+    numApartmentsFetched,
+    apartmentData,
+    validateApartmentSelection,
+    fetchError,
+  } = siteContext;
 
   const authContext = useContext(AuthContext);
   const {
@@ -61,7 +101,7 @@ const UserRegistration = () => {
     user,
     registerUser,
     isAuthenticated,
-    authError
+    authError,
   } = authContext;
 
   useEffect(() => {
@@ -85,17 +125,16 @@ const UserRegistration = () => {
     setDisplayPassword(!displayPassword);
   };
 
-
-
   return (
     <AnimatePresence exitBeforeEnter>
       {showForm ? (
         <motion.div
           key="form"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          className="rounded-md shadow-boxshadowregister bg-white p-8 mb-4"
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="rounded-3xl shadow-boxshadowregister bg-white p-8 mb-4"
         >
           <Formik
             initialValues={{
@@ -104,18 +143,18 @@ const UserRegistration = () => {
               mobile: "",
               password: "",
               apartment: "",
-              apartmentNumber: ""
+              apartmentNumber: "",
             }}
             validationSchema={userRegistrationValidationSchema}
             onSubmit={async (values, { setSubmitting }) => {
-              setSubmitting(true)
-
               apartmentId = apartmentData.find(
                 (o) => o.name === values.apartment
               );
 
-              if (!apartmentId){
-                validateApartmentSelection("Please select an apartment from the list")
+              if (!apartmentId) {
+                validateApartmentSelection(
+                  "Please select an apartment from the list"
+                );
               }
 
               registerUser(
@@ -124,29 +163,34 @@ const UserRegistration = () => {
                 values.mobile,
                 values.password,
                 values.apartmentNumber,
-                apartmentId.id
+                selectedApartment.current
               );
-              setSubmitting(false);
+
+              setTimeout(() => setSubmitting(false), 2000);
             }}
           >
             {(props) => (
               <div>
-                <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
+                <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
                   Let's begin!
                 </h2>
-                <Alert authError={authError} fetchError={fetchError} alertTheme={alertTheme} />
+                <Alert
+                  authError={authError}
+                  fetchError={fetchError}
+                  alertTheme={alertTheme}
+                />
                 <Form>
                   {/* Name Fields */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                       props.touched.name && props.errors.name
-                        ? "mb-1 border-red-800"
-                        : "mb-4 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faUser}
-                      className="inline fill-current text-gray-500 text-lg  ml-4"
+                      className="inline fill-current text-gray-400 text-lg  ml-4"
                     />
                     <Field
                       id="name"
@@ -156,7 +200,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
@@ -170,15 +214,15 @@ const UserRegistration = () => {
 
                   {/* Email */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                       props.touched.email && props.errors.email
-                        ? "mb-1 border-red-800"
-                        : "mb-4 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      className="inline align-middle fill-current text-gray-500 text-lg z-10 ml-4"
+                      className="inline align-middle fill-current text-gray-400 text-lg z-10 ml-4"
                     />
                     <Field
                       id="email"
@@ -188,7 +232,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
@@ -202,15 +246,15 @@ const UserRegistration = () => {
 
                   {/* Mobile */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                       props.touched.mobile && props.errors.mobile
-                        ? "mb-1 border-red-800"
-                        : "mb-4 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faPhoneAlt}
-                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
+                      className="inline align-middle fill-current text-gray-400 text-lg  ml-4"
                     />
                     <Field
                       id="mobile"
@@ -220,7 +264,7 @@ const UserRegistration = () => {
                       maxLength="15"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
@@ -234,15 +278,15 @@ const UserRegistration = () => {
 
                   {/* Password Field */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                       props.touched.password && props.errors.password
-                        ? "mb-1 border-red-800"
-                        : "mb-4 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faLock}
-                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
+                      className="inline align-middle fill-current text-gray-400 text-lg  ml-4"
                     />
                     <Field
                       id="password"
@@ -252,11 +296,11 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-9/12 md:w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-9/12 md:w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
                       icon={!displayPassword ? faEye : faEyeSlash}
-                      className="text-sm align-middle top-0 right-0 text-gray-500 cursor-pointer"
+                      className="text-sm align-middle top-0 right-0 text-gray-400 cursor-pointer"
                       onClick={setPasswordDisplay}
                       aria-label={
                         !displayPassword ? "Show Password" : "Hide Password"
@@ -274,15 +318,15 @@ const UserRegistration = () => {
 
                   {/* Apartment */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                       props.touched.apartment && props.errors.apartment
-                        ? "mb-1 border-red-800"
-                        : "mb-1 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-1 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faSearch}
-                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
+                      className="inline align-middle fill-current text-gray-400 text-lg ml-4"
                     />
                     <Field
                       id="apartment"
@@ -293,7 +337,7 @@ const UserRegistration = () => {
                       autoComplete="off"
                       autoFocus=""
                       onKeyUp={searchApartment}
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
@@ -322,16 +366,19 @@ const UserRegistration = () => {
                             <motion.div
                               key={index}
                               className="cursor-pointer"
-                              whileHover={{
-                                color: "#667EEA",
-                                fontWeight: "bold",
-                              }}
+                              variants={variants}
+                              whileHover="searchResultsHover"
                               onClick={() => {
                                 props.setFieldValue(
                                   apartment,
                                   (props.values.apartment = o.name)
                                 );
                                 setparentDiv("invisible");
+
+                                {
+                                  /* This will help with multiple apartments with the same name */
+                                }
+                                selectedApartment.current = o.id;
                               }}
                             >
                               <FontAwesomeIcon
@@ -373,7 +420,7 @@ const UserRegistration = () => {
                       }
                     >
                       Not found? You can create a neighborhood for{" "}
-                      <Link href="/register">
+                      <Link href={`/neighbourhood/${props.values.apartment}`}>
                         <a className="text-blue-700 font-bold underline">
                           {props.values.apartment}
                         </a>
@@ -387,15 +434,16 @@ const UserRegistration = () => {
 
                   {/* Apartment number */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
-                      props.touched.apartmentNumber && props.errors.apartmentNumber
-                        ? "mb-1 border-red-800"
-                        : "mb-4 mt-4 border-gray-300"
+                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                      props.touched.apartmentNumber &&
+                      props.errors.apartmentNumber
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 mt-7 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faDoorOpen}
-                      className="inline align-middle fill-current text-gray-500 text-lg  ml-4"
+                      className="inline align-middle fill-current text-gray-400 text-lg  ml-4"
                     />
                     <Field
                       id="apartmentNumber"
@@ -404,12 +452,13 @@ const UserRegistration = () => {
                       placeholder="Flat/house number* (Ex: 77, A2)"
                       maxLength="10"
                       autoComplete="off"
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
                   {/* Validation errors */}
-                  {props.touched.apartmentNumber && props.errors.apartmentNumber ? (
+                  {props.touched.apartmentNumber &&
+                  props.errors.apartmentNumber ? (
                     <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                       {props.errors.apartmentNumber}
@@ -421,39 +470,38 @@ const UserRegistration = () => {
                     name="recaptcha"
                     sitekey={keys.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     className="mt-4"
-                    onChange={() => setEnableFormSubmission(!enableFormSubmission)}
+                    onChange={() =>
+                      setEnableFormSubmission(!enableFormSubmission)
+                    }
                   />
 
                   <div className="text-center">
                     <motion.button
-                      whileTap={{
-                        backgroundColor: "#7F9CF5",
-                        y: "5px",
-                        boxShadow: "0px 8px 15px rgba(151, 201, 251, 0.2)",
-                      }}
-                      className={ "mt-4 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none " + (!enableFormSubmission ? "cursor-not-allowed " : null)}
+                      variants={variants}
+                      whileHover="buttonHover"
+                      whileTap="buttonTap"
+                      className={
+                        "mt-7 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none " +
+                        (!enableFormSubmission ? "cursor-not-allowed " : null)
+                      }
                       type="submit"
                       arira-aria-label="User registration button"
                       disabled={!enableFormSubmission ? "disabled" : null}
                     >
-                      Register
+                      {!props.isSubmitting ? "Register" : <BouncingBalls />}
                     </motion.button>
                   </div>
                 </Form>
-                <div className="font-axiforma text-blue-700 text-center text-xs">
-                  By registering, you acknowledge that you have read and understood our<br /> {"  "}
-                  <Link href="/"><a className="underline">Cookie Policy</a></Link>,{"  "}
-                  <Link href="/"><a className="underline">Privacy Policy</a></Link> and our{"  "}
-                  <Link href="/"><a className="underline">Terms of Use</a></Link>.
-                </div>
+
+                {/* T&C */}
+                <Terms termsLinksStyle={termsLinksStyle} />
+
                 <div className="font-axiforma text-blue-700 text-center mt-4 text-sm  lg:text-md">
                   Already have an account?{" "}
                   <motion.button
-                    className="ml-2 inline bg-opacity-25 bg-blue-400 text-blue-800 p-3 shadow-sm  font-semibold focus:outline-none"
-                    whileHover={{
-                      backgroundColor: "#3182CE",
-                      color: "#FFFFFF",
-                    }}
+                    className="ml-2 inline bg-opacity-25 bg-blue-400 text-blue-800 py-3 px-4 shadow-sm  font-semibold focus:outline-none rounded-xl"
+                    variants={variants}
+                    whileHover="secondaryButtonHover"
                     onClick={() => {
                       Router.push("/login");
                     }}
@@ -468,9 +516,9 @@ const UserRegistration = () => {
         </motion.div>
       ) : (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          variants={variants}
+          initial="initial"
+          animate="animate"
           className="rounded-md shadow-boxshadowregister bg-white p-12"
         >
           <VerifyEmail user={user} />

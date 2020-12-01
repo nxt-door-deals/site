@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import Link from "next/link";
 import Router from "next/router";
 import { motion } from "framer-motion";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -15,6 +16,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 // Component imports
 import Alert from "../utils/Alert";
+import BouncingBalls from "../loaders/BouncingBalls";
 
 const loginValidationSchema = Yup.object({
   email: Yup.string()
@@ -27,8 +29,9 @@ const loginValidationSchema = Yup.object({
 
 const alertTheme = "bg-purple-200 text-brand-purple";
 
-const UserLogin = () => {
+const UserLogin = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);
+
   const authContext = useContext(AuthContext);
   const { loginUser, isAuthenticated, loadUser, user, authError } = authContext;
 
@@ -36,43 +39,50 @@ const UserLogin = () => {
     if (isAuthenticated) {
       loadUser();
     }
+  }, [isAuthenticated]);
 
-    if (user !== null) Router.push(`/ads/${user.apartment_name}`);
-  }, [isAuthenticated, user]);
+  useEffect(() => {
+    if (user !== null) {
+      if (props.pathProp !== null) {
+        Router.push(props.pathProp);
+      } else {
+        Router.push(`/ads/${user.apartment_name}`);
+      }
+    }
+  }, [user]);
 
   const setPasswordDisplay = () => {
     setDisplayPassword(!displayPassword);
   };
 
   return (
-    <div className="rounded-md shadow-boxshadowlogin bg-white pt-5 pl-10 pr-10 pb-10">
+    <div className="rounded-3xl shadow-boxshadowlogin bg-white pt-8 pl-10 pr-10 pb-10">
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={loginValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setSubmitting(true);
           loginUser(values.email, values.password);
-          setSubmitting(false);
+
+          setTimeout(() => setSubmitting(false), 2000);
         }}
       >
         {(props) => (
           <div>
-            <h2
-              className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-4">
+            <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
               Welcome Back!
             </h2>
             <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div
-                className={`"flex iteams-center justify-center border-2 rounded-md " ${
+                className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                   props.touched.email && props.errors.email
-                    ? "mb-1 border-red-800"
-                    : "mb-8 border-gray-300"
+                    ? "mb-1 border-red-800 shadow-none"
+                    : "mb-8 border-gray-300 focus-within:border-text-purple"
                 }`}
               >
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="align-middle fill-current text-gray-500 text-lg ml-2"
+                  className="align-middle fill-current text-gray-400 text-lg ml-2"
                 />
                 <Field
                   id="email"
@@ -81,7 +91,7 @@ const UserLogin = () => {
                   placeholder="Email"
                   maxLength="50"
                   autoComplete="off"
-                  className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                  className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                 />
               </div>
 
@@ -94,15 +104,15 @@ const UserLogin = () => {
               ) : null}
 
               <div
-                className={`"flex items-center justify-center border-2 rounded-md " ${
+                className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
                   props.touched.password && props.errors.password
-                    ? "mb-1 border-red-800"
-                    : "mb-8 border-gray-300"
+                    ? "mb-1 border-red-800 shadow-none"
+                    : "mb-8 border-gray-300 focus-within:border-text-purple"
                 }`}
               >
                 <FontAwesomeIcon
                   icon={faLock}
-                  className="inline align-middle fill-current text-gray-500 text-lg ml-2"
+                  className="inline align-middle fill-current text-gray-400 text-lg ml-2"
                 />
                 <Field
                   id="password"
@@ -110,7 +120,7 @@ const UserLogin = () => {
                   type={!displayPassword ? "password" : "text"}
                   placeholder="Password"
                   maxLength="50"
-                  className="textbox-input md:w-10/12 placeholder-purple-900 placeholder-opacity-75"
+                  className="textbox-input md:w-10/12 placeholder-gray-600 placeholder-opacity-50"
                 />
                 <FontAwesomeIcon
                   icon={!displayPassword ? faEye : faEyeSlash}
@@ -133,15 +143,16 @@ const UserLogin = () => {
               <div className="text-center">
                 <motion.button
                   type="submit"
-                  className="mt-2 mb-8 w-64 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none"
+                  className="mt-2 mb-8 w-64 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                   whileTap={{
                     backgroundColor: "#D6BCFA",
                     color: "#550052",
                     y: "5px",
                     boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
                   }}
+                  disabled={props.isSubmitting}
                 >
-                  Login
+                  {!props.isSubmitting ? "Login" : <BouncingBalls />}
                 </motion.button>
               </div>
             </Form>
@@ -162,7 +173,7 @@ const UserLogin = () => {
             <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">
               Don't have an account?{" "}
               <motion.button
-                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-purple p-3 shadow-sm font-semibold focus:outline-none"
+                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-purple p-3 shadow-sm font-semibold rounded-xl focus:outline-none"
                 whileHover={{
                   backgroundColor: "#9F7AEA",
                   color: "#FFFFFF",

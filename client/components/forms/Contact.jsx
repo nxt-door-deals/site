@@ -44,9 +44,7 @@ const Contact = (props) => {
           onClick={() => props.setIsModalOpen(false)}
           alt="Close Menu"
         >
-          <FontAwesomeIcon
-            icon={faTimes}
-          />
+          <FontAwesomeIcon icon={faTimes} />
         </motion.div>
         <div className="flex justify-center">
           <img
@@ -81,15 +79,15 @@ const Contact = (props) => {
             {(props) => (
               <Form>
                 <div
-                  className={`"relative border-2 rounded-md " ${
+                  className={`"relative border-2 " ${
                     props.touched.email && props.errors.email
                       ? "mb-1 border-red-800"
-                      : "mb-6 border-gray-300"
+                      : "mb-6 border-gray-300 focus-within:border-text-purple"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon={faEnvelope}
-                    className="inline align-middle fill-current text-gray-600 text-lg opacity-50 ml-2"
+                    className="inline align-middle fill-current text-gray-400 text-lg opacity-50 ml-2"
                   />
                   <Field
                     id="email"
@@ -98,7 +96,7 @@ const Contact = (props) => {
                     placeholder="Email*"
                     maxLength="50"
                     autoComplete="off"
-                    className="textbox-input w-10/12 md:w-11/12 placeholder-purple-900 placeholder-opacity-50"
+                    className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                   />
                 </div>
 
@@ -111,25 +109,25 @@ const Contact = (props) => {
                 ) : null}
 
                 <div
-                  className={`"relative border-2 rounded-md " ${
+                  className={`"relative border-2 " ${
                     props.touched.message && props.errors.message
                       ? "mb-1 border-red-800"
-                      : "mb-6 border-gray-300"
+                      : "mb-6 border-gray-300 focus-within:border-text-purple"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon={faComments}
-                    className="inline align-top fill-current text-gray-600 text-lg opacity-50 mt-2 ml-2"
+                    className="inline align-top fill-current text-gray-400 text-lg opacity-50 mt-2 ml-2"
                   />
                   <Field
-                    id="emmessageail"
+                    id="message"
                     as="textarea"
                     name="message"
                     type="text"
                     placeholder="Message*"
                     maxLength="1000"
                     autoComplete="off"
-                    className="text-sm p-2 leading-6 outline-none w-10/12 md:w-11/12 placeholder-purple-900 placeholder-opacity-50"
+                    className="text-sm p-2 leading-6 outline-none w-10/12 md:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                   />
                 </div>
 

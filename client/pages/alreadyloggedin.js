@@ -1,18 +1,19 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import AuthContext from "../context/auth/authContext";
 import Router from "next/router";
-import { motion, VisibilityAction } from "framer-motion";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const variants = {
-  hidden: {opacity: 0},
-  btn1Visible: {opacity: 1, transition: {delay: 0.5, duration: 0.3}},
-  btn2Visible: {opacity: 1, transition: {delay: 1, duration: 0.3}},
+  hidden: { opacity: 0 },
+  btn1Visible: { opacity: 1, transition: { delay: 0.5, duration: 0.3 } },
+  btn2Visible: { opacity: 1, transition: { delay: 1, duration: 0.3 } },
   tap: {
     backgroundColor: "#D6BCFA",
     color: "#550052",
     y: "5px",
-  }
-}
+  },
+};
 
 const AlreadyLoggedIn = () => {
   const authContext = useContext(AuthContext);
@@ -27,6 +28,13 @@ const AlreadyLoggedIn = () => {
     Router.push("/");
   };
 
+  // Logout toast
+  const logoutToast = () =>
+    toast("You are being logged out. Have a nice day :)", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   return (
     <Fragment>
       <div className="pt-24 md:pt-24 pr-20 pl-20 text-center font-axiforma text-xl text-gray-600">
@@ -35,7 +43,8 @@ const AlreadyLoggedIn = () => {
           <span className="text-brand-purple font-semibold">
             {user !== null ? user.name : "friend"}
           </span>
-          ! You are seeing this page because you are already logged in. Please logout if you want to register or login as another user.
+          ! You are seeing this page because you are already logged in. Please
+          logout if you want to register or login as another user.
         </h1>
       </div>
 
@@ -59,7 +68,8 @@ const AlreadyLoggedIn = () => {
           className="w-48 h-12 rounded-lg bg-pink-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
           onClick={() => {
             logout();
-            Router.push("/")
+            logoutToast();
+            setTimeout(() => Router.reload("/"), 2000);
           }}
           aria-label="Logout button"
         >

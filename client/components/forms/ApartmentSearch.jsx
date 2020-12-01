@@ -16,6 +16,17 @@ const apartmentSearchValidationSchema = Yup.object({
   apartment: Yup.string().required("Please select your neighbourhood"),
 });
 
+const variants = {
+  hoverSearchResults: { color: "#553C9A", fontWeight: "bold" },
+  buttonTap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+  buttonHover: {
+    backgroundColor: "#5B21B6",
+  },
+};
+
 const ApartmentSearch = () => {
   const [parentDiv, setparentDiv] = useState("visible");
   const siteContext = useContext(SiteContext);
@@ -54,15 +65,15 @@ const ApartmentSearch = () => {
             }}
           >
             <div
-              className={`"flex mt-6 border-2 rounded-md " ${
+              className={`"flex mt-6 border-2 rounded-xl " ${
                 props.errors.apartment && props.touched.apartment
-                  ? "border-red-900"
-                  : "border-purple-900"
+                  ? "border-red-900 shadow-none"
+                  : "border-purple-900 focus:outline-none"
               }`}
             >
               <FontAwesomeIcon
                 icon={faSearch}
-                className="inline align-middle text-lg fill-current text-gray-500 opacity-50 ml-2"
+                className="inline align-middle text-lg fill-current text-gray-400 ml-2 "
                 alt="Search Apartment"
               />
               <Field
@@ -70,7 +81,7 @@ const ApartmentSearch = () => {
                 name="apartment"
                 type="input"
                 placeholder="Find Your Apartment"
-                className="textbox-input lg:w-9/12 xl:w-11/12 placeholder-purple-900 placeholder-opacity-50"
+                className="textbox-input lg:w-9/12 xl:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                 maxLength="100"
                 autoComplete="off"
                 onKeyUp={searchApartment}
@@ -101,7 +112,8 @@ const ApartmentSearch = () => {
                       <motion.div
                         key={index}
                         className="cursor-pointer"
-                        whileHover={{ color: "#553C9A", fontWeight: "bold" }}
+                        variants={variants}
+                        whileHover="hoverSearchResults"
                         onClick={() => {
                           props.setFieldValue(
                             apartment,
@@ -149,7 +161,7 @@ const ApartmentSearch = () => {
                 }
               >
                 Not found? Create a neighborhood for{" "}
-                <Link href="/register">
+                <Link href={`/neighbourhood/${props.values.apartment}`}>
                   <a className="text-purple-700 font-bold underline">
                     {props.values.apartment}
                   </a>
@@ -164,13 +176,10 @@ const ApartmentSearch = () => {
               <motion.button
                 type="submit"
                 disabled={props.isSubmitting}
-                className="mt-8 p-0 w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
-                whileTap={{
-                  backgroundColor: "#D6BCFA",
-                  color: "#550052",
-                  y: "5px",
-                  boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                }}
+                className="mt-8 p-0 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
+                variants={variants}
+                whileHover="buttonHover"
+                whileTap="buttonTap"
                 aria-label="Browse Advertisements"
               >
                 {!props.isSubmitting ? "Browse Ads" : "Searching..."}
