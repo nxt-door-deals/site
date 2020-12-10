@@ -28,11 +28,10 @@ const Neighbourhood = (props) => {
 
   return (
     <CreateNeighbourhoodHeadLayout>
-      <Navbar navStyle={navStyle} />
-      <div>
-        <div className="flex justify-center items-center h-full bg-create-neighbourhood-background-mobile lg:bg-create-neighbourhood-background bg-cover bg-no-repeat">
-          <CreateNeighbourhood aptNameFromUrl={props.value} />
-        </div>
+      <div className="h-full font-axiforma">
+        <Navbar navStyle={navStyle} />
+        <div className="h-80 lg:h-96 w-full bg-create-neighbourhood-background-mobile md:bg-create-neighbourhood-background-tablet lg:bg-create-neighbourhood-background bg-cover bg-no-repeat "></div>
+        <CreateNeighbourhood aptNameFromUrl={props.value} />
       </div>
       <div>
         <Footer footerGradientClass={footerGradientClass} />

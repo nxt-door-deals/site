@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Popup from "reactjs-popup";
-import keys from "../../utils/keys"
+import keys from "../../utils/keys";
 
 const VerifyEmail = ({ user }) => {
   const authContext = useContext(AuthContext);
@@ -66,7 +66,8 @@ const VerifyEmail = ({ user }) => {
         className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500
         uppercase mb-4 focus:outline-none"
         onClick={() => {
-          user !== null && Router.push(`/ads/${user.apartment_name}`);
+          user !== null &&
+            Router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
         }}
       >
         Continue to site

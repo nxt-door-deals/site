@@ -1,7 +1,7 @@
-import { useContext, useState, Fragment } from "react";
+import { useContext, useState, useRef, Fragment } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { Formik, Field, Form } from "formik";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
@@ -10,14 +10,18 @@ import {
   faSearch,
   faMapPin,
   faBuilding,
+  faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
+
+// Component imports
+import BouncingBalls from "../loaders/BouncingBalls";
 
 const apartmentSearchValidationSchema = Yup.object({
   apartment: Yup.string().required("Please select your neighbourhood"),
 });
 
 const variants = {
-  hoverSearchResults: { color: "#553C9A", fontWeight: "bold" },
+  hoverSearchResults: { color: "#553C9A", fontWeight: 600 },
   buttonTap: {
     backgroundColor: "#8B5CF6",
     y: "2px",
@@ -29,6 +33,9 @@ const variants = {
 
 const ApartmentSearch = () => {
   const [parentDiv, setparentDiv] = useState("visible");
+  const [enableFormSubmission, setEnableFormSubmission] = useState(false);
+  const apartmentId = useRef(null);
+  const router = useRouter();
   const siteContext = useContext(SiteContext);
   const {
     fetchApartments,
@@ -47,15 +54,17 @@ const ApartmentSearch = () => {
   };
 
   return (
-    <Fragment>
+    <div className="font-axiforma">
       <Formik
         initialValues={{ apartment: "" }}
         validationSchema={apartmentSearchValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
-          clearApartmentSearchResults();
-          Router.push(`/ads/${values.apartment}`);
-          setSubmitting(false);
+          if (enableFormSubmission) {
+            clearApartmentSearchResults();
+            router.push(`/ads/${values.apartment}/${apartmentId.current}`);
+          }
+          setTimeout(() => setSubmitting(false), 2000);
         }}
       >
         {(props) => (
@@ -67,13 +76,13 @@ const ApartmentSearch = () => {
             <div
               className={`"flex mt-6 border-2 rounded-xl " ${
                 props.errors.apartment && props.touched.apartment
-                  ? "border-red-900 shadow-none"
+                  ? "mb-1 border-red-900 shadow-none"
                   : "border-purple-900 focus:outline-none"
               }`}
             >
               <FontAwesomeIcon
                 icon={faSearch}
-                className="inline align-middle text-lg fill-current text-gray-400 ml-2 "
+                className="inline align-middle text-lg fill-current text-gray-400 ml-2 w- "
                 alt="Search Apartment"
               />
               <Field
@@ -81,7 +90,7 @@ const ApartmentSearch = () => {
                 name="apartment"
                 type="input"
                 placeholder="Find Your Apartment"
-                className="textbox-input lg:w-9/12 xl:w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
                 maxLength="100"
                 autoComplete="off"
                 onKeyUp={searchApartment}
@@ -90,7 +99,8 @@ const ApartmentSearch = () => {
 
             {/* Validation errors */}
             {props.touched.apartment && props.errors.apartment ? (
-              <div className="font-axiforma absolute text-xs text-red-800 p-1">
+              <div className=" text-xs text-red-800 p-1 mb-2">
+                <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                 {props.errors.apartment}
               </div>
             ) : null}
@@ -119,6 +129,8 @@ const ApartmentSearch = () => {
                             apartment,
                             (props.values.apartment = o.name)
                           );
+                          apartmentId.current = o.id;
+                          setEnableFormSubmission(true);
                           setparentDiv("invisible");
                         }}
                       >
@@ -175,20 +187,19 @@ const ApartmentSearch = () => {
             <div>
               <motion.button
                 type="submit"
-                disabled={props.isSubmitting}
                 className="mt-8 p-0 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
                 variants={variants}
                 whileHover="buttonHover"
                 whileTap="buttonTap"
                 aria-label="Browse Advertisements"
               >
-                {!props.isSubmitting ? "Browse Ads" : "Searching..."}
+                {!props.isSubmitting ? "Browse Ads" : <BouncingBalls />}
               </motion.button>
             </div>
           </Form>
         )}
       </Formik>
-    </Fragment>
+    </div>
   );
 };
 

@@ -40,11 +40,10 @@ const postad = (props) => {
 
   return (
     <PostAdHeadLayout>
-      <Navbar navStyle={navStyle} />
-      <div>
-        <div className="flex justify-center items-center h-full bg-postad-background-mobile lg:bg-postad-background bg-cover bg-no-repeat">
-          <Categories />
-        </div>
+      <div className="h-full font-axiforma">
+        <Navbar navStyle={navStyle} />
+        <div className="w-full bg-post-ad-mobile-background md:bg-post-ad-background bg-cover bg-no-repeat h-100"></div>
+        <Categories />
       </div>
       <div>
         <Footer footerGradientClass={footerGradientClass} />

@@ -18,7 +18,7 @@ const variants = {
 const PostAdHeader = (props) => {
   return (
     <div className="font-axiforma text-center mb-10 px-5">
-      <h1 className="font-semibold  md:pt-10 text-3xl text-brand-gray">
+      <h1 className="font-semibold md:pt-8 text-3xl text-brand-gray">
         {props.heading}
       </h1>
       <div className="pt-1 flex justify-center">

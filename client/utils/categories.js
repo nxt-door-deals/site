@@ -1,19 +1,3 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faCar,
-//   faTabletAlt,
-//   faDesktop,
-//   faCouch,
-//   faUtensils,
-//   faBaby,
-//   faBook,
-//   faGuitar,
-//   faDumbbell,
-//   faTshirt,
-//   faPaw,
-//   faSeedling,
-// } from "@fortawesome/free-solid-svg-icons";
-
 const categories = [
   {
     name: "Cars & Bikes",
@@ -173,10 +157,24 @@ const categoryListOptions = [
     label: "Sports & Fitness",
   },
   {
-    value: "Cars & Bikes",
-    label: "Cars & Bikes",
+    value: "Travel & Fashion",
+    label: "Travel & Fashion",
+  },
+  {
+    value: "Pets",
+    label: "Pets",
+  },
+  {
+    value: "Garden",
+    label: "Garden",
   },
 ];
+
+const extendedCategoryListOptions = categoryListOptions;
+extendedCategoryListOptions.unshift({
+  value: "All Categories",
+  label: "All Categories",
+});
 
 const conditionOptions = [
   { value: "New", label: "New" },
@@ -185,4 +183,9 @@ const conditionOptions = [
   { value: "Heavily Used", label: "Heavily Used" },
 ];
 
-export { categories, categoryListOptions, conditionOptions };
+export {
+  categories,
+  categoryListOptions,
+  extendedCategoryListOptions,
+  conditionOptions,
+};

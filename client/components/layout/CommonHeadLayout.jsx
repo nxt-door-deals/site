@@ -1,9 +1,13 @@
 import { Fragment } from "react";
+import Head from "next/head";
 
 const CommonHeadLayout = () => {
   return (
-    <Fragment>
-      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, viewport-fit=cover"/>
+    <Head>
+      <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, viewport-fit=cover"
+      />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <meta
@@ -12,7 +16,11 @@ const CommonHeadLayout = () => {
       />
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />
-    </Fragment>
+      <link
+        href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"
+        rel="stylesheet"
+      ></link>
+    </Head>
   );
 };
 

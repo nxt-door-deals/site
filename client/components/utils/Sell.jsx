@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { sell } from "../../utils/howItWorks";
 
@@ -18,7 +19,10 @@ const Sell = () => {
             key={index}
             className="rounded-xl overflow-hidden shadow-lg"
           >
-            <img className="w-full h-48 mb-2" src={item.image} alt={item.alt} />
+            <div className="flex items-center justify-center">
+              <Image src={item.image} alt={item.alt} width={250} height={250} />
+            </div>
+
             <div className="px-6 py-4">
               <div className="font-bold text-brand-gray text-xl mb-2">
                 {item.heading}

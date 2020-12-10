@@ -49,7 +49,7 @@ const Footer = (props) => {
           <li className="pb-1 px-2">
             <Link href="/">
               <motion.a variants={variants} whileHover="hover">
-                <FontAwesomeIcon icon={faBook} className="mr-1" />
+                <FontAwesomeIcon icon={faBook} className="mr-1 w-3" />
                 Our Story
               </motion.a>
             </Link>{" "}

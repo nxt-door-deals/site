@@ -79,6 +79,23 @@ const CreateNeighbourhood = (props) => {
 
   useEffect(() => {
     if (apartmentCreated) {
+      const neighbourhoodVerificationHash =
+        submittedNeighbourhood.verification_hash +
+        "|" +
+        submittedNeighbourhood.id;
+
+      const verificationUrl = `http://${keys.SERVER}/verifyneighbourhood/${neighbourhoodVerificationHash}`;
+
+      sendNbhRegistrationVerificationRequestEmail(
+        submittedNeighbourhood.name,
+        submittedNeighbourhood.address1,
+        submittedNeighbourhood.address2,
+        submittedNeighbourhood.city,
+        submittedNeighbourhood.state,
+        submittedNeighbourhood.pincode,
+        submittedNeighbourhood.submitted_by,
+        verificationUrl
+      );
       setShowForm(false);
     }
   }, [apartmentCreated]);
@@ -107,11 +124,11 @@ const CreateNeighbourhood = (props) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="pt-56 md:pt-48 font-axiforma"
+          className="font-axiforma"
         >
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mt-8 mb-20 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-10">
-              Register Neighbourhood
+              Register Your Neighbourhood
             </h1>
 
             {/* Flex container with form */}
@@ -122,7 +139,7 @@ const CreateNeighbourhood = (props) => {
                 className="pb-4 lg:pr-4 lg:pb-0 text-brand-gray"
               >
                 <h2 className="text-xl text-center font-semibold mb-6">
-                  How does registration work?
+                  How does it work?
                 </h2>
                 <ul>
                   <li className="flex items-center pb-3">
@@ -198,7 +215,7 @@ const CreateNeighbourhood = (props) => {
               </div>
 
               {/* The form for neighbourhood registration */}
-              <div id="form" className="mt-6 lg:mt-0 lg:ml-2 md:px-16">
+              <div id="form" className="pt-6 lg:mt-0 lg:ml-2 md:px-16">
                 <Formik
                   initialValues={{
                     name: props.aptNameFromUrl ? props.aptNameFromUrl : "",
@@ -221,15 +238,6 @@ const CreateNeighbourhood = (props) => {
                       values.email
                     );
                     sendNbhRegistrationEmailToUser(values.name, values.email);
-                    sendNbhRegistrationVerificationRequestEmail(
-                      values.name,
-                      values.address1,
-                      values.address2,
-                      values.city,
-                      values.state,
-                      values.pincode,
-                      values.email
-                    );
                     setTimeout(() => setSubmitting(false), 2000);
                   }}
                 >
@@ -241,7 +249,7 @@ const CreateNeighbourhood = (props) => {
 
                       {/* Apartment name */}
                       <div
-                        className={`"flex items-center justify-center border-2 rounded-xl shadow-md lg:w-128 " ${
+                        className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.name && props.errors.name
                             ? "mb-1 border-red-800 shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -273,7 +281,7 @@ const CreateNeighbourhood = (props) => {
 
                       {/* Apartment address 1 */}
                       <div
-                        className={`"flex items-center justify-center border-2 rounded-xl shadow-md lg:w-128 " ${
+                        className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.address1 && props.errors.address1
                             ? "mb-1 border-red-800 shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -305,7 +313,7 @@ const CreateNeighbourhood = (props) => {
                       {/* Apartment address 2 */}
                       <div
                         className={
-                          "flex items-center border-2 rounded-xl shadow-md lg:w-128 mb-8 border-gray-300 focus-within:border-text-blue"
+                          "flex items-center border-2 rounded-xl  lg:w-128 mb-8 border-gray-300 focus-within:border-text-blue"
                         }
                       >
                         <FontAwesomeIcon
@@ -325,7 +333,7 @@ const CreateNeighbourhood = (props) => {
 
                       {/* City */}
                       <div
-                        className={`"flex items-center justify-center border-2 rounded-xl shadow-md lg:w-128 " ${
+                        className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.city && props.errors.city
                             ? "mb-1 border-red-800 shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -357,7 +365,7 @@ const CreateNeighbourhood = (props) => {
                       {/* State and pincode */}
                       <div className="flex justify-between">
                         {/* State */}
-                        <div className="w-56 lg:w-64 mt-1">
+                        <div className="w-56 lg:w-64">
                           {/* <div
                             className={`${
                               props.touched.state && props.errors.state
@@ -393,7 +401,7 @@ const CreateNeighbourhood = (props) => {
                             className={`${
                               props.touched.state && props.errors.state
                                 ? "mb-1  border-2 border-red-800 rounded-xl shadow-none"
-                                : "mb-8 border-2 border-gray-300 rounded-xl shadow-md  focus-within:border-text-blue"
+                                : "mb-8 border-2 border-gray-300 rounded-xl   focus-within:border-text-blue"
                             }`}
                           >
                             <Select
@@ -403,7 +411,7 @@ const CreateNeighbourhood = (props) => {
                               options={states}
                               placeholder="Select State/UT"
                               styles={customStyles}
-                              className="text-sm p-1"
+                              className="text-sm p-1.5"
                               onBlur={() =>
                                 props.setFieldTouched("state", true)
                               }
@@ -434,7 +442,7 @@ const CreateNeighbourhood = (props) => {
                         {/* Pincode */}
                         <div className="flex flex-col ml-5">
                           <div
-                            className={`"flex items-center justify-center border-2 rounded-xl shadow-md lg:w-64" ${
+                            className={`"flex items-center justify-center border-2 rounded-xl  lg:w-64" ${
                               props.touched.pincode && props.errors.pincode
                                 ? "mb-1 border-red-800 shadow-none"
                                 : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -467,7 +475,7 @@ const CreateNeighbourhood = (props) => {
 
                       {/* Email */}
                       <div
-                        className={`"flex items-center justify-center border-2 rounded-xl shadow-md lg:w-128 " ${
+                        className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.email && props.errors.email
                             ? "mb-1 border-red-800 shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -512,7 +520,7 @@ const CreateNeighbourhood = (props) => {
                           variants={variants}
                           whileHover="hover"
                           whileTap="tap"
-                          className={`"mt-4 mb-8 w-88 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
+                          className={`"mt-8 mb-8 w-88 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
                             !enableFormSubmission ? "cursor-not-allowed" : null
                           }`}
                           disabled={!enableFormSubmission ? true : false}

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
+import SiteContext from "../../context/site/siteContext";
+import { useRouter } from "next/router";
 import Select from "react-select";
 import { Formik, Field, Form } from "formik";
-import { categories } from "../../utils/categories";
 import DatePicker from "react-datepicker";
 import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { toast } from "react-toastify";
-import SiteContext from "../../context/site/siteContext";
 import { motion } from "framer-motion";
 import BouncingBalls from "../loaders/BouncingBalls";
+import { categoryListOptions, conditionOptions } from "../../utils/categories";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -30,10 +31,9 @@ const createAdValidationSchema = Yup.object({
   description: Yup.string()
     .required("Please provide an elaborate description for your ad. Go nuts!")
     .trim()
-    .matches(/^[^=<>'"`]+$/, "Description cannot contain = = \" ' > < or `"),
-  typeOfSale: Yup.string().required(
-    "Please specify if this is a sale or a giveaway"
-  ),
+    .matches(/^[^=<>'"`]+$/, "Description cannot contain = \" ' > < or `"),
+  typeOfSale: Yup.string().required("Is this a sale or a giveaway?"),
+  // condition: Yup.string().required("Please select the item condition"),
   price: Yup.string().when("typeOfSale", {
     is: "sale",
     then: Yup.string()
@@ -63,11 +63,12 @@ const termsLinksStyle = "underline text-purple-500";
 const CreateAd = ({ categoryName, user }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [files, setFiles] = useState([]);
+  const router = useRouter();
 
   const siteContext = useContext(SiteContext);
   const { createAd } = siteContext;
 
-  // Make sure that we remain at the top of the page
+  // Make sure that we remain at the top of the page once component renders
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -95,6 +96,23 @@ const CreateAd = ({ categoryName, user }) => {
       position: "top-center",
     });
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: "1px dotted #1E3A8A",
+      color: state.isSelected ? "#F5F3FF" : "#6D28D9",
+      padding: 10,
+      fontSize: 12,
+    }),
+    control: (provided) => ({
+      ...provided,
+      boxShadow: "none",
+      border: "none",
+      backgroundColor: "transparent",
+      color: "#6D28D9",
+    }),
+  };
+
   const images = newFiles.map((file, index) => {
     return (
       <div key={index}>
@@ -116,9 +134,9 @@ const CreateAd = ({ categoryName, user }) => {
   });
 
   return (
-    <div className="pt-56 md:pt-48 font-axiforma">
+    <div className="flex flex-col items-center h-full w-full font-axiforma">
       <PostAdHeader heading={heading} step={step} />
-      <div className="rounded-3xl shadow-postadshadow text-brand-gray bg-white py-10 px-10 mt-8 mb-20 mx-5 lg:mx-10">
+      <div className="rounded-3xl shadow-postadshadow text-brand-gray bg-white py-10 px-10 mb-20 mx-5">
         <Formik
           initialValues={{
             categoryList: categoryName,
@@ -127,7 +145,7 @@ const CreateAd = ({ categoryName, user }) => {
             typeOfSale: "",
             price: "",
             negotiable: false,
-            condition: "new",
+            condition: "",
             availableFrom: "",
             publishFlatNo: false,
             files: "",
@@ -158,46 +176,45 @@ const CreateAd = ({ categoryName, user }) => {
               user.apartment_id,
               files
             );
-            setTimeout(() => setSubmitting(false), 3000);
+            setTimeout(() => setSubmitting(false), 2000);
+            router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
           }}
         >
           {(props) => (
             <Form>
               <div>
                 {/* The category dropdown */}
-                <div className="flex justify-center align-middle font-axiforma">
-                  <label
-                    htmlFor="categoryList"
-                    className="text-xs md:text-sm mr-1 text-gray-600"
-                  >
-                    Category:
-                  </label>
-                  <Field
-                    id="categoryList"
-                    name="categoryList"
-                    as="select"
-                    className="font-axiforma border-b-2 text-sm outline-none mb-10 text-purple-700 font-semibold text-center"
-                  >
-                    <option
-                      value={categoryName}
-                      className="font-sans font-semibold"
-                    >
-                      {categoryName}
-                    </option>
-                    {categories.map((category, index) => {
-                      if (category.name !== categoryName) {
-                        return (
-                          <option
-                            value={category.name}
-                            key={index}
-                            className="font-sans font-semibold"
-                          >
-                            {category.name}
-                          </option>
+                <div className="flex justify-center mb-10 -z-20">
+                  <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-blue">
+                    <Select
+                      id="categoryList"
+                      name="categoryList"
+                      instanceId="categoryList"
+                      defaultValue={{
+                        label: categoryName,
+                        value: categoryName,
+                      }}
+                      options={categoryListOptions}
+                      styles={customStyles}
+                      className="text-sm p-1.5"
+                      autoFocus
+                      onBlur={() => props.setFieldTouched("categoryList", true)}
+                      onChange={(o) => {
+                        props.setFieldValue(
+                          "categoryList",
+                          (props.values.categoryList = o.value)
                         );
-                      }
-                    })}
-                  </Field>
+                      }}
+                      isSearchable
+                      theme={(theme) => ({
+                        ...theme,
+                        colors: {
+                          ...theme.colors,
+                          neutral50: "#9CA3AF", // Placeholder color
+                        },
+                      })}
+                    />
+                  </div>
                 </div>
 
                 {/* Rest of the form */}
@@ -205,7 +222,7 @@ const CreateAd = ({ categoryName, user }) => {
                   <div className="lg:pr-10 px-2">
                     {/* Title */}
                     <div
-                      className={`"flex items-center justify-center px-2 border-2 rounded-xl shadow-md " ${
+                      className={`"flex items-center justify-center px-2 border-2 rounded-xl  " ${
                         props.touched.title && props.errors.title
                           ? "mb-1 border-red-800 shadow-none"
                           : "mb-6 border-gray-300 focus:outline-none focus-within:border-text-purple"
@@ -232,7 +249,7 @@ const CreateAd = ({ categoryName, user }) => {
 
                     {/* Description */}
                     <div
-                      className={`"flex items-center justify-center border-2 px-2 rounded-xl shadow-md " ${
+                      className={`"flex items-center justify-center border-2 px-2 rounded-xl  " ${
                         props.touched.description && props.errors.description
                           ? "mb-1 border-red-800 shadow-none"
                           : "mb-6 border-gray-300 focus-within:border-text-purple"
@@ -260,8 +277,8 @@ const CreateAd = ({ categoryName, user }) => {
                       </div>
                     ) : null}
 
-                    {/* Type of sale and price. y margin is different due to the negotiable checkbox */}
-                    <div className="lg:flex lg:justify-between mt-4 mb-6">
+                    {/* Type of ad and price. y margin is different due to the negotiable checkbox */}
+                    <div className="lg:flex lg:justify-between mb-6">
                       <div
                         className={`"flex-col font-axiforma mr-10 " ${
                           props.touched.typeOfSale && props.errors.typeOfSale
@@ -271,7 +288,7 @@ const CreateAd = ({ categoryName, user }) => {
                       >
                         <label
                           htmlFor="typeOfSale"
-                          className="text-xs md:text-sm pb-2  text-gray-600"
+                          className="text-sm pb-2 text-gray-600"
                         >
                           Type of ad:
                         </label>
@@ -314,9 +331,9 @@ const CreateAd = ({ categoryName, user }) => {
                       </div>
 
                       {/* Price */}
-                      <div className="flex flex-col">
+                      <div className="flex flex-col mt-5 lg:mt-0">
                         <div
-                          className={`"mt-1 border-2 px-2 rounded-xl shadow-md " ${
+                          className={`"mt-1 border-2 px-2 rounded-xl  " ${
                             props.touched.price &&
                             props.errors.price &&
                             props.values.typeOfSale === "sale"
@@ -380,8 +397,8 @@ const CreateAd = ({ categoryName, user }) => {
                     </div>
 
                     {/* Condition and Date */}
-                    <div className="flex justify-between my-6">
-                      <div className="font-axiforma mr-10">
+                    <div className="flex flex-col lg:flex-row lg:justify-between mb-6">
+                      {/* <div className="font-axiforma mr-10">
                         <label
                           htmlFor="condition"
                           className="text-xs md:text-sm mr-1  text-gray-600"
@@ -419,12 +436,55 @@ const CreateAd = ({ categoryName, user }) => {
                             Heavily Used
                           </option>
                         </Field>
+                      </div> */}
+                      <div className="w-full lg:w-48">
+                        <div
+                          className={`${
+                            props.touched.condition && props.errors.condition
+                              ? "mb-1  border-2 border-red-800 rounded-xl shadow-none"
+                              : "mb-8 border-2 border-gray-300 rounded-xl   focus-within:border-text-blue"
+                          }`}
+                        >
+                          <Select
+                            id="condition"
+                            name="condition"
+                            instanceId="condition"
+                            options={conditionOptions}
+                            placeholder="Select Condition"
+                            defaultValue="New"
+                            styles={customStyles}
+                            className="text-sm p-1.5"
+                            onBlur={() =>
+                              props.setFieldTouched("condition", true)
+                            }
+                            onChange={(o) => {
+                              props.setFieldValue(
+                                "condition",
+                                (props.values.condition = o.value)
+                              );
+                            }}
+                            isSearchable
+                            theme={(theme) => ({
+                              ...theme,
+                              colors: {
+                                ...theme.colors,
+                                neutral50: "#9CA3AF", // Placeholder color
+                              },
+                            })}
+                          />
+                        </div>
+                        {/* {props.touched.condition && props.errors.condition ? (
+                          <div className="font-axiforma text-xs text-red-800 py-1 mb-2">
+                            <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                            {props.errors.condition}
+                          </div>
+                        ) : null} */}
                       </div>
 
-                      <div className="font-axiforma">
+                      <div className="font-axiforma lg:pl-6 lg:mt-3">
                         <label
-                          htmlFor="condition"
-                          className="text-xs md:text-sm  text-gray-600"
+                          htmlFor="availableFrom"
+                          className="text-sm  text-gray-600"
                         >
                           Available from:
                         </label>
@@ -442,19 +502,34 @@ const CreateAd = ({ categoryName, user }) => {
 
                   {/* Upload photos */}
                   <div className="flex flex-col items-center lg:pl-10 lg:border-l-2 border-gray-300 font-axiforma">
-                    <h1 className="mt-4 mb-4 text-gray-600 text-xs md:text-sm">
+                    <h1 className="mt-4 text-gray-600 text-sm">
                       {newFiles.length === 0
                         ? "Upload photos"
                         : `Uploaded ${newFiles.length} of 10 photos`}
                     </h1>
-                    <Dropzone accept="image/*" onDrop={onDrop} maxFiles={10}>
+                    {newFiles.length === 0 && (
+                      <p className="text-xs text-gray-600 mt-2">
+                        Accepted image formats -{" "}
+                        <span className="text-purple-700">jpeg</span>,{" "}
+                        <span className="text-purple-700">bmp</span>,{" "}
+                        <span className="text-purple-700">tiff</span>,{" "}
+                        <span className="text-purple-700">webp</span>,{" "}
+                        <span className="text-purple-700">png</span> and{" "}
+                        <span className="text-purple-700">gif</span>.
+                      </p>
+                    )}
+                    <Dropzone
+                      accept="image/jpg, image/jpeg, image/bmp, image/tiff, image/png, image/gif, image/webp"
+                      onDrop={onDrop}
+                      maxFiles={10}
+                    >
                       {({ getRootProps, getInputProps, isDragReject }) => (
                         <section>
                           {newFiles.length < 10 ? (
-                            <div>
+                            <div className="mt-6">
                               <div
                                 {...getRootProps()}
-                                className="text-center p-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
+                                className="text-center px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
                               >
                                 <input {...getInputProps()} />
                                 <FontAwesomeIcon
@@ -482,7 +557,8 @@ const CreateAd = ({ categoryName, user }) => {
                           {isDragReject && (
                             <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                              Please upload images only
+                              Accepted image formats - jpeg, bmp, tiff, png and
+                              gif
                             </div>
                           )}
                         </section>
@@ -492,7 +568,7 @@ const CreateAd = ({ categoryName, user }) => {
                 </div>
 
                 {/* Publish flat number */}
-                <div className="mt-6 font-axiforma text-center">
+                <div className="mt-4 font-axiforma text-center">
                   <label htmlFor="publishFlatNo" className="text-sm">
                     <Field
                       type="checkbox"

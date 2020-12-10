@@ -5,8 +5,8 @@ import CommonHeadLayout from "./CommonHeadLayout";
 const UserLoginHeadLayout = (props) => {
   return (
     <Fragment>
+      <CommonHeadLayout />
       <Head>
-        <CommonHeadLayout />
         <title>NXT Door Deals | Create Your Account</title>
         <meta
           name="description"

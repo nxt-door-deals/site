@@ -8,14 +8,16 @@ module.exports = {
       },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-        boxshadowlogin: "0px -5px 8px 2px rgba(207, 139, 207, 0.2)",
+        boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
         navshadow: "0px 1px 5px rgba(255, 0, 255, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
-        boxshadowregister: "1px 5px 8px 3px rgba(151, 201, 251, 0.2)",
+        boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow:
           "0 20px 25px -5px rgba(102, 21, 182, 0.1), 0 10px 10px -5px rgba(102, 21, 182, 0.1)",
         postadshadow: "0px 5px 8px 2px rgba(196, 148, 244, 0.3)",
+        adcardshadow:
+          "0 1px 10px 5px rgba(241, 192, 234, 0.1), 0 -1.5px 12px 6px rgba(198, 91, 78, 0.05)",
       },
       zIndex: {
         "-10": "-10",
@@ -38,6 +40,14 @@ module.exports = {
         "footer-gradient-to": "#d04ed6",
         "alt-footer-gradient-from": "#457fca",
         "alt-footer-gradient-to": "#5691c8",
+        "browseads-gradient-from": "#c471f5",
+        "browseads-gradient-to": "#fa71cd",
+        "create-ad-gradient-from": "#da9ff9",
+        "create-ad-gradient-to": "#b088f9",
+        "create-nbh-gradient-from": "#36D1DC",
+        "create-nbh-gradient-to": "#5B86E5",
+        "ad-purple": "#902393",
+        "ad-tab-purple": "#DC6BE0",
       },
       screens: {
         tablet: "1366",
@@ -69,12 +79,19 @@ module.exports = {
         "forgot-password-background":
           "url(/images/forgotpassword/fp-background.svg)",
         "howitworks-background": "url(/images/howitworks/howitworks-bg.svg)",
-        "postad-background": "url(/images/postad/bg-postad.svg)",
-        "postad-background-mobile": "url(/images/postad/bg-postad-mobile.svg)",
+        "browseads-background": "url(/images/browseads/bg-browseads.svg)",
+        "ads-background": "url(/images/browseads/bg-ads.svg)",
+        "ads-mobile-background": "url(/images/browseads/bg-ads-mobile.svg)",
+        "ads-tablet-background": "url(/images/browseads/bg-ads-tablet.svg)",
         "create-neighbourhood-background":
           "url(/images/neighbourhood/bg-create-neighbourhood.svg)",
         "create-neighbourhood-background-mobile":
           "url(/images/neighbourhood/bg-create-neighbourhood-mobile.svg)",
+        "create-neighbourhood-background-tablet":
+          "url(/images/neighbourhood/bg-create-neighbourhood-tablet.svg)",
+        "post-ad-mobile-background":
+          "url(/images/postad/bg-post-ads-mobile.svg)",
+        "post-ad-background": "url(/images/postad/bg-post-ads.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",
@@ -113,6 +130,10 @@ module.exports = {
       },
       fontSize: {
         tiny: ".8rem",
+      },
+      borderRadius: {
+        "half-full": "4000px",
+        "large-mobile": "150px",
       },
     },
   },

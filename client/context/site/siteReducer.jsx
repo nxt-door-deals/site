@@ -2,6 +2,10 @@ import { faGalacticSenate } from "@fortawesome/free-brands-svg-icons";
 import {
   FETCH_APARTMENT,
   FETCH_APARTMENT_ERROR,
+  FETCH_APARTMENT_NAME,
+  FETCH_APARTMENT_NAME_ERROR,
+  FETCH_NBH_AD_SUCCESS,
+  FETCH_NBH_AD_FAILURE,
   CREATE_APARTMENT,
   CREATE_APARTMENT_ERROR,
   LOADING,
@@ -12,6 +16,8 @@ import {
   CREATE_AD_FAILURE,
   EMAIL_SEND_SUCCESS,
   EMAIL_SEND_FAILURE,
+  VERIFY_NEIGHBOURHOOD_SUCCESS,
+  VERIFY_NEIGHBOURHOOD_FAILURE,
 } from "../Types";
 
 const siteReducer = (state, action) => {
@@ -23,6 +29,12 @@ const siteReducer = (state, action) => {
         numApartmentsFetched: action.payload.length,
         loading: false,
       };
+    case FETCH_APARTMENT_NAME:
+      return {
+        ...state,
+        apartmentData: action.payload,
+      };
+    case FETCH_APARTMENT_NAME_ERROR:
     case FETCH_APARTMENT_ERROR:
       return {
         ...state,
@@ -85,6 +97,28 @@ const siteReducer = (state, action) => {
       return {
         ...state,
         emailSent: false,
+      };
+    case VERIFY_NEIGHBOURHOOD_SUCCESS:
+      return {
+        ...state,
+        neighbourhoodVerified: true,
+        verifiedNeighbourhoodDetails: action.payload,
+      };
+    case VERIFY_NEIGHBOURHOOD_FAILURE:
+      return {
+        ...state,
+        neighbourhoodVerified: false,
+      };
+    case FETCH_NBH_AD_SUCCESS:
+      return {
+        ...state,
+        adsDataNbh: action.payload,
+        adsDataNbhFetched: true,
+      };
+    case FETCH_NBH_AD_FAILURE:
+      return {
+        ...state,
+        adsDataNbhFetched: false,
       };
     default:
       return state;

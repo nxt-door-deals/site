@@ -36,11 +36,12 @@ const Navbar = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const authContext = useContext(AuthContext);
-  const { logout } = authContext;
+  const { logout, loadUser, user } = authContext;
 
   useEffect(() => {
     if (cookie.get("nddToken")) {
       setCookiePresent(true);
+      loadUser();
     }
   }, []);
 
@@ -87,7 +88,7 @@ const Navbar = (props) => {
       >
         <motion.div
           id="brand"
-          className="invisible lg:visible relative ml-2 lg:ml-4 lg:pl-4 focus:outline-none outline-none"
+          className="invisible lg:visible relative ml-4 lg:pl-4 focus:outline-none outline-none"
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{
@@ -110,13 +111,24 @@ const Navbar = (props) => {
         {/* Menu icons - humburger or close */}
         <div className="lg:hidden mt-2 mr-6 z-50" onClick={toggleNav}>
           {!expanded ? (
-            <FontAwesomeIcon
-              icon={faBars}
-              className={`cursor-pointer text-lg mt-4 ${
-                stickyNav ? "text-purple-900" : props.navStyle.faIconTextColor
-              }`}
-              alt="Open Menu"
-            />
+            !stickyNav ? (
+              <FontAwesomeIcon
+                icon={faBars}
+                className={
+                  "cursor-pointer text-lg mt-4 " +
+                  props.navStyle.faIconTextColor
+                }
+                alt="Open Menu"
+              />
+            ) : (
+              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative shadow-lg opacity-90">
+                <FontAwesomeIcon
+                  icon={faBars}
+                  alt="Open Menu"
+                  className="absolute top-4 right-4"
+                />
+              </div>
+            )
           ) : (
             <div
               className="cursor-pointer mt-4 text-purple-900 text-lg"
@@ -177,19 +189,72 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
-                  {!cookiePresent ? (
+                  {!cookiePresent && (
                     <Link href="/registeruser">
                       <a>Sign Up</a>
                     </Link>
-                  ) : (
-                    <Link href="/register">
-                      <a>
-                        <span className="text-brand-purple">My</span>{" "}
-                        Neighbourhood
-                      </a>
+                  )}
+                  {cookiePresent && user && (
+                    <Link
+                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                    >
+                      <a>My Neighbourhood</a>
                     </Link>
                   )}
                 </span>
+              </li>
+            </ul>
+          )}
+
+          {/* Navbar on the ads page */}
+          {props.navStyle.pathname.includes("/ads") && (
+            <ul className="flex">
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/#how-it-works">
+                  <a>How It Works</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/ourstory">
+                  <a>Our Story</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                {!cookiePresent && (
+                  <Link href="/registeruser">
+                    <a>Sign Up</a>
+                  </Link>
+                )}
+                {cookiePresent && user && (
+                  <Link
+                    href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                  >
+                    <a>My Account</a>
+                  </Link>
+                )}
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                {!cookiePresent ? (
+                  <Link href="/login">
+                    <a>Login</a>
+                  </Link>
+                ) : (
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => {
+                      logout();
+                      logoutToast();
+                      setTimeout(() => Router.reload("/"), 2000);
+                    }}
+                  >
+                    Logout
+                  </div>
+                )}
               </li>
             </ul>
           )}
@@ -261,19 +326,23 @@ const Navbar = (props) => {
           id="menu"
           className={
             expanded
-              ? "transform w-1/2 -translate-x-0 overlay-toggle opacity-95 overflow-hidden lg:hidden " +
+              ? "transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-hidden lg:hidden z-40 " +
                 props.navStyle.navOverlayBgColor
               : "transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
           }
         >
           <ul className="flex flex-col items-center mt-12">
             <li className="flex items-center mb-10">
-              <img
-                src="/brand.svg"
-                alt="Logo for the NXT Door Deals brand"
-                height="120px"
-                width="120px"
-              ></img>
+              <Link href="/">
+                <a>
+                  <img
+                    src="/brand.svg"
+                    alt="Logo for the NXT Door Deals brand"
+                    height="120px"
+                    width="120px"
+                  ></img>
+                </a>
+              </Link>
             </li>
 
             {/* Overlay items for landing page */}
@@ -319,12 +388,73 @@ const Navbar = (props) => {
                       onClick={() => {
                         logout();
                         logoutToast();
-                        setTimeout(() => Router.push("/"), 2000);
+                        setTimeout(() => Router.reload("/"), 2000);
                       }}
                     >
                       Logout
                     </div>
                   )}
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {!cookiePresent && (
+                    <Link href="/registeruser">
+                      <a>Sign Up</a>
+                    </Link>
+                  )}
+                  {cookiePresent && user && (
+                    <Link
+                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                    >
+                      <a>My Neighbourhood</a>
+                    </Link>
+                  )}
+                </li>
+              </Fragment>
+            )}
+
+            {/* Overlay items for the browse ads page */}
+            {props.navStyle.pathname.includes("/ads") && (
+              <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/">
+                    <span>
+                      <a>Home</a>
+                    </span>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/ourstory">
+                    <span>
+                      <a>Our Story</a>
+                    </span>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/#how-it-works">
+                    <span className="">
+                      <a onClick={() => setExpanded(false)}>How It Works</a>
+                    </span>
+                  </Link>
                 </li>
                 <li
                   className={
@@ -338,14 +468,37 @@ const Navbar = (props) => {
                     </Link>
                   ) : (
                     <Link href="/neighbourhood">
-                      <a>My Neighbourhood</a>
+                      <a>My Account</a>
                     </Link>
+                  )}
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {!cookiePresent ? (
+                    <Link href="/login">
+                      <a>Login</a>
+                    </Link>
+                  ) : (
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => {
+                        logout();
+                        logoutToast();
+                        setTimeout(() => Router.push("/"), 2000);
+                      }}
+                    >
+                      Logout
+                    </div>
                   )}
                 </li>
               </Fragment>
             )}
 
-            {/* Overlay icons for the login and register pages */}
+            {/* Overlay items for the login and register pages */}
             {(props.navStyle.pathname == "/registeruser" ||
               props.navStyle.pathname == "/login" ||
               props.navStyle.pathname == "/forgotpassword" ||

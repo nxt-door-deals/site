@@ -46,7 +46,7 @@ const UserLogin = (props) => {
       if (props.pathProp !== null) {
         Router.push(props.pathProp);
       } else {
-        Router.push(`/ads/${user.apartment_name}`);
+        Router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
       }
     }
   }, [user]);
@@ -74,7 +74,7 @@ const UserLogin = (props) => {
             <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div
-                className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                className={`"flex items-center justify-center border-2 rounded-xl " ${
                   props.touched.email && props.errors.email
                     ? "mb-1 border-red-800 shadow-none"
                     : "mb-8 border-gray-300 focus-within:border-text-purple"
@@ -104,7 +104,7 @@ const UserLogin = (props) => {
               ) : null}
 
               <div
-                className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                className={`"flex items-center justify-center border-2 rounded-xl " ${
                   props.touched.password && props.errors.password
                     ? "mb-1 border-red-800 shadow-none"
                     : "mb-8 border-gray-300 focus-within:border-text-purple"

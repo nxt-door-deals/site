@@ -41,13 +41,13 @@ const PageNotFound = () => {
           However, here are some pages you might be interested in.
         </p>
       </div>
-      <div className="flex justify-center items-center mt-6">
+      <div className="flex items-center justify-center mt-6">
         {cookie.get("nddToken") ? (
-          <div className="flex-col">
+          <div className="flex flex-col lg:flex-row">
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
               className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 Router.push("/");
@@ -58,10 +58,13 @@ const PageNotFound = () => {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
               className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                user !== null && Router.push(`/ads/${user.apartment_name}`);
+                user !== null &&
+                  Router.push(
+                    `/ads/${user.apartment_name}/${user.apartment_id}`
+                  );
               }}
             >
               My Neighbourhood
@@ -69,7 +72,7 @@ const PageNotFound = () => {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
               className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 logout();

@@ -8,6 +8,8 @@ import setAuthToken from "../../utils/setToken";
 import {
   FETCH_APARTMENT,
   FETCH_APARTMENT_ERROR,
+  FETCH_APARTMENT_NAME,
+  FETCH_APARTMENT_NAME_ERROR,
   CREATE_APARTMENT,
   CREATE_APARTMENT_ERROR,
   LOADING,
@@ -18,6 +20,10 @@ import {
   CREATE_AD_FAILURE,
   EMAIL_SEND_SUCCESS,
   EMAIL_SEND_FAILURE,
+  VERIFY_NEIGHBOURHOOD_SUCCESS,
+  VERIFY_NEIGHBOURHOOD_FAILURE,
+  FETCH_NBH_AD_SUCCESS,
+  FETCH_NBH_AD_FAILURE,
 } from "../Types";
 
 // Will be used in the copyright section in the email footer
@@ -38,6 +44,10 @@ const SiteState = (props) => {
     adCreated: false,
     adCreationError: "",
     emailSent: null,
+    neighbourhoodVerified: null,
+    adsDataNbh: [],
+    adsDataNbhFetched: false,
+    verifiedNeighbourhoodDetails: null,
   };
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
@@ -81,6 +91,31 @@ const SiteState = (props) => {
     }
   };
 
+  const getNeighbourhoodFromId = async (id) => {
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/apartments/${id}`);
+      dispatch({ type: FETCH_APARTMENT_NAME, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: FETCH_APARTMENT_NAME_ERROR,
+        payload: err.response.data.detail,
+      });
+    }
+  };
+
+  const verifyNeighbourhood = async (token) => {
+    token = encodeURIComponent(token);
+    try {
+      const res = await axios.put(
+        `${keys.API_PROXY}/verify/neighbourhood/?token=${token}`
+      );
+
+      dispatch({ type: VERIFY_NEIGHBOURHOOD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: VERIFY_NEIGHBOURHOOD_FAILURE });
+    }
+  };
+
   const fetchApartments = async (aptName) => {
     try {
       const res = await axios.get(
@@ -111,6 +146,121 @@ const SiteState = (props) => {
 
   const unsetLoading = () => {
     dispatch({ type: LOADING_UNSET });
+  };
+
+  const fetchAdsForNbh = async (nbhId) => {
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/nbhads/get/${nbhId}`);
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const searchAds = async (nbhId, categoryList, search) => {
+    nbhId = encodeURIComponent(nbhId);
+    categoryList = encodeURIComponent(categoryList);
+    search = encodeURIComponent(search);
+
+    try {
+      const res = await axios.get(
+        `${keys.API_PROXY}/search/ads?nbh_id=${nbhId}&category=${categoryList}&search_text=${search}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const searchGiveaways = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      const res = await axios.get(
+        `${keys.API_PROXY}/search/ads/giveaway?nbh_id=${nbhId}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortByPriceAsc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      const res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/price_asc?nbh_id=${nbhId}`
+      );
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortByPriceDesc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      const res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/price_desc?nbh_id=${nbhId}`
+      );
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortByDateCreatedAsc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      let res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/created_asc?nbh_id=${nbhId}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortByDateCreatedDesc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      let res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/created_desc?nbh_id=${nbhId}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortGiveawayAsc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      let res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/giveaway_asc?nbh_id=${nbhId}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
+  };
+
+  const sortGiveawayDesc = async (nbhId) => {
+    nbhId = encodeURIComponent(nbhId);
+    try {
+      let res = await axios.get(
+        `${keys.API_PROXY}/sort/ads/giveaway_desc?nbh_id=${nbhId}`
+      );
+
+      dispatch({ type: FETCH_NBH_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: FETCH_NBH_AD_FAILURE });
+    }
   };
 
   const createAd = async (
@@ -184,7 +334,7 @@ const SiteState = (props) => {
         }
       );
       dispatch({ type: EMAIL_SEND_SUCCESS });
-    } catch (error) {
+    } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
   };
@@ -197,6 +347,7 @@ const SiteState = (props) => {
     state,
     pincode,
     email,
+    verificationUrl,
     currentYear
   ) => {
     setAuthToken(process.env.SENDGRID_API_KEY);
@@ -211,6 +362,7 @@ const SiteState = (props) => {
       state: state,
       pincode: pincode,
       email: email,
+      verificationurl: verificationUrl,
       year: currentYear,
       template_name: "NB_REGISTRATION_APPROVAL_REQUEST_TEMPLATE",
     };
@@ -226,15 +378,14 @@ const SiteState = (props) => {
         }
       );
       dispatch({ type: EMAIL_SEND_SUCCESS });
-    } catch (error) {
+    } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
   };
 
   const sendNbhRegistrationSuccessEmailToUser = async (
     apartmentName,
-    email,
-    currentYear
+    email
   ) => {
     setAuthToken(process.env.SENDGRID_API_KEY);
 
@@ -257,7 +408,7 @@ const SiteState = (props) => {
         }
       );
       dispatch({ type: EMAIL_SEND_SUCCESS });
-    } catch (error) {
+    } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
   };
@@ -276,7 +427,12 @@ const SiteState = (props) => {
         apartmentCreated: state.apartmentCreated,
         apartmentCreationError: state.apartmentCreationError,
         emailSent: state.emailSent,
+        neighbourhoodVerified: state.neighbourhoodVerified,
+        verifiedNeighbourhoodDetails: state.verifiedNeighbourhoodDetails,
+        adsDataNbh: state.adsDataNbh,
+        adsDataNbhFetched: state.adsDataNbhFetched,
         fetchApartments,
+        getNeighbourhoodFromId,
         clearApartmentSearchResults,
         validateApartmentSelection,
         setLoading,
@@ -286,6 +442,16 @@ const SiteState = (props) => {
         sendNbhRegistrationEmailToUser,
         sendNbhRegistrationVerificationRequestEmail,
         sendNbhRegistrationSuccessEmailToUser,
+        verifyNeighbourhood,
+        fetchAdsForNbh,
+        searchAds,
+        searchGiveaways,
+        sortByPriceAsc,
+        sortByPriceDesc,
+        sortByDateCreatedAsc,
+        sortByDateCreatedDesc,
+        sortGiveawayAsc,
+        sortGiveawayDesc,
       }}
     >
       {props.children}

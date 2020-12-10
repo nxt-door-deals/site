@@ -79,7 +79,7 @@ const Contact = (props) => {
             {(props) => (
               <Form>
                 <div
-                  className={`"relative border-2 " ${
+                  className={`"relative border-2 rounded-xl " ${
                     props.touched.email && props.errors.email
                       ? "mb-1 border-red-800"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"
@@ -109,7 +109,7 @@ const Contact = (props) => {
                 ) : null}
 
                 <div
-                  className={`"relative border-2 " ${
+                  className={`"relative border-2 rounded-xl " ${
                     props.touched.message && props.errors.message
                       ? "mb-1 border-red-800"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"

@@ -39,7 +39,7 @@ const VerifyEmail = () => {
             )
           )}
           <p className="font-axiforma text-gray-600 mt-10 text-center">
-            {verificationStatus}
+            {verificationStatus !== null && verificationStatus}
           </p>
           <motion.button
             whileTap={{

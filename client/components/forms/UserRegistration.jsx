@@ -147,25 +147,27 @@ const UserRegistration = () => {
             }}
             validationSchema={userRegistrationValidationSchema}
             onSubmit={async (values, { setSubmitting }) => {
-              apartmentId = apartmentData.find(
-                (o) => o.name === values.apartment
-              );
+              setSubmitting(true);
+              if (enableFormSubmission) {
+                apartmentId = apartmentData.find(
+                  (o) => o.name === values.apartment
+                );
 
-              if (!apartmentId) {
-                validateApartmentSelection(
-                  "Please select an apartment from the list"
+                if (!apartmentId) {
+                  validateApartmentSelection(
+                    "Please select an apartment from the list"
+                  );
+                }
+
+                registerUser(
+                  values.name,
+                  values.email,
+                  values.mobile,
+                  values.password,
+                  values.apartmentNumber,
+                  selectedApartment.current
                 );
               }
-
-              registerUser(
-                values.name,
-                values.email,
-                values.mobile,
-                values.password,
-                values.apartmentNumber,
-                selectedApartment.current
-              );
-
               setTimeout(() => setSubmitting(false), 2000);
             }}
           >
@@ -182,7 +184,7 @@ const UserRegistration = () => {
                 <Form>
                   {/* Name Fields */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.name && props.errors.name
                         ? "mb-1 border-red-800 shadow-none"
                         : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -214,7 +216,7 @@ const UserRegistration = () => {
 
                   {/* Email */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.email && props.errors.email
                         ? "mb-1 border-red-800 shadow-none"
                         : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -246,7 +248,7 @@ const UserRegistration = () => {
 
                   {/* Mobile */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.mobile && props.errors.mobile
                         ? "mb-1 border-red-800 shadow-none"
                         : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -278,7 +280,7 @@ const UserRegistration = () => {
 
                   {/* Password Field */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.password && props.errors.password
                         ? "mb-1 border-red-800 shadow-none"
                         : "mb-8 border-gray-300 focus-within:border-text-blue"
@@ -318,7 +320,7 @@ const UserRegistration = () => {
 
                   {/* Apartment */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.apartment && props.errors.apartment
                         ? "mb-1 border-red-800 shadow-none"
                         : "mb-1 border-gray-300 focus-within:border-text-blue"
@@ -434,7 +436,7 @@ const UserRegistration = () => {
 
                   {/* Apartment number */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl shadow-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.apartmentNumber &&
                       props.errors.apartmentNumber
                         ? "mb-1 border-red-800 shadow-none"
@@ -480,13 +482,9 @@ const UserRegistration = () => {
                       variants={variants}
                       whileHover="buttonHover"
                       whileTap="buttonTap"
-                      className={
-                        "mt-7 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none " +
-                        (!enableFormSubmission ? "cursor-not-allowed " : null)
-                      }
+                      className="mt-7 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       type="submit"
                       arira-aria-label="User registration button"
-                      disabled={!enableFormSubmission ? "disabled" : null}
                     >
                       {!props.isSubmitting ? "Register" : <BouncingBalls />}
                     </motion.button>
