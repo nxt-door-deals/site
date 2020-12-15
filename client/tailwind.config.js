@@ -92,6 +92,10 @@ module.exports = {
         "post-ad-mobile-background":
           "url(/images/postad/bg-post-ads-mobile.svg)",
         "post-ad-background": "url(/images/postad/bg-post-ads.svg)",
+        "user-account-background":
+          "url(/images/user_account/user-account-background.svg)",
+        "user-account-mobile-background":
+          "url(/images/user_account/user-account-mobile-background.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",
@@ -137,11 +141,7 @@ module.exports = {
       },
     },
   },
-  variants: {
-    ringColor: ["focus"],
-    ringWidth: ["focus"],
-    textColor: ["focus-within"],
-  },
+  variants: {},
   plugins: [],
   future: {
     removeDeprecatedGapUtilities: true,

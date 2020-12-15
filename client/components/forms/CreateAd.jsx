@@ -136,7 +136,7 @@ const CreateAd = ({ categoryName, user }) => {
   return (
     <div className="flex flex-col items-center h-full w-full font-axiforma">
       <PostAdHeader heading={heading} step={step} />
-      <div className="rounded-3xl shadow-postadshadow text-brand-gray bg-white py-10 px-10 mb-20 mx-5">
+      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-10 mb-20 mx-5">
         <Formik
           initialValues={{
             categoryList: categoryName,
@@ -176,7 +176,7 @@ const CreateAd = ({ categoryName, user }) => {
               user.apartment_id,
               files
             );
-            setTimeout(() => setSubmitting(false), 2000);
+            setTimeout(() => setSubmitting(false), 5000);
             router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
           }}
         >
@@ -184,7 +184,7 @@ const CreateAd = ({ categoryName, user }) => {
             <Form>
               <div>
                 {/* The category dropdown */}
-                <div className="flex justify-center mb-10 -z-20">
+                <div className="flex justify-center mb-10">
                   <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-blue">
                     <Select
                       id="categoryList"

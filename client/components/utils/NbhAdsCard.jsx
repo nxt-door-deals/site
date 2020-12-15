@@ -70,7 +70,7 @@ const NbhAdsCard = (props) => {
                         src={image}
                         alt={`Carousel image-${imgIndex}`}
                         height={300}
-                        width={300}
+                        width={""}
                       />
                     </div>
                   ))}

@@ -40,8 +40,19 @@ const Login = (props) => {
       position: "top-center",
     });
 
+  // User account toast
+  const userAccountToast = () =>
+    toast("Please login to view your user profile", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   if (pathProp === "/postad") {
     setTimeout(() => postadToast(), 500);
+  }
+
+  if (pathProp === "/account") {
+    setTimeout(() => userAccountToast(), 500);
   }
 
   return (

@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchNbhAds = (props) => {
-  const [elZIndex, setElZIndex] = useState(false);
   const siteContext = useContext(SiteContext);
   const {
     searchAds,
@@ -22,24 +21,6 @@ const SearchNbhAds = (props) => {
     sortGiveawayAsc,
     sortGiveawayDesc,
   } = siteContext;
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", () => handleScroll);
-    };
-  }, []);
-
-  const handleScroll = () => {
-    const scrollOn = window.scrollY > 0;
-
-    if (scrollOn) {
-      setElZIndex(true);
-    } else {
-      setElZIndex(false);
-    }
-  };
 
   const sortResults = (value) => {
     console.log(value);
@@ -99,11 +80,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
-                  <div
-                    className={`${
-                      !elZIndex ? "-z-20" : "z-10"
-                    } w-48 lg:w-64 p-0 font-axiforma`}
-                  >
+                  <div className="w-48 lg:w-64 p-0 font-axiforma">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -171,11 +148,7 @@ const SearchNbhAds = (props) => {
         </div>
 
         {/* Sort options */}
-        <div
-          className={`${
-            !elZIndex ? "-z-20" : "z-10"
-          } w-52 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0`}
-        >
+        <div className="w-52 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0">
           <Select
             id="sort"
             name="sort"
@@ -183,7 +156,7 @@ const SearchNbhAds = (props) => {
             options={sortOptions}
             placeholder="Sort results"
             styles={customStyles}
-            className="text-xs p-1.5"
+            className="text-sm p-1.5"
             onChange={(option) => sortResults(option.value)}
             isSearchable={false}
             theme={(theme) => ({

@@ -32,7 +32,6 @@ const variants = {
 const Navbar = (props) => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
-  const [cookiePresent, setCookiePresent] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const authContext = useContext(AuthContext);
@@ -40,7 +39,6 @@ const Navbar = (props) => {
 
   useEffect(() => {
     if (cookie.get("nddToken")) {
-      setCookiePresent(true);
       loadUser();
     }
   }, []);
@@ -81,9 +79,9 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 opacity-93 transition duration-500 ease-in-out lg:shadow-md " +
+              " fixed basic-nav z-30 opacity-98 transition duration-500 ease-in-out lg:shadow-md " +
               props.navStyle.navShadow
-            : "fixed basic-nav bg-none"
+            : "fixed basic-nav bg-none z-30"
         }
       >
         <motion.div
@@ -160,7 +158,7 @@ const Navbar = (props) => {
                 </span>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                <Link href="#how-it-works">
+                <Link href="/#how-it-works">
                   <a>How It Works</a>
                 </Link>
               </li>
@@ -170,7 +168,7 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                {!cookiePresent ? (
+                {user === null ? (
                   <Link href="/login">
                     <a>Login</a>
                   </Link>
@@ -178,9 +176,8 @@ const Navbar = (props) => {
                   <div
                     className="cursor-pointer"
                     onClick={() => {
-                      logout();
                       logoutToast();
-                      setTimeout(() => Router.reload("/"), 2000);
+                      logout();
                     }}
                   >
                     Logout
@@ -189,12 +186,12 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
-                  {!cookiePresent && (
+                  {user === null && (
                     <Link href="/registeruser">
                       <a>Sign Up</a>
                     </Link>
                   )}
-                  {cookiePresent && user && (
+                  {user && user && (
                     <Link
                       href={`/ads/${user.apartment_name}/${user.apartment_id}`}
                     >
@@ -225,21 +222,19 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                {!cookiePresent && (
+                {user === null && (
                   <Link href="/registeruser">
                     <a>Sign Up</a>
                   </Link>
                 )}
-                {cookiePresent && user && (
-                  <Link
-                    href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                  >
+                {user && (
+                  <Link href="/account">
                     <a>My Account</a>
                   </Link>
                 )}
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                {!cookiePresent ? (
+                {user === null ? (
                   <Link href="/login">
                     <a>Login</a>
                   </Link>
@@ -249,7 +244,7 @@ const Navbar = (props) => {
                     onClick={() => {
                       logout();
                       logoutToast();
-                      setTimeout(() => Router.reload("/"), 2000);
+                      setTimeout(() => Router.push("/"), 1000);
                     }}
                   >
                     Logout
@@ -317,6 +312,46 @@ const Navbar = (props) => {
               </li>
             </ul>
           )}
+
+          {/* Navbar on the user account page */}
+          {props.navStyle.pathname == "/account" && (
+            <ul className="flex">
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/#how-it-works">
+                  <a>How It Works</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/ourstory">
+                  <a>Our Story</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href={myNeighbourhoodUrl}>
+                  <a>
+                    <span className="text-brand-purple">My</span> Neighbourhood
+                  </a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/postad">
+                  <a>Post Ad</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <div
+                  className="cursor-pointer"
+                  onClick={() => {
+                    logout();
+                    logoutToast();
+                    setTimeout(() => Router.push("/"), 2000);
+                  }}
+                >
+                  Logout
+                </div>
+              </li>
+            </ul>
+          )}
         </div>
 
         {/* ******* Menu overlay for small and medium screens  ******* */}
@@ -326,9 +361,9 @@ const Navbar = (props) => {
           id="menu"
           className={
             expanded
-              ? "transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-hidden lg:hidden z-40 " +
+              ? "relative transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-hidden lg:hidden z-40 " +
                 props.navStyle.navOverlayBgColor
-              : "transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
+              : "relative transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
           }
         >
           <ul className="flex flex-col items-center mt-12">
@@ -378,7 +413,7 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {!cookiePresent ? (
+                  {user === null ? (
                     <Link href="/login">
                       <a>Login</a>
                     </Link>
@@ -401,15 +436,13 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {!cookiePresent && (
+                  {user === null && (
                     <Link href="/registeruser">
                       <a>Sign Up</a>
                     </Link>
                   )}
-                  {cookiePresent && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                  {user && (
+                    <Link href="/">
                       <a>My Neighbourhood</a>
                     </Link>
                   )}
@@ -462,7 +495,7 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {!cookiePresent ? (
+                  {user === null ? (
                     <Link href="/registeruser">
                       <a>Sign Up</a>
                     </Link>
@@ -478,7 +511,7 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {!cookiePresent ? (
+                  {user === null ? (
                     <Link href="/login">
                       <a>Login</a>
                     </Link>
@@ -595,10 +628,76 @@ const Navbar = (props) => {
                 </li>
               </Fragment>
             )}
+
+            {/* Overlay icons for the user account page */}
+            {props.navStyle.pathname == "/account" && (
+              <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/#how-it-works">
+                    <a>How It Works</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/ourstory">
+                    <a>Our Story</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href={myNeighbourhoodUrl}>
+                    <a>
+                      <span className="text-brand-purple">My</span>{" "}
+                      Neighbourhood
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/postad">
+                    <a>Post Ad</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => {
+                      logout();
+                      logoutToast();
+                      setTimeout(() => Router.push("/"), 2000);
+                    }}
+                  >
+                    Logout
+                  </div>
+                </li>
+              </Fragment>
+            )}
           </ul>
 
           {/* Social icons */}
-          <div className="p-4">
+          <div className="px-4 py-2">
             <hr
               className={`${"border-" + props.navStyle.hrTextColor} ${
                 "bg-" + props.navStyle.hrTextColor

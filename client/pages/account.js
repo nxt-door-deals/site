@@ -3,14 +3,13 @@ import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
 // Component imports
-import PostAdHeadLayout from "../components/layout/PostAdHeadLayout";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import Categories from "../components/utils/Categories";
+import UserAccount from "../components/forms/UserAccount";
 
 var cookie = new Cookies();
 
-const PostAd = (props) => {
+const Account = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -39,17 +38,21 @@ const PostAd = (props) => {
   }
 
   return (
-    <PostAdHeadLayout>
-      <div className="h-full font-axiforma">
+    <div>
+      <div className="h-full w-full bg-user-account-mobile-background md:bg-user-account-background bg-no-repeat bg-cover">
         <Navbar navStyle={navStyle} />
-        <div className="w-full bg-post-ad-mobile-background md:bg-post-ad-background bg-cover bg-no-repeat h-100"></div>
-        <Categories />
-      </div>
-      <div>
+        {/* Container */}
+        <div className="pt-48 pb-20">
+          <div className="flex justify-center items-center">
+            <div>
+              <UserAccount />
+            </div>
+          </div>
+        </div>
         <Footer footerGradientClass={footerGradientClass} />
       </div>
-    </PostAdHeadLayout>
+    </div>
   );
 };
 
-export default PostAd;
+export default Account;
