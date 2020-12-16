@@ -90,7 +90,7 @@ const ApartmentSearch = () => {
                 name="apartment"
                 type="input"
                 placeholder="Find Your Apartment"
-                className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                 maxLength="100"
                 autoComplete="off"
                 onKeyUp={searchApartment}

@@ -267,7 +267,7 @@ const CreateNeighbourhood = (props) => {
                           maxLength="100"
                           autoComplete="off"
                           value={props.values.name}
-                          className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -298,7 +298,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Address Line 1*"
                           maxLength="150"
                           autoComplete="off"
-                          className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -327,7 +327,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Address Line 2"
                           maxLength="150"
                           autoComplete="off"
-                          className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -350,7 +350,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="City*"
                           maxLength="50"
                           autoComplete="off"
-                          className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -365,7 +365,7 @@ const CreateNeighbourhood = (props) => {
                       {/* State and pincode */}
                       <div className="flex justify-between">
                         {/* State */}
-                        <div className="w-56 lg:w-64">
+                        <div className="w-48 lg:w-64">
                           {/* <div
                             className={`${
                               props.touched.state && props.errors.state
@@ -411,7 +411,7 @@ const CreateNeighbourhood = (props) => {
                               options={states}
                               placeholder="Select State/UT"
                               styles={customStyles}
-                              className="text-sm p-1.5"
+                              className="text-xs lg:text-sm p-1.5"
                               onBlur={() =>
                                 props.setFieldTouched("state", true)
                               }
@@ -459,7 +459,7 @@ const CreateNeighbourhood = (props) => {
                               placeholder="Pincode*"
                               maxLength="15"
                               autoComplete="off"
-                              className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                              className="textbox-input w-9/12 lg:10/12 placeholder-gray-600 placeholder-opacity-50"
                             />
                           </div>
 
@@ -492,7 +492,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Your email*"
                           maxLength="50"
                           autoComplete="off"
-                          className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -520,7 +520,7 @@ const CreateNeighbourhood = (props) => {
                           variants={variants}
                           whileHover="hover"
                           whileTap="tap"
-                          className={`"py-8 px-6 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
+                          className={`"py-6 px-6 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
                             !enableFormSubmission ? "cursor-not-allowed" : null
                           }`}
                           disabled={!enableFormSubmission ? true : false}

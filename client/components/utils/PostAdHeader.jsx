@@ -21,7 +21,7 @@ const PostAdHeader = (props) => {
       <h1 className="font-semibold md:pt-8 text-3xl text-brand-gray">
         {props.heading}
       </h1>
-      <div className="pt-1 flex justify-center">
+      <div className="pt-2 flex justify-center">
         <motion.div variants={variants} animate="bounce">
           <FontAwesomeIcon
             icon={faHandPointRight}
@@ -29,7 +29,7 @@ const PostAdHeader = (props) => {
           />
         </motion.div>
         {props.step === "Category" && (
-          <p className="inline text-sm">
+          <p className="inline text-xs md:text-sm">
             Hey{props.userName !== null ? ", " + props.userName : ", there"}!
             Check out the sub-categories (
             <FontAwesomeIcon

@@ -136,7 +136,7 @@ const CreateAd = ({ categoryName, user }) => {
   return (
     <div className="flex flex-col items-center h-full w-full font-axiforma">
       <PostAdHeader heading={heading} step={step} />
-      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-10 mb-20 mx-5">
+      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-10 mb-20">
         <Formik
           initialValues={{
             categoryList: categoryName,
