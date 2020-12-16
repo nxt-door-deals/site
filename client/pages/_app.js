@@ -43,7 +43,7 @@ export default function MyApp({ Component, pageProps, router }) {
             transition={Flip}
             toastClassName={({ type }) =>
               contextClass[type || "default"] +
-              " flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer border-2 border-purple-900"
+              " flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
             }
             bodyClassName={() =>
               "font-axiforma text-base font-white font-semibold block p-3 text-center"

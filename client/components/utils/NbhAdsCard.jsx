@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
 
@@ -9,29 +9,12 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const NbhAdsCard = (props) => {
-  const [elZIndex, setElZIndex] = useState(false);
   const siteContext = useContext(SiteContext);
-  const { adsDataNbh, adsDataNbhFetched, fetchAdsForNbh } = siteContext;
+  const { adsDataNbh, fetchAdsForNbh } = siteContext;
 
   useEffect(() => {
     fetchAdsForNbh(props.nbhId);
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", () => handleScroll);
-    };
   }, []);
-
-  const handleScroll = () => {
-    const scrollOn = window.scrollY > 0;
-
-    if (scrollOn) {
-      setElZIndex(true);
-    } else {
-      setElZIndex(false);
-    }
-  };
 
   if (adsDataNbh.length === 0) {
     return (
@@ -49,9 +32,7 @@ const NbhAdsCard = (props) => {
           {adsDataNbh.map((ad, adIndex) => (
             <div
               key={adIndex}
-              className={`${
-                !elZIndex ? "-z-20" : ""
-              } pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow`}
+              className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
             >
               {/* Card carousel */}
               <div
@@ -70,7 +51,7 @@ const NbhAdsCard = (props) => {
                         src={image}
                         alt={`Carousel image-${imgIndex}`}
                         height={300}
-                        width={""}
+                        width={300}
                       />
                     </div>
                   ))}

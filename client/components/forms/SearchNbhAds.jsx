@@ -80,7 +80,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
-                  <div className="w-48 lg:w-64 p-0 font-axiforma">
+                  <div className="w-44 lg:w-64 p-0 font-axiforma">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -115,7 +115,7 @@ const SearchNbhAds = (props) => {
                       placeholder="Search Ads..."
                       maxLength="250"
                       autoComplete="off"
-                      className="textbox-input w-48 lg:w-64 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-40 lg:w-64 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
                   <div className="p-1">
@@ -140,7 +140,7 @@ const SearchNbhAds = (props) => {
             variants={props.variants}
             whileHover="hover"
             whileTap="tap"
-            className="lg:ml-5 p-4 bg-ad-purple text-white text-sm rounded-lg uppercase font-semibold focus:outline-none"
+            className="lg:ml-5 px-2.5 py-4 bg-ad-purple text-white text-sm rounded-lg uppercase font-semibold focus:outline-none"
             onClick={() => searchGiveaways(props.nbhId)}
           >
             Show me the Giveaways
@@ -148,7 +148,7 @@ const SearchNbhAds = (props) => {
         </div>
 
         {/* Sort options */}
-        <div className="w-52 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0">
+        <div className="w-44 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0">
           <Select
             id="sort"
             name="sort"

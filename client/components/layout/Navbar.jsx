@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Router from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
@@ -86,7 +87,7 @@ const Navbar = (props) => {
       >
         <motion.div
           id="brand"
-          className="invisible lg:visible relative ml-4 lg:pl-4 focus:outline-none outline-none"
+          className="opacity-0 lg:opacity-100 relative ml-4 lg:pl-4 focus:outline-none outline-none"
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{
@@ -97,11 +98,12 @@ const Navbar = (props) => {
         >
           <Link href="/">
             <a>
-              <img
-                src="/brand.svg"
+              <Image
+                src="/images/nav/brand.svg"
                 alt="Logo for the NXT Door Deals brand"
-                className="w-24 h-24 xl:w-28 xl:h-28 z-40"
-              ></img>
+                width={100}
+                height={100}
+              ></Image>
             </a>
           </Link>
         </motion.div>
@@ -370,12 +372,12 @@ const Navbar = (props) => {
             <li className="flex items-center mb-10">
               <Link href="/">
                 <a>
-                  <img
-                    src="/brand.svg"
-                    alt="Logo for the NXT Door Deals brand"
-                    height="120px"
-                    width="120px"
-                  ></img>
+                  <Image
+                    src={"/images/nav/brand.svg"}
+                    alt={"Logo for the NXT Door Deals brand"}
+                    height={120}
+                    width={120}
+                  />
                 </a>
               </Link>
             </li>
@@ -383,6 +385,16 @@ const Navbar = (props) => {
             {/* Overlay items for landing page */}
             {props.navStyle.pathname === "/" && (
               <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/postad">
+                    <a>Post Ad</a>
+                  </Link>
+                </li>
                 <li
                   className={
                     "overlay-items md:text-xl hover:scale-125 " +

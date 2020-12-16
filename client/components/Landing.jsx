@@ -25,7 +25,7 @@ const Landing = () => {
           className="hidden lg:inline lg:order-last lg:-mt-4 xl:mt-0  lg:top-0"
         >
           <img
-            src="/landing-page-illustration.svg"
+            src="/images/landing/landing-page-illustration.svg"
             alt="Landing page illustration"
           />
         </div>
@@ -33,7 +33,7 @@ const Landing = () => {
         {/* For medium screens and below */}
         <div id="image-container" className="order-first w-full lg:hidden">
           <img
-            src="/landing-page-illustration-mobile.svg"
+            src="/images/landing/landing-page-illustration-mobile.svg"
             alt="Landing page illustration"
             width="100%"
           />

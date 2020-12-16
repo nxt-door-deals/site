@@ -1,9 +1,9 @@
 module.exports = {
-  purge: [],
+  purge: ["./pages/**/*.js", "./components/**/*.jsx"],
   theme: {
     extend: {
       fontFamily: {
-        axiforma: ["Axiforma"],
+        axiforma: ["Axiforma", "Helvetica", "Arial", "sans"],
         fontAwesome: ["FontAwesome"],
       },
       boxShadow: {

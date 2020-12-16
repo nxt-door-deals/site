@@ -1,17 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AuthContext from "../../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
-import Modal from "react-modal"
+import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 // Component Import
 import Alert from "../../utils/Alert";
 import ChangePassword from "./ChangePassword";
-import Timer from "../../utils/Timer"
+import Timer from "../../utils/Timer";
 
 const otpValidationSchema = Yup.object({
   otp1: Yup.string().required(),
@@ -22,16 +23,24 @@ const otpValidationSchema = Yup.object({
   otp6: Yup.string().required(),
 });
 
-Modal.setAppElement('#__next')
+Modal.setAppElement("#__next");
 
 const OtpForm = (props) => {
   const authContext = useContext(AuthContext);
   const [showForm, setShowForm] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false)
-  const [minutes, setMinutes] = useState(10)
-  const [seconds, setSeconds] = useState(0)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [minutes, setMinutes] = useState(10);
+  const [seconds, setSeconds] = useState(0);
 
-  const { user, validateOtp, authError, otpValidated, generateOtp, sendOtpByEmail, updateOtpVerificationTimestamp} = authContext;
+  const {
+    user,
+    validateOtp,
+    authError,
+    otpValidated,
+    generateOtp,
+    sendOtpByEmail,
+    updateOtpVerificationTimestamp,
+  } = authContext;
 
   useEffect(() => {
     if (otpValidated) {
@@ -40,8 +49,8 @@ const OtpForm = (props) => {
   }, [otpValidated]);
 
   const closeModal = () => {
-    setModalOpen(false)
-  }
+    setModalOpen(false);
+  };
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
@@ -53,62 +62,64 @@ const OtpForm = (props) => {
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
         >
           <div className="flex justify-center">
-            <img
-              src="/images/forgotpassword/otp.svg"
-              alt="Otp sent"
-              height="200px"
-              width="200px"
+            <Image
+              src={"/images/forgotpassword/otp.svg"}
+              alt={"Otp sent"}
+              height={200}
+              width={200}
             />
           </div>
           <div id="otpform" className="text-center mt-6 pl-4 pr-4">
             <p className="text-gray-600">
               We have sent a one-time password (OTP) to your email id,{" "}
-              <span className="font-bold text-purple-600">
-                {user.email}
-              </span>
-              . Please enter the six-character OTP below. The OTP is valid for{" "}
+              <span className="font-bold text-purple-600">{user.email}</span>.
+              Please enter the six-character OTP below. The OTP is valid for{" "}
               <span className="font-semibold">only 10 minutes</span>.{" "}
             </p>
           </div>
 
           <p className="text-sm text-center  text-gray-600 mt-2">
             Didn't receive our email?{" "}
-          <span className="text-purple-600 font-semibold hover:underline">
-            <Link href="">
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  generateOtp(user.id, user.email);
-                  updateOtpVerificationTimestamp(user.id);
-                  sendOtpByEmail(user.email);
-                  setModalOpen(true)
-                  setMinutes(10)
-                  setSeconds(0)
-                }}
-              >
-                Regenerate OTP
-              </a>
-            </Link>
+            <span className="text-purple-600 font-semibold hover:underline">
+              <Link href="">
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    generateOtp(user.id, user.email);
+                    updateOtpVerificationTimestamp(user.id);
+                    sendOtpByEmail(user.email);
+                    setModalOpen(true);
+                    setMinutes(10);
+                    setSeconds(0);
+                  }}
+                >
+                  Regenerate OTP
+                </a>
+              </Link>
 
-            <Modal
+              <Modal
                 isOpen={modalOpen}
                 onRequestClose={closeModal}
                 shouldCloseOnEsc={true}
                 shouldFocusAfterRender={true}
                 className="flex justify-center items-center outline-none h-full"
-            >
+              >
                 <div className="relative">
-                  <FontAwesomeIcon icon={faTimes}
+                  <FontAwesomeIcon
+                    icon={faTimes}
                     className="text-brand-gray absolute right-0 mr-2 mt-2 cursor-pointer"
                     onClick={() => setModalOpen(false)}
                   />
                   <p className="font-axiforma bg-white p-10 border-2 border-dashed border-brand-gray text-xl rounded-md shadow-md z-40">
-                    OTP resent to <span className="text-purple-600 font-semibold">{user.email}</span>
+                    OTP resent to{" "}
+                    <span className="text-purple-600 font-semibold">
+                      {user.email}
+                    </span>
                   </p>
                 </div>
-            </Modal>
-          </span>
-         </p>
+              </Modal>
+            </span>
+          </p>
 
           <div className="text-center mt-4">
             <h2 className="font-semibold text-brand-gray text-xl mb-2">

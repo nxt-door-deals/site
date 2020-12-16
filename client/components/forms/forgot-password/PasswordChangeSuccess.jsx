@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Router from "next/router";
 
@@ -6,11 +7,11 @@ const PasswordChangeSuccess = () => {
   return (
     <div>
       <div className="flex justify-center">
-        <img
-          src="/images/forgotpassword/password-changed.svg"
-          alt="Password changed"
-          height="200px"
-          width="200px"
+        <Image
+          src={"/images/forgotpassword/password-changed.svg"}
+          alt={"Password changed"}
+          height={200}
+          width={200}
         />
       </div>
       <div className="text-center mt-6">

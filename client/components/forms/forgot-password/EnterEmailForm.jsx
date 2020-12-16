@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import Image from "next/image";
 import AuthContext from "../../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -50,11 +51,11 @@ const EnterEmailForm = (props) => {
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
         >
           <div className="flex justify-center">
-            <img
-              src="/images/forgotpassword/forgot-password.svg"
-              alt="Forgot Password"
-              height="200px"
-              width="200px"
+            <Image
+              src={"/images/forgotpassword/forgot-password.svg"}
+              alt={"Forgot Password"}
+              height={200}
+              width={200}
             />
           </div>
           <div className="text-center mt-4 pl-4 pr-4">
