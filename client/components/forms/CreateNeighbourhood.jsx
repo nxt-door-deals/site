@@ -514,13 +514,13 @@ const CreateNeighbourhood = (props) => {
                         }
                       />
 
-                      <div className="text-center">
+                      <div className="flex justify-center my-8">
                         <motion.button
                           type="submit"
                           variants={variants}
                           whileHover="hover"
                           whileTap="tap"
-                          className={`"mt-8 mb-8 w-88 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
+                          className={`"py-8 px-6 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
                             !enableFormSubmission ? "cursor-not-allowed" : null
                           }`}
                           disabled={!enableFormSubmission ? true : false}
