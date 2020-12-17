@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import axios from "axios";
+import keys from "../../utils/keys";
 
 // Component imports
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
@@ -81,7 +83,11 @@ const Ads = (props) => {
           </div>
         </div>
         <div>
-          <Tab nbhId={props.apartmentId} variants={variants} />
+          <Tab
+            nbhId={props.apartmentId}
+            variants={variants}
+            numOfAds={props.numOfAds}
+          />
         </div>
         <div className="mt-10">
           <Footer footerGradientClass={footerGradientClass} />
@@ -91,9 +97,13 @@ const Ads = (props) => {
   );
 };
 
-Ads.getInitialProps = ({ query, pathname }) => {
+Ads.getInitialProps = async ({ query, pathname, ctx }) => {
   const { apartment } = query;
+  const res = await axios.get(`${keys.API_PROXY}/nbhads/get/${apartment[1]}`);
+
+  const ads = res.data.length;
   return {
+    numOfAds: ads,
     route: pathname,
     apartmentName: apartment[0],
     apartmentId: apartment[1],

@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, Flip } from "react-toastify";
-import { config } from "@fortawesome/fontawesome-svg-core";
-
-config.autoAddCss = false;
 
 const pageVariants = {
   pageInitial: {
@@ -49,7 +46,7 @@ export default function MyApp({ Component, pageProps, router }) {
               " flex p-1 min-h-10 justify-between overflow-hidden cursor-pointer"
             }
             bodyClassName={() =>
-              "font-axiforma text-base font-white font-semibold block p-3 text-center"
+              "font-axiforma text-base font-white font-semibold tracking-wide block p-3 text-center"
             }
           />
         </SiteState>

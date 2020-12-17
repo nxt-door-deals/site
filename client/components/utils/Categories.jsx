@@ -94,7 +94,7 @@ const Category = () => {
                 </div>
                 <div className="my-3">
                   <motion.button
-                    className="w-24 bg-purple-600 text-white text-xs rounded-full uppercase px-2 py-2 font-axiforma font-semibold cursor-pointer focus:outline-none"
+                    className="w-24 bg-purple-600 text-white text-xs rounded-full uppercase px-2 py-2 font-axiforma font-semibold tracking-wide cursor-pointer focus:outline-none"
                     variants={variants}
                     whileHover="buttonHover"
                     whileTap="tap"

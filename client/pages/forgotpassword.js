@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 // Component imports
+import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
 import EnterEmailForm from "../components/forms/forgot-password/EnterEmailForm";
 import Navbar from "../components/layout/Navbar";
 
@@ -23,12 +24,14 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="bg-forgot-password-background bg-cover bg-no-repeat bg-fixed -z-20 font-axiforma">
-      <Navbar navStyle={navStyle} />
-      <div className="flex justify-center items-center min-h-screen">
-        <EnterEmailForm alertTheme={alertTheme} />
+    <UserLoginHeadLayout>
+      <div className="bg-forgot-password-background bg-cover bg-no-repeat bg-fixed -z-20 font-axiforma">
+        <Navbar navStyle={navStyle} />
+        <div className="flex justify-center items-center min-h-screen">
+          <EnterEmailForm alertTheme={alertTheme} />
+        </div>
       </div>
-    </div>
+    </UserLoginHeadLayout>
   );
 };
 

@@ -42,8 +42,8 @@ const UserLogin = (props) => {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    if (user !== null) {
-      if (props.pathProp !== null) {
+    if (user && user !== null) {
+      if (props.pathProp) {
         Router.push(props.pathProp);
       } else {
         Router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
@@ -56,139 +56,149 @@ const UserLogin = (props) => {
   };
 
   return (
-    <div className="rounded-3xl shadow-boxshadowlogin bg-white pt-8 pl-10 pr-10 pb-10">
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        validationSchema={loginValidationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          loginUser(values.email, values.password);
+    <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20">
+      {/* The padding below helps mainly for phones in landscape mode */}
+      <div className="ml-12 mr-12">
+        <div className="rounded-3xl shadow-boxshadowlogin bg-white pt-8 pl-10 pr-10 pb-10">
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={loginValidationSchema}
+            onSubmit={(values, { setSubmitting }) => {
+              loginUser(values.email, values.password);
+              setTimeout(() => setSubmitting(false), 2000);
+            }}
+          >
+            {(props) => (
+              <div>
+                <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
+                  Welcome Back!
+                </h2>
+                <Alert authError={authError} alertTheme={alertTheme} />
+                <Form>
+                  <div
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
+                      props.touched.email && props.errors.email
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-purple"
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="align-middle fill-current text-gray-400 text-lg ml-2"
+                    />
+                    <Field
+                      id="email"
+                      name="email"
+                      type="text"
+                      placeholder="Email"
+                      maxLength="50"
+                      autoComplete="off"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                    />
+                  </div>
 
-          setTimeout(() => setSubmitting(false), 2000);
-        }}
-      >
-        {(props) => (
-          <div>
-            <h2 className="font-axiforma font-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
-              Welcome Back!
-            </h2>
-            <Alert authError={authError} alertTheme={alertTheme} />
-            <Form>
-              <div
-                className={`"flex items-center justify-center border-2 rounded-xl " ${
-                  props.touched.email && props.errors.email
-                    ? "mb-1 border-red-800 shadow-none"
-                    : "mb-8 border-gray-300 focus-within:border-text-purple"
-                }`}
-              >
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="align-middle fill-current text-gray-400 text-lg ml-2"
-                />
-                <Field
-                  id="email"
-                  name="email"
-                  type="text"
-                  placeholder="Email"
-                  maxLength="50"
-                  autoComplete="off"
-                  className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
-                />
-              </div>
+                  {/* Validation errors */}
+                  {props.touched.email && props.errors.email ? (
+                    <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                      {props.errors.email}
+                    </div>
+                  ) : null}
 
-              {/* Validation errors */}
-              {props.touched.email && props.errors.email ? (
-                <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
-                  <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                  {props.errors.email}
+                  <div
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
+                      props.touched.password && props.errors.password
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-8 border-gray-300 focus-within:border-text-purple"
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={faLock}
+                      className="inline align-middle fill-current text-gray-400 text-lg ml-2"
+                    />
+                    <Field
+                      id="password"
+                      name="password"
+                      type={!displayPassword ? "password" : "text"}
+                      placeholder="Password"
+                      maxLength="50"
+                      className="textbox-input md:w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                    />
+                    <FontAwesomeIcon
+                      icon={!displayPassword ? faEye : faEyeSlash}
+                      className="inline text-sm align-middle top-0 right-0 mr-2 text-gray-500 cursor-pointer"
+                      onClick={setPasswordDisplay}
+                      aria-label={
+                        !displayPassword ? "Show Password" : "Hide Password"
+                      }
+                    />
+                  </div>
+
+                  {/* Validation errors */}
+                  {props.touched.password && props.errors.password ? (
+                    <div className="font-axiforma text-xs text-red-800 p-1 mt-1 mb-2 ">
+                      <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                      {props.errors.password}
+                    </div>
+                  ) : null}
+
+                  <div className="text-center">
+                    <motion.button
+                      type="submit"
+                      className="mt-2 mb-8 w-64 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      whileTap={{
+                        backgroundColor: "#D6BCFA",
+                        color: "#550052",
+                        y: "5px",
+                        boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
+                      }}
+                      disabled={props.isSubmitting}
+                    >
+                      {!props.isSubmitting ? (
+                        "Login"
+                      ) : authError ? (
+                        "Login"
+                      ) : (
+                        <BouncingBalls />
+                      )}
+                    </motion.button>
+                  </div>
+                </Form>
+                <div className="text-center font-axiforma text-purple-600 text-sm tracking-wide">
+                  <Link href="/forgotpassword">
+                    <motion.a
+                      whileHover={{
+                        textDecoration: "underline",
+                        cursor: "pointer",
+                        color: "#550052",
+                        textDecorationColor: "#550052",
+                      }}
+                    >
+                      Forgot password?
+                    </motion.a>
+                  </Link>
                 </div>
-              ) : null}
-
-              <div
-                className={`"flex items-center justify-center border-2 rounded-xl " ${
-                  props.touched.password && props.errors.password
-                    ? "mb-1 border-red-800 shadow-none"
-                    : "mb-8 border-gray-300 focus-within:border-text-purple"
-                }`}
-              >
-                <FontAwesomeIcon
-                  icon={faLock}
-                  className="inline align-middle fill-current text-gray-400 text-lg ml-2"
-                />
-                <Field
-                  id="password"
-                  name="password"
-                  type={!displayPassword ? "password" : "text"}
-                  placeholder="Password"
-                  maxLength="50"
-                  className="textbox-input md:w-10/12 placeholder-gray-600 placeholder-opacity-50"
-                />
-                <FontAwesomeIcon
-                  icon={!displayPassword ? faEye : faEyeSlash}
-                  className="inline text-sm align-middle top-0 right-0 mr-2 text-gray-500 cursor-pointer"
-                  onClick={setPasswordDisplay}
-                  aria-label={
-                    !displayPassword ? "Show Password" : "Hide Password"
-                  }
-                />
-              </div>
-
-              {/* Validation errors */}
-              {props.touched.password && props.errors.password ? (
-                <div className="font-axiforma text-xs text-red-800 p-1 mt-1 mb-2 ">
-                  <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                  {props.errors.password}
+                <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">
+                  Don't have an account?{" "}
+                  <motion.button
+                    className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-purple p-3 shadow-sm font-semibold rounded-xl focus:outline-none"
+                    whileHover={{
+                      backgroundColor: "#9F7AEA",
+                      color: "#FFFFFF",
+                    }}
+                    onClick={() => {
+                      Router.push("/registeruser");
+                    }}
+                    aria-label="Button for the user registration page"
+                  >
+                    Sign Up
+                  </motion.button>
                 </div>
-              ) : null}
-
-              <div className="text-center">
-                <motion.button
-                  type="submit"
-                  className="mt-2 mb-8 w-64 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
-                  whileTap={{
-                    backgroundColor: "#D6BCFA",
-                    color: "#550052",
-                    y: "5px",
-                    boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                  }}
-                  disabled={props.isSubmitting}
-                >
-                  {!props.isSubmitting ? "Login" : <BouncingBalls />}
-                </motion.button>
               </div>
-            </Form>
-            <div className="text-center font-axiforma text-purple-600 text-sm tracking-wide">
-              <Link href="/forgotpassword">
-                <motion.a
-                  whileHover={{
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#550052",
-                    textDecorationColor: "#550052",
-                  }}
-                >
-                  Forgot password?
-                </motion.a>
-              </Link>
-            </div>
-            <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">
-              Don't have an account?{" "}
-              <motion.button
-                className="ml-2 inline bg-opacity-25 bg-purple-400 text-brand-purple p-3 shadow-sm font-semibold rounded-xl focus:outline-none"
-                whileHover={{
-                  backgroundColor: "#9F7AEA",
-                  color: "#FFFFFF",
-                }}
-                onClick={() => {
-                  Router.push("/registeruser");
-                }}
-                aria-label="Button for the user registration page"
-              >
-                Sign Up
-              </motion.button>
-            </div>
-          </div>
-        )}
-      </Formik>
+            )}
+          </Formik>
+        </div>
+      </div>
     </div>
   );
 };

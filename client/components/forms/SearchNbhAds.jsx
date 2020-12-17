@@ -80,7 +80,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
-                  <div className="w-44 lg:w-64 p-0 font-axiforma">
+                  <div className="w-44 lg:w-64 p-0 font-axiforma z-10">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -148,7 +148,7 @@ const SearchNbhAds = (props) => {
         </div>
 
         {/* Sort options */}
-        <div className="w-44 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0">
+        <div className="w-44 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0 z-10">
           <Select
             id="sort"
             name="sort"

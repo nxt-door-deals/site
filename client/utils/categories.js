@@ -170,7 +170,8 @@ const categoryListOptions = [
   },
 ];
 
-const extendedCategoryListOptions = categoryListOptions;
+let extendedCategoryListOptions = categoryListOptions.slice();
+
 extendedCategoryListOptions.unshift({
   value: "All Categories",
   label: "All Categories",

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import TabManager from "./TabManager";
 import BrowseAds from "./BrowseAds";
 import BrowseRequests from "./BrowseRequests";
+import NoAdsForNeighbourhood from "../utils/NoAdsForNeighbourhood";
 
 const Tab = (props) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -23,7 +24,11 @@ const Tab = (props) => {
       <div>
         <div>
           {activeTab === 0 ? (
-            <BrowseAds nbhId={props.nbhId} variants={props.variants} />
+            props.numOfAds === 0 ? (
+              <NoAdsForNeighbourhood />
+            ) : (
+              <BrowseAds nbhId={props.nbhId} variants={props.variants} />
+            )
           ) : (
             <BrowseRequests />
           )}

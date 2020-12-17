@@ -11,7 +11,7 @@ import {
   faPhoneAlt,
   faDoorOpen,
   faTimes,
-  faCheckDouble,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 const userAccountValidationSchema = Yup.object({
@@ -24,6 +24,7 @@ const userAccountValidationSchema = Yup.object({
 });
 
 const UserAccount = () => {
+  const [name, setName] = useState("");
   const [profileUpdate, setProfileUpdate] = useState(false);
   const authContext = useContext(AuthContext);
   const focusRef = useRef();
@@ -32,6 +33,12 @@ const UserAccount = () => {
   useEffect(() => {
     loadUser();
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+    }
+  }, [user]);
 
   const verificationUrl = `http://${keys.SERVER}/verifyemail/${
     user && user.email_verification_hash + "|" + user && user.id
@@ -86,7 +93,7 @@ const UserAccount = () => {
                   type="text"
                   maxLength="50"
                   autoComplete="off"
-                  placeholder={user && user.name}
+                  placeholder={name}
                   disabled={!profileUpdate}
                   value={props.values.name}
                   onFocus={() =>
@@ -197,7 +204,7 @@ const UserAccount = () => {
                       focusRef.current.focus();
                       setProfileUpdate(true);
                     }}
-                    className="p-4 bg-purple-500 uppercase text-white rounded-lg focus:outline-none"
+                    className="h-12 w-full tracking-wide font-bold bg-purple-500 uppercase text-white rounded-xl focus:outline-none"
                   >
                     Edit Profile
                   </button>
@@ -250,7 +257,7 @@ const UserAccount = () => {
                 <div>
                   {user && user.mail_subscribed ? (
                     <FontAwesomeIcon
-                      icon={faCheckDouble}
+                      icon={faCheck}
                       className="text-green-700 text-xl"
                     />
                   ) : (

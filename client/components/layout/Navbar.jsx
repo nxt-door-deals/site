@@ -229,7 +229,7 @@ const Navbar = (props) => {
                     <a>Sign Up</a>
                   </Link>
                 )}
-                {user && (
+                {user && user && (
                   <Link href="/account">
                     <a>My Account</a>
                   </Link>
@@ -244,9 +244,9 @@ const Navbar = (props) => {
                   <div
                     className="cursor-pointer"
                     onClick={() => {
-                      logout();
                       logoutToast();
-                      setTimeout(() => Router.push("/"), 1000);
+                      logout();
+                      setTimeout(() => Router.push("/"), 500);
                     }}
                   >
                     Logout
@@ -284,6 +284,11 @@ const Navbar = (props) => {
           {props.navStyle.pathname == "/postad" && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a>How It Works</a>
                 </Link>
@@ -304,9 +309,9 @@ const Navbar = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => {
-                    logout();
                     logoutToast();
-                    setTimeout(() => Router.push("/"), 2000);
+                    logout();
+                    setTimeout(() => Router.push("/"), 500);
                   }}
                 >
                   Logout
@@ -329,11 +334,13 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                <Link href={myNeighbourhoodUrl}>
-                  <a>
-                    <span className="text-brand-purple">My</span> Neighbourhood
-                  </a>
-                </Link>
+                {user && user && (
+                  <Link
+                    href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                  >
+                    <a>My Neighbourhood</a>
+                  </Link>
+                )}
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/postad">
@@ -344,9 +351,9 @@ const Navbar = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => {
-                    logout();
                     logoutToast();
-                    setTimeout(() => Router.push("/"), 2000);
+                    logout();
+                    setTimeout(() => Router.push("/"), 500);
                   }}
                 >
                   Logout
@@ -433,9 +440,8 @@ const Navbar = (props) => {
                     <div
                       className="cursor-pointer"
                       onClick={() => {
-                        logout();
                         logoutToast();
-                        setTimeout(() => Router.reload("/"), 2000);
+                        logout();
                       }}
                     >
                       Logout
@@ -453,8 +459,10 @@ const Navbar = (props) => {
                       <a>Sign Up</a>
                     </Link>
                   )}
-                  {user && (
-                    <Link href="/">
+                  {user && user && (
+                    <Link
+                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                    >
                       <a>My Neighbourhood</a>
                     </Link>
                   )}
@@ -531,9 +539,9 @@ const Navbar = (props) => {
                     <div
                       className="cursor-pointer"
                       onClick={() => {
-                        logout();
                         logoutToast();
-                        setTimeout(() => Router.push("/"), 2000);
+                        logout();
+                        setTimeout(() => Router.push("/"), 500);
                       }}
                     >
                       Logout
@@ -593,6 +601,16 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
                   <Link href="/#how-it-works">
                     <a>How It Works</a>
                   </Link>
@@ -630,9 +648,9 @@ const Navbar = (props) => {
                   <div
                     className="cursor-pointer"
                     onClick={() => {
-                      logout();
                       logoutToast();
-                      setTimeout(() => Router.reload("/"), 2000);
+                      logout();
+                      setTimeout(() => Router.push("/"), 500);
                     }}
                   >
                     Logout
@@ -670,12 +688,13 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  <Link href={myNeighbourhoodUrl}>
-                    <a>
-                      <span className="text-brand-purple">My</span>{" "}
-                      Neighbourhood
-                    </a>
-                  </Link>
+                  {user && user && (
+                    <Link
+                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                    >
+                      <a>My Neighbourhood</a>
+                    </Link>
+                  )}
                 </li>
                 <li
                   className={
@@ -696,9 +715,9 @@ const Navbar = (props) => {
                   <div
                     className="cursor-pointer"
                     onClick={() => {
-                      logout();
                       logoutToast();
-                      setTimeout(() => Router.push("/"), 2000);
+                      logout();
+                      setTimeout(() => Router.push("/"), 500);
                     }}
                   >
                     Logout

@@ -10,7 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const NbhAdsCard = (props) => {
   const siteContext = useContext(SiteContext);
-  const { adsDataNbh, fetchAdsForNbh } = siteContext;
+  const { adsDataNbh, initialAdsData, fetchAdsForNbh } = siteContext;
 
   useEffect(() => {
     fetchAdsForNbh(props.nbhId);

@@ -2,27 +2,27 @@ import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
 
-const UserLoginHeadLayout = (props) => {
+const UserAccountHeadLayout = (props) => {
   return (
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | User Login</title>
+        <title>NXT Door Deals | Your Account</title>
         <meta
           name="description"
-          content="Log into your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Login To Your Account"
+          content="NXT Door Deals | Your User Account"
         />
         <meta
           property="og:description"
-          content="Log into your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
+          content="Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
         />
-        <meta property="og:url" content="https://nxtdoordeals.com/login" />
+        <meta property="og:url" content="https://nxtdoordeals.com/account" />
         <meta property="og:site_name" content="NXT Door Deals" />
         <script
           type="application/ld+json"
@@ -62,7 +62,7 @@ const UserLoginHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Log into your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals for preloved items in your neighbourhood."
+                    "@value": "Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals for preloved items in your neighbourhood."
                   }
                 ],
                 "http://schema.org/inLanguage": [
@@ -82,14 +82,14 @@ const UserLoginHeadLayout = (props) => {
                     ],
                     "http://schema.org/target": [
                       {
-                        "@value": "https://nxtdoordeals.com/login"
+                        "@value": "https://nxtdoordeals.com/account"
                       }
                     ]
                   }
                 ],
                 "http://schema.org/url": [
                   {
-                    "@id": "https://nxtdoordeals.com/login"
+                    "@id": "https://nxtdoordeals.com/account"
                   }
                 ]
               }
@@ -102,4 +102,4 @@ const UserLoginHeadLayout = (props) => {
   );
 };
 
-export default UserLoginHeadLayout;
+export default UserAccountHeadLayout;

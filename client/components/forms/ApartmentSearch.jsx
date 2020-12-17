@@ -75,31 +75,31 @@ const ApartmentSearch = () => {
           >
             <div
               className={`"flex mt-6 border-2 rounded-xl " ${
-                props.errors.apartment && props.touched.apartment
-                  ? "mb-1 border-red-900 shadow-none"
-                  : "border-purple-900 focus:outline-none"
+                props.touched.apartment && props.errors.apartment
+                  ? "mb-1 border-red-800 shadow-none"
+                  : "border-purple-900"
               }`}
             >
               <FontAwesomeIcon
                 icon={faSearch}
-                className="inline align-middle text-lg fill-current text-gray-400 ml-2 w- "
-                alt="Search Apartment"
+                className="text-gray-400 text-lg ml-2"
               />
               <Field
                 id="apartment"
                 name="apartment"
-                type="input"
-                placeholder="Find Your Apartment"
-                className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
-                maxLength="100"
+                type="text"
+                placeholder="Your apartment"
+                maxLength="50"
                 autoComplete="off"
+                autoFocus=""
+                className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                 onKeyUp={searchApartment}
               />
             </div>
 
             {/* Validation errors */}
             {props.touched.apartment && props.errors.apartment ? (
-              <div className=" text-xs text-red-800 p-1 mb-2">
+              <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
                 <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                 {props.errors.apartment}
               </div>
@@ -187,7 +187,7 @@ const ApartmentSearch = () => {
             <div>
               <motion.button
                 type="submit"
-                className="mt-8 p-0 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
+                className="p-0 mt-6 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
                 variants={variants}
                 whileHover="buttonHover"
                 whileTap="buttonTap"

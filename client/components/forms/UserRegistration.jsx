@@ -477,16 +477,23 @@ const UserRegistration = () => {
                     }
                   />
 
-                  <div className="text-center">
+                  <div className="flex justify-center mt-7 mb-8 ">
                     <motion.button
                       variants={variants}
                       whileHover="buttonHover"
                       whileTap="buttonTap"
-                      className="mt-7 mb-8 w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      className="w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       type="submit"
                       arira-aria-label="User registration button"
+                      disabled={props.isSubmitting}
                     >
-                      {!props.isSubmitting ? "Register" : <BouncingBalls />}
+                      {!props.isSubmitting ? (
+                        "Register"
+                      ) : authError ? (
+                        "Register"
+                      ) : (
+                        <BouncingBalls />
+                      )}
                     </motion.button>
                   </div>
                 </Form>
