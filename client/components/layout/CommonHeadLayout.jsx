@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Head from "next/head";
 
 const CommonHeadLayout = () => {
@@ -19,7 +18,7 @@ const CommonHeadLayout = () => {
       <link
         href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"
         rel="stylesheet"
-      ></link>
+      />
     </Head>
   );
 };
