@@ -501,7 +501,7 @@ const UserRegistration = () => {
                 {/* T&C */}
                 <Terms termsLinksStyle={termsLinksStyle} />
 
-                <div className="font-axiforma text-blue-700 text-center mt-4 text-sm  lg:text-md">
+                <div className="font-axiforma text-center mt-4">
                   Already have an account?{" "}
                   <motion.button
                     className="ml-2 inline bg-opacity-25 bg-blue-400 text-blue-800 py-3 px-4 shadow-sm  font-semibold focus:outline-none rounded-xl"
