@@ -38,12 +38,13 @@ export default function MyApp({ Component, pageProps, router }) {
             hideProgressBar={true}
             newestOnTop
             closeOnClick
+            closeButton={false}
             rtl={false}
             pauseOnHover
             transition={Flip}
             toastClassName={({ type }) =>
               contextClass[type || "default"] +
-              " flex p-1 min-h-10 justify-between overflow-hidden cursor-pointer"
+              " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer"
             }
             bodyClassName={() =>
               "font-axiforma text-base font-white font-semibold tracking-wide block p-3 text-center"

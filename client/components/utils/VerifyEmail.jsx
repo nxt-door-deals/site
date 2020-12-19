@@ -1,19 +1,17 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
 import Router from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
-import Popup from "reactjs-popup";
+import { toast } from "react-toastify";
 import keys from "../../utils/keys";
 
 const VerifyEmail = ({ user }) => {
   const authContext = useContext(AuthContext);
 
   const { sendEmail, updateEmailVerificationTimestamp } = authContext;
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
 
   var name = user.name !== null ? user.name : "friend";
   var email = user.email !== null ? user.email : "registered email";
@@ -28,10 +26,15 @@ const VerifyEmail = ({ user }) => {
     sendEmail(name, email, verificationUrl);
   }, []);
 
+  // Email sent toast
+  const emailSentToast = () =>
+    toast("Email has been resent", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   return (
-    <div
-      className={`"font-axiforma text-center " ${open ? "opacity-25" : null} `}
-    >
+    <div className="font-axiforma text-center ">
       <h2 className="font-bold text-3xl text-brand-gray tracking-wide mb-4">
         One final step...
       </h2>
@@ -81,35 +84,19 @@ const VerifyEmail = ({ user }) => {
 
       <p className="text-sm text-center  text-gray-600">
         Didn't receive our email?{" "}
-        <span className="text-blue-600">
-          <Link href="">
-            <a
-              onClick={(e) => {
-                e.preventDefault();
-                updateEmailVerificationTimestamp(user.id);
-                sendEmail(name, email, verificationUrl);
-                setOpen((o) => !o);
-              }}
-            >
-              Resend email
-            </a>
-          </Link>
-          <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-            <div className="font-axiforma text-brand-gray text-sm bg-gray-300 opacity-90 flex justify-center items-center p-6 tracking-wide rounded-md">
-              The email has been resent to&nbsp;
-              <span className="font-semibold text-blue-500"> {email}</span>
-              <div class="inline absolute top-0 right-0 mr-2 mt-1">
-                <FontAwesomeIcon
-                  className="cursor-pointer"
-                  icon={faWindowClose}
-                  onClick={() => {
-                    closeModal();
-                  }}
-                />
-              </div>
-            </div>
-          </Popup>
-        </span>
+        <Link href="">
+          <a
+            className="text-blue-600"
+            onClick={(e) => {
+              e.preventDefault();
+              updateEmailVerificationTimestamp(user.id);
+              sendEmail(name, email, verificationUrl);
+              emailSentToast();
+            }}
+          >
+            Resend email
+          </a>
+        </Link>
       </p>
     </div>
   );

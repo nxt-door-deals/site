@@ -3,6 +3,7 @@ import AuthContext from "../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import keys from "../../utils/keys";
+import { toast } from "react-toastify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -28,7 +29,7 @@ const UserAccount = () => {
   const [profileUpdate, setProfileUpdate] = useState(false);
   const authContext = useContext(AuthContext);
   const focusRef = useRef();
-  const { user, loadUser } = authContext;
+  const { user, loadUser, sendEmail } = authContext;
 
   useEffect(() => {
     loadUser();
@@ -43,6 +44,13 @@ const UserAccount = () => {
   const verificationUrl = `http://${keys.SERVER}/verifyemail/${
     user && user.email_verification_hash + "|" + user && user.id
   }`;
+
+  // User account toast
+  const emailVerificationTost = () =>
+    toast("Verification link sent to your registered email id", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
 
   return (
     <div className="font-axiforma rounded-3xl shadow-postadshadow bg-white p-8 px-24 mb-4">
@@ -235,13 +243,14 @@ const UserAccount = () => {
                       />
 
                       <div
-                        onClick={() =>
+                        onClick={() => {
                           sendEmail(
                             user && user.name,
                             user && user.email,
                             verificationUrl
-                          )
-                        }
+                          );
+                          setTimeout(() => emailVerificationTost(), 500);
+                        }}
                         className="text-xs ml-2 underline cursor-pointer text-purple-500"
                       >
                         (Resend link)
