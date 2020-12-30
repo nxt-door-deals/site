@@ -73,11 +73,10 @@ const UserAccount = (props) => {
   const [enableDeactivateButton, setEnableDeactivateButton] = useState(false);
   const authContext = useContext(AuthContext);
   const siteContext = useContext(SiteContext);
-  const router = useRouter();
   const focusRef = useRef();
   const selectedApartment = useRef(null);
 
-  const { sendEmail, updateUserProfile, deleteUser, logout } = authContext;
+  const { sendEmail, updateUserProfile, deleteUser } = authContext;
   const {
     fetchApartments,
     apartmentData,
@@ -504,7 +503,7 @@ const UserAccount = (props) => {
                     <div>
                       {currentUser.email_verified ? (
                         <FontAwesomeIcon
-                          icon={faCheckDouble}
+                          icon={faCheck}
                           className="text-green-700 text-xl"
                         />
                       ) : (
