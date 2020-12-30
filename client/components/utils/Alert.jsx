@@ -12,17 +12,22 @@ const Alert = (props) => {
         duration: 1,
         delay: 0.2,
       }}
+      className="p-1"
     >
       <p
         className={
           props.authError || props.genericMessage || props.fetchError
             ? props.alertTheme +
-              " text-center pt-2 pb-2 mb-2 font-axiforma font-semibold rounded-md text-sm"
+              " text-center p-2 mb-2 font-axiforma font-semibold rounded-md text-sm"
             : "hidden"
         }
       >
         <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
-        {props.authError ? props.authError : (props.genericMessage ? props.genericMessage : props.fetchError)}{" "}
+        {props.authError
+          ? props.authError
+          : props.genericMessage
+          ? props.genericMessage
+          : props.fetchError}{" "}
       </p>
     </motion.div>
   );

@@ -59,8 +59,7 @@ const Login = (props) => {
     <UserLoginHeadLayout>
       <Navbar navStyle={navStyle} />
       <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20">
-        {/* The padding below helps mainly for phones in landscape mode */}
-        <div className="">
+        <div>
           <UserLogin pathProp={pathProp} />
         </div>
       </div>

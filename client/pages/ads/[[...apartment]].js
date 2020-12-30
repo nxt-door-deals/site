@@ -23,6 +23,11 @@ const variants = {
   },
 };
 
+const adTabs = [
+  { label: "Browse Ads", value: 0 },
+  { label: "AYN", value: 1 },
+];
+
 const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
 
 const Ads = (props) => {
@@ -51,7 +56,7 @@ const Ads = (props) => {
   const navStyle = {
     navBgColor: "lg:bg-purple-200",
     navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-purple-100",
+    navTextColor: "text-brand-purple",
     navOverlayTextColor: "text-brand-purple",
     hrTextColor: "brand-purple",
     navShadow: "lg:shadow-navshadow",
@@ -84,6 +89,8 @@ const Ads = (props) => {
         </div>
         <div>
           <Tab
+            route={props.route}
+            tabs={adTabs}
             nbhId={props.apartmentId}
             variants={variants}
             numOfAds={props.numOfAds}

@@ -34,8 +34,8 @@ const VerifyEmail = ({ user }) => {
     });
 
   return (
-    <div className="font-axiforma text-center ">
-      <h2 className="font-bold text-3xl text-brand-gray tracking-wide mb-4">
+    <div className="font-axiforma text-center text-brand-gray">
+      <h2 className="font-bold text-3xl tracking-wide mb-4">
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
@@ -47,19 +47,19 @@ const VerifyEmail = ({ user }) => {
         />
       </div>
 
-      <p className="text-base text-gray-600">
+      <p className="text-base">
         Hello, <span className="font-bold text-blue-600">{name}</span>. Thank
         you for signing up!
       </p>
       <br />
-      <p className="text-base text-gray-600">
+      <p className="text-base">
         Please verify your email using the link that was just sent to{" "}
         <span className="font-bold text-blue-600">{email}</span>. The link is
         valid for 24 hours only.
       </p>
       <br />
 
-      <p className="text-xs text-gray-600 mb-2">Want to verify later?</p>
+      <p className="text-xs mb-2">Want to verify later?</p>
       <motion.button
         whileTap={{
           backgroundColor: "#4C51BF",
@@ -76,13 +76,13 @@ const VerifyEmail = ({ user }) => {
         Continue to site
       </motion.button>
 
-      <p className="text-xs text-gray-600">
+      <p className="text-xs">
         <FontAwesomeIcon icon={faInfoCircle} /> Please note that you will not be
         able to post ad's without verifying your email.
       </p>
       <br />
 
-      <p className="text-sm text-center  text-gray-600">
+      <p className="text-sm text-center ">
         Didn't receive our email?{" "}
         <Link href="">
           <a

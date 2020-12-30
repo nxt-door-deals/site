@@ -23,6 +23,16 @@ const otpValidationSchema = Yup.object({
   otp6: Yup.string().required(),
 });
 
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#4C1D95",
+  },
+  tap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+};
+
 Modal.setAppElement("#__next");
 
 const OtpForm = (props) => {
@@ -247,13 +257,10 @@ const OtpForm = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
-                      className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-md uppercase tracking-wide focus:outline-none"
-                      whileTap={{
-                        backgroundColor: "#D6BCFA",
-                        color: "#550052",
-                        y: "5px",
-                        boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                      }}
+                      className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
                     >
                       Validate OTP
                     </motion.button>

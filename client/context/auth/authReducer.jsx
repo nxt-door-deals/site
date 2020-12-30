@@ -24,6 +24,12 @@ import {
   PASSWORD_CHANGE_FAILURE,
   EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
   OTP_VERIFICATION_TIMESTAMP_UPDATED,
+  USER_UPDATE_SUCCESS,
+  USER_UPDATE_FAILURE,
+  DELETE_USER,
+  DELETE_AD,
+  USER_ADS_FETCHED_SUCCESS,
+  USER_ADS_FETCHED_FAILURE,
 } from "../Types";
 
 const cookie = new Cookies();
@@ -55,6 +61,10 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         loading: false,
       };
+    case USER_UPDATE_SUCCESS:
+      return {
+        ...state,
+      };
     case LOGOUT:
       cookie.remove("nddToken", { path: "/" });
 
@@ -71,6 +81,11 @@ const authReducer = (state, action) => {
         ...state,
         emailSent: true,
         genericMessage: action.payload,
+      };
+    case USER_ADS_FETCHED_SUCCESS:
+      return {
+        ...state,
+        userAds: action.payload,
       };
     case EMAIL_VERIFICATION_SUCCESS:
       return {
@@ -152,6 +167,14 @@ const authReducer = (state, action) => {
         isAuthenticated: false,
         loading: false,
         user: null,
+        authError: action.payload,
+      };
+    case USER_UPDATE_FAILURE:
+    case DELETE_USER:
+    case DELTE_AD:
+    case USER_ADS_FETCHED_FAILURE:
+      return {
+        ...state,
         authError: action.payload,
       };
     case CLEAR_ERROR:

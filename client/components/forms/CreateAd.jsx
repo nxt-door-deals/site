@@ -152,32 +152,36 @@ const CreateAd = ({ categoryName, user }) => {
           }}
           validationSchema={createAdValidationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            var formattedDate =
-              startDate.getFullYear() +
-              "-" +
-              (startDate.getMonth() + 1) +
-              "-" +
-              startDate.getDate() +
-              " 00:00:00";
+            setSubmitting(true);
 
-            if (values.typeOfSale === "giveaway") values.price = 0.0;
+            setTimeout(() => {
+              var formattedDate =
+                startDate.getFullYear() +
+                "-" +
+                (startDate.getMonth() + 1) +
+                "-" +
+                startDate.getDate() +
+                " 00:00:00";
 
-            createAd(
-              values.categoryList,
-              values.title,
-              values.description,
-              values.typeOfSale,
-              values.price,
-              values.negotiable,
-              values.condition,
-              formattedDate,
-              values.publishFlatNo,
-              user.id,
-              user.apartment_id,
-              files
-            );
-            setTimeout(() => setSubmitting(false), 5000);
-            router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
+              if (values.typeOfSale === "giveaway") values.price = 0.0;
+
+              createAd(
+                values.categoryList,
+                values.title,
+                values.description,
+                values.typeOfSale,
+                values.price,
+                values.negotiable,
+                values.condition,
+                formattedDate,
+                values.publishFlatNo,
+                user.id,
+                user.apartment_id,
+                files
+              );
+              setSubmitting(false);
+              router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
+            }, 5000);
           }}
         >
           {(props) => (

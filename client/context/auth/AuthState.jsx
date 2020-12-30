@@ -4,7 +4,7 @@ import AuthContext from "./authContext";
 import setAuthToken from "../../utils/setToken";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import keys from "../../utils/keys"
+import keys from "../../utils/keys";
 
 import {
   REGISTER_SUCCESS,
@@ -29,7 +29,13 @@ import {
   PASSWORD_CHANGE_SUCCESS,
   PASSWORD_CHANGE_FAILURE,
   EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
-  OTP_VERIFICATION_TIMESTAMP_UPDATED
+  OTP_VERIFICATION_TIMESTAMP_UPDATED,
+  USER_UPDATE_SUCCESS,
+  USER_UPDATE_FAILURE,
+  DELETE_USER,
+  DELETE_AD,
+  USER_ADS_FETCHED_SUCCESS,
+  USER_ADS_FETCHED_FAILURE,
 } from "../Types";
 
 const cookie = new Cookies();
@@ -54,6 +60,7 @@ const AuthState = (props) => {
     otpValidated: null,
     passwordChanged: null,
     genericMessage: null,
+    userAds: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -65,7 +72,7 @@ const AuthState = (props) => {
     mobile = null,
     password,
     apartmentNumber,
-    apartment,
+    apartment
   ) => {
     const jsonPayload = {
       name: name,
@@ -73,7 +80,7 @@ const AuthState = (props) => {
       mobile: mobile,
       password: password,
       apartment_id: apartment,
-      apartment_number: apartmentNumber
+      apartment_number: apartmentNumber,
     };
 
     try {
@@ -100,9 +107,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get(
-        `${keys.API_PROXY}/auth/current_user`
-      );
+      const res = await axios.get(`${keys.API_PROXY}/auth/current_user`);
 
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
@@ -118,19 +123,86 @@ const AuthState = (props) => {
     formData.set("password", password);
 
     try {
-      const res = await axios.post(
-        `${keys.API_PROXY}/auth`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post(`${keys.API_PROXY}/auth`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     } catch (err) {
       dispatch({ type: LOGIN_FAIL, payload: err.response.data.detail });
       setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+    }
+  };
+
+  // Update user
+  const updateUserProfile = async (
+    userId,
+    name,
+    email,
+    mobile,
+    apartmentId,
+    apartmentNumber,
+    neighbourhood
+  ) => {
+    const jsonPayload = {
+      name: name,
+      email: email,
+      mobile: mobile,
+      apartment_id: apartmentId,
+      apartment_number: apartmentNumber,
+    };
+
+    try {
+      const res = await axios.put(
+        `${keys.API_PROXY}/user/update/${userId}`,
+        jsonPayload
+      );
+
+      state.user.name = res.data.name;
+      state.user.mobile = res.data.mobile;
+      state.user.apartment_id = apartmentId;
+      state.user.apartment_number = apartmentNumber;
+      state.user.apartment_name = neighbourhood;
+
+      dispatch({ type: USER_UPDATE_SUCCESS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: USER_UPDATE_FAILURE, payload: res.data });
+    }
+  };
+
+  // Delete user
+  const deleteUser = async (userId) => {
+    try {
+      await axios.delete(`${keys.API_PROXY}/user/delete/${userId}`);
+    } catch (err) {
+      dispatch({ type: DELETE_USER, payload: err.message.data.detail });
+    }
+  };
+
+  // Delete ad
+  const deleteAd = async (index, userId, adId) => {
+    try {
+      await axios.delete(
+        `${keys.API_PROXY}/userads/delete/?user_id=${userId}&ad_id=${adId}`
+      );
+
+      state.userAds.splice(index, 1);
+    } catch (err) {
+      dispatch({ type: DELETE_AD, payload: err.message.data.detail });
+    }
+  };
+
+  // User ads
+  const fetchUserAds = async (userId) => {
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/userads/get/${userId}`);
+      dispatch({ type: USER_ADS_FETCHED_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: USER_ADS_FETCHED_FAILURE,
+        payload: err.message.data.detail,
+      });
     }
   };
 
@@ -148,15 +220,11 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.post(
-        `${keys.API_PROXY}/email/send`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.post(`${keys.API_PROXY}/email/send`, jsonPayload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       dispatch({ type: EMAIL_SEND_SUCCESS });
     } catch (error) {
       dispatch({ type: EMAIL_SEND_FAILURE });
@@ -187,20 +255,16 @@ const AuthState = (props) => {
     }
   };
 
-   // Refresh the otp verification timestamp
-   const updateOtpVerificationTimestamp = async (id) => {
+  // Refresh the otp verification timestamp
+  const updateOtpVerificationTimestamp = async (id) => {
     const jsonPayload = { id: id };
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/otp_timestamp/refresh`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.put(`${keys.API_PROXY}/otp_timestamp/refresh`, jsonPayload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       dispatch({ type: null });
     } catch (err) {
@@ -223,15 +287,11 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.post(
-        `${keys.API_PROXY}/email/send/otp`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.post(`${keys.API_PROXY}/email/send/otp`, jsonPayload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       dispatch({ type: EMAIL_SEND_SUCCESS });
     } catch (error) {
       dispatch({ type: EMAIL_SEND_FAILURE });
@@ -316,15 +376,11 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/user/otp_generation`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      await axios.put(`${keys.API_PROXY}/user/otp_generation`, jsonPayload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       dispatch({ type: OTP_GENERATED_SUCCESS });
     } catch (err) {
       dispatch({
@@ -382,7 +438,6 @@ const AuthState = (props) => {
     dispatch({ type: LOGOUT });
   };
 
-
   return (
     <AuthContext.Provider
       value={{
@@ -398,9 +453,14 @@ const AuthState = (props) => {
         otpValidated: state.otpValidated,
         passwordChanged: state.passwordChanged,
         genericMessage: state.genericMessage,
+        userAds: state.userAds,
         registerUser,
         loginUser,
         loadUser,
+        deleteUser,
+        deleteAd,
+        fetchUserAds,
+        updateUserProfile,
         sendEmail,
         sendOtpByEmail,
         verifyEmail,

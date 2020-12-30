@@ -121,7 +121,7 @@ const Navbar = (props) => {
                 alt="Open Menu"
               />
             ) : (
-              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative shadow-lg opacity-90">
+              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative shadow-lg opacity-90 cursor-pointer">
                 <FontAwesomeIcon
                   icon={faBars}
                   alt="Open Menu"
@@ -351,9 +351,7 @@ const Navbar = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => {
-                    logoutToast();
                     logout();
-                    setTimeout(() => Router.push("/"), 500);
                   }}
                 >
                   Logout
@@ -520,7 +518,7 @@ const Navbar = (props) => {
                       <a>Sign Up</a>
                     </Link>
                   ) : (
-                    <Link href="/neighbourhood">
+                    <Link href="/account">
                       <a>My Account</a>
                     </Link>
                   )}
@@ -715,9 +713,7 @@ const Navbar = (props) => {
                   <div
                     className="cursor-pointer"
                     onClick={() => {
-                      logoutToast();
                       logout();
-                      setTimeout(() => Router.push("/"), 500);
                     }}
                   >
                     Logout

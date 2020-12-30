@@ -26,6 +26,7 @@ module.exports = {
       inset: {
         100: "100%",
         50: "50%",
+        0.5: "0.15rem",
       },
       opacity: {
         90: "0.9",

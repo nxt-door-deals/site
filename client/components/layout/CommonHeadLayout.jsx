@@ -16,8 +16,10 @@ const CommonHeadLayout = () => {
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />
       <link
-        href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"
         rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"
+        integrity="sha384-XBFwYq8dzGeC/rGkEgveavwuEU0D16mIKfWeCX6deYzhMUaa8GX4CgA5c/YHP2xo"
+        crossorigin="anonymous"
       />
     </Head>
   );

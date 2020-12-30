@@ -6,6 +6,7 @@ import keys from "../../utils/keys";
 import setAuthToken from "../../utils/setToken";
 
 import {
+  LOAD_APARTMENTS,
   FETCH_APARTMENT,
   FETCH_APARTMENT_ERROR,
   FETCH_APARTMENT_NAME,
@@ -34,6 +35,7 @@ const fromEmail = keys.FROM_EMAIL;
 
 const SiteState = (props) => {
   const initialState = {
+    allApartments: "",
     numApartmentsFetched: "",
     fetchError: null,
     loading: false,
@@ -51,6 +53,19 @@ const SiteState = (props) => {
   };
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
+
+  const loadAllApartments = async () => {
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/apartments/all`);
+
+      dispatch({ type: LOAD_APARTMENTS, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: FETCH_APARTMENT_ERROR,
+        payload: err.response.data.detail,
+      });
+    }
+  };
 
   const createApartment = async (
     name,
@@ -431,6 +446,8 @@ const SiteState = (props) => {
         verifiedNeighbourhoodDetails: state.verifiedNeighbourhoodDetails,
         adsDataNbh: state.adsDataNbh,
         adsDataNbhFetched: state.adsDataNbhFetched,
+        allApartments: state.allApartments,
+        loadAllApartments,
         fetchApartments,
         getNeighbourhoodFromId,
         clearApartmentSearchResults,

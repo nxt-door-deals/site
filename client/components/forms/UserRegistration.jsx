@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import keys from "../../utils/keys";
-import BouncingBalls from "../loaders/BouncingBalls";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -28,6 +27,7 @@ import Router from "next/router";
 import VerifyEmail from "../utils/VerifyEmail";
 import Alert from "../utils/Alert";
 import Terms from "../utils/Terms";
+import BouncingBalls from "../loaders/BouncingBalls";
 
 const userRegistrationValidationSchema = Yup.object({
   name: Yup.string()
@@ -59,11 +59,11 @@ const termsLinksStyle = "underline text-blue-600";
 
 const variants = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.3 } },
-  exit: { opacity: 0, transition: { duration: 0.3 } },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
   searchResultsHover: {
     color: "#667EEA",
-    fontWeight: "bold",
+    fontWeight: 600,
   },
   buttonHover: {
     backgroundColor: "#1E40AF",
@@ -79,9 +79,10 @@ const variants = {
 };
 
 const UserRegistration = () => {
-  var apartmentId;
+  var apartment;
   const [displayPassword, setDisplayPassword] = useState(false);
   const [parentDiv, setparentDiv] = useState("visible");
+  const [hideResults, setHideResults] = useState(null);
   const [showForm, setShowForm] = useState(true);
   const selectedApartment = useRef(null);
   const [enableFormSubmission, setEnableFormSubmission] = useState(false);
@@ -93,6 +94,8 @@ const UserRegistration = () => {
     apartmentData,
     validateApartmentSelection,
     fetchError,
+    loadAllApartments,
+    allApartments,
   } = siteContext;
 
   const authContext = useContext(AuthContext);
@@ -105,9 +108,12 @@ const UserRegistration = () => {
   } = authContext;
 
   useEffect(() => {
+    loadAllApartments();
+  }, []);
+
+  useEffect(() => {
     if (isAuthenticated) {
       loadUser();
-
       setShowForm(false);
     }
   }, [isAuthenticated]);
@@ -148,25 +154,28 @@ const UserRegistration = () => {
             validationSchema={userRegistrationValidationSchema}
             onSubmit={async (values, { setSubmitting }) => {
               setSubmitting(true);
+              setHideResults("hidden");
+
               if (enableFormSubmission) {
-                apartmentId = apartmentData.find(
+                apartment = allApartments.find(
                   (o) => o.name === values.apartment
                 );
 
-                if (!apartmentId) {
+                if (!apartment) {
                   validateApartmentSelection(
-                    "Please select an apartment from the list"
+                    "Please select a neighbourhood from the list"
+                  );
+                  setHideResults(null);
+                } else {
+                  registerUser(
+                    values.name,
+                    values.email,
+                    values.mobile,
+                    values.password,
+                    values.apartmentNumber,
+                    selectedApartment.current
                   );
                 }
-
-                registerUser(
-                  values.name,
-                  values.email,
-                  values.mobile,
-                  values.password,
-                  values.apartmentNumber,
-                  selectedApartment.current
-                );
               }
               setTimeout(() => setSubmitting(false), 2000);
             }}
@@ -323,7 +332,7 @@ const UserRegistration = () => {
                     className={`"flex items-center justify-center border-2 rounded-xl  " ${
                       props.touched.apartment && props.errors.apartment
                         ? "mb-1 border-red-800 shadow-none"
-                        : "mb-1 border-gray-300 focus-within:border-text-blue"
+                        : "border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
@@ -356,7 +365,8 @@ const UserRegistration = () => {
                     <div
                       className={
                         numApartmentsFetched > 0
-                          ? "search-results border-blue-400 w-full overflow-auto" +
+                          ? hideResults +
+                            " search-results border-blue-400 w-full overflow-auto" +
                             " " +
                             parentDiv
                           : "invisible"
@@ -417,7 +427,8 @@ const UserRegistration = () => {
                         props.values.apartment === ""
                           ? "hidden"
                           : numApartmentsFetched === 0
-                          ? "absolute p-2 pt-4 mt-1 border-2 border-solid border-blue-400 bg-white rounded-lg  text-brand-gray; w-full h-20 align-middle overflow-auto"
+                          ? hideResults +
+                            " absolute p-2 pt-4 mt-1 border-2 border-solid border-blue-400 bg-white rounded-lg  text-brand-gray; w-full h-20 align-middle overflow-auto"
                           : "hidden"
                       }
                     >
@@ -436,11 +447,13 @@ const UserRegistration = () => {
 
                   {/* Apartment number */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-xl  " ${
+                    className={`"flex items-center justify-center border-2 mt-8 rounded-xl " ${
+                      props.errors.apartment && " mt-0 "
+                    } ${
                       props.touched.apartmentNumber &&
                       props.errors.apartmentNumber
                         ? "mb-1 border-red-800 shadow-none"
-                        : "mb-8 mt-7 border-gray-300 focus-within:border-text-blue"
+                        : "mb-8 border-gray-300 focus-within:border-text-blue"
                     }`}
                   >
                     <FontAwesomeIcon
@@ -477,7 +490,7 @@ const UserRegistration = () => {
                     }
                   />
 
-                  <div className="flex justify-center mt-7 mb-8 ">
+                  <div className="text-center mt-7 mb-8 ">
                     <motion.button
                       variants={variants}
                       whileHover="buttonHover"
@@ -485,7 +498,7 @@ const UserRegistration = () => {
                       className="w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       type="submit"
                       arira-aria-label="User registration button"
-                      disabled={props.isSubmitting}
+                      disabled={!enableFormSubmission || props.isSubmitting}
                     >
                       {!props.isSubmitting ? (
                         "Register"
@@ -524,7 +537,7 @@ const UserRegistration = () => {
           variants={variants}
           initial="initial"
           animate="animate"
-          className="rounded-md shadow-boxshadowregister bg-white p-12"
+          className="rounded-3xl shadow-boxshadowregister bg-white p-12"
         >
           <VerifyEmail user={user} />
         </motion.div>

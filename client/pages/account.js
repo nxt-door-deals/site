@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
 // Component imports
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import UserAccount from "../components/forms/UserAccount";
 import UserAccountHeadLayout from "../components/layout/UserAccountHeadLayout";
+import Tab from "../components/utils/Tab";
 
 var cookie = new Cookies();
 
 const Account = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
+
+  const authContext = useContext(AuthContext);
+  const { loadUser, user, fetchUserAds, userAds } = authContext;
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  useEffect(() => {
+    if (user) fetchUserAds(user.id);
+  }, [user]);
 
   // Custom navbar tailwind styles
   const navStyle = {
@@ -25,6 +37,11 @@ const Account = (props) => {
     faIconTextcolor: "text-white",
     pathname: pathname,
   };
+
+  const userAccountTabs = [
+    { label: "My Profile", value: 0 },
+    { label: "My Ads", value: 1 },
+  ];
 
   const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
 
@@ -40,22 +57,33 @@ const Account = (props) => {
 
   return (
     <UserAccountHeadLayout>
-      <div>
-        <div className="h-full w-full bg-user-account-mobile-background md:bg-user-account-background bg-no-repeat bg-cover">
-          <Navbar navStyle={navStyle} />
-          {/* Container */}
-          <div className="pt-48 pb-20">
-            <div className="flex justify-center items-center">
-              <div>
-                <UserAccount />
-              </div>
-            </div>
-          </div>
+      <div className="h-full font-axiforma">
+        <Navbar navStyle={navStyle} />
+        <div className="w-full bg-user-account-mobile-background md:bg-user-account-background bg-cover bg-no-repeat h-80"></div>
+        {/* Container */}
+        <div className="mt-6 mb-10">
+          {user && (
+            <Tab
+              route={props.route}
+              tabs={userAccountTabs}
+              currentUser={user && user}
+              ads={userAds && userAds}
+            />
+          )}
+        </div>
+
+        <div>
           <Footer footerGradientClass={footerGradientClass} />
         </div>
       </div>
     </UserAccountHeadLayout>
   );
+};
+
+Account.getInitialProps = ({ pathname }) => {
+  return {
+    route: pathname,
+  };
 };
 
 export default Account;

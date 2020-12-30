@@ -1,5 +1,5 @@
-import { faGalacticSenate } from "@fortawesome/free-brands-svg-icons";
 import {
+  LOAD_APARTMENTS,
   FETCH_APARTMENT,
   FETCH_APARTMENT_ERROR,
   FETCH_APARTMENT_NAME,
@@ -22,6 +22,11 @@ import {
 
 const siteReducer = (state, action) => {
   switch (action.type) {
+    case LOAD_APARTMENTS:
+      return {
+        ...state,
+        allApartments: action.payload,
+      };
     case FETCH_APARTMENT:
       return {
         ...state,

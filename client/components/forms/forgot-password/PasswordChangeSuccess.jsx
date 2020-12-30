@@ -3,6 +3,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Router from "next/router";
 
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#4C1D95",
+  },
+  tap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+};
+
 const PasswordChangeSuccess = () => {
   return (
     <div>
@@ -21,13 +31,10 @@ const PasswordChangeSuccess = () => {
       </div>
       <div className="text-center mt-6">
         <motion.button
-          className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-md uppercase tracking-wide focus:outline-none"
-          whileTap={{
-            backgroundColor: "#D6BCFA",
-            color: "#550052",
-            y: "5px",
-            boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-          }}
+          className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
           onClick={() => {
             Router.push("/login");
           }}

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
+import keys from "../../utils/keys";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRupeeSign, faCertificate } from "@fortawesome/free-solid-svg-icons";
@@ -34,29 +35,41 @@ const NbhAdsCard = (props) => {
               key={adIndex}
               className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
             >
-              {/* Card carousel */}
-              <div
-                key={adIndex}
-                className="carousel-container p-4 flex justify-center mr-0"
-              >
-                <Carousel
-                  dynamicHeight
-                  infiniteLoop={true}
-                  showStatus={false}
-                  showThumbs={false}
+              {ad.images.length > 0 && (
+                <div
+                  key={adIndex}
+                  className="carousel-container p-4 flex justify-center mr-0"
                 >
-                  {ad.images.map((image, imgIndex) => (
-                    <div key={imgIndex} className="-z-20">
-                      <Image
-                        src={image}
-                        alt={`Carousel image-${imgIndex}`}
-                        height={300}
-                        width={300}
-                      />
-                    </div>
-                  ))}
-                </Carousel>
-              </div>
+                  <Carousel
+                    dynamicHeight
+                    infiniteLoop={true}
+                    showStatus={false}
+                    showThumbs={false}
+                  >
+                    {ad.images.map((image, imgIndex) => (
+                      <div key={imgIndex} className="-z-20">
+                        <Image
+                          src={image}
+                          alt={`Carousel image-${imgIndex}`}
+                          height={300}
+                          width={300}
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
+                </div>
+              )}
+              {ad.images.length === 0 && (
+                <div className="p-4 flex justify-center mr-0">
+                  <Image
+                    src={keys.DEFAULT_IMAGE}
+                    alt={"Carousel default image"}
+                    height={300}
+                    width={300}
+                  />
+                </div>
+              )}
+
               {/* Card title */}
               <div className="text-left px-4 py-2">
                 <p className="font-semibold">{ad.title}</p>

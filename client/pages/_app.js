@@ -47,7 +47,7 @@ export default function MyApp({ Component, pageProps, router }) {
               " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer"
             }
             bodyClassName={() =>
-              "font-axiforma text-base font-white font-semibold tracking-wide block p-3 text-center"
+              "font-axiforma text-base text-white font-semibold tracking-wide block p-3 text-center"
             }
           />
         </SiteState>

@@ -21,6 +21,16 @@ const forgotPasswordValidationSchema = Yup.object({
     .trim(),
 });
 
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#4C1D95",
+  },
+  tap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+};
+
 const EnterEmailForm = (props) => {
   const authContext = useContext(AuthContext);
   const [showForm, setShowForm] = useState(true);
@@ -84,15 +94,15 @@ const EnterEmailForm = (props) => {
               {(props) => (
                 <Form>
                   <div
-                    className={`"relative border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.email && props.errors.email
-                        ? "mb-1 border-red-800"
-                        : "mb-6 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-6 border-gray-300 focus-within:border-text-purple"
                     }`}
                   >
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      className="inline align-middle fill-current text-gray-500 text-lg ml-2"
+                      className="align-middle text-gray-400 text-lg ml-2"
                     />
                     <Field
                       id="email"
@@ -101,7 +111,7 @@ const EnterEmailForm = (props) => {
                       placeholder="Email"
                       maxLength="50"
                       autoComplete="off"
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
@@ -116,13 +126,10 @@ const EnterEmailForm = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
-                      className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-md uppercase tracking-wide focus:outline-none"
-                      whileTap={{
-                        backgroundColor: "#D6BCFA",
-                        color: "#550052",
-                        y: "5px",
-                        boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                      }}
+                      className="w-48 h-12 bg-purple-500 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
                     >
                       Validate Email
                     </motion.button>
@@ -139,7 +146,11 @@ const EnterEmailForm = (props) => {
           transition={{ duration: 0.3 }}
           className="flex justify-center items-center min-h-screen"
         >
-          <OtpForm user={user} alertTheme={props.alertTheme} />
+          <OtpForm
+            user={user}
+            alertTheme={props.alertTheme}
+            variants={buttonVariants}
+          />
         </motion.div>
       )}
     </AnimatePresence>

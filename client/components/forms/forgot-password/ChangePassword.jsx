@@ -15,6 +15,16 @@ import { motion, AnimatePresence } from "framer-motion";
 // Component imports
 import PasswordChangeSuccess from "./PasswordChangeSuccess";
 
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#4C1D95",
+  },
+  tap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+};
+
 const passwordValidationSchema = Yup.object({
   password: Yup.string()
     .required("Please enter a password")
@@ -91,10 +101,10 @@ const ChangePassword = (props) => {
                 <Form>
                   {/* Password */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.password && props.errors.password
-                        ? "mb-1 border-red-800"
-                        : "mb-6 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-6 border-gray-300 focus-within:border-text-purple"
                     }`}
                   >
                     <FontAwesomeIcon
@@ -108,7 +118,7 @@ const ChangePassword = (props) => {
                       placeholder="Password*"
                       maxLength="50"
                       autoComplete="off"
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
                       icon={!displayPassword ? faEye : faEyeSlash}
@@ -130,11 +140,11 @@ const ChangePassword = (props) => {
 
                   {/* Confirm password */}
                   <div
-                    className={`"flex items-center justify-center border-2 rounded-md " ${
+                    className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.confirmPassword &&
                       props.errors.confirmPassword
-                        ? "mb-1 border-red-800"
-                        : "mb-6 border-gray-300"
+                        ? "mb-1 border-red-800 shadow-none"
+                        : "mb-6 border-gray-300 focus-within:border-text-purple"
                     }`}
                   >
                     <FontAwesomeIcon
@@ -148,7 +158,7 @@ const ChangePassword = (props) => {
                       placeholder="Confirm Password*"
                       maxLength="50"
                       autoComplete="off"
-                      className="textbox-input w-10/12 placeholder-purple-900 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
                       icon={!displayConfirmPassword ? faEye : faEyeSlash}
@@ -174,13 +184,10 @@ const ChangePassword = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
-                      className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-md uppercase tracking-wide focus:outline-none"
-                      whileTap={{
-                        backgroundColor: "#D6BCFA",
-                        color: "#550052",
-                        y: "5px",
-                        boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                      }}
+                      className="w-48 h-12 bg-purple-500 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
                     >
                       Update Password
                     </motion.button>

@@ -61,6 +61,7 @@ const UserLogin = (props) => {
         initialValues={{ email: "", password: "" }}
         validationSchema={loginValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(true);
           loginUser(values.email, values.password);
           setTimeout(() => setSubmitting(false), 2000);
         }}

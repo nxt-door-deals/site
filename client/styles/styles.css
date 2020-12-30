@@ -70,3 +70,15 @@
 .carousel-container .carousel .slide {
   background: none;
 }
+
+.checkbox-align {
+  vertical-align: -1px;
+}
+
+.svg-element {
+  margin: auto;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: large;
+  color: "#550052";
+}
