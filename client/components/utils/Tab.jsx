@@ -27,7 +27,7 @@ const Tab = (props) => {
               props.numOfAds === 0 ? (
                 <NoAdsForNeighbourhood />
               ) : (
-                <BrowseAds nbhId={props.nbhId} variants={props.variants} />
+                <BrowseAds nbhId={props.nbhId} />
               )
             ) : (
               <BrowseRequests />

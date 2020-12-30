@@ -152,24 +152,24 @@ const Navbar = (props) => {
           {/* Navbar on the landing page */}
           {props.navStyle.pathname == "/" && (
             <ul className="flex">
-              <li className="nav-item lg:mr-6 hover:scale-110">
-                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 ">
+              <li className="nav-item lg:mr-4 hover:scale-110">
+                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                   <Link href="/postad">
                     <a>Post Ad</a>
                   </Link>
                 </span>
               </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a>How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a>Our Story</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
                     <a>Login</a>
@@ -186,8 +186,8 @@ const Navbar = (props) => {
                   </div>
                 )}
               </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
-                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3">
+              <li className="nav-item lg:mr-3 hover:scale-110">
+                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                   {user === null && (
                     <Link href="/registeruser">
                       <a>Sign Up</a>

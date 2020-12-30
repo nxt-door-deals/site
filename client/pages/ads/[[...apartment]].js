@@ -2,14 +2,17 @@ import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import axios from "axios";
-import keys from "../../utils/keys";
 
 // Component imports
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Tab from "../../components/utils/Tab";
 import Footer from "../../components/layout/Footer";
+
+const adTabs = [
+  { label: "Browse Ads", value: 0 },
+  { label: "AYN", value: 1 },
+];
 
 const variants = {
   hover: {
@@ -23,21 +26,22 @@ const variants = {
   },
 };
 
-const adTabs = [
-  { label: "Browse Ads", value: 0 },
-  { label: "AYN", value: 1 },
-];
-
 const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
 
 const Ads = (props) => {
   const siteContext = useContext(SiteContext);
-  const { apartmentData, getNeighbourhoodFromId } = siteContext;
+  const {
+    apartmentData,
+    getNeighbourhoodFromId,
+    fetchAdsForNbh,
+    adsDataNbh,
+  } = siteContext;
 
   const router = useRouter();
 
   useEffect(() => {
     getNeighbourhoodFromId(props.apartmentId);
+    fetchAdsForNbh(props.apartmentId);
   }, []);
 
   useEffect(() => {
@@ -92,8 +96,7 @@ const Ads = (props) => {
             route={props.route}
             tabs={adTabs}
             nbhId={props.apartmentId}
-            variants={variants}
-            numOfAds={props.numOfAds}
+            numOfAds={adsDataNbh.length}
           />
         </div>
         <div className="mt-10">
@@ -106,11 +109,7 @@ const Ads = (props) => {
 
 Ads.getInitialProps = async ({ query, pathname, ctx }) => {
   const { apartment } = query;
-  const res = await axios.get(`${keys.API_PROXY}/nbhads/get/${apartment[1]}`);
-
-  const ads = res.data.length;
   return {
-    numOfAds: ads,
     route: pathname,
     apartmentName: apartment[0],
     apartmentId: apartment[1],

@@ -9,6 +9,18 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
+const variants = {
+  hover: {
+    backgroundColor: "#550052",
+    color: "#EDE9FE",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#902393",
+    color: "#EDE9FE",
+  },
+};
+
 const SearchNbhAds = (props) => {
   const siteContext = useContext(SiteContext);
   const {
@@ -119,12 +131,14 @@ const SearchNbhAds = (props) => {
                     />
                   </div>
                   <div className="p-1">
-                    <button
+                    <motion.button
+                      variants={variants}
+                      whileHover="hover"
                       type="submit"
                       className=" p-2.5 bg-ad-purple rounded-lg text-white focus:outline-none"
                     >
                       <FontAwesomeIcon icon={faSearch} />
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               </div>
@@ -137,7 +151,7 @@ const SearchNbhAds = (props) => {
         {/* The giveaway button */}
         <div>
           <motion.button
-            variants={props.variants}
+            variants={variants}
             whileHover="hover"
             whileTap="tap"
             className="lg:ml-5 px-2.5 py-4 bg-ad-purple text-white text-sm rounded-lg uppercase font-semibold focus:outline-none"
