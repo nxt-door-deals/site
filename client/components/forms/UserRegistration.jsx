@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
@@ -21,7 +22,6 @@ import {
   faDoorOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
-import Router from "next/router";
 
 // Component import
 import VerifyEmail from "../utils/VerifyEmail";
@@ -86,6 +86,7 @@ const UserRegistration = () => {
   const [showForm, setShowForm] = useState(true);
   const selectedApartment = useRef(null);
   const [enableFormSubmission, setEnableFormSubmission] = useState(false);
+  const router = useRouter();
 
   const siteContext = useContext(SiteContext);
   const {
@@ -521,7 +522,7 @@ const UserRegistration = () => {
                     variants={variants}
                     whileHover="secondaryButtonHover"
                     onClick={() => {
-                      Router.push("/login");
+                      router.push("/login");
                     }}
                     aria-label="Button for login page"
                   >

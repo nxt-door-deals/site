@@ -3,7 +3,7 @@ import AuthContext from "../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,6 +31,7 @@ const alertTheme = "bg-purple-200 text-brand-purple";
 
 const UserLogin = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);
+  const router = useRouter();
 
   const authContext = useContext(AuthContext);
   const { loginUser, isAuthenticated, loadUser, user, authError } = authContext;
@@ -44,9 +45,9 @@ const UserLogin = (props) => {
   useEffect(() => {
     if (user && user !== null) {
       if (props.pathProp) {
-        Router.push(props.pathProp);
+        router.push(props.pathProp);
       } else {
-        Router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
+        router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
       }
     }
   }, [user]);
@@ -185,7 +186,7 @@ const UserLogin = (props) => {
                   color: "#FFFFFF",
                 }}
                 onClick={() => {
-                  Router.push("/registeruser");
+                  router.push("/registeruser");
                 }}
                 aria-label="Button for the user registration page"
               >

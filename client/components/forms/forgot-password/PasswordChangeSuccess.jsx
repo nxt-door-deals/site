@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 const buttonVariants = {
   hover: {
@@ -14,6 +14,8 @@ const buttonVariants = {
 };
 
 const PasswordChangeSuccess = () => {
+  const router = useRouter();
+
   return (
     <div>
       <div className="flex justify-center">
@@ -36,7 +38,7 @@ const PasswordChangeSuccess = () => {
           whileHover="hover"
           whileTap="tap"
           onClick={() => {
-            Router.push("/login");
+            router.push("/login");
           }}
         >
           Login

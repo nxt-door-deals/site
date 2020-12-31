@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
@@ -34,6 +34,7 @@ const Navbar = (props) => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
 
   const authContext = useContext(AuthContext);
   const { logout, loadUser, user } = authContext;
@@ -246,7 +247,7 @@ const Navbar = (props) => {
                     onClick={() => {
                       logoutToast();
                       logout();
-                      setTimeout(() => Router.push("/"), 500);
+                      setTimeout(() => router.push("/"), 500);
                     }}
                   >
                     Logout
@@ -311,7 +312,7 @@ const Navbar = (props) => {
                   onClick={() => {
                     logoutToast();
                     logout();
-                    setTimeout(() => Router.push("/"), 500);
+                    setTimeout(() => router.push("/"), 500);
                   }}
                 >
                   Logout
@@ -539,7 +540,7 @@ const Navbar = (props) => {
                       onClick={() => {
                         logoutToast();
                         logout();
-                        setTimeout(() => Router.push("/"), 500);
+                        setTimeout(() => router.push("/"), 500);
                       }}
                     >
                       Logout
@@ -648,7 +649,7 @@ const Navbar = (props) => {
                     onClick={() => {
                       logoutToast();
                       logout();
-                      setTimeout(() => Router.push("/"), 500);
+                      setTimeout(() => router.push("/"), 500);
                     }}
                   >
                     Logout

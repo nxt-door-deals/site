@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import keys from "../../utils/keys";
 
 const VerifyEmail = ({ user }) => {
+  const router = useRouter();
   const authContext = useContext(AuthContext);
 
   const { sendEmail, updateEmailVerificationTimestamp } = authContext;
@@ -70,7 +71,7 @@ const VerifyEmail = ({ user }) => {
         uppercase mb-4 focus:outline-none"
         onClick={() => {
           user !== null &&
-            Router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
+            router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
         }}
       >
         Continue to site

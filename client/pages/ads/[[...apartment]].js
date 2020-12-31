@@ -38,10 +38,14 @@ const Ads = (props) => {
   } = siteContext;
 
   const router = useRouter();
+  const pathname = router.pathname;
+
+  const apartmentName = props.data[0];
+  const apartmentId = props.data[1];
 
   useEffect(() => {
-    getNeighbourhoodFromId(props.apartmentId);
-    fetchAdsForNbh(props.apartmentId);
+    getNeighbourhoodFromId(apartmentId);
+    fetchAdsForNbh(apartmentId);
   }, []);
 
   useEffect(() => {
@@ -50,7 +54,7 @@ const Ads = (props) => {
     }
 
     if (apartmentData) {
-      if (apartmentData.name !== props.apartmentName) {
+      if (apartmentData.name !== apartmentName) {
         router.push("/404");
       }
     }
@@ -65,7 +69,7 @@ const Ads = (props) => {
     hrTextColor: "brand-purple",
     navShadow: "lg:shadow-navshadow",
     faIconTextcolor: "text-white",
-    pathname: props.route,
+    pathname: pathname,
   };
 
   return (
@@ -76,7 +80,7 @@ const Ads = (props) => {
           <div className="flex flex-col items-center pt-14 md:pt-24">
             <h1 className="text-2xl md:text-3xl text-white font-semibold px-5 py-7 text-center">
               Personal Marketplace for&nbsp;
-              <span className="text-white">{props.apartmentName}</span>
+              <span className="text-white">{apartmentName}</span>
             </h1>
             <div>
               <motion.button
@@ -93,9 +97,9 @@ const Ads = (props) => {
         </div>
         <div>
           <Tab
-            route={props.route}
+            route={pathname}
             tabs={adTabs}
-            nbhId={props.apartmentId}
+            nbhId={apartmentId}
             numOfAds={adsDataNbh.length}
           />
         </div>
@@ -107,12 +111,22 @@ const Ads = (props) => {
   );
 };
 
-Ads.getInitialProps = async ({ query, pathname, ctx }) => {
+// Ads.getInitialProps = async ({ query, pathname, ctx }) => {
+//   const { apartment } = query;
+//   return {
+//     route: pathname,
+//     apartmentName: apartment[0],
+//     apartmentId: apartment[1],
+//   };
+// };
+
+export const getServerSideProps = ({ query }) => {
   const { apartment } = query;
+
   return {
-    route: pathname,
-    apartmentName: apartment[0],
-    apartmentId: apartment[1],
+    props: {
+      data: apartment,
+    },
   };
 };
 

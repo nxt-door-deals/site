@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
 import AuthContext from "../../context/auth/authContext";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const cookie = new Cookies();
 
 const PageNotFound = () => {
+  const router = useRouter();
   const authContext = useContext(AuthContext);
   const { loadUser, user, logout } = authContext;
 
@@ -50,7 +51,7 @@ const PageNotFound = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                Router.push("/");
+                router.push("/");
               }}
             >
               Home
@@ -62,7 +63,7 @@ const PageNotFound = () => {
               className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 user !== null &&
-                  Router.push(
+                  router.push(
                     `/ads/${user.apartment_name}/${user.apartment_id}`
                   );
               }}
@@ -77,7 +78,7 @@ const PageNotFound = () => {
               onClick={() => {
                 logout();
                 logoutToast();
-                setTimeout(() => Router.reload("/"), 2000);
+                setTimeout(() => router.reload("/"), 2000);
               }}
             >
               Logout
@@ -91,7 +92,7 @@ const PageNotFound = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                Router.push("/");
+                router.push("/");
               }}
             >
               Home
@@ -102,7 +103,7 @@ const PageNotFound = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                Router.push("/registeruser");
+                router.push("/registeruser");
               }}
             >
               Register
@@ -113,7 +114,7 @@ const PageNotFound = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
               className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
-                Router.push("/login");
+                router.push("/login");
               }}
             >
               Login

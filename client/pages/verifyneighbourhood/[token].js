@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
 const variants = {
@@ -15,6 +15,7 @@ const variants = {
 
 const VerifyNeighbourhood = (props) => {
   const siteContext = useContext(SiteContext);
+  const router = useRouter();
 
   const {
     verifyNeighbourhood,
@@ -84,7 +85,7 @@ const VerifyNeighbourhood = (props) => {
             whileTap="tap"
             className="mt-10 w-64 md:w-100 h-12 bg-purple-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none"
             onClick={() => {
-              Router.push("/");
+              router.push("/");
             }}
             arira-aria-label="Continue to site button"
           >

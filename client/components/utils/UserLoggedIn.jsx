@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
@@ -17,6 +17,7 @@ const variants = {
 
 const UserLoggedIn = () => {
   const authContext = useContext(AuthContext);
+  const router = useRouter();
 
   const { loadUser, user, logout } = authContext;
 
@@ -25,7 +26,7 @@ const UserLoggedIn = () => {
   }, []);
 
   const homeClick = () => {
-    Router.push("/");
+    router.push("/");
   };
 
   // Logout toast
@@ -66,7 +67,7 @@ const UserLoggedIn = () => {
           onClick={() => {
             logout();
             logoutToast();
-            setTimeout(() => Router.push("/"), 2000);
+            setTimeout(() => router.push("/"), 2000);
           }}
           aria-label="Logout button"
         >

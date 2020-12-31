@@ -2,16 +2,16 @@ import ApartmentSearch from "./forms/ApartmentSearch";
 
 const Landing = () => {
   return (
-    <div className="max-w-screen-xxl">
+    <div className="font-axiforma max-w-screen-xxl">
       <div className="flex flex-wrap items-center justify-center lg:flex-nowrap ">
         <div
           id="text-container"
           className="container mt-10 xl:mt-0 ml-4 mr-4 pl-4 pr-4 lg:w-1/2"
         >
-          <h1 className="text-2xl lg:text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-axiforma font-bold">
+          <h1 className="text-2xl lg:text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-extrabold">
             Your neighbourhood marketplace
           </h1>
-          <p className="font-axiforma text-base mt-5 text-gray-600 tracking-wide">
+          <p className="text-base mt-5 text-gray-600 tracking-wide">
             Buy and sell preloved items within your Apartment Complex, Gated
             Community or Co-operative Housing Society.
           </p>
