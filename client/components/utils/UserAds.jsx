@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import {
   faRupeeSign,
   faEdit,
   faTrash,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 const buttonVariants = {
@@ -32,6 +33,8 @@ const buttonVariants = {
 };
 
 const UserAds = (props) => {
+  const [editButtonClicked, setEditButtonClicked] = useState(false);
+  const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
   const authContext = useContext(AuthContext);
   const router = useRouter();
 
@@ -147,15 +150,22 @@ const UserAds = (props) => {
                       whileHover="editButtonHover"
                       whileTap="editButtonTap"
                       className="p-3 rounded-lg bg-purple-500 focus:outline-none"
-                      onClick={(e) => {
-                        e.preventDefault();
+                      onClick={() => {
+                        setEditButtonClicked(true);
                         router.push(`/ads/${props.ads[props.i].id}`);
                       }}
                     >
-                      <FontAwesomeIcon
-                        icon={faEdit}
-                        className="text-lg text-white"
-                      />
+                      {editButtonClicked ? (
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          className="text-lg text-white animate-spin"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faEdit}
+                          className="text-lg text-white"
+                        />
+                      )}
                     </motion.button>
                     <motion.button
                       type="button"
@@ -164,6 +174,7 @@ const UserAds = (props) => {
                       whileTap="deleteButtonTap"
                       className="p-3 rounded-lg bg-red-400 focus:outline-none"
                       onClick={() => {
+                        setDeleteButtonClicked(true);
                         deleteAd(
                           props.i,
                           props.currentUser.id,
@@ -175,10 +186,17 @@ const UserAds = (props) => {
                         );
                       }}
                     >
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="text-lg text-white"
-                      />
+                      {deleteButtonClicked ? (
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          className="text-lg text-white animate-spin"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="text-lg text-white"
+                        />
+                      )}
                     </motion.button>
                   </div>
                 </div>

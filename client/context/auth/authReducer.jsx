@@ -171,7 +171,7 @@ const authReducer = (state, action) => {
       };
     case USER_UPDATE_FAILURE:
     case DELETE_USER:
-    case DELTE_AD:
+    case DELETE_AD:
     case USER_ADS_FETCHED_FAILURE:
       return {
         ...state,
