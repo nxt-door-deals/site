@@ -22,6 +22,7 @@ import {
   faInfoCircle,
   faTrash,
   faTrashAlt,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
@@ -70,7 +71,9 @@ const UserAccount = (props) => {
   const [profileUpdate, setProfileUpdate] = useState(false);
   const [deactivate, setDeactivate] = useState(false);
   const [deactivateMessage, setDeactivateMessage] = useState(null);
+  const [deleteClicked, setDeleteClicked] = useState(false);
   const [enableDeactivateButton, setEnableDeactivateButton] = useState(false);
+  const router = useRouter();
   const authContext = useContext(AuthContext);
   const siteContext = useContext(SiteContext);
   const focusRef = useRef();
@@ -590,15 +593,23 @@ const UserAccount = (props) => {
                             ? "bg-red-500 cursor-pointer focus:outline-none"
                             : "bg-gray-400 cursor-not-allowed focus:outline-none"
                         } absolute right-0.5 px-3 py-1 rounded-lg`}
-                        onClick={(e) => {
-                          e.preventDefault();
+                        onClick={() => {
                           deleteUser(currentUser.id);
+                          setDeleteClicked(true);
+                          setTimeout(() => router.push("/goodbye"), 3000);
                         }}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrashAlt}
-                          className="text-sm text-white"
-                        />
+                        {!deleteClicked ? (
+                          <FontAwesomeIcon
+                            icon={faTrashAlt}
+                            className="text-sm text-white"
+                          />
+                        ) : (
+                          <FontAwesomeIcon
+                            icon={faSpinner}
+                            className="text-sm text-white animate-spin"
+                          />
+                        )}
                       </button>
                     </div>
 

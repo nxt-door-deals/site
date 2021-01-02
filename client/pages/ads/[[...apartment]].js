@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import axios from "axios";
+import "../../utils/keys";
 
 // Component imports
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
@@ -42,6 +44,8 @@ const Ads = (props) => {
 
   const apartmentName = props.data[0];
   const apartmentId = props.data[1];
+
+  const numOfAds = props.adsList.length;
 
   useEffect(() => {
     getNeighbourhoodFromId(apartmentId);
@@ -100,7 +104,7 @@ const Ads = (props) => {
             route={pathname}
             tabs={adTabs}
             nbhId={apartmentId}
-            numOfAds={adsDataNbh.length}
+            numOfAds={numOfAds}
           />
         </div>
         <div className="mt-10">
@@ -120,12 +124,16 @@ const Ads = (props) => {
 //   };
 // };
 
-export const getServerSideProps = ({ query }) => {
-  const { apartment } = query;
+export const getServerSideProps = async (context) => {
+  const { apartment } = context.query;
+  const res = await axios.get(
+    `http://localhost:8000/api/v1/nbhads/get/${apartment[1]}`
+  );
 
   return {
     props: {
       data: apartment,
+      adsList: res.data,
     },
   };
 };
