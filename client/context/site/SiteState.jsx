@@ -3,7 +3,7 @@ import siteReducer from "./siteReducer";
 import SiteContext from "./siteContext";
 import axios from "axios";
 import keys from "../../utils/keys";
-import setAuthToken from "../../utils/setToken";
+import { setAuthToken, setApiKey } from "../../utils/setToken";
 
 import {
   LOAD_APARTMENTS,
@@ -26,6 +26,17 @@ import {
   FETCH_NBH_AD_SUCCESS,
   FETCH_NBH_AD_FAILURE,
 } from "../Types";
+
+var sendgridKey = "";
+var projectKey = "";
+
+if (process.env.NEXT_PUBLIC_ENV === "development") {
+  sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
+  projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
+} else if (process.env.NEXT_PUBLIC_ENV === "production") {
+  sendgridKey = process.env.SENDGRID_API_KEY;
+  projectKey = process.env.PROJECT_API_KEY;
+}
 
 // Will be used in the copyright section in the email footer
 var currentYear = new Date().getFullYear();
@@ -76,6 +87,7 @@ const SiteState = (props) => {
     pincode,
     email
   ) => {
+    setApiKey(projectKey);
     const jsonPayload = {
       name: name,
       address1: address1,
@@ -119,6 +131,7 @@ const SiteState = (props) => {
   };
 
   const verifyNeighbourhood = async (token) => {
+    setApiKey(projectKey);
     token = encodeURIComponent(token);
     try {
       const res = await axios.put(
@@ -327,7 +340,7 @@ const SiteState = (props) => {
     email,
     currentYear
   ) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -365,7 +378,7 @@ const SiteState = (props) => {
     verificationUrl,
     currentYear
   ) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -402,7 +415,7 @@ const SiteState = (props) => {
     apartmentName,
     email
   ) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     const jsonPayload = {
       from_email: fromEmail,

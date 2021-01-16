@@ -68,6 +68,7 @@ const Account = (props) => {
               tabs={userAccountTabs}
               currentUser={user && user}
               ads={userAds && userAds}
+              showForm={props.showForm}
             />
           )}
         </div>

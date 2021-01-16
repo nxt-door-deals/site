@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
+import Link from "next/link";
 import keys from "../../utils/keys";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +30,7 @@ const NbhAdsCard = (props) => {
     return (
       <div>
         {/* The cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 font-axiforma mx-20 lg:mx-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-10 font-axiforma mx-10">
           {adsDataNbh.map((ad, adIndex) => (
             <div
               key={adIndex}
@@ -70,26 +71,32 @@ const NbhAdsCard = (props) => {
                 </div>
               )}
 
-              {/* Card title */}
-              <div className="text-left px-4 py-2">
-                <p className="font-semibold">{ad.title}</p>
-              </div>
+              <div className="outline-none focus:outline-none">
+                <Link href={`/ads/${ad.id}`}>
+                  <a>
+                    {/* Card title */}
+                    <div className="text-left px-4 py-2">
+                      <p className="font-semibold">{ad.title}</p>
+                    </div>
 
-              {/* Price and timeframe */}
-              <div className="flex justify-between items-center p-4">
-                {ad.ad_type === "sale" ? (
-                  <div className="font-semibold text-lg">
-                    <FontAwesomeIcon icon={faRupeeSign} /> {ad.price}
-                  </div>
-                ) : (
-                  <div className="animate-pulse fa-layers fa-fw w-10 p-5">
-                    <FontAwesomeIcon icon={faCertificate} size="3x" />
-                    <span className="fa-layers-text fa-inverse mx-1 font-semibold uppercase text-xs">
-                      free
-                    </span>
-                  </div>
-                )}
-                <div className="text-sm">Posted {ad.date_posted}</div>
+                    {/* Price and timeframe */}
+                    <div className="flex justify-between items-center p-4">
+                      {ad.ad_type === "sale" ? (
+                        <div className="font-semibold text-lg">
+                          <FontAwesomeIcon icon={faRupeeSign} /> {ad.price}
+                        </div>
+                      ) : (
+                        <div className="animate-pulse fa-layers fa-fw w-10 p-5">
+                          <FontAwesomeIcon icon={faCertificate} size="3x" />
+                          <span className="fa-layers-text fa-inverse mx-1 font-semibold uppercase text-xs">
+                            free
+                          </span>
+                        </div>
+                      )}
+                      <div className="text-sm">Posted {ad.date_posted}</div>
+                    </div>
+                  </a>
+                </Link>
               </div>
             </div>
           ))}

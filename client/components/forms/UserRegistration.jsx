@@ -48,7 +48,7 @@ const userRegistrationValidationSchema = Yup.object({
   apartment: Yup.string().required("Please select your apartment/property"),
   apartmentNumber: Yup.string()
     .required("Please enter your apartment number")
-    .matches(/^[^=<>'"`]+$/, "Apartment number cannot contain = \" ' > < or `"),
+    .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
 });
 
 // Alert style

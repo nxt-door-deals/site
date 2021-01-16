@@ -5,6 +5,7 @@ import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
+
 import { ToastContainer, Flip } from "react-toastify";
 
 const pageVariants = {
@@ -23,6 +24,9 @@ const contextClass = {
 export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
 
+  // Use this in the Ad component to show either the ad or the edit form
+  const showForm = useRef(true);
+
   return (
     <motion.div
       key={router.route}
@@ -32,7 +36,11 @@ export default function MyApp({ Component, pageProps, router }) {
     >
       <AuthState>
         <SiteState>
-          <Component {...pageProps} pathHistory={pathHistory} />
+          <Component
+            {...pageProps}
+            pathHistory={pathHistory}
+            showForm={showForm}
+          />
           <ToastContainer
             autoClose={2000}
             hideProgressBar={true}

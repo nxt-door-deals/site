@@ -8,7 +8,11 @@ import Cookies from "universal-cookie";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTimes,
+  faEnvelope,
+  faStream,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
   faInstagramSquare,
@@ -114,7 +118,7 @@ const Navbar = (props) => {
           {!expanded ? (
             !stickyNav ? (
               <FontAwesomeIcon
-                icon={faBars}
+                icon={faStream}
                 className={
                   "cursor-pointer text-lg mt-4 " +
                   props.navStyle.faIconTextColor
@@ -124,7 +128,7 @@ const Navbar = (props) => {
             ) : (
               <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative shadow-lg opacity-90 cursor-pointer">
                 <FontAwesomeIcon
-                  icon={faBars}
+                  icon={faStream}
                   alt="Open Menu"
                   className="absolute top-4 right-4"
                 />

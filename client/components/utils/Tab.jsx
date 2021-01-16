@@ -42,7 +42,11 @@ const Tab = (props) => {
             {activeTab === 0 ? (
               <UserAccount currentUser={props.currentUser} />
             ) : (
-              <UserAdsWrapper currentUser={props.currentUser} ads={props.ads} />
+              <UserAdsWrapper
+                currentUser={props.currentUser}
+                ads={props.ads}
+                showForm={props.showForm}
+              />
             )}
           </div>
         )}

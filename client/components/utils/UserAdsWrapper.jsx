@@ -55,6 +55,7 @@ const UserAdsWrapper = (props) => {
               setExpanded={setExpanded}
               currentUser={props.currentUser}
               ads={props.ads}
+              showForm={props.showForm}
             />
           ))}
         </div>

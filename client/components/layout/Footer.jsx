@@ -94,7 +94,7 @@ const Footer = (props) => {
       </div>
 
       <div className="flex justify-center pb-4 text-lg">
-        <Link href="#landing">
+        <Link href="/#landing">
           <motion.a
             variants={variants}
             whileHover="hover"

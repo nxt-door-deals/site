@@ -127,7 +127,7 @@ const Ads = (props) => {
 export const getServerSideProps = async (context) => {
   const { apartment } = context.query;
   const res = await axios.get(
-    `https://api.nxtdoordeals.com/api/v1/nbhads/get/${apartment[1]}`
+    `http://localhost:8000/api/v1/nbhads/get/${apartment[1]}`
   );
 
   return {

@@ -8,4 +8,13 @@ const setAuthToken = (token) => {
   }
 };
 
-export default setAuthToken;
+const setApiKey = (apiKey) => {
+  console.log(apiKey);
+  if (apiKey) {
+    axios.defaults.headers.common["api-key"] = apiKey;
+  } else {
+    delete axios.defaults.headers.common["api-key"];
+  }
+};
+
+export { setAuthToken, setApiKey };

@@ -69,6 +69,7 @@
 
 .carousel-container .carousel .slide {
   background: none;
+  cursor: pointer;
 }
 
 .checkbox-align {
@@ -81,4 +82,12 @@
   font-weight: 600;
   font-size: large;
   color: "#550052";
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(80px);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  z-index: 1;
 }

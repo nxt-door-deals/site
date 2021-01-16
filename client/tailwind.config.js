@@ -39,6 +39,9 @@ module.exports = {
         "brand-gray": "#292d34",
         "footer-gradient-from": "#834d9b",
         "footer-gradient-to": "#d04ed6",
+        "footer-alt-gradient-from": "#CC87F5",
+        "footer-alt-gradient-via": "##CB80F5",
+        "footer-alt-gradient-to": "#E09DF8",
         "alt-footer-gradient-from": "#457fca",
         "alt-footer-gradient-to": "#5691c8",
         "browseads-gradient-from": "#c471f5",
@@ -97,6 +100,7 @@ module.exports = {
           "url(/images/user_account/user-account-background.svg)",
         "user-account-mobile-background":
           "url(/images/user_account/user-account-mobile-background.svg)",
+        "fpa-background": "url(/images/fpa/fpa-background.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",

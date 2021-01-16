@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+
 import BouncingBalls from "../loaders/BouncingBalls";
 import { categoryListOptions, conditionOptions } from "../../utils/categories";
 
@@ -27,11 +28,11 @@ const createAdValidationSchema = Yup.object({
   title: Yup.string()
     .required("Please provide a title for your ad")
     .trim()
-    .matches(/^[^=<>'"`]+$/, "Title cannot contain = = \" ' > < or `"),
+    .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
   description: Yup.string()
     .required("Please provide an elaborate description for your ad. Go nuts!")
     .trim()
-    .matches(/^[^=<>'"`]+$/, "Description cannot contain = \" ' > < or `"),
+    .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
   typeOfSale: Yup.string().required("Is this a sale or a giveaway?"),
   // condition: Yup.string().required("Please select the item condition"),
   price: Yup.string().when("typeOfSale", {
@@ -73,17 +74,6 @@ const CreateAd = ({ categoryName, user }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setFiles((prev) => [
-      ...prev,
-      ...acceptedFiles.map((file) =>
-        Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        })
-      ),
-    ]);
-  }, []);
-
   // Copy the state to a new array and use that to update the changed state
   var newFiles = [...files];
 
@@ -96,6 +86,7 @@ const CreateAd = ({ categoryName, user }) => {
       position: "top-center",
     });
 
+  // Styles for the Select component
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -112,6 +103,18 @@ const CreateAd = ({ categoryName, user }) => {
       color: "#6D28D9",
     }),
   };
+
+  // Dropzone
+  const onDrop = useCallback((acceptedFiles) => {
+    setFiles((prev) => [
+      ...prev,
+      ...acceptedFiles.map((file) =>
+        Object.assign(file, {
+          preview: URL.createObjectURL(file),
+        })
+      ),
+    ]);
+  }, []);
 
   const images = newFiles.map((file, index) => {
     return (
@@ -136,7 +139,7 @@ const CreateAd = ({ categoryName, user }) => {
   return (
     <div className="flex flex-col items-center h-full w-full font-axiforma">
       <PostAdHeader heading={heading} step={step} />
-      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-10 mb-20">
+      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-2 mx-2 mb-20">
         <Formik
           initialValues={{
             categoryList: categoryName,
@@ -506,22 +509,22 @@ const CreateAd = ({ categoryName, user }) => {
 
                   {/* Upload photos */}
                   <div className="flex flex-col items-center lg:pl-10 lg:border-l-2 border-gray-300 font-axiforma">
-                    <h1 className="mt-4 text-gray-600 text-sm">
+                    <h1 className="my-4 text-gray-600 text-sm">
                       {newFiles.length === 0
-                        ? "Upload photos"
+                        ? "Upload up to 10 photos"
                         : `Uploaded ${newFiles.length} of 10 photos`}
                     </h1>
-                    {newFiles.length === 0 && (
-                      <p className="text-xs text-gray-600 mt-2">
-                        Accepted image formats -{" "}
-                        <span className="text-purple-700">jpeg</span>,{" "}
-                        <span className="text-purple-700">bmp</span>,{" "}
-                        <span className="text-purple-700">tiff</span>,{" "}
-                        <span className="text-purple-700">webp</span>,{" "}
-                        <span className="text-purple-700">png</span> and{" "}
-                        <span className="text-purple-700">gif</span>.
-                      </p>
-                    )}
+
+                    <p className="text-xs text-gray-600 mb-2">
+                      Accepted image formats -{" "}
+                      <span className="text-purple-700">jpeg</span>,{" "}
+                      <span className="text-purple-700">bmp</span>,{" "}
+                      <span className="text-purple-700">tiff</span>,{" "}
+                      <span className="text-purple-700">webp</span>,{" "}
+                      <span className="text-purple-700">png</span> and{" "}
+                      <span className="text-purple-700">gif</span>.
+                    </p>
+
                     <Dropzone
                       accept="image/jpg, image/jpeg, image/bmp, image/tiff, image/png, image/gif, image/webp"
                       onDrop={onDrop}
@@ -530,7 +533,7 @@ const CreateAd = ({ categoryName, user }) => {
                       {({ getRootProps, getInputProps, isDragReject }) => (
                         <section>
                           {newFiles.length < 10 ? (
-                            <div className="mt-6">
+                            <div className="">
                               <div
                                 {...getRootProps()}
                                 className="text-center px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"

@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import authReducer from "./authReducer";
 import AuthContext from "./authContext";
-import setAuthToken from "../../utils/setToken";
+import { setAuthToken, setApiKey } from "../../utils/setToken";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import keys from "../../utils/keys";
@@ -37,6 +37,17 @@ import {
   USER_ADS_FETCHED_SUCCESS,
   USER_ADS_FETCHED_FAILURE,
 } from "../Types";
+
+var sendgridKey = "";
+var projectKey = "";
+
+if (process.env.NEXT_PUBLIC_ENV === "development") {
+  sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
+  projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
+} else if (process.env.NEXT_PUBLIC_ENV === "production") {
+  sendgridKey = process.env.SENDGRID_API_KEY;
+  projectKey = process.env.PROJECT_API_KEY;
+}
 
 const cookie = new Cookies();
 
@@ -74,6 +85,7 @@ const AuthState = (props) => {
     apartmentNumber,
     apartment
   ) => {
+    setApiKey(projectKey);
     const jsonPayload = {
       name: name,
       email: email,
@@ -145,6 +157,7 @@ const AuthState = (props) => {
     apartmentNumber,
     neighbourhood
   ) => {
+    setApiKey(projectKey);
     const jsonPayload = {
       name: name,
       email: email,
@@ -173,6 +186,7 @@ const AuthState = (props) => {
 
   // Delete user
   const deleteUser = async (userId) => {
+    setApiKey(projectKey);
     try {
       await axios.delete(`${keys.API_PROXY}/user/delete/${userId}`);
     } catch (err) {
@@ -182,6 +196,7 @@ const AuthState = (props) => {
 
   // Delete ad
   const deleteAd = async (index, userId, adId) => {
+    setApiKey(projectKey);
     try {
       await axios.delete(
         `${keys.API_PROXY}/userads/delete/?user_id=${userId}&ad_id=${adId}`
@@ -208,7 +223,7 @@ const AuthState = (props) => {
 
   // Send email - user registration, welcome etc...
   const sendEmail = async (name, email, verificationUrl) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -235,6 +250,7 @@ const AuthState = (props) => {
   const updateEmailVerificationTimestamp = async (id) => {
     const jsonPayload = { id: id };
 
+    setApiKey(projectKey);
     try {
       await axios.put(
         `${keys.API_PROXY}/email_timestamp/refresh`,
@@ -257,6 +273,7 @@ const AuthState = (props) => {
 
   // Refresh the otp verification timestamp
   const updateOtpVerificationTimestamp = async (id) => {
+    setApiKey(projectKey);
     const jsonPayload = { id: id };
 
     try {
@@ -277,7 +294,7 @@ const AuthState = (props) => {
 
   // Email the otp to the user during password change
   const sendOtpByEmail = async (email) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -300,7 +317,7 @@ const AuthState = (props) => {
 
   // Send the contact us email
   const sendContactUsEmail = async (email, message) => {
-    setAuthToken(process.env.SENDGRID_API_KEY);
+    setAuthToken(sendgridKey);
 
     var emailBody = `${email} wrote: \n\n${message}`;
 
@@ -370,6 +387,7 @@ const AuthState = (props) => {
 
   // Method for forgot password - otp generation
   const generateOtp = async (id, email) => {
+    setApiKey(projectKey);
     const jsonPayload = {
       id: id,
       email: email,
@@ -392,6 +410,7 @@ const AuthState = (props) => {
 
   // Method for forgot password - otp generation
   const validateOtp = async (id, otp) => {
+    setApiKey(projectKey);
     const utcTime = new Date().toJSON();
     try {
       await axios.get(
@@ -413,6 +432,8 @@ const AuthState = (props) => {
     const jsonPayload = {
       password: password,
     };
+
+    setApiKey(projectKey);
 
     try {
       await axios.put(
