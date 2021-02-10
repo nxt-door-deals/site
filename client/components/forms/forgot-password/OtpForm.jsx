@@ -1,18 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import AuthContext from "../../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
-import Modal from "react-modal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Cookies from "universal-cookie";
+import { toast } from "react-toastify";
 
 // Component Import
 import Alert from "../../utils/Alert";
+import Progress from "../../utils/Progress";
 import ChangePassword from "./ChangePassword";
-import Timer from "../../utils/Timer";
+import BouncingBalls from "../../loaders/BouncingBalls";
+
+// Dynamic import allows the cookie to be created before the component is loaded
+const Timer = dynamic(() => import("../../utils/Timer"));
+
+var cookie = new Cookies();
 
 const otpValidationSchema = Yup.object({
   otp1: Yup.string().required(),
@@ -33,12 +39,10 @@ const buttonVariants = {
   },
 };
 
-Modal.setAppElement("#__next");
-
 const OtpForm = (props) => {
   const authContext = useContext(AuthContext);
   const [showForm, setShowForm] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
+
   const [minutes, setMinutes] = useState(10);
   const [seconds, setSeconds] = useState(0);
 
@@ -47,10 +51,35 @@ const OtpForm = (props) => {
     validateOtp,
     authError,
     otpValidated,
+    otpGenerated,
     generateOtp,
     sendOtpByEmail,
     updateOtpVerificationTimestamp,
   } = authContext;
+
+  const createTimerCookie = () => {
+    if (cookie.get("__resetCookie")) {
+      cookie.remove("__resetCookie");
+    }
+
+    let endTs = new Date();
+    endTs = endTs.setMinutes(endTs.getMinutes() + 10);
+
+    cookie.set("__resetCookie", {
+      _endTs: endTs,
+    });
+  };
+
+  useEffect(() => {
+    generateOtp(user && user.email);
+    createTimerCookie();
+  }, []);
+
+  useEffect(() => {
+    if (otpGenerated && otpGenerated) {
+      sendOtpByEmail(user.email);
+    }
+  }, [otpGenerated]);
 
   useEffect(() => {
     if (otpValidated) {
@@ -58,9 +87,12 @@ const OtpForm = (props) => {
     }
   }, [otpValidated]);
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  // Otp sent toast
+  const otpSentToast = () =>
+    toast(`Otp resent to ${user && user.email}`, {
+      draggablePercent: 60,
+      position: "top-center",
+    });
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
@@ -80,7 +112,7 @@ const OtpForm = (props) => {
             />
           </div>
           <div id="otpform" className="text-center mt-6 pl-4 pr-4">
-            <p className="text-gray-600">
+            <p className="text-brand-gray">
               We have sent a one-time password (OTP) to your email id,{" "}
               <span className="font-bold text-purple-600">{user.email}</span>.
               Please enter the six-character OTP below. The OTP is valid for{" "}
@@ -88,17 +120,18 @@ const OtpForm = (props) => {
             </p>
           </div>
 
-          <p className="text-sm text-center  text-gray-600 mt-2">
+          <p className="text-sm text-center text-brand-gray mt-2">
             Didn't receive our email?{" "}
-            <span className="text-purple-600 font-semibold hover:underline">
+            <span className="text-purple-600 font-semibold hover:underline focus-within:outline-none">
               <Link href="">
                 <a
                   onClick={(e) => {
                     e.preventDefault();
-                    generateOtp(user.id, user.email);
+                    generateOtp(user.email);
                     updateOtpVerificationTimestamp(user.id);
                     sendOtpByEmail(user.email);
-                    setModalOpen(true);
+                    createTimerCookie();
+                    otpSentToast();
                     setMinutes(10);
                     setSeconds(0);
                   }}
@@ -106,28 +139,6 @@ const OtpForm = (props) => {
                   Regenerate OTP
                 </a>
               </Link>
-
-              <Modal
-                isOpen={modalOpen}
-                onRequestClose={closeModal}
-                shouldCloseOnEsc={true}
-                shouldFocusAfterRender={true}
-                className="flex justify-center items-center outline-none h-full"
-              >
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    className="text-brand-gray absolute right-0 mr-2 mt-2 cursor-pointer"
-                    onClick={() => setModalOpen(false)}
-                  />
-                  <p className="font-axiforma bg-white p-10 border-2 border-dashed border-brand-gray text-xl rounded-md shadow-md z-40">
-                    OTP resent to{" "}
-                    <span className="text-purple-600 font-semibold">
-                      {user.email}
-                    </span>
-                  </p>
-                </div>
-              </Modal>
             </span>
           </p>
 
@@ -154,7 +165,7 @@ const OtpForm = (props) => {
               onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true);
                 validateOtp(
-                  props.user.id,
+                  user.id,
                   values.otp1 +
                     values.otp2 +
                     values.otp3 +
@@ -162,7 +173,7 @@ const OtpForm = (props) => {
                     values.otp5 +
                     values.otp6
                 );
-                setSubmitting(false);
+                setTimeout(() => setSubmitting(false), 2000);
               }}
             >
               {(props) => (
@@ -246,7 +257,9 @@ const OtpForm = (props) => {
                       }
                     />
                   </div>
-                  <div className="text-center mb-3">
+                  <div className="flex flex-col items-center mb-3">
+                    <Progress minutes={minutes} seconds={seconds} />
+
                     <Timer
                       minutes={minutes}
                       seconds={seconds}
@@ -257,12 +270,13 @@ const OtpForm = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
+                      disabled={props.isSubmitting}
                       className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
                     >
-                      Validate OTP
+                      {props.isSubmitting ? <BouncingBalls /> : "Validate OTP"}
                     </motion.button>
                   </div>
                 </Form>
@@ -277,7 +291,7 @@ const OtpForm = (props) => {
           transition={{ duration: 0.3 }}
           className="flex justify-center items-center min-h-screen"
         >
-          <ChangePassword user={props.user} />
+          <ChangePassword />
         </motion.div>
       )}
     </AnimatePresence>

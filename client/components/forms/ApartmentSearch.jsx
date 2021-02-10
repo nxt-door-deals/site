@@ -92,7 +92,7 @@ const ApartmentSearch = () => {
                 maxLength="50"
                 autoComplete="off"
                 autoFocus=""
-                className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                className="textbox-input w-10/12 placeholder-gray-600"
                 onKeyUp={searchApartment}
               />
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Modal from "react-modal";
+import keys from "../../utils/keys";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,27 +12,46 @@ const AdImageCarousel = (props) => {
   return (
     <div className="font-axiforma">
       <div className="carousel-container p-4 w-88 lg:w-128 cursor-pointer">
-        <Carousel
-          dynamicHeight
-          showStatus={false}
-          showArrows={false}
-          infiniteLoop
-          autoPlay
-          interval={3000}
-          selectedItem={0}
-          onClickItem={() => setIsModalOpen(true)}
-        >
-          {props.images.map((image, index) => (
-            <div key={index} className="-z-20">
+        {props.images.length !== 0 ? (
+          <Carousel
+            dynamicHeight
+            showStatus={false}
+            showArrows={false}
+            infiniteLoop
+            autoPlay
+            interval={3000}
+            selectedItem={0}
+            onClickItem={() => setIsModalOpen(true)}
+          >
+            {props.images.map((image, index) => (
+              <div key={index} className="-z-20">
+                <img
+                  src={image}
+                  alt={`Ad image-${index}`}
+                  height={500}
+                  width={600}
+                />
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <Carousel
+            dynamicHeight
+            showStatus={false}
+            showArrows={false}
+            showThumbs={false}
+            showIndicators={false}
+          >
+            <div className="-z-20">
               <img
-                src={image}
-                alt={`Ad image-${index}`}
+                src={keys.DEFAULT_IMAGE}
+                alt="Default image"
                 height={500}
                 width={600}
               />
             </div>
-          ))}
-        </Carousel>
+          </Carousel>
+        )}
       </div>
 
       <Modal

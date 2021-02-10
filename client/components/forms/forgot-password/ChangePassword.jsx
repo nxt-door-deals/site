@@ -11,9 +11,11 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import Cookies from "universal-cookie";
 
 // Component imports
 import PasswordChangeSuccess from "./PasswordChangeSuccess";
+import BouncingBalls from "../../loaders/BouncingBalls";
 
 const buttonVariants = {
   hover: {
@@ -35,15 +37,21 @@ const passwordValidationSchema = Yup.object({
     .trim(),
 });
 
+var cookie = new Cookies();
+
 const ChangePassword = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);
   const [displayConfirmPassword, setDisplayConfirmPassword] = useState(false);
   const [showForm, setShowForm] = useState(true);
 
   const authContext = useContext(AuthContext);
-  const { passwordChanged, updatePassword } = authContext;
+  const { user, passwordChanged, updatePassword } = authContext;
 
   useEffect(() => {
+    if (cookie.get("__resetCookie")) {
+      cookie.remove("__resetCookie");
+    }
+
     if (passwordChanged) {
       setShowForm(false);
     }
@@ -93,8 +101,8 @@ const ChangePassword = (props) => {
               validationSchema={passwordValidationSchema}
               onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true);
-                updatePassword(values.password, props.user.id);
-                setSubmitting(false);
+                updatePassword(values.password, user.id);
+                setTimeout(() => setSubmitting(false), 2000);
               }}
             >
               {(props) => (
@@ -184,12 +192,17 @@ const ChangePassword = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
+                      disabled={props.isSubmitting}
                       className="w-48 h-12 bg-purple-500 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
                     >
-                      Update Password
+                      {props.isSubmitting ? (
+                        <BouncingBalls />
+                      ) : (
+                        "Update Password"
+                      )}
                     </motion.button>
                   </div>
                 </Form>

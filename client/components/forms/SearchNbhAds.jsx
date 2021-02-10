@@ -35,7 +35,6 @@ const SearchNbhAds = (props) => {
   } = siteContext;
 
   const sortResults = (value) => {
-    console.log(value);
     switch (value) {
       case "Price ascending":
         sortByPriceAsc(props.nbhId);
@@ -127,7 +126,7 @@ const SearchNbhAds = (props) => {
                       placeholder="Search Ads..."
                       maxLength="250"
                       autoComplete="off"
-                      className="textbox-input w-40 lg:w-64 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-40 lg:w-64 placeholder-gray-600 "
                     />
                   </div>
                   <div className="p-1">

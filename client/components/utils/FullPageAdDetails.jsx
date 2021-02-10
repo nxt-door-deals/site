@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,6 +7,9 @@ import {
   faCheck,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import Cookies from "universal-cookie";
+
+var cookie = new Cookies();
 
 const variants = {
   chatButtonHover: {
@@ -17,6 +21,14 @@ const variants = {
 };
 
 const FullPageAdDetails = (props) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (cookie.get("__redirChatCookie")) {
+      cookie.remove("__redirChatCookie");
+    }
+  }, []);
+
   if (props.adData.available_from !== "immediately") {
     var d = new Date(props.adData.available_from);
     var availableFromDate =
@@ -63,7 +75,34 @@ const FullPageAdDetails = (props) => {
             variants={variants}
             whileHover="chatButtonHover"
             whileTap="buttonTap"
-            className="p-3 bg-purple-500 text-white rounded-xl font-semibold uppercase"
+            className="p-3 bg-purple-500 text-white rounded-xl font-semibold uppercase focus:outline-none"
+            onClick={() => {
+              if (cookie.get("__redirChatCookie")) {
+                cookie.remove("__redirChatCookie");
+              }
+
+              cookie.set(
+                "__redirChatCookie",
+                {
+                  _adId: props.adData.id,
+                  _slrId: props.adData.posted_by_id,
+                  _byrId: props.buyerId && props.buyerId,
+                },
+                {
+                  path: "/",
+                }
+              );
+
+              router.push(
+                `/chat/${
+                  props.adData.id +
+                  "-" +
+                  props.adData.posted_by_id +
+                  "-" +
+                  props.buyerId
+                }`
+              );
+            }}
           >
             Chat with seller
           </motion.button>
@@ -76,20 +115,22 @@ const FullPageAdDetails = (props) => {
           Condition:{" "}
           <span className="font-semibold">{props.adData.condition}</span>
         </p>
-        <p className="bg-purple-200 p-3 text-sm">
-          Negotiable:{" "}
-          {props.adData.negotiable ? (
-            <FontAwesomeIcon
-              icon={faCheck}
-              className="text-lg text-green-700"
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faTimes}
-              className="text-lg text-red-900 align-middle"
-            />
-          )}
-        </p>
+        {props.adData.ad_type === "sale" && (
+          <p className="bg-purple-200 p-3 text-sm">
+            Negotiable:{" "}
+            {props.adData.negotiable ? (
+              <FontAwesomeIcon
+                icon={faCheck}
+                className="text-lg text-green-700"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="text-lg text-red-900 align-middle"
+              />
+            )}
+          </p>
+        )}
       </div>
 
       <div className="pt-7 font-axiforma">

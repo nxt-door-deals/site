@@ -7,11 +7,13 @@ import Cookies from "universal-cookie";
 import keys from "../../utils/keys";
 
 import {
+  SET_LOADING,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   USER_LOADED,
+  ALT_USER_LOADED,
   AUTH_ERROR,
   CLEAR_ERROR,
   CLEAR_MESSAGE,
@@ -36,6 +38,11 @@ import {
   DELETE_AD,
   USER_ADS_FETCHED_SUCCESS,
   USER_ADS_FETCHED_FAILURE,
+  LOAD_SELLER_CHATS,
+  LOAD_BUYER_CHATS,
+  LOAD_CHAT_ERROR,
+  USER_SUBSCRIPTION_UPDATE_SUCCESS,
+  USER_SUBSCRIPTION_UPDATE_FAILURE,
 } from "../Types";
 
 var sendgridKey = "";
@@ -59,10 +66,12 @@ const fromEmail = keys.FROM_EMAIL;
 
 const AuthState = (props) => {
   const initialState = {
+    userFlag: null,
     token: null,
     isAuthenticated: null,
     user: null,
-    loading: true,
+    altUser: null,
+    loading: false,
     authError: null,
     emailVerified: null,
     verificationStatus: null,
@@ -72,6 +81,9 @@ const AuthState = (props) => {
     passwordChanged: null,
     genericMessage: null,
     userAds: null,
+    buyerChats: null,
+    sellerChats: null,
+    chatError: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -147,6 +159,17 @@ const AuthState = (props) => {
     }
   };
 
+  // Get user from id
+  const getUserFromId = async (userId) => {
+    setApiKey(projectKey);
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/user/${userId}`);
+      dispatch({ type: ALT_USER_LOADED, payload: res.data });
+    } catch (err) {
+      dispatch({ type: AUTH_ERROR, payload: err.message });
+    }
+  };
+
   // Update user
   const updateUserProfile = async (
     userId,
@@ -202,7 +225,7 @@ const AuthState = (props) => {
         `${keys.API_PROXY}/userads/delete/?user_id=${userId}&ad_id=${adId}`
       );
 
-      state.userAds.splice(index, 1);
+      if (state.userAds !== null) state.userAds.splice(index, 1);
     } catch (err) {
       dispatch({ type: DELETE_AD, payload: err.message.data.detail });
     }
@@ -386,20 +409,23 @@ const AuthState = (props) => {
   };
 
   // Method for forgot password - otp generation
-  const generateOtp = async (id, email) => {
+  const generateOtp = async (email) => {
     setApiKey(projectKey);
     const jsonPayload = {
-      id: id,
       email: email,
     };
 
     try {
-      await axios.put(`${keys.API_PROXY}/user/otp_generation`, jsonPayload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      dispatch({ type: OTP_GENERATED_SUCCESS });
+      const res = await axios.put(
+        `${keys.API_PROXY}/user/otp_generation`,
+        jsonPayload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      dispatch({ type: OTP_GENERATED_SUCCESS, payload: res.data });
     } catch (err) {
       dispatch({
         type: OTP_GENERATED_FAILURE,
@@ -455,13 +481,66 @@ const AuthState = (props) => {
     }
   };
 
+  // Chat related end-points
+  const loadSellerChats = async (userId) => {
+    setApiKey(projectKey);
+
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/chats/seller/${userId}`);
+      dispatch({ type: LOAD_SELLER_CHATS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: LOAD_CHAT_ERROR, payload: err.message.data.detail });
+    }
+  };
+
+  const loadBuyerChats = async (userId) => {
+    setApiKey(projectKey);
+
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/chats/buyer/${userId}`);
+      dispatch({ type: LOAD_BUYER_CHATS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: LOAD_CHAT_ERROR, payload: err.message.data.detail });
+    }
+  };
+
+  const updateUserSubscription = async (email, subscriptionStatus) => {
+    setApiKey(projectKey);
+
+    const jsonPayload = {
+      subscription_status: subscriptionStatus,
+      email: email,
+    };
+
+    try {
+      const res = await axios.put(
+        `${keys.API_PROXY}/user/subscription/`,
+        jsonPayload
+      );
+
+      state.user.mail_subscribed = subscriptionStatus;
+
+      dispatch({ type: USER_SUBSCRIPTION_UPDATE_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: USER_SUBSCRIPTION_UPDATE_FAILURE,
+        payload: err.message.data.detail,
+      });
+    }
+  };
+
   const logout = () => {
     dispatch({ type: LOGOUT });
+  };
+
+  const setLoading = () => {
+    dispatch({ type: SET_LOADING });
   };
 
   return (
     <AuthContext.Provider
       value={{
+        userFlag: state.userFlag,
         token: state.token,
         isAuthenticated: state.isAuthenticated,
         user: state.user,
@@ -475,6 +554,11 @@ const AuthState = (props) => {
         passwordChanged: state.passwordChanged,
         genericMessage: state.genericMessage,
         userAds: state.userAds,
+        altUser: state.altUser,
+        sellerChats: state.sellerChats,
+        buyerChats: state.buyerChats,
+        chatError: state.chatError,
+        getUserFromId,
         registerUser,
         loginUser,
         loadUser,
@@ -492,7 +576,11 @@ const AuthState = (props) => {
         generateOtp,
         validateOtp,
         updatePassword,
+        loadSellerChats,
+        loadBuyerChats,
+        updateUserSubscription,
         logout,
+        setLoading,
       }}
     >
       {props.children}

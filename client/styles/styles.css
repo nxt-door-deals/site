@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Axiforma";
+}
+
 /* Navbar custom styles */
 .basic-nav {
   @apply flex items-start justify-between w-full;
@@ -90,4 +98,87 @@
   border: 2px solid transparent;
   background-clip: padding-box;
   z-index: 1;
+}
+
+/* Chat bubble */
+.chat-bubble {
+  /* border-radius: 15px; */
+  color: #fff;
+  position: relative;
+}
+
+.from-chat:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid #8b5cf6;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #8b5cf6;
+  border-bottom: 15px solid transparent;
+  right: -16px;
+  top: 0px;
+}
+
+.to-chat:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #902393;
+  border-top: 15px solid #902393;
+  border-bottom: 15px solid transparent;
+  left: -16px;
+  top: 0px;
+}
+
+.chat-list-seller:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid #f9fafb;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #f9fafb;
+  border-bottom: 15px solid transparent;
+  right: -16px;
+  top: 0px;
+}
+
+.chat-list-buyer:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #f9fafb;
+  border-top: 15px solid #f9fafb;
+  border-bottom: 15px solid transparent;
+  left: -16px;
+  top: 0px;
+}
+
+/* Link styling */
+.styled-link {
+  position: relative;
+  color: inherit;
+}
+
+.styled-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in;
+}
+
+.styled-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

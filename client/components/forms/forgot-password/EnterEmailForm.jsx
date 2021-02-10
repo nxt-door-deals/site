@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Component import
 import Alert from "../../utils/Alert";
 import OtpForm from "./OtpForm";
+import BouncingBalls from "../../loaders/BouncingBalls";
 
 const forgotPasswordValidationSchema = Yup.object({
   email: Yup.string()
@@ -35,18 +36,11 @@ const EnterEmailForm = (props) => {
   const authContext = useContext(AuthContext);
   const [showForm, setShowForm] = useState(true);
 
-  const {
-    user,
-    validateEmail,
-    authError,
-    generateOtp,
-    sendOtpByEmail,
-  } = authContext;
+  const { userFlag, user, validateEmail, authError, generateOtp } = authContext;
 
   useEffect(() => {
     if (user) {
-      generateOtp(user.id, user.email);
-      sendOtpByEmail(user.email);
+      // generateOtp(user.email);
       setShowForm(false);
     }
   }, [user]);
@@ -88,7 +82,7 @@ const EnterEmailForm = (props) => {
               onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true);
                 validateEmail(values.email);
-                setSubmitting(false);
+                setTimeout(() => setSubmitting(false), 2000);
               }}
             >
               {(props) => (
@@ -127,11 +121,16 @@ const EnterEmailForm = (props) => {
                     <motion.button
                       type="submit"
                       className="w-48 h-12 bg-purple-500 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      disabled={props.isSubmitting}
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
                     >
-                      Validate Email
+                      {props.isSubmitting ? (
+                        <BouncingBalls />
+                      ) : (
+                        "Validate Email"
+                      )}
                     </motion.button>
                   </div>
                 </Form>
@@ -146,11 +145,7 @@ const EnterEmailForm = (props) => {
           transition={{ duration: 0.3 }}
           className="flex justify-center items-center min-h-screen"
         >
-          <OtpForm
-            user={user}
-            alertTheme={props.alertTheme}
-            variants={buttonVariants}
-          />
+          <OtpForm alertTheme={props.alertTheme} />
         </motion.div>
       )}
     </AnimatePresence>

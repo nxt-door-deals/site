@@ -96,7 +96,7 @@ const Contact = (props) => {
                     placeholder="Email*"
                     maxLength="50"
                     autoComplete="off"
-                    className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                    className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600"
                   />
                 </div>
 
@@ -127,7 +127,7 @@ const Contact = (props) => {
                     placeholder="Message*"
                     maxLength="1000"
                     autoComplete="off"
-                    className="text-sm p-2 leading-6 outline-none w-10/12 md:w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                    className="text-sm p-2 leading-6 outline-none w-10/12 md:w-11/12 placeholder-gray-600"
                   />
                 </div>
 

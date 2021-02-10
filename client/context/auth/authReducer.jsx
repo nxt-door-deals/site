@@ -7,6 +7,7 @@ import {
   LOGIN_FAIL,
   AUTH_ERROR,
   USER_LOADED,
+  ALT_USER_LOADED,
   CLEAR_ERROR,
   CLEAR_MESSAGE,
   LOGOUT,
@@ -30,6 +31,12 @@ import {
   DELETE_AD,
   USER_ADS_FETCHED_SUCCESS,
   USER_ADS_FETCHED_FAILURE,
+  LOAD_SELLER_CHATS,
+  LOAD_BUYER_CHATS,
+  LOAD_CHAT_ERROR,
+  SET_LOADING,
+  USER_SUBSCRIPTION_UPDATE_SUCCESS,
+  USER_SUBSCRIPTION_UPDATE_FAILURE,
 } from "../Types";
 
 const cookie = new Cookies();
@@ -61,12 +68,20 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         loading: false,
       };
+    case ALT_USER_LOADED:
+      return {
+        ...state,
+        altUser: action.payload,
+        loading: false,
+      };
     case USER_UPDATE_SUCCESS:
       return {
         ...state,
       };
     case LOGOUT:
       cookie.remove("nddToken", { path: "/" });
+      cookie.remove("__redirChatCookie", { path: "/" });
+      cookie.remove("__adCookie", { path: "/" });
 
       return {
         ...state,
@@ -111,6 +126,7 @@ const authReducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
+        userFlag: true,
       };
     case EMAIL_NOT_FOUND:
       return {
@@ -120,6 +136,7 @@ const authReducer = (state, action) => {
     case OTP_GENERATED_SUCCESS:
       return {
         ...state,
+        user: action.payload,
         otpGenerated: true,
       };
     case OTP_GENERATED_FAILURE:
@@ -150,6 +167,11 @@ const authReducer = (state, action) => {
         passwordChanged: false,
         authError: action.payload,
       };
+    case USER_SUBSCRIPTION_UPDATE_SUCCESS:
+      return {
+        ...state,
+        userFlag: action.payload,
+      };
     case EMAIL_VERIFICATION_TIMESTAMP_UPDATED:
     case OTP_VERIFICATION_TIMESTAMP_UPDATED:
       return {
@@ -173,6 +195,7 @@ const authReducer = (state, action) => {
     case DELETE_USER:
     case DELETE_AD:
     case USER_ADS_FETCHED_FAILURE:
+    case USER_SUBSCRIPTION_UPDATE_FAILURE:
       return {
         ...state,
         authError: action.payload,
@@ -186,6 +209,27 @@ const authReducer = (state, action) => {
       return {
         ...state,
         genericMessage: null,
+      };
+    case LOAD_SELLER_CHATS:
+      return {
+        ...state,
+        loading: false,
+        sellerChats: action.payload,
+      };
+    case LOAD_BUYER_CHATS:
+      return {
+        ...state,
+        buyerChats: action.payload,
+      };
+    case LOAD_CHAT_ERROR:
+      return {
+        ...state,
+        chatError: action.payload,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

@@ -161,12 +161,13 @@ const Footer = (props) => {
         - {currentYear}
       </div>
 
-      <div className="flex justify-center pb-2 text-sm">
+      <div className="flex justify-center items-center pb-2 text-sm tracking-wide">
         Made with{" "}
         <span className="text-red-600 pl-1 pr-1">
           <FontAwesomeIcon icon={faHeart} />
         </span>{" "}
-        in Bangalore
+        in Bangalore for
+        <span className="ml-1 pt-1 text-base">&#127470;&#127475;</span>
       </div>
 
       <Modal

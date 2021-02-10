@@ -152,7 +152,7 @@ const UserAds = (props) => {
                       className="p-3 rounded-lg bg-purple-500 focus:outline-none"
                       onClick={() => {
                         setEditButtonClicked(true);
-                        props.showForm.current = false;
+                        props.setShowForm(false);
                         router.push(`/ads/${props.ads[props.i].id}`);
                       }}
                     >

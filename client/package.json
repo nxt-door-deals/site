@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.13",
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
+    "emoji-picker-react": "^3.4.2",
     "formik": "^2.2.5",
     "framer-motion": "^2.9.4",
     "next": "^10.0.3",

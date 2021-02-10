@@ -74,12 +74,7 @@ const CreateAd = ({ categoryName, user }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Copy the state to a new array and use that to update the changed state
-  var newFiles = [...files];
-
-  newFiles = newFiles.slice(0, 10);
-
-  // Photo delete toast
+  // Giveaway toast
   const giveawayToast = () =>
     toast("Yay! You're awesome for giving this away for free!", {
       draggablePercent: 60,
@@ -105,6 +100,11 @@ const CreateAd = ({ categoryName, user }) => {
   };
 
   // Dropzone
+  // Copy the state to a new array and use that to update the changed state
+  var newFiles = [...files];
+
+  newFiles = newFiles.slice(0, 10);
+
   const onDrop = useCallback((acceptedFiles) => {
     setFiles((prev) => [
       ...prev,
@@ -158,7 +158,7 @@ const CreateAd = ({ categoryName, user }) => {
             setSubmitting(true);
 
             setTimeout(() => {
-              var formattedDate =
+              let formattedDate =
                 startDate.getFullYear() +
                 "-" +
                 (startDate.getMonth() + 1) +
@@ -192,7 +192,7 @@ const CreateAd = ({ categoryName, user }) => {
               <div>
                 {/* The category dropdown */}
                 <div className="flex justify-center mb-10">
-                  <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-blue">
+                  <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-purple">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -242,7 +242,7 @@ const CreateAd = ({ categoryName, user }) => {
                         placeholder="Ad Title*"
                         maxLength="100"
                         autoComplete="off"
-                        className="textbox-input w-11/12 placeholder-gray-600 placeholder-opacity-50"
+                        className="textbox-input w-11/12 placeholder-gray-600 "
                       />
                     </div>
 
@@ -272,7 +272,7 @@ const CreateAd = ({ categoryName, user }) => {
                         autoComplete="off"
                         spellCheck={true}
                         rows="7"
-                        className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 placeholder-opacity-50"
+                        className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
                       />
                     </div>
 
@@ -359,7 +359,7 @@ const CreateAd = ({ categoryName, user }) => {
                               props.values.typeOfSale === "giveaway" && true
                             }
                             className={
-                              "textbox-input w-full bg-transparent placeholder-gray-600 placeholder-opacity-50 focus:outline-none"
+                              "textbox-input w-full bg-transparent placeholder-gray-600  focus:outline-none"
                             }
                           />
                         </div>
@@ -405,45 +405,6 @@ const CreateAd = ({ categoryName, user }) => {
 
                     {/* Condition and Date */}
                     <div className="flex flex-col lg:flex-row lg:justify-between mb-6">
-                      {/* <div className="font-axiforma mr-10">
-                        <label
-                          htmlFor="condition"
-                          className="text-xs md:text-sm mr-1  text-gray-600"
-                        >
-                          Condition:
-                        </label>
-                        <Field
-                          id="condition"
-                          name="condition"
-                          component="select"
-                          className="font-axiforma border-b-2 text-sm outline-none mb-10 text-purple-700 font-semibold text-center focus:outline-none"
-                        >
-                          <option
-                            value="new"
-                            className="font-sans font-semibold"
-                          >
-                            New
-                          </option>
-                          <option
-                            value="almost new"
-                            className="font-sans font-semibold"
-                          >
-                            Almost New
-                          </option>
-                          <option
-                            value="gently used"
-                            className="font-sans font-semibold"
-                          >
-                            Gently Used
-                          </option>
-                          <option
-                            value="heavily used"
-                            className="font-sans font-semibold"
-                          >
-                            Heavily Used
-                          </option>
-                        </Field>
-                      </div> */}
                       <div className="w-full lg:w-48">
                         <div
                           className={`${

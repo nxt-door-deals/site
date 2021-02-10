@@ -35,6 +35,7 @@ module.exports = {
         98: "0.98",
       },
       colors: {
+        "ghost-white": "#F8F8FF",
         "brand-purple": "#550052",
         "brand-gray": "#292d34",
         "footer-gradient-from": "#834d9b",
@@ -101,6 +102,14 @@ module.exports = {
         "user-account-mobile-background":
           "url(/images/user_account/user-account-mobile-background.svg)",
         "fpa-background": "url(/images/fpa/fpa-background.svg)",
+        "chat-background": "url(/images/chat/bg-chat.svg)",
+        "chat-mobile-background": "url(/images/chat/bg-chat-mobile.svg)",
+        "our-story-background": "url(/images/our-story/bg-our-story.svg)",
+        "our-story-background-mobile":
+          "url(/images/our-story/bg-our-story-mobile.svg)",
+        "our-story-background-tablet":
+          "url(/images/our-story/bg-our-story-tablet.svg)",
+        "reported-ad-background": "url(/images/reported-ad/bg-reported-ad.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",

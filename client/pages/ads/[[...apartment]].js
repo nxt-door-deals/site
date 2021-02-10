@@ -48,6 +48,9 @@ const Ads = (props) => {
   const numOfAds = props.adsList.length;
 
   useEffect(() => {
+    // Reset the global showForm prop so that the edit ad page is not displayed
+    props.setShowForm(true);
+
     getNeighbourhoodFromId(apartmentId);
     fetchAdsForNbh(apartmentId);
   }, []);
@@ -127,7 +130,7 @@ const Ads = (props) => {
 export const getServerSideProps = async (context) => {
   const { apartment } = context.query;
   const res = await axios.get(
-    `http://localhost:8000/api/v1/nbhads/get/${apartment[1]}`
+    `${process.env.API_URL}/nbhads/get/${apartment[1]}`
   );
 
   return {

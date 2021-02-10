@@ -19,12 +19,19 @@ import {
   CLEAR_ERROR,
   CREATE_AD_SUCCESS,
   CREATE_AD_FAILURE,
+  UPDATE_AD_SUCCESS,
+  UPDATE_AD_FAILURE,
   EMAIL_SEND_SUCCESS,
   EMAIL_SEND_FAILURE,
   VERIFY_NEIGHBOURHOOD_SUCCESS,
   VERIFY_NEIGHBOURHOOD_FAILURE,
   FETCH_NBH_AD_SUCCESS,
   FETCH_NBH_AD_FAILURE,
+  DELETE_AD_IMAGE,
+  CHAT_HISTORY_LOADED,
+  CHAT_ERROR,
+  REPORTED_AD_SUCCESS,
+  REPORTED_AD_FAILURE,
 } from "../Types";
 
 var sendgridKey = "";
@@ -48,6 +55,7 @@ const SiteState = (props) => {
   const initialState = {
     allApartments: "",
     numApartmentsFetched: "",
+    chatHistory: [],
     fetchError: null,
     loading: false,
     apartmentData: "",
@@ -55,12 +63,13 @@ const SiteState = (props) => {
     apartmentCreated: false,
     apartmentCreationError: "",
     adCreated: false,
-    adCreationError: "",
+    adError: "",
     emailSent: null,
     neighbourhoodVerified: null,
     adsDataNbh: [],
     adsDataNbhFetched: false,
     verifiedNeighbourhoodDetails: null,
+    reportedAd: null,
   };
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
@@ -334,6 +343,50 @@ const SiteState = (props) => {
     }
   };
 
+  // Edit an ad
+  const updateAd = async (
+    adId,
+    userId,
+    title,
+    description,
+    typeOfSale,
+    price,
+    negotiable,
+    condition,
+    availableFrom,
+    publishFlatNo,
+    images
+  ) => {
+    const formData = new FormData();
+
+    formData.set("title", title);
+    formData.set("description", description);
+    formData.set("ad_type", typeOfSale);
+    formData.set("price", price);
+    formData.set("negotiable", negotiable);
+    formData.set("condition", condition);
+    formData.set("available_from", availableFrom);
+    formData.set("publish_flat_number", publishFlatNo);
+    images !== []
+      ? images.forEach((file) => formData.append("images", file))
+      : formData.set("images", images);
+
+    try {
+      await axios.put(
+        `${keys.API_PROXY}/ads/update/?ad_id=${adId}&posted_by_id=${userId}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      dispatch({ type: UPDATE_AD_SUCCESS });
+    } catch (err) {
+      dispatch({ type: UPDATE_AD_FAILURE, payload: err.response.data.detail });
+    }
+  };
+
   // Nbh registration email start
   const sendNbhRegistrationEmailToUser = async (
     apartmentName,
@@ -411,6 +464,19 @@ const SiteState = (props) => {
     }
   };
 
+  // Delete ad image from the Edit Ad screen
+  const deleteAdImage = async (userId, adId, image) => {
+    setApiKey(projectKey);
+
+    try {
+      await axios.delete(
+        `${keys.API_PROXY}/image/delete/?user_id=${userId}&ad_id=${adId}&image=${image}`
+      );
+    } catch (err) {
+      dispatch({ type: DELETE_AD_IMAGE, payload: err.message.data.detail });
+    }
+  };
+
   const sendNbhRegistrationSuccessEmailToUser = async (
     apartmentName,
     email
@@ -442,6 +508,57 @@ const SiteState = (props) => {
   };
   // Nbh registration email ends
 
+  // Chat methods
+  const getChatHistory = async (chatId) => {
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/chat/history/${chatId}`);
+
+      dispatch({ type: CHAT_HISTORY_LOADED, payload: res.data });
+    } catch (error) {
+      dispatch({
+        type: CHAT_ERROR,
+        payload: error.message.data.detail,
+      });
+    }
+  };
+
+  const markChatsAsRead = async (chatId) => {
+    try {
+      await axios.put(`${keys.API_PROXY}/chat/notifications/${chatId}`);
+    } catch (error) {
+      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+    }
+  };
+
+  const getReportedAdUsers = async (adId) => {
+    setApiKey(projectKey);
+    try {
+      const res = await axios.get(`${keys.API_PROXY}/reported/${adId}`);
+
+      dispatch({ type: REPORTED_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: REPORTED_AD_FAILURE, payload: err.message.data.detail });
+    }
+  };
+
+  const reportAd = async (adId, userId, reason, description) => {
+    setApiKey(projectKey);
+
+    const jsonPayload = {
+      ad_id: adId,
+      reported_by: userId,
+      reason: reason,
+      description: description,
+    };
+    try {
+      const res = await axios.post(`${keys.API_PROXY}/report/ad`, jsonPayload);
+
+      dispatch({ type: REPORTED_AD_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: REPORTED_AD_FAILURE, payload: err.message.data.detail });
+    }
+  };
+
   return (
     <SiteContext.Provider
       value={{
@@ -451,7 +568,7 @@ const SiteState = (props) => {
         fetchError: state.fetchError,
         submittedNeighbourhood: state.submittedNeighbourhood,
         adCreated: state.adCreated,
-        adCreationError: state.adCreationError,
+        adError: state.adError,
         apartmentCreated: state.apartmentCreated,
         apartmentCreationError: state.apartmentCreationError,
         emailSent: state.emailSent,
@@ -460,6 +577,9 @@ const SiteState = (props) => {
         adsDataNbh: state.adsDataNbh,
         adsDataNbhFetched: state.adsDataNbhFetched,
         allApartments: state.allApartments,
+        adError: state.adError,
+        chatHistory: state.chatHistory,
+        reportedAd: state.reportedAd,
         loadAllApartments,
         fetchApartments,
         getNeighbourhoodFromId,
@@ -469,6 +589,7 @@ const SiteState = (props) => {
         unsetLoading,
         createAd,
         createApartment,
+        updateAd,
         sendNbhRegistrationEmailToUser,
         sendNbhRegistrationVerificationRequestEmail,
         sendNbhRegistrationSuccessEmailToUser,
@@ -482,6 +603,11 @@ const SiteState = (props) => {
         sortByDateCreatedDesc,
         sortGiveawayAsc,
         sortGiveawayDesc,
+        deleteAdImage,
+        getChatHistory,
+        markChatsAsRead,
+        getReportedAdUsers,
+        reportAd,
       }}
     >
       {props.children}

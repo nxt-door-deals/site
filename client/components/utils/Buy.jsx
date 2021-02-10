@@ -17,7 +17,7 @@ const Buy = () => {
               transition: { duration: 0.5 },
             }}
             key={index}
-            className="rounded-xl overflow-hidden shadow-lg"
+            className="rounded-xl overflow-hidden shadow-lg bg-purple-50"
           >
             <div className="flex items-center justify-center">
               <Image src={item.image} alt={item.alt} width={250} height={250} />

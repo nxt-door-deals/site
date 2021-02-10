@@ -47,12 +47,34 @@ const Login = (props) => {
       position: "top-center",
     });
 
+  // User account toast
+  const chatToast = () =>
+    toast("Please login to start chatting", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
+  // Report ad toast
+  const reportedAdToast = () =>
+    toast("Please login to report an ad", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   if (pathProp === "/postad") {
     setTimeout(() => postadToast(), 500);
   }
 
   if (pathProp === "/account") {
     setTimeout(() => userAccountToast(), 500);
+  }
+
+  if (pathProp === "/chat/[id]") {
+    setTimeout(() => chatToast(), 500);
+  }
+
+  if (pathProp === "/reportad/[id]") {
+    setTimeout(() => reportedAdToast(), 500);
   }
 
   return (

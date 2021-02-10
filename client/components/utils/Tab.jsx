@@ -7,6 +7,7 @@ import BrowseAds from "./BrowseAds";
 import BrowseRequests from "./BrowseRequests";
 import NoAdsForNeighbourhood from "../utils/NoAdsForNeighbourhood";
 import UserAdsWrapper from "../utils/UserAdsWrapper";
+import UserChatList from "./UserChatList";
 
 const Tab = (props) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -41,12 +42,15 @@ const Tab = (props) => {
           <div>
             {activeTab === 0 ? (
               <UserAccount currentUser={props.currentUser} />
-            ) : (
+            ) : activeTab === 1 ? (
               <UserAdsWrapper
                 currentUser={props.currentUser}
                 ads={props.ads}
                 showForm={props.showForm}
+                setShowForm={props.setShowForm}
               />
+            ) : (
+              <UserChatList />
             )}
           </div>
         )}

@@ -2,7 +2,7 @@ import ApartmentSearch from "./forms/ApartmentSearch";
 
 const Landing = () => {
   return (
-    <div className="font-axiforma max-w-screen-xxl">
+    <div className="max-w-screen-xxl">
       <div className="flex flex-wrap items-center justify-center lg:flex-nowrap ">
         <div
           id="text-container"

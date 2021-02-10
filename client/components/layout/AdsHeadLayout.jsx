@@ -62,7 +62,7 @@ const AdsHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Post an ad for free. NXT Door Deals is your one-stop shop to find amazing deals for preloved items in your neighbourhood."
+                    "@value": "Browse all the ads from your neighbourhood or Ask Your Neighbourhood (AYN) for something that you are looking for."
                   }
                 ],
                 "http://schema.org/inLanguage": [

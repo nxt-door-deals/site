@@ -7,7 +7,7 @@ const TabManager = (props) => {
         {props.tabs.map(({ label, value }) => (
           <div
             key={value}
-            className={`lg:text-lg font-semibold cursor-pointer p-3 rounded-tl-xl rounded-tr-xl ${
+            className={`lg:text-lg font-semibold cursor-pointer p-3 rounded-tl-xl rounded-tr-xl border-2 border-b-0 border-ad-purple mr-1 ${
               value === props.activeTab
                 ? "lg:font-bold text-white border-b-2 rounded-tl-xl rounded-tr-xl border-ad-purple bg-ad-purple tracking-wide"
                 : "text-ad-purple"

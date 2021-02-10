@@ -4,13 +4,31 @@ import keys from "../../utils/keys";
 const CommonHeadLayout = () => {
   return (
     <Head>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta
         name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, viewport-fit=cover"
       />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      {/* <link rel="shortcut icon" sizes="16x16" href="/favicon.ico" type="image/x-icon" /> */}
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta property="og:image" content={keys.ICON} />
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />

@@ -1,5 +1,5 @@
 import "../styles/styles.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
 
   // Use this in the Ad component to show either the ad or the edit form
-  const showForm = useRef(true);
+  const [showForm, setShowForm] = useState(true);
 
   return (
     <motion.div
@@ -40,6 +40,7 @@ export default function MyApp({ Component, pageProps, router }) {
             {...pageProps}
             pathHistory={pathHistory}
             showForm={showForm}
+            setShowForm={setShowForm}
           />
           <ToastContainer
             autoClose={2000}

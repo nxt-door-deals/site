@@ -41,6 +41,7 @@ const Account = (props) => {
   const userAccountTabs = [
     { label: "My Profile", value: 0 },
     { label: "My Ads", value: 1 },
+    { label: "My Chats", value: 2 },
   ];
 
   const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
@@ -69,6 +70,7 @@ const Account = (props) => {
               currentUser={user && user}
               ads={userAds && userAds}
               showForm={props.showForm}
+              setShowForm={props.setShowForm}
             />
           )}
         </div>

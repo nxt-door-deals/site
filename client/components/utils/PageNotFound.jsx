@@ -18,7 +18,7 @@ const PageNotFound = () => {
 
   // Logout toast
   const logoutToast = () =>
-    toast("You are being logged out. Have a nice day :)", {
+    toast("You are being logged out. Have a nice day 😊", {
       draggablePercent: 60,
       position: "top-center",
     });

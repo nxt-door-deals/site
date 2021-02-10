@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import Cookies from "universal-cookie";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +18,8 @@ import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 // Component imports
 import Alert from "../utils/Alert";
 import BouncingBalls from "../loaders/BouncingBalls";
+
+var cookie = new Cookies();
 
 const loginValidationSchema = Yup.object({
   email: Yup.string()
@@ -44,7 +47,30 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (user && user !== null) {
-      if (props.pathProp) {
+      // Redirect to the chat screen only if seller id and buyer id are different
+      if (props.pathProp === "/chat/[id]") {
+        let chatCookie = cookie.get("__redirChatCookie");
+        chatCookie["_byrId"] = user.id;
+
+        cookie.set("__redirChatCookie", chatCookie);
+        router.push(
+          `/chat/${
+            chatCookie["_adId"] +
+            "-" +
+            chatCookie["_slrId"] +
+            "-" +
+            chatCookie["_byrId"]
+          }`
+        );
+      } else if (props.pathProp === "/reportad/[id]") {
+        let adCookie = cookie.get("__adCookie");
+        let adId = adCookie["_id"];
+        cookie.remove("__adCookie");
+        router.push(`/reportad/${adId}`);
+      } else if (
+        props.pathProp === "/postad" ||
+        props.pathProp === "/account"
+      ) {
         router.push(props.pathProp);
       } else {
         router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
@@ -92,7 +118,7 @@ const UserLogin = (props) => {
                   placeholder="Email"
                   maxLength="50"
                   autoComplete="off"
-                  className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                  className="textbox-input w-10/12 placeholder-gray-600 "
                 />
               </div>
 
@@ -121,7 +147,7 @@ const UserLogin = (props) => {
                   type={!displayPassword ? "password" : "text"}
                   placeholder="Password"
                   maxLength="50"
-                  className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                  className="textbox-input w-10/12 placeholder-gray-600 "
                 />
                 <FontAwesomeIcon
                   icon={!displayPassword ? faEye : faEyeSlash}
@@ -163,18 +189,9 @@ const UserLogin = (props) => {
                 </motion.button>
               </div>
             </Form>
-            <div className="text-center font-axiforma text-purple-600 text-sm tracking-wide">
+            <div className="text-center font-axiforma text-purple-600 text-sm tracking-wide hover:underline">
               <Link href="/forgotpassword">
-                <motion.a
-                  whileHover={{
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#550052",
-                    textDecorationColor: "#550052",
-                  }}
-                >
-                  Forgot password?
-                </motion.a>
+                <a className="styled-link">Forgot password?</a>
               </Link>
             </div>
             <div className="font-axiforma text-purple-600 text-center mt-6 text-sm  lg:text-md">

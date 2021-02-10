@@ -9,7 +9,6 @@ const setAuthToken = (token) => {
 };
 
 const setApiKey = (apiKey) => {
-  console.log(apiKey);
   if (apiKey) {
     axios.defaults.headers.common["api-key"] = apiKey;
   } else {

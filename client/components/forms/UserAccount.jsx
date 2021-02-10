@@ -41,13 +41,6 @@ const userAccountValidationSchema = Yup.object({
     .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
 });
 
-// User delete toast
-const userDeleteToast = () =>
-  toast("Sorry to see you go :(", {
-    draggablePercent: 60,
-    position: "top-center",
-  });
-
 const userAccountVariants = {
   saveEditButtonHover: {
     backgroundColor: "#4C1D95",
@@ -103,7 +96,7 @@ const UserAccount = (props) => {
   const alertTheme = "bg-purple-200 text-brand-purple";
 
   // User account toast
-  const emailVerificationTost = () =>
+  const emailVerificationToast = () =>
     toast("Verification link sent to your registered email id", {
       draggablePercent: 60,
       position: "top-center",
@@ -217,7 +210,7 @@ const UserAccount = (props) => {
                               currentUser && currentUser.name)
                           )
                         }
-                        className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50 bg-white"
+                        className="textbox-input w-10/12 placeholder-gray-600  bg-white"
                       />
                     </div>
 
@@ -260,7 +253,7 @@ const UserAccount = (props) => {
                               currentUser && currentUser.mobile)
                           )
                         }
-                        className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50 bg-white"
+                        className="textbox-input w-10/12 placeholder-gray-600  bg-white"
                       />
                     </div>
 
@@ -299,7 +292,7 @@ const UserAccount = (props) => {
                         placeholder="Neighbourhood*"
                         value={props.values.neighbourhood}
                         onKeyUp={searchApartment}
-                        className="textbox-input bg-white w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                        className="textbox-input bg-white w-10/12 placeholder-gray-600 "
                       />
                     </div>
 
@@ -428,7 +421,7 @@ const UserAccount = (props) => {
                               currentUser && currentUser.apartment_number)
                           )
                         }
-                        className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50 bg-white"
+                        className="textbox-input w-10/12 placeholder-gray-600  bg-white"
                       />
                     </div>
 
@@ -523,7 +516,7 @@ const UserAccount = (props) => {
                                 currentUser && currentUser.email,
                                 verificationUrl
                               );
-                              setTimeout(() => emailVerificationTost(), 500);
+                              setTimeout(() => emailVerificationToast(), 500);
                             }}
                             className="text-xs ml-2 underline cursor-pointer text-purple-500"
                           >

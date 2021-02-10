@@ -26,7 +26,7 @@ const UserAdsWrapper = (props) => {
   if (props.ads.length === 0) {
     return (
       <div className="py-16 lg:py-20 px-8">
-        <p className="font-axiforma text-gray-600 text-xl text-center">
+        <p className="font-axiforma text-brand-gray text-xl text-center">
           Hmm... No ads? Remember, you have seven free ads across all
           categories. Start posting today!
         </p>
@@ -56,6 +56,7 @@ const UserAdsWrapper = (props) => {
               currentUser={props.currentUser}
               ads={props.ads}
               showForm={props.showForm}
+              setShowForm={props.setShowForm}
             />
           ))}
         </div>

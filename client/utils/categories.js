@@ -184,9 +184,16 @@ const conditionOptions = [
   { value: "Heavily Used", label: "Heavily Used" },
 ];
 
+const reportAdReasons = [
+  { value: "offensive content", label: "Offensive Content" },
+  { value: "fraud", label: "Fraud" },
+  { value: "others", label: "Others" },
+];
+
 export {
   categories,
   categoryListOptions,
   extendedCategoryListOptions,
   conditionOptions,
+  reportAdReasons,
 };

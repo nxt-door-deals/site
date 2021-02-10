@@ -14,10 +14,17 @@ import {
   CLEAR_ERROR,
   CREATE_AD_SUCCESS,
   CREATE_AD_FAILURE,
+  UPDATE_AD_SUCCESS,
+  UPDATE_AD_FAILURE,
   EMAIL_SEND_SUCCESS,
   EMAIL_SEND_FAILURE,
   VERIFY_NEIGHBOURHOOD_SUCCESS,
   VERIFY_NEIGHBOURHOOD_FAILURE,
+  DELETE_AD_IMAGE,
+  CHAT_HISTORY_LOADED,
+  CHAT_ERROR,
+  REPORTED_AD_SUCCESS,
+  REPORTED_AD_FAILURE,
 } from "../Types";
 
 const siteReducer = (state, action) => {
@@ -41,6 +48,7 @@ const siteReducer = (state, action) => {
       };
     case FETCH_APARTMENT_NAME_ERROR:
     case FETCH_APARTMENT_ERROR:
+    case CHAT_ERROR:
       return {
         ...state,
         fetchError: action.payload,
@@ -86,7 +94,18 @@ const siteReducer = (state, action) => {
         ...state,
         loading: false,
         adCreated: false,
-        adCreationError: action.payload,
+        adError: action.payload,
+      };
+    case UPDATE_AD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      };
+    case UPDATE_AD_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        adError: action.payload,
       };
     case CLEAR_ERROR:
       return {
@@ -124,6 +143,26 @@ const siteReducer = (state, action) => {
       return {
         ...state,
         adsDataNbhFetched: false,
+      };
+    case DELETE_AD_IMAGE:
+      return {
+        ...state,
+        adError: action.payload,
+      };
+    case CHAT_HISTORY_LOADED:
+      return {
+        ...state,
+        chatHistory: action.payload,
+      };
+    case REPORTED_AD_SUCCESS:
+      return {
+        ...state,
+        reportedAd: action.payload,
+      };
+    case REPORTED_AD_FAILURE:
+      return {
+        ...state,
+        adError: action.payload,
       };
     default:
       return state;

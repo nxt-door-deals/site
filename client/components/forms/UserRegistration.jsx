@@ -113,6 +113,14 @@ const UserRegistration = () => {
   }, []);
 
   useEffect(() => {
+    if (fetchError) {
+      window.scrollTo(0, 0);
+    }
+
+    return setHideResults("hidden");
+  }, [fetchError]);
+
+  useEffect(() => {
     if (isAuthenticated) {
       loadUser();
       setShowForm(false);
@@ -120,6 +128,7 @@ const UserRegistration = () => {
   }, [isAuthenticated]);
 
   const searchApartment = (e) => {
+    setHideResults(null);
     setparentDiv("visible");
     fetchApartments(e.target.value);
 
@@ -153,32 +162,34 @@ const UserRegistration = () => {
               apartmentNumber: "",
             }}
             validationSchema={userRegistrationValidationSchema}
-            onSubmit={async (values, { setSubmitting }) => {
-              setSubmitting(true);
+            onSubmit={(values, { setSubmitting }) => {
               setHideResults("hidden");
 
-              if (enableFormSubmission) {
-                apartment = allApartments.find(
-                  (o) => o.name === values.apartment
-                );
+              apartment = allApartments.find(
+                (o) => o.name === values.apartment
+              );
 
-                if (!apartment) {
-                  validateApartmentSelection(
-                    "Please select a neighbourhood from the list"
-                  );
-                  setHideResults(null);
-                } else {
-                  registerUser(
-                    values.name,
-                    values.email,
-                    values.mobile,
-                    values.password,
-                    values.apartmentNumber,
-                    selectedApartment.current
-                  );
-                }
+              if (!apartment) {
+                validateApartmentSelection(
+                  "Please select a neighbourhood from the list"
+                );
+                setHideResults(null);
+                setSubmitting(false);
               }
-              setTimeout(() => setSubmitting(false), 2000);
+
+              if (enableFormSubmission && apartment) {
+                setSubmitting(true);
+
+                registerUser(
+                  values.name,
+                  values.email,
+                  values.mobile,
+                  values.password,
+                  values.apartmentNumber,
+                  selectedApartment.current
+                );
+                setTimeout(() => setSubmitting(false), 2000);
+              }
             }}
           >
             {(props) => (
@@ -212,7 +223,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 "
                     />
                   </div>
 
@@ -244,7 +255,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 "
                     />
                   </div>
 
@@ -276,7 +287,7 @@ const UserRegistration = () => {
                       maxLength="15"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 "
                     />
                   </div>
 
@@ -308,7 +319,7 @@ const UserRegistration = () => {
                       maxLength="50"
                       autoComplete="off"
                       autoFocus=""
-                      className="textbox-input w-9/12 md:w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-9/12 md:w-10/12 placeholder-gray-600 "
                     />
                     <FontAwesomeIcon
                       icon={!displayPassword ? faEye : faEyeSlash}
@@ -349,7 +360,7 @@ const UserRegistration = () => {
                       autoComplete="off"
                       autoFocus=""
                       onKeyUp={searchApartment}
-                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 "
                     />
                   </div>
 
@@ -468,7 +479,7 @@ const UserRegistration = () => {
                       placeholder="Flat/house number* (Ex: 77, A2)"
                       maxLength="10"
                       autoComplete="off"
-                      className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
+                      className="textbox-input w-10/12 placeholder-gray-600 "
                     />
                   </div>
 
@@ -499,14 +510,18 @@ const UserRegistration = () => {
                       className="w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                       type="submit"
                       arira-aria-label="User registration button"
-                      disabled={!enableFormSubmission || props.isSubmitting}
+                      disabled={
+                        authError !== null ||
+                        !enableFormSubmission ||
+                        props.isSubmitting
+                      }
                     >
-                      {!props.isSubmitting ? (
+                      {authError ? (
                         "Register"
-                      ) : authError ? (
-                        "Register"
-                      ) : (
+                      ) : props.isSubmitting ? (
                         <BouncingBalls />
+                      ) : (
+                        "Register"
                       )}
                     </motion.button>
                   </div>
