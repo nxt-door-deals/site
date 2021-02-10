@@ -30,13 +30,19 @@ const validationschema = Yup.object({
 });
 
 // Framer variants
-const variants = {
+const buttonVariants = {
   hover: {
     backgroundColor: "#5B21B6",
   },
   tap: {
     y: "2px",
     backgroundColor: "#8B5CF6",
+  },
+};
+
+const linkVariants = {
+  hover: {
+    x: "-2px",
   },
 };
 
@@ -110,14 +116,14 @@ const ReportAds = (props) => {
 
   return (
     <div>
-      <div className="w-11/12 md:w-1/2 lg:w-1/3 flex items-center justify-start ml-4 mb-5">
+      <div className=" flex items-center ml-4 mb-5">
         <Link href={`/ads/${props.adId}`}>
-          <a>
+          <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}
-              className="text-4xl text-brand-purple focus-within:outline-none"
+              className="text-4xl text-brand-purple focus-within:outline-none cursor-pointer"
             />
-          </a>
+          </motion.a>
         </Link>
         <p className="pl-2">Back to ad</p>
       </div>
@@ -237,7 +243,7 @@ const ReportAds = (props) => {
               <div className="text-center">
                 <motion.button
                   type="submit"
-                  variants={variants}
+                  variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
                   disabled={props.isSubmitting}

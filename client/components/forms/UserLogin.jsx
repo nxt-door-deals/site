@@ -30,6 +30,16 @@ const loginValidationSchema = Yup.object({
   password: Yup.string().required("Please enter your password").trim(),
 });
 
+const variants = {
+  hover: {
+    backgroundColor: "#5B21B6",
+  },
+  tap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+};
+
 const alertTheme = "bg-purple-200 text-brand-purple";
 
 const UserLogin = (props) => {
@@ -170,13 +180,10 @@ const UserLogin = (props) => {
               <div className="font-axiforma text-center mt-4">
                 <motion.button
                   type="submit"
+                  variants={variants}
+                  whileHover="hover"
+                  whileTap="tap"
                   className="mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
-                  whileTap={{
-                    backgroundColor: "#D6BCFA",
-                    color: "#550052",
-                    y: "5px",
-                    boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                  }}
                   disabled={props.isSubmitting}
                 >
                   {!props.isSubmitting ? (

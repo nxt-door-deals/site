@@ -518,10 +518,11 @@ const AuthState = (props) => {
         jsonPayload
       );
 
-      state.user.mail_subscribed = subscriptionStatus;
+      if (state.user) state.user.mail_subscribed = subscriptionStatus;
 
       dispatch({ type: USER_SUBSCRIPTION_UPDATE_SUCCESS, payload: res.data });
     } catch (err) {
+      console.log(err);
       dispatch({
         type: USER_SUBSCRIPTION_UPDATE_FAILURE,
         payload: err.message.data.detail,

@@ -30,6 +30,12 @@ const buttonVariants = {
   },
 };
 
+const linkVariants = {
+  hover: {
+    x: "-2px",
+  },
+};
+
 const Ad = (props) => {
   var showChatButton = true;
   var showOtherButtons = false;
@@ -68,12 +74,12 @@ const Ad = (props) => {
             props.data.apartment_id
           }`}
         >
-          <a>
+          <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}
-              className="text-4xl text-brand-purple"
+              className="text-4xl text-brand-purple cursor-pointer"
             />
-          </a>
+          </motion.a>
         </Link>
         <p className="pl-2">
           Back to marketplace for{" "}
@@ -146,7 +152,7 @@ const Ad = (props) => {
                 !reportedAd.users.includes(user.id) && (
                   <div className="text-right">
                     <Link href={`/reportad/${props.data.id}`}>
-                      <a className="uppercase styled-link font-semibold text-brand-gray">
+                      <a className="uppercase styled-link font-semibold text-brand-gray focus-within:outline-none">
                         Report this ad
                       </a>
                     </Link>
