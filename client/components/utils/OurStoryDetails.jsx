@@ -11,8 +11,10 @@ const OurStoryDetails = () => {
         <h1 className="text-4xl font-bold">Our Story</h1>
         <p className="pt-5 text-lg">
           At{" "}
-          <span className="text-brand-purple font-semibold">nxtdoordeals</span>,
-          we believe in the power of second chances, community and the
+          <span className="text-brand-purple font-semibold">
+            nxtdoordeals.com
+          </span>
+          , we believe in the power of second chances, community and the
           importance of protecting our environment.
         </p>
       </div>

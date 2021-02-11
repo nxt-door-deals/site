@@ -47,7 +47,7 @@ const Account = (props) => {
   const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
 
   if (!cookie.get("nddToken")) {
-    // Save the url (/postad) for redirect after login
+    // Save the url (/account) for redirect after login
     props.pathHistory.current = pathname;
     if (process.browser) {
       router.push("/login");

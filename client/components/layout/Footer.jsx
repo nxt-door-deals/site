@@ -47,7 +47,7 @@ const Footer = (props) => {
       <div className="flex justify-center items-center flex-col md:flex-row pb-4 text-sm">
         <ul className="md:flex md:divide-x-2 md:divide-white">
           <li className="pb-1 px-2">
-            <Link href="/">
+            <Link href="/ourstory">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faBook} className="mr-1 w-3" />
                 Our Story

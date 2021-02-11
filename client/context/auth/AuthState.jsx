@@ -68,7 +68,7 @@ const AuthState = (props) => {
   const initialState = {
     userFlag: null,
     token: null,
-    isAuthenticated: null,
+    isAuthenticated: false,
     user: null,
     altUser: null,
     loading: false,

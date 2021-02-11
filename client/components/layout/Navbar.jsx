@@ -182,11 +182,7 @@ const Navbar = (props) => {
                 ) : (
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
@@ -478,11 +474,7 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110 styled-link">
                 <div
                   className="cursor-pointer styled-link"
-                  onClick={() => {
-                    logoutToast();
-                    logout();
-                    setTimeout(() => router.push("/"), 500);
-                  }}
+                  onClick={() => router.push("/logout", "/")}
                 >
                   Logout
                 </div>
@@ -995,7 +987,7 @@ const Navbar = (props) => {
             <Fragment>
               <li
                 className={
-                  "overlay-items md:text-xl hover:scale-125 " +
+                  "overlay-items md:text-xl hover:scale-125" +
                   props.navStyle.navOverlayTextColor
                 }
               >

@@ -204,7 +204,7 @@ const CreateNeighbourhood = (props) => {
                         and enjoy all the{" "}
                         <Link href="/">
                           <a className="text-brand-purple font-semibold hover:underline">
-                            nxt-door deals
+                            nxtdoordeals.com
                           </a>
                         </Link>{" "}
                         awesomeness!
@@ -267,7 +267,7 @@ const CreateNeighbourhood = (props) => {
                           maxLength="100"
                           autoComplete="off"
                           value={props.values.name}
-                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600"
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -298,7 +298,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Address Line 1*"
                           maxLength="150"
                           autoComplete="off"
-                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 "
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -327,7 +327,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Address Line 2"
                           maxLength="150"
                           autoComplete="off"
-                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 "
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -350,7 +350,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="City*"
                           maxLength="50"
                           autoComplete="off"
-                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 "
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
@@ -459,7 +459,7 @@ const CreateNeighbourhood = (props) => {
                               placeholder="Pincode*"
                               maxLength="15"
                               autoComplete="off"
-                              className="textbox-input w-9/12 lg:10/12 placeholder-gray-600 "
+                              className="textbox-input w-9/12 lg:10/12 placeholder-gray-600 placeholder-opacity-50"
                             />
                           </div>
 
@@ -492,7 +492,7 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Your email*"
                           maxLength="50"
                           autoComplete="off"
-                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 "
+                          className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 

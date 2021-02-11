@@ -56,7 +56,12 @@ const ReportAd = (props) => {
       <Navbar navStyle={navStyle} />
       <div>
         <div className="h-full w-full pt-36 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
-          <ReportAds adId={props.id} modifiedId={props.data} />
+          <ReportAds
+            adId={props.id}
+            modifiedId={props.modifiedId}
+            apartmentName={props.apartmentName}
+            apartmentId={props.apartmentId}
+          />
         </div>
       </div>
 
@@ -80,7 +85,9 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      data: res.data.modified_id,
+      modifiedId: res.data.modified_id,
+      apartmentName: res.data.apartment_name,
+      apartmentId: res.data.apartment_id,
       id: id,
     },
   };

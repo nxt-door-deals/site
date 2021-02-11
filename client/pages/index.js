@@ -7,9 +7,11 @@ import Landing from "../components/Landing";
 import HowItWorks from "../components/HowItWorks";
 import Footer from "../components/layout/Footer";
 
-const Home = () => {
+const Home = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
+
+  props.pathHistory.current = null;
 
   // Custom navbar tailwind styles
   const navStyle = {

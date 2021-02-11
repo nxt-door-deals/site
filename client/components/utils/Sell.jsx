@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { sell } from "../../utils/howItWorks";
 
 const Sell = () => {
@@ -11,13 +10,9 @@ const Sell = () => {
     >
       {sell.map((item, index) => {
         return (
-          <motion.div
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.5 },
-            }}
+          <div
             key={index}
-            className="rounded-xl overflow-hidden shadow-lg bg-purple-50"
+            className="rounded-xl overflow-hidden shadow-lg bg-white"
           >
             <div className="flex items-center justify-center">
               <Image src={item.image} alt={item.alt} width={250} height={250} />
@@ -27,9 +22,11 @@ const Sell = () => {
               <div className="font-bold text-brand-gray text-xl mb-2">
                 {item.heading}
               </div>
-              <p className="text-gray-600 text-base">{item.content}</p>
+              <p className="text-gray-600 text-base cursor-default">
+                {item.content}
+              </p>
             </div>
-          </motion.div>
+          </div>
         );
       })}
     </div>

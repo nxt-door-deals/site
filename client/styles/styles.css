@@ -18,7 +18,7 @@ body {
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-sm font-axiforma font-semibold transform transition duration-300 ease-in-out;
+  @apply mr-6 z-20 text-sm font-axiforma font-semibold transform transition duration-300 ease-in-out focus-within:outline-none;
 }
 
 .menu-nav-item {
@@ -34,7 +34,7 @@ body {
 }
 
 .overlay-items {
-  @apply transition duration-300 ease-in-out menu-nav-item transform;
+  @apply transition duration-300 ease-in-out menu-nav-item transform focus-within:outline-none;
 }
 
 /* Apartment search custom styles */
@@ -181,4 +181,59 @@ body {
 .styled-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* Logout */
+.smoke .smoke-item {
+  animation: animate-logout 5s forwards ease 2s;
+}
+
+@keyframes animate-logout {
+  from {
+    transform: rotate(0deg) translateY(0px);
+    filter: blur(0px);
+  }
+  to {
+    transform: rotate(45deg) translateY(-200px);
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+
+/* 404 page */
+
+.clouds-404 {
+  animation: animate-404-clouds 5s linear infinite alternate;
+}
+
+.rain-404 {
+  animation: animate-404-rain 5s linear infinite normal;
+}
+
+@keyframes animate-404-clouds {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes animate-404-rain {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

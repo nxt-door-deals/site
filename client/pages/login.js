@@ -15,7 +15,7 @@ const Login = (props) => {
 
   // Set a variable with the global prop and clear it since we do not want to carry the global prop forward
   const pathProp = props.pathHistory.current;
-  props.pathHistory.current = "";
+  props.pathHistory.current = null;
 
   // Custom navbar tailwind styles
   const navStyle = {

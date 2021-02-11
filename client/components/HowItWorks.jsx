@@ -59,7 +59,7 @@ const HowItWorks = () => {
           >
             {showGrid ? "Selling" : "Buying"}
           </motion.span>{" "}
-          on <span className="text-purple-600">nxt-door deals</span>
+          on <span className="text-purple-600">nxtdoordeals.com</span>
         </h1>
 
         <div className="pt-8 mb-16">

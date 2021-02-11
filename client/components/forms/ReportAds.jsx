@@ -158,7 +158,7 @@ const ReportAds = (props) => {
 
             setTimeout(() => {
               setSubmitting(false);
-              router.push(`/ads/${props.adId}`);
+              router.push(`/ads/${props.apartmentName}/${props.apartmentId}`);
             }, 3000);
           }}
         >
