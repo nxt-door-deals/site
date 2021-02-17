@@ -168,13 +168,13 @@ export const getServerSideProps = async (context) => {
     // Check if both buyer and seller are legit users
     var user1 = await axios.get(`${process.env.API_URL}/user/${ids[1]}`, {
       headers: {
-        "api-key": `${process.env.NEXT_PUBLIC_PROJECT_API_KEY}`,
+        "api-key": `${process.env.PROJECT_API_KEY}`,
       },
     });
 
     var user2 = await axios.get(`${process.env.API_URL}/user/${ids[2]}`, {
       headers: {
-        "api-key": `${process.env.NEXT_PUBLIC_PROJECT_API_KEY}`,
+        "api-key": `${process.env.PROJECT_API_KEY}`,
       },
     });
 
