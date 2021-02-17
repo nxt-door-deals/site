@@ -50,8 +50,10 @@ const SearchNbhAds = (props) => {
         break;
       case "Giveaway ascending":
         sortGiveawayAsc(props.nbhId);
+        break;
       case "Giveaway descending":
         sortGiveawayDesc(props.nbhId);
+        break;
       default:
         null;
     }

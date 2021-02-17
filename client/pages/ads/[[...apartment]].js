@@ -118,15 +118,6 @@ const Ads = (props) => {
   );
 };
 
-// Ads.getInitialProps = async ({ query, pathname, ctx }) => {
-//   const { apartment } = query;
-//   return {
-//     route: pathname,
-//     apartmentName: apartment[0],
-//     apartmentId: apartment[1],
-//   };
-// };
-
 export const getServerSideProps = async (context) => {
   const { apartment } = context.query;
   const res = await axios.get(

@@ -59,61 +59,35 @@ const Chat = (props) => {
 
   useEffect(() => {
     if (user) {
-      let clientIds = [props.sellerId, props.buyerId];
-
-      if (props.sellerId == props.buyerId) {
-        router.push("/account");
+      if (cookie.get("__redirChatCookie")) {
+        cookie.remove("__redirChatCookie");
       }
 
-      clientIds.includes(String(user.id)) ? null : router.push("/404");
+      let clientIds = [props.sellerId, props.buyerId];
+
+      // If current user tries viewing someone else's chat, redirect them to 404
+      // If not, create the cookie
+      clientIds.includes(String(user.id))
+        ? cookie.set(
+            "__redirChatCookie",
+            {
+              _adId: props.adId,
+              _slrId: props.sellerId,
+              _byrId: props.buyerId,
+            },
+            {
+              path: "/",
+            }
+          )
+        : router.push("/404");
 
       getUserFromId(
         user.id === parseInt(props.buyerId)
           ? parseInt(props.sellerId)
           : parseInt(props.buyerId)
       );
-
-      if (cookie.get("__redirChatCookie")) {
-        cookie.remove("__redirChatCookie");
-      }
-
-      cookie.set(
-        "__redirChatCookie",
-        {
-          _adId: props.adId,
-          _slrId: props.sellerId,
-          _byrId: props.buyerId,
-        },
-        {
-          path: "/",
-        }
-      );
     }
   }, [user]);
-
-  // const setCookie = () => {
-  //   cookie.set(
-  //     "__redirChatCookie",
-  //     {
-  //       _adId: props.adId,
-  //       _slrId: props.sellerId,
-  //       _byrId: props.buyerId,
-  //     },
-  //     {
-  //       path: "/",
-  //     }
-  //   );
-  // };
-
-  // var chatCookie = cookie.get("__redirChatCookie", {
-  //   path: "/",
-  // });
-
-  // // Handles conditions where a non-logged in user clicks on the Chat button
-  // if (!chatCookie || chatCookie["_byrId"] === "") {
-  //   cookie.remove("__redirChatCookie");
-  //   setCookie();
-  // }
 
   // Custom navbar tailwind styles
   const navStyle = {
@@ -160,6 +134,7 @@ const Chat = (props) => {
                   chatId={props.chatId && props.chatId}
                   senderId={user.id}
                   altUser={altUser}
+                  ad={props.ad}
                 />
               )}
             </div>

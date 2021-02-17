@@ -32,13 +32,13 @@ const createAdValidationSchema = Yup.object({
   description: Yup.string()
     .required("Please provide an elaborate description for your ad. Go nuts!")
     .trim()
-    .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
+    .matches(/^[^=<>`]+$/, "Description cannot contain ^ = < > or `"),
   typeOfSale: Yup.string().required("Is this a sale or a giveaway?"),
   // condition: Yup.string().required("Please select the item condition"),
   price: Yup.string().when("typeOfSale", {
     is: "sale",
     then: Yup.string()
-      .required("Please enter the item price")
+      .required("Please enter the item's price")
       .matches(/^[\d]*[\.]?([\d]{1}|[\d]{2})$/, "Not a valid amount"),
   }),
 });
@@ -191,7 +191,7 @@ const CreateAd = ({ categoryName, user }) => {
             <Form>
               <div>
                 {/* The category dropdown */}
-                <div className="flex justify-center mb-10">
+                <div className="flex flex-col items-center mb-10">
                   <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-purple">
                     <Select
                       id="categoryList"
@@ -222,6 +222,16 @@ const CreateAd = ({ categoryName, user }) => {
                       })}
                     />
                   </div>
+                  {props.values.categoryList === "Pets" && (
+                    <p className="text-sm pt-3">
+                      <FontAwesomeIcon
+                        icon={faBan}
+                        className="mr-1 text-red-800"
+                      />
+                      <strong>No</strong> ads for pet sales or pet adoptions
+                      please.
+                    </p>
+                  )}
                 </div>
 
                 {/* Rest of the form */}

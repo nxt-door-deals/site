@@ -57,6 +57,11 @@ body {
   @apply align-middle p-1 leading-8 outline-none text-lg text-center w-10 border-2 rounded-md uppercase ml-2;
 }
 
+/* FAQ box style */
+.faq-box {
+  @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-20 py-12 tracking-wide cursor-pointer bg-white;
+}
+
 .perspective {
   perspective: "200px";
 }
@@ -236,4 +241,42 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+/* Tooltip - chat */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  font-size: 1rem;
+  visibility: hidden;
+  background: #292d34;
+  width: 250px;
+  color: #fff;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: absolute;
+  right: 110%;
+  top: -5%;
+  margin-top: -60px;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #292d34;
 }

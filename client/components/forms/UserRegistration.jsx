@@ -444,7 +444,7 @@ const UserRegistration = () => {
                           : "hidden"
                       }
                     >
-                      Not found? You can create a neighborhood for{" "}
+                      Not found? You can create a neighbourhood for{" "}
                       <Link href={`/neighbourhood/${props.values.apartment}`}>
                         <a className="text-blue-700 font-bold underline">
                           {props.values.apartment}

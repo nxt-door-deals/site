@@ -342,8 +342,8 @@ const PageNotFound = () => {
                 id="Vector_56"
                 d="M64.2336 311.507L56.6524 326.992"
                 stroke="#263238"
-                stroke-width="8"
-                stroke-miterlimit="10"
+                strokeWidth="8"
+                strokeMiterlimit="10"
               />
               <path
                 id="Vector_57"
@@ -443,11 +443,7 @@ const PageNotFound = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
               className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
-              onClick={() => {
-                logout();
-                logoutToast();
-                setTimeout(() => router.reload("/"), 2000);
-              }}
+              onClick={() => router.push("/logout")}
             >
               Logout
             </motion.button>

@@ -74,7 +74,6 @@ const categories = [
       "Art",
       "Art Supplies",
       "Collectibles",
-      "Music & Movies",
       "Dance costumes & accessories",
       "Props",
     ],
@@ -104,13 +103,7 @@ const categories = [
   {
     name: "Pets",
     icon: "/images/categories/pets.svg",
-    subCategories: [
-      "Pets",
-      "Pet Adoption",
-      "Pet Care",
-      "Pet Food",
-      "Pet Toys & Accessories",
-    ],
+    subCategories: ["Pet Care", "Pet Food", "Pet Toys & Accessories"],
   },
   {
     name: "Garden",
@@ -185,6 +178,7 @@ const conditionOptions = [
 ];
 
 const reportAdReasons = [
+  { value: "individual", label: "Individual" },
   { value: "offensive content", label: "Offensive Content" },
   { value: "fraud", label: "Fraud" },
   { value: "others", label: "Others" },

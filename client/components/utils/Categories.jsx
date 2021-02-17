@@ -64,7 +64,7 @@ const Category = () => {
   //   loadUser();
   // }, []);
 
-  // Ad already reported toast
+  // Email not verified toast
   const emailNotVerifiedToast = () =>
     toast("You will need to verify your email before posting an ad", {
       draggablePercent: 60,

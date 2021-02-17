@@ -9,7 +9,7 @@ module.exports = {
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
-        navshadow: "0px 1px 5px rgba(255, 0, 255, 0.3)",
+        navshadow: "0px 1px 2px 2px rgba(221, 214, 254, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
         boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
@@ -18,6 +18,10 @@ module.exports = {
         postadshadow: "0px 5px 8px 2px rgba(196, 148, 244, 0.3)",
         adcardshadow:
           "0 1px 10px 5px rgba(241, 192, 234, 0.1), 0 -1.5px 12px 6px rgba(198, 91, 78, 0.05)",
+        chatListShadow:
+          "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
+        chatListShadowAlt:
+          "0px 2px 4px 0px rgba(139, 92, 246, 0.12), 0px 2px 16px 0px rgba(139, 92, 246, 0.32)",
       },
       zIndex: {
         "-10": "-10",
@@ -110,6 +114,9 @@ module.exports = {
         "our-story-background-tablet":
           "url(/images/our-story/bg-our-story-tablet.svg)",
         "reported-ad-background": "url(/images/reported-ad/bg-reported-ad.svg)",
+        "faq-background": "url(/images/policy/faq.svg)",
+        "faq2-background": "url(/images/policy/faq-2.svg)",
+        "faq-main-background": "url(/images/policy/faq-bg.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",

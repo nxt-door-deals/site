@@ -33,8 +33,10 @@ import {
   USER_ADS_FETCHED_FAILURE,
   LOAD_SELLER_CHATS,
   LOAD_BUYER_CHATS,
-  LOAD_CHAT_ERROR,
+  CHAT_ERROR,
   SET_LOADING,
+  MARK_DELETE_SELLER_CHAT,
+  MARK_DELETE_BUYER_CHAT,
   USER_SUBSCRIPTION_UPDATE_SUCCESS,
   USER_SUBSCRIPTION_UPDATE_FAILURE,
 } from "../Types";
@@ -178,6 +180,12 @@ const authReducer = (state, action) => {
         ...state,
         genericMessage: action.payload,
       };
+    case MARK_DELETE_SELLER_CHAT:
+    case MARK_DELETE_BUYER_CHAT:
+      return {
+        ...state,
+      };
+
     case LOGIN_FAIL:
     case REGISTER_FAIL:
     case AUTH_ERROR:
@@ -221,7 +229,7 @@ const authReducer = (state, action) => {
         ...state,
         buyerChats: action.payload,
       };
-    case LOAD_CHAT_ERROR:
+    case CHAT_ERROR:
       return {
         ...state,
         chatError: action.payload,

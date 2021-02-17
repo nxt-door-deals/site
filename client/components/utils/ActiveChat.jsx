@@ -4,7 +4,14 @@ import SiteContext from "../../context/site/siteContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserCircle,
+  faPaperPlane,
+  faInfoCircle,
+  faCheck,
+  faTimes,
+  faRupeeSign,
+} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 import useChat from "../../hooks/useChat";
@@ -78,18 +85,57 @@ const ActiveChat = (props) => {
 
   return (
     <div className="border-2 border-purple-200 rounded-tl-2xl rounded-tr-2xl bg-purple-200">
-      <div className="m-2 p-3 flex items-center">
-        <p>
-          <FontAwesomeIcon
-            icon={faUserCircle}
-            className="rounded-full text-5xl text-ad-purple"
-          />
-        </p>
-        <p className="ml-2 font-semibold tracking-wide text-brand-gray">
-          {props.altUser && props.altUser.name}
-        </p>
-      </div>
+      <div className="flex justify-between">
+        <div className="m-2 p-3 flex items-center">
+          <p>
+            <FontAwesomeIcon
+              icon={faUserCircle}
+              className="rounded-full text-5xl text-ad-purple"
+            />
+          </p>
+          <p className="ml-2 font-semibold tracking-wide text-brand-gray">
+            {props.altUser && props.altUser.name}
+          </p>
+        </div>
 
+        {/* Tooltip */}
+        <div className="p-4 mt-4 mr-4">
+          <div className="tooltip">
+            <FontAwesomeIcon
+              icon={faInfoCircle}
+              className="text-2xl text-ad-purple"
+            />
+            <span className="tooltiptext">
+              <div className="py-1">Available {props.ad.available_from}</div>
+              <div className="py-1">
+                Price:{" "}
+                {props.ad.ad_type === "giveaway" ? (
+                  <span className="animate-pulse">FREE</span>
+                ) : (
+                  <span className="align-middle">
+                    <FontAwesomeIcon icon={faRupeeSign} /> {props.ad.price}
+                  </span>
+                )}
+              </div>
+              <div className="py-1">Condition: {props.ad.condition}</div>
+              <div className="py-1">
+                Negotiable:{" "}
+                {props.ad.negotiable ? (
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className="text-lg text-green-700 align-middle"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className="text-lg text-red-800 align-middle"
+                  />
+                )}
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
       <div
         id="chat-window"
         ref={chatRef}
@@ -165,7 +211,7 @@ const ActiveChat = (props) => {
               <Field
                 name="message"
                 type="text"
-                className="w-full  rounded-md mb-2 bg-white overflow-auto p-2 text-sm focus-within:outline-none"
+                className="w-full rounded-md mb-2 bg-white overflow-auto p-2 text-sm placeholder-gray-600 focus-within:outline-none"
                 placeholder="Your Message"
                 spellCheck={true}
                 value={props.values.message}

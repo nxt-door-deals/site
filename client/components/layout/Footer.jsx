@@ -44,7 +44,7 @@ const Footer = (props) => {
     <div
       className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 text-white font-axiforma"`}
     >
-      <div className="flex justify-center items-center flex-col md:flex-row pb-4 text-sm">
+      <div className="flex justify-center items-center flex-col md:flex-row pb-7 text-sm">
         <ul className="md:flex md:divide-x-2 md:divide-white">
           <li className="pb-1 px-2">
             <Link href="/ourstory">
@@ -83,7 +83,7 @@ const Footer = (props) => {
           </li>
 
           <li className="pb-1 px-2">
-            <Link href="/">
+            <Link href="/faqs">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
                 FAQs
@@ -93,7 +93,7 @@ const Footer = (props) => {
         </ul>
       </div>
 
-      <div className="flex justify-center pb-4 text-lg">
+      <div className="flex justify-center pb-7 text-lg">
         <Link href="/#landing">
           <motion.a
             variants={variants}
@@ -113,7 +113,7 @@ const Footer = (props) => {
       </div>
 
       {/* Social icons */}
-      <div className="flex justify-center pb-4 text-3xl">
+      <div className="flex justify-center pb-7 text-3xl">
         <Link href="https://facebook.com" passHref={true}>
           <motion.a
             variants={variants}
@@ -156,7 +156,7 @@ const Footer = (props) => {
       <div className="flex justify-center pb-4 text-base">
         Copyright &copy;{" "}
         <span className="font-semibold pr-1 pl-1 text-brand-purple">
-          nxt-door deals
+          nxtdoordeals.com
         </span>{" "}
         - {currentYear}
       </div>

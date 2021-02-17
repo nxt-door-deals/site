@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
 import Link from "next/link";
 import keys from "../../utils/keys";
+import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRupeeSign, faCertificate } from "@fortawesome/free-solid-svg-icons";
@@ -10,9 +11,21 @@ import { faRupeeSign, faCertificate } from "@fortawesome/free-solid-svg-icons";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+// Framer variants
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#5B21B6",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#8B5CF6",
+  },
+};
+
 const NbhAdsCard = (props) => {
+  const [adLimit, setAdLimit] = useState(16);
   const siteContext = useContext(SiteContext);
-  const { adsDataNbh, initialAdsData, fetchAdsForNbh } = siteContext;
+  const { adsDataNbh, fetchAdsForNbh } = siteContext;
 
   useEffect(() => {
     fetchAdsForNbh(props.nbhId);
@@ -21,7 +34,7 @@ const NbhAdsCard = (props) => {
   if (adsDataNbh.length === 0) {
     return (
       <div className="py-8 px-8 lg:px-0">
-        <p className="text-brand-gray text-xl text-center font-semibold">
+        <p className="text-gray-600 text-xl text-center font-semibold">
           Sorry! No results...
         </p>
       </div>
@@ -30,8 +43,8 @@ const NbhAdsCard = (props) => {
     return (
       <div>
         {/* The cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-10 font-axiforma mx-10">
-          {adsDataNbh.map((ad, adIndex) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-10 mx-10">
+          {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
               className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
@@ -101,6 +114,20 @@ const NbhAdsCard = (props) => {
             </div>
           ))}
         </div>
+        {adsDataNbh.length <= 16 ? null : (
+          <div className="flex justify-center items-center my-16">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              type="button"
+              className=" bg-purple-500 px-7 py-5 uppercase text-xl text-white font-semibold rounded-xl focus-within:outline-none"
+              onClick={() => setAdLimit(adLimit + 4)}
+            >
+              Show More Ads
+            </motion.button>
+          </div>
+        )}
       </div>
     );
 };

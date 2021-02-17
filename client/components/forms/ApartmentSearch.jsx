@@ -172,7 +172,7 @@ const ApartmentSearch = () => {
                     : "hidden"
                 }
               >
-                Not found? Create a neighborhood for{" "}
+                Not found? Create a neighbourhood for{" "}
                 <Link href={`/neighbourhood/${props.values.apartment}`}>
                   <a className="text-purple-700 font-bold underline">
                     {props.values.apartment}

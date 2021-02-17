@@ -374,7 +374,7 @@ const UserAccount = (props) => {
                             : "hidden"
                         }
                       >
-                        Not found? You can create a neighborhood for{" "}
+                        Not found? You can create a neighbourhood for{" "}
                         <Link
                           href={`/neighbourhood/${props.values.neighbourhood}`}
                         >

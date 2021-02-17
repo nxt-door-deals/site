@@ -41,12 +41,17 @@ const Navbar = (props) => {
   const router = useRouter();
 
   const authContext = useContext(AuthContext);
-  const { logout, loadUser, user } = authContext;
+  const { loadUser, user } = authContext;
 
   useEffect(() => {
-    if (cookie.get("nddToken")) {
+    let mounted = true;
+    if (cookie.get("nddToken") && mounted) {
       loadUser();
     }
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -71,13 +76,6 @@ const Navbar = (props) => {
     }
   };
 
-  // Logout toast
-  const logoutToast = () =>
-    toast("You are being logged out. Have a nice day 😊", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
-
   return (
     <Fragment>
       {/* ******* Navbar ******* */}
@@ -85,7 +83,7 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 opacity-98 transition duration-500 ease-in-out lg:shadow-md " +
+              " fixed basic-nav z-30 opacity-98 transition duration-500 ease-in-out " +
               props.navStyle.navShadow
             : "fixed basic-nav bg-none z-30"
         }
@@ -126,7 +124,7 @@ const Navbar = (props) => {
                 alt="Open Menu"
               />
             ) : (
-              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative shadow-lg opacity-90 cursor-pointer">
+              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative opacity-90 cursor-pointer">
                 <FontAwesomeIcon
                   icon={faStream}
                   alt="Open Menu"
@@ -228,11 +226,7 @@ const Navbar = (props) => {
                 ) : (
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
@@ -295,11 +289,7 @@ const Navbar = (props) => {
                 ) : (
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
@@ -382,11 +372,7 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <div
                   className="cursor-pointer styled-link"
-                  onClick={() => {
-                    logoutToast();
-                    logout();
-                    setTimeout(() => router.push("/"), 500);
-                  }}
+                  onClick={() => router.push("/logout", "/")}
                 >
                   Logout
                 </div>
@@ -395,7 +381,9 @@ const Navbar = (props) => {
           )}
 
           {/* Navbar on the report ads page */}
-          {props.navStyle.pathname.includes("/reportad") && (
+          {(props.navStyle.pathname.includes("/reportad") ||
+            props.navStyle.pathname.includes("/faqs") ||
+            props.navStyle.pathname === "/guidelines") && (
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
@@ -407,6 +395,11 @@ const Navbar = (props) => {
                   <a className="styled-link">How It Works</a>
                 </Link>
               </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/ourstory">
+                  <a className="styled-link">Our Story</a>
+                </Link>
+              </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
@@ -415,11 +408,7 @@ const Navbar = (props) => {
                 ) : (
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
@@ -564,11 +553,7 @@ const Navbar = (props) => {
                   ) : (
                     <div
                       className="cursor-pointer"
-                      onClick={() => {
-                        logoutToast();
-                        logout();
-                        setTimeout(() => router.push("/"), 500);
-                      }}
+                      onClick={() => router.push("/logout", "/")}
                     >
                       Logout
                     </div>
@@ -640,11 +625,7 @@ const Navbar = (props) => {
                   ) : (
                     <div
                       className="cursor-pointer"
-                      onClick={() => {
-                        logoutToast();
-                        logout();
-                        setTimeout(() => router.push("/"), 500);
-                      }}
+                      onClick={() => router.push("/logout", "/")}
                     >
                       Logout
                     </div>
@@ -745,11 +726,7 @@ const Navbar = (props) => {
                   ) : (
                     <div
                       className="cursor-pointer styled-link"
-                      onClick={() => {
-                        logoutToast();
-                        logout();
-                        setTimeout(() => router.push("/"), 500);
-                      }}
+                      onClick={() => router.push("/logout", "/")}
                     >
                       Logout
                     </div>
@@ -902,11 +879,7 @@ const Navbar = (props) => {
                 >
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
@@ -969,94 +942,88 @@ const Navbar = (props) => {
                 >
                   <div
                     className="cursor-pointer styled-link"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
+                    onClick={() => router.push("/logout", "/")}
                   >
                     Logout
                   </div>
                 </li>
               </Fragment>
             )}
-          </ul>
 
-          {/* Overlay items for the report ads page */}
-          {props.navStyle.pathname.includes("/reportad") && (
-            <Fragment>
-              <li
-                className={
-                  "overlay-items md:text-xl hover:scale-125" +
-                  props.navStyle.navOverlayTextColor
-                }
-              >
-                <Link href="/">
-                  <a className="styled-link">Home</a>
-                </Link>
-              </li>
-              <li
-                className={
-                  "overlay-items md:text-xl hover:scale-125 " +
-                  props.navStyle.navOverlayTextColor
-                }
-              >
-                <Link href="/#how-it-works">
-                  <span className="">
-                    <a
-                      className="styled-link"
-                      onClick={() => setExpanded(false)}
+            {/* Overlay items for the report ads page */}
+            {(props.navStyle.pathname.includes("/reportad") ||
+              props.navStyle.pathname.includes("/faqs") ||
+              props.navStyle.pathname === "/guidelines") && (
+              <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125" +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/">
+                    <a className="styled-link">Home</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/#how-it-works">
+                    <span className="">
+                      <a
+                        className="styled-link"
+                        onClick={() => setExpanded(false)}
+                      >
+                        How It Works
+                      </a>
+                    </span>
+                  </Link>
+                </li>
+
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {user === null ? (
+                    <Link href="/login">
+                      <a className="styled-link">Login</a>
+                    </Link>
+                  ) : (
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => router.push("/logout", "/")}
                     >
-                      How It Works
-                    </a>
-                  </span>
-                </Link>
-              </li>
-
-              <li
-                className={
-                  "overlay-items md:text-xl hover:scale-125 " +
-                  props.navStyle.navOverlayTextColor
-                }
-              >
-                {user === null ? (
-                  <Link href="/login">
-                    <a className="styled-link">Login</a>
-                  </Link>
-                ) : (
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => {
-                      logoutToast();
-                      logout();
-                      setTimeout(() => router.push("/"), 500);
-                    }}
-                  >
-                    Logout
-                  </div>
-                )}
-              </li>
-              <li
-                className={
-                  "overlay-items md:text-xl hover:scale-125 " +
-                  props.navStyle.navOverlayTextColor
-                }
-              >
-                {user === null && (
-                  <Link href="/registeruser">
-                    <a className="styled-link">Sign Up</a>
-                  </Link>
-                )}
-                {user && user && (
-                  <Link
-                    href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                  >
-                    <a className="styled-link">My Neighbourhood</a>
-                  </Link>
-                )}
-              </li>
-            </Fragment>
-          )}
+                      Logout
+                    </div>
+                  )}
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {user === null && (
+                    <Link href="/registeruser">
+                      <a className="styled-link">Sign Up</a>
+                    </Link>
+                  )}
+                  {user && user && (
+                    <Link
+                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
+                    >
+                      <a className="styled-link">My Neighbourhood</a>
+                    </Link>
+                  )}
+                </li>
+              </Fragment>
+            )}
+          </ul>
 
           {/* Social icons */}
           <div className="px-4 py-2">

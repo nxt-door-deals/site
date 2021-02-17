@@ -40,9 +40,11 @@ import {
   USER_ADS_FETCHED_FAILURE,
   LOAD_SELLER_CHATS,
   LOAD_BUYER_CHATS,
-  LOAD_CHAT_ERROR,
   USER_SUBSCRIPTION_UPDATE_SUCCESS,
   USER_SUBSCRIPTION_UPDATE_FAILURE,
+  MARK_DELETE_BUYER_CHAT,
+  MARK_DELETE_SELLER_CHAT,
+  CHAT_ERROR,
 } from "../Types";
 
 var sendgridKey = "";
@@ -489,7 +491,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${keys.API_PROXY}/chats/seller/${userId}`);
       dispatch({ type: LOAD_SELLER_CHATS, payload: res.data });
     } catch (err) {
-      dispatch({ type: LOAD_CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
     }
   };
 
@@ -500,7 +502,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${keys.API_PROXY}/chats/buyer/${userId}`);
       dispatch({ type: LOAD_BUYER_CHATS, payload: res.data });
     } catch (err) {
-      dispatch({ type: LOAD_CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
     }
   };
 
@@ -527,6 +529,34 @@ const AuthState = (props) => {
         type: USER_SUBSCRIPTION_UPDATE_FAILURE,
         payload: err.message.data.detail,
       });
+    }
+  };
+
+  const markSellerChatForDeletion = async (userId, chatId) => {
+    setApiKey(projectKey);
+
+    try {
+      await axios.put(
+        `${keys.API_PROXY}/seller/chat/delete/?seller_id=${userId}&chat_id=${chatId}`
+      );
+
+      dispatch({ type: MARK_DELETE_SELLER_CHAT });
+    } catch (err) {
+      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+    }
+  };
+
+  const markBuyerChatForDeletion = async (userId, chatId) => {
+    setApiKey(projectKey);
+
+    try {
+      await axios.put(
+        `${keys.API_PROXY}/buyer/chat/delete/?buyer_id=${userId}&chat_id=${chatId}`
+      );
+
+      dispatch({ type: MARK_DELETE_BUYER_CHAT });
+    } catch (err) {
+      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
     }
   };
 
@@ -580,6 +610,8 @@ const AuthState = (props) => {
         loadSellerChats,
         loadBuyerChats,
         updateUserSubscription,
+        markSellerChatForDeletion,
+        markBuyerChatForDeletion,
         logout,
         setLoading,
       }}

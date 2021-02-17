@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 import SiteContext from "../../context/site/siteContext";
 import Link from "next/link";
@@ -24,9 +24,10 @@ var cookie = new Cookies();
 
 const validationschema = Yup.object({
   reason: Yup.string().required("Please select a reason for your complaint"),
-  description: Yup.string().required(
-    "Please provide more details to help us investigate further"
-  ),
+  description: Yup.string()
+    .required("Please provide more details to help us investigate further")
+    .trim()
+    .matches(/^[^=<>`]+$/, "Cannot contain ^ = < > or `"),
 });
 
 // Framer variants
@@ -114,6 +115,13 @@ const ReportAds = (props) => {
     }),
   };
 
+  const handleChange = (e, editor) => {
+    editor.model.document.on("change", () => {
+      console.log("The data has changed!");
+    });
+    setData(editor.getData());
+  };
+
   return (
     <div>
       <div className=" flex items-center ml-4 mb-5">
@@ -137,6 +145,7 @@ const ReportAds = (props) => {
             {props.modifiedId}
           </span>
         </h2>
+
         <Formik
           initialValues={{
             reason: "",
@@ -230,14 +239,6 @@ const ReportAds = (props) => {
                   className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600"
                 />
               </div>
-
-              {/* Validation errors */}
-              {props.touched.description && props.errors.description ? (
-                <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
-                  <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                  {props.errors.description}
-                </div>
-              ) : null}
 
               {/* Submit Button */}
               <div className="text-center">
