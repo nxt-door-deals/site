@@ -124,7 +124,7 @@ const UserAccount = (props) => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="mt-12 font-axiforma rounded-3xl shadow-postadshadow bg-white p-8 text-brand-gray">
+      <div className="mt-12 font-axiforma rounded-3xl shadow-postadshadow bg-white py-6 px-4 text-brand-gray">
         <Formik
           initialValues={{
             name: currentUser.name,
@@ -567,7 +567,7 @@ const UserAccount = (props) => {
                     <div className="relative border-2 w-60 border-red-800 rounded-xl flex items-center py-1">
                       <FontAwesomeIcon
                         icon={faTrash}
-                        className="text-gray-400 text-sm ml-2"
+                        className="text-gray-400 text-sm invisible"
                       />
                       <input
                         name="delete"
@@ -575,7 +575,7 @@ const UserAccount = (props) => {
                         type="text"
                         placeholder="delete"
                         maxLength="6"
-                        className="text-sm pl-2 py-1 pr-2 focus:outline-none align-middle"
+                        className="text-sm pl-2 py-1 pr-2 focus:outline-none placeholder-gray-600"
                         onKeyUp={checkDeactivateValue}
                       />
                       <button

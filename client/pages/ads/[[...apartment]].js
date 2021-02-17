@@ -9,6 +9,8 @@ import "../../utils/keys";
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Tab from "../../components/utils/Tab";
+import BrowseAds from "../../components/utils/BrowseAds";
+import NoAdsForNeighbourhood from "../../components/utils/NoAdsForNeighbourhood";
 import Footer from "../../components/layout/Footer";
 
 const adTabs = [
@@ -103,12 +105,18 @@ const Ads = (props) => {
           </div>
         </div>
         <div>
-          <Tab
+          {/* <Tab
             route={pathname}
             tabs={adTabs}
             nbhId={apartmentId}
             numOfAds={numOfAds}
-          />
+          /> */}
+
+          {numOfAds === 0 ? (
+            <NoAdsForNeighbourhood />
+          ) : (
+            <BrowseAds nbhId={props.nbhId} />
+          )}
         </div>
         <div className="mt-10">
           <Footer footerGradientClass={footerGradientClass} />

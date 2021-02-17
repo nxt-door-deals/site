@@ -736,7 +736,7 @@ const Navbar = (props) => {
             )}
 
             {/* Overlay items for the subscriptions page */}
-            {props.navStyle.pathname.includes("/ads") && (
+            {props.navStyle.pathname.includes("/subscription") && (
               <Fragment>
                 <li
                   className={

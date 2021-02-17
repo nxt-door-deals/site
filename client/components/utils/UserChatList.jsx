@@ -193,7 +193,7 @@ const UserChatList = () => {
               {!buyerChats || buyerChats.length !== 0 ? (
                 "...for ads posted by others"
               ) : (
-                <span className="p-5 lg:pt-20 flex items-center text-gray-600">
+                <span className="pt-20 flex items-center text-gray-600">
                   No chats for ads
                   <br /> you are interested in
                 </span>

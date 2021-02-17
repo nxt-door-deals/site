@@ -21,7 +21,7 @@ const Tab = (props) => {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
-      <div>
+      {/* <div>
         {pathname.includes("/ads") && (
           <div>
             {activeTab === 0 ? (
@@ -35,7 +35,7 @@ const Tab = (props) => {
             )}
           </div>
         )}
-      </div>
+      </div> */}
 
       <div>
         {pathname === "/account" && (

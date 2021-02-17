@@ -7,7 +7,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const OurStoryDetails = () => {
   return (
     <div className="h-full w-full text-brand-gray mt-2">
-      <div className="text-center px-10 lg:px-20  mb-20">
+      <div className="text-center px-10 lg:px-44  mb-20">
         <h1 className="text-4xl font-bold">Our Story</h1>
         <p className="pt-5 text-lg">
           At{" "}
@@ -19,7 +19,7 @@ const OurStoryDetails = () => {
         </p>
       </div>
 
-      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-20 mb-20 lg:mb-10 bg-purple-50">
+      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 mb-20 lg:mb-10 bg-purple-50">
         <div className="lg:flex-5">
           <h2 className="text-2xl font-semibold">
             <FontAwesomeIcon icon={faHeart} className="text-red-800" /> your
@@ -53,7 +53,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-20 mb-20 lg:mb-10">
+      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 mb-20 lg:mb-10">
         <div className="lg:flex-2 px-5 pb-2 lg:pb-0">
           <Image
             src="/images/our-story/meet.svg"
@@ -75,7 +75,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-20  mb-20 bg-purple-50">
+      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44  mb-20 bg-purple-50">
         <div className="lg:flex-5">
           <h2 className="text-2xl font-semibold">Save the environment</h2>
           <p className="pt-5">
@@ -95,7 +95,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-20  lg:mb-0">
+      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-44  lg:mb-0">
         <div className="px-5 lg:flex">
           <Image
             src="/images/our-story/baby-items.svg"
@@ -125,7 +125,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="px-10 lg:px-20 pt-5 lg:pt-0">
+      <div className="px-10 lg:px-44 pt-5 lg:pt-0">
         <p>
           Growing up, we always inherited the clothes and toys of our elder
           siblings and cousins. Assuming we kept them in one-piece, the next
@@ -142,7 +142,7 @@ const OurStoryDetails = () => {
         </p>
       </div>
 
-      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 lg:px-20 pt-5">
+      <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 lg:px-44 pt-5">
         <div className="flex-5">
           <p>
             It all started as shooting the breeze (mostly in frustration!) about
@@ -177,7 +177,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="px-10 lg:px-20 pt-5">
+      <div className="px-10 lg:px-44 pt-5">
         <p>
           We did not forget our furry friends either. Being animal lovers
           ourselves, we wanted{" "}
@@ -192,7 +192,7 @@ const OurStoryDetails = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-20 pt-5">
+      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-44 pt-5">
         <div className="px-5 pb-5 lg:pb-0">
           <Image
             src="/images/our-story/globe.svg"
@@ -214,7 +214,7 @@ const OurStoryDetails = () => {
         </div>
       </div>
 
-      <div className="px-10 lg:px-20 pt-5 mb-20">
+      <div className="px-10 lg:px-44 pt-5 mb-20">
         <p>
           <strong>PS</strong>: If you are wondering about our shopping spree, we
           did luck out in the end since we were able to get most of the things
