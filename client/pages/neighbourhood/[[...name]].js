@@ -13,6 +13,9 @@ const Neighbourhood = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
+  navStyleBlue["hrStyle"] = "border-blue-800 bg-blue-800 border-dotted";
+  navStyleBlue["navBgColor"] = "lg:bg-indigo-100";
+  navStyleBlue["navOverlayBgColor"] = "bg-indigo-100";
   navStyleBlue["pathname"] = pathname;
 
   return (

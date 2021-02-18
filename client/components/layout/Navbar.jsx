@@ -1027,11 +1027,7 @@ const Navbar = (props) => {
 
           {/* Social icons */}
           <div className="px-4 py-2">
-            <hr
-              className={`${"border-" + props.navStyle.hrTextColor} ${
-                "bg-" + props.navStyle.hrTextColor
-              } border-1 border-dotted`}
-            ></hr>
+            <hr className={`${props.navStyle.hrStyle}`}></hr>
 
             <div className="flex justify-center pt-4 text-3xl">
               <Link href="https://facebook.com" passHref={true}>
