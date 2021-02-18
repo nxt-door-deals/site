@@ -4,19 +4,20 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import axios from "axios";
 import "../../utils/keys";
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
-import Tab from "../../components/utils/Tab";
+// import Tab from "../../components/utils/Tab";
 import BrowseAds from "../../components/utils/BrowseAds";
 import NoAdsForNeighbourhood from "../../components/utils/NoAdsForNeighbourhood";
 import Footer from "../../components/layout/Footer";
 
-const adTabs = [
-  { label: "Browse Ads", value: 0 },
-  { label: "AYN", value: 1 },
-];
+// const adTabs = [
+//   { label: "Browse Ads", value: 0 },
+//   { label: "AYN", value: 1 },
+// ];
 
 const variants = {
   hover: {
@@ -29,8 +30,6 @@ const variants = {
     color: "#EDE9FE",
   },
 };
-
-const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
 
 const Ads = (props) => {
   const siteContext = useContext(SiteContext);
@@ -69,27 +68,18 @@ const Ads = (props) => {
     }
   }, [apartmentData]);
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <AdsHeadLayout>
       <div>
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 font-axiforma w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
-          <Navbar navStyle={navStyle} />
+          <Navbar navStyle={navStylePurple} />
           <div className="flex flex-col items-center pt-14 md:pt-24">
-            <h1 className="text-2xl md:text-3xl text-white font-semibold px-5 py-7 text-center">
+            <h1 className="text-2xl md:text-3xl text-brand-purple font-semibold px-5 py-7 text-center">
               Personal Marketplace for&nbsp;
-              <span className="text-white">{apartmentName}</span>
+              <span className="text-brand-purple">{apartmentName}</span>
             </h1>
             <div>
               <motion.button
@@ -119,7 +109,7 @@ const Ads = (props) => {
           )}
         </div>
         <div className="mt-10">
-          <Footer footerGradientClass={footerGradientClass} />
+          <Footer footerGradientClass={footerGradientClassPurple} />
         </div>
       </div>
     </AdsHeadLayout>

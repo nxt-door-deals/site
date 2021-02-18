@@ -2,7 +2,6 @@ import React, { Fragment, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import { toast } from "react-toastify";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -11,7 +10,7 @@ const variants = {
   tap: {
     backgroundColor: "#D6BCFA",
     color: "#550052",
-    y: "5px",
+    y: "2px",
   },
 };
 
@@ -19,30 +18,19 @@ const UserLoggedIn = () => {
   const authContext = useContext(AuthContext);
   const router = useRouter();
 
-  const { loadUser, user, logout } = authContext;
+  const { loadUser, user } = authContext;
 
   useEffect(() => {
     loadUser();
   }, []);
 
-  const homeClick = () => {
-    router.push("/");
-  };
-
-  // Logout toast
-  const logoutToast = () =>
-    toast("You are being logged out. Have a nice day 😊", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
-
   return (
-    <Fragment>
-      <div className="pt-24 md:pt-32 pr-20 pl-20 text-center font-axiforma text-xl text-brand-gray">
+    <div className="bg-purple-50 h-screen">
+      <div className="pt-24 md:pt-32 pr-20 pl-20 text-center text-xl text-brand-gray">
         <h1>
           {user && user
-            ? "You are seeing this page because you are already logged in. Please logout if you want to register or login as another user."
-            : "You are being logged out."}
+            ? "You are seeing this page because you are already logged in. Please logout if you want to sign in as another user."
+            : "How did you get here, super sleuth? Wanna ride home?"}
         </h1>
       </div>
 
@@ -53,26 +41,24 @@ const UserLoggedIn = () => {
           animate="btn1Visible"
           whileTap="tap"
           className="w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
-          onClick={homeClick}
+          onClick={() => router.push("/")}
           aria-label="Home button"
         >
           Home
         </motion.button>
-        <motion.button
-          variants={variants}
-          initial="hidden"
-          animate="btn2Visible"
-          whileTap="tap"
-          className="w-48 h-12 rounded-lg bg-pink-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
-          onClick={() => {
-            logout();
-            logoutToast();
-            setTimeout(() => router.push("/"), 2000);
-          }}
-          aria-label="Logout button"
-        >
-          Logout
-        </motion.button>
+        {user && user && (
+          <motion.button
+            variants={variants}
+            initial="hidden"
+            animate="btn2Visible"
+            whileTap="tap"
+            className="w-48 h-12 rounded-lg bg-pink-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
+            onClick={() => router.push("/logout")}
+            aria-label="Logout button"
+          >
+            Logout
+          </motion.button>
+        )}
       </div>
 
       <div className="flex justify-center mt-12">
@@ -83,7 +69,7 @@ const UserLoggedIn = () => {
           height="300px"
         />
       </div>
-    </Fragment>
+    </div>
   );
 };
 

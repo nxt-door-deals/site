@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 import axios from "axios";
 import Cookies from "universal-cookie";
+
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
 import ReportAdHeadLayout from "../../components/layout/ReportAdHeadLayout";
@@ -37,23 +38,11 @@ const ReportAd = (props) => {
     return <div></div>;
   }
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <ReportAdHeadLayout>
-      <Navbar navStyle={navStyle} />
+      <Navbar navStyle={navStylePurple} />
       <div>
         <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
           <ReportAds
@@ -66,7 +55,7 @@ const ReportAd = (props) => {
       </div>
 
       <div>
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassPurple} />
       </div>
     </ReportAdHeadLayout>
   );

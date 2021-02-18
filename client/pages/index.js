@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 
+import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+
 // Component imports
 import HomeHeadLayout from "../components/layout/HomeHeadLayout";
 import Navbar from "../components/layout/Navbar";
@@ -13,23 +15,12 @@ const Home = (props) => {
 
   props.pathHistory.current = null;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  (navStylePurple["navTextColor"] = "text-purple-50"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <HomeHeadLayout>
-      <Navbar navStyle={navStyle} />
+      <Navbar navStyle={navStylePurple} />
       <section id="landing">
         <Landing />
       </section>
@@ -37,7 +28,7 @@ const Home = (props) => {
         <HowItWorks />
       </section>
       <section id="footer">
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassPurple} />
       </section>
     </HomeHeadLayout>
   );

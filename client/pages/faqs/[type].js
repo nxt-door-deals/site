@@ -12,8 +12,8 @@ import FrequentlyAskedQuestions from "../../components/utils/FrequentlyAskedQues
 const FAQType = (props) => {
   const router = useRouter();
 
-  // Add the pathname to the navStyle
-  navStylePurple["pathname"] = router.pathname;
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = router.pathname);
 
   return (
     <FAQHeadLayout>
@@ -22,7 +22,7 @@ const FAQType = (props) => {
         className="flex justify-center items-center h-full w-full pt-28 lg:pt-36 bg-purple-50
       bg-opacity-25 mb-20"
       >
-        <div className="rounded-2xl bg-white p-8 lg:p-10 shadow-categorycardshadow">
+        <div className="rounded-2xl bg-white py-8 px-6 lg:p-10 shadow-categorycardshadow">
           <FrequentlyAskedQuestions type={props.type} />
         </div>
       </div>

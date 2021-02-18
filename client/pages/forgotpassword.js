@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 
+import { navStylePurple } from "../utils/styles";
+
 // Component imports
 import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
 import EnterEmailForm from "../components/forms/forgot-password/EnterEmailForm";
@@ -11,22 +13,13 @@ const ForgotPassword = () => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <UserLoginHeadLayout>
       <div className="bg-forgot-password-background bg-cover bg-no-repeat bg-fixed -z-20 font-axiforma">
-        <Navbar navStyle={navStyle} />
+        <Navbar navStyle={navStylePurple} />
         <div className="flex justify-center items-center min-h-screen">
           <EnterEmailForm alertTheme={alertTheme} />
         </div>

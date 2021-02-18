@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import Cookies from "universal-cookie";
+import { navStyleBlue } from "../utils/styles";
 
 // Component import
 import UserRegistrationHeadLayout from "../components/layout/UserRegistrationHeadLayout";
@@ -13,17 +14,7 @@ const RegisterUser = () => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-indigo-100",
-    navOverlayBgColor: "bg-indigo-100",
-    navTextColor: "text-blue-800",
-    navOverlayTextColor: "text-blue-800",
-    hrTextColor: "blue-800",
-    navShadow: "lg:altNavShadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
+  navStyleBlue["pathname"] = pathname;
 
   if (cookie.get("nddToken")) {
     router.push("/alreadyloggedin", "/registeruser");
@@ -31,7 +22,7 @@ const RegisterUser = () => {
 
   return (
     <UserRegistrationHeadLayout>
-      <Navbar navStyle={navStyle} />
+      <Navbar navStyle={navStyleBlue} />
       <div className="flex justify-center items-center h-full bg-user-registration-background bg-cover -z-20 pt-32">
         <div className="ml-8 mr-8 mb-16">
           <UserRegistration />

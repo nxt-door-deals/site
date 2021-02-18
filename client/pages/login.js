@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
 
+import { navStylePurple } from "../utils/styles";
+
 // Component import
 import Navbar from "../components/layout/Navbar";
 import UserLogin from "../components/forms/UserLogin";
@@ -17,17 +19,8 @@ const Login = (props) => {
   const pathProp = props.pathHistory.current;
   props.pathHistory.current = null;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   if (cookie.get("nddToken")) {
     router.push("/alreadyloggedin", "/login");
@@ -79,7 +72,7 @@ const Login = (props) => {
 
   return (
     <UserLoginHeadLayout>
-      <Navbar navStyle={navStyle} />
+      <Navbar navStyle={navStylePurple} />
       <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20">
         <div>
           <UserLogin pathProp={pathProp} />

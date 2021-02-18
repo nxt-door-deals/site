@@ -83,7 +83,7 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 opacity-98 transition duration-500 ease-in-out " +
+              " fixed basic-nav z-30 opacity-95 transition duration-500 ease-in-out " +
               props.navStyle.navShadow
             : "fixed basic-nav bg-none z-30"
         }
@@ -957,7 +957,7 @@ const Navbar = (props) => {
               <Fragment>
                 <li
                   className={
-                    "overlay-items md:text-xl hover:scale-125" +
+                    "overlay-items md:text-xl hover:scale-125 " +
                     props.navStyle.navOverlayTextColor
                   }
                 >

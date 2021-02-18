@@ -2,6 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
+import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+
 // Component imports
 import PostAdHeadLayout from "../components/layout/PostAdHeadLayout";
 import Navbar from "../components/layout/Navbar";
@@ -14,19 +16,8 @@ const PostAd = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   if (!cookie.get("nddToken")) {
     // Save the url (/postad) for redirect after login
@@ -41,12 +32,12 @@ const PostAd = (props) => {
   return (
     <PostAdHeadLayout>
       <div className="h-full font-axiforma">
-        <Navbar navStyle={navStyle} />
+        <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-post-ad-mobile-background md:bg-post-ad-background bg-cover bg-no-repeat h-100"></div>
         <Categories />
       </div>
       <div>
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassPurple} />
       </div>
     </PostAdHeadLayout>
   );

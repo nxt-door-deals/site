@@ -27,7 +27,7 @@ const Guidelines = () => {
     <GuidelinesHeadLayout>
       <div className="text-brand-gray bg-purple-50">
         <Navbar navStyle={navStylePurple} />
-        <div className="flex flex-col items-center h-full pt-32 px-5 lg:px-20">
+        <div className="flex flex-col items-center h-full pt-28 lg:pt-36 px-5 lg:px-20">
           <section id="buyer">
             <div className="rounded-2xl p-10 shadow-md bg-white mt-10 mb-20">
               <h1 className="font-bold text-3xl text-center tracking-wide mb-10">

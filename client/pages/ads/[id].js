@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
+
 // Component imports
 import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
@@ -19,24 +21,13 @@ const FullPageAd = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <AdsHeadLayout>
       <div className="font-axiforma text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
-        <Navbar navStyle={navStyle} />
+        <Navbar navStyle={navStylePurple} />
         <div className="pt-32 px-5 pb-20 lg:px-48">
           <Ad
             data={props.data}
@@ -47,7 +38,7 @@ const FullPageAd = (props) => {
           />
         </div>
         <div>
-          <Footer footerGradientClass={footerGradientClass} />
+          <Footer footerGradientClass={footerGradientClassPurple} />
         </div>
       </div>
     </AdsHeadLayout>

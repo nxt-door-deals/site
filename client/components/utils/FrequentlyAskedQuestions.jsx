@@ -32,7 +32,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
+                className={`relative w-100 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-faq2-background bg-cover bg-no-repeat"
@@ -48,7 +48,7 @@ const FrequentlyAskedQuestions = (props) => {
                 </p>
 
                 <div
-                  className={`flex justify-center items-center absolute right-5 top-6 ${
+                  className={`flex justify-center items-center absolute right-2 top-6 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
                   }`}
                 >
@@ -79,7 +79,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-128 rounded-lg shadow-lg p-5 mb-3 ${
+                className={`relative w-100 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-faq2-background bg-cover bg-no-repeat"
@@ -95,7 +95,7 @@ const FrequentlyAskedQuestions = (props) => {
                 </p>
 
                 <div
-                  className={`flex justify-center items-center absolute right-5 top-6 ${
+                  className={`flex justify-center items-center absolute right-2 top-6 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
                   }`}
                 >
@@ -126,7 +126,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-128 rounded-lg shadow-lg p-5 mb-6 ${
+                className={`relative w-100 lg:w-128 rounded-lg shadow-lg p-5 mb-6 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-faq2-background bg-cover bg-no-repeat"
@@ -142,7 +142,7 @@ const FrequentlyAskedQuestions = (props) => {
                 </p>
 
                 <div
-                  className={`flex justify-center items-center absolute right-5 top-6 ${
+                  className={`flex justify-center items-center absolute right-2 top-6 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
                   }`}
                 >

@@ -17,7 +17,7 @@ module.exports = {
         boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow:
-          "0 20px 25px -5px rgba(102, 21, 182, 0.1), 0 10px 10px -5px rgba(102, 21, 182, 0.1)",
+          "0 10px 15px -5px rgba(102, 21, 182, 0.1), 0 5px 5px -5px rgba(102, 21, 182, 0.1)",
         postadshadow: "0px 5px 8px 2px rgba(196, 148, 244, 0.3)",
         adcardshadow:
           "0 1px 10px 5px rgba(241, 192, 234, 0.1), 0 -1.5px 12px 6px rgba(198, 91, 78, 0.05)",
@@ -45,10 +45,10 @@ module.exports = {
         "ghost-white": "#F8F8FF",
         "brand-purple": "#550052",
         "brand-gray": "#292d34",
-        "footer-gradient-from": "#834d9b",
+        "footer-gradient-from": "#902393",
         "footer-gradient-to": "#d04ed6",
         "footer-alt-gradient-from": "#CC87F5",
-        "footer-alt-gradient-via": "##CB80F5",
+        "footer-alt-gradient-via": "#CB80F5",
         "footer-alt-gradient-to": "#E09DF8",
         "alt-footer-gradient-from": "#457fca",
         "alt-footer-gradient-to": "#5691c8",

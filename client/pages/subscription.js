@@ -1,6 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 
+import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+
 // Component Imports
 import SubscriptionHeadLayout from "../components/layout/SubscriptionHeadLayout";
 import Navbar from "../components/layout/Navbar";
@@ -11,29 +13,18 @@ const Subscription = () => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <SubscriptionHeadLayout>
-      <Navbar navStyle={navStyle} />
+      <Navbar navStyle={navStylePurple} />
       <div className="h-full w-full pt-36 lg:pt-36 pb-20 flex justify-center items-center bg-reported-ad-background bg-cover bg-no-repeat">
         <SubscriptionStatus />
       </div>
 
       <div>
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassPurple} />
       </div>
     </SubscriptionHeadLayout>
   );

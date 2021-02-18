@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
+
 // Component imports
 import ChatHeadLayout from "../../components/layout/ChatHeadLayout";
 import ActiveChat from "../../components/utils/ActiveChat";
@@ -89,24 +91,13 @@ const Chat = (props) => {
     }
   }, [user]);
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-purple-200",
-    navOverlayBgColor: "bg-purple-200",
-    navTextColor: "text-brand-purple",
-    navOverlayTextColor: "text-brand-purple",
-    hrTextColor: "brand-purple",
-    navShadow: "lg:shadow-navshadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass = "from-footer-gradient-from to-footer-gradient-to";
+  (navStylePurple["navTextColor"] = "text-brand-purple"),
+    (navStylePurple["pathname"] = pathname);
 
   return (
     <ChatHeadLayout>
       <div className="font-axiforma h-full">
-        <Navbar navStyle={navStyle} />
+        <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
         <div className="pt-10 px-5 pb-20 lg:px-64">
           <p className="text-center">
@@ -141,7 +132,7 @@ const Chat = (props) => {
           </div>
         </div>
 
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassPurple} />
       </div>
     </ChatHeadLayout>
   );

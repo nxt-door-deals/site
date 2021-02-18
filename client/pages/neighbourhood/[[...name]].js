@@ -1,6 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 
+import { navStyleBlue, footerGradientClassBlue } from "../../utils/styles";
+
 // Component imports
 import CreateNeighbourhoodHeadLayout from "../../components/layout/CreateNeighbourhoodHeadLayout";
 import Navbar from "../../components/layout/Navbar";
@@ -11,30 +13,17 @@ const Neighbourhood = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  // Custom navbar tailwind styles
-  const navStyle = {
-    navBgColor: "lg:bg-indigo-100",
-    navOverlayBgColor: "bg-indigo-100",
-    navTextColor: "text-blue-800",
-    navOverlayTextColor: "text-blue-800",
-    hrTextColor: "blue-800",
-    navShadow: "lg:altNavShadow",
-    faIconTextcolor: "text-white",
-    pathname: pathname,
-  };
-
-  const footerGradientClass =
-    "from-alt-footer-gradient-from to-alt-footer-gradient-to";
+  navStyleBlue["pathname"] = pathname;
 
   return (
     <CreateNeighbourhoodHeadLayout>
       <div className="w-full font-axiforma">
-        <Navbar navStyle={navStyle} />
+        <Navbar navStyle={navStyleBlue} />
         <div className="h-80 lg:h-96 bg-cover bg-create-neighbourhood-background-mobile md:bg-create-neighbourhood-background-tablet lg:bg-create-neighbourhood-background"></div>
         <CreateNeighbourhood aptNameFromUrl={props.value} />
       </div>
       <div>
-        <Footer footerGradientClass={footerGradientClass} />
+        <Footer footerGradientClass={footerGradientClassBlue} />
       </div>
     </CreateNeighbourhoodHeadLayout>
   );

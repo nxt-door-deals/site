@@ -18,7 +18,7 @@ body {
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-sm font-axiforma font-semibold transform transition duration-300 ease-in-out focus-within:outline-none;
+  @apply mr-6 z-20 text-sm font-axiforma tracking-wide font-semibold transform transition duration-300 ease-in-out focus-within:outline-none;
 }
 
 .menu-nav-item {
@@ -59,7 +59,7 @@ body {
 
 /* FAQ box style */
 .faq-box {
-  @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-20 py-12 tracking-wide cursor-pointer bg-white;
+  @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-10 py-12 tracking-wide cursor-pointer bg-white;
 }
 
 .perspective {
