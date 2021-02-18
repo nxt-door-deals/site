@@ -155,7 +155,7 @@ const SearchNbhAds = (props) => {
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="lg:ml-5 px-2.5 py-4 bg-ad-purple text-white text-xs lg:text-browseads-gradient-from rounded-lg uppercase font-semibold focus:outline-none"
+            className="lg:ml-5 px-2.5 py-4 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none"
             onClick={() => searchGiveaways(props.nbhId)}
           >
             Show me the Giveaways

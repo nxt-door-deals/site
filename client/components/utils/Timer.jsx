@@ -13,65 +13,11 @@ import Progress from "./Progress";
 
 var cookie = new Cookies();
 
-// const calculateTimeLeft = () => {
-//   let now = new Date();
-
-//   let endTs = now.setMinutes(now.getMinutes() + 10);
-
-//   let utcMs = new Date().getTime();
-
-//   let timeRemaining = endTs - utcMs;
-//   console.log(timeRemaining);
-//   let timeLeft = {};
-
-//   timeLeft = {
-//     minutes: Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)),
-//     seconds: Math.floor((timeRemaining % (1000 * 60)) / 1000),
-//   };
-
-//   return timeLeft;
-// };
-
 const Timer = (props) => {
-  //   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       setTimeLeft(calculateTimeLeft());
-  //     }, 1000);
-
-  //     return () => clearTimeout(timer);
-  //   }, [timeLeft]);
-
-  //   console.log(timeLeft);
-
-  //   useEffect(() => {
-  //     var timer = setTimeout(() => {
-  //       if (props.seconds > 0) {
-  //         props.setSeconds(props.seconds - 1);
-  //       }
-
-  //       if (props.seconds === 0) {
-  //         if (props.minutes === 0) {
-  //           clearInterval(timer);
-  //         } else {
-  //           props.setMinutes(props.minutes - 1);
-  //           props.setSeconds(59);
-  //         }
-  //       }
-  //     }, 1000);
-
-  //     return () => clearTimeout(timer);
-  //   }, [props.seconds]);
-
-  //   var startTs = cookie.get("__resetCookie")._startTs;
   var endTs = cookie.get("__resetCookie")._endTs;
 
   useEffect(() => {
     var timer = setTimeout(() => {
-      //   var now = new Date();
-      //   var utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
-
       let utcMs = new Date().getTime();
 
       var timeRemaining = endTs - utcMs;

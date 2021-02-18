@@ -47,16 +47,8 @@ import {
   CHAT_ERROR,
 } from "../Types";
 
-var sendgridKey = "";
-var projectKey = "";
-
-if (process.env.NEXT_PUBLIC_ENV === "development") {
-  sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
-  projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
-} else if (process.env.NEXT_PUBLIC_ENV === "production") {
-  sendgridKey = process.env.SENDGRID_API_KEY;
-  projectKey = process.env.PROJECT_API_KEY;
-}
+var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
+var projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
 
 const cookie = new Cookies();
 
@@ -137,7 +129,7 @@ const AuthState = (props) => {
 
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
-      dispatch({ type: AUTH_ERROR, payload: err.message });
+      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -168,7 +160,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${keys.API_PROXY}/user/${userId}`);
       dispatch({ type: ALT_USER_LOADED, payload: res.data });
     } catch (err) {
-      dispatch({ type: AUTH_ERROR, payload: err.message });
+      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -204,8 +196,11 @@ const AuthState = (props) => {
       state.user.apartment_name = neighbourhood;
 
       dispatch({ type: USER_UPDATE_SUCCESS, payload: res.data });
-    } catch (error) {
-      dispatch({ type: USER_UPDATE_FAILURE, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: USER_UPDATE_FAILURE,
+        payload: err.response.data.detail,
+      });
     }
   };
 
@@ -215,7 +210,7 @@ const AuthState = (props) => {
     try {
       await axios.delete(`${keys.API_PROXY}/user/delete/${userId}`);
     } catch (err) {
-      dispatch({ type: DELETE_USER, payload: err.message.data.detail });
+      dispatch({ type: DELETE_USER, payload: err.response.data.detail });
     }
   };
 
@@ -229,7 +224,7 @@ const AuthState = (props) => {
 
       if (state.userAds !== null) state.userAds.splice(index, 1);
     } catch (err) {
-      dispatch({ type: DELETE_AD, payload: err.message.data.detail });
+      dispatch({ type: DELETE_AD, payload: err.response.data.detail });
     }
   };
 
@@ -241,7 +236,7 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: USER_ADS_FETCHED_FAILURE,
-        payload: err.message.data.detail,
+        payload: err.response.data.detail,
       });
     }
   };
@@ -491,7 +486,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${keys.API_PROXY}/chats/seller/${userId}`);
       dispatch({ type: LOAD_SELLER_CHATS, payload: res.data });
     } catch (err) {
-      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -502,7 +497,7 @@ const AuthState = (props) => {
       const res = await axios.get(`${keys.API_PROXY}/chats/buyer/${userId}`);
       dispatch({ type: LOAD_BUYER_CHATS, payload: res.data });
     } catch (err) {
-      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -524,10 +519,9 @@ const AuthState = (props) => {
 
       dispatch({ type: USER_SUBSCRIPTION_UPDATE_SUCCESS, payload: res.data });
     } catch (err) {
-      console.log(err);
       dispatch({
         type: USER_SUBSCRIPTION_UPDATE_FAILURE,
-        payload: err.message.data.detail,
+        payload: err.response.data.detail,
       });
     }
   };
@@ -542,7 +536,7 @@ const AuthState = (props) => {
 
       dispatch({ type: MARK_DELETE_SELLER_CHAT });
     } catch (err) {
-      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -556,7 +550,7 @@ const AuthState = (props) => {
 
       dispatch({ type: MARK_DELETE_BUYER_CHAT });
     } catch (err) {
-      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
   };
 

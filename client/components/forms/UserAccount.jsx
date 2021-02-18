@@ -174,7 +174,7 @@ const UserAccount = (props) => {
 
               {/* The form starts here */}
               <div className="lg:flex lg:justify-center">
-                <div id="form" className="mr-10 w-88">
+                <div id="form" className="mx-0 lg:mx-10 w-88">
                   <Alert fetchError={fetchError} alertTheme={alertTheme} />
                   <Form>
                     {/* Name */}

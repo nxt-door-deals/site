@@ -55,7 +55,7 @@ const ReportAd = (props) => {
     <ReportAdHeadLayout>
       <Navbar navStyle={navStyle} />
       <div>
-        <div className="h-full w-full pt-36 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
+        <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
           <ReportAds
             adId={props.id}
             modifiedId={props.modifiedId}

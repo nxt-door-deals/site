@@ -97,11 +97,12 @@ const VerifyNeighbourhood = (props) => {
   );
 };
 
-VerifyNeighbourhood.getInitialProps = ({ query }) => {
-  const { token } = query;
-
+export const getServerSideProps = (context) => {
+  const { token } = context.query;
   return {
-    value: token,
+    props: {
+      value: token,
+    },
   };
 };
 

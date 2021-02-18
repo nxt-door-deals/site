@@ -40,10 +40,12 @@ const Neighbourhood = (props) => {
   );
 };
 
-Neighbourhood.getInitialProps = ({ query }) => {
-  const { name } = query;
+export const getServerSideProps = (context) => {
+  const { name } = context.query;
   return {
-    value: name,
+    props: {
+      value: name,
+    },
   };
 };
 

@@ -13,7 +13,6 @@ var cookie = new Cookies();
 
 const Account = (props) => {
   const router = useRouter();
-  const pathname = router.pathname;
 
   const authContext = useContext(AuthContext);
   const { loadUser, user, fetchUserAds, userAds } = authContext;
@@ -35,7 +34,7 @@ const Account = (props) => {
     hrTextColor: "brand-purple",
     navShadow: "lg:shadow-navshadow",
     faIconTextcolor: "text-white",
-    pathname: pathname,
+    pathname: props.pathname,
   };
 
   const userAccountTabs = [
@@ -48,7 +47,7 @@ const Account = (props) => {
 
   if (!cookie.get("nddToken")) {
     // Save the url (/account) for redirect after login
-    props.pathHistory.current = pathname;
+    props.pathHistory.current = props.pathname;
     if (process.browser) {
       router.push("/login");
     }
@@ -65,7 +64,7 @@ const Account = (props) => {
         <div className="mt-6 mb-10">
           {user && (
             <Tab
-              route={props.route}
+              route={props.pathname}
               tabs={userAccountTabs}
               currentUser={user && user}
               ads={userAds && userAds}
@@ -83,9 +82,11 @@ const Account = (props) => {
   );
 };
 
-Account.getInitialProps = ({ pathname }) => {
+export const getServerSideProps = (context) => {
   return {
-    route: pathname,
+    props: {
+      pathname: context.resolvedUrl,
+    },
   };
 };
 

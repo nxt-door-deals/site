@@ -34,16 +34,8 @@ import {
   REPORTED_AD_FAILURE,
 } from "../Types";
 
-var sendgridKey = "";
-var projectKey = "";
-
-if (process.env.NEXT_PUBLIC_ENV === "development") {
-  sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
-  projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
-} else if (process.env.NEXT_PUBLIC_ENV === "production") {
-  sendgridKey = process.env.SENDGRID_API_KEY;
-  projectKey = process.env.PROJECT_API_KEY;
-}
+var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
+var projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
 
 // Will be used in the copyright section in the email footer
 var currentYear = new Date().getFullYear();
@@ -473,7 +465,7 @@ const SiteState = (props) => {
         `${keys.API_PROXY}/image/delete/?user_id=${userId}&ad_id=${adId}&image=${image}`
       );
     } catch (err) {
-      dispatch({ type: DELETE_AD_IMAGE, payload: err.message.data.detail });
+      dispatch({ type: DELETE_AD_IMAGE, payload: err.response.data.detail });
     }
   };
 
@@ -526,7 +518,7 @@ const SiteState = (props) => {
     try {
       await axios.put(`${keys.API_PROXY}/chat/notifications/${chatId}`);
     } catch (error) {
-      dispatch({ type: CHAT_ERROR, payload: err.message.data.detail });
+      dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
   };
 
@@ -537,7 +529,10 @@ const SiteState = (props) => {
 
       dispatch({ type: REPORTED_AD_SUCCESS, payload: res.data });
     } catch (err) {
-      dispatch({ type: REPORTED_AD_FAILURE, payload: err.message.data.detail });
+      dispatch({
+        type: REPORTED_AD_FAILURE,
+        payload: err.response.data.detail,
+      });
     }
   };
 
@@ -555,7 +550,10 @@ const SiteState = (props) => {
 
       dispatch({ type: REPORTED_AD_SUCCESS, payload: res.data });
     } catch (err) {
-      dispatch({ type: REPORTED_AD_FAILURE, payload: err.message.data.detail });
+      dispatch({
+        type: REPORTED_AD_FAILURE,
+        payload: err.response.data.detail,
+      });
     }
   };
 

@@ -96,7 +96,7 @@ const Ad = (props) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.3 } }}
             >
-              <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start lg:h-full p-4 lg:p-10">
+              <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start lg:h-full lg:p-10">
                 <div className="pr-0 lg:pr-2">
                   <AdImageCarousel images={props.data.images} />
                 </div>
@@ -150,7 +150,7 @@ const Ad = (props) => {
                 !showOtherButtons &&
                 reportedAd &&
                 !reportedAd.users.includes(user.id) && (
-                  <div className="text-right">
+                  <div className="text-right pt-5 lg:pt-0">
                     <Link href={`/reportad/${props.data.id}`}>
                       <a className="uppercase styled-link font-semibold text-brand-gray focus-within:outline-none">
                         Report this ad

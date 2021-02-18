@@ -115,13 +115,6 @@ const ReportAds = (props) => {
     }),
   };
 
-  const handleChange = (e, editor) => {
-    editor.model.document.on("change", () => {
-      console.log("The data has changed!");
-    });
-    setData(editor.getData());
-  };
-
   return (
     <div>
       <div className=" flex items-center ml-4 mb-5">
@@ -135,7 +128,7 @@ const ReportAds = (props) => {
         </Link>
         <p className="pl-2">Back to ad</p>
       </div>
-      <div className="rounded-3xl mx-5 px-12 py-12 lg:px-20 lg:py-16 bg-white shadow-boxshadowlogin">
+      <div className="rounded-3xl px-8 py-12 lg:px-20 lg:py-16 bg-white shadow-boxshadowlogin">
         <h1 className="ont-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
           Report Ad
         </h1>

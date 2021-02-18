@@ -115,7 +115,7 @@ const Ads = (props) => {
           {numOfAds === 0 ? (
             <NoAdsForNeighbourhood />
           ) : (
-            <BrowseAds nbhId={props.nbhId} />
+            <BrowseAds nbhId={apartmentId} />
           )}
         </div>
         <div className="mt-10">
@@ -134,8 +134,8 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      data: apartment,
-      adsList: res.data,
+      data: apartment && apartment,
+      adsList: res && res.data,
     },
   };
 };

@@ -99,7 +99,6 @@ const UserChatList = () => {
                                       key={idx}
                                       className="relative chat-bubble chat-list-seller p-4 bg-gray-50 border-b-4 border-ad-purple shadow-chatListShadow rounded-3xl rounded-tr-none text-center focus-within:outline-none"
                                     >
-                                      {console.log(chat)}
                                       {chat.new_chats &&
                                       chat.last_sender !== user.id ? (
                                         <div className="animate-pulse absolute h-3 w-3 rounded-full bg-ad-purple"></div>
