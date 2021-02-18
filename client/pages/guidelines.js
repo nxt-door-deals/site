@@ -29,7 +29,7 @@ const Guidelines = () => {
         <div className="flex flex-col items-center h-full pt-28 lg:pt-36 px-5 lg:px-20">
           <section id="buyer">
             <div className="rounded-2xl p-10 shadow-md bg-white mt-10 mb-20">
-              <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
+              <h1 className="component-heading">
                 Buyer Guidelines & Responsibilities
               </h1>
               {buyerGuidelines.map((guideline) => {
@@ -50,7 +50,7 @@ const Guidelines = () => {
 
           <section id="seller">
             <div className="rounded-2xl p-10 shadow-md bg-white mb-20">
-              <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
+              <h1 className="component-heading">
                 Seller Guidelines & Responsibilities
               </h1>
               {sellerGuidelines.map((guideline) => {
@@ -71,9 +71,7 @@ const Guidelines = () => {
 
           <section id="chat">
             <div className="rounded-2xl p-10 shadow-md bg-white mb-20">
-              <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
-                Chat Guidelines
-              </h1>
+              <h1 className="component-heading">Chat Guidelines</h1>
               {chatGuidelines.map((guideline) => {
                 return (
                   <div>
@@ -92,11 +90,18 @@ const Guidelines = () => {
 
           <section id="banned">
             <div className="rounded-2xl p-10 shadow-md bg-white mb-20">
-              <h1 className="font-bold text-3xl text-center tracking-wide mb-5">
-                Items not allowed on{" "}
+              <h1 className="component-heading">
+                Ads n
+                <span>
+                  <FontAwesomeIcon
+                    icon={faBan}
+                    className="text-red-800 text-xl"
+                  />
+                </span>
+                t allowed on{" "}
                 <span className="text-brand-purple">nxtdoordeals.com</span>
               </h1>
-              <p className="text-sm mb-5">
+              <p className="text-sm mb-6">
                 While this list is exhaustive, prohibited ads are not limited to
                 just these items. Any ads violating our Terms of Use will be
                 removed from the marketplace.

@@ -49,9 +49,7 @@ const UserChatList = () => {
 
   return (
     <div>
-      <h1 className="font-axiforma text-brand-gray text-center text-2xl mt-10">
-        Your Chats
-      </h1>
+      <h1 className="component-heading mt-10">My Chats</h1>
       <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start px-10 mt-2">
         <div id="seller-chats" className="mb-10 lg:mb-0 lg:mr-10 p-5">
           <div className="lg:mt-0">

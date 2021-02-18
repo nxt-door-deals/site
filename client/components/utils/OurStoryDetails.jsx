@@ -8,8 +8,8 @@ const OurStoryDetails = () => {
   return (
     <div className="h-full w-full text-brand-gray">
       <div className="text-center px-10 mt-10 lg:px-44 mb-20 bg-transparent">
-        <h1 className="text-4xl font-bold">Our Story</h1>
-        <p className="pt-5 text-lg">
+        <h1 className="component-heading">Our Story</h1>
+        <p className="text-lg">
           At{" "}
           <span className="text-brand-purple font-semibold">
             nxtdoordeals.com

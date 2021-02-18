@@ -156,10 +156,9 @@ const Footer = (props) => {
 
       <div className="flex justify-center pb-4 text-base">
         Copyright &copy;{" "}
-        <span className="font-semibold pr-1 pl-1 text-brand-purple">
-          nxtdoordeals.com
-        </span>{" "}
-        - {currentYear}
+        {/* <span className="font-semibold pr-1 pl-1 text-brand-purple"> */}
+        nxtdoordeals.com
+        {/* </span>{" "} */} - {currentYear}
       </div>
 
       <div className="flex justify-center items-center pb-2 text-sm tracking-wide">

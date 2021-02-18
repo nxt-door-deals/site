@@ -8,7 +8,7 @@ const Landing = () => {
           id="text-container"
           className="container mt-10 xl:mt-0 ml-4 mr-4 pl-4 pr-4 lg:w-1/2"
         >
-          <h1 className="text-2xl lg:text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-extrabold">
+          <h1 className="text-brand-gray text-2xl xl:text-3xl xxl:text-sm font-extrabold">
             Your neighbourhood marketplace
           </h1>
           <p className="text-base mt-5 text-gray-600 tracking-wide">

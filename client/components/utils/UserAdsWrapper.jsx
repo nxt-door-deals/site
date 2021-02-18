@@ -34,8 +34,9 @@ const UserAdsWrapper = (props) => {
     );
   } else {
     return (
-      <div className="font-axiforma text-brand-gray w-full">
-        <div className="py-6 flex justify-center  text-brand-purple">
+      <div className=" text-brand-gray w-full">
+        <h1 className="component-heading mt-10 pb-6">My Ads</h1>
+        {/* <div className="flex justify-center pb-6 text-brand-purple">
           <motion.div variants={variants} animate="bounce">
             <FontAwesomeIcon
               icon={faHandPointRight}
@@ -45,7 +46,7 @@ const UserAdsWrapper = (props) => {
           <p className="inline text-xs md:text-sm">
             You can manage all your ads here
           </p>
-        </div>
+        </div> */}
         <div className="flex flex-col items-center md:flex-row md:justify-center md:flex-wrap">
           {userAdIndices.map((i) => (
             <UserAds

@@ -32,9 +32,9 @@ const Account = (props) => {
   navStylePurple["pathname"] = pathname;
 
   const userAccountTabs = [
-    { label: "My Profile", value: 0 },
-    { label: "My Ads", value: 1 },
-    { label: "My Chats", value: 2 },
+    { label: "Profile", value: 0 },
+    { label: "Ads", value: 1 },
+    { label: "Chats", value: 2 },
   ];
 
   if (!cookie.get("nddToken")) {

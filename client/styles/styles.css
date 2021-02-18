@@ -47,6 +47,11 @@ body {
   @apply font-axiforma text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none;
 }
 
+/* Component headings */
+.component-heading {
+  @apply font-bold text-3xl text-brand-gray tracking-wide text-center mb-6;
+}
+
 /* 404 page buttons */
 .btn-style {
   @apply w-40 h-12 text-sm text-white font-axiforma font-semibold rounded-md uppercase tracking-wide;

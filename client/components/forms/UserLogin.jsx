@@ -105,9 +105,7 @@ const UserLogin = (props) => {
       >
         {(props) => (
           <div>
-            <h2 className=" font-bold text-3xl text-center text-brand-gray tracking-wide mb-6">
-              Welcome Back!
-            </h2>
+            <h2 className="component-heading">Welcome Back!</h2>
             <Alert authError={authError} alertTheme={alertTheme} />
             <Form>
               <div

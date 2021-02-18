@@ -165,9 +165,7 @@ const UserAccount = (props) => {
         >
           {(props) => (
             <div className="text-brand-gray">
-              <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-5">
-                Your profile
-              </h1>
+              <h1 className="component-heading">My profile</h1>
               <h2 className="font-semibold text-xl text-center text-purple-600 mb-8">
                 {currentUser && currentUser.email}
               </h2>

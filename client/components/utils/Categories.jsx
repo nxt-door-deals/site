@@ -94,7 +94,7 @@ const Category = () => {
           className="font-axiforma"
         >
           <PostAdHeader heading={heading} step={step} userName={userName} />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-20 lg:gap-12 px-20 md:px-10 pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-20 lg:gap-12 px-20 md:px-10 mb-20">
             {categories.map((category, index) => (
               <div
                 key={index}
