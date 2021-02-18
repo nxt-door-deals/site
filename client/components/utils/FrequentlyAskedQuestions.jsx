@@ -20,7 +20,7 @@ const FrequentlyAskedQuestions = (props) => {
   }
 
   return (
-    <div className="text-brand-gray px-10">
+    <div className="text-brand-gray px-1">
       <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
         {faqType} FAQs
       </h1>
@@ -32,7 +32,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-128 rounded-lg shadow-lg p-5 mb-3 ${
+                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-faq2-background bg-cover bg-no-repeat"

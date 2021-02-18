@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Modal from "react-modal";
 import { motion } from "framer-motion";
@@ -167,7 +168,14 @@ const Footer = (props) => {
           <FontAwesomeIcon icon={faHeart} />
         </span>{" "}
         in Bangalore for
-        <span className="ml-1 pt-1 text-base">&#127470;&#127475;</span>
+        <span className="pl-1.5 align-middle pt-1.75">
+          <Image
+            src={"/images/misc/flag.svg"}
+            alt="Indian flag"
+            width={16}
+            height={16}
+          />
+        </span>
       </div>
 
       <Modal

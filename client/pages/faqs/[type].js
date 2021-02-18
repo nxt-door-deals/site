@@ -19,10 +19,10 @@ const FAQType = (props) => {
     <FAQHeadLayout>
       <Navbar navStyle={navStylePurple} />
       <div
-        className="flex justify-center items-center h-screen w-full bg-purple-50
-      bg-opacity-25"
+        className="flex justify-center items-center h-full w-full pt-28 lg:pt-36 bg-purple-50
+      bg-opacity-25 mb-20"
       >
-        <div className="rounded-2xl bg-white p-10 shadow-categorycardshadow">
+        <div className="rounded-2xl bg-white p-8 lg:p-10 shadow-categorycardshadow">
           <FrequentlyAskedQuestions type={props.type} />
         </div>
       </div>

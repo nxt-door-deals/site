@@ -6,6 +6,9 @@ module.exports = {
         axiforma: ["Axiforma", "Helvetica", "Arial", "sans"],
         fontAwesome: ["FontAwesome"],
       },
+      padding: {
+        1.75: "0.4375rem",
+      },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",

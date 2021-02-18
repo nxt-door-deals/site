@@ -27,11 +27,7 @@ const OurStory = () => {
     <OurStoryHeadLayout>
       <div className="h-full">
         <Navbar navStyle={navStyle} />
-        <div className="w-full bg-our-story-background-mobile md:bg-our-story-background-tablet lg:bg-our-story-background bg-cover bg-no-repeat h-100 md:h-128 relative">
-          <div className="absolute -bottom-1 bg-transparent w-full">
-            <img src="/images/our-story/wave.svg" />
-          </div>
-        </div>
+        <div className="w-full bg-our-story-background-mobile md:bg-our-story-background-tablet lg:bg-our-story-background bg-cover bg-no-repeat h-100 md:h-128 relative"></div>
         <OurStoryDetails />
         <Footer footerGradientClass={footerGradientClass} />
       </div>

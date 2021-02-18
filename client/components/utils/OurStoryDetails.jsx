@@ -6,8 +6,8 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const OurStoryDetails = () => {
   return (
-    <div className="h-full w-full text-brand-gray mt-2">
-      <div className="text-center px-10 lg:px-44  mb-20">
+    <div className="h-full w-full text-brand-gray">
+      <div className="text-center px-10 mt-10 lg:px-44 mb-20 bg-transparent">
         <h1 className="text-4xl font-bold">Our Story</h1>
         <p className="pt-5 text-lg">
           At{" "}
@@ -113,11 +113,11 @@ const OurStoryDetails = () => {
             longer our list grew. Clothes, cribs, strollers, carriers, bath
             supplies and the list went on and on. Then came the shopping part.
             We were always open to the idea of hand-me-downs mostly since babies
-            and children outgrow things fast and let’s face it, baby products
-            are expensive and sometimes end up not being used. Living in a large
+            and children outgrow things fast and let’s face it, baby stuff are
+            expensive and sometimes end up not being used. Living in a large
             apartment community, we, therefore, decided to keep our eyes and
             ears open in case any of our neighbours were interested in selling
-            their old baby items. Our search was limited to word of mouth or
+            their old baby goods. Our search was limited to word of mouth or
             scouring through the subset of online social groups within the
             community. The pandemic (COVID 19 if you are reading this way in the
             future 😉) did not help either.
@@ -184,11 +184,11 @@ const OurStoryDetails = () => {
           <span className="text-brand-purple font-semibold">
             nxtdoordeals.com
           </span>{" "}
-          to be actively used to sell or giveaway pre-loved pet care items.
+          to be actively used to sell or giveaway pre-loved pet care goodies.
           While the law of the land does not permit pet sales or adoptions on
-          the platform, we highly encourage ads for that doggie bed, kitty
-          litter tray or the fish bowl that is no longer in use. Why should
-          humans have all the fun?
+          the platform, we highly encourage ads for that doggie bed, chew toy,
+          kitty litter tray or the fish bowl that is no longer in use. Why
+          should humans have all the fun?
         </p>
       </div>
 
