@@ -19,8 +19,8 @@ const Login = (props) => {
   const pathProp = props.pathHistory.current;
   props.pathHistory.current = null;
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   if (cookie.get("nddToken")) {
     router.push("/alreadyloggedin", "/login");

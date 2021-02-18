@@ -12,8 +12,8 @@ const OurStory = () => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <OurStoryHeadLayout>

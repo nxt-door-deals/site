@@ -16,8 +16,8 @@ const PostAd = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   if (!cookie.get("nddToken")) {
     // Save the url (/postad) for redirect after login

@@ -91,8 +91,8 @@ const Chat = (props) => {
     }
   }, [user]);
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <ChatHeadLayout>

@@ -20,7 +20,6 @@ import GuidelinesHeadLayout from "../components/layout/GuidelinesHeadLayout";
 const Guidelines = () => {
   const router = useRouter();
 
-  // Add the pathname to the navStyle
   navStylePurple["pathname"] = router.pathname;
 
   return (

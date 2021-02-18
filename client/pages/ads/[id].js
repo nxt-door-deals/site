@@ -21,8 +21,8 @@ const FullPageAd = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <AdsHeadLayout>

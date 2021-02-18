@@ -27,9 +27,10 @@ const variants = {
 
 const FAQIndex = () => {
   const router = useRouter();
+  const pathname = router.pathname;
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = router.pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <FAQHeadLayout>

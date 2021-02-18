@@ -68,8 +68,8 @@ const Ads = (props) => {
     }
   }, [apartmentData]);
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   return (
     <AdsHeadLayout>

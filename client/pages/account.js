@@ -28,8 +28,8 @@ const Account = (props) => {
     if (user) fetchUserAds(user.id);
   }, [user]);
 
-  (navStylePurple["navTextColor"] = "text-brand-purple"),
-    (navStylePurple["pathname"] = pathname);
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
 
   const userAccountTabs = [
     { label: "My Profile", value: 0 },
