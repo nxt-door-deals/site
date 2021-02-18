@@ -110,7 +110,7 @@ const FullPageAdDetails = (props) => {
       )}
 
       <div className="pt-5">
-        <p className="pb-3 font-semibold underline">Item Details:</p>
+        <p className="pb-3 font-semibold">Item Details:</p>
         <p className="bg-purple-100 p-3 text-sm">
           Condition:{" "}
           <span className="font-semibold">{props.adData.condition}</span>
@@ -134,7 +134,7 @@ const FullPageAdDetails = (props) => {
       </div>
 
       <div className="pt-7 font-axiforma">
-        <p className="pb-3 font-semibold underline">Description:</p>
+        <p className="pb-3 font-semibold">Description:</p>
         <p className="text-sm md:text-base tracking-wide whitespace-pre-wrap">
           {props.adData.description}
         </p>

@@ -87,7 +87,7 @@ const Ad = (props) => {
         </p>
       </div>
 
-      <div className="shadow-boxshadowlogin rounded-3xl p-4 lg:p-10 bg-white">
+      <div className="shadow-boxshadowlogin rounded-3xl p-10 bg-white">
         <AnimatePresence exitBeforeEnter>
           {props.showForm ? (
             <motion.div
@@ -96,11 +96,11 @@ const Ad = (props) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.3 } }}
             >
-              <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start lg:h-full lg:p-10">
+              <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start lg:h-full">
                 <div className="pr-0 lg:pr-2">
                   <AdImageCarousel images={props.data.images} />
                 </div>
-                <div className="border-l-0 pl-0 lg:border-l-2 lg:pl-5">
+                <div className="border-l-0 pl-0 lg:border-l-2 w-full lg:pl-5">
                   <FullPageAdDetails
                     adData={props.data}
                     showChatButton={showChatButton}
