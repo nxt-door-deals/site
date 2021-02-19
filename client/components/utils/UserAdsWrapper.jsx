@@ -34,7 +34,7 @@ const UserAdsWrapper = (props) => {
     );
   } else {
     return (
-      <div className=" text-brand-gray w-full">
+      <div className=" text-brand-gray w-full mb-20">
         <h1 className="component-heading mt-10 pb-6">My Ads</h1>
         {/* <div className="flex justify-center pb-6 text-brand-purple">
           <motion.div variants={variants} animate="bounce">

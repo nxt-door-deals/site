@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
+import { toast } from "react-toastify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -42,6 +43,13 @@ const variants = {
 
 const alertTheme = "bg-purple-200 text-brand-purple";
 
+// Email not verified toast
+const emailNotVerifiedToast = () =>
+  toast("Please verify your email before posting an ad", {
+    draggablePercent: 60,
+    position: "top-center",
+  });
+
 const UserLogin = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);
   const router = useRouter();
@@ -77,11 +85,15 @@ const UserLogin = (props) => {
         let adId = adCookie["_id"];
         cookie.remove("__adCookie");
         router.push(`/reportad/${adId}`);
-      } else if (
-        props.pathProp === "/postad" ||
-        props.pathProp === "/account"
-      ) {
+      } else if (props.pathProp === "/account") {
         router.push(props.pathProp);
+      } else if (props.pathProp === "/postad") {
+        if (user.email_verified === true) {
+          router.push(props.pathProp);
+        } else {
+          emailNotVerifiedToast();
+          setTimeout(() => router.push("/account"), 2000);
+        }
       } else {
         router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
       }

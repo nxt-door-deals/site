@@ -58,11 +58,7 @@ const Category = () => {
   const router = useRouter();
 
   const authContext = useContext(AuthContext);
-  const { loadUser, user } = authContext;
-
-  // useEffect(() => {
-  //   loadUser();
-  // }, []);
+  const { user } = authContext;
 
   // Email not verified toast
   const emailNotVerifiedToast = () =>
@@ -72,6 +68,7 @@ const Category = () => {
     });
 
   useEffect(() => {
+    // In case an unverified user tries to access the page
     if (user) {
       if (!user.email_verified) {
         emailNotVerifiedToast();

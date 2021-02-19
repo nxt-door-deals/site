@@ -7,7 +7,6 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
-import keys from "../../utils/keys";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -493,7 +492,7 @@ const UserRegistration = () => {
                   <ReCAPTCHA
                     id="recaptcha"
                     name="recaptcha"
-                    sitekey={keys.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     className="mt-4"
                     onChange={() =>
                       setEnableFormSubmission(!enableFormSubmission)

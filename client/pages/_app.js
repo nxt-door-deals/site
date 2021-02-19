@@ -18,7 +18,7 @@ const pageVariants = {
 };
 
 const contextClass = {
-  default: "bg-purple-400",
+  default: "bg-ad-purple",
 };
 
 export default function MyApp({ Component, pageProps, router }) {
@@ -53,7 +53,7 @@ export default function MyApp({ Component, pageProps, router }) {
             transition={Flip}
             toastClassName={({ type }) =>
               contextClass[type || "default"] +
-              " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer"
+              " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer border-2 border-purple-50"
             }
             bodyClassName={() =>
               "font-axiforma text-base text-white font-semibold tracking-wide block p-3 text-center"

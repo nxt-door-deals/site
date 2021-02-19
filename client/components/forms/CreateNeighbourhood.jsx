@@ -507,7 +507,7 @@ const CreateNeighbourhood = (props) => {
                       <ReCAPTCHA
                         id="recaptcha"
                         name="recaptcha"
-                        sitekey={keys.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                         className="mb-8"
                         onChange={() =>
                           setEnableFormSubmission(!enableFormSubmission)

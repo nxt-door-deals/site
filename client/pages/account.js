@@ -53,7 +53,7 @@ const Account = (props) => {
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-user-account-mobile-background md:bg-user-account-background bg-cover bg-no-repeat h-80"></div>
         {/* Container */}
-        <div className="mt-6 mb-10">
+        <div className="mt-6">
           {user && (
             <Tab
               route={props.pathname}

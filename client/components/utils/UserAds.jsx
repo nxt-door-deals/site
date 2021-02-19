@@ -42,9 +42,7 @@ const UserAds = (props) => {
   const isOpen = props.i === props.expanded;
 
   return (
-    <div
-      className={`w-64 rounded-3xl shadow-categorycardshadow bg-white p-4 mb-5 lg:mb-0 md:mx-5 lg:self-start`}
-    >
+    <div className="w-64 rounded-3xl shadow-categorycardshadow bg-white p-4 lg:mb-0 md:mx-5 lg:self-start">
       <div className="mb-2">
         {props.ads[props.i].images.length > 0 && (
           <Image
