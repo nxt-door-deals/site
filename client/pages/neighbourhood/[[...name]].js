@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-import { navStyleBlue, footerGradientClassBlue } from "../../utils/styles";
+import { navStyleBlue } from "../../utils/styles";
 
 // Component imports
 import CreateNeighbourhoodHeadLayout from "../../components/layout/CreateNeighbourhoodHeadLayout";
@@ -17,6 +17,9 @@ const Neighbourhood = (props) => {
   navStyleBlue["navBgColor"] = "lg:bg-indigo-100";
   navStyleBlue["navOverlayBgColor"] = "bg-indigo-100";
   navStyleBlue["pathname"] = pathname;
+
+  const footerGradientClassBlue =
+    "from-alt-footer-gradient-from to-alt-footer-gradient-to";
 
   return (
     <CreateNeighbourhoodHeadLayout>
