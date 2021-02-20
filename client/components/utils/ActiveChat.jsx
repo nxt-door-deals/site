@@ -40,7 +40,7 @@ const ActiveChat = (props) => {
   const [newMessage, setNewMessage] = useState("");
   const [messageHistory, setMessageHistory] = useState([]);
 
-  const WS_URL = `${keys.WS_PROXY}/ws/?chat_id=${chatId}&client_id=${senderId}`;
+  const WS_URL = `${keys.WS_PROXY}`;
   const { messages, sendMessage } = useChat(senderId, chatId, WS_URL);
 
   const chatRef = useRef(null);
