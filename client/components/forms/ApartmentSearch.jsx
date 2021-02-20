@@ -11,6 +11,7 @@ import {
   faMapPin,
   faBuilding,
   faExclamationTriangle,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
@@ -33,6 +34,7 @@ const variants = {
 
 const ApartmentSearch = () => {
   const [parentDiv, setparentDiv] = useState("visible");
+
   const [enableFormSubmission, setEnableFormSubmission] = useState(false);
   const apartmentId = useRef(null);
   const router = useRouter();
@@ -76,13 +78,13 @@ const ApartmentSearch = () => {
             <div
               className={`"flex mt-6 border-2 rounded-xl " ${
                 props.touched.apartment && props.errors.apartment
-                  ? "mb-1 border-red-800 shadow-none"
+                  ? "border-red-800 shadow-none"
                   : "border-purple-900"
               }`}
             >
               <FontAwesomeIcon
                 icon={faSearch}
-                className="text-gray-400 text-lg ml-2"
+                className="text-gray-400 text-lg ml-2 align-middle"
               />
               <Field
                 id="apartment"
@@ -92,18 +94,28 @@ const ApartmentSearch = () => {
                 maxLength="50"
                 autoComplete="off"
                 autoFocus=""
-                className="textbox-input w-10/12 placeholder-gray-600"
+                className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600"
                 onKeyUp={searchApartment}
+              />
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="align-middle text-gray-400 cursor-pointer"
+                onClick={() => {
+                  props.setFieldValue(apartment, (props.values.apartment = ""));
+                  setparentDiv("invisible");
+                }}
               />
             </div>
 
             {/* Validation errors */}
-            {props.touched.apartment && props.errors.apartment ? (
-              <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
-                <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                {props.errors.apartment}
-              </div>
-            ) : null}
+            <div className="relative">
+              {props.touched.apartment && props.errors.apartment ? (
+                <div className="text-xs text-red-800 p-1 absolute">
+                  <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                  {props.errors.apartment}
+                </div>
+              ) : null}
+            </div>
 
             {/* Menu to display search results */}
             <div className="relative ">
@@ -187,11 +199,12 @@ const ApartmentSearch = () => {
             <div>
               <motion.button
                 type="submit"
-                className="p-0 mt-6 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
+                className="p-0 mt-8 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
                 variants={variants}
                 whileHover="buttonHover"
                 whileTap="buttonTap"
                 aria-label="Browse Advertisements"
+                disabled={props.isSubmitting}
               >
                 {!props.isSubmitting ? "Browse Ads" : <BouncingBalls />}
               </motion.button>
