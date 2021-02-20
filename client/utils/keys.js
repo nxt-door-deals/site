@@ -13,7 +13,7 @@ const keys = {
   },
   production: {
     API_PROXY: "http://api.nxtdoordeals.com/api/v1",
-    WS_PROXY: "ws://api.nxtdoordeals.com/api/v1",
+    WS_PROXY: "ws://api.nxtdoordeals.com/",
     FROM_EMAIL: "contact@nxtdoordeals.com",
     SERVER: "68.183.94.49",
     ICON:
