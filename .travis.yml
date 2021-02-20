@@ -26,7 +26,6 @@ notifications:
   email:
     recipients:
       - abhi_ap@hotmail.com
-      - aparna121@gmail.com
     on_success: always
     on_failure: always
   slack:
