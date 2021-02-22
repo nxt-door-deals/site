@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import { conditionOptions } from "../../utils/categories";
 import { motion } from "framer-motion";
+import { selectStylePurple } from "../../utils/styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -86,24 +87,6 @@ const EditAd = (props) => {
       position: "top-center",
     });
 
-  // Styles for the Select component
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: "1px dotted #1E3A8A",
-      color: state.isSelected ? "#F5F3FF" : "#6D28D9",
-      padding: 10,
-      fontSize: 12,
-    }),
-    control: (provided) => ({
-      ...provided,
-      boxShadow: "none",
-      border: "none",
-      backgroundColor: "transparent",
-      color: "#6D28D9",
-    }),
-  };
-
   return (
     <div className="font-axiforma text-brand-gray w-full h-full">
       <div>
@@ -152,8 +135,8 @@ const EditAd = (props) => {
               );
 
               setTimeout(() => {
-                setSubmitting(false);
                 router.reload("/");
+                setSubmitting(false);
               }, 7000);
             }}
           >
@@ -369,7 +352,7 @@ const EditAd = (props) => {
                             instanceId="condition"
                             options={conditionOptions}
                             placeholder="Select Condition"
-                            styles={customStyles}
+                            styles={selectStylePurple}
                             className="text-sm p-1.5"
                             value={
                               cancelClicked

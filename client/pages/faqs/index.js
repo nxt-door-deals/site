@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -28,6 +28,10 @@ const variants = {
 const FAQIndex = () => {
   const router = useRouter();
   const pathname = router.pathname;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;

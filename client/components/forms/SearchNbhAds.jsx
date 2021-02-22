@@ -5,6 +5,7 @@ import Select from "react-select";
 import { extendedCategoryListOptions } from "../../utils/categories";
 import sortOptions from "../../utils/sort";
 import { motion } from "framer-motion";
+import { selectStylePurple } from "../../utils/styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -59,21 +60,6 @@ const SearchNbhAds = (props) => {
     }
   };
 
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: "1px dotted #1E3A8A",
-      color: state.isSelected ? "#FFFFFF" : "purple",
-      padding: 10,
-      fontSize: 12,
-    }),
-    control: (provided) => ({
-      ...provided,
-      boxShadow: "none",
-      border: "none",
-    }),
-  };
-
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-10 px-10">
       <div>
@@ -100,7 +86,7 @@ const SearchNbhAds = (props) => {
                       instanceId="categoryList"
                       options={extendedCategoryListOptions}
                       placeholder="Select Category"
-                      styles={customStyles}
+                      styles={selectStylePurple}
                       className="text-sm p-1.5"
                       autoFocus
                       onBlur={() => props.setFieldTouched("categoryList", true)}
@@ -170,7 +156,7 @@ const SearchNbhAds = (props) => {
             instanceId="sort"
             options={sortOptions}
             placeholder="Sort results"
-            styles={customStyles}
+            styles={selectStylePurple}
             className="text-sm p-1.5"
             onChange={(option) => sortResults(option.value)}
             isSearchable={false}

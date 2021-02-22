@@ -437,6 +437,16 @@ const Navbar = (props) => {
           {props.navStyle.pathname === "/account" && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/s">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/postad">
+                  <a className="styled-link">Post Ad</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a>How It Works</a>
                 </Link>
@@ -455,11 +465,7 @@ const Navbar = (props) => {
                   </Link>
                 )}
               </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
-                <Link href="/postad">
-                  <a className="styled-link">Post Ad</a>
-                </Link>
-              </li>
+
               <li className="nav-item lg:mr-6 hover:scale-110 styled-link">
                 <div
                   className="cursor-pointer styled-link"
@@ -896,6 +902,26 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
+                  <Link href="/">
+                    <a className="styled-link">Home</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/postad">
+                    <a className="styled-link">Post Ad</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
                   <Link href="/#how-it-works">
                     <a className="styled-link">How It Works</a>
                   </Link>
@@ -924,16 +950,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                 </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/postad">
-                    <a className="styled-link">Post Ad</a>
-                  </Link>
-                </li>
+
                 <li
                   className={
                     "overlay-items md:text-xl hover:scale-125 " +

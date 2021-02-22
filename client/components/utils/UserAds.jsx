@@ -42,22 +42,22 @@ const UserAds = (props) => {
   const isOpen = props.i === props.expanded;
 
   return (
-    <div className="w-64 rounded-3xl shadow-categorycardshadow bg-white p-4 lg:mb-0 md:mx-5 lg:self-start">
+    <div className="rounded-3xl shadow-chatListShadow bg-white p-4 lg:mb-0 lg:self-start">
       <div className="mb-2">
         {props.ads[props.i].images.length > 0 && (
           <Image
             src={props.ads[props.i].images[0]}
             alt={props.ads[props.i].title}
-            width={250}
-            height={250}
+            width={325}
+            height={300}
           />
         )}
         {props.ads[props.i].images.length === 0 && (
           <Image
             src={keys.DEFAULT_IMAGE}
             alt={"Default image"}
-            width={250}
-            height={250}
+            width={325}
+            height={300}
           />
         )}
       </div>

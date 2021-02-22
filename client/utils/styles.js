@@ -1,5 +1,5 @@
 const navStylePurple = {
-  navBgColor: "lg:bg-purple-200",
+  navBgColor: "lg:bg-purple-50",
   navOverlayBgColor: "bg-purple-200",
   navOverlayTextColor: "text-brand-purple",
   hrStyle: "border-brand-purple bg-brand-purple border-dotted",
@@ -20,9 +20,46 @@ const navStyleBlue = {
 const footerGradientClassBlue =
   "from-alt-footer-gradient-from to-alt-footer-gradient-to";
 
+// Styles for the Select component
+const selectStylePurple = {
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: "1px dotted #1E3A8A",
+    color: state.isSelected ? "#FFFFFF" : "#6D28D9",
+    backgroundColor: state.isSelected ? "purple" : null,
+    padding: 10,
+    fontSize: 12,
+  }),
+  control: (provided) => ({
+    ...provided,
+    boxShadow: "none",
+    border: "none",
+    backgroundColor: "transparent",
+    color: "#6D28D9",
+  }),
+};
+
+// Styles for the blue select component
+const selectStyleBlue = {
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: "1px dotted #1E3A8A",
+    color: state.isSelected ? "#FFFFFF" : "blue",
+    padding: 10,
+    fontSize: 12,
+  }),
+  control: (provided) => ({
+    ...provided,
+    boxShadow: "none",
+    border: "none",
+  }),
+};
+
 export {
   navStylePurple,
   footerGradientClassPurple,
   navStyleBlue,
   footerGradientClassBlue,
+  selectStylePurple,
+  selectStyleBlue,
 };

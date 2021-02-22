@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { selectStylePurple } from "../../utils/styles";
 
 import BouncingBalls from "../loaders/BouncingBalls";
 import { categoryListOptions, conditionOptions } from "../../utils/categories";
@@ -80,24 +81,6 @@ const CreateAd = ({ categoryName, user }) => {
       draggablePercent: 60,
       position: "top-center",
     });
-
-  // Styles for the Select component
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: "1px dotted #1E3A8A",
-      color: state.isSelected ? "#F5F3FF" : "#6D28D9",
-      padding: 10,
-      fontSize: 12,
-    }),
-    control: (provided) => ({
-      ...provided,
-      boxShadow: "none",
-      border: "none",
-      backgroundColor: "transparent",
-      color: "#6D28D9",
-    }),
-  };
 
   // Dropzone
   // Copy the state to a new array and use that to update the changed state
@@ -202,7 +185,7 @@ const CreateAd = ({ categoryName, user }) => {
                         value: categoryName,
                       }}
                       options={categoryListOptions}
-                      styles={customStyles}
+                      styles={selectStylePurple}
                       className="text-sm p-1.5"
                       autoFocus
                       onBlur={() => props.setFieldTouched("categoryList", true)}
@@ -430,7 +413,7 @@ const CreateAd = ({ categoryName, user }) => {
                             options={conditionOptions}
                             placeholder="Select Condition"
                             defaultValue="New"
-                            styles={customStyles}
+                            styles={selectStylePurple}
                             className="text-sm p-1.5"
                             onBlur={() =>
                               props.setFieldTouched("condition", true)

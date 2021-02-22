@@ -8,6 +8,7 @@ import states from "../../utils/states";
 import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import keys from "../../utils/keys";
+import { selectStyleBlue } from "../../utils/styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -78,6 +79,10 @@ const CreateNeighbourhood = (props) => {
   } = siteContext;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (apartmentCreated) {
       const neighbourhoodVerificationHash =
         submittedNeighbourhood.verification_hash +
@@ -100,21 +105,6 @@ const CreateNeighbourhood = (props) => {
     }
   }, [apartmentCreated]);
 
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: "1px dotted #1E3A8A",
-      color: state.isSelected ? "#FFFFFF" : "blue",
-      padding: 10,
-      fontSize: 12,
-    }),
-    control: (provided) => ({
-      ...provided,
-      boxShadow: "none",
-      border: "none",
-    }),
-  };
-
   return (
     <AnimatePresence exitBeforeEnter>
       {showForm ? (
@@ -126,7 +116,7 @@ const CreateNeighbourhood = (props) => {
           exit="exit"
           className="font-axiforma"
         >
-          <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mt-8 mb-20 mx-4 overflow-x-hidden lg:mx-20">
+          <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mt-10 mb-20 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-10">
               Register Your Neighbourhood
             </h1>
@@ -136,7 +126,7 @@ const CreateNeighbourhood = (props) => {
               {/* Registration procedure */}
               <div
                 id="information"
-                className="pb-4 lg:pr-4 lg:pb-0 text-brand-gray"
+                className="pb-4 lg:pr-4 lg:pb-0 text-brand-gray pt-6"
               >
                 <h2 className="text-xl text-center font-semibold mb-6">
                   How does it work?
@@ -366,37 +356,6 @@ const CreateNeighbourhood = (props) => {
                       <div className="flex justify-between">
                         {/* State */}
                         <div className="w-48 lg:w-64">
-                          {/* <div
-                            className={`${
-                              props.touched.state && props.errors.state
-                                ? "mb-1   border-b-2 border-red-800 shadow-none"
-                                : "mb-8 border-b-2 border-gray-300 shadow-sm"
-                            }`}
-                          >
-                            <Field
-                              id="state"
-                              name="state"
-                              component="select"
-                              className="font-axiforma text-sm text-blue-700 font-semibold text-center lg:w-60 outline-none focus:outline-none"
-                            >
-                              <option
-                                value=""
-                                className="font-sans font-semibold"
-                              >
-                                Select State
-                              </option>
-                              {states.map((state, index) => (
-                                <option key={index}>{state}</option>
-                              ))}
-                            </Field>
-                          </div> */}
-                          {/* Validation errors - state */}
-                          {/* {props.touched.state && props.errors.state ? (
-                            <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
-                              <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                              {props.errors.state}
-                            </div>
-                          ) : null} */}
                           <div
                             className={`${
                               props.touched.state && props.errors.state
@@ -410,7 +369,7 @@ const CreateNeighbourhood = (props) => {
                               instanceId="state"
                               options={states}
                               placeholder="Select State/UT"
-                              styles={customStyles}
+                              styles={selectStyleBlue}
                               className="text-xs lg:text-sm p-1.5"
                               onBlur={() =>
                                 props.setFieldTouched("state", true)

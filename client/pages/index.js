@@ -15,7 +15,7 @@ const Home = (props) => {
 
   props.pathHistory.current = null;
 
-  navStylePurple["navBgColor"] = "lg:bg-purple-200";
+  navStylePurple["navBgColor"] = "lg:bg-purple-50";
   navStylePurple["navTextColor"] = "text-purple-50";
   navStylePurple["pathname"] = pathname;
 

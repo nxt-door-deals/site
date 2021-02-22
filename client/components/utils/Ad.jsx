@@ -64,6 +64,7 @@ const Ad = (props) => {
   useEffect(() => {
     getNeighbourhoodFromId(props.data.apartment_id);
     getReportedAdUsers(props.data.id);
+    window.scrollTo(0, 0);
   }, []);
 
   return (

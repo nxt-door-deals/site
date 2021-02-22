@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +20,11 @@ import GuidelinesHeadLayout from "../components/layout/GuidelinesHeadLayout";
 const Guidelines = () => {
   const router = useRouter();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = router.pathname;
 
   return (

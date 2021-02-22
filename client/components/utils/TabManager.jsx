@@ -3,13 +3,13 @@ import React from "react";
 const TabManager = (props) => {
   return (
     <div className="px-16 lg:px-96">
-      <div className="flex justify-center items-center w-full border-b-2 border-ad-purple">
+      <div className="flex justify-center items-center w-full  border-ad-purple">
         {props.tabs.map(({ label, value }) => (
           <div
             key={value}
-            className={`text-xs lg:text-lg font-semibold cursor-pointer p-3 rounded-tl-xl rounded-tr-xl border-2 border-b-0 border-ad-purple mr-1 ${
+            className={`text-sm lg:text-lg font-semibold cursor-pointer px-5 py-3 rounded-xl border-2 border-ad-purple mr-2 ${
               value === props.activeTab
-                ? "lg:font-bold text-white border-b-2 rounded-tl-xl rounded-tr-xl border-ad-purple bg-ad-purple tracking-wide"
+                ? "lg:font-bold text-white border-ad-purple bg-ad-purple tracking-wide"
                 : "text-ad-purple"
             }`}
             onClick={() => props.setActiveTab(value)}

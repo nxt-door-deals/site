@@ -123,7 +123,7 @@ const UserChatList = () => {
                                           variants={buttonVariants}
                                           whileHover="chatButtonHover"
                                           whileTap="chatButtonTap"
-                                          className="h-10 w-10 bg-purple-500 rounded-lg"
+                                          className="h-10 w-10 bg-purple-500 rounded-lg focus-within:outline-none"
                                           onClick={() =>
                                             router.push(
                                               `/chat/${
@@ -142,7 +142,7 @@ const UserChatList = () => {
                                           variants={buttonVariants}
                                           whileHover="deleteButtonHover"
                                           whileTap="deleteButtonTap"
-                                          className="h-10 w-10 bg-red-400 rounded-lg ml-2"
+                                          className="h-10 w-10 bg-red-400 rounded-lg ml-2 focus-within:outline-none"
                                           onClick={() => {
                                             setDeleteIndex(chat.chat_id);
 
@@ -236,7 +236,7 @@ const UserChatList = () => {
                             variants={buttonVariants}
                             whileHover="chatButtonHover"
                             whileTap="chatButtonTap"
-                            className="h-10 w-10 bg-purple-500 rounded-lg"
+                            className="h-10 w-10 bg-purple-500 rounded-lg focus-within:outline-none"
                             onClick={() =>
                               router.push(
                                 `/chat/${
@@ -255,7 +255,7 @@ const UserChatList = () => {
                             variants={buttonVariants}
                             whileHover="deleteButtonHover"
                             whileTap="deleteButtonTap"
-                            className="h-10 w-10 bg-red-400 rounded-lg ml-2"
+                            className="h-10 w-10 bg-red-400 rounded-lg ml-2 focus-within:outline-none"
                             onClick={() => {
                               setDeleteIndex(chat.chat_id);
 

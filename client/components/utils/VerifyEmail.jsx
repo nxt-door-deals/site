@@ -24,7 +24,7 @@ const VerifyEmail = ({ user }) => {
   const verificationUrl = `http://${keys.SERVER}/verifyemail/${fullVerificationString}`;
 
   useEffect(() => {
-    // sendEmail(name, email, verificationUrl);
+    sendEmail(name, email, verificationUrl);
   }, []);
 
   // Email sent toast

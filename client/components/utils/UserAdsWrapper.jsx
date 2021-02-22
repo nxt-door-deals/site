@@ -34,7 +34,7 @@ const UserAdsWrapper = (props) => {
     );
   } else {
     return (
-      <div className=" text-brand-gray w-full mb-20">
+      <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
         <h1 className="component-heading mt-10 pb-6">My Ads</h1>
         {/* <div className="flex justify-center pb-6 text-brand-purple">
           <motion.div variants={variants} animate="bounce">
@@ -47,7 +47,7 @@ const UserAdsWrapper = (props) => {
             You can manage all your ads here
           </p>
         </div> */}
-        <div className="flex flex-col items-center md:flex-row md:justify-center md:flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {userAdIndices.map((i) => (
             <UserAds
               key={i}

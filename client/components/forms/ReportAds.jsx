@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 import SiteContext from "../../context/site/siteContext";
 import Link from "next/link";
@@ -9,6 +9,7 @@ import Select from "react-select";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
+import { selectStylePurple } from "../../utils/styles";
 
 import { reportAdReasons } from "../../utils/categories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -97,24 +98,6 @@ const ReportAds = (props) => {
     }
   }, [userAds]);
 
-  // Styles for the Select component
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: "1px dotted #1E3A8A",
-      color: state.isSelected ? "#F5F3FF" : "#6D28D9",
-      padding: 10,
-      fontSize: 12,
-    }),
-    control: (provided) => ({
-      ...provided,
-      boxShadow: "none",
-      border: "none",
-      backgroundColor: "transparent",
-      color: "#6D28D9",
-    }),
-  };
-
   return (
     <div>
       <div className=" flex items-center ml-4 mb-5">
@@ -178,7 +161,7 @@ const ReportAds = (props) => {
                     name="reason"
                     instanceId="reason"
                     options={reportAdReasons}
-                    styles={customStyles}
+                    styles={selectStylePurple}
                     className="text-sm p-1.5 placeholder-gray-600 "
                     autoFocus
                     onBlur={() => props.setFieldTouched("reason", true)}
