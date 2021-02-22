@@ -12,8 +12,8 @@ const keys = {
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/default.png",
   },
   production: {
-    API_PROXY: "http://api.nxtdoordeals.com/api/v1",
-    WS_PROXY: "ws://api.nxtdoordeals.com/ws",
+    API_PROXY: "https://api.nxtdoordeals.com/api/v1",
+    WS_PROXY: "wss://api.nxtdoordeals.com/ws",
     FROM_EMAIL: "contact@nxtdoordeals.com",
     SERVER: "68.183.94.49",
     ICON:
