@@ -3,7 +3,7 @@ const env = process.env.NEXT_PUBLIC_ENV || "development";
 const keys = {
   development: {
     API_PROXY: "http://localhost:8000/api/v1",
-    WS_PROXY: "ws://localhost:8000/ws",
+    WS_PROXY: "ws://localhost:8000",
     FROM_EMAIL: "contact@nxtdoordeals.com",
     SERVER: "localhost:3001",
     ICON:
@@ -13,7 +13,7 @@ const keys = {
   },
   production: {
     API_PROXY: "https://api.nxtdoordeals.com/api/v1",
-    WS_PROXY: "wss://api.nxtdoordeals.com/ws",
+    WS_PROXY: "wss://api.nxtdoordeals.com",
     FROM_EMAIL: "contact@nxtdoordeals.com",
     SERVER: "68.183.94.49",
     ICON:

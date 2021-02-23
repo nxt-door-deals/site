@@ -113,7 +113,7 @@ const OurStoryDetails = () => {
             longer our list grew. Clothes, cribs, strollers, carriers, bath
             supplies and the list went on and on. Then came the shopping part.
             We were always open to the idea of hand-me-downs mostly since babies
-            and children outgrow things fast and let’s face it, baby stuff are
+            and children outgrow things fast and let’s face it, baby items are
             expensive and sometimes end up not being used. Living in a large
             apartment community, we, therefore, decided to keep our eyes and
             ears open in case any of our neighbours were interested in selling

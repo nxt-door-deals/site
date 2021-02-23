@@ -24,8 +24,6 @@ const useChat = (senderId, chatId, WS_URL) => {
     socketRef.current.send(
       JSON.stringify({
         data: messageData,
-        chat_id: chatId,
-        client_id: senderId,
         sender: socketRef.current.id,
       })
     );
