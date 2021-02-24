@@ -38,6 +38,7 @@ const ReportAd = (props) => {
     return <div></div>;
   }
 
+  navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
   return (

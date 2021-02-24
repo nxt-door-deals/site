@@ -178,7 +178,7 @@ const conditionOptions = [
 ];
 
 const reportAdReasons = [
-  { value: "individual", label: "Individual" },
+  { value: "seller", label: "Seller" },
   { value: "offensive content", label: "Offensive Content" },
   { value: "fraud", label: "Fraud" },
   { value: "others", label: "Others" },

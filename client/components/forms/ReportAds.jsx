@@ -162,8 +162,7 @@ const ReportAds = (props) => {
                     instanceId="reason"
                     options={reportAdReasons}
                     styles={selectStylePurple}
-                    className="text-sm p-1.5 placeholder-gray-600 "
-                    autoFocus
+                    className="text-sm p-1.5 placeholder-gray-600"
                     onBlur={() => props.setFieldTouched("reason", true)}
                     onChange={(o) => {
                       props.setFieldValue(
