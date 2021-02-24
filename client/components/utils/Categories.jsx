@@ -86,7 +86,9 @@ const Category = () => {
                   />
                 </div>
                 <div>
-                  <p className="pt-4 text-lg font-semibold">{category.name}</p>
+                  <p className="pt-4 text-lg font-semibold px-5 text-center">
+                    {category.name}
+                  </p>
                 </div>
                 <div className="my-3">
                   <motion.button

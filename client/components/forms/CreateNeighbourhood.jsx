@@ -385,7 +385,7 @@ const CreateNeighbourhood = (props) => {
                                 ...theme,
                                 colors: {
                                   ...theme.colors,
-                                  neutral50: "#9CA3AF", // Placeholder color
+                                  neutral50: "#4B5563", // Placeholder color
                                 },
                               })}
                             />
