@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import Dropzone from "react-dropzone";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

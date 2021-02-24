@@ -11,7 +11,7 @@ const CookieText = () => {
         <li className="pb-2">
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />
           <span className="font-semibold">nddToken</span>: tracks a user's
-          logged in state. Retention period - 24 hours or session
+          logged in state. Retention period - 24 hours or logout
         </li>
         <li className="pb-2">
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />

@@ -135,10 +135,8 @@ const OurStoryDetails = () => {
           lucky to have a community of people who whether we’d like to believe
           it or not, is an extended family of sorts. There are always things
           lying around in every home which end up in storage or sometimes end up
-          out the door. While they may no longer be as useful to the current
-          owner, someone in the near vicinity might be looking for exactly that.
-          We believe that more prople would be willing to sell or giveaway such
-          items if they could do so with ease.
+          getting tossed out the door. We believe that more people would be
+          willing to sell or giveaway such items if they could do so with ease.
         </p>
       </div>
 

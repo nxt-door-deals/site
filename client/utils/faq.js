@@ -72,6 +72,15 @@ const sellerFaqs = [
       "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we stringly recommend that you keep you transactions limited to your neighbourhood or ones in the immediate vicinity.",
   },
   {
+    question: "What happens if my ad is reported?",
+    answer:
+      "Each time your ad is reported, you will receive an email containing the reason for the complaint. We will conduct a parallel review to ascertain the legitimacy of the complaint. You will have a week to take the appropriate action, failing which the ad will be removed. If your ad is reported by five different users (even while the review is in progress), it will automatically be removed from the platform.",
+  },
+  {
+    question: "Can one person report my ad multiple times?",
+    answer: "No. Every buyer can report any particular ad only once.",
+  },
+  {
     question: "How do I report a buyer?",
     answer:
       'You can write to us at <a class="font-semibold text-purple-500 underline focus-within:outline-none" href="mailto:contact@nxtdoordeals.com">contact@nxtdoordeals.com</a>.',
@@ -161,6 +170,12 @@ const genericFaqs = [
       "No, the registered email address cannot be changed. To use a diffefrent email address, you will need to delete your account and register with a new email address.",
   },
   {
+    question:
+      "Can I use the same email address for multiple properties that I own?",
+    answer:
+      "No, at the moment, one email address can be used for one flat/house only. So, whether you own multiple flats in a single apartment complex or two houses in different gated communities, you will need to use a different email address for each propery that you own.",
+  },
+  {
     question: "How do I delete my account?",
     answer:
       "Use the 'Delete Account' feature under the 'Profile' tab on your account page.",
@@ -184,6 +199,7 @@ const genericFaqs = [
     answer:
       "Category changes are allowed only at the time of ad creation. If the category needs to be changed after the ad has been posted, the ad will need to be deleted and created again.",
   },
+
   {
     question:
       'Does <span class="text-brand-purple font-semibold">nxtdoordeals.com</span> handle payments for a transaction?',

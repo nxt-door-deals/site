@@ -91,7 +91,7 @@ const UserAccount = (props) => {
 
   const initial = props.currentUser.name[0];
 
-  const verificationUrl = `http://${keys.SERVER}/verifyemail/${currentUser.email_verification_hash}|${currentUser.id}`;
+  const verificationUrl = `${keys.SERVER}/verifyemail/${currentUser.email_verification_hash}|${currentUser.id}`;
 
   const alertTheme = "bg-purple-200 text-brand-purple";
 

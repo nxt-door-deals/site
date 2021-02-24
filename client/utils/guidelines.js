@@ -4,6 +4,7 @@ const buyerGuidelines = [
   "Make sure to check for any accessories if applicable for an item",
   "If you deem a posted ad to be inappropriate for any reason, report it so that we may review it",
   "Report the seller if you notice multiple violations",
+  "Be responsible when reporting an ad. Provide elaborate details about your complaint",
   "For smaller items, try to meet the seller in a common area of your neighbourhood",
   "If you plan to visit the seller's house for a purchase, make sure that you are accompanied by a friend or a family member",
   "While using the private chat feature, make sure to keep the conversation civil and respectful. Report the seller if you find the tone to be inappropriate. Read our chat guidelines for more details",

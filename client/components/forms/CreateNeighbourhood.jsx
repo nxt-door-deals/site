@@ -89,7 +89,7 @@ const CreateNeighbourhood = (props) => {
         "|" +
         submittedNeighbourhood.id;
 
-      const verificationUrl = `http://${keys.SERVER}/verifyneighbourhood/${neighbourhoodVerificationHash}`;
+      const verificationUrl = `${keys.SERVER}/verifyneighbourhood/${neighbourhoodVerificationHash}`;
 
       sendNbhRegistrationVerificationRequestEmail(
         submittedNeighbourhood.name,

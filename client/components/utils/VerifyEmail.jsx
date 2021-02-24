@@ -23,7 +23,7 @@ const VerifyEmail = ({ user }) => {
     user.email_verification_hash !== null && user.email_verification_hash;
 
   const fullVerificationString = email_hash + "|" + id;
-  const verificationUrl = `http://${keys.SERVER}/verifyemail/${fullVerificationString}`;
+  const verificationUrl = `${keys.SERVER}/verifyemail/${fullVerificationString}`;
 
   // Email sent toast
   const emailSentToast = () =>
