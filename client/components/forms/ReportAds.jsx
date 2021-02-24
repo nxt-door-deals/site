@@ -162,12 +162,12 @@ const ReportAds = (props) => {
                     instanceId="reason"
                     options={reportAdReasons}
                     styles={selectStylePurple}
-                    className="text-sm p-1.5 placeholder-gray-600"
+                    className="text-sm p-1.5"
                     onBlur={() => props.setFieldTouched("reason", true)}
                     onChange={(o) => {
                       props.setFieldValue(
                         "reason",
-                        (props.values.categoryList = o.value)
+                        (props.values.reason = o.value)
                       );
                     }}
                     placeholder="Select Reason*"
