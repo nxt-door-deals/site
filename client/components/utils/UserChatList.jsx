@@ -51,7 +51,10 @@ const UserChatList = () => {
     <div className="mb-20">
       <h1 className="component-heading mt-10">My Chats</h1>
       <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start px-10 mt-2">
-        <div id="seller-chats" className="mb-10 lg:mb-0 lg:mr-10 p-5">
+        <div
+          id="seller-chats"
+          className="mb-10 lg:mb-0 lg:mr-10 p-5 lg:px-10 lg:border-r-2"
+        >
           <div className="lg:mt-0">
             <h2 className="text-center mb-5 text-xl">
               {!sellerChats || sellerChats.length !== 0 ? (
@@ -79,7 +82,7 @@ const UserChatList = () => {
                           <div
                             className={`grid grid-cols-1 gap-10  ${
                               ad.chat_record_count === 1
-                                ? "md:grid-cols-1"
+                                ? "md:grid-cols-1 w-64"
                                 : "md:grid-cols-2"
                             }`}
                           >
@@ -183,9 +186,9 @@ const UserChatList = () => {
 
         <div
           id="buyer-chats"
-          className="lg:ml-10 p-5 border-t-2 lg:border-t-0 border-ad-purple"
+          className="lg:ml-10 p-5 border-t-2 lg:border-t-0 border-ad-purple lg:mt-0"
         >
-          <div className="lg:mt-0">
+          <div className="mt-10 lg:mt-0">
             <h2 className="text-center mb-5 text-xl">
               {!buyerChats || buyerChats.length !== 0 ? (
                 "...for ads posted by others"

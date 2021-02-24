@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faBan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faShoppingCart,
+  faCommentDots,
+  faBan,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 import {
@@ -37,12 +42,12 @@ const Guidelines = () => {
               <h1 className="component-heading">
                 Buyer Guidelines & Responsibilities
               </h1>
-              {buyerGuidelines.map((guideline) => {
+              {buyerGuidelines.map((guideline, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p className="pb-2">
                       <FontAwesomeIcon
-                        icon={faStar}
+                        icon={faShoppingCart}
                         className="mr-1 text-brand-purple"
                       />{" "}
                       {guideline}
@@ -58,9 +63,9 @@ const Guidelines = () => {
               <h1 className="component-heading">
                 Seller Guidelines & Responsibilities
               </h1>
-              {sellerGuidelines.map((guideline) => {
+              {sellerGuidelines.map((guideline, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p className="pb-2">
                       <FontAwesomeIcon
                         icon={faStar}
@@ -77,12 +82,12 @@ const Guidelines = () => {
           <section id="chat">
             <div className="rounded-2xl p-10 shadow-md bg-white mb-20">
               <h1 className="component-heading">Chat Guidelines</h1>
-              {chatGuidelines.map((guideline) => {
+              {chatGuidelines.map((guideline, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p className="pb-2">
                       <FontAwesomeIcon
-                        icon={faStar}
+                        icon={faCommentDots}
                         className="mr-1 text-brand-purple"
                       />{" "}
                       {guideline}

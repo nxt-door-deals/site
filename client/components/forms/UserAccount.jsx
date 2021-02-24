@@ -587,7 +587,7 @@ const UserAccount = (props) => {
                         onClick={() => {
                           deleteUser(currentUser.id);
                           setDeleteClicked(true);
-                          setTimeout(() => router.push("/goodbye"), 3000);
+                          setTimeout(() => router.push("/goodbye", "/"), 3000);
                         }}
                       >
                         {!deleteClicked ? (

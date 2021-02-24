@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
+import { greeting } from "../../utils/greeting";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -50,6 +51,13 @@ const emailNotVerifiedToast = () =>
     position: "top-center",
   });
 
+// Greeting toast
+const greetingToast = (message) =>
+  toast(`${message}`, {
+    draggablePercent: 60,
+    position: "top-center",
+  });
+
 const UserLogin = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);
   const router = useRouter();
@@ -65,12 +73,13 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (user && user !== null) {
-      // Redirect to the chat screen only if seller id and buyer id are different
       if (props.pathProp === "/chat/[id]") {
         let chatCookie = cookie.get("__redirChatCookie");
         chatCookie["_byrId"] = user.id;
 
         cookie.set("__redirChatCookie", chatCookie);
+
+        greetingToast(`${greeting}, ${user && user.name}!`);
         router.push(
           `/chat/${
             chatCookie["_adId"] +
@@ -84,17 +93,24 @@ const UserLogin = (props) => {
         let adCookie = cookie.get("__adCookie");
         let adId = adCookie["_id"];
         cookie.remove("__adCookie");
+        greetingToast(`${greeting}, ${user && user.name}!`);
         router.push(`/reportad/${adId}`);
-      } else if (props.pathProp === "/account") {
+      } else if (
+        props.pathProp === "/account" ||
+        props.pathProp === "/postad"
+      ) {
+        greetingToast(`${greeting}, ${user && user.name}!`);
         router.push(props.pathProp);
-      } else if (props.pathProp === "/postad") {
-        if (user.email_verified === true) {
-          router.push(props.pathProp);
-        } else {
-          emailNotVerifiedToast();
-          setTimeout(() => router.push("/account"), 2000);
-        }
-      } else {
+      }
+      // if (user.email_verified === true) {
+      //   greetingToast(`${greeting}, ${user && user.name}!`);
+      //   router.push(props.pathProp);
+      // } else {
+      //   emailNotVerifiedToast();
+      //   setTimeout(() => router.push("/account"), 2000);
+      // }
+      else {
+        greetingToast(`${greeting}, ${user && user.name}!`);
         router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
       }
     }

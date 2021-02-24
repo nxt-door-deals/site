@@ -383,7 +383,8 @@ const Navbar = (props) => {
           {/* Navbar on the report ads page */}
           {(props.navStyle.pathname.includes("/reportad") ||
             props.navStyle.pathname.includes("/faqs") ||
-            props.navStyle.pathname === "/guidelines") && (
+            props.navStyle.pathname === "/guidelines" ||
+            props.navStyle.pathname === "/policies") && (
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
@@ -438,7 +439,7 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/s">
-                  <a>Home</a>
+                  <a className="styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -448,7 +449,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a>How It Works</a>
+                  <a className="styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -970,7 +971,8 @@ const Navbar = (props) => {
             {/* Overlay items for the report ads page */}
             {(props.navStyle.pathname.includes("/reportad") ||
               props.navStyle.pathname.includes("/faqs") ||
-              props.navStyle.pathname === "/guidelines") && (
+              props.navStyle.pathname === "/guidelines" ||
+              props.navStyle.pathname === "/policies") && (
               <Fragment>
                 <li
                   className={

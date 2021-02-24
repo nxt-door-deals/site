@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { sellerFaqs, buyerFaqs, genericFaqs } from "../../utils/faq";
+import { data } from "autoprefixer";
 
 const FrequentlyAskedQuestions = (props) => {
   const [faqIndex, setFaqIndex] = useState(null);
@@ -32,19 +33,23 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
+                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
-                    : "bg-faq2-background bg-cover bg-no-repeat"
+                    : "bg-gray-50"
                 }`}
               >
-                <h2 className="font-bold my-2">{faq.question}</h2>
+                <h2
+                  className="font-bold my-2"
+                  dangerouslySetInnerHTML={{ __html: faq.question }}
+                ></h2>
                 <p
                   className={`text-sm mt-5 font-medium ${
                     faqIndex === index ? "block" : "hidden"
                   }`}
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
                 >
-                  {faq.answer}
+                  {/* {faq.answer} */}
                 </p>
 
                 <div
@@ -79,20 +84,22 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-3 ${
+                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
-                    : "bg-faq2-background bg-cover bg-no-repeat"
+                    : "bg-gray-50"
                 }`}
               >
-                <h2 className="font-bold my-2">{faq.question}</h2>
+                <h2
+                  className="font-bold my-2"
+                  dangerouslySetInnerHTML={{ __html: faq.question }}
+                ></h2>
                 <p
                   className={`text-sm mt-5 font-medium ${
                     faqIndex === index ? "block" : "hidden"
                   }`}
-                >
-                  {faq.answer}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                ></p>
 
                 <div
                   className={`flex justify-center items-center absolute right-2 top-6 ${
@@ -126,20 +133,22 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-6 ${
+                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
-                    : "bg-faq2-background bg-cover bg-no-repeat"
+                    : "bg-gray-50"
                 }`}
               >
-                <h2 className="font-bold my-2">{faq.question}</h2>
+                <h2
+                  className="font-bold my-2"
+                  dangerouslySetInnerHTML={{ __html: faq.question }}
+                ></h2>
                 <p
                   className={`text-sm mt-5 font-medium ${
                     faqIndex === index ? "block" : "hidden"
                   }`}
-                >
-                  {faq.answer}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                ></p>
 
                 <div
                   className={`flex justify-center items-center absolute right-2 top-6 ${

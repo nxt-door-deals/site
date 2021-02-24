@@ -57,7 +57,7 @@ const Footer = (props) => {
           </li>
 
           <li className="pb-1 px-2">
-            <Link href="/">
+            <Link href="/policies/#privacy">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faUserSecret} className="mr-1" /> Privacy
                 Policy
@@ -66,7 +66,7 @@ const Footer = (props) => {
           </li>
 
           <li className="pb-1 px-2">
-            <Link href="/">
+            <Link href="/policies/#cookie">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faCookie} className="mr-1" /> Cookie
                 Policy
@@ -75,7 +75,7 @@ const Footer = (props) => {
           </li>
 
           <li className="pb-1 px-2">
-            <Link href="/">
+            <Link href="/policies/#terms">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
                 Terms of Use

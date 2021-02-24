@@ -43,7 +43,7 @@ export default function MyApp({ Component, pageProps, router }) {
             setShowForm={setShowForm}
           />
           <ToastContainer
-            autoClose={2000}
+            autoClose={3000}
             hideProgressBar={true}
             newestOnTop
             closeOnClick

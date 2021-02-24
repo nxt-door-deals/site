@@ -2,22 +2,25 @@ import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
 
-const GuidelinesHeadLayout = (props) => {
+const PoliciesHeadLayout = (props) => {
   return (
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Our Marketplace Guidelines</title>
-        <meta name="description" content="Read our marketplace guidelines." />
+        <title>NXT Door Deals | Terms & Conditions</title>
+        <meta
+          name="description"
+          content="Read our ertms & conditions, privacy and cookie policies."
+        />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Our Marketplace Guidelines"
+          content="NXT Door Deals | Terms & Conditions"
         />
         <meta
           property="og:description"
-          content="Read our marketplace guidelines."
+          content="Read our ertms & conditions, privacy and cookie policies."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -59,7 +62,7 @@ const GuidelinesHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Our marketplace guidelines."
+                    "@value": "Read our ertms & conditions, privacy and cookie policies."
                   }
                 ],
                 "http://schema.org/inLanguage": [
@@ -79,14 +82,14 @@ const GuidelinesHeadLayout = (props) => {
                     ],
                     "http://schema.org/target": [
                       {
-                        "@value": "https://nxtdoordeals.com/guidelines"
+                        "@value": "https://nxtdoordeals.com/policies"
                       }
                     ]
                   }
                 ],
                 "http://schema.org/url": [
                   {
-                    "@id": "https://nxtdoordeals.com/guidelines"
+                    "@id": "https://nxtdoordeals.com/policies"
                   }
                 ]
               }
@@ -99,4 +102,4 @@ const GuidelinesHeadLayout = (props) => {
   );
 };
 
-export default GuidelinesHeadLayout;
+export default PoliciesHeadLayout;

@@ -20,7 +20,7 @@ const Goodbye = () => {
 
   return (
     <GoodbyeHeadLayout>
-      <div className="font-axiforma text-brand-gray border-4 border-purple-500 h-screen">
+      <div className="font-axiforma text-brand-gray border-4 h-screen bg-purple-50">
         <div className="text-center pt-12 px-8 lg:px-16">
           <Image
             src={"/images/goodbye/sad.svg"}

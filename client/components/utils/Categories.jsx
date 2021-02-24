@@ -1,11 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
-import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import { categories } from "../../utils/categories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-toastify";
 
 // Component imports
 import PostAdHeader from "../utils/PostAdHeader";
@@ -55,27 +53,9 @@ const step = "Category";
 const Category = () => {
   const [categoryName, setCategoryName] = useState(null);
   const [showForm, setShowForm] = useState(true);
-  const router = useRouter();
 
   const authContext = useContext(AuthContext);
   const { user } = authContext;
-
-  // Email not verified toast
-  const emailNotVerifiedToast = () =>
-    toast("You will need to verify your email before posting an ad", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
-
-  useEffect(() => {
-    // In case an unverified user tries to access the page
-    if (user) {
-      if (!user.email_verified) {
-        emailNotVerifiedToast();
-        setTimeout(() => router.push("/account"), 2000);
-      }
-    }
-  }, [user]);
 
   const userName = user && user.name;
 

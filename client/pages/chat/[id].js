@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -12,6 +13,7 @@ import ChatHeadLayout from "../../components/layout/ChatHeadLayout";
 import ActiveChat from "../../components/utils/ActiveChat";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+import LetsVerifyYourEmail from "../../components/utils/LetsVerifyYourEmail";
 
 var cookie = new Cookies();
 
@@ -53,6 +55,13 @@ const Chat = (props) => {
     return <div></div>;
   }
 
+  // Email not verified toast
+  const emailNotVerifiedToast = () =>
+    toast("You will need to verify your email to start a conversation", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   useEffect(() => {
     if (isAuthenticated) {
       loadUser();
@@ -93,6 +102,15 @@ const Chat = (props) => {
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
+
+  if (user && !user.email_verified) {
+    setTimeout(() => router.push("/account"), 3000);
+    return (
+      <ChatHeadLayout>
+        <LetsVerifyYourEmail message="start a conversation" />
+      </ChatHeadLayout>
+    );
+  }
 
   return (
     <ChatHeadLayout>

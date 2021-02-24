@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import keys from "../../utils/keys";
 
+import { greeting } from "../../utils/greeting";
+
 const VerifyEmail = ({ user }) => {
   const router = useRouter();
   const authContext = useContext(AuthContext);
@@ -23,10 +25,6 @@ const VerifyEmail = ({ user }) => {
   const fullVerificationString = email_hash + "|" + id;
   const verificationUrl = `http://${keys.SERVER}/verifyemail/${fullVerificationString}`;
 
-  useEffect(() => {
-    sendEmail(name, email, verificationUrl);
-  }, []);
-
   // Email sent toast
   const emailSentToast = () =>
     toast("Email has been resent", {
@@ -34,9 +32,13 @@ const VerifyEmail = ({ user }) => {
       position: "top-center",
     });
 
+  useEffect(() => {
+    sendEmail(name, email, verificationUrl);
+  }, []);
+
   return (
     <div className="font-axiforma text-center text-brand-gray">
-      <h2 className="font-bold text-3xl tracking-wide mb-4">
+      <h2 className="font-semibold text-3xl tracking-wide mb-4">
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
@@ -49,14 +51,15 @@ const VerifyEmail = ({ user }) => {
       </div>
 
       <p className="text-base">
-        Hello, <span className="font-bold text-blue-600">{name}</span>. Thank
-        you for signing up!
+        Hello, <span className="font-semibold text-blue-600">{name}</span>.
+        Thank you for signing up! You are now logged in as{" "}
+        <span className="font-semibold text-blue-600">{email}</span>.
       </p>
       <br />
       <p className="text-base">
         Please verify your email using the link that was just sent to{" "}
-        <span className="font-bold text-blue-600">{email}</span>. The link is
-        valid for 24 hours only.
+        <span className="font-semibold text-blue-600">{email}</span>. The link
+        is valid for 24 hours only.
       </p>
       <br />
 
