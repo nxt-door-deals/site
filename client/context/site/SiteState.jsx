@@ -365,7 +365,7 @@ const SiteState = (props) => {
 
     try {
       await axios.put(
-        `${keys.API_PROXY}/ads/update/?ad_id=${adId}&posted_by_id=${userId}`,
+        `${keys.API_PROXY}/ads/update?ad_id=${adId}&posted_by_id=${userId}`,
         formData,
         {
           headers: {
