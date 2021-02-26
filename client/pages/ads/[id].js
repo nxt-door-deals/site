@@ -55,11 +55,9 @@ export const getServerSideProps = async (context) => {
       notFound: true,
     };
   }
-
-  console.log(res.data);
   return {
     props: {
-      data: res.data.ad,
+      data: res.data,
     },
   };
 };
