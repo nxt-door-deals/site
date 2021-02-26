@@ -480,8 +480,8 @@ const CreateNeighbourhood = (props) => {
                           whileHover="hover"
                           whileTap="tap"
                           className={`"py-6 px-6 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
-                            !enableFormSubmission ? "cursor-not-allowed" : null
-                          }`}
+                            !enableFormSubmission && "cursor-not-allowed"
+                          } ${props.isSubmitting && "cursor-not-allowed"}`}
                           disabled={!enableFormSubmission ? true : false}
                         >
                           {!props.isSubmitting ? (

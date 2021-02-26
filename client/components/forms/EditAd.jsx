@@ -494,11 +494,9 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverSave"}
                     whileTap={fieldTouched && "editButtonTap"}
-                    className={`h-12 w-40 font-semibold uppercase mb-3 lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
-                      fieldTouched
-                        ? "text-white bg-purple-500"
-                        : "text-purple-300 bg-white border-2 border-purple-300 cursor-not-allowed"
-                    }`}
+                    className={`h-12 w-40 font-semibold uppercase mb-3 text-white bg-purple-500 lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
+                      fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
+                    } ${isSubmitting && "cursor-not-allowed"}`}
                     disabled={!fieldTouched || isSubmitting}
                   >
                     {isSubmitting ? <BouncingBalls /> : "Save Changes"}
@@ -508,10 +506,8 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverCancel"}
                     whileTap={fieldTouched && "deleteButtonTap"}
-                    className={` h-12 w-40 font-semibold uppercase lg:mt-0 rounded-xl focus:outline-none ${
-                      fieldTouched
-                        ? "text-white bg-red-500"
-                        : "bg-white text-red-300 border-2 border-red-300 cursor-not-allowed"
+                    className={` h-12 w-40 font-semibold text-white bg-red-500 uppercase lg:mt-0 rounded-xl focus:outline-none ${
+                      fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();

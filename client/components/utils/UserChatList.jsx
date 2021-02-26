@@ -82,7 +82,7 @@ const UserChatList = () => {
                           <div
                             className={`grid grid-cols-1 gap-10  ${
                               ad.chat_record_count === 1
-                                ? "md:grid-cols-1 w-64"
+                                ? "md:grid-cols-1 w-52"
                                 : "md:grid-cols-2"
                             }`}
                           >
@@ -121,7 +121,7 @@ const UserChatList = () => {
                                         {chat.ad_title}
                                       </p>
 
-                                      <div className="flex justify-between items-center px-10 pt-3">
+                                      <div className="flex justify-center items-center px-10 pt-3">
                                         <motion.button
                                           variants={buttonVariants}
                                           whileHover="chatButtonHover"
@@ -145,7 +145,7 @@ const UserChatList = () => {
                                           variants={buttonVariants}
                                           whileHover="deleteButtonHover"
                                           whileTap="deleteButtonTap"
-                                          className="h-10 w-10 bg-red-400 rounded-lg ml-2 focus-within:outline-none"
+                                          className="h-10 w-10 bg-red-400 rounded-lg ml-3 focus-within:outline-none"
                                           onClick={() => {
                                             setDeleteIndex(chat.chat_id);
 

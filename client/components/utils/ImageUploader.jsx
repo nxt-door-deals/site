@@ -89,10 +89,10 @@ const ImageUploader = (props) => {
                   ? newFiles.length < 10
                   : newFiles.length < 10 - parseInt(props.uploadedImages)
               ) ? (
-                <div className="">
+                <div className="w-full">
                   <div
                     {...getRootProps()}
-                    className="text-center px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
+                    className="text-center py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
                   >
                     <input {...getInputProps()} />
                     <FontAwesomeIcon icon={faCamera} className="text-3xl" />

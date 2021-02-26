@@ -456,7 +456,9 @@ const UserAccount = (props) => {
                             whileTap="saveEditButtonTap"
                             type="submit"
                             disabled={props.isSubmitting}
-                            className="h-12 px-14 bg-purple-500 uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none"
+                            className={`h-12 px-14 bg-purple-500 uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none ${
+                              props.isSubmitting && "cursor-not-allowed"
+                            }`}
                           >
                             Save
                           </motion.button>

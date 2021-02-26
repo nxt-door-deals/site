@@ -58,10 +58,13 @@ const ReportAds = (props) => {
 
   // Ad reported toast
   const adReportedToast = () =>
-    toast("Thanks! We appreciate your delligence", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
+    toast(
+      "Thanks! We appreciate your delligence. We will review the ad and take appropriate action.",
+      {
+        draggablePercent: 60,
+        position: "top-center",
+      }
+    );
 
   // Ad already reported toast
   const adAlreadyReportedToast = () =>

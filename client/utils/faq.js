@@ -42,7 +42,7 @@ const sellerFaqs = [
   {
     question: "How do I share my ad with friends?",
     answer:
-      'Yes. The url of the full ad is public and can be shared with. Typically it will look something like <span class="text-purple-500 font-semibold underline">nxtdoordeals.com/ads/(numeric_id)</span>',
+      'Yes. The url of the full ad is public and can be shared. Typically it will look something like <span class="text-purple-500 font-semibold underline">nxtdoordeals.com/ads/(numeric_id)</span>',
   },
   {
     question:
@@ -54,7 +54,7 @@ const sellerFaqs = [
     question:
       'Does <span class="text-brand-purple font-semibold">nxtdoordeals.com</span> get any portion of the final payment amount?',
     answer:
-      "No. The full amount is credited to the seller. We do not get any share of the proceeds from a transaction.",
+      "No. The full amount belongs to the seller. We do not get any share of the proceeds from a transaction.",
   },
   {
     question: "How do I chat with a buyer?",
@@ -64,12 +64,12 @@ const sellerFaqs = [
   {
     question: "Can anyone who see's my ad, chat with me?",
     answer:
-      "Only registered users who have verified their emails can use the Chat feature to contact you.",
+      "Only registered users who have verified their emails can use the `Chat With Seller' feature to contact you.",
   },
   {
     question: "Can I be contacted by buyers from other neighbourhoods?",
     answer:
-      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we stringly recommend that you keep you transactions limited to your neighbourhood or ones in the immediate vicinity.",
+      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we strongly recommend that you keep you transactions limited to your neighbourhood or ones in the immediate vicinity.",
   },
   {
     question: "What happens if my ad is reported?",
@@ -102,13 +102,13 @@ const buyerFaqs = [
   {
     question: "How do I chat with a seller?",
     answer:
-      "You may use the 'Chat With Celler' feature on all the ads. Remember, you will need to register and verify your email before you can initiate a chat.",
+      "You may use the 'Chat With Seller' feature on all the ads. Remember, you will need to register and verify your email before you can initiate a chat.",
   },
   {
     question:
       "Is there a limit to the number of sellers I can chat with at any time?",
     answer:
-      "No. As long as you have registered, you may chat with any number of sellers.",
+      "No. As long as you have registered and verified your email address, you may chat with any number of sellers.",
   },
   {
     question: "Where do I see my chats?",
@@ -122,11 +122,12 @@ const buyerFaqs = [
   },
   {
     question: "How do I report a fraud or a fake ad?",
-    answer: "Please use the 'Report This Ad' feature.",
+    answer: "Please use the 'Report This Ad' feature at the bottom the ad.",
   },
   {
     question: "How do I report a seller?",
-    answer: "Please use the 'Report This Ad' feature.",
+    answer:
+      "Please use the 'Report This Ad' feature at the bottom the ad and select the reason for complaint as 'Seller'.",
   },
   {
     question:
@@ -157,7 +158,7 @@ const genericFaqs = [
     question:
       "I no longer have the original email verification link. What now?",
     answer:
-      "The link can be regenerated using the 'Resend link' feature under the 'Profile' tab on your account page.",
+      "The link can be regenerated using the 'Resend Link' feature under the 'Profile' tab on your account page.",
   },
   {
     question: "Can I change my account information?",
@@ -210,7 +211,7 @@ const genericFaqs = [
     question:
       'Does <span class="text-brand-purple font-semibold">nxtdoordeals.com</span> get any portion of the final payment amount?',
     answer:
-      "No. The full amount is credited to the seller. We do not get any share of the proceeds from a transaction.",
+      "No. The full amount belongs to the seller. We do not get any share of the proceeds from a transaction.",
   },
 ];
 

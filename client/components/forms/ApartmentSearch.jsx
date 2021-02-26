@@ -199,7 +199,9 @@ const ApartmentSearch = () => {
             <div>
               <motion.button
                 type="submit"
-                className="p-0 mt-8 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none"
+                className={`p-0 mt-8 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
+                  props.isSubmitting && "cursor-not-allowed"
+                }`}
                 variants={variants}
                 whileHover="buttonHover"
                 whileTap="buttonTap"

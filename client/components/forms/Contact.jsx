@@ -7,7 +7,6 @@ import {
   faEnvelope,
   faComments,
   faExclamationTriangle,
-  faPaperPlane,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,6 +23,16 @@ const contactValidationSchema = Yup.object({
     .required("Please type in your message (1000 characters max!)")
     .trim(),
 });
+
+const variants = {
+  buttonTap: {
+    backgroundColor: "#8B5CF6",
+    y: "2px",
+  },
+  buttonHover: {
+    backgroundColor: "#5B21B6",
+  },
+};
 
 const alertTheme = "bg-purple-200 text-brand-purple";
 
@@ -141,16 +150,16 @@ const Contact = (props) => {
 
                 <div className="text-center">
                   <motion.button
+                    variants={variants}
                     type="submit"
-                    className="w-28 h-10 mt-3 bg-purple-500 text-white  font-bold rounded-md uppercase tracking-wide focus:outline-none"
-                    whileTap={{
-                      backgroundColor: "#D6BCFA",
-                      color: "#550052",
-                      y: "5px",
-                      boxShadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
-                    }}
+                    disabled={props.isSubmitting}
+                    className={`w-36 h-10 mt-3 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                      props.isSubmitting && "cursor-not-allowed"
+                    }`}
+                    whileHover="buttonHover"
+                    whileTap="buttonTap"
                   >
-                    <FontAwesomeIcon icon={faPaperPlane} /> Send
+                    Send
                   </motion.button>
                 </div>
               </Form>

@@ -504,7 +504,9 @@ const UserRegistration = () => {
                       variants={variants}
                       whileHover="buttonHover"
                       whileTap="buttonTap"
-                      className="w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                      className={`w-full h-12 bg-blue-600 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                        props.isSubmitting && "cursor-not-allowed"
+                      }`}
                       type="submit"
                       arira-aria-label="User registration button"
                       disabled={

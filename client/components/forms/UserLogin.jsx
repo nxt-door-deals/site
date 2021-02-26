@@ -209,7 +209,9 @@ const UserLogin = (props) => {
                   variants={variants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                  className={`mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-500 text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    props.isSubmitting && "cursor-not-allowed"
+                  }`}
                   disabled={props.isSubmitting}
                 >
                   {!props.isSubmitting ? (
