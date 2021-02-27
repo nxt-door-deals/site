@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Component imports
 import Buy from "./utils/Buy";
 import Sell from "./utils/Sell";
+import Tab from "./utils/Tab";
 
 const variants = {
   initial: { opacity: 0, scale: 0.9 },
@@ -14,55 +15,30 @@ const variants = {
   },
 };
 
-const HowItWorks = () => {
-  const [showGrid, setShowGrid] = useState(true);
+const howItWorksTabs = [
+  { label: "Sell", value: 0 },
+  { label: "Buy", value: 1 },
+];
 
+const tabStyle = {
+  textColor: "text-purple-500",
+  backgroundColor: "bg-purple-500",
+  borderColor: "border-purple-500",
+};
+
+const HowItWorks = (props) => {
   return (
-    <AnimatePresence>
-      <div className="bg-howitworks-background bg-cover bg-no-repeat pb-3 font-axiforma">
+    <AnimatePresence exitBeforeEnter>
+      <div className="bg-howitworks-background bg-cover bg-no-repeat pb-20">
         <div className="flex justify-center mt-16 pt-32">
-          <button
-            className={
-              "font-bold py-2 px-4 rounded-l uppercase focus:outline-none " +
-              `${
-                showGrid
-                  ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                  : "cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800"
-              }`
-            }
-            onClick={() => setShowGrid(true)}
-            disabled={showGrid ? "disabled" : null}
-          >
-            Sell
-          </button>
-          <button
-            className={
-              "font-bold py-2 px-4 rounded-l uppercase focus:outline-none " +
-              `${
-                !showGrid
-                  ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                  : "cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800"
-              }`
-            }
-            onClick={() => setShowGrid(false)}
-            disabled={!showGrid ? "disabled" : null}
-          >
-            Buy
-          </button>
+          <Tab
+            route={props.pathname}
+            tabs={howItWorksTabs}
+            tabStyle={tabStyle}
+          />
         </div>
-        <h1 className="pt-12 text-center text-2xl lg:text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-axiforma font-bold">
-          <motion.span
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            {showGrid ? "Selling" : "Buying"}
-          </motion.span>{" "}
-          on <span className="text-purple-600">nxtdoordeals.com</span>
-        </h1>
 
-        <div className="pt-8 mb-16">
+        {/* <div className="pt-8 mb-16">
           {showGrid ? (
             <motion.div
               key="sell"
@@ -84,7 +60,7 @@ const HowItWorks = () => {
               <Buy />
             </motion.div>
           )}
-        </div>
+        </div> */}
       </div>
     </AnimatePresence>
   );

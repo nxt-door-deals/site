@@ -26,9 +26,8 @@ const buttonVariants = {
   },
 };
 
-const UserChatList = () => {
+const UserChatList = (props) => {
   const [deleteIndex, setDeleteIndex] = useState(null);
-
   const router = useRouter();
   const authContext = useContext(AuthContext);
   const {
@@ -43,6 +42,7 @@ const UserChatList = () => {
   } = authContext;
 
   useEffect(() => {
+    props.chatNotification.current = null;
     loadBuyerChats(user.id);
     loadSellerChats(user.id);
   }, []);

@@ -1,34 +1,57 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { sell } from "../../utils/howItWorks";
+
+const variants = {
+  initial: { opacity: 0, scale: 0.9 },
+  animate: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.7 },
+  },
+};
 
 const Sell = () => {
   return (
-    <div
-      id="sell"
-      className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-8 md:gap-6 mx-5 md:mx-0"
-    >
-      {sell.map((item, index) => {
-        return (
-          <div
-            key={index}
-            className="rounded-xl overflow-hidden shadow-lg bg-white"
-          >
-            <div className="flex items-center justify-center">
-              <Image src={item.image} alt={item.alt} width={250} height={250} />
-            </div>
-
-            <div className="px-6 py-4">
-              <div className="font-bold text-brand-gray text-xl mb-2">
-                {item.heading}
+    <div>
+      <h1 className="py-12 text-center text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-axiforma font-bold">
+        Selling on <span className="text-purple-600">nxtdoordeals.com</span>
+      </h1>
+      <div
+        id="sell"
+        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-8 md:gap-6 mx-5 md:mx-0"
+      >
+        {sell.map((item, index) => {
+          return (
+            <motion.div
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              key={index}
+              className="rounded-xl overflow-hidden shadow-lg bg-white"
+            >
+              <div className="flex items-center justify-center">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  width={250}
+                  height={250}
+                />
               </div>
-              <p className="text-gray-600 text-base cursor-default">
-                {item.content}
-              </p>
-            </div>
-          </div>
-        );
-      })}
+
+              <div className="px-6 py-4">
+                <div className="font-bold text-brand-gray text-xl mb-2">
+                  {item.heading}
+                </div>
+                <p className="text-gray-600 text-base cursor-default">
+                  {item.content}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 };

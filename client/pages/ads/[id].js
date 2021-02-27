@@ -27,7 +27,10 @@ const FullPageAd = (props) => {
   return (
     <AdsHeadLayout>
       <div className="font-axiforma text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
-        <Navbar navStyle={navStylePurple} />
+        <Navbar
+          navStyle={navStylePurple}
+          chatNotification={props.chatNotification}
+        />
         <div className="pt-32 px-5 pb-20 lg:px-24">
           <Ad
             data={props.data}

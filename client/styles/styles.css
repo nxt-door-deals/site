@@ -77,6 +77,10 @@ body {
   @apply text-brand-purple font-semibold;
 }
 
+.modal-z-idx {
+  z-index: 99999999;
+}
+
 .perspective {
   perspective: "200px";
 }

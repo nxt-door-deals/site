@@ -26,7 +26,7 @@ const Home = (props) => {
         <Landing />
       </section>
       <section id="how-it-works">
-        <HowItWorks />
+        <HowItWorks pathname={pathname} />
       </section>
       <section id="footer">
         <Footer footerGradientClass={footerGradientClassPurple} />

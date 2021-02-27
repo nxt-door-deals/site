@@ -8,6 +8,8 @@ import BrowseRequests from "./BrowseRequests";
 import NoAdsForNeighbourhood from "../utils/NoAdsForNeighbourhood";
 import UserAdsWrapper from "../utils/UserAdsWrapper";
 import UserChatList from "./UserChatList";
+import Buy from "./Buy";
+import Sell from "./Sell";
 
 const Tab = (props) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -20,6 +22,7 @@ const Tab = (props) => {
         tabs={tabs}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        tabStyle={props.tabStyle}
       />
       {/* <div>
         {pathname.includes("/ads") && (
@@ -37,6 +40,12 @@ const Tab = (props) => {
         )}
       </div> */}
 
+      {/* Tabs on the home page */}
+      <div>
+        {pathname === "/" && <div>{activeTab === 0 ? <Sell /> : <Buy />}</div>}
+      </div>
+
+      {/* Tabs on the account page */}
       <div>
         {pathname === "/account" && (
           <div>
@@ -50,7 +59,7 @@ const Tab = (props) => {
                 setShowForm={props.setShowForm}
               />
             ) : (
-              <UserChatList />
+              <UserChatList chatNotification={props.chatNotification} />
             )}
           </div>
         )}

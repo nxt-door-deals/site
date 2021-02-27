@@ -61,7 +61,7 @@ const SearchNbhAds = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-10 px-10">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-16 px-10">
       <div>
         <Formik
           initialValues={{
@@ -87,7 +87,7 @@ const SearchNbhAds = (props) => {
                       options={extendedCategoryListOptions}
                       placeholder="Select Category"
                       styles={selectStylePurple}
-                      className="text-sm p-1.5"
+                      className="text-xs lg:text-sm p-2"
                       autoFocus
                       onBlur={() => props.setFieldTouched("categoryList", true)}
                       onChange={(o) => {
@@ -141,7 +141,7 @@ const SearchNbhAds = (props) => {
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="lg:ml-5 px-2.5 py-4 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none"
+            className="lg:ml-5 px-2.5 py-4 lg:py-5 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none"
             onClick={() => searchGiveaways(props.nbhId)}
           >
             Show me the Giveaways
@@ -157,7 +157,7 @@ const SearchNbhAds = (props) => {
             options={sortOptions}
             placeholder="Sort results"
             styles={selectStylePurple}
-            className="text-sm p-1.5"
+            className="text-xs lg:text-sm p-2"
             onChange={(option) => sortResults(option.value)}
             isSearchable={false}
             theme={(theme) => ({

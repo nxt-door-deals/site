@@ -1,10 +1,74 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from "../../context/auth/authContext";
 
+import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 // Component imports
 import NbhAdsCard from "./NbhAdsCard";
 import SearchNbhAds from "../forms/SearchNbhAds";
 
 const BrowseAds = (props) => {
+  const [notification, setNotification] = useState(false);
+  const authContext = useContext(AuthContext);
+  const {
+    user,
+    loadSellerChats,
+    loadBuyerChats,
+    sellerChats,
+    buyerChats,
+  } = authContext;
+
+  // Chat notification toast
+  const chatNotificationToast = () =>
+    toast(
+      `${(<FontAwesomeIcon icon={faComment} />)} You have new chat messages!`,
+      {
+        draggablePercent: 60,
+        position: "top-center",
+      }
+    );
+
+  useEffect(() => {
+    if (user) {
+      // Notify users if there are new chats
+      loadBuyerChats(user && parseInt(user.id));
+      loadSellerChats(user && parseInt(user.id));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (props.chatNotification.current === null) {
+      if (sellerChats && buyerChats) {
+        sellerChats &&
+          sellerChats.some((chat) => {
+            if (chat.new_chats && chat.last_sender !== user.id) {
+              props.chatNotification.current = true;
+              setNotification(true);
+            }
+          });
+
+        // Run this check only if there are no seller notifications
+        if (!props.chatNotification.current)
+          buyerChats &&
+            buyerChats.some((chat) => {
+              if (chat.new_chats && chat.last_sender !== user.id) {
+                props.chatNotification.current = true;
+                setNotification(true);
+              }
+            });
+      }
+    }
+  }, [sellerChats, buyerChats]);
+
+  useEffect(() => {
+    if (notification && !props.notificationDisplayed.current) {
+      chatNotificationToast();
+      props.notificationDisplayed.current = true;
+      setNotification(false);
+    }
+  }, [notification]);
+
   return (
     <div className="mt-8 mb-20">
       <SearchNbhAds nbhId={props.nbhId} />

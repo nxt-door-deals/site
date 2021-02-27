@@ -75,7 +75,10 @@ const Ads = (props) => {
     <AdsHeadLayout>
       <div>
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 font-axiforma w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
-          <Navbar navStyle={navStylePurple} />
+          <Navbar
+            navStyle={navStylePurple}
+            chatNotification={props.chatNotification}
+          />
           <div className="flex flex-col items-center pt-14 md:pt-24">
             <h1 className="text-2xl md:text-3xl text-brand-purple font-semibold px-5 py-7 text-center">
               Personal Marketplace for&nbsp;
@@ -105,7 +108,11 @@ const Ads = (props) => {
           {numOfAds === 0 ? (
             <NoAdsForNeighbourhood />
           ) : (
-            <BrowseAds nbhId={apartmentId} />
+            <BrowseAds
+              nbhId={apartmentId}
+              chatNotification={props.chatNotification}
+              notificationDisplayed={props.notificationDisplayed}
+            />
           )}
         </div>
         <div className="mt-10">

@@ -32,6 +32,7 @@ const siteReducer = (state, action) => {
     case LOAD_APARTMENTS:
       return {
         ...state,
+        loading: false,
         allApartments: action.payload,
       };
     case FETCH_APARTMENT:
@@ -44,6 +45,7 @@ const siteReducer = (state, action) => {
     case FETCH_APARTMENT_NAME:
       return {
         ...state,
+        loading: false,
         apartmentData: action.payload,
       };
     case FETCH_APARTMENT_NAME_ERROR:
@@ -136,6 +138,7 @@ const siteReducer = (state, action) => {
     case FETCH_NBH_AD_SUCCESS:
       return {
         ...state,
+        loading: false,
         adsDataNbh: action.payload,
         adsDataNbhFetched: true,
       };
@@ -157,6 +160,7 @@ const siteReducer = (state, action) => {
     case REPORTED_AD_SUCCESS:
       return {
         ...state,
+        loading: false,
         reportedAd: action.payload,
       };
     case REPORTED_AD_FAILURE:

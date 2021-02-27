@@ -6,12 +6,12 @@ import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
 import Cookies from "universal-cookie";
 import Modal from "react-modal";
-import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
   faEnvelope,
   faStream,
+  faComment,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
@@ -277,7 +277,17 @@ const Navbar = (props) => {
                 )}
                 {user && user && (
                   <Link href="/account">
-                    <a className="styled-link">My Account</a>
+                    <a className="relative styled-link">
+                      {props.chatNotification.current && (
+                        <span className="absolute -left-3 -top-2 animate-pulse">
+                          <FontAwesomeIcon
+                            icon={faComment}
+                            className="text-xs"
+                          />
+                        </span>
+                      )}
+                      My Account
+                    </a>
                   </Link>
                 )}
               </li>
@@ -438,7 +448,7 @@ const Navbar = (props) => {
           {props.navStyle.pathname === "/account" && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
-                <Link href="/s">
+                <Link href="/">
                   <a className="styled-link">Home</a>
                 </Link>
               </li>

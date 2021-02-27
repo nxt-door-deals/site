@@ -79,10 +79,16 @@ const OurStoryDetails = () => {
         <div className="lg:flex-5">
           <h2 className="text-2xl font-semibold">Save the environment</h2>
           <p className="pt-5">
-            One of our core missions is to reduce recyclable waste that might
-            end up in a landfill. Whether you are buying or selling a preloved
-            item, not only are you helping us in this mission, but you are also
-            doing your bit to save mother nature.
+            We currently live in a world ravaged by climate change and other
+            severe environmental problems. We owe it to mother nature to do
+            whatever little we can reduce pollution. Making recycling and reuse
+            second nature is a small step in that direction. Every small stride
+            taken towards reducing pollution of any kind, ensures a safer and
+            cleaner future for our children. One of our core missions is to
+            reduce recyclable waste that might end up in a landfill. Whether you
+            are buying or selling a preloved item, not only are you helping us
+            in this mission, but you are also doing your bit to save mother
+            nature.
           </p>
         </div>
         <div className="lg:flex-2 px-5 pb-2 lg:pb-0">
@@ -188,28 +194,6 @@ const OurStoryDetails = () => {
           kitty litter tray or the fish bowl that is no longer in use. Why
           should humans have all the fun?
         </p>
-      </div>
-
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-44 pt-5">
-        <div className="px-5 pb-5 lg:pb-0">
-          <Image
-            src="/images/our-story/globe.svg"
-            height={150}
-            width={150}
-            alt="globe"
-          />
-        </div>
-        <div className="lg:flex-2">
-          <p>
-            Lastly and most importantly, we care about the environment. We
-            currently live in a world ravaged by climate change and other severe
-            environmental problems. We owe it to mother nature to do whatever
-            little we can reduce pollution. Making recycling and reuse second
-            nature is a small step in that direction. Every small stride taken
-            towards reducing pollution of any kind, ensures a safer and cleaner
-            future for our children.
-          </p>
-        </div>
       </div>
 
       <div className="px-10 lg:px-44 pt-5 mb-20">

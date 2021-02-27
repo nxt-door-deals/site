@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import AuthContext from "../../context/auth/authContext";
@@ -48,6 +49,8 @@ const Ad = (props) => {
     apartmentData,
     reportedAd,
     getReportedAdUsers,
+    loading,
+    setLoading,
   } = siteContext;
 
   const authContext = useContext(AuthContext);
@@ -62,10 +65,19 @@ const Ad = (props) => {
   }
 
   useEffect(() => {
+    setLoading();
+    window.scrollTo(0, 0);
     getNeighbourhoodFromId(props.data.apartment_id);
     getReportedAdUsers(props.data.id);
-    window.scrollTo(0, 0);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start h-full py-32">
+        <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+      </div>
+    );
+  }
 
   return (
     <div>

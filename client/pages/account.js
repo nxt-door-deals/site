@@ -47,6 +47,12 @@ const Account = (props) => {
     return <div></div>;
   }
 
+  const tabStyle = {
+    textColor: "text-ad-purple",
+    backgroundColor: "bg-ad-purple",
+    borderColor: "border-ad-purple",
+  };
+
   return (
     <UserAccountHeadLayout>
       <div className="h-full font-axiforma">
@@ -62,6 +68,8 @@ const Account = (props) => {
               ads={userAds && userAds}
               showForm={props.showForm}
               setShowForm={props.setShowForm}
+              chatNotification={props.chatNotification}
+              tabStyle={tabStyle}
             />
           )}
         </div>

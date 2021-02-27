@@ -23,6 +23,8 @@ const contextClass = {
 
 export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
+  const chatNotification = useRef(null);
+  const notificationDisplayed = useRef(false);
 
   // Use this in the Ad component to show either the ad or the edit form
   const [showForm, setShowForm] = useState(true);
@@ -39,8 +41,10 @@ export default function MyApp({ Component, pageProps, router }) {
           <Component
             {...pageProps}
             pathHistory={pathHistory}
+            chatNotification={chatNotification}
             showForm={showForm}
             setShowForm={setShowForm}
+            notificationDisplayed={notificationDisplayed}
           />
           <ToastContainer
             autoClose={3000}

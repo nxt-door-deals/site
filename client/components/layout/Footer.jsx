@@ -31,9 +31,6 @@ var currentYear = new Date().getFullYear();
 const variants = {
   hover: {
     scale: 1.04,
-    transition: {
-      duration: 0.5,
-    },
     cursor: "pointer",
   },
 };
@@ -50,17 +47,17 @@ const Footer = (props) => {
           <li className="pb-1 px-2">
             <Link href="/ourstory">
               <motion.a variants={variants} whileHover="hover">
-                <FontAwesomeIcon icon={faBook} className="mr-1 w-3" />
-                Our Story
+                <FontAwesomeIcon icon={faBook} className="mr-1" />{" "}
+                <span className="pb-1 styled-link">Our Story</span>
               </motion.a>
-            </Link>{" "}
+            </Link>
           </li>
 
           <li className="pb-1 px-2">
             <Link href="/policies/#privacy">
               <motion.a variants={variants} whileHover="hover">
-                <FontAwesomeIcon icon={faUserSecret} className="mr-1" /> Privacy
-                Policy
+                <FontAwesomeIcon icon={faUserSecret} className="mr-1" />
+                <span className="pb-1 styled-link">Privacy Policy</span>
               </motion.a>
             </Link>{" "}
           </li>
@@ -68,8 +65,8 @@ const Footer = (props) => {
           <li className="pb-1 px-2">
             <Link href="/policies/#cookie">
               <motion.a variants={variants} whileHover="hover">
-                <FontAwesomeIcon icon={faCookie} className="mr-1" /> Cookie
-                Policy
+                <FontAwesomeIcon icon={faCookie} className="mr-1" />{" "}
+                <span className="pb-1 styled-link">Cookie Policy</span>
               </motion.a>
             </Link>{" "}
           </li>
@@ -78,7 +75,7 @@ const Footer = (props) => {
             <Link href="/policies/#terms">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
-                Terms of Use
+                <span className="pb-1 styled-link">Terms of Use</span>
               </motion.a>
             </Link>{" "}
           </li>
@@ -87,7 +84,7 @@ const Footer = (props) => {
             <Link href="/faqs">
               <motion.a variants={variants} whileHover="hover">
                 <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
-                FAQs
+                <span className="pb-1 styled-link">FAQs</span>
               </motion.a>
             </Link>
           </li>
@@ -102,13 +99,13 @@ const Footer = (props) => {
             className="pl-2 pr-2"
           >
             <FontAwesomeIcon icon={faBinoculars} className="mr-1" />
-            Browse Ads
+            <span className="pb-1 styled-link">Browse Ads</span>
           </motion.a>
         </Link>{" "}
         <Link href="/postad">
           <motion.a variants={variants} whileHover="hover" className="pl-2">
             <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
-            Post Ad
+            <span className="pb-1 styled-link">Post Ad</span>
           </motion.a>
         </Link>{" "}
       </div>

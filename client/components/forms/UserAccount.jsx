@@ -3,6 +3,7 @@ import AuthContext from "../../context/auth/authContext";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import { Formik, Form, Field } from "formik";
 import { motion } from "framer-motion";
 import * as Yup from "yup";

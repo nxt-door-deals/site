@@ -6,12 +6,15 @@ import keys from "../../utils/keys";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
 const AdImageCarousel = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="font-axiforma">
-      <div className="carousel-container p-4 w-88 lg:w-128 cursor-pointer">
+    <div>
+      <div className="carousel-container p-4 w-88 lg:w-128 cursor-pointer relative z-0">
         {props.images.length !== 0 ? (
           <Carousel
             dynamicHeight
@@ -24,7 +27,7 @@ const AdImageCarousel = (props) => {
             onClickItem={() => setIsModalOpen(true)}
           >
             {props.images.map((image, index) => (
-              <div key={index} className="-z-20">
+              <div key={index}>
                 <img
                   src={image}
                   alt={`Ad image-${index}`}
@@ -42,7 +45,7 @@ const AdImageCarousel = (props) => {
             showThumbs={false}
             showIndicators={false}
           >
-            <div className="-z-20">
+            <div>
               <img
                 src={keys.DEFAULT_IMAGE}
                 alt="Default image"
@@ -60,9 +63,9 @@ const AdImageCarousel = (props) => {
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
         onRequestClose={() => setIsModalOpen(false)}
-        className="flex flex-col justify-center items-center w-screen h-screen bg-gray-500 bg-opacity-50"
+        className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
       >
-        <div className="carousel-container mt-10 mx-5 flex justify-center items-center">
+        <div className="carousel-container lg:mt-56 mx-5 flex justify-center items-center">
           <Carousel
             showStatus={false}
             selectedItem={0}
@@ -70,23 +73,30 @@ const AdImageCarousel = (props) => {
             axis="vertical"
           >
             {props.images.map((image, index) => (
-              <div key={index}>
+              <div className="relative" key={index}>
                 <Image
                   src={image}
                   alt={`Ad image-${index}`}
                   width={800}
                   height={600}
                 />
+                <div className="absolute top-2 lg:top-5 right-8 lg:right-10 text-2xl font-bold z-50">
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className="text-lg cursor-pointer text-brand-gray"
+                    onClick={() => setIsModalOpen(false)}
+                  />
+                </div>
               </div>
             ))}
           </Carousel>
         </div>
-        <button
-          className="bg-black p-2 rounded-xl text-white uppercase -mt-7 focus:outline-none"
+        {/* <button
+          className="absolute bg-black right-20 top-10 p-2 rounded-xl text-white uppercase focus:outline-none"
           onClick={() => setIsModalOpen(false)}
         >
           Close
-        </button>
+        </button> */}
       </Modal>
     </div>
   );

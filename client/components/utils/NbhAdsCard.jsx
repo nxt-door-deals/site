@@ -25,18 +25,25 @@ const buttonVariants = {
 const NbhAdsCard = (props) => {
   const [adLimit, setAdLimit] = useState(16);
   const siteContext = useContext(SiteContext);
-  const { adsDataNbh, fetchAdsForNbh } = siteContext;
+  const { adsDataNbh, fetchAdsForNbh, loading, setLoading } = siteContext;
 
   useEffect(() => {
+    setLoading();
     fetchAdsForNbh(props.nbhId);
   }, []);
 
   if (adsDataNbh.length === 0) {
     return (
       <div className="py-8 px-8 lg:px-0">
-        <p className="text-gray-600 text-xl text-center font-semibold">
-          Sorry! No results...
-        </p>
+        {loading ? (
+          <div className="text-center">
+            <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+          </div>
+        ) : (
+          <p className="text-gray-600 text-xl text-center font-semibold">
+            Sorry! No results...
+          </p>
+        )}
       </div>
     );
   } else
@@ -49,41 +56,48 @@ const NbhAdsCard = (props) => {
               key={adIndex}
               className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
             >
-              {ad.images.length > 0 && (
-                <div
-                  key={adIndex}
-                  className="carousel-container p-4 flex justify-center mr-0"
-                >
-                  <Carousel
-                    dynamicHeight
-                    infiniteLoop={true}
-                    showStatus={false}
-                    showThumbs={false}
-                  >
-                    {ad.images.map((image, imgIndex) => (
-                      <div key={imgIndex} className="-z-20">
-                        <Image
-                          src={image}
-                          alt={`Carousel image-${imgIndex}`}
-                          height={300}
-                          width={300}
-                        />
-                      </div>
-                    ))}
-                  </Carousel>
-                </div>
-              )}
-              {ad.images.length === 0 && (
-                <div className="p-4 flex justify-center mr-0">
-                  <Image
-                    src={keys.DEFAULT_IMAGE}
-                    alt={"Carousel default image"}
-                    height={300}
-                    width={300}
-                  />
-                </div>
-              )}
-
+              <Link href={`/ads/${ad.id}`}>
+                <a>
+                  {ad.images.length > 0 && (
+                    <div
+                      key={adIndex}
+                      className="carousel-container p-4 flex justify-center mr-0"
+                    >
+                      <Carousel
+                        dynamicHeight
+                        infiniteLoop={true}
+                        interval={3000}
+                        autoPlay
+                        transitionTime={150}
+                        showStatus={false}
+                        showThumbs={false}
+                        showIndicators={false}
+                      >
+                        {ad.images.map((image, imgIndex) => (
+                          <div key={imgIndex} className="-z-20">
+                            <Image
+                              src={image}
+                              alt={`Carousel image-${imgIndex}`}
+                              height={300}
+                              width={300}
+                            />
+                          </div>
+                        ))}
+                      </Carousel>
+                    </div>
+                  )}
+                  {ad.images.length === 0 && (
+                    <div className="p-4 flex justify-center mr-0">
+                      <Image
+                        src={keys.DEFAULT_IMAGE}
+                        alt={"Carousel default image"}
+                        height={300}
+                        width={300}
+                      />
+                    </div>
+                  )}
+                </a>
+              </Link>
               <div className="outline-none focus:outline-none">
                 <Link href={`/ads/${ad.id}`}>
                   <a>
