@@ -3,7 +3,7 @@ const sellerFaqs = [
     question:
       'Are there any best practices for selling on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
-      'Please read our <a class="font-semibold text-purple-500 underline focus-within:outline-none" href="https://nxtdoordeals.com/guidelines#seller">Seller Guidelines</a>.',
+      'Please read our <a class="font-semibold text-purple-500 underline focus-within:outline-none" href="/guidelines#seller">Seller Guidelines</a>.',
   },
   {
     question: "How many ads can I post at a time?",
@@ -32,12 +32,12 @@ const sellerFaqs = [
   {
     question: "Are any personal details displayed on my ad?",
     answer:
-      'Only your name is displayed. Your apartment/house number will be displayed only if you provide consent at the time of posting the ad. Please read our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/policies#privacy">Privacy Policy</a> for more details.',
+      'Only your name is displayed. Your apartment/house number will be displayed only if you provide consent at the time of posting the ad. Please read our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/policies#privacy">Privacy Policy</a> for more details.',
   },
   {
     question: "Where can I see the list of prohibited ad categories?",
     answer:
-      'Please see <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/guidelines#banned">prohibited ads</a> for more details.',
+      'Please see <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/guidelines#banned">prohibited ads</a> for more details.',
   },
   {
     question: "How do I share my ad with friends?",
@@ -92,12 +92,12 @@ const buyerFaqs = [
     question:
       'Are there any best practices for buying on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
-      'Please read our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/guidelines#buyer">Buyer Guidelines</a>.',
+      'Please read our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/guidelines#buyer">Buyer Guidelines</a>.',
   },
   {
     question: "How do I know whether a seller is legitimate?",
     answer:
-      'Unless sellers verify their email addresses, they will not be able to post ad\'s. Chatting with the seller (fellow resident), will help you further gauge legitimacy. Check our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/guidelines#buyer">buyer guidelines</a> for further information',
+      'Unless sellers verify their email addresses, they will not be able to post ad\'s. Chatting with the seller (fellow resident), will help you further gauge legitimacy. Check our <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/guidelines#buyer">buyer guidelines</a> for further information',
   },
   {
     question: "How do I chat with a seller?",
@@ -142,7 +142,7 @@ const genericFaqs = [
     question:
       'How do I register my apartment or gated community on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
-      'When you search for an apartment/gated community, you will immediately see a link to register it in case it is not found. Alternately, you may visit <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/neighbourhood">nxtdoordeals.com/neighbourhood</a> to get your apartment on the map!',
+      'When you search for an apartment/gated community, you will immediately see a link to register it in case it is not found. Alternately, you may visit <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/neighbourhood">nxtdoordeals.com/neighbourhood</a> to get your apartment on the map!',
   },
   {
     question: "How long does a neighbourhood registration take?",
@@ -193,7 +193,7 @@ const genericFaqs = [
   {
     question: "Where can I see the list of prohibited ad categories?",
     answer:
-      'Please see <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="https://nxtdoordeals.com/guidelines#banned">prohibited ads</a> for more details.',
+      'Please see <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/guidelines#banned">prohibited ads</a> for more details.',
   },
   {
     question: "My ad was posted under a wrong category. What can I do?",

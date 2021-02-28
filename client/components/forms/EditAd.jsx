@@ -134,10 +134,12 @@ const EditAd = (props) => {
                 files
               );
 
-              setTimeout(() => {
+              {
+                /* setTimeout(() => {
                 router.reload("/");
                 setSubmitting(false);
-              }, 7000);
+              }, 7000); */
+              }
             }}
           >
             {({

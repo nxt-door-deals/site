@@ -76,9 +76,12 @@ const NbhAdsCard = (props) => {
                         {ad.images.map((image, imgIndex) => (
                           <div key={imgIndex} className="-z-20">
                             <Image
+                              loader={`/images/loader/loager.gif/?w=${64}`}
                               src={image}
                               alt={`Carousel image-${imgIndex}`}
-                              height={300}
+                              layout="intrinsic"
+                              quality={100}
+                              height={250}
                               width={300}
                             />
                           </div>

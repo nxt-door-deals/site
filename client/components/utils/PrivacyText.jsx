@@ -39,13 +39,13 @@ const PrivacyText = () => {
         <h2 className="component-sub-heading">Erasure</h2>
         <p>
           We make it simple to permanently delete your account and all the ad
-          and chat related data associated with it. On your{" "}
-          <Link href="https://nxtdoordeals.com/account">
+          and chat related data associated with it. On{" "}
+          <Link href="/account">
             <a className="text-purple-500 underline">
               nxtdoordeals.com/account
             </a>
           </Link>
-          , you'll find a profile tab with an option to delete your account.
+          , you'll find a 'Profile' tab with an option to delete your account.
         </p>
       </div>
 

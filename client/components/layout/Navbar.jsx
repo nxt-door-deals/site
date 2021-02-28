@@ -83,7 +83,7 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 opacity-95 transition duration-500 ease-in-out " +
+              " fixed basic-nav z-30 opacity-95 transition duration-500 ease-in-out mt-10" +
               props.navStyle.navShadow
             : "fixed basic-nav bg-none z-30"
         }

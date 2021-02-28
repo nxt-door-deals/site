@@ -29,6 +29,9 @@ export default function MyApp({ Component, pageProps, router }) {
   // Use this in the Ad component to show either the ad or the edit form
   const [showForm, setShowForm] = useState(true);
 
+  // Show or hide banner
+  const [showBanner, setShowBanner] = useState(true);
+
   return (
     <motion.div
       key={router.route}
@@ -45,6 +48,8 @@ export default function MyApp({ Component, pageProps, router }) {
             showForm={showForm}
             setShowForm={setShowForm}
             notificationDisplayed={notificationDisplayed}
+            showBanner={showBanner}
+            setShowBanner={setShowBanner}
           />
           <ToastContainer
             autoClose={3000}

@@ -72,7 +72,15 @@ const UserChatList = (props) => {
                   userAds &&
                   userAds.map(
                     (ad) =>
-                      ad.chat_record_count > 0 && (
+                      ad.chat_record_count > 0 &&
+                      sellerChats &&
+                      // If all chats are marked for deletion, do not show the ad title
+                      sellerChats.filter((adId) => {
+                        return (
+                          adId.ad_id === ad.id &&
+                          adId.marked_for_deletion === false
+                        );
+                      }).length !== 0 && (
                         <div
                           key={ad.id}
                           className="px-10 py-5 rounded-2xl shadow-md text-center"
@@ -202,8 +210,8 @@ const UserChatList = (props) => {
             <div
               className={`grid grid-cols-1 ${
                 buyerChats && buyerChats.length === 1
-                  ? "lg:grid-cols-1"
-                  : "lg:grid-cols-2"
+                  ? "md:grid-cols-1 w-52"
+                  : "md:grid-cols-2"
               } gap-10`}
             >
               {!buyerChats ||

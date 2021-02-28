@@ -25,6 +25,7 @@ module.exports = {
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
           "0px 2px 4px 0px rgba(139, 92, 246, 0.12), 0px 2px 16px 0px rgba(139, 92, 246, 0.32)",
+        bannerShadow: "0px -6px 22px 8px rgba(33, 33, 33, 0.1)",
       },
       zIndex: {
         "-10": "-10",
@@ -42,6 +43,7 @@ module.exports = {
         98: "0.98",
       },
       colors: {
+        "banner-color": "#333333",
         "ghost-white": "#F8F8FF",
         "brand-purple": "#550052",
         "brand-gray": "#292d34",

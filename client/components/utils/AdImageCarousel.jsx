@@ -31,8 +31,8 @@ const AdImageCarousel = (props) => {
                 <img
                   src={image}
                   alt={`Ad image-${index}`}
-                  height={500}
-                  width={600}
+                  height={600}
+                  width={650}
                 />
               </div>
             ))}
@@ -49,8 +49,8 @@ const AdImageCarousel = (props) => {
               <img
                 src={keys.DEFAULT_IMAGE}
                 alt="Default image"
-                height={500}
-                width={600}
+                height={600}
+                width={650}
               />
             </div>
           </Carousel>
@@ -75,15 +75,18 @@ const AdImageCarousel = (props) => {
             {props.images.map((image, index) => (
               <div className="relative" key={index}>
                 <Image
+                  loader={`/images/loader/loager.gif/?w=${64}`}
                   src={image}
                   alt={`Ad image-${index}`}
-                  width={800}
+                  quality={100}
+                  layout="intrinsic"
+                  width={700}
                   height={600}
                 />
-                <div className="absolute top-2 lg:top-5 right-8 lg:right-10 text-2xl font-bold z-50">
+                <div className="absolute top-2 lg:top-5 right-8 lg:right-10 text-2xl font-bold z-50 ">
                   <FontAwesomeIcon
                     icon={faTimes}
-                    className="text-lg cursor-pointer text-brand-gray"
+                    className="text-3xl cursor-pointer text-white bg-red-500 p-1 h-5 w-5 rounded-md"
                     onClick={() => setIsModalOpen(false)}
                   />
                 </div>
