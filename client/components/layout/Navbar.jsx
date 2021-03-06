@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,8 +21,6 @@ import {
 
 // Component imports
 import Contact from "../forms/Contact";
-
-const cookie = new Cookies();
 
 const variants = {
   hover: {
@@ -450,11 +448,6 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
                   <a className="styled-link">Home</a>
-                </Link>
-              </li>
-              <li className="nav-item lg:mr-6 hover:scale-110">
-                <Link href="/postad">
-                  <a className="styled-link">Post Ad</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -915,16 +908,6 @@ const Navbar = (props) => {
                 >
                   <Link href="/">
                     <a className="styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/postad">
-                    <a className="styled-link">Post Ad</a>
                   </Link>
                 </li>
                 <li

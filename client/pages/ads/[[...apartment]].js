@@ -33,27 +33,30 @@ const variants = {
 
 const Ads = (props) => {
   const siteContext = useContext(SiteContext);
-  const {
-    apartmentData,
-    getNeighbourhoodFromId,
-    fetchAdsForNbh,
-    adsDataNbh,
-  } = siteContext;
+  const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
 
   const router = useRouter();
   const pathname = router.pathname;
 
   const apartmentName = props.data[0];
-  const apartmentId = props.data[1];
+  const apartmentId = parseInt(props.data[1]);
 
   const numOfAds = props.adsList.length;
 
   useEffect(() => {
-    // Reset the global showForm prop so that the edit ad page is not displayed
-    props.setShowForm(true);
+    let mounted = true;
 
-    getNeighbourhoodFromId(apartmentId);
-    fetchAdsForNbh(apartmentId);
+    if (mounted) {
+      // Reset the global showForm prop so that the edit ad page is not displayed
+      props.setShowForm(true);
+
+      getNeighbourhoodFromId(apartmentId);
+      fetchAdsForNbh(apartmentId);
+    }
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -125,9 +128,24 @@ const Ads = (props) => {
 
 export const getServerSideProps = async (context) => {
   const { apartment } = context.query;
+
+  const apartmentId = parseInt(apartment[1]);
+
+  if (!Number.isInteger(apartmentId)) {
+    return {
+      notFound: true,
+    };
+  }
+
   const res = await axios.get(
-    `${process.env.API_URL}/nbhads/get/${apartment[1]}`
+    `${process.env.API_URL}/nbhads/get/${apartmentId}`
   );
+
+  if (!res.data) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

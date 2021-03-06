@@ -23,7 +23,7 @@ const sellerFaqs = [
   {
     question: "How do I edit/delete my ad?",
     answer:
-      "Edit and delete options are available when viewing the full ad or on you account page under the 'Ads' tab.",
+      "Edit and delete options are available when viewing the full ad or on your account page under the 'Ads' tab.",
   },
   {
     question: "Where can I see all my ads?",
@@ -40,7 +40,7 @@ const sellerFaqs = [
       'Please see <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/guidelines#banned">prohibited ads</a> for more details.',
   },
   {
-    question: "How do I share my ad with friends?",
+    question: "Can I share my ad with friends?",
     answer:
       'Yes. The url of the full ad is public and can be shared. Typically it will look something like <span class="text-purple-500 font-semibold underline">nxtdoordeals.com/ads/(numeric_id)</span>',
   },
@@ -69,7 +69,7 @@ const sellerFaqs = [
   {
     question: "Can I be contacted by buyers from other neighbourhoods?",
     answer:
-      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we strongly recommend that you keep you transactions limited to your neighbourhood or ones in the immediate vicinity.",
+      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we strongly recommend that you keep your transactions limited to your neighbourhood or ones in the immediate vicinity.",
   },
   {
     question: "What happens if my ad is reported?",

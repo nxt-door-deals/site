@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
-import Cookies from "universal-cookie";
+import cookie from "../utils/cookieInit";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
@@ -10,8 +10,6 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import UserAccountHeadLayout from "../components/layout/UserAccountHeadLayout";
 import Tab from "../components/utils/Tab";
-
-var cookie = new Cookies();
 
 const Account = (props) => {
   const router = useRouter();

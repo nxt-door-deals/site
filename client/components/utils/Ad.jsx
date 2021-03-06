@@ -65,10 +65,16 @@ const Ad = (props) => {
   }
 
   useEffect(() => {
-    setLoading();
+    let mounted = true;
     window.scrollTo(0, 0);
-    getNeighbourhoodFromId(props.data.apartment_id);
-    getReportedAdUsers(props.data.id);
+
+    if (true) {
+      setLoading();
+      getNeighbourhoodFromId(props.data.apartment_id);
+      getReportedAdUsers(props.data.id);
+    }
+
+    return () => (mounted = false);
   }, []);
 
   if (loading) {

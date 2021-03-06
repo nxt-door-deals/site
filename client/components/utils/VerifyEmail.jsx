@@ -10,6 +10,16 @@ import keys from "../../utils/keys";
 
 import { greeting } from "../../utils/greeting";
 
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#1E40AF",
+  },
+  tap: {
+    backgroundColor: "#3B82F6",
+    y: "2px",
+  },
+};
+
 const VerifyEmail = ({ user }) => {
   const router = useRouter();
   const authContext = useContext(AuthContext);
@@ -32,8 +42,16 @@ const VerifyEmail = ({ user }) => {
       position: "top-center",
     });
 
+  // User logged in message toast
+  const userLoggedInToast = () =>
+    toast(`${greeting}, ${name}! You are logged in as ${email}`, {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+
   useEffect(() => {
     sendEmail(name, email, verificationUrl);
+    userLoggedInToast();
   }, []);
 
   return (
@@ -51,7 +69,7 @@ const VerifyEmail = ({ user }) => {
       </div>
 
       <p className="text-base">
-        Hello, <span className="font-semibold text-blue-600">{name}</span>.
+        {greeting}, <span className="font-semibold text-blue-600">{name}</span>.
         Thank you for signing up! You are now logged in as{" "}
         <span className="font-semibold text-blue-600">{email}</span>.
       </p>
@@ -65,11 +83,9 @@ const VerifyEmail = ({ user }) => {
 
       <p className="text-xs mb-2">Want to verify later?</p>
       <motion.button
-        whileTap={{
-          backgroundColor: "#4C51BF",
-          y: "2px",
-          boxShadow: "0px 8px 15px rgba(144, 181, 218, 0.15)",
-        }}
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
         className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500
         uppercase mb-4 focus:outline-none"
         onClick={() => {

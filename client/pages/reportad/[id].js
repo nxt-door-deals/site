@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -11,8 +11,6 @@ import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 
 import ReportAds from "../../components/forms/ReportAds";
-
-var cookie = new Cookies();
 
 const ReportAd = (props) => {
   const router = useRouter();

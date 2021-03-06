@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHourglassHalf,
   faHourglassEnd,
 } from "@fortawesome/free-solid-svg-icons";
-
-// Component imports
-import Progress from "./Progress";
-
-// props passed down from the otp form
-
-var cookie = new Cookies();
 
 const Timer = (props) => {
   var endTs = cookie.get("__resetCookie")._endTs;

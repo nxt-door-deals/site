@@ -1,15 +1,12 @@
 import { useRouter } from "next/router";
-import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
-
 import { navStylePurple } from "../utils/styles";
+import cookie from "../utils/cookieInit";
 
 // Component import
 import Navbar from "../components/layout/Navbar";
 import UserLogin from "../components/forms/UserLogin";
 import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
-
-var cookie = new Cookies();
 
 const Login = (props) => {
   const router = useRouter();
@@ -21,10 +18,6 @@ const Login = (props) => {
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
-
-  if (cookie.get("nddToken")) {
-    router.push("/alreadyloggedin", "/login");
-  }
 
   // Postad toast
   const postadToast = () =>
@@ -70,14 +63,12 @@ const Login = (props) => {
     setTimeout(() => reportedAdToast(), 500);
   }
 
+  if (cookie.get("nddToken")) router.push("/alreadyloggedin", "/");
+
   return (
     <UserLoginHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20">
-        <div>
-          <UserLogin pathProp={pathProp} />
-        </div>
-      </div>
+      {!cookie.get("nddToken") && <UserLogin pathProp={pathProp} />}
     </UserLoginHeadLayout>
   );
 };

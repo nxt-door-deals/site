@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import Select from "react-select";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import { selectStylePurple } from "../../utils/styles";
 
 import { reportAdReasons } from "../../utils/categories";
@@ -20,8 +20,6 @@ import {
 
 // Component Imports
 import BouncingBalls from "../loaders/BouncingBalls";
-
-var cookie = new Cookies();
 
 const validationschema = Yup.object({
   reason: Yup.string().required("Please select a reason for your complaint"),

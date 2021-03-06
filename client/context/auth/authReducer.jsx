@@ -1,4 +1,4 @@
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 
 import {
   REGISTER_SUCCESS,
@@ -40,8 +40,6 @@ import {
   USER_SUBSCRIPTION_UPDATE_SUCCESS,
   USER_SUBSCRIPTION_UPDATE_FAILURE,
 } from "../Types";
-
-const cookie = new Cookies();
 
 const authReducer = (state, action) => {
   switch (action.type) {

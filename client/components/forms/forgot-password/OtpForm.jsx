@@ -6,7 +6,7 @@ import AuthContext from "../../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
-import Cookies from "universal-cookie";
+import cookie from "../../../utils/cookieInit";
 import { toast } from "react-toastify";
 
 // Component Import
@@ -17,8 +17,6 @@ import BouncingBalls from "../../loaders/BouncingBalls";
 
 // Dynamic import allows the cookie to be created before the component is loaded
 const Timer = dynamic(() => import("../../utils/Timer"));
-
-var cookie = new Cookies();
 
 const otpValidationSchema = Yup.object({
   otp1: Yup.string().required(),

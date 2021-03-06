@@ -9,6 +9,7 @@ import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Ad from "../../components/utils/Ad";
 import Footer from "../../components/layout/Footer";
+import { isInteger } from "formik";
 
 const FullPageAd = (props) => {
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
@@ -51,13 +52,22 @@ const FullPageAd = (props) => {
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
 
-  const res = await axios.get(`${process.env.API_URL}/ads/${id}`);
+  const adId = parseInt(id);
+
+  if (!Number.isInteger(adId)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const res = await axios.get(`${process.env.API_URL}/ads/${adId}`);
 
   if (!res.data) {
     return {
       notFound: true,
     };
   }
+
   return {
     props: {
       data: res.data,

@@ -7,9 +7,7 @@ import {
   faCheck,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import Cookies from "universal-cookie";
-
-var cookie = new Cookies();
+import cookie from "../../utils/cookieInit";
 
 const variants = {
   chatButtonHover: {
@@ -24,9 +22,15 @@ const FullPageAdDetails = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (cookie.get("__redirChatCookie")) {
-      cookie.remove("__redirChatCookie");
+    let mounted = true;
+
+    if (mounted) {
+      if (cookie.get("__redirChatCookie")) {
+        cookie.remove("__redirChatCookie");
+      }
     }
+
+    return () => (mounted = false);
   }, []);
 
   if (props.adData.available_from !== "immediately") {

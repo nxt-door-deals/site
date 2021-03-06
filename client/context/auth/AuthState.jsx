@@ -3,7 +3,7 @@ import authReducer from "./authReducer";
 import AuthContext from "./authContext";
 import { setAuthToken, setApiKey } from "../../utils/setToken";
 import axios from "axios";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
 
 import {
@@ -49,8 +49,6 @@ import {
 
 var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
 var projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
-
-const cookie = new Cookies();
 
 // Will be used in the copyright section in the email footer
 var currentYear = new Date().getFullYear();

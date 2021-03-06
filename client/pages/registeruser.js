@@ -1,14 +1,11 @@
 import { useRouter } from "next/router";
-
-import Cookies from "universal-cookie";
 import { navStyleBlue } from "../utils/styles";
+import cookie from "../utils/cookieInit";
 
 // Component import
 import UserRegistrationHeadLayout from "../components/layout/UserRegistrationHeadLayout";
 import UserRegistration from "../components/forms/UserRegistration";
 import Navbar from "../components/layout/Navbar";
-
-var cookie = new Cookies();
 
 const RegisterUser = () => {
   const router = useRouter();
@@ -20,17 +17,13 @@ const RegisterUser = () => {
   navStyleBlue["pathname"] = pathname;
 
   if (cookie.get("nddToken")) {
-    router.push("/alreadyloggedin", "/registeruser");
+    router.push("/alreadyloggedin", "/");
   }
 
   return (
     <UserRegistrationHeadLayout>
       <Navbar navStyle={navStyleBlue} />
-      <div className="flex justify-center items-center h-full bg-user-registration-background bg-cover -z-20 pt-32">
-        <div className="ml-8 mr-8 mb-16">
-          <UserRegistration />
-        </div>
-      </div>
+      {!cookie.get("nddToken") && <UserRegistration />}
     </UserRegistrationHeadLayout>
   );
 };

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -14,8 +14,6 @@ import ActiveChat from "../../components/utils/ActiveChat";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import LetsVerifyYourEmail from "../../components/utils/LetsVerifyYourEmail";
-
-var cookie = new Cookies();
 
 const Chat = (props) => {
   const router = useRouter();

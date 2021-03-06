@@ -1,11 +1,9 @@
 import { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import Cookies from "universal-cookie";
+import cookie from "../../utils/cookieInit";
 import AuthContext from "../../context/auth/authContext";
 import { toast } from "react-toastify";
-
-const cookie = new Cookies();
 
 const PageNotFound = () => {
   const router = useRouter();
@@ -15,13 +13,6 @@ const PageNotFound = () => {
   useEffect(() => {
     loadUser();
   }, []);
-
-  // Logout toast
-  const logoutToast = () =>
-    toast("You are being logged out. Have a nice day 😊", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
 
   return (
     <div>
@@ -428,7 +419,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 user !== null &&
                   router.push(
@@ -442,7 +433,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => router.push("/logout")}
             >
               Logout
@@ -465,7 +456,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="btn-style bg-brand-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 router.push("/registeruser");
               }}
@@ -476,7 +467,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="btn-style bg-gray-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 router.push("/login");
               }}

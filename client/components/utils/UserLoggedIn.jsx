@@ -7,11 +7,10 @@ const variants = {
   hidden: { opacity: 0 },
   btn1Visible: { opacity: 1, transition: { delay: 0.5, duration: 0.3 } },
   btn2Visible: { opacity: 1, transition: { delay: 1, duration: 0.3 } },
-  tap: {
-    backgroundColor: "#D6BCFA",
-    color: "#550052",
-    y: "2px",
-  },
+  homeButtonHover: { backgroundColor: "#5B21B6" },
+  homeButtonTap: { backgroundColor: "#8B5CF6", y: "2px" },
+  loginStatusButtonHover: { backgroundColor: "#550052" },
+  loginStatusButtonTap: { backgroundColor: "#902393", y: "2px" },
 };
 
 const UserLoggedIn = () => {
@@ -39,7 +38,8 @@ const UserLoggedIn = () => {
           variants={variants}
           initial="hidden"
           animate="btn1Visible"
-          whileTap="tap"
+          whileHover="homeButtonHover"
+          whileTap="homeButtonTap"
           className="w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
           onClick={() => router.push("/")}
           aria-label="Home button"
@@ -51,8 +51,9 @@ const UserLoggedIn = () => {
             variants={variants}
             initial="hidden"
             animate="btn2Visible"
-            whileTap="tap"
-            className="w-48 h-12 rounded-lg bg-pink-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
+            whileHover="loginStatusButtonHover"
+            whileTap="loginStatusButtonTap"
+            className="w-48 h-12 rounded-lg bg-ad-purple text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
             onClick={() => router.push("/logout")}
             aria-label="Logout button"
           >

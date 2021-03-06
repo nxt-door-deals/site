@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import AuthContext from "../context/auth/authContext";
-import Cookies from "universal-cookie";
+import cookie from "../utils/cookieInit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
 import GoodbyeHeadLayout from "../components/layout/GoodbyeHeadLayout";
-
-var cookie = new Cookies();
 
 const Goodbye = () => {
   const authContext = useContext(AuthContext);
@@ -40,6 +40,14 @@ const Goodbye = () => {
             .
           </p>
           <p className="pt-4">Thanks again for sharing this journey with us!</p>
+          <p className="pt-4">
+            We{" "}
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="text-red-700 align-middle"
+            />{" "}
+            you and miss you already 😢.
+          </p>
         </div>
       </div>
     </GoodbyeHeadLayout>

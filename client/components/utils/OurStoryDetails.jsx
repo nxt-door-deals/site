@@ -137,12 +137,12 @@ const OurStoryDetails = () => {
           siblings and cousins. Assuming we kept them in one-piece, the next
           generation inherited them from us. Today, most of us work in big
           cities, far away from our families. With the larger volume of the
-          urban population living in apartments and apartment complexes, we are
-          lucky to have a community of people who whether we’d like to believe
-          it or not, is an extended family of sorts. There are always things
-          lying around in every home which end up in storage or sometimes end up
-          getting tossed out the door. We believe that more people would be
-          willing to sell or giveaway such items if they could do so with ease.
+          urban population living in apartment complexes, we are lucky to have a
+          community of people who, whether we’d like to believe it or not, is an
+          extended family of sorts. There are always things lying around in
+          every home which end up in storage or sometimes end up getting tossed
+          out the door. We believe that more people would be willing to sell or
+          giveaway such items if they could do so with ease.
         </p>
       </div>
 
@@ -157,8 +157,11 @@ const OurStoryDetails = () => {
             that we drew up, revolved around creating a platform to easily
             connect parents within an apartment complex. We were sure that most
             parents, irrespective of the age of their kids, faced similar
-            challenges. As our conversations progressed, we felt that a devoted
-            online marketplace for an apartment complex would be great for
+            challenges.
+          </p>
+          <p className="pt-5">
+            As our conversations progressed, we felt that an online marketplace
+            specially built for an apartment complex would be great for
             pre-loved goodies of all kinds. Someone's pre-loved would then
             become someone else’s treasure rather than ending up in an already
             overcrowded landfill somewhere. Thus{" "}

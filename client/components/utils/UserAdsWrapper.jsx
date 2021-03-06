@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-regular-svg-icons";
@@ -7,18 +8,20 @@ import { faHandPointRight } from "@fortawesome/free-regular-svg-icons";
 // Component Imports
 import UserAds from "./UserAds";
 
-const variants = {
-  bounce: {
-    x: [0, 5],
-    transition: {
-      delay: 1,
-      duration: 0.5,
-      yoyo: Infinity,
-    },
+const buttonVariants = {
+  hover: {
+    backgroundColor: "#550052",
+    color: "#EDE9FE",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#902393",
+    color: "#EDE9FE",
   },
 };
 
 const UserAdsWrapper = (props) => {
+  const router = useRouter();
   const [expanded, setExpanded] = useState(0);
 
   const userAdIndices = [...Array(props.ads.length).keys()];
@@ -30,23 +33,23 @@ const UserAdsWrapper = (props) => {
           Hmm... No ads? Remember, you have seven free ads across all
           categories. Start posting today!
         </p>
+        <div className="text-center">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            onClick={() => router.push("/postad")}
+            className="uppercase text-purple-100 font-semibold bg-ad-purple rounded-full shadow-xl focus:outline-none mt-10 px-10 py-3 text-lg"
+          >
+            Post Ad
+          </motion.button>
+        </div>
       </div>
     );
   } else {
     return (
       <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
         <h1 className="component-heading mt-10 pb-6">My Ads</h1>
-        {/* <div className="flex justify-center pb-6 text-brand-purple">
-          <motion.div variants={variants} animate="bounce">
-            <FontAwesomeIcon
-              icon={faHandPointRight}
-              className="text-xl mr-2 lg:mr-3 -z-20"
-            />
-          </motion.div>
-          <p className="inline text-xs md:text-sm">
-            You can manage all your ads here
-          </p>
-        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {userAdIndices.map((i) => (
             <UserAds

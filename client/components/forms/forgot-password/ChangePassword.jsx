@@ -11,7 +11,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
-import Cookies from "universal-cookie";
+import cookie from "../../../utils/cookieInit";
 
 // Component imports
 import PasswordChangeSuccess from "./PasswordChangeSuccess";
@@ -36,8 +36,6 @@ const passwordValidationSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .trim(),
 });
-
-var cookie = new Cookies();
 
 const ChangePassword = (props) => {
   const [displayPassword, setDisplayPassword] = useState(false);

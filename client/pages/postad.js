@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
-import Cookies from "universal-cookie";
+import cookie from "../utils/cookieInit";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
@@ -11,8 +11,6 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import Categories from "../components/utils/Categories";
 import LetsVerifyYourEmail from "../components/utils/LetsVerifyYourEmail";
-
-var cookie = new Cookies();
 
 const PostAd = (props) => {
   const router = useRouter();
