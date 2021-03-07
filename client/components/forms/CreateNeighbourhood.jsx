@@ -91,6 +91,7 @@ const CreateNeighbourhood = (props) => {
 
       const verificationUrl = `${keys.SERVER}/verifyneighbourhood/${neighbourhoodVerificationHash}`;
 
+      // Send email to contact@nxtdoordeals.com
       sendNbhRegistrationVerificationRequestEmail(
         submittedNeighbourhood.name,
         submittedNeighbourhood.address1,

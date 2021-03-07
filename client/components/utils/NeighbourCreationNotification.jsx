@@ -16,10 +16,10 @@ const NeighbourCreationNotification = (props) => {
           <p className="mb-4">
             Welcome to{" "}
             <span className="text-brand-purple font-semibold">
-              nxt-doordeals
+              nxtdoordeals.com
             </span>
             ! Thank you for choosing to register your neigbourhood with us. You
-            will receive an e-mail notification on{" "}
+            will receive an email notification on{" "}
             <span className="text-blue-600 font-semibold">{props.email}</span>{" "}
             once your neighbourhood has been verified.
           </p>

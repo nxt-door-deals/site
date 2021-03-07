@@ -116,6 +116,7 @@ const SiteState = (props) => {
         type: CREATE_APARTMENT_ERROR,
         payload: err.response.data.detail,
       });
+      console.error(err);
     }
   };
 
