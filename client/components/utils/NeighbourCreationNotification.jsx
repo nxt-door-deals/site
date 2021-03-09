@@ -2,7 +2,7 @@ import React from "react";
 
 const NeighbourCreationNotification = (props) => {
   return (
-    <div className="h-full font-axiforma pt-16">
+    <div className="h-full font-axiforma pt-32">
       <div className="flex flex-col items-center px-8 lg:px-16 mb-16">
         <div className="mb-10">
           <img

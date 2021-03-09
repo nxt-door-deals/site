@@ -26,11 +26,10 @@ const VerifyEmail = ({ user }) => {
 
   const { sendEmail, updateEmailVerificationTimestamp } = authContext;
 
-  var name = user.name !== null ? user.name : "friend";
-  var email = user.email !== null ? user.email : "registered email";
-  var id = user.id !== null && user.id;
-  var email_hash =
-    user.email_verification_hash !== null && user.email_verification_hash;
+  var name = user && user ? user.name : "friend";
+  var email = user && user ? user.email : "registered email";
+  var id = user && user && user.id;
+  var email_hash = user && user && user.email_verification_hash;
 
   const fullVerificationString = email_hash + "|" + id;
   const verificationUrl = `${keys.SERVER}/verifyemail/${fullVerificationString}`;
@@ -44,7 +43,7 @@ const VerifyEmail = ({ user }) => {
 
   // User logged in message toast
   const userLoggedInToast = () =>
-    toast(`${greeting}, ${name}! You are logged in as ${email}`, {
+    toast(`${greeting}, ${name}!`, {
       draggablePercent: 60,
       position: "top-center",
     });

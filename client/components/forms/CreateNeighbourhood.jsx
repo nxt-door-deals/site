@@ -115,9 +115,9 @@ const CreateNeighbourhood = (props) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="font-axiforma"
+          className="pt-32 bg-purple-50 pb-20"
         >
-          <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mt-10 mb-20 mx-4 overflow-x-hidden lg:mx-20">
+          <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-10">
               Register Your Neighbourhood
             </h1>

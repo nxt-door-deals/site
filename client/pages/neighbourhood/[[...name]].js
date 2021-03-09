@@ -23,11 +23,10 @@ const Neighbourhood = (props) => {
 
   return (
     <CreateNeighbourhoodHeadLayout>
-      <div className="w-full font-axiforma">
-        <Navbar navStyle={navStyleBlue} />
-        <div className="h-80 lg:h-96 bg-cover bg-create-neighbourhood-background-mobile md:bg-create-neighbourhood-background-tablet lg:bg-create-neighbourhood-background"></div>
-        <CreateNeighbourhood aptNameFromUrl={props.value[0]} />
-      </div>
+      <Navbar navStyle={navStyleBlue} />
+
+      <CreateNeighbourhood aptNameFromUrl={props.value[0]} />
+
       <div>
         <Footer footerGradientClass={footerGradientClassBlue} />
       </div>

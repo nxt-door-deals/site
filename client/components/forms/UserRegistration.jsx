@@ -122,9 +122,12 @@ const UserRegistration = () => {
   useEffect(() => {
     if (isAuthenticated) {
       loadUser();
-      setShowForm(false);
     }
   }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (user) setShowForm(false);
+  }, [user]);
 
   const searchApartment = (e) => {
     setHideResults(null);
@@ -558,7 +561,7 @@ const UserRegistration = () => {
               animate="animate"
               className="rounded-3xl shadow-boxshadowregister bg-white p-12"
             >
-              <VerifyEmail user={user} />
+              <VerifyEmail user={user && user} />
             </motion.div>
           )}
         </div>

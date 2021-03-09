@@ -67,7 +67,7 @@ const Contact = (props) => {
           animate="animate"
           transition="transition"
           exit="exit"
-          className="h-128 w-88 lg:w-100 bg-white border-brand-purple border-dashed border-2 px-5 pt-5"
+          className="w-90 lg:w-100 bg-white border-brand-purple border-dashed border-2 px-5 pt-5"
         >
           <div
             className="absolute text-lg right-0 mr-4 text-brand-gray cursor-pointer"
@@ -157,7 +157,7 @@ const Contact = (props) => {
                       placeholder="Message*"
                       maxLength="1000"
                       autoComplete="off"
-                      className="text-sm leading-6 outline-none rounded-xl w-11/12 p-2 placeholder-gray-600"
+                      className="text-sm leading-6 outline-none rounded-xl w-10/12 lg:w-11/12 p-2 placeholder-gray-600"
                     />
                   </div>
 
@@ -169,7 +169,7 @@ const Contact = (props) => {
                     </div>
                   ) : null}
 
-                  <div className="text-center">
+                  <div className="text-center pb-20">
                     <motion.button
                       variants={buttonVariants}
                       type="submit"
