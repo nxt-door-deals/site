@@ -399,7 +399,7 @@ const SiteState = (props) => {
 
     try {
       await axios.post(
-        `${keys.API_PROXY}/email/send/nbhregistration`,
+        `${keys.API_PROXY}/email/send/nbhregistration_user`,
         jsonPayload,
         {
           headers: {
@@ -479,6 +479,7 @@ const SiteState = (props) => {
     const jsonPayload = {
       from_email: fromEmail,
       to_email: email,
+      email: email,
       apartment_name: apartmentName,
       year: currentYear,
       template_name: "NB_REGISTRATION_SUCCESS_NOTIFICATION_TEMPLATE",
@@ -486,13 +487,8 @@ const SiteState = (props) => {
 
     try {
       await axios.post(
-        `${keys.API_PROXY}/email/send/nbhregistration`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        `${keys.API_PROXY}/email/send/nbhregistration_user`,
+        jsonPayload
       );
       dispatch({ type: EMAIL_SEND_SUCCESS });
     } catch (err) {

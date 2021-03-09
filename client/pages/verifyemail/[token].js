@@ -1,12 +1,29 @@
-import { Fragment } from "react";
 import { useContext, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import AuthContext from "../../context/auth/authContext";
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
+
+// Component imports
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
+import VerifyEmailHeadLayout from "../../components/layout/VerifyEmailHeadLayout";
+
+const variants = {
+  hover: {
+    backgroundColor: "#5B21B6",
+  },
+  tap: {
+    backgroundColor: "#7C3AED",
+    y: "2px",
+  },
+};
 
 const VerifyEmail = () => {
   const router = useRouter();
   const { token } = router.query;
+  const pathname = router.pathname;
   const authContext = useContext(AuthContext);
   const { verifyEmail, emailVerified, verificationStatus } = authContext;
 
@@ -16,38 +33,43 @@ const VerifyEmail = () => {
     }
   }, [token]);
 
+  navStylePurple["navTextColor"] = "text-brand-purple";
+  navStylePurple["pathname"] = pathname;
+
   return (
-    <Fragment>
-      <div className="flex justify-center items-center rounded-md shadow-boxshadowemail border-blue-600 border-b-8 m-12 lg:ml-64 lg:mr-64 mt-28 pt-16 pb-16 z-50">
+    <VerifyEmailHeadLayout>
+      <Navbar navStyle={navStylePurple} />
+      <div className="flex justify-center items-center rounded-xl bg-white pt-32 px-5 pb-20 z-50 text-brand-gray">
         <div className="flex flex-col items-center m-5">
           {emailVerified !== null && emailVerified ? (
-            <img
-              src="/images/email/check.gif"
-              height="150px"
-              width="150px"
-              alt="email verified"
+            <Image
+              src={"/images/email/check.gif"}
+              height={150}
+              width={150}
+              alt={"email verified"}
             />
           ) : (
             emailVerified !== null &&
             !emailVerified && (
-              <img
-                src="/images/email/error.gif"
-                height="150px"
-                width="150px"
-                alt="email unverified"
+              <Image
+                src={"/images/email/error.gif"}
+                height={150}
+                width={150}
+                alt={"email not verified"}
               />
             )
           )}
-          <p className="font-axiforma text-gray-600 mt-10 text-center">
-            {verificationStatus !== null && verificationStatus}
-          </p>
-          <motion.button
-            whileTap={{
-              backgroundColor: "#7F9CF5",
-              y: "5px",
-              boxShadow: "0px 8px 15px rgba(151, 201, 251, 0.2)",
+          <p
+            className="mt-10 text-center"
+            dangerouslySetInnerHTML={{
+              __html: verificationStatus && verificationStatus,
             }}
-            className="mt-10 w-64 md:w-100 h-12 bg-blue-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none"
+          ></p>
+          <motion.button
+            variants={variants}
+            whileHover="hover"
+            whileTap="tap"
+            className="mt-10 w-64 md:w-100 h-12 bg-purple-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
             onClick={() => {
               router.push("/");
             }}
@@ -57,7 +79,8 @@ const VerifyEmail = () => {
           </motion.button>
         </div>
       </div>
-    </Fragment>
+      <Footer footerGradientClass={footerGradientClassPurple} />
+    </VerifyEmailHeadLayout>
   );
 };
 

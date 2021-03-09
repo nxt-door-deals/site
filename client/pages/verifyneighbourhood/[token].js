@@ -1,7 +1,11 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import Image from "next/image";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+
+// Component Import
+import VerifyNeighbourhoodHeadLayout from "../../components/layout/VerifyNeighbourhoodHeadLayout";
 
 const variants = {
   hover: {
@@ -29,7 +33,7 @@ const VerifyNeighbourhood = (props) => {
   }, []);
 
   useEffect(() => {
-    if (neighbourhoodVerified) {
+    if (neighbourhoodVerified && verifiedNeighbourhoodDetails) {
       sendNbhRegistrationSuccessEmailToUser(
         verifiedNeighbourhoodDetails.name,
         verifiedNeighbourhoodDetails.email
@@ -38,29 +42,29 @@ const VerifyNeighbourhood = (props) => {
   }, [neighbourhoodVerified]);
 
   return (
-    <Fragment>
-      <div className="flex justify-center items-center rounded-md shadow-boxshadowemail border-purple-600 border-b-8 m-12 lg:ml-64 lg:mr-64 mt-28 pt-16 pb-16 z-50">
+    <VerifyNeighbourhoodHeadLayout>
+      <div className="flex justify-center items-center rounded-xl bg-white pt-32 px-10 z-50 text-brand-gray">
         <div className="flex flex-col items-center m-5">
           {neighbourhoodVerified !== null && neighbourhoodVerified ? (
-            <img
-              src="/images/email/check.gif"
-              height="150px"
-              width="150px"
-              alt="neighbourhood verified"
+            <Image
+              src={"/images/email/check.gif"}
+              height={150}
+              width={150}
+              alt={"Neighbourhood Verified"}
             />
           ) : (
             neighbourhoodVerified !== null &&
             !neighbourhoodVerified && (
-              <img
-                src="/images/email/error.gif"
-                height="150px"
-                width="150px"
-                alt="neighbourhood unverified"
+              <Image
+                src={"/images/email/error.gif"}
+                height={150}
+                width={150}
+                alt={"neighbourhood unverified"}
               />
             )
           )}
           {neighbourhoodVerified !== null && neighbourhoodVerified ? (
-            <p className="font-axiforma text-gray-600 mt-10 text-center">
+            <p className="font-axiforma mt-10 text-center">
               <span className="font-semibold text-purple-600">
                 {verifiedNeighbourhoodDetails !== null &&
                   verifiedNeighbourhoodDetails.name}
@@ -75,7 +79,7 @@ const VerifyNeighbourhood = (props) => {
               , who submitted the request, has been notified
             </p>
           ) : (
-            <p className="font-axiforma text-gray-600 mt-10 text-center">
+            <p className="font-axiforma mt-10 text-center">
               There is a problem with the verification link
             </p>
           )}
@@ -83,7 +87,7 @@ const VerifyNeighbourhood = (props) => {
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="mt-10 w-64 md:w-100 h-12 bg-purple-600 text-white font-axiforma font-bold rounded-md uppercase tracking-wide focus:outline-none"
+            className="mt-10 w-64 md:w-100 h-12 bg-purple-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
             onClick={() => {
               router.push("/");
             }}
@@ -93,7 +97,7 @@ const VerifyNeighbourhood = (props) => {
           </motion.button>
         </div>
       </div>
-    </Fragment>
+    </VerifyNeighbourhoodHeadLayout>
   );
 };
 

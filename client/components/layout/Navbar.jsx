@@ -176,12 +176,9 @@ const Navbar = (props) => {
                     <a className="styled-link">Login</a>
                   </Link>
                 ) : (
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 )}
               </li>
               <li className="nav-item lg:mr-3 hover:scale-110">
@@ -222,12 +219,9 @@ const Navbar = (props) => {
                     <a className="styled-link">Login</a>
                   </Link>
                 ) : (
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 )}
               </li>
               <li className="nav-item lg:mr-3 hover:scale-110">
@@ -295,12 +289,9 @@ const Navbar = (props) => {
                     <a className="styled-link">Login</a>
                   </Link>
                 ) : (
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 )}
               </li>
             </ul>
@@ -331,7 +322,8 @@ const Navbar = (props) => {
           {(props.navStyle.pathname === "/registeruser" ||
             props.navStyle.pathname === "/login" ||
             props.navStyle.pathname === "/forgotpassword" ||
-            props.navStyle.pathname.includes("/neighbourhood")) && (
+            props.navStyle.pathname.includes("/neighbourhood") ||
+            props.navStyle.pathname.includes("/verifyemail")) && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
@@ -378,12 +370,9 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                <div
-                  className="cursor-pointer styled-link"
-                  onClick={() => router.push("/logout", "/")}
-                >
-                  Logout
-                </div>
+                <Link href="/logout" as="/">
+                  <a className="styled-link">Logout</a>
+                </Link>
               </li>
             </ul>
           )}
@@ -415,12 +404,9 @@ const Navbar = (props) => {
                     <a className="styled-link">Login</a>
                   </Link>
                 ) : (
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 )}
               </li>
               <li className="nav-item lg:mr-3 hover:scale-110">
@@ -471,12 +457,9 @@ const Navbar = (props) => {
               </li>
 
               <li className="nav-item lg:mr-6 hover:scale-110 styled-link">
-                <div
-                  className="cursor-pointer styled-link"
-                  onClick={() => router.push("/logout", "/")}
-                >
-                  Logout
-                </div>
+                <Link href="/logout" as="/">
+                  <a className="styled-link">Logout</a>
+                </Link>
               </li>
             </ul>
           )}
@@ -561,12 +544,9 @@ const Navbar = (props) => {
                       <a className="styled-link">Login</a>
                     </Link>
                   ) : (
-                    <div
-                      className="cursor-pointer"
-                      onClick={() => router.push("/logout", "/")}
-                    >
-                      Logout
-                    </div>
+                    <Link href="/logout" as="/">
+                      <a className="styled-link">Logout</a>
+                    </Link>
                   )}
                 </li>
                 <li
@@ -633,12 +613,9 @@ const Navbar = (props) => {
                       <a className="styled-link">Login</a>
                     </Link>
                   ) : (
-                    <div
-                      className="cursor-pointer"
-                      onClick={() => router.push("/logout", "/")}
-                    >
-                      Logout
-                    </div>
+                    <Link href="/logout" as="/">
+                      <a className="styled-link">Logout</a>
+                    </Link>
                   )}
                 </li>
                 <li
@@ -734,12 +711,9 @@ const Navbar = (props) => {
                       <a className="styled-link">Login</a>
                     </Link>
                   ) : (
-                    <div
-                      className="cursor-pointer styled-link"
-                      onClick={() => router.push("/logout", "/")}
-                    >
-                      Logout
-                    </div>
+                    <Link href="/logout" as="/">
+                      <a className="styled-link">Logout</a>
+                    </Link>
                   )}
                 </li>
               </Fragment>
@@ -796,7 +770,8 @@ const Navbar = (props) => {
             {(props.navStyle.pathname === "/registeruser" ||
               props.navStyle.pathname === "/login" ||
               props.navStyle.pathname === "/forgotpassword" ||
-              props.navStyle.pathname.includes("/neighbourhood")) && (
+              props.navStyle.pathname.includes("/neighbourhood") ||
+              props.navStyle.pathname.includes("/verifyemail")) && (
               <Fragment>
                 <li
                   className={
@@ -887,12 +862,9 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 </li>
               </Fragment>
             )}
@@ -951,12 +923,9 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  <div
-                    className="cursor-pointer styled-link"
-                    onClick={() => router.push("/logout", "/")}
-                  >
-                    Logout
-                  </div>
+                  <Link href="/logout" as="/">
+                    <a className="styled-link">Logout</a>
+                  </Link>
                 </li>
               </Fragment>
             )}
@@ -1006,12 +975,9 @@ const Navbar = (props) => {
                       <a className="styled-link">Login</a>
                     </Link>
                   ) : (
-                    <div
-                      className="cursor-pointer"
-                      onClick={() => router.push("/logout", "/")}
-                    >
-                      Logout
-                    </div>
+                    <Link href="/logout" as="/">
+                      <a className="styled-link">Logout</a>
+                    </Link>
                   )}
                 </li>
                 <li
