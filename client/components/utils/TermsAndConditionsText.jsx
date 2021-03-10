@@ -175,7 +175,7 @@ const TermsAndConditionsText = () => {
               className="mr-2 text-brand-purple"
             />
             Do not meet our guidelines published at{" "}
-            <Link href="https://nxtdoordeals.com/guidelines">
+            <Link href="/guidelines">
               <a className="text-purple-500 underline">
                 nxtdoordeals.com/guidelines
               </a>
@@ -188,7 +188,7 @@ const TermsAndConditionsText = () => {
               className="mr-2 text-brand-purple"
             />
             breach our Acceptable Use Policy published at{" "}
-            <Link href="https://nxtdoordeals.com/guidelines#banned">
+            <Link href="/guidelines#banned">
               <a className="text-purple-500 underline">
                 nxtdoordeals.com/guidelines#banned
               </a>

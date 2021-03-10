@@ -42,13 +42,6 @@ const variants = {
 
 const alertTheme = "bg-purple-200 text-brand-purple";
 
-// Email not verified toast
-const emailNotVerifiedToast = () =>
-  toast("Please verify your email before posting an ad", {
-    draggablePercent: 60,
-    position: "top-center",
-  });
-
 // Greeting toast
 const greetingToast = (message) =>
   toast(`${message}`, {

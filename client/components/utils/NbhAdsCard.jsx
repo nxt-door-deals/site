@@ -50,14 +50,14 @@ const NbhAdsCard = (props) => {
     return (
       <div>
         {/* The cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-10 mx-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-5 md:gap-10 mx-12">
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
               className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
             >
               <Link href={`/ads/${ad.id}`}>
-                <a>
+                <a className="focus-within:outline-none">
                   {ad.images.length > 0 && (
                     <div
                       key={adIndex}
@@ -103,7 +103,7 @@ const NbhAdsCard = (props) => {
               </Link>
               <div className="outline-none focus:outline-none">
                 <Link href={`/ads/${ad.id}`}>
-                  <a>
+                  <a className="focus-within:outline-none">
                     {/* Card title */}
                     <div className="text-left px-4 py-2">
                       <p className="font-semibold">{ad.title}</p>

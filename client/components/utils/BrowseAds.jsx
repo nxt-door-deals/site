@@ -21,13 +21,10 @@ const BrowseAds = (props) => {
 
   // Chat notification toast
   const chatNotificationToast = () =>
-    toast(
-      `${(<FontAwesomeIcon icon={faComment} />)} You have new chat messages!`,
-      {
-        draggablePercent: 60,
-        position: "top-center",
-      }
-    );
+    toast("You have new chat messages!", {
+      draggablePercent: 60,
+      position: "top-center",
+    });
 
   useEffect(() => {
     if (user) {
