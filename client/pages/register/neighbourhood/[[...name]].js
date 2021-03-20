@@ -1,13 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-import { navStyleBlue } from "../../utils/styles";
+import { navStyleBlue } from "../../../utils/styles";
 
 // Component imports
-import CreateNeighbourhoodHeadLayout from "../../components/layout/CreateNeighbourhoodHeadLayout";
-import Navbar from "../../components/layout/Navbar";
-import CreateNeighbourhood from "../../components/forms/CreateNeighbourhood";
-import Footer from "../../components/layout/Footer";
+import CreateNeighbourhoodHeadLayout from "../../../components/layout/CreateNeighbourhoodHeadLayout";
+import Navbar from "../../../components/layout/Navbar";
+import CreateNeighbourhood from "../../../components/forms/CreateNeighbourhood";
+import Footer from "../../../components/layout/Footer";
 
 const Neighbourhood = (props) => {
   const router = useRouter();
@@ -23,9 +23,12 @@ const Neighbourhood = (props) => {
 
   return (
     <CreateNeighbourhoodHeadLayout>
-      <Navbar navStyle={navStyleBlue} />
-
-      <CreateNeighbourhood aptNameFromUrl={props.value[0]} />
+      <div id="header">
+        <Navbar navStyle={navStyleBlue} />
+        <CreateNeighbourhood
+          aptNameFromUrl={props.value ? props.value[0] : null}
+        />
+      </div>
 
       <div>
         <Footer footerGradientClass={footerGradientClassBlue} />
@@ -36,9 +39,10 @@ const Neighbourhood = (props) => {
 
 export const getServerSideProps = (context) => {
   const { name } = context.query;
+
   return {
     props: {
-      value: name,
+      value: name || null,
     },
   };
 };

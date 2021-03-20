@@ -39,7 +39,10 @@ const VerifyEmail = () => {
   return (
     <VerifyEmailHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div className="flex justify-center items-center rounded-xl bg-white pt-32 px-5 pb-20 z-50 text-brand-gray">
+      <div
+        id="header"
+        className="flex justify-center items-center rounded-xl bg-white pt-32 px-5 pb-20 z-50 text-brand-gray"
+      >
         <div className="flex flex-col items-center m-5">
           {emailVerified !== null && emailVerified ? (
             <Image

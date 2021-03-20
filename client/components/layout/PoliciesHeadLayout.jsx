@@ -7,20 +7,20 @@ const PoliciesHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Terms & Conditions</title>
+        <title>Our Terms of Use, Privacy and Cookie Policies</title>
         <meta
           name="description"
-          content="Read our ertms & conditions, privacy and cookie policies."
+          content="Read our terms & conditions, privacy and cookie policies."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Terms & Conditions"
+          content="Terms of Use, Privacy and Cookie Policies"
         />
         <meta
           property="og:description"
-          content="Read our ertms & conditions, privacy and cookie policies."
+          content="Read our terms & conditions, privacy and cookie policies."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -62,7 +62,7 @@ const PoliciesHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Read our ertms & conditions, privacy and cookie policies."
+                    "@value": "Read our terms & conditions, privacy and cookie policies."
                   }
                 ],
                 "http://schema.org/inLanguage": [

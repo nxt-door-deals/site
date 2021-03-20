@@ -192,7 +192,7 @@ const UserRegistration = () => {
                       values.apartmentNumber,
                       selectedApartment.current
                     );
-                    setTimeout(() => setSubmitting(false), 2000);
+                    setTimeout(() => setSubmitting(false), 500);
                   }
                 }}
               >
@@ -448,7 +448,7 @@ const UserRegistration = () => {
                         >
                           Not found? You can create a neighbourhood for{" "}
                           <Link
-                            href={`/neighbourhood/${props.values.apartment}`}
+                            href={`/register/neighbourhood/${props.values.apartment}`}
                           >
                             <a className="text-blue-700 font-bold underline">
                               {props.values.apartment}

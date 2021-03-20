@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
 // Component imports
@@ -9,6 +9,7 @@ import HomeHeadLayout from "../components/layout/HomeHeadLayout";
 import Navbar from "../components/layout/Navbar";
 import Landing from "../components/Landing";
 import HowItWorks from "../components/HowItWorks";
+import ScrollToTop from "../components/utils/ScrollToTop";
 import Footer from "../components/layout/Footer";
 
 const bannerVariants = {
@@ -44,10 +45,11 @@ const buttonVariants = {
 const Home = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
+  const [scrollToTop, setScrollToTop] = useState(false);
 
   props.pathHistory.current = null;
 
-  navStylePurple["navBgColor"] = "lg:bg-purple-50";
+  navStylePurple["navBgColor"] = "lg:bg-white";
   navStylePurple["navTextColor"] = "text-purple-50";
   navStylePurple["pathname"] = pathname;
 
@@ -55,7 +57,7 @@ const Home = (props) => {
     <HomeHeadLayout>
       <Navbar navStyle={navStylePurple} />
       <main>
-        <section id="landing">
+        <section id="header">
           <Landing />
         </section>
 
@@ -63,6 +65,14 @@ const Home = (props) => {
           <HowItWorks pathname={pathname} />
         </section>
       </main>
+
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
+
       <AnimatePresence exitBeforeEnter>
         {props.showBanner && (
           <motion.div

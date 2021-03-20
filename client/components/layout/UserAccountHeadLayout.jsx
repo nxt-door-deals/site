@@ -7,20 +7,20 @@ const UserAccountHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Your Account</title>
+        <title>My Account | Manage User Profile, Ads and Chats</title>
         <meta
           name="description"
-          content="Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Make changes to your NXT Door Deals account and manage your ads and chats."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Your User Account"
+          content="My Account | Manage User Profile, Ads and Chats"
         />
         <meta
           property="og:description"
-          content="Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
+          content="Make changes to your NXT Door Deals account and manage your ads and chats."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/account" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -62,7 +62,7 @@ const UserAccountHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Make changes to your NXT Door Deals account and manage your ads. NXT Door Deals is your one-stop shop to find amazing deals for preloved items in your neighbourhood."
+                    "@value": "Make changes to your NXT Door Deals account and manage your ads and chats."
                   }
                 ],
                 "http://schema.org/inLanguage": [

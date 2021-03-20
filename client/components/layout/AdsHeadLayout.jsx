@@ -7,20 +7,20 @@ const AdsHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Browse Ads or Ask Your Neighbourhood</title>
+        <title>Browse Ads | See what's on sale or available for free</title>
         <meta
           name="description"
-          content="Browse all the ads from your neighbourhood or Ask Your Neighbourhood (AYN) for something that you are looking for."
+          content="Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Browse Ads or Ask Your Neighbourhood"
+          content="Browse Ads | See what's on sale or available for free"
         />
         <meta
           property="og:description"
-          content="Browse all the ads from your neighbourhood or Ask Your Neighbourhood (AYN) for something that you are looking for."
+          content="Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -62,7 +62,7 @@ const AdsHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Browse all the ads from your neighbourhood or Ask Your Neighbourhood (AYN) for something that you are looking for."
+                    "@value": "Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away."
                   }
                 ],
                 "http://schema.org/inLanguage": [

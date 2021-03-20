@@ -43,7 +43,10 @@ const VerifyNeighbourhood = (props) => {
 
   return (
     <VerifyNeighbourhoodHeadLayout>
-      <div className="flex justify-center items-center rounded-xl bg-white pt-32 px-10 z-50 text-brand-gray">
+      <div
+        id="header"
+        className="flex justify-center items-center rounded-xl bg-white pt-32 px-10 z-50 text-brand-gray"
+      >
         <div className="flex flex-col items-center m-5">
           {neighbourhoodVerified !== null && neighbourhoodVerified ? (
             <Image

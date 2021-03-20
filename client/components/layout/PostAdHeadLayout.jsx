@@ -7,17 +7,20 @@ const PostAdHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Post a Free Ad</title>
+        <title>Post a Free Ad | Start Selling your Preloved's Today</title>
         <meta
           name="description"
-          content="Post an ad for free. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Post an ad for free. Choose from a wide range of categories and start selling today."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NXT Door Deals | Post a Free Ad" />
+        <meta
+          property="og:title"
+          content="Post a Free Ad | Start Selling your Preloved's Today"
+        />
         <meta
           property="og:description"
-          content="Post an ad for free. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
+          content="Post an ad for free. Choose from a wide range of categories and start selling today."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/postad" />
         <meta property="og:site_name" content="NXT Door Deals" />

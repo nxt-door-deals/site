@@ -328,7 +328,7 @@ const AuthState = (props) => {
         },
       });
       dispatch({ type: EMAIL_SEND_SUCCESS });
-    } catch (error) {
+    } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
   };
@@ -361,6 +361,33 @@ const AuthState = (props) => {
     } catch (error) {
       dispatch({ type: EMAIL_SEND_FAILURE, payload: res.data });
       setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 4000);
+    }
+  };
+
+  // Report ad emails
+  const sendReportAdEmail = async (
+    adTitle,
+    reportDescription,
+    adId,
+    toEmail,
+    templateName
+  ) => {
+    setAuthToken(sendgridKey);
+
+    const jsonPayload = {
+      ad_title: adTitle,
+      description: reportDescription,
+      ad_id: adId,
+      from_email: fromEmail,
+      to_email: toEmail,
+      template_name: templateName,
+    };
+
+    try {
+      await axios.post(`${keys.API_PROXY}/email/reported_ad/`, jsonPayload);
+      dispatch({ type: EMAIL_SEND_SUCCESS });
+    } catch (err) {
+      dispatch({ type: EMAIL_SEND_FAILURE });
     }
   };
 
@@ -590,6 +617,7 @@ const AuthState = (props) => {
         fetchUserAds,
         updateUserProfile,
         sendEmail,
+        sendReportAdEmail,
         sendOtpByEmail,
         verifyEmail,
         validateEmail,

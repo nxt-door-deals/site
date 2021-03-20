@@ -7,7 +7,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Register your Neighbourhood for Free</title>
+        <title>Register your Neighbourhood for Free</title>
         <meta
           name="description"
           content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
@@ -16,7 +16,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Register your Neighbourhood for Free"
+          content="Register your Neighbourhood for Free"
         />
         <meta
           property="og:description"
@@ -24,7 +24,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
         />
         <meta
           property="og:url"
-          content="https://nxtdoordeals.com/neighbourhood"
+          content="https://nxtdoordeals.com/register/neighbourhood"
         />
         <meta property="og:site_name" content="NXT Door Deals" />
         <script
@@ -85,14 +85,14 @@ const CreateNeighbourhoodHeadLayout = (props) => {
                     ],
                     "http://schema.org/target": [
                       {
-                        "@value": "https://nxtdoordeals.com/neighbourhood"
+                        "@value": "https://nxtdoordeals.com/register/neighbourhood"
                       }
                     ]
                   }
                 ],
                 "http://schema.org/url": [
                   {
-                    "@id": "https://nxtdoordeals.com/neighbourhood"
+                    "@id": "https://nxtdoordeals.com/register/neighbourhood"
                   }
                 ]
               }

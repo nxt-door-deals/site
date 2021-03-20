@@ -7,17 +7,17 @@ const GuidelinesHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Our Marketplace Guidelines</title>
-        <meta name="description" content="Read our marketplace guidelines." />
+        <title>Read Our Marketplace Guidelines</title>
+        <meta
+          name="description"
+          content="Read our community, buying and selling guidelines."
+        />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="NXT Door Deals | Our Marketplace Guidelines"
-        />
+        <meta property="og:title" content="Read Our Marketplace Guidelines" />
         <meta
           property="og:description"
-          content="Read our marketplace guidelines."
+          content="Read our community, buying and selling guidelines."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -59,7 +59,7 @@ const GuidelinesHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Our marketplace guidelines."
+                    "@value": "Read our community, buying and selling guidelines."
                   }
                 ],
                 "http://schema.org/inLanguage": [

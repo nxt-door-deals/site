@@ -142,7 +142,7 @@ const genericFaqs = [
     question:
       'How do I register my apartment or gated community on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
-      'When you search for an apartment/gated community, you will immediately see a link to register it in case it is not found. Alternately, you may visit <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/neighbourhood">nxtdoordeals.com/neighbourhood</a> to get your apartment on the map!',
+      'When you search for an apartment/gated community, you will immediately see a link to register it in case it is not found. Alternately, you may visit <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/register/neighbourhood">nxtdoordeals.com/register/neighbourhood</a> to get your apartment on the map!',
   },
   {
     question: "How long does a neighbourhood registration take?",

@@ -110,12 +110,11 @@ const TermsAndConditionsText = () => {
         </h2>
         <p className="pb-5">
           <span className="brand-text">nxtdoordeals.com</span> is a platform.
-          Sellers may list Items, buyers may find Items and Registered Users may
-          exchange their reasonably held and legal views and opinions.
+          registered Sellers may list Items and buyers may find Items.
         </p>
         <p className="pb-5">
-          We are not responsible for contracts for the supply of goods, services
-          or information formed through{" "}
+          We are not responsible for contracts for the supply of goods or
+          services formed through{" "}
           <span className="brand-text">nxtdoordeals.com</span> (or as a result
           of visits made to <span className="brand-text">nxtdoordeals.com</span>
           ) between you and other{" "}
@@ -137,10 +136,10 @@ const TermsAndConditionsText = () => {
           warranties and assurances are DISCLAIMED by us.
         </p>
         <p>
-          We do not endorse, market or promote any of the listings, postings or
-          information, nor do we at any point in time come into possession of or
-          engage in the distribution of any of the goods and/ or services, you
-          have posted, listed or provided information about on our site.
+          We do not endorse, market or promote any of the listings or postings,
+          nor do we at any point in time come into possession of or engage in
+          the distribution of any of the goods and/ or services, you have
+          posted, listed or provided information about on our site.
         </p>
       </div>
 
@@ -187,7 +186,7 @@ const TermsAndConditionsText = () => {
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
             />
-            breach our Acceptable Use Policy published at{" "}
+            Breach our Acceptable Use Policy published at{" "}
             <Link href="/guidelines#banned">
               <a className="text-purple-500 underline">
                 nxtdoordeals.com/guidelines#banned
@@ -199,7 +198,7 @@ const TermsAndConditionsText = () => {
             standards and you indemnify us for any breach of that undertaking.
           </p>
         </p>
-        <p className="pb-5">
+        <p>
           Any Content you post to{" "}
           <span className="brand-text">nxtdoordeals.com</span> will be
           considered non-confidential and non-proprietary. By posting content
@@ -229,14 +228,14 @@ const TermsAndConditionsText = () => {
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
             />
-            in our opinion, such material does not comply with our Terms; or{" "}
+            In our opinion, such material does not comply with our Terms; or{" "}
           </p>
           <p className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
             />
-            we are notified that it may be offensive, illegal or defamatory.
+            We are notified that it may be offensive, illegal or defamatory.
           </p>
         </p>
         <p>
@@ -252,16 +251,14 @@ const TermsAndConditionsText = () => {
           Storage of Content (Including Messages)
         </h2>
         <p className="pb-5">
-          We assume no responsibility for the deletion or failure to store,
-          deliver or timely delivery of messages or other Content.
+          We assume no responsibility for the deletion or timely delivery of
+          messages or other Content.
         </p>
         <p className="pb-5">
           We may, from time to time and without notice, set limits on the number
           of messages a Registered User may send, store or receive through the
-          Service and we retain the right to delete any messages about such
-          limits without any liability whatsoever. Any notice provided by us to
-          you in connection with such limits shall not create any obligation to
-          provide a future notification.
+          Service and we retain the right to delete any messages above such
+          limits without any liability whatsoever.
         </p>
       </div>
     </div>

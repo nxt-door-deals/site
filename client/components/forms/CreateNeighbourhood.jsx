@@ -117,7 +117,7 @@ const CreateNeighbourhood = (props) => {
           exit="exit"
           className="pb-20 bg-purple-50 bg-opacity-40 -mt-1"
         >
-          <div className="opacity-40 pt-20 mx-10 bg-purple-50 flex justify-center">
+          <div className="opacity-50 pt-20 mx-10 bg-purple-50 flex justify-center">
             <img src="/images/neighbourhood/skyline.svg" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
@@ -231,8 +231,14 @@ const CreateNeighbourhood = (props) => {
                       values.pincode,
                       values.email
                     );
-                    sendNbhRegistrationEmailToUser(values.name, values.email);
-                    setTimeout(() => setSubmitting(false), 2000);
+                    setTimeout(
+                      () =>
+                        sendNbhRegistrationEmailToUser(
+                          values.name,
+                          values.email
+                        ),
+                      500
+                    );
                   }}
                 >
                   {(props) => (

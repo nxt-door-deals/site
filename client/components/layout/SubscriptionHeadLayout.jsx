@@ -7,17 +7,14 @@ const SubscriptionHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Manage Your Email Subscriptions</title>
+        <title>Manage Your Email Subscriptions</title>
         <meta
           name="description"
           content="Update your subscription status for promotional emails from nxtdoordeals.com."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="NXT Door Deals | Manage Your Email Subscriptions"
-        />
+        <meta property="og:title" content="Manage Your Email Subscriptions" />
         <meta
           property="og:description"
           content="Update your subscription status for promotional emails from nxtdoordeals.com."

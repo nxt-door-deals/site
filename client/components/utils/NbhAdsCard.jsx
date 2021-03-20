@@ -25,32 +25,42 @@ const buttonVariants = {
 const NbhAdsCard = (props) => {
   const [adLimit, setAdLimit] = useState(16);
   const siteContext = useContext(SiteContext);
-  const { adsDataNbh, fetchAdsForNbh, loading, setLoading } = siteContext;
+  const {
+    adsDataNbh,
+    fetchAdsForNbh,
+    loading,
+    setLoading,
+    adsDataNbhFetched,
+  } = siteContext;
 
   useEffect(() => {
     setLoading();
     fetchAdsForNbh(props.nbhId);
   }, []);
 
-  if (adsDataNbh.length === 0) {
+  if (loading) {
     return (
       <div className="py-8 px-8 lg:px-0">
-        {loading ? (
-          <div className="text-center">
-            <Image src={"/images/loader/loader.gif"} height={100} width={100} />
-          </div>
-        ) : (
-          <p className="text-gray-600 text-xl text-center font-semibold">
-            Sorry! No results...
-          </p>
-        )}
+        <div className="text-center">
+          <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+        </div>
+      </div>
+    );
+  }
+
+  if (!loading && adsDataNbhFetched && adsDataNbh && adsDataNbh.length === 0) {
+    return (
+      <div className="py-8 px-8 lg:px-0">
+        <p className="text-gray-600 text-xl text-center font-semibold">
+          Sorry! No results...
+        </p>
       </div>
     );
   } else
     return (
       <div>
         {/* The cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-5 md:gap-10 mx-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-5 md:gap-10 mx-10">
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
@@ -72,6 +82,7 @@ const NbhAdsCard = (props) => {
                         showStatus={false}
                         showThumbs={false}
                         showIndicators={false}
+                        showArrows={false}
                       >
                         {ad.images.map((image, imgIndex) => (
                           <div key={imgIndex} className="-z-20">
@@ -94,7 +105,8 @@ const NbhAdsCard = (props) => {
                       <Image
                         src={keys.DEFAULT_IMAGE}
                         alt={"Carousel default image"}
-                        height={300}
+                        quality={100}
+                        height={250}
                         width={300}
                       />
                     </div>

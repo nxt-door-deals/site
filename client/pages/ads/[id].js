@@ -27,7 +27,7 @@ const FullPageAd = (props) => {
 
   return (
     <AdsHeadLayout>
-      <div className="font-axiforma text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
+      <div className="text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
         <Navbar
           navStyle={navStylePurple}
           chatNotification={props.chatNotification}
@@ -49,8 +49,8 @@ const FullPageAd = (props) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { id } = context.query;
+export const getStaticProps = async (context) => {
+  const { id } = context.params;
 
   const adId = parseInt(id);
 
@@ -72,6 +72,23 @@ export const getServerSideProps = async (context) => {
     props: {
       data: res.data,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const res = await axios.get(`${process.env.API_URL}/ads/all`);
+
+  const ads = res.data;
+
+  const paths = ads.map((ad) => {
+    return {
+      params: { id: ad.id.toString() },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
   };
 };
 

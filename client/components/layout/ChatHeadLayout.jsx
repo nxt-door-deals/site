@@ -7,7 +7,9 @@ const ChatHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Chat With Your Neighbours</title>
+        <title>
+          Neighbourhood Chat | Chat with your neighbours and seal the deal
+        </title>
         <meta
           name="description"
           content="Chat directly with members of your neighbourhood and close deals faster"
@@ -16,7 +18,7 @@ const ChatHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Chat With Your Neighbours"
+          content="Get Chatty | Chat with your neighbours and seal the deal"
         />
         <meta
           property="og:description"

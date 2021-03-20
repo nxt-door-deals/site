@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
@@ -10,8 +10,10 @@ import PoliciesHeadLayout from "../components/layout/PoliciesHeadLayout";
 import TermsAndConditionsText from "../components/utils/TermsAndConditionsText";
 import PrivacyText from "../components/utils/PrivacyText";
 import CookieText from "../components/utils/CookieText";
+import ScrollToTop from "../components/utils/ScrollToTop";
 
-const Policies = () => {
+const Policies = (props) => {
+  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +24,14 @@ const Policies = () => {
   navStylePurple["pathname"] = router.pathname;
   return (
     <PoliciesHeadLayout>
-      <div className="text-brand-gray bg-purple-50">
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
+
+      <div id="header" className="text-brand-gray bg-purple-50">
         <Navbar navStyle={navStylePurple} />
         <div className="flex flex-col items-center h-full pt-28 lg:pt-36 px-5 lg:px-20 mb-20">
           <section id="terms">

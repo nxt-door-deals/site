@@ -422,9 +422,7 @@ const PageNotFound = () => {
               className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 user !== null &&
-                  router.push(
-                    `/ads/${user.apartment_name}/${user.apartment_id}`
-                  );
+                  router.push(`/neighbourhood/ads/${user.apartment_id}`);
               }}
             >
               My Neighbourhood

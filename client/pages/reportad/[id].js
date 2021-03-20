@@ -42,13 +42,15 @@ const ReportAd = (props) => {
   return (
     <ReportAdHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div>
+      <div id="header">
         <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
           <ReportAds
             adId={props.id}
             modifiedId={props.modifiedId}
             apartmentName={props.apartmentName}
             apartmentId={props.apartmentId}
+            title={props.title}
+            adOwnerEmail={props.adOwnerEmail}
           />
         </div>
       </div>
@@ -77,6 +79,8 @@ export const getServerSideProps = async (context) => {
       apartmentName: res.data.apartment_name,
       apartmentId: res.data.apartment_id,
       id: id,
+      title: res.data.title,
+      adOwnerEmail: res.data.posted_by_email,
     },
   };
 };

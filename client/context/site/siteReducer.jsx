@@ -138,9 +138,9 @@ const siteReducer = (state, action) => {
     case FETCH_NBH_AD_SUCCESS:
       return {
         ...state,
-        loading: false,
         adsDataNbh: action.payload,
         adsDataNbhFetched: true,
+        loading: false,
       };
     case FETCH_NBH_AD_FAILURE:
       return {

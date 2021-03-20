@@ -137,7 +137,7 @@ const FullPageAdDetails = (props) => {
         )}
       </div>
 
-      <div className="pt-7 font-axiforma">
+      <div className="pt-7">
         <p className="pb-3 font-semibold">Description:</p>
         <p className="text-sm md:text-base tracking-wide whitespace-pre-wrap">
           {props.adData.description}

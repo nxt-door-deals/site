@@ -7,10 +7,10 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Your neighbourhood marketplace</title>
+        <title>NXT Door Deals | Your Neighbourhood Marketplace</title>
         <meta
           name="description"
-          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const HomeHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -62,7 +62,7 @@ const HomeHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Your one-stop shop to find amazing deals for preloved items in your neighbourhood."
+                    "@value": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
                   }
                 ],
                 "http://schema.org/inLanguage": [

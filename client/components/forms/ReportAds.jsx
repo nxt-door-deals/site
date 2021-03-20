@@ -51,7 +51,7 @@ const ReportAds = (props) => {
   const authContext = useContext(AuthContext);
   const siteContext = useContext(SiteContext);
 
-  const { user, fetchUserAds, userAds } = authContext;
+  const { user, fetchUserAds, userAds, sendReportAdEmail } = authContext;
   const { getReportedAdUsers, reportedAd, reportAd } = siteContext;
 
   // Ad reported toast
@@ -137,12 +137,44 @@ const ReportAds = (props) => {
             );
             adReportedToast();
 
+            // Email the ad owner and nxtdoordeals.com about the ad being reported
+            if (reportedAd && reportedAd.users.length < 5) {
+              // Notify seller about the ad being reported
+              sendReportAdEmail(
+                props.title,
+                values.description,
+                props.adId,
+                props.adOwnerEmail,
+                "REPORTED_AD_NOTIFY_SELLER_TEMPLATE"
+              );
+
+              // Notify owners about ad being reported
+              sendReportAdEmail(
+                props.title,
+                values.description,
+                props.adId,
+                props.adOwnerEmail,
+                "REPORTED_AD_NOTIFY_OWNERS_TEMPLATE"
+              );
+            }
+
+            // Email the ad owner that the ad is being taken down
+            if (reportedAd && reportedAd.users.length === 4) {
+              // Notify seller about the ad being reported
+              sendReportAdEmail(
+                props.title,
+                values.description,
+                props.adId,
+                props.adOwnerEmail,
+                "REPORTED_AD_NOTIFY_SELLER_ABOUT_REMOVAL_TEMPLATE"
+              );
+            }
+
             if (cookie.get("__adCookie"))
               cookie.remove("__adCookie", { path: "/" });
 
             setTimeout(() => {
-              setSubmitting(false);
-              router.push(`/ads/${props.apartmentName}/${props.apartmentId}`);
+              router.push(`/neighbourhood/ads/${props.apartmentId}`);
             }, 3000);
           }}
         >

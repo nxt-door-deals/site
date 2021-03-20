@@ -73,6 +73,10 @@ const EditAd = (props) => {
   // Price is formatted in the Formik component
   let price = props.data.price;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   // Giveaway toast
   const giveawayToast = () =>
     toast("Yay! You're awesome for giving this away for free!", {
@@ -134,12 +138,7 @@ const EditAd = (props) => {
                 files
               );
 
-              {
-                /* setTimeout(() => {
-                router.reload("/");
-                setSubmitting(false);
-              }, 7000); */
-              }
+              setTimeout(() => router.reload("/"), 1000);
             }}
           >
             {({

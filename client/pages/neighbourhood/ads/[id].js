@@ -1,18 +1,22 @@
-import React, { useContext, useEffect } from "react";
-import SiteContext from "../../context/site/siteContext";
+import React, { useState, useContext, useEffect } from "react";
+import SiteContext from "../../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import axios from "axios";
-import "../../utils/keys";
-import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
+import "../../../utils/keys";
+import {
+  navStylePurple,
+  footerGradientClassPurple,
+} from "../../../utils/styles";
 
 // Component imports
-import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
-import Navbar from "../../components/layout/Navbar";
+import AdsHeadLayout from "../../../components/layout/AdsHeadLayout";
+import Navbar from "../../../components/layout/Navbar";
 // import Tab from "../../components/utils/Tab";
-import BrowseAds from "../../components/utils/BrowseAds";
-import NoAdsForNeighbourhood from "../../components/utils/NoAdsForNeighbourhood";
-import Footer from "../../components/layout/Footer";
+import BrowseAds from "../../../components/utils/BrowseAds";
+import NoAdsForNeighbourhood from "../../../components/utils/NoAdsForNeighbourhood";
+import Footer from "../../../components/layout/Footer";
+import ScrollToTop from "../../../components/utils/ScrollToTop";
 
 // const adTabs = [
 //   { label: "Browse Ads", value: 0 },
@@ -32,14 +36,15 @@ const variants = {
 };
 
 const Ads = (props) => {
+  const [scrollToTop, setScrollToTop] = useState(false);
   const siteContext = useContext(SiteContext);
   const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
 
   const router = useRouter();
   const pathname = router.pathname;
 
-  const apartmentName = props.data[0];
-  const apartmentId = parseInt(props.data[1]);
+  const apartmentName = props.aptName;
+  const apartmentId = parseInt(props.aptId);
 
   const numOfAds = props.adsList.length;
 
@@ -76,7 +81,14 @@ const Ads = (props) => {
 
   return (
     <AdsHeadLayout>
-      <div>
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
+
+      <div id="header">
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 font-axiforma w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar
             navStyle={navStylePurple}
@@ -126,10 +138,27 @@ const Ads = (props) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { apartment } = context.query;
+export const getStaticPaths = async () => {
+  const res = await axios.get(`${process.env.API_URL}/apartments/all`);
 
-  const apartmentId = parseInt(apartment[1]);
+  const apartments = res.data;
+
+  const paths = apartments.map((apt) => {
+    return {
+      params: { id: apt.id.toString() },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async (context) => {
+  const { id } = context.params;
+
+  const apartmentId = parseInt(id);
 
   if (!Number.isInteger(apartmentId)) {
     return {
@@ -137,11 +166,15 @@ export const getServerSideProps = async (context) => {
     };
   }
 
-  const res = await axios.get(
+  const nbhAds = await axios.get(
     `${process.env.API_URL}/nbhads/get/${apartmentId}`
   );
 
-  if (!res.data) {
+  const aptName = await axios.get(
+    `${process.env.API_URL}/apartments/${apartmentId}`
+  );
+
+  if (!nbhAds.data || !aptName.data) {
     return {
       notFound: true,
     };
@@ -149,8 +182,9 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      data: apartment && apartment,
-      adsList: res && res.data,
+      aptName: aptName && aptName.data.name,
+      aptId: apartmentId,
+      adsList: nbhAds && nbhAds.data,
     },
   };
 };

@@ -7,20 +7,20 @@ const UserLoginHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Create Your Account</title>
+        <title>Signup | Create Your nxtdoordeals.com Account</title>
         <meta
           name="description"
-          content="Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+          content="Create your nxtdoordeals.com account"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Create Your Account"
+          content="Signup | Create Your nxtdoordeals.com Account"
         />
         <meta
           property="og:description"
-          content="Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
+          content="Create your nxtdoordeals.com account."
         />
         <meta
           property="og:url"
@@ -66,7 +66,7 @@ const UserLoginHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Create your NXT Door Deals account. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
+                    "@value": "Create your nxtdoordeals.com account."
                   }
                 ],
                 "http://schema.org/inLanguage": [

@@ -7,17 +7,17 @@ const ReportAdHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Report An Ad</title>
+        <title>Report an Ad</title>
         <meta
           name="description"
-          content="Report an ad that violates our community guidelines."
+          content="Report an ad that violates our community guidelines or terms of use."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NXT Door Deals | Report An Ad" />
+        <meta property="og:title" content="Report an Ad" />
         <meta
           property="og:description"
-          content="Report an ad that violates our community guidelines."
+          content="Report an ad that violates our community guidelines or terms of use."
         />
         <meta
           property="og:url"
@@ -62,7 +62,7 @@ const ReportAdHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Report an ad that violates our community guidelines."
+                    "@value": "Report an ad that violates our community guidelines or terms of use."
                   }
                 ],
                 "http://schema.org/inLanguage": [

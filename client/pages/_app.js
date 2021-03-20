@@ -1,11 +1,11 @@
 import "../styles/styles.css";
 import { useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import { ToastContainer, Flip } from "react-toastify";
 
 const pageVariants = {
@@ -25,6 +25,7 @@ export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
   const chatNotification = useRef(null);
   const notificationDisplayed = useRef(false);
+  const [scrollToTop, setScrollToTop] = useState(false);
 
   // Use this in the Ad component to show either the ad or the edit form
   const [showForm, setShowForm] = useState(true);
@@ -50,6 +51,8 @@ export default function MyApp({ Component, pageProps, router }) {
             notificationDisplayed={notificationDisplayed}
             showBanner={showBanner}
             setShowBanner={setShowBanner}
+            scrollToTop={scrollToTop}
+            setScrollToTop={setScrollToTop}
           />
           <ToastContainer
             autoClose={3000}

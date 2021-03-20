@@ -58,6 +58,11 @@ const AdImageCarousel = (props) => {
       </div>
 
       <Modal
+        style={{
+          overlay: {
+            zIndex: 99999,
+          },
+        }}
         isOpen={isModalOpen}
         shouldFocusAfterRender={true}
         shouldCloseOnEsc={true}

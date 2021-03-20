@@ -24,6 +24,7 @@ const FAQType = (props) => {
     <FAQHeadLayout>
       <Navbar navStyle={navStylePurple} />
       <div
+        id="header"
         className="flex justify-center items-center h-full w-full pt-28 lg:pt-36 bg-purple-50
       bg-opacity-25 mb-20"
       >
@@ -36,13 +37,28 @@ const FAQType = (props) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { type } = context.query;
+export const getStaticProps = async (context) => {
+  const { type } = context.params;
 
   return {
     props: {
       type: type,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const faqTypes = ["seller", "buyer", "generic"];
+
+  const paths = faqTypes.map((faqType) => {
+    return {
+      params: { type: faqType },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
   };
 };
 

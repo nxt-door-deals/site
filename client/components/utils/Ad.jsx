@@ -68,7 +68,7 @@ const Ad = (props) => {
     let mounted = true;
     window.scrollTo(0, 0);
 
-    if (true) {
+    if (mounted) {
       setLoading();
       getNeighbourhoodFromId(props.data.apartment_id);
       getReportedAdUsers(props.data.id);
@@ -88,11 +88,7 @@ const Ad = (props) => {
   return (
     <div>
       <div className="flex items-center ml-4 mb-5">
-        <Link
-          href={`/ads/${apartmentData && apartmentData.name}/${
-            props.data.apartment_id
-          }`}
-        >
+        <Link href={`/neighbourhood/ads/${props.data.apartment_id}`}>
           <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}

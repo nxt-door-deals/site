@@ -19,7 +19,10 @@ const Subscription = () => {
   return (
     <SubscriptionHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div className="h-full w-full pt-36 lg:pt-36 pb-20 flex justify-center items-center bg-reported-ad-background bg-cover bg-no-repeat">
+      <div
+        id="header"
+        className="h-full w-full pt-36 lg:pt-36 pb-20 flex justify-center items-center bg-reported-ad-background bg-cover bg-no-repeat"
+      >
         <SubscriptionStatus />
       </div>
 

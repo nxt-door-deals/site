@@ -53,13 +53,6 @@ const Chat = (props) => {
     return <div></div>;
   }
 
-  // Email not verified toast
-  const emailNotVerifiedToast = () =>
-    toast("You will need to verify your email to start a conversation", {
-      draggablePercent: 60,
-      position: "top-center",
-    });
-
   useEffect(() => {
     if (isAuthenticated) {
       loadUser();
@@ -112,11 +105,11 @@ const Chat = (props) => {
 
   return (
     <ChatHeadLayout>
-      <div className="font-axiforma h-full">
+      <div id="header" className="font-axiforma h-full">
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
         <div className="pt-10 px-5 pb-20 lg:px-64">
-          <p className="text-center">
+          <p className="text-center mb-5">
             Your chat with{" "}
             <span className="font-semibold text-purple-500">
               {altUser && altUser.name}
@@ -131,7 +124,7 @@ const Chat = (props) => {
               </a>
             </Link>
           </p>
-          <div className="flex justify-center p-5 lg:p-20 rounded-3xl shadow-lg">
+          <div className="flex justify-center p-5 lg:p-20 rounded-3xl shadow-chatWindowShadow">
             <div className="w-full">
               {user && altUser && props.chatId && (
                 <ActiveChat

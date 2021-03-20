@@ -7,7 +7,7 @@ const VerifyNeighbourhoodHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Verify Neighbourhood</title>
+        <title>Verify Neighbourhood</title>
       </Head>
       {props.children}
     </Fragment>

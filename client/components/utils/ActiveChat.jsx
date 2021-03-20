@@ -118,20 +118,22 @@ const ActiveChat = (props) => {
                 )}
               </div>
               <div className="py-1">Condition: {props.ad.condition}</div>
-              <div className="py-1">
-                Negotiable:{" "}
-                {props.ad.negotiable ? (
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    className="text-lg text-green-700 align-middle"
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    className="text-lg text-red-800 align-middle"
-                  />
-                )}
-              </div>
+              {props.ad.ad_type === "sale" && (
+                <div className="py-1">
+                  Negotiable:{" "}
+                  {props.ad.negotiable ? (
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="text-lg text-green-700 align-middle"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      className="text-lg text-red-800 align-middle"
+                    />
+                  )}
+                </div>
+              )}
             </span>
           </div>
         </div>
@@ -154,7 +156,7 @@ const ActiveChat = (props) => {
                 }`}
               >
                 <p
-                  className={`chat-bubble px-4 py-2 break-word rounded-xl ${
+                  className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                     message.ownedBySender
                       ? "bg-purple-500 font-semibold from-chat"
                       : "bg-ad-purple font-semibold to-chat"
@@ -179,7 +181,7 @@ const ActiveChat = (props) => {
               }`}
             >
               <p
-                className={`chat-bubble px-4 py-2 break-word rounded-xl ${
+                className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                   message.ownedBySender
                     ? "bg-purple-500 font-semibold from-chat"
                     : "bg-ad-purple font-semibold to-chat"

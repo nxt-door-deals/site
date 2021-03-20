@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,8 +21,10 @@ import {
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import GuidelinesHeadLayout from "../components/layout/GuidelinesHeadLayout";
+import ScrollToTop from "../components/utils/ScrollToTop";
 
 const Guidelines = () => {
+  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,7 +36,14 @@ const Guidelines = () => {
 
   return (
     <GuidelinesHeadLayout>
-      <div className="text-brand-gray bg-purple-50">
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
+
+      <div id="header" className="text-brand-gray bg-purple-50">
         <Navbar navStyle={navStylePurple} />
         <div className="flex flex-col items-center h-full pt-28 lg:pt-36 px-5 lg:px-20">
           <section id="buyer">

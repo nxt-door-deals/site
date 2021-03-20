@@ -7,7 +7,7 @@ const VerifyEmailHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Your Email Verification Status</title>
+        <title>Your Email Verification Status</title>
       </Head>
       {props.children}
     </Fragment>

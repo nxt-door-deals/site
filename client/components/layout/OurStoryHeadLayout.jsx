@@ -7,17 +7,20 @@ const OurStoryHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Our Story</title>
+        <title>Our Story | The Inspiration behind nxtdoordeals.com</title>
         <meta
           name="description"
-          content="Read about the inspiration behind your favourite neighbourhood marketplace."
+          content="Read about the inspiration behind nxtdoordeals.com."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NXT Door Deals | Our Story" />
+        <meta
+          property="og:title"
+          content="Our Story | The Inspiration behind nxtdoordeals.com"
+        />
         <meta
           property="og:description"
-          content="Read about the inspiration behind your favourite neighbourhood marketplace."
+          content="Read about the inspiration behind nxtdoordeals.com."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/ourstory" />
         <meta property="og:site_name" content="NXT Door Deals" />
@@ -59,7 +62,7 @@ const OurStoryHeadLayout = (props) => {
                 ],
                 "http://schema.org/description": [
                   {
-                    "@value": "Read about the inspiration behind your favourite neighbourhood marketplace."
+                    "@value": "Read about the inspiration behind nxtdoordeals.com."
                   }
                 ],
                 "http://schema.org/inLanguage": [

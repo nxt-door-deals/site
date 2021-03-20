@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import Image from "next/image";
 import AuthContext from "../../context/auth/authContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -59,11 +60,11 @@ const VerifyEmail = ({ user }) => {
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
-        <img
-          src="/images/user_registration/email.svg"
-          height="200px"
-          width="200px"
-          alt="Mailbox"
+        <Image
+          src={"/images/user_registration/welcome-register.svg"}
+          height={300}
+          width={300}
+          alt={"Mailbox"}
         />
       </div>
 
@@ -89,7 +90,7 @@ const VerifyEmail = ({ user }) => {
         uppercase mb-4 focus:outline-none"
         onClick={() => {
           user !== null &&
-            router.push(`/ads/${user.apartment_name}/${user.apartment_id}`);
+            router.push(`/neighbourhood/ads/${user.apartment_id}`);
         }}
       >
         Continue to site

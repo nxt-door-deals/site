@@ -16,16 +16,19 @@ module.exports = {
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
         boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
-        categorycardshadow:
-          "0 10px 15px -5px rgba(102, 21, 182, 0.1), 0 5px 5px -5px rgba(102, 21, 182, 0.1)",
-        postadshadow: "0px 5px 8px 2px rgba(196, 148, 244, 0.3)",
+        categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
+        postadshadow: "0px 7px 29px 0px rgba(204, 179, 235, 0.4)",
         adcardshadow:
           "0 1px 10px 5px rgba(241, 192, 234, 0.1), 0 -1.5px 12px 6px rgba(198, 91, 78, 0.05)",
         chatListShadow:
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
           "0px 2px 4px 0px rgba(139, 92, 246, 0.12), 0px 2px 16px 0px rgba(139, 92, 246, 0.32)",
-        bannerShadow: "0px -6px 22px 8px rgba(33, 33, 33, 0.1)",
+        modalShadow: "0px -6px 22px 8px rgba(33, 33, 33, 0.1)",
+        chatWindowShadow: "0 6px 22px 6px rgba(139, 92, 246, 0.12)",
+        userAccountShadow:
+          "rgba(223, 170, 225, 0.2) 0px 8px 24px, rgba(223, 170, 225, 0.2) 0px 16px 56px, rgba(223, 170, 225, 0.2) 0px 24px 80px;",
+        scrollToTopShadow: "rgba(0, 0, 0, 0.2) 0px 20px 30px;",
       },
       zIndex: {
         "-10": "-10",
@@ -47,8 +50,10 @@ module.exports = {
         "ghost-white": "#F8F8FF",
         "brand-purple": "#550052",
         "brand-gray": "#292d34",
-        "footer-gradient-from": "#902393",
-        "footer-gradient-to": "#d04ed6",
+        // "footer-gradient-from": "#902393",
+        // "footer-gradient-to": "#d04ed6",
+        "footer-gradient-from": "#997BC0",
+        "footer-gradient-to": "#996EC5",
         "footer-alt-gradient-from": "#CC87F5",
         "footer-alt-gradient-via": "#CB80F5",
         "footer-alt-gradient-to": "#E09DF8",

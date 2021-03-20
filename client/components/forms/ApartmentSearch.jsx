@@ -30,6 +30,15 @@ const variants = {
   buttonHover: {
     backgroundColor: "#5B21B6",
   },
+  secondaryButtonTap: {
+    backgroundColor: "#5B21B6",
+    color: "#FFFFFF",
+    y: "2px",
+  },
+  secondaryButtonHover: {
+    backgroundColor: "#5B21B6",
+    color: "#FFFFFF",
+  },
 };
 
 const ApartmentSearch = () => {
@@ -56,7 +65,7 @@ const ApartmentSearch = () => {
   };
 
   return (
-    <div className="font-axiforma">
+    <div>
       <Formik
         initialValues={{ apartment: "" }}
         validationSchema={apartmentSearchValidationSchema}
@@ -64,9 +73,13 @@ const ApartmentSearch = () => {
           setSubmitting(true);
           if (enableFormSubmission) {
             clearApartmentSearchResults();
-            router.push(`/ads/${values.apartment}/${apartmentId.current}`);
+            setTimeout(() => {
+              router.push(`/neighbourhood/ads/${apartmentId.current}`);
+            }, 2000);
           }
-          setTimeout(() => setSubmitting(false), 2000);
+          {
+            /* setTimeout(() => setSubmitting(false), 500); */
+          }
         }}
       >
         {(props) => (
@@ -76,7 +89,7 @@ const ApartmentSearch = () => {
             }}
           >
             <div
-              className={`"flex mt-6 border-2 rounded-xl " ${
+              className={`"flex justify-around mt-6 border-2 rounded-xl " ${
                 props.touched.apartment && props.errors.apartment
                   ? "border-red-800 shadow-none"
                   : "border-purple-900"
@@ -94,12 +107,12 @@ const ApartmentSearch = () => {
                 maxLength="50"
                 autoComplete="off"
                 autoFocus=""
-                className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600"
+                className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600 rounded-xl"
                 onKeyUp={searchApartment}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className="align-middle text-gray-400 cursor-pointer"
+                className="align-middle text-gray-400 cursor-pointer lg:mr-1"
                 onClick={() => {
                   props.setFieldValue(apartment, (props.values.apartment = ""));
                   setparentDiv("invisible");
@@ -185,7 +198,9 @@ const ApartmentSearch = () => {
                 }
               >
                 Not found? Create a neighbourhood for{" "}
-                <Link href={`/neighbourhood/${props.values.apartment}`}>
+                <Link
+                  href={`/register/neighbourhood/${props.values.apartment}`}
+                >
                   <a className="text-purple-700 font-bold underline">
                     {props.values.apartment}
                   </a>
@@ -196,10 +211,10 @@ const ApartmentSearch = () => {
                 </span>
               </div>
             </div>
-            <div>
+            <div className="mt-8">
               <motion.button
                 type="submit"
-                className={`p-0 mt-8 w-48 h-12 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
+                className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
                   props.isSubmitting && "cursor-not-allowed"
                 }`}
                 variants={variants}

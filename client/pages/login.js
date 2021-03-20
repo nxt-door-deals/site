@@ -21,7 +21,7 @@ const Login = (props) => {
 
   // Postad toast
   const postadToast = () =>
-    toast("Please login to post an ad", {
+    toast("Please login to post an ad in your neighbourhood", {
       draggablePercent: 60,
       position: "top-center",
     });

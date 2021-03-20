@@ -7,14 +7,17 @@ const FAQHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Read our FAQs</title>
+        <title>FAQs about Buying and Selling on nxtdoordeals.com</title>
         <meta
           name="description"
           content="Read the buyer, seller and generic FAQs"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NXT Door Deals | Read our FAQs" />
+        <meta
+          property="og:title"
+          content="FAQs about Buying and Selling on nxtdoordeals.com"
+        />
         <meta
           property="og:description"
           content="Read the buyer, seller and generic FAQs."

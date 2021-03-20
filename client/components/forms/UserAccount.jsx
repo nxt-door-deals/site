@@ -125,7 +125,7 @@ const UserAccount = (props) => {
 
   return (
     <div className="flex justify-center items-center mb-20">
-      <div className="mt-12 font-axiforma rounded-3xl shadow-postadshadow bg-white py-6 px-4 text-brand-gray">
+      <div className="mt-12 font-axiforma rounded-3xl shadow-userAccountShadow bg-white py-6 px-4 text-brand-gray">
         <Formik
           initialValues={{
             name: currentUser.name,
@@ -375,7 +375,7 @@ const UserAccount = (props) => {
                       >
                         Not found? You can create a neighbourhood for{" "}
                         <Link
-                          href={`/neighbourhood/${props.values.neighbourhood}`}
+                          href={`register/neighbourhood/${props.values.neighbourhood}`}
                         >
                           <a className="text-blue-700 font-bold underline">
                             {props.values.neighbourhood}

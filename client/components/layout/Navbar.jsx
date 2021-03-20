@@ -81,7 +81,7 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 opacity-95 transition duration-500 ease-in-out mt-10" +
+              " fixed basic-nav z-30 lg:shadow-lg opacity-95 transition duration-500 ease-in-out mt-10" +
               props.navStyle.navShadow
             : "fixed basic-nav bg-none z-30"
         }
@@ -154,9 +154,13 @@ const Navbar = (props) => {
           {props.navStyle.pathname === "/" && (
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
-                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
+                <span
+                  className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl border-2 ${
+                    stickyNav && "border-brand-purple"
+                  }`}
+                >
                   <Link href="/postad">
-                    <a className="styled-link">Post Ad</a>
+                    <a className="styled-link">Post Free Ad</a>
                   </Link>
                 </span>
               </li>
@@ -189,9 +193,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -232,9 +234,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -244,7 +244,8 @@ const Navbar = (props) => {
           )}
 
           {/* Navbar on the ads page */}
-          {props.navStyle.pathname.includes("/ads") && (
+          {(props.navStyle.pathname.startsWith("/ads") ||
+            props.navStyle.pathname.startsWith("/neighbourhood/ads")) && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
@@ -322,7 +323,7 @@ const Navbar = (props) => {
           {(props.navStyle.pathname === "/registeruser" ||
             props.navStyle.pathname === "/login" ||
             props.navStyle.pathname === "/forgotpassword" ||
-            props.navStyle.pathname.includes("/neighbourhood") ||
+            props.navStyle.pathname.startsWith("/register//neighbourhood") ||
             props.navStyle.pathname.includes("/verifyemail")) && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -501,7 +502,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/postad">
-                    <a className="styled-link">Post Ad</a>
+                    <a className="styled-link">Post Free Ad</a>
                   </Link>
                 </li>
                 <li
@@ -641,83 +642,84 @@ const Navbar = (props) => {
             )}
 
             {/* Overlay items for the browse ads page */}
-            {props.navStyle.pathname.includes("/ads") && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <span>
-                      <a className="styled-link">Home</a>
-                    </span>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <span>
-                      <a className="styled-link">Our Story</a>
-                    </span>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <span className="">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
-                    </span>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+            {props.navStyle.pathname.startsWith("/ads") ||
+              (props.navStyle.pathname.startsWith("/neighbourhood/ads") && (
+                <Fragment>
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    <Link href="/">
+                      <span>
+                        <a className="styled-link">Home</a>
+                      </span>
                     </Link>
-                  ) : (
-                    <Link href="/account">
-                      <a className="styled-link">My Account</a>
+                  </li>
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    <Link href="/ourstory">
+                      <span>
+                        <a className="styled-link">Our Story</a>
+                      </span>
                     </Link>
-                  )}
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/login">
-                      <a className="styled-link">Login</a>
+                  </li>
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    <Link href="/#how-it-works">
+                      <span className="">
+                        <a
+                          className="styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </span>
                     </Link>
-                  ) : (
-                    <Link href="/logout" as="/">
-                      <a className="styled-link">Logout</a>
-                    </Link>
-                  )}
-                </li>
-              </Fragment>
-            )}
+                  </li>
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    {user === null ? (
+                      <Link href="/registeruser">
+                        <a className="styled-link">Sign Up</a>
+                      </Link>
+                    ) : (
+                      <Link href="/account">
+                        <a className="styled-link">My Account</a>
+                      </Link>
+                    )}
+                  </li>
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    {user === null ? (
+                      <Link href="/login">
+                        <a className="styled-link">Login</a>
+                      </Link>
+                    ) : (
+                      <Link href="/logout" as="/">
+                        <a className="styled-link">Logout</a>
+                      </Link>
+                    )}
+                  </li>
+                </Fragment>
+              ))}
 
             {/* Overlay items for the subscriptions page */}
             {props.navStyle.pathname.includes("/subscription") && (
@@ -770,7 +772,7 @@ const Navbar = (props) => {
             {(props.navStyle.pathname === "/registeruser" ||
               props.navStyle.pathname === "/login" ||
               props.navStyle.pathname === "/forgotpassword" ||
-              props.navStyle.pathname.includes("/neighbourhood") ||
+              props.navStyle.pathname.startsWith("/register/neighbourhood") ||
               props.navStyle.pathname.includes("/verifyemail")) && (
               <Fragment>
                 <li
@@ -1063,6 +1065,11 @@ const Navbar = (props) => {
         </div>
 
         <Modal
+          style={{
+            overlay: {
+              zIndex: 99999,
+            },
+          }}
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
           shouldCloseOnEsc={true}

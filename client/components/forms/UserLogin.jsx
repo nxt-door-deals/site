@@ -81,30 +81,22 @@ const UserLogin = (props) => {
                 chatCookie["_byrId"]
               }`
             ),
-          3000
+          1000
         );
       } else if (props.pathProp === "/reportad/[id]") {
         let adCookie = cookie.get("__adCookie");
         let adId = adCookie["_id"];
         cookie.remove("__adCookie");
-        setTimeout(() => router.push(`/reportad/${adId}`), 3000);
+        setTimeout(() => router.push(`/reportad/${adId}`), 1000);
       } else if (
         props.pathProp === "/account" ||
         props.pathProp === "/postad"
       ) {
-        setTimeout(() => router.push(props.pathProp), 3000);
-      }
-      // if (user.email_verified === true) {
-      //   greetingToast(`${greeting}, ${user && user.name}!`);
-      //   router.push(props.pathProp);
-      // } else {
-      //   emailNotVerifiedToast();
-      //   setTimeout(() => router.push("/account"), 2000);
-      // }
-      else {
+        setTimeout(() => router.push(props.pathProp), 1000);
+      } else {
         setTimeout(
-          () => router.push(`/ads/${user.apartment_name}/${user.apartment_id}`),
-          3000
+          () => router.push(`/neighbourhood/ads/${user.apartment_id}`),
+          1000
         );
       }
     }
@@ -123,7 +115,6 @@ const UserLogin = (props) => {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
             loginUser(values.email, values.password);
-            setTimeout(() => setSubmitting(false), 3000);
           }}
         >
           {(props) => (
