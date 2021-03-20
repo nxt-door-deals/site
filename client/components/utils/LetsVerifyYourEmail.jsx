@@ -9,8 +9,10 @@ const LetsVerifyYourEmail = (props) => {
         <h1 className="component-heading">
           Let's verify your email before you can {props.message}{" "}
         </h1>
-        <h2 className="flex text-2xl my-5">
-          Redirecting you shortly. Hang tight
+        <h2 className="flex text-2xl my-5">Redirecting you shortly.</h2>
+
+        <p className="flex text-2xl mb-5">
+          Hang tight
           <ul className="flex">
             <motion.li
               initial={{ opacity: 0 }}
@@ -36,7 +38,8 @@ const LetsVerifyYourEmail = (props) => {
               .
             </motion.li>
           </ul>
-        </h2>
+        </p>
+
         <Image
           height={300}
           width={300}
