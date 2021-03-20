@@ -418,9 +418,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -449,9 +447,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user && user && (
-                  <Link
-                    href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                  >
+                  <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                     <a className="styled-link">My Neighbourhood</a>
                   </Link>
                 )}
@@ -562,9 +558,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -631,9 +625,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -911,9 +903,7 @@ const Navbar = (props) => {
                   }
                 >
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}
@@ -994,9 +984,7 @@ const Navbar = (props) => {
                     </Link>
                   )}
                   {user && user && (
-                    <Link
-                      href={`/ads/${user.apartment_name}/${user.apartment_id}`}
-                    >
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="styled-link">My Neighbourhood</a>
                     </Link>
                   )}

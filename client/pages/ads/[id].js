@@ -9,7 +9,6 @@ import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Ad from "../../components/utils/Ad";
 import Footer from "../../components/layout/Footer";
-import { isInteger } from "formik";
 
 const FullPageAd = (props) => {
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
@@ -49,8 +48,8 @@ const FullPageAd = (props) => {
   );
 };
 
-export const getStaticProps = async (context) => {
-  const { id } = context.params;
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
 
   const adId = parseInt(id);
 
@@ -75,21 +74,21 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
-  const res = await axios.get(`${process.env.API_URL}/ads/all`);
+// export const getStaticPaths = async () => {
+//   const res = await axios.get(`${process.env.API_URL}/ads/all`);
 
-  const ads = res.data;
+//   const ads = res.data;
 
-  const paths = ads.map((ad) => {
-    return {
-      params: { id: ad.id.toString() },
-    };
-  });
+//   const paths = ads.map((ad) => {
+//     return {
+//       params: { id: ad.id.toString() },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export default FullPageAd;

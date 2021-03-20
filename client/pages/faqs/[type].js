@@ -37,8 +37,8 @@ const FAQType = (props) => {
   );
 };
 
-export const getStaticProps = async (context) => {
-  const { type } = context.params;
+export const getServerSideProps = async (context) => {
+  const { type } = context.query;
 
   return {
     props: {
@@ -47,19 +47,19 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
-  const faqTypes = ["seller", "buyer", "generic"];
+// export const getStaticPaths = async () => {
+//   const faqTypes = ["seller", "buyer", "generic"];
 
-  const paths = faqTypes.map((faqType) => {
-    return {
-      params: { type: faqType },
-    };
-  });
+//   const paths = faqTypes.map((faqType) => {
+//     return {
+//       params: { type: faqType },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export default FAQType;

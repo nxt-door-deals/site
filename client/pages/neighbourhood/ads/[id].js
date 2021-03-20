@@ -138,25 +138,25 @@ const Ads = (props) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const res = await axios.get(`${process.env.API_URL}/apartments/all`);
+// export const getStaticPaths = async () => {
+//   const res = await axios.get(`${process.env.API_URL}/apartments/all`);
 
-  const apartments = res.data;
+//   const apartments = res.data;
 
-  const paths = apartments.map((apt) => {
-    return {
-      params: { id: apt.id.toString() },
-    };
-  });
+//   const paths = apartments.map((apt) => {
+//     return {
+//       params: { id: apt.id.toString() },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-export const getStaticProps = async (context) => {
-  const { id } = context.params;
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
 
   const apartmentId = parseInt(id);
 
