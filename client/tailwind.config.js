@@ -22,7 +22,7 @@ module.exports = {
         categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
         postadshadow: "0px 7px 29px 3px rgba(204, 179, 235, 0.4)",
         adcardshadow:
-          "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 24px, rgba(241, 192, 234, 0.3) 0px 16px 48px",
+          "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 36px, rgba(241, 192, 234, 0.3) 0px -2px 15px",
         chatListShadow:
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
