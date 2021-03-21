@@ -69,10 +69,10 @@ const AdImageCarousel = (props) => {
         onRequestClose={() => setIsModalOpen(false)}
         className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
       >
-        <div className="carousel-container lg:mt-56 mx-5 flex justify-center items-center">
+        <div className="max-w-full carousel-container lg:pt-32 mx-5 flex justify-center items-center">
           <Carousel showStatus={false} selectedItem={0} showArrows={true}>
             {props.images.map((image, index) => (
-              <div className="relative" key={index}>
+              <div className="" key={index}>
                 <Image
                   loader={`/images/loader/loager.gif/?w=${64}`}
                   src={image}
@@ -82,10 +82,10 @@ const AdImageCarousel = (props) => {
                   width={700}
                   height={600}
                 />
-                <div className="absolute top-2 lg:top-5 right-8 lg:right-10 text-2xl font-bold z-50 ">
+                <div className="absolute top-2 right-8 lg:top-0 lg:right-0 text-2xl font-bold z-50 ">
                   <FontAwesomeIcon
                     icon={faTimes}
-                    className="text-3xl cursor-pointer text-white bg-red-500 p-1 h-5 w-5 rounded-md"
+                    className="text-3xl cursor-pointer text-white bg-red-500 hover:bg-red-800 p-1 h-5 w-5 rounded-md"
                     onClick={() => setIsModalOpen(false)}
                   />
                 </div>

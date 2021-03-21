@@ -79,7 +79,7 @@ const FullPageAdDetails = (props) => {
             variants={variants}
             whileHover="chatButtonHover"
             whileTap="buttonTap"
-            className="p-3 bg-purple-500 text-white rounded-xl font-semibold uppercase focus:outline-none"
+            className="p-3 bg-purple-500 shadow-buttonShadowPurple text-white rounded-xl font-semibold uppercase focus:outline-none"
             onClick={() => {
               if (cookie.get("__redirChatCookie")) {
                 cookie.remove("__redirChatCookie");

@@ -3,10 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { sellerFaqs, buyerFaqs, genericFaqs } from "../../utils/faq";
-import { data } from "autoprefixer";
+
+// Component imports
+import ScrollToTop from "./ScrollToTop";
 
 const FrequentlyAskedQuestions = (props) => {
   const [faqIndex, setFaqIndex] = useState(null);
+  const [scrollToTop, setScrollToTop] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   var faqType = "";
 
@@ -22,6 +29,12 @@ const FrequentlyAskedQuestions = (props) => {
 
   return (
     <div className="text-brand-gray px-1">
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
       <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
         {faqType} FAQs
       </h1>

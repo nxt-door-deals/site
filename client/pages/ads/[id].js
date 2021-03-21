@@ -18,10 +18,6 @@ const FullPageAd = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 

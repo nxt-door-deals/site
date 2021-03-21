@@ -113,7 +113,7 @@ const Footer = (props) => {
               </li>
 
               <li className="pb-3 px-2">
-                <Link href="/faqs">
+                <Link href="/faqs#grid">
                   <motion.a variants={variants} whileHover="hover">
                     <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">FAQs</span>
