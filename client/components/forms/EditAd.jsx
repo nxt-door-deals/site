@@ -495,7 +495,7 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverSave"}
                     whileTap={fieldTouched && "editButtonTap"}
-                    className={`h-12 w-40 font-semibold uppercase mb-3 text-white bg-purple-500 lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
+                    className={`h-12 w-40 font-semibold uppercase mb-3 text-white bg-purple-500 shadow-buttonShadowPurple lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
                       fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
                     } ${isSubmitting && "cursor-not-allowed"}`}
                     disabled={!fieldTouched || isSubmitting}
@@ -507,7 +507,7 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverCancel"}
                     whileTap={fieldTouched && "deleteButtonTap"}
-                    className={` h-12 w-40 font-semibold text-white bg-red-500 uppercase lg:mt-0 rounded-xl focus:outline-none ${
+                    className={` h-12 w-40 font-semibold text-white bg-red-400 shadow-cancelButtonShadow uppercase lg:mt-0 rounded-xl focus:outline-none ${
                       fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
                     }`}
                     onClick={(e) => {

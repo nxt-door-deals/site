@@ -16,13 +16,14 @@ const buy = [
     image: "/images/buy/buy-3.svg",
     alt: "Chat with the seller",
     heading: "Chat with the seller",
-    content: "Contact the seller, finalize the deal and make a new friend.",
+    content: "Chat with the seller, finalize the deal and make a new friend.",
   },
   {
     image: "/images/buy/buy-4.svg",
     alt: "Complete the purchase",
     heading: "Complete the purchase",
-    content: "Meet your new friend within the apartment premises and complete your purchase.",
+    content:
+      "Meet your new friend within the apartment premises and complete your purchase.",
   },
 ];
 
@@ -32,14 +33,14 @@ const sell = [
     alt: "Find neighbourhood",
     heading: "Find your neighbourhood",
     content:
-      "Search for your apartment, gated community or co-operative housing society. Register if not found.",
+      "Search for your apartment, gated community or co-operative housing society. Register it if you don't find it.",
   },
   {
     image: "/images/sell/sell-2.svg",
     alt: "Post ad",
     heading: "Post ad",
     content:
-      "Post an ad for the preloved or new item that you want to sell or giveaway.",
+      "Post an ad in your neighbourhood for the preloved or new item that you want to sell or giveaway.",
   },
   {
     image: "/images/sell/sell-3.svg",
@@ -51,7 +52,8 @@ const sell = [
     image: "/images/sell/sell-4.svg",
     alt: "Finish the sale",
     heading: "Finish the sale",
-    content: "Meet your new friend within the apartment premises and complete the sale or giveaway.",
+    content:
+      "Meet your new friend within the apartment premises and complete the sale or giveaway.",
   },
 ];
 

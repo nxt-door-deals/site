@@ -269,7 +269,7 @@ const OtpForm = (props) => {
                     <motion.button
                       type="submit"
                       disabled={props.isSubmitting}
-                      className={`w-48 h-12 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                      className={`w-48 h-12 bg-purple-500 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                         props.isSubmitting && "cursor-not-allowed"
                       }`}
                       variants={buttonVariants}

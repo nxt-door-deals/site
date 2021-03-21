@@ -147,7 +147,7 @@ const UserAds = (props) => {
                       variants={buttonVariants}
                       whileHover="editButtonHover"
                       whileTap="editButtonTap"
-                      className="p-3 rounded-lg bg-purple-500 focus:outline-none"
+                      className="p-3 rounded-lg bg-purple-500 shadow-buttonShadowPurple focus:outline-none"
                       onClick={() => {
                         setEditButtonClicked(true);
                         props.setShowForm(false);
@@ -171,7 +171,7 @@ const UserAds = (props) => {
                       variants={buttonVariants}
                       whileHover="deleteButtonHover"
                       whileTap="deleteButtonTap"
-                      className="p-3 rounded-lg bg-red-400 focus:outline-none"
+                      className="p-3 rounded-lg bg-red-400 shadow-cancelButtonShadow focus:outline-none"
                       onClick={() => {
                         setDeleteButtonClicked(true);
                         deleteAd(

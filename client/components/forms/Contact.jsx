@@ -171,7 +171,7 @@ const Contact = (props) => {
                     variants={buttonVariants}
                     type="submit"
                     disabled={props.isSubmitting}
-                    className={`w-36 h-10 mt-3 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`w-36 h-10 mt-3 bg-purple-500 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                     whileHover="buttonHover"

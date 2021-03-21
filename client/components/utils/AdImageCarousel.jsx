@@ -20,7 +20,6 @@ const AdImageCarousel = (props) => {
             dynamicHeight
             showStatus={false}
             showArrows={false}
-            infiniteLoop
             autoPlay
             interval={3000}
             selectedItem={0}
@@ -71,12 +70,7 @@ const AdImageCarousel = (props) => {
         className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
       >
         <div className="carousel-container lg:mt-56 mx-5 flex justify-center items-center">
-          <Carousel
-            showStatus={false}
-            selectedItem={0}
-            showArrows={true}
-            axis="vertical"
-          >
+          <Carousel showStatus={false} selectedItem={0} showArrows={true}>
             {props.images.map((image, index) => (
               <div className="relative" key={index}>
                 <Image

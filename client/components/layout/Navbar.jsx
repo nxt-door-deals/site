@@ -78,6 +78,7 @@ const Navbar = (props) => {
     <Fragment>
       {/* ******* Navbar ******* */}
       <nav
+        onClick={toggleNav}
         className={
           stickyNav
             ? props.navStyle.navBgColor +
@@ -122,7 +123,7 @@ const Navbar = (props) => {
                 alt="Open Menu"
               />
             ) : (
-              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative opacity-90 cursor-pointer">
+              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-purple-900 p-4 relative opacity-90 cursor-pointer shadow-scrollToTopShadow">
                 <FontAwesomeIcon
                   icon={faStream}
                   alt="Open Menu"

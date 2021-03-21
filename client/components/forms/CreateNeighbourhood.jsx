@@ -117,7 +117,7 @@ const CreateNeighbourhood = (props) => {
           exit="exit"
           className="pb-20 bg-purple-50 bg-opacity-40 -mt-1"
         >
-          <div className="opacity-50 pt-20 mx-10 bg-purple-50 flex justify-center">
+          <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-purple-50 lg:flex lg:justify-center">
             <img src="/images/neighbourhood/skyline.svg" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
@@ -489,7 +489,7 @@ const CreateNeighbourhood = (props) => {
                           variants={variants}
                           whileHover="hover"
                           whileTap="tap"
-                          className={`"py-6 px-6 h-12 bg-blue-600 text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
+                          className={`"py-6 px-6 h-12 bg-blue-600 shadow-buttonShadowBlue text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
                             !enableFormSubmission && "cursor-not-allowed"
                           } ${props.isSubmitting && "cursor-not-allowed"}`}
                           disabled={!enableFormSubmission ? true : false}

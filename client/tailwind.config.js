@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        axiforma: ["Axiforma", "Helvetica", "Arial", "sans"],
+        axiforma: ["Axiforma", "sans", "Arial"],
         fontAwesome: ["FontAwesome"],
       },
       padding: {
@@ -11,15 +11,18 @@ module.exports = {
       },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
+        buttonShadowPurple: "0 10px 25px rgba(123,104,238,.5)",
+        buttonShadowBlue: "0 10px 25px rgba(96,165,250,.5)",
+        cancelButtonShadow: "0 10px 25px rgba(248,113,113,.3)",
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
         navshadow: "0px 1px 2px 2px rgba(221, 214, 254, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
         boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
-        postadshadow: "0px 7px 29px 0px rgba(204, 179, 235, 0.4)",
+        postadshadow: "0px 7px 29px 3px rgba(204, 179, 235, 0.4)",
         adcardshadow:
-          "0 1px 10px 5px rgba(241, 192, 234, 0.1), 0 -1.5px 12px 6px rgba(198, 91, 78, 0.05)",
+          "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 24px, rgba(241, 192, 234, 0.3) 0px 16px 48px",
         chatListShadow:
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
@@ -28,7 +31,10 @@ module.exports = {
         chatWindowShadow: "0 6px 22px 6px rgba(139, 92, 246, 0.12)",
         userAccountShadow:
           "rgba(223, 170, 225, 0.2) 0px 8px 24px, rgba(223, 170, 225, 0.2) 0px 16px 56px, rgba(223, 170, 225, 0.2) 0px 24px 80px;",
-        scrollToTopShadow: "rgba(0, 0, 0, 0.2) 0px 20px 30px;",
+        scrollToTopShadow: "rgba(0, 0, 0, 0.2) 0px 20px 20px 5px",
+        giveawayButtonShadow:
+          "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 24px, rgba(241, 192, 234, 0.2) 0px 16px 48px, rgba(241, 192, 234, 0.2) 0px 32px 96px",
+        footerShadow: "rgba(206, 133, 213, 0.1) 0px -10px 7px 2px",
       },
       zIndex: {
         "-10": "-10",

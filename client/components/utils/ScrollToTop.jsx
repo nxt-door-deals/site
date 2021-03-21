@@ -25,7 +25,7 @@ const ScrollToTop = (props) => {
     return (
       <div className="fixed right-3 bottom-3">
         <button
-          className={`text-center tracking-wide cursor-pointer focus:outline-none rounded-xl text-white bg-brand-gray shadow-sctollToTopShadow p-2 uppercase text-sm`}
+          className={`text-center tracking-wide cursor-pointer focus:outline-none rounded-xl text-white bg-brand-gray shadow-scrollToTopShadow p-2 uppercase text-sm`}
           onClick={() => window.scrollTo(0, 0)}
         >
           <FontAwesomeIcon icon={faArrowUp} className="text-xl" />

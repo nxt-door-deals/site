@@ -549,7 +549,7 @@ const CreateAd = ({ categoryName, user }) => {
                     whileHover="hover"
                     whileTap="tap"
                     disabled={props.isSubmitting}
-                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-500 text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-500 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                   >

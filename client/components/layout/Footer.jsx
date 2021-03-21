@@ -47,7 +47,7 @@ const Footer = (props) => {
 
   return (
     <div
-      className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 text-purple-50 "`}
+      className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 shadow-footerShadow text-purple-50 "`}
     >
       {/* <div className="flex justify-center mt-5">
         <Link href="#header">
@@ -60,7 +60,7 @@ const Footer = (props) => {
         </Link>
       </div> */}
 
-      <div className="pt-5 text-center">
+      <div className="mt-14 text-center">
         <Image src={"/images/site/icon.png"} width={150} height={80} />
       </div>
 
@@ -133,12 +133,12 @@ const Footer = (props) => {
           </ul>
         </div>
 
-        <div className="pt-16 md:pt-0 pb-16">
+        <div className="py-16 md:pt-0">
           <h2 className="text-center text-xl pb-5 tracking-wide">
             Feeling Social?
           </h2>
           {/* Social icons */}
-          <div className="flex justify-center pb-7 text-3xl">
+          <div className="flex justify-center text-3xl">
             <Link href="https://facebook.com" passHref={true}>
               <motion.a
                 variants={variants}
@@ -204,7 +204,7 @@ const Footer = (props) => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center pt-16 lg:pt-8 pb-2 text-sm tracking-wide">
+      <div className="flex justify-center items-center lg:pt-8 pb-2 text-sm tracking-wide">
         Made with{" "}
         <span className="text-red-600 pl-1 pr-1">
           <FontAwesomeIcon icon={faHeart} />

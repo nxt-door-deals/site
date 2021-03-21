@@ -445,7 +445,7 @@ const UserAccount = (props) => {
                             focusRef.current.focus();
                             setProfileUpdate(true);
                           }}
-                          className="h-12 w-full tracking-wide font-semibold focus:outline-none bg-purple-500 uppercase text-white rounded-xl "
+                          className="h-12 w-full tracking-wide font-semibold focus:outline-none bg-purple-500 shadow-buttonShadowPurple uppercase text-white rounded-xl "
                         >
                           Edit Profile
                         </motion.button>
@@ -457,7 +457,7 @@ const UserAccount = (props) => {
                             whileTap="saveEditButtonTap"
                             type="submit"
                             disabled={props.isSubmitting}
-                            className={`h-12 px-14 bg-purple-500 uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none ${
+                            className={`h-12 px-14 bg-purple-500 shadow-buttonShadowPurple uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none ${
                               props.isSubmitting && "cursor-not-allowed"
                             }`}
                           >
@@ -468,7 +468,7 @@ const UserAccount = (props) => {
                             whileHover="cancelButtonHover"
                             whileTap="cancelButtonTap"
                             type="button"
-                            className="h-12 px-12 bg-red-400 uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none"
+                            className="h-12 px-12 bg-red-400 shadow-cancelButtonShadow uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none"
                             disabled={props.isSubmitting}
                             onClick={() => {
                               props.handleReset();

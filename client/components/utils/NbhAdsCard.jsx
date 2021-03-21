@@ -60,7 +60,7 @@ const NbhAdsCard = (props) => {
     return (
       <div>
         {/* The cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-5 md:gap-10 mx-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-10">
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
@@ -75,7 +75,6 @@ const NbhAdsCard = (props) => {
                     >
                       <Carousel
                         dynamicHeight
-                        infiniteLoop={true}
                         interval={3000}
                         autoPlay
                         transitionTime={150}

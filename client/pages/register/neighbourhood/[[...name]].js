@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import { navStyleBlue } from "../../../utils/styles";
@@ -8,8 +8,10 @@ import CreateNeighbourhoodHeadLayout from "../../../components/layout/CreateNeig
 import Navbar from "../../../components/layout/Navbar";
 import CreateNeighbourhood from "../../../components/forms/CreateNeighbourhood";
 import Footer from "../../../components/layout/Footer";
+import ScrollToTop from "../../../components/utils/ScrollToTop";
 
 const Neighbourhood = (props) => {
+  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -23,6 +25,8 @@ const Neighbourhood = (props) => {
 
   return (
     <CreateNeighbourhoodHeadLayout>
+      <ScrollToTop scrollToTop={scrollToTop} setScrollToTop={setScrollToTop} />
+
       <div id="header">
         <Navbar navStyle={navStyleBlue} />
         <CreateNeighbourhood

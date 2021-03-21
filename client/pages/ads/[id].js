@@ -9,11 +9,12 @@ import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Ad from "../../components/utils/Ad";
 import Footer from "../../components/layout/Footer";
+import ScrollToTop from "../../components/utils/ScrollToTop";
 
 const FullPageAd = (props) => {
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
   const [imgArray, setImgArray] = useState(props.data.images);
-
+  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -26,6 +27,13 @@ const FullPageAd = (props) => {
 
   return (
     <AdsHeadLayout>
+      <div className="w-full">
+        <ScrollToTop
+          scrollToTop={scrollToTop}
+          setScrollToTop={setScrollToTop}
+        />
+      </div>
+
       <div className="text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
         <Navbar
           navStyle={navStylePurple}

@@ -134,7 +134,7 @@ const UserChatList = (props) => {
                                           variants={buttonVariants}
                                           whileHover="chatButtonHover"
                                           whileTap="chatButtonTap"
-                                          className="h-10 w-10 bg-purple-500 rounded-lg focus-within:outline-none"
+                                          className="h-10 w-10 bg-purple-500 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
                                           onClick={() =>
                                             router.push(
                                               `/chat/${
@@ -153,7 +153,7 @@ const UserChatList = (props) => {
                                           variants={buttonVariants}
                                           whileHover="deleteButtonHover"
                                           whileTap="deleteButtonTap"
-                                          className="h-10 w-10 bg-red-400 rounded-lg ml-3 focus-within:outline-none"
+                                          className="h-10 w-10 bg-red-400 shadow-cancelButtonShadow rounded-lg ml-3 focus-within:outline-none"
                                           onClick={() => {
                                             setDeleteIndex(chat.chat_id);
 
@@ -247,7 +247,7 @@ const UserChatList = (props) => {
                             variants={buttonVariants}
                             whileHover="chatButtonHover"
                             whileTap="chatButtonTap"
-                            className="h-10 w-10 bg-purple-500 rounded-lg focus-within:outline-none"
+                            className="h-10 w-10 bg-purple-500 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
                             onClick={() =>
                               router.push(
                                 `/chat/${
@@ -266,7 +266,7 @@ const UserChatList = (props) => {
                             variants={buttonVariants}
                             whileHover="deleteButtonHover"
                             whileTap="deleteButtonTap"
-                            className="h-10 w-10 bg-red-400 rounded-lg ml-2 focus-within:outline-none"
+                            className="h-10 w-10 bg-red-400 shadow-cancelButtonShadow rounded-lg ml-2 focus-within:outline-none"
                             onClick={() => {
                               setDeleteIndex(chat.chat_id);
 
