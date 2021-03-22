@@ -7,7 +7,7 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Your Neighbourhood Marketplace</title>
+        <title>The Home Your Neighbourhood Marketplace</title>
         <meta
           name="description"
           content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
@@ -16,82 +16,44 @@ const HomeHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="NXT Door Deals | Your neighbourhood marketplace"
+          content="The Home Your Neighbourhood Marketplace"
         />
         <meta
           property="og:description"
           content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
-        <meta property="og:site_name" content="NXT Door Deals" />
+        <meta property="og:site_name" content="nxtdoordeals.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: `[
               {
-                "@id": "https://nxtdoordeals.com/#website",
-                "@type": [
-                  "http://schema.org/WebSite"
-                ],
-                "http://schema.org/description": [
-                  {
-                    "@value": ""
-                  }
-                ],
-                "http://schema.org/inLanguage": [
-                  {
-                    "@value": "en"
-                  }
-                ],
-                "http://schema.org/url": [
-                  {
-                    "@id": "https://nxtdoordeals.com/"
-                  }
-                ]
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "dateCreated": "22-03-2021",
+                "url": "https://nxtdoordeals.com",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
+                "genre": "Website for an online marketplace",
+                "keywords": "marketplace, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },
               {
-                "@id": "https://nxtdoordeals.com/#webpage",
-                "@type": [
-                  "http://schema.org/WebPage"
-                ],
-                "http://schema.org/datePublished": [
-                  {
-                    "@type": "http://schema.org/Date",
-                    "@value": "2020-10-15T00:00:00+00:00"
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "datePublished": "22-03-2021",
+                "dateModified": "22-03-2021",
+                "url": "https://nxtdoordeals.com/",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
+                "name": "The Home Your Neighbourhood Marketplace",
+                "inLanguage": "en",
+                "isPartOf": "https://nxtdoordeals.com",
+                "potentialAction": {
+                  "@type": "ReadAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://nxtdoordeals.com"
                   }
-                ],
-                "http://schema.org/description": [
-                  {
-                    "@value": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
-                  }
-                ],
-                "http://schema.org/inLanguage": [
-                  {
-                    "@value": "en"
-                  }
-                ],
-                "http://schema.org/isPartOf": [
-                  {
-                    "@id": "https://nxtdoordeals.com/#website"
-                  }
-                ],
-                "http://schema.org/potentialAction": [
-                  {
-                    "@type": [
-                      "http://schema.org/ReadAction"
-                    ],
-                    "http://schema.org/target": [
-                      {
-                        "@value": "https://nxtdoordeals.com/"
-                      }
-                    ]
-                  }
-                ],
-                "http://schema.org/url": [
-                  {
-                    "@id": "https://nxtdoordeals.com/"
-                  }
-                ]
+                }
               }
             ]`,
           }}

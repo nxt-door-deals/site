@@ -104,6 +104,7 @@ const SearchNbhAds = (props) => {
                           neutral50: "#4B5563", // Placeholder color
                         },
                       })}
+                      aria-label="Drop down list to select ad category"
                     />
                   </div>
                   <div>
@@ -115,6 +116,7 @@ const SearchNbhAds = (props) => {
                       maxLength="250"
                       autoComplete="off"
                       className="textbox-input w-40 lg:w-64 placeholder-gray-600 "
+                      aria-label="Enter search text"
                     />
                   </div>
                   <div className="p-1">
@@ -123,6 +125,7 @@ const SearchNbhAds = (props) => {
                       whileHover="hover"
                       type="submit"
                       className=" p-2.5 bg-ad-purple rounded-lg text-white focus:outline-none"
+                      aria-label="Search button"
                     >
                       <FontAwesomeIcon icon={faSearch} />
                     </motion.button>
@@ -143,6 +146,7 @@ const SearchNbhAds = (props) => {
             whileTap="tap"
             className="lg:ml-5 px-2.5 py-4 lg:py-5 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
             onClick={() => searchGiveaways(props.nbhId)}
+            aria-label="Giveaway sort button"
           >
             Show me the Giveaways
           </motion.button>
@@ -167,6 +171,7 @@ const SearchNbhAds = (props) => {
                 neutral50: "#4B5563", // Placeholder color
               },
             })}
+            aria-label="Drop down list to select sort option"
           />
         </div>
       </div>

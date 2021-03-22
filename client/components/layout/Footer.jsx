@@ -47,21 +47,17 @@ const Footer = (props) => {
 
   return (
     <div
+      role="contentinfo"
+      aria-label="Footer"
       className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 shadow-footerShadow text-purple-50 "`}
     >
-      {/* <div className="flex justify-center mt-5">
-        <Link href="#header">
-          <a className="w-10 focus-within:outline-none">
-            <FontAwesomeIcon
-              icon={faChevronUp}
-              className="text-7xl cursor-pointer transform hover:-translate-y-8 duration-500"
-            />
-          </a>
-        </Link>
-      </div> */}
-
       <div className="mt-14 text-center">
-        <Image src={"/images/site/icon.png"} width={150} height={80} />
+        <Image
+          src={"/images/site/icon.png"}
+          width={150}
+          height={80}
+          alt={"Logo for the nxtdoordeals.com brand"}
+        />
       </div>
 
       <div className="text-center">
@@ -74,11 +70,15 @@ const Footer = (props) => {
         <div className="flex justify-center items-center flex-col text-sm tracking-wide">
           <h2 className="pb-5 text-xl">nxtdoordeals.com</h2>
 
-          <ul>
-            <div className="grid grid-cols-2 md:grid-cols-1">
+          <div className="grid grid-cols-2 md:grid-cols-1">
+            <ul>
               <li className="pb-3 px-2">
                 <Link href="/ourstory">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the our story page"
+                  >
                     <FontAwesomeIcon icon={faBook} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Our Story</span>
                   </motion.a>
@@ -87,7 +87,11 @@ const Footer = (props) => {
 
               <li className="pb-3 px-2">
                 <Link href="/policies/#privacy">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the privacy policy page"
+                  >
                     <FontAwesomeIcon icon={faUserSecret} className="mr-1" />
                     <span className="pb-1 styled-link">Privacy Policy</span>
                   </motion.a>
@@ -96,7 +100,11 @@ const Footer = (props) => {
 
               <li className="pb-3 px-2">
                 <Link href="/policies/#cookie">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the cookie policy page"
+                  >
                     <FontAwesomeIcon icon={faCookieBite} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Cookie Policy</span>
                   </motion.a>
@@ -105,7 +113,11 @@ const Footer = (props) => {
 
               <li className="pb-3 px-2">
                 <Link href="/policies/#terms">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the terms of use page"
+                  >
                     <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Terms of Use</span>
                   </motion.a>
@@ -114,7 +126,11 @@ const Footer = (props) => {
 
               <li className="pb-3 px-2">
                 <Link href="/faqs#grid">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the faqs page"
+                  >
                     <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">FAQs</span>
                   </motion.a>
@@ -123,14 +139,18 @@ const Footer = (props) => {
 
               <li className="pb-3 px-2">
                 <Link href="/guidelines">
-                  <motion.a variants={variants} whileHover="hover">
+                  <motion.a
+                    variants={variants}
+                    whileHover="hover"
+                    aria-label="Link to the guidelines page"
+                  >
                     <FontAwesomeIcon icon={faBookOpen} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Guidelines</span>
                   </motion.a>
                 </Link>
               </li>
-            </div>
-          </ul>
+            </ul>
+          </div>
         </div>
 
         <div className="py-16 md:pt-0">
@@ -145,6 +165,7 @@ const Footer = (props) => {
                 whileHover="hover"
                 target="_blank"
                 className="mr-4"
+                aria-label="Link to our facebook page"
               >
                 <FontAwesomeIcon icon={faFacebookSquare} />
               </motion.a>
@@ -155,6 +176,7 @@ const Footer = (props) => {
                 whileHover="hover"
                 target="_blank"
                 className="mr-4"
+                aria-label="Link to our instagram page"
               >
                 <FontAwesomeIcon icon={faInstagramSquare} />
               </motion.a>
@@ -165,6 +187,7 @@ const Footer = (props) => {
                 whileHover="hover"
                 target="_blank"
                 className="mr-4"
+                aria-label="Link to our linkedin page"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </motion.a>
@@ -189,13 +212,19 @@ const Footer = (props) => {
                 variants={variants}
                 whileHover="hover"
                 className="px-2 pb-3"
+                aria-label="Link redirects focus to the browse ads text box"
               >
                 <FontAwesomeIcon icon={faBinoculars} className="mr-1" />
                 <span className="pb-1 styled-link">Browse Ads</span>
               </motion.a>
             </Link>{" "}
             <Link href="/postad">
-              <motion.a variants={variants} whileHover="hover" className="pl-2">
+              <motion.a
+                variants={variants}
+                whileHover="hover"
+                className="pl-2"
+                aria-label="Link to the post a free ad page"
+              >
                 <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
                 <span className="pb-1 styled-link">Post Free Ad</span>
               </motion.a>
@@ -225,6 +254,9 @@ const Footer = (props) => {
           overlay: {
             zIndex: 99999,
           },
+        }}
+        aria={{
+          label: "Contact us form",
         }}
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}

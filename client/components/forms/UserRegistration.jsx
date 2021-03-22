@@ -224,14 +224,28 @@ const UserRegistration = () => {
                           placeholder="Name*"
                           maxLength="50"
                           autoComplete="off"
-                          autoFocus=""
+                          autoFocus
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.name && props.errors.name
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.name && props.errors.name
+                              ? "name-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
                       </div>
 
                       {/* Validation errors */}
                       {props.touched.name && props.errors.name ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="name-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.name}
                         </div>
@@ -256,14 +270,27 @@ const UserRegistration = () => {
                           placeholder="Email*"
                           maxLength="50"
                           autoComplete="off"
-                          autoFocus=""
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.email && props.errors.email
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.email && props.errors.email
+                              ? "email-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
                       </div>
 
                       {/* Validation errors */}
                       {props.touched.email && props.errors.email ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="email-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.email}
                         </div>
@@ -288,14 +315,27 @@ const UserRegistration = () => {
                           placeholder="Mobile"
                           maxLength="15"
                           autoComplete="off"
-                          autoFocus=""
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.mobile && props.errors.mobile
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.mobile && props.errors.mobile
+                              ? "mobile-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
                       </div>
 
                       {/* Validation errors */}
                       {props.touched.mobile && props.errors.mobile ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="mobile-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.mobile}
                         </div>
@@ -320,7 +360,17 @@ const UserRegistration = () => {
                           placeholder="Password*"
                           maxLength="50"
                           autoComplete="off"
-                          autoFocus=""
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.password && props.errors.password
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.password && props.errors.password
+                              ? "password-error"
+                              : null
+                          }
                           className="textbox-input w-9/12 md:w-10/12 placeholder-gray-600 "
                         />
                         <FontAwesomeIcon
@@ -335,7 +385,10 @@ const UserRegistration = () => {
 
                       {/* Validation errors */}
                       {props.touched.password && props.errors.password ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="password-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.password}
                         </div>
@@ -362,13 +415,27 @@ const UserRegistration = () => {
                           autoComplete="off"
                           autoFocus=""
                           onKeyUp={searchApartment}
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.apartment && props.errors.apartment
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.apartment && props.errors.apartment
+                              ? "apartment-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
                       </div>
 
                       {/* Validation errors */}
                       {props.touched.apartment && props.errors.apartment ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="apartment-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.apartment}
                         </div>
@@ -483,6 +550,19 @@ const UserRegistration = () => {
                           placeholder="Flat/house number* (Ex: 77, A2)"
                           maxLength="10"
                           autoComplete="off"
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.apartmentNumber &&
+                            props.errors.apartmentNumber
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.apartmentNumber &&
+                            props.errors.apartmentNumber
+                              ? "apartmentNumber-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
                       </div>
@@ -490,7 +570,10 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.apartmentNumber &&
                       props.errors.apartmentNumber ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="apartmentNumber-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.apartmentNumber}
                         </div>
@@ -515,7 +598,7 @@ const UserRegistration = () => {
                             props.isSubmitting && "cursor-not-allowed"
                           }`}
                           type="submit"
-                          arira-aria-label="User registration button"
+                          aria-label="User registration button"
                           disabled={
                             authError !== null ||
                             !enableFormSubmission ||

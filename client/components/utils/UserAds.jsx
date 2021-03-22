@@ -21,7 +21,7 @@ const buttonVariants = {
   },
   editButtonTap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
   deleteButtonHover: {
     backgroundColor: "#991B1B",
@@ -147,7 +147,7 @@ const UserAds = (props) => {
                       variants={buttonVariants}
                       whileHover="editButtonHover"
                       whileTap="editButtonTap"
-                      className="p-3 rounded-lg bg-purple-500 shadow-buttonShadowPurple focus:outline-none"
+                      className="p-3 rounded-lg bg-purple-700 shadow-buttonShadowPurple focus:outline-none"
                       onClick={() => {
                         setEditButtonClicked(true);
                         props.setShowForm(false);

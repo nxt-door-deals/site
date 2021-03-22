@@ -7,8 +7,8 @@ const variants = {
   hidden: { opacity: 0 },
   btn1Visible: { opacity: 1, transition: { delay: 0.5, duration: 0.3 } },
   btn2Visible: { opacity: 1, transition: { delay: 1, duration: 0.3 } },
-  homeButtonHover: { backgroundColor: "#5B21B6" },
-  homeButtonTap: { backgroundColor: "#8B5CF6", y: "2px" },
+  homeButtonHover: { backgroundColor: "#4C1D95" },
+  homeButtonTap: { backgroundColor: "#6D28D9", y: "2px" },
   loginStatusButtonHover: { backgroundColor: "#550052" },
   loginStatusButtonTap: { backgroundColor: "#902393", y: "2px" },
 };
@@ -40,7 +40,7 @@ const UserLoggedIn = () => {
           animate="btn1Visible"
           whileHover="homeButtonHover"
           whileTap="homeButtonTap"
-          className="w-48 h-12 rounded-lg bg-purple-500 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
+          className="w-48 h-12 rounded-lg bg-purple-700 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
           onClick={() => router.push("/")}
           aria-label="Home button"
         >

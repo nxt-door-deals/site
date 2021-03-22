@@ -48,7 +48,7 @@ const userAccountVariants = {
   },
   saveEditButtonTap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
   cancelButtonHover: {
     backgroundColor: "#991B1B",
@@ -209,13 +209,27 @@ const UserAccount = (props) => {
                               currentUser && currentUser.name)
                           )
                         }
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.name && props.errors.name
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.name && props.errors.name
+                            ? "name-error"
+                            : null
+                        }
                         className="textbox-input w-10/12 placeholder-gray-600  bg-white"
                       />
                     </div>
 
                     {/* Validation errors */}
                     {props.touched.name && props.errors.name ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="name-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.name}
                       </div>
@@ -252,13 +266,27 @@ const UserAccount = (props) => {
                               currentUser && currentUser.mobile)
                           )
                         }
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.mobile && props.errors.mobile
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.mobile && props.errors.mobile
+                            ? "mobile-error"
+                            : null
+                        }
                         className="textbox-input w-10/12 placeholder-gray-600  bg-white"
                       />
                     </div>
 
                     {/* Validation errors */}
                     {props.touched.mobile && props.errors.mobile ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="mobile-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.mobile}
                       </div>
@@ -291,6 +319,19 @@ const UserAccount = (props) => {
                         placeholder="Neighbourhood*"
                         value={props.values.neighbourhood}
                         onKeyUp={searchApartment}
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.neighbourhood &&
+                          props.errors.neighbourhood
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.neighbourhood &&
+                          props.errors.neighbourhood
+                            ? "neighbourhood-error"
+                            : null
+                        }
                         className="textbox-input bg-white w-10/12 placeholder-gray-600 "
                       />
                     </div>
@@ -298,7 +339,10 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.neighbourhood &&
                     props.errors.neighbourhood ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="neighbourhood-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.neighbourhood}
                       </div>
@@ -445,7 +489,7 @@ const UserAccount = (props) => {
                             focusRef.current.focus();
                             setProfileUpdate(true);
                           }}
-                          className="h-12 w-full tracking-wide font-semibold focus:outline-none bg-purple-500 shadow-buttonShadowPurple uppercase text-white rounded-xl "
+                          className="h-12 w-full tracking-wide font-semibold focus:outline-none bg-purple-700 shadow-buttonShadowPurple uppercase text-white rounded-xl "
                         >
                           Edit Profile
                         </motion.button>
@@ -457,7 +501,7 @@ const UserAccount = (props) => {
                             whileTap="saveEditButtonTap"
                             type="submit"
                             disabled={props.isSubmitting}
-                            className={`h-12 px-14 bg-purple-500 shadow-buttonShadowPurple uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none ${
+                            className={`h-12 px-14 bg-purple-700 shadow-buttonShadowPurple uppercase text-white rounded-xl tracking-wide font-semibold focus:outline-none ${
                               props.isSubmitting && "cursor-not-allowed"
                             }`}
                           >

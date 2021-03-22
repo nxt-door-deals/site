@@ -8,7 +8,7 @@ const buttonVariants = {
     backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -33,7 +33,7 @@ const PasswordChangeSuccess = () => {
       </div>
       <div className="text-center mt-6">
         <motion.button
-          className="w-48 h-12 bg-purple-500 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+          className="w-48 h-12 bg-purple-700 text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"

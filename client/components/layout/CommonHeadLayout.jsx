@@ -7,7 +7,7 @@ const CommonHeadLayout = () => {
       <meta charSet="utf-8" />
       <meta
         name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, viewport-fit=cover"
+        content="width=device-width, initial-scale=1,maximum-scale=5, minimum-scale=1, viewport-fit=cover"
       />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       {/* <link rel="shortcut icon" sizes="16x16" href="/favicon.ico" type="image/x-icon" /> */}

@@ -14,6 +14,7 @@ const variants = {
     backgroundColor: "#4C1D95",
   },
   buttonTap: {
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -42,7 +43,7 @@ const FullPageAdDetails = (props) => {
   return (
     <div>
       <h1 className="text-lg lg:text-2xl">
-        <span className="text-purple-500 uppercase">
+        <span className="text-purple-700 uppercase">
           {props.adData.condition}
         </span>
         : {props.adData.title}
@@ -62,11 +63,11 @@ const FullPageAdDetails = (props) => {
       </p>
       <div className="pt-5 text-2xl">
         {props.adData.ad_type === "sale" ? (
-          <p className="text-purple-500 font-bold">
+          <p className="text-purple-700 font-bold">
             <FontAwesomeIcon icon={faRupeeSign} /> {props.adData.price}
           </p>
         ) : (
-          <p className="text-purple-500 font-bold animate-pulse text-2xl">
+          <p className="text-purple-700 font-bold animate-pulse text-2xl">
             FREE
           </p>
         )}
@@ -76,10 +77,12 @@ const FullPageAdDetails = (props) => {
       {props.showChatButton && (
         <div className="pt-5 pb-2">
           <motion.button
+            type="button"
             variants={variants}
             whileHover="chatButtonHover"
             whileTap="buttonTap"
-            className="p-3 bg-purple-500 shadow-buttonShadowPurple text-white rounded-xl font-semibold uppercase focus:outline-none"
+            aria-label="Chat with seller"
+            className="p-3 bg-purple-700 shadow-buttonShadowPurple text-white rounded-xl font-semibold uppercase focus:outline-none"
             onClick={() => {
               if (cookie.get("__redirChatCookie")) {
                 cookie.remove("__redirChatCookie");

@@ -22,7 +22,7 @@ const buttonVariants = {
     backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -124,6 +124,17 @@ const ChangePassword = (props) => {
                       placeholder="Password*"
                       maxLength="50"
                       autoComplete="off"
+                      aria-required="true"
+                      aria-invalid={
+                        props.touched.password && props.errors.password
+                          ? "true"
+                          : null
+                      }
+                      aria-describedby={
+                        props.touched.password && props.errors.password
+                          ? "password-error"
+                          : null
+                      }
                       className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
@@ -138,7 +149,10 @@ const ChangePassword = (props) => {
 
                   {/* Validation errors */}
                   {props.touched.password && props.errors.password ? (
-                    <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                    <div
+                      className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                      id="password-error"
+                    >
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                       {props.errors.password}
                     </div>
@@ -164,6 +178,19 @@ const ChangePassword = (props) => {
                       placeholder="Confirm Password*"
                       maxLength="50"
                       autoComplete="off"
+                      aria-required="true"
+                      aria-invalid={
+                        props.touched.confirmPassword &&
+                        props.errors.confirmPassword
+                          ? "true"
+                          : null
+                      }
+                      aria-describedby={
+                        props.touched.confirmPassword &&
+                        props.errors.confirmPassword
+                          ? "confirmpassword-error"
+                          : null
+                      }
                       className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                     <FontAwesomeIcon
@@ -181,7 +208,10 @@ const ChangePassword = (props) => {
                   {/* Validation errors */}
                   {props.touched.confirmPassword &&
                   props.errors.confirmPassword ? (
-                    <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                    <div
+                      className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                      id="confirmpassword-error"
+                    >
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                       {props.errors.confirmPassword}
                     </div>
@@ -191,7 +221,7 @@ const ChangePassword = (props) => {
                     <motion.button
                       type="submit"
                       disabled={props.isSubmitting}
-                      className={`w-48 h-12 bg-purple-500 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                      className={`w-48 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                         props.isSubmitting && "cursor-not-allowed"
                       }`}
                       variants={buttonVariants}

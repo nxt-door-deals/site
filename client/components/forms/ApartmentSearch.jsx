@@ -24,11 +24,11 @@ const apartmentSearchValidationSchema = Yup.object({
 const variants = {
   hoverSearchResults: { color: "#553C9A", fontWeight: 600 },
   buttonTap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
   buttonHover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   secondaryButtonTap: {
     backgroundColor: "#5B21B6",
@@ -100,6 +100,7 @@ const ApartmentSearch = () => {
                 className="text-gray-400 text-lg ml-2 align-middle"
               />
               <Field
+                role="textbox"
                 id="apartment"
                 name="apartment"
                 type="text"
@@ -107,6 +108,17 @@ const ApartmentSearch = () => {
                 maxLength="50"
                 autoComplete="off"
                 autoFocus=""
+                aria-required="true"
+                aria-invalid={
+                  props.touched.apartment && props.errors.apartment
+                    ? "true"
+                    : null
+                }
+                aria-describedby={
+                  props.touched.apartment && props.errors.apartment
+                    ? "apartment-error"
+                    : null
+                }
                 className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600 rounded-xl"
                 onKeyUp={searchApartment}
               />
@@ -121,7 +133,7 @@ const ApartmentSearch = () => {
             </div>
 
             {/* Validation errors */}
-            <div className="relative">
+            <div className="relative" id="apartment-error">
               {props.touched.apartment && props.errors.apartment ? (
                 <div className="text-xs text-red-800 p-1 absolute">
                   <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -214,7 +226,7 @@ const ApartmentSearch = () => {
             <div className="mt-8">
               <motion.button
                 type="submit"
-                className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-500 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
+                className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-700 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
                   props.isSubmitting && "cursor-not-allowed"
                 }`}
                 variants={variants}

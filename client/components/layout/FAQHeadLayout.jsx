@@ -10,7 +10,7 @@ const FAQHeadLayout = (props) => {
         <title>FAQs about Buying and Selling on nxtdoordeals.com</title>
         <meta
           name="description"
-          content="Read the buyer, seller and generic FAQs"
+          content="All the frequently asked questions about buying and selling on nxtdoordeals.com"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,78 +20,44 @@ const FAQHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Read the buyer, seller and generic FAQs."
+          content="All the frequently asked questions about buying and selling on nxtdoordeals.com"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
-        <meta property="og:site_name" content="NXT Door Deals" />
+        <meta property="og:site_name" content="nxtdoordeals.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: `[
               {
-                "@id": "https://nxtdoordeals.com/#website",
-                "@type": [
-                  "http://schema.org/WebSite"
-                ],
-                "http://schema.org/description": [
-                  {
-                    "@value": "NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society."
-                  }
-                ],
-                "http://schema.org/inLanguage": [
-                  {
-                    "@value": "en"
-                  }
-                ],
-                "http://schema.org/url": [
-                  {
-                    "@id": "https://nxtdoordeals.com/"
-                  }
-                ]
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "dateCreated": "22-03-2021",
+                "url": "https://nxtdoordeals.com",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
+                "genre": "Website for an online marketplace",
+                "keywords": "marketplace, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },
               {
-                "@id": "https://nxtdoordeals.com/login/#webpage",
-                "@type": [
-                  "http://schema.org/WebPage"
-                ],
-                "http://schema.org/datePublished": [
-                  {
-                    "@type": "http://schema.org/Date",
-                    "@value": "2020-10-15T00:00:00+00:00"
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "datePublished": "22-03-2021",
+                "dateModified": "22-03-2021",
+                "url": "https://nxtdoordeals.com/faqs",
+                "description": "All the frequently asked questions about buying and selling on nxtdoordeals.com",
+                "name": "FAQs about Buying and Selling on nxtdoordeals.com",
+                "inLanguage": "en",
+                "isPartOf": {
+                  "@type": "WebSite",
+                  "url": "https://nxtdoordeals.com",
+                  "name": "nxtdoordeals.com | Your Neighbourhood Marketplace",
+                  "inLanguage": "en"},
+                "potentialAction": {
+                  "@type": "ReadAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://nxtdoordeals.com/faqs"
                   }
-                ],
-                "http://schema.org/description": [
-                  {
-                    "@value": "Read the buyer, seller and generic FAQs."
-                  }
-                ],
-                "http://schema.org/inLanguage": [
-                  {
-                    "@value": "en"
-                  }
-                ],
-                "http://schema.org/isPartOf": [
-                  {
-                    "@id": "https://nxtdoordeals.com/#website"
-                  }
-                ],
-                "http://schema.org/potentialAction": [
-                  {
-                    "@type": [
-                      "http://schema.org/ReadAction"
-                    ],
-                    "http://schema.org/target": [
-                      {
-                        "@value": "https://nxtdoordeals.com/faqs"
-                      }
-                    ]
-                  }
-                ],
-                "http://schema.org/url": [
-                  {
-                    "@id": "https://nxtdoordeals.com/faqs"
-                  }
-                ]
+                }
               }
             ]`,
           }}

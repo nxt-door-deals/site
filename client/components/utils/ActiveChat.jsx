@@ -23,9 +23,10 @@ const validationSchema = Yup.object({
 
 const variants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
+    backgroundColor: "#6D28D9",
     y: "1px",
   },
 };
@@ -158,7 +159,7 @@ const ActiveChat = (props) => {
                 <p
                   className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                     message.ownedBySender
-                      ? "bg-purple-500 font-semibold from-chat"
+                      ? "bg-purple-700 font-semibold from-chat"
                       : "bg-ad-purple font-semibold to-chat"
                   }`}
                 >
@@ -183,7 +184,7 @@ const ActiveChat = (props) => {
               <p
                 className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                   message.ownedBySender
-                    ? "bg-purple-500 font-semibold from-chat"
+                    ? "bg-purple-700 font-semibold from-chat"
                     : "bg-ad-purple font-semibold to-chat"
                 }`}
               >
@@ -225,7 +226,7 @@ const ActiveChat = (props) => {
                 whileHover="hover"
                 whileTap="tap"
                 type="submit"
-                className="w-full h-10 p-2 bg-purple-500 text-white  uppercase rounded-md text-center font-bold focus:outline-none"
+                className="w-full h-10 p-2 bg-purple-700 text-white  uppercase rounded-md text-center font-bold focus:outline-none"
               >
                 <FontAwesomeIcon icon={faPaperPlane} className="text-xl" />
               </motion.button>

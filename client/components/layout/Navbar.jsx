@@ -78,6 +78,8 @@ const Navbar = (props) => {
     <Fragment>
       {/* ******* Navbar ******* */}
       <nav
+        role="navigation"
+        aria-label="navigation bar"
         onClick={toggleNav}
         className={
           stickyNav
@@ -102,10 +104,10 @@ const Navbar = (props) => {
             <a>
               <Image
                 src="/images/nav/brand.svg"
-                alt="Logo for the NXT Door Deals brand"
+                alt="Logo for the nxtdoordeals.com brand. Redirects to the home page."
                 width={100}
                 height={100}
-              ></Image>
+              />
             </a>
           </Link>
         </motion.div>
@@ -509,14 +511,12 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="#how-it-works">
-                    <span className="">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
-                    </span>
+                    <a
+                      className="styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      How It Works
+                    </a>
                   </Link>
                 </li>
                 <li
@@ -526,9 +526,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <span>
-                      <a className="styled-link">Our Story</a>
-                    </span>
+                    <a className="styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -587,14 +585,12 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <span className="">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
-                    </span>
+                    <a
+                      className="styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      How It Works
+                    </a>
                   </Link>
                 </li>
 
@@ -645,9 +641,7 @@ const Navbar = (props) => {
                     }
                   >
                     <Link href="/">
-                      <span>
-                        <a className="styled-link">Home</a>
-                      </span>
+                      <a className="styled-link">Home</a>
                     </Link>
                   </li>
                   <li
@@ -657,9 +651,7 @@ const Navbar = (props) => {
                     }
                   >
                     <Link href="/ourstory">
-                      <span>
-                        <a className="styled-link">Our Story</a>
-                      </span>
+                      <a className="styled-link">Our Story</a>
                     </Link>
                   </li>
                   <li
@@ -669,14 +661,12 @@ const Navbar = (props) => {
                     }
                   >
                     <Link href="/#how-it-works">
-                      <span className="">
-                        <a
-                          className="styled-link"
-                          onClick={() => setExpanded(false)}
-                        >
-                          How It Works
-                        </a>
-                      </span>
+                      <a
+                        className="styled-link"
+                        onClick={() => setExpanded(false)}
+                      >
+                        How It Works
+                      </a>
                     </Link>
                   </li>
                   <li
@@ -724,9 +714,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <span>
-                      <a className="styled-link">Home</a>
-                    </span>
+                    <a className="styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -736,9 +724,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <span>
-                      <a className="styled-link">Our Story</a>
-                    </span>
+                    <a className="styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -748,14 +734,12 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <span className="">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
-                    </span>
+                    <a
+                      className="styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      How It Works
+                    </a>
                   </Link>
                 </li>
               </Fragment>
@@ -795,9 +779,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <span>
-                      <a className="styled-link">Our Story</a>
-                    </span>
+                    <a className="styled-link">Our Story</a>
                   </Link>
                 </li>
               </Fragment>
@@ -834,9 +816,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <span>
-                      <a className="styled-link">Our Story</a>
-                    </span>
+                    <a className="styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -946,14 +926,12 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <span className="">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
-                    </span>
+                    <a
+                      className="styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      How It Works
+                    </a>
                   </Link>
                 </li>
 

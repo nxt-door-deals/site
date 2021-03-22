@@ -14,11 +14,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 // Framer variants
 const buttonVariants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
 };
 
@@ -149,7 +149,7 @@ const NbhAdsCard = (props) => {
               whileHover="hover"
               whileTap="tap"
               type="button"
-              className=" bg-purple-500 px-7 py-5 uppercase text-xl text-white font-semibold rounded-xl focus-within:outline-none"
+              className=" bg-purple-700 px-7 py-5 uppercase text-xl text-white font-semibold rounded-xl focus-within:outline-none"
               onClick={() => setAdLimit(adLimit + 4)}
             >
               Show More Ads

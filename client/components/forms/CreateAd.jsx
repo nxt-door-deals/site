@@ -51,11 +51,11 @@ const step = "Form";
 // Framer variants
 const variants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
+    backgroundColor: "#6D28D9",
     y: "2px",
-    backgroundColor: "#8B5CF6",
   },
 };
 
@@ -103,7 +103,7 @@ const CreateAd = ({ categoryName, user }) => {
     return (
       <div key={index}>
         <div>
-          <img src={file.preview} width="90px" alt={file.name} />
+          <img src={file.preview} width="90px" alt="" />
           <p
             onClick={() => {
               newFiles.splice(newFiles.indexOf(file), 1);
@@ -203,6 +203,7 @@ const CreateAd = ({ categoryName, user }) => {
                           neutral50: "#4B5563", // Placeholder color
                         },
                       })}
+                      aria-label="Drop down list to select ad category"
                     />
                   </div>
                   {props.values.categoryList === "Pets" && (
@@ -235,13 +236,27 @@ const CreateAd = ({ categoryName, user }) => {
                         placeholder="Ad Title*"
                         maxLength="100"
                         autoComplete="off"
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.title && props.errors.title
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.title && props.errors.title
+                            ? "title-error"
+                            : null
+                        }
                         className="textbox-input w-11/12 placeholder-gray-600 "
                       />
                     </div>
 
                     {/* Validation errors */}
                     {props.touched.title && props.errors.title ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="title-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.title}
                       </div>
@@ -265,13 +280,27 @@ const CreateAd = ({ categoryName, user }) => {
                         autoComplete="off"
                         spellCheck={true}
                         rows="7"
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.description && props.errors.description
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.description && props.errors.description
+                            ? "description-error"
+                            : null
+                        }
                         className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
                       />
                     </div>
 
                     {/* Validation errors */}
                     {props.touched.description && props.errors.description ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="description-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.description}
                       </div>
@@ -304,6 +333,19 @@ const CreateAd = ({ categoryName, user }) => {
                               name="typeOfSale"
                               id="sale"
                               value="sale"
+                              aria-required="true"
+                              aria-invalid={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "true"
+                                  : null
+                              }
+                              aria-describedby={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "typeOfSale-error"
+                                  : null
+                              }
                               className="mx-1 focus:outline-none"
                             />
                             Sale
@@ -314,6 +356,19 @@ const CreateAd = ({ categoryName, user }) => {
                               name="typeOfSale"
                               id="giveaway"
                               value="giveaway"
+                              aria-required="true"
+                              aria-invalid={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "true"
+                                  : null
+                              }
+                              aria-describedby={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "typeofsale-error"
+                                  : null
+                              }
                               className="mx-1 focus:outline-none"
                               onClick={() => giveawayToast()}
                             />
@@ -323,7 +378,10 @@ const CreateAd = ({ categoryName, user }) => {
 
                         {/* Validation errors */}
                         {props.touched.typeOfSale && props.errors.typeOfSale ? (
-                          <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                          <div
+                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            id="typeofsale-error"
+                          >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {props.errors.typeOfSale}
                           </div>
@@ -351,6 +409,17 @@ const CreateAd = ({ categoryName, user }) => {
                             disabled={
                               props.values.typeOfSale === "giveaway" && true
                             }
+                            aria-required="true"
+                            aria-invalid={
+                              props.touched.price && props.errors.price
+                                ? "true"
+                                : null
+                            }
+                            aria-describedby={
+                              props.touched.price && props.errors.price
+                                ? "price-error"
+                                : null
+                            }
                             className={
                               "textbox-input w-full bg-transparent placeholder-gray-600  focus:outline-none"
                             }
@@ -359,7 +428,10 @@ const CreateAd = ({ categoryName, user }) => {
 
                         {/* Validation errors */}
                         {props.touched.price && props.errors.price ? (
-                          <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                          <div
+                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            id="price-error"
+                          >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {props.errors.price}
                           </div>
@@ -432,6 +504,7 @@ const CreateAd = ({ categoryName, user }) => {
                                 neutral50: "#4B5563", // Placeholder color
                               },
                             })}
+                            aria-label="Drop down list to select the condition of the item"
                           />
                         </div>
                         {/* {props.touched.condition && props.errors.condition ? (
@@ -446,6 +519,7 @@ const CreateAd = ({ categoryName, user }) => {
                         <label
                           htmlFor="availableFrom"
                           className="text-sm  text-gray-600"
+                          id="date-picker"
                         >
                           Available from:
                         </label>
@@ -456,6 +530,8 @@ const CreateAd = ({ categoryName, user }) => {
                           selected={startDate}
                           onChange={(date) => setStartDate(date)}
                           className="w-28 border-b-2 border-gray-300 text-purple-700 text-center font-axiforma text-base cursor-pointer font-semibold focus:outline-none"
+                          aria-label="Pick the date from when the item will be available"
+                          aria-labelledby="date-picker"
                         />
                       </div>
                     </div>
@@ -483,6 +559,7 @@ const CreateAd = ({ categoryName, user }) => {
                       accept="image/jpg, image/jpeg, image/bmp, image/tiff, image/png, image/gif, image/webp"
                       onDrop={onDrop}
                       maxFiles={10}
+                      aria-label="Drop zone for images"
                     >
                       {({ getRootProps, getInputProps, isDragReject }) => (
                         <section>
@@ -492,7 +569,10 @@ const CreateAd = ({ categoryName, user }) => {
                                 {...getRootProps()}
                                 className="text-center px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
                               >
-                                <input {...getInputProps()} />
+                                <input
+                                  {...getInputProps()}
+                                  aria-label="Drop zone for images"
+                                />
                                 <FontAwesomeIcon
                                   icon={faCamera}
                                   className="text-3xl"
@@ -549,7 +629,7 @@ const CreateAd = ({ categoryName, user }) => {
                     whileHover="hover"
                     whileTap="tap"
                     disabled={props.isSubmitting}
-                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-500 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                   >

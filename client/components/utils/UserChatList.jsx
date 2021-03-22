@@ -15,7 +15,7 @@ const buttonVariants = {
   },
   chatButtonTap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
   deleteButtonHover: {
     backgroundColor: "#991B1B",
@@ -134,7 +134,7 @@ const UserChatList = (props) => {
                                           variants={buttonVariants}
                                           whileHover="chatButtonHover"
                                           whileTap="chatButtonTap"
-                                          className="h-10 w-10 bg-purple-500 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
+                                          className="h-10 w-10 bg-purple-700 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
                                           onClick={() =>
                                             router.push(
                                               `/chat/${
@@ -247,7 +247,7 @@ const UserChatList = (props) => {
                             variants={buttonVariants}
                             whileHover="chatButtonHover"
                             whileTap="chatButtonTap"
-                            className="h-10 w-10 bg-purple-500 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
+                            className="h-10 w-10 bg-purple-700 shadow-buttonShadowPurple rounded-lg focus-within:outline-none"
                             onClick={() =>
                               router.push(
                                 `/chat/${

@@ -408,7 +408,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 router.push("/");
               }}
@@ -443,7 +443,7 @@ const PageNotFound = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="btn-style bg-purple-500 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
               onClick={() => {
                 router.push("/");
               }}

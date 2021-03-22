@@ -32,11 +32,11 @@ const validationschema = Yup.object({
 // Framer variants
 const buttonVariants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
 };
 
@@ -212,6 +212,7 @@ const ReportAds = (props) => {
                         neutral50: "#4B5563", // Placeholder color
                       },
                     })}
+                    aria-label="Drop down list to select the reason for reporting the ad"
                   />
                 </div>
               </div>
@@ -242,9 +243,31 @@ const ReportAds = (props) => {
                   autoComplete="off"
                   spellCheck={true}
                   rows="6"
+                  aria-required="true"
+                  aria-invalid={
+                    props.touched.description && props.errors.description
+                      ? "true"
+                      : null
+                  }
+                  aria-describedby={
+                    props.touched.description && props.errors.description
+                      ? "description-error"
+                      : null
+                  }
                   className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600"
                 />
               </div>
+
+              {/* Validation errors */}
+              {touched.description && errors.description ? (
+                <div
+                  className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                  id="description-error"
+                >
+                  <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                  {errors.description}
+                </div>
+              ) : null}
 
               {/* Submit Button */}
               <div className="text-center">
@@ -254,7 +277,7 @@ const ReportAds = (props) => {
                   whileHover="hover"
                   whileTap="tap"
                   disabled={props.isSubmitting}
-                  className="mt-4 w-64 md:w-100 h-12 bg-purple-500 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+                  className="mt-4 w-64 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none"
                 >
                   {!props.isSubmitting ? "Submit Complaint" : <BouncingBalls />}
                 </motion.button>

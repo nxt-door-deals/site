@@ -32,7 +32,7 @@ const buttonVariants = {
     backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -269,7 +269,7 @@ const OtpForm = (props) => {
                     <motion.button
                       type="submit"
                       disabled={props.isSubmitting}
-                      className={`w-48 h-12 bg-purple-500 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                      className={`w-48 h-12 bg-purple-700 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                         props.isSubmitting && "cursor-not-allowed"
                       }`}
                       variants={buttonVariants}

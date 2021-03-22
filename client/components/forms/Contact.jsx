@@ -44,11 +44,11 @@ const formVariants = {
 
 const buttonVariants = {
   buttonTap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
   buttonHover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
 };
 
@@ -154,13 +154,27 @@ const Contact = (props) => {
                     placeholder="Message*"
                     maxLength="1000"
                     autoComplete="off"
+                    aria-required="true"
+                    aria-invalid={
+                      props.touched.message && props.errors.message
+                        ? "true"
+                        : null
+                    }
+                    aria-describedby={
+                      props.touched.message && props.errors.message
+                        ? "message-error"
+                        : null
+                    }
                     className="text-sm leading-5 outline-none rounded-xl w-full p-1.5 placeholder-gray-600 text-brand-gray"
                   />
                 </div>
 
                 {/* Validation errors */}
                 {props.touched.message && props.errors.message ? (
-                  <div className=" text-xs text-red-800 p-1 mb-2">
+                  <div
+                    className=" text-xs text-red-800 p-1 mb-2"
+                    id="message-error"
+                  >
                     <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                     {props.errors.message}
                   </div>
@@ -171,7 +185,7 @@ const Contact = (props) => {
                     variants={buttonVariants}
                     type="submit"
                     disabled={props.isSubmitting}
-                    className={`w-36 h-10 mt-3 bg-purple-500 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`w-36 h-10 mt-3 bg-purple-700 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                     whileHover="buttonHover"

@@ -49,7 +49,7 @@ const editAdVariants = {
   },
   editButtonTap: {
     y: "2px",
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
   },
   deleteButtonTap: {
     y: "2px",
@@ -172,13 +172,27 @@ const EditAd = (props) => {
                         autoComplete="off"
                         value={values.title}
                         onBlur={() => setFieldTouched(true)}
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.title && props.errors.title
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.title && props.errors.title
+                            ? "title-error"
+                            : null
+                        }
                         className="textbox-input w-full placeholder-gray-600 "
                       />
                     </div>
 
                     {/* Validation errors */}
                     {touched.title && errors.title ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="title-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {errors.title}
                       </div>
@@ -204,13 +218,27 @@ const EditAd = (props) => {
                         value={values.description}
                         rows="7"
                         onBlur={() => setFieldTouched(true)}
+                        aria-required="true"
+                        aria-invalid={
+                          props.touched.description && props.errors.description
+                            ? "true"
+                            : null
+                        }
+                        aria-describedby={
+                          props.touched.description && props.errors.description
+                            ? "description-error"
+                            : null
+                        }
                         className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
                       />
                     </div>
 
                     {/* Validation errors */}
                     {touched.description && errors.description ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div
+                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        id="description-error"
+                      >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {errors.description}
                       </div>
@@ -244,6 +272,19 @@ const EditAd = (props) => {
                               id="sale"
                               value="sale"
                               className="mx-1 focus:outline-none"
+                              aria-required="true"
+                              aria-invalid={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "true"
+                                  : null
+                              }
+                              aria-describedby={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "typeOfSale-error"
+                                  : null
+                              }
                               onClick={() => setFieldTouched(true)}
                             />
                             Sale
@@ -255,6 +296,19 @@ const EditAd = (props) => {
                               id="giveaway"
                               value="giveaway"
                               className="mx-1 focus:outline-none"
+                              aria-required="true"
+                              aria-invalid={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "true"
+                                  : null
+                              }
+                              aria-describedby={
+                                props.touched.typeOfSale &&
+                                props.errors.typeOfSale
+                                  ? "typeOfSale-error"
+                                  : null
+                              }
                               onClick={() => {
                                 giveawayToast();
                                 setFieldTouched(true);
@@ -266,7 +320,10 @@ const EditAd = (props) => {
 
                         {/* Validation errors */}
                         {touched.typeOfSale && errors.typeOfSale ? (
-                          <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                          <div
+                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            id="typeOfSale-error"
+                          >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {errors.typeOfSale}
                           </div>
@@ -293,6 +350,17 @@ const EditAd = (props) => {
                             autoComplete="off"
                             disabled={values.typeOfSale === "giveaway" && true}
                             onBlur={() => setFieldTouched(true)}
+                            aria-required="true"
+                            aria-invalid={
+                              props.touched.price && props.errors.price
+                                ? "true"
+                                : null
+                            }
+                            aria-describedby={
+                              props.touched.price && props.errors.price
+                                ? "price-error"
+                                : null
+                            }
                             className={
                               "textbox-input w-full bg-transparent placeholder-gray-600  focus:outline-none"
                             }
@@ -301,7 +369,10 @@ const EditAd = (props) => {
 
                         {/* Validation errors */}
                         {touched.price && errors.price ? (
-                          <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                          <div
+                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            id="price-error"
+                          >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {errors.price}
                           </div>
@@ -382,6 +453,7 @@ const EditAd = (props) => {
                                 neutral50: "#4B5563", // Placeholder color
                               },
                             })}
+                            aria-label="Drop down list to select the condition of the item"
                           />
                         </div>
                       </div>
@@ -390,6 +462,7 @@ const EditAd = (props) => {
                         <label
                           htmlFor="availableFrom"
                           className="text-sm  text-gray-600"
+                          id="date-picker"
                         >
                           Available from:
                         </label>
@@ -405,6 +478,8 @@ const EditAd = (props) => {
                             setFieldTouched(true);
                             setCancelClicked(false);
                           }}
+                          aria-label="Pick the date from when the item will be available"
+                          aria-labelledBy="date-picker"
                           className="w-28 border-b-2 border-gray-300 text-purple-700 text-center font-axiforma text-base cursor-pointer font-semibold focus:outline-none"
                         />
                       </div>
@@ -495,7 +570,7 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverSave"}
                     whileTap={fieldTouched && "editButtonTap"}
-                    className={`h-12 w-40 font-semibold uppercase mb-3 text-white bg-purple-500 shadow-buttonShadowPurple lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
+                    className={`h-12 w-40 font-semibold uppercase mb-3 text-white bg-purple-700 shadow-buttonShadowPurple lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
                       fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
                     } ${isSubmitting && "cursor-not-allowed"}`}
                     disabled={!fieldTouched || isSubmitting}

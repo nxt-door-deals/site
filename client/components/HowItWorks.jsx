@@ -21,9 +21,9 @@ const howItWorksTabs = [
 ];
 
 const tabStyle = {
-  textColor: "text-purple-500",
-  backgroundColor: "bg-purple-500",
-  borderColor: "border-purple-500",
+  textColor: "text-purple-700",
+  backgroundColor: "bg-purple-700",
+  borderColor: "border-purple-700",
 };
 
 const HowItWorks = (props) => {

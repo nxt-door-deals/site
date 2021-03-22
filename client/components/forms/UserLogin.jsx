@@ -32,10 +32,10 @@ const loginValidationSchema = Yup.object({
 
 const variants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -140,13 +140,25 @@ const UserLogin = (props) => {
                     placeholder="Email"
                     maxLength="50"
                     autoComplete="off"
+                    aria-required="true"
+                    aria-invalid={
+                      props.touched.email && props.errors.email ? "true" : null
+                    }
+                    aria-describedby={
+                      props.touched.email && props.errors.email
+                        ? "email-error"
+                        : null
+                    }
                     className="textbox-input w-10/12 placeholder-gray-600 "
                   />
                 </div>
 
                 {/* Validation errors */}
                 {props.touched.email && props.errors.email ? (
-                  <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                  <div
+                    className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                    id="email-error"
+                  >
                     <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                     {props.errors.email}
                   </div>
@@ -169,6 +181,17 @@ const UserLogin = (props) => {
                     type={!displayPassword ? "password" : "text"}
                     placeholder="Password"
                     maxLength="50"
+                    aria-required="true"
+                    aria-invalid={
+                      props.touched.password && props.errors.password
+                        ? "true"
+                        : null
+                    }
+                    aria-describedby={
+                      props.touched.password && props.errors.password
+                        ? "password-error"
+                        : null
+                    }
                     className="textbox-input w-10/12 placeholder-gray-600 "
                   />
                   <FontAwesomeIcon
@@ -183,7 +206,10 @@ const UserLogin = (props) => {
 
                 {/* Validation errors */}
                 {props.touched.password && props.errors.password ? (
-                  <div className="font-axiforma text-xs text-red-800 p-1 mt-1 mb-2 ">
+                  <div
+                    className="font-axiforma text-xs text-red-800 p-1 mt-1 mb-2 "
+                    id="password-error"
+                  >
                     <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                     {props.errors.password}
                   </div>
@@ -195,7 +221,7 @@ const UserLogin = (props) => {
                     variants={variants}
                     whileHover="hover"
                     whileTap="tap"
-                    className={`mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-500 shadow-buttonShadowPurple text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                     disabled={props.isSubmitting}

@@ -118,7 +118,7 @@ const CreateNeighbourhood = (props) => {
           className="pb-20 bg-purple-50 bg-opacity-40 -mt-1"
         >
           <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-purple-50 lg:flex lg:justify-center">
-            <img src="/images/neighbourhood/skyline.svg" />
+            <img src="/images/neighbourhood/skyline.svg" alt="City skyline" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-10">
@@ -267,13 +267,27 @@ const CreateNeighbourhood = (props) => {
                           maxLength="100"
                           autoComplete="off"
                           value={props.values.name}
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.name && props.errors.name
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.name && props.errors.name
+                              ? "name-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
                       {/* Validation errors - apartment name */}
                       {props.touched.name && props.errors.name ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="name-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.name}
                         </div>
@@ -298,13 +312,27 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Address Line 1*"
                           maxLength="150"
                           autoComplete="off"
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.address1 && props.errors.address1
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.address1 && props.errors.address1
+                              ? "address1-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
                       {/* Validation errors - address 1 */}
                       {props.touched.address1 && props.errors.address1 ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="address1-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.address1}
                         </div>
@@ -350,13 +378,27 @@ const CreateNeighbourhood = (props) => {
                           placeholder="City*"
                           maxLength="50"
                           autoComplete="off"
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.city && props.errors.city
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.city && props.errors.city
+                              ? "city-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
                       {/* Validation errors - city */}
                       {props.touched.city && props.errors.city ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="city-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.city}
                         </div>
@@ -398,6 +440,7 @@ const CreateNeighbourhood = (props) => {
                                   neutral50: "#4B5563", // Placeholder color
                                 },
                               })}
+                              aria-label="Drop down list to selct an Indian state"
                             />
                           </div>
                           {props.touched.state && props.errors.state ? (
@@ -428,13 +471,27 @@ const CreateNeighbourhood = (props) => {
                               placeholder="Pincode*"
                               maxLength="15"
                               autoComplete="off"
+                              aria-required="true"
+                              aria-invalid={
+                                props.touched.pincode && props.errors.pincode
+                                  ? "true"
+                                  : null
+                              }
+                              aria-describedby={
+                                props.touched.pincode && props.errors.pincode
+                                  ? "pincode-error"
+                                  : null
+                              }
                               className="textbox-input w-9/12 lg:10/12 placeholder-gray-600 placeholder-opacity-50"
                             />
                           </div>
 
                           {/* Validation errors - pincode */}
                           {props.touched.pincode && props.errors.pincode ? (
-                            <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                            <div
+                              className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                              id="pincode-error"
+                            >
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                               {props.errors.pincode}
                             </div>
@@ -461,13 +518,27 @@ const CreateNeighbourhood = (props) => {
                           placeholder="Your email*"
                           maxLength="50"
                           autoComplete="off"
+                          aria-required="true"
+                          aria-invalid={
+                            props.touched.email && props.errors.email
+                              ? "true"
+                              : null
+                          }
+                          aria-describedby={
+                            props.touched.email && props.errors.email
+                              ? "email-error"
+                              : null
+                          }
                           className="textbox-input w-10/12 lg:w-11/12 placeholder-gray-600 placeholder-opacity-50"
                         />
                       </div>
 
                       {/* Validation errors - email */}
                       {props.touched.email && props.errors.email ? (
-                        <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                        <div
+                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          id="email-error"
+                        >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                           {props.errors.email}
                         </div>

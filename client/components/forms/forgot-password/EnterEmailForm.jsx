@@ -27,7 +27,7 @@ const buttonVariants = {
     backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -105,13 +105,27 @@ const EnterEmailForm = (props) => {
                       placeholder="Email"
                       maxLength="50"
                       autoComplete="off"
+                      aria-required="true"
+                      aria-invalid={
+                        props.touched.email && props.errors.email
+                          ? "true"
+                          : null
+                      }
+                      aria-describedby={
+                        props.touched.email && props.errors.email
+                          ? "email-error"
+                          : null
+                      }
                       className="textbox-input w-10/12 placeholder-gray-600 placeholder-opacity-50"
                     />
                   </div>
 
                   {/* Validation errors */}
                   {props.touched.email && props.errors.email ? (
-                    <div className=" text-xs text-red-800 p-1 mb-2">
+                    <div
+                      className=" text-xs text-red-800 p-1 mb-2"
+                      id="email-error"
+                    >
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                       {props.errors.email}
                     </div>
@@ -120,7 +134,7 @@ const EnterEmailForm = (props) => {
                   <div className="text-center">
                     <motion.button
                       type="submit"
-                      className={`w-48 h-12 bg-purple-500 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                      className={`w-48 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                         props.isSubmitting && "cursor-not-allowed"
                       }`}
                       disabled={props.isSubmitting}

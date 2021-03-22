@@ -23,10 +23,10 @@ const validationSchema = Yup.object({
 
 const variants = {
   hover: {
-    backgroundColor: "#5B21B6",
+    backgroundColor: "#4C1D95",
   },
   tap: {
-    backgroundColor: "#8B5CF6",
+    backgroundColor: "#6D28D9",
     y: "2px",
   },
 };
@@ -89,13 +89,25 @@ const SubscriptionStatus = () => {
                 placeholder="Email"
                 maxLength="50"
                 autoComplete="off"
+                aria-required="true"
+                aria-invalid={
+                  props.touched.email && props.errors.email ? "true" : null
+                }
+                aria-describedby={
+                  props.touched.email && props.errors.email
+                    ? "email-error"
+                    : null
+                }
                 className="textbox-input w-10/12 placeholder-gray-600 "
               />
             </div>
 
             {/* Validation errors */}
             {props.touched.email && props.errors.email ? (
-              <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+              <div
+                className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                id="email-error"
+              >
                 <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                 {props.errors.email}
               </div>
@@ -107,7 +119,7 @@ const SubscriptionStatus = () => {
                 variants={variants}
                 whileHover="hover"
                 whileTap="tap"
-                className={`mt-2 mb-8 h-12 w-80 md:w-100 bg-purple-500 shadow-buttonShadowPurple text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                className={`mt-2 mb-8 h-12 w-80 md:w-100 bg-purple-700 shadow-buttonShadowPurple text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                   props.isSubmitting && "cursor-not-allowed"
                 }`}
                 disabled={props.isSubmitting}

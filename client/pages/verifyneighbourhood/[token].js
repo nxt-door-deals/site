@@ -94,7 +94,7 @@ const VerifyNeighbourhood = (props) => {
             onClick={() => {
               router.push("/");
             }}
-            arira-aria-label="Continue to site button"
+            aria-label="Continue to site button"
           >
             Continue to site
           </motion.button>
