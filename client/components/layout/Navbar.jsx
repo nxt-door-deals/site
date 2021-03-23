@@ -480,7 +480,7 @@ const Navbar = (props) => {
           <ul className="flex flex-col items-center mt-12">
             <li className="flex items-center mb-10">
               <Link href="/">
-                <a>
+                <a className="focus-within:outline-none">
                   <Image
                     src={"/images/nav/brand.svg"}
                     alt={"Logo for the NXT Door Deals brand"}
@@ -631,78 +631,78 @@ const Navbar = (props) => {
             )}
 
             {/* Overlay items for the browse ads page */}
-            {props.navStyle.pathname.startsWith("/ads") ||
-              (props.navStyle.pathname.startsWith("/neighbourhood/ads") && (
-                <Fragment>
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    <Link href="/">
-                      <a className="styled-link">Home</a>
+            {(props.navStyle.pathname.startsWith("/ads") ||
+              props.navStyle.pathname.startsWith("/neighbourhood/ads")) && (
+              <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/">
+                    <a className="styled-link">Home</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/ourstory">
+                    <a className="styled-link">Our Story</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/#how-it-works">
+                    <a
+                      className="styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      How It Works
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {user === null ? (
+                    <Link href="/registeruser">
+                      <a className="styled-link">Sign Up</a>
                     </Link>
-                  </li>
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    <Link href="/ourstory">
-                      <a className="styled-link">Our Story</a>
+                  ) : (
+                    <Link href="/account">
+                      <a className="styled-link">My Account</a>
                     </Link>
-                  </li>
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    <Link href="/#how-it-works">
-                      <a
-                        className="styled-link"
-                        onClick={() => setExpanded(false)}
-                      >
-                        How It Works
-                      </a>
+                  )}
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  {user === null ? (
+                    <Link href="/login">
+                      <a className="styled-link">Login</a>
                     </Link>
-                  </li>
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    {user === null ? (
-                      <Link href="/registeruser">
-                        <a className="styled-link">Sign Up</a>
-                      </Link>
-                    ) : (
-                      <Link href="/account">
-                        <a className="styled-link">My Account</a>
-                      </Link>
-                    )}
-                  </li>
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    {user === null ? (
-                      <Link href="/login">
-                        <a className="styled-link">Login</a>
-                      </Link>
-                    ) : (
-                      <Link href="/logout" as="/">
-                        <a className="styled-link">Logout</a>
-                      </Link>
-                    )}
-                  </li>
-                </Fragment>
-              ))}
+                  ) : (
+                    <Link href="/logout" as="/">
+                      <a className="styled-link">Logout</a>
+                    </Link>
+                  )}
+                </li>
+              </Fragment>
+            )}
 
             {/* Overlay items for the subscriptions page */}
             {props.navStyle.pathname.includes("/subscription") && (

@@ -70,87 +70,85 @@ const Footer = (props) => {
         <div className="flex justify-center items-center flex-col text-sm tracking-wide">
           <h2 className="pb-5 text-xl">nxtdoordeals.com</h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-1">
-            <ul>
-              <li className="pb-3 px-2">
-                <Link href="/ourstory">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the our story page"
-                  >
-                    <FontAwesomeIcon icon={faBook} className="mr-1" />{" "}
-                    <span className="pb-1 styled-link">Our Story</span>
-                  </motion.a>
-                </Link>
-              </li>
+          <ul className="grid grid-cols-2 lg:grid-cols-1 gap-1">
+            <li className="pb-3 px-2">
+              <Link href="/ourstory">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the our story page"
+                >
+                  <FontAwesomeIcon icon={faBook} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">Our Story</span>
+                </motion.a>
+              </Link>
+            </li>
 
-              <li className="pb-3 px-2">
-                <Link href="/policies/#privacy">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the privacy policy page"
-                  >
-                    <FontAwesomeIcon icon={faUserSecret} className="mr-1" />
-                    <span className="pb-1 styled-link">Privacy Policy</span>
-                  </motion.a>
-                </Link>{" "}
-              </li>
+            <li className="pb-3 px-2">
+              <Link href="/policies/#privacy">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the privacy policy page"
+                >
+                  <FontAwesomeIcon icon={faUserSecret} className="mr-1" />
+                  <span className="pb-1 styled-link">Privacy Policy</span>
+                </motion.a>
+              </Link>{" "}
+            </li>
 
-              <li className="pb-3 px-2">
-                <Link href="/policies/#cookie">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the cookie policy page"
-                  >
-                    <FontAwesomeIcon icon={faCookieBite} className="mr-1" />{" "}
-                    <span className="pb-1 styled-link">Cookie Policy</span>
-                  </motion.a>
-                </Link>{" "}
-              </li>
+            <li className="pb-3 px-2">
+              <Link href="/policies/#cookie">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the cookie policy page"
+                >
+                  <FontAwesomeIcon icon={faCookieBite} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">Cookie Policy</span>
+                </motion.a>
+              </Link>{" "}
+            </li>
 
-              <li className="pb-3 px-2">
-                <Link href="/policies/#terms">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the terms of use page"
-                  >
-                    <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
-                    <span className="pb-1 styled-link">Terms of Use</span>
-                  </motion.a>
-                </Link>{" "}
-              </li>
+            <li className="pb-3 px-2">
+              <Link href="/policies/#terms">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the terms of use page"
+                >
+                  <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">Terms of Use</span>
+                </motion.a>
+              </Link>{" "}
+            </li>
 
-              <li className="pb-3 px-2">
-                <Link href="/faqs#grid">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the faqs page"
-                  >
-                    <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
-                    <span className="pb-1 styled-link">FAQs</span>
-                  </motion.a>
-                </Link>
-              </li>
+            <li className="pb-3 px-2">
+              <Link href="/faqs#grid">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the faqs page"
+                >
+                  <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">FAQs</span>
+                </motion.a>
+              </Link>
+            </li>
 
-              <li className="pb-3 px-2">
-                <Link href="/guidelines">
-                  <motion.a
-                    variants={variants}
-                    whileHover="hover"
-                    aria-label="Link to the guidelines page"
-                  >
-                    <FontAwesomeIcon icon={faBookOpen} className="mr-1" />{" "}
-                    <span className="pb-1 styled-link">Guidelines</span>
-                  </motion.a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <li className="pb-3 px-2">
+              <Link href="/guidelines">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to the guidelines page"
+                >
+                  <FontAwesomeIcon icon={faBookOpen} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">Guidelines</span>
+                </motion.a>
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div className="py-16 md:pt-0">

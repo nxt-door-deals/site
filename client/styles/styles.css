@@ -189,6 +189,10 @@ body {
   color: inherit;
 }
 
+.styled-link:focus-within {
+  outline: none;
+}
+
 .styled-link::after {
   content: "";
   position: absolute;
