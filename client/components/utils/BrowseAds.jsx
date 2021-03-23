@@ -21,7 +21,7 @@ const BrowseAds = (props) => {
 
   // Chat notification toast
   const chatNotificationToast = () =>
-    toast("You have new chat messages!", {
+    toast("You have new chat messages. Read them on your account page.", {
       draggablePercent: 60,
       position: "top-center",
     });
