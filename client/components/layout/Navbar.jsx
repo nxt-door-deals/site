@@ -91,7 +91,7 @@ const Navbar = (props) => {
       >
         <motion.div
           id="brand"
-          className="opacity-0 lg:opacity-100 relative ml-4 lg:pl-4 focus:outline-none outline-none"
+          className="opacity-0 lg:opacity-100 relative ml-4 lg:pl-4 "
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{
@@ -101,7 +101,7 @@ const Navbar = (props) => {
           }}
         >
           <Link href="/">
-            <a>
+            <a className="focus-within:outline-none">
               <Image
                 src="/images/nav/brand.svg"
                 alt="Logo for the nxtdoordeals.com brand. Redirects to the home page."

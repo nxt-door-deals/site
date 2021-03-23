@@ -37,8 +37,8 @@ const FAQGuidelineList = () => {
           id="header"
           className="h-80 bg-faq-main-background bg-cover bg-no-repeat text-brand-gray"
         >
-          <h1 className="pt-20 md:pt-24 lg:pt-28 text-center font-bold text-3xl">
-            {greeting} How may we assist?
+          <h1 className="pt-20 md:pt-24 px-10 lg:px-0 lg:pt-28 text-center font-bold text-3xl">
+            {greeting}! How may we assist?
           </h1>
         </div>
 

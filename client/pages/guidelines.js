@@ -110,14 +110,7 @@ const Guidelines = () => {
           <section id="banned">
             <div className="rounded-2xl p-10 shadow-md bg-white mb-20">
               <h1 className="component-heading">
-                Ads n
-                <span>
-                  <FontAwesomeIcon
-                    icon={faBan}
-                    className="text-red-800 text-xl"
-                  />
-                </span>
-                t allowed on{" "}
+                Ads not allowed on{" "}
                 <span className="text-brand-purple">nxtdoordeals.com</span>
               </h1>
               <p className="text-sm mb-6">
