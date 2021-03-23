@@ -53,9 +53,14 @@ const ActiveChat = (props) => {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      scrollToBottom();
+    }, 100);
+  }, []);
+
+  useEffect(() => {
     getChatHistory(chatId);
     markChatsAsRead(chatId);
-    scrollToBottom();
   }, []);
 
   useEffect(() => {
