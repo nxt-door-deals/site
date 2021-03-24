@@ -167,7 +167,7 @@ const SiteState = (props) => {
 
   const validateApartmentSelection = async (message) => {
     dispatch({ type: FETCH_APARTMENT_ERROR, payload: message });
-    setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+    setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
   };
 
   const setLoading = () => {
