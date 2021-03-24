@@ -21,6 +21,10 @@ const FullPageAd = (props) => {
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <AdsHeadLayout>
       <div className="w-full">

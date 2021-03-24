@@ -259,7 +259,7 @@ const ReportAds = (props) => {
               </div>
 
               {/* Validation errors */}
-              {touched.description && errors.description ? (
+              {props.touched.description && props.errors.description ? (
                 <div
                   className="font-axiforma text-xs text-red-800 p-1 mb-2"
                   id="description-error"
