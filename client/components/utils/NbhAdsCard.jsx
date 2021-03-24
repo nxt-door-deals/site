@@ -66,7 +66,7 @@ const NbhAdsCard = (props) => {
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
-              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow"
+              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow cursor-pointer"
               onClick={() => router.push(`/ads/${ad.id}`)}
             >
               {ad.images.length > 0 && (
@@ -113,7 +113,7 @@ const NbhAdsCard = (props) => {
               )}
 
               <div
-                className="outline-none focus:outline-none"
+                className="outline-none focus:outline-none cursor-pointer"
                 onClick={() => router.push(`/ads/${ad.id}`)}
               >
                 {/* Card title */}
