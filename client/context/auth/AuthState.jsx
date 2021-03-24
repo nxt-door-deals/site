@@ -112,7 +112,7 @@ const AuthState = (props) => {
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     } catch (err) {
       dispatch({ type: REGISTER_FAIL, payload: err.response.data.detail });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
 
@@ -147,7 +147,7 @@ const AuthState = (props) => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     } catch (err) {
       dispatch({ type: LOGIN_FAIL, payload: err.response.data.detail });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
 
@@ -426,7 +426,7 @@ const AuthState = (props) => {
       dispatch({ type: EMAIL_FOUND, payload: res.data });
     } catch (err) {
       dispatch({ type: EMAIL_NOT_FOUND, payload: err.response.data.detail });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
 
@@ -471,7 +471,7 @@ const AuthState = (props) => {
         type: OTP_VALIDATED_FAILURE,
         payload: err.response.data.detail,
       });
-      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
 

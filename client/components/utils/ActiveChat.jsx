@@ -164,8 +164,8 @@ const ActiveChat = (props) => {
                 <p
                   className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                     message.ownedBySender
-                      ? "bg-purple-700 font-semibold from-chat"
-                      : "bg-ad-purple font-semibold to-chat"
+                      ? "bg-purple-700 from-chat"
+                      : "bg-ad-purple to-chat"
                   }`}
                 >
                   {message.data.data}
@@ -189,8 +189,8 @@ const ActiveChat = (props) => {
               <p
                 className={`chat-bubble text-sm md:text-base px-4 py-2 break-word rounded-xl ${
                   message.ownedBySender
-                    ? "bg-purple-700 font-semibold from-chat"
-                    : "bg-ad-purple font-semibold to-chat"
+                    ? "bg-purple-700 from-chat"
+                    : "bg-ad-purple to-chat"
                 }`}
               >
                 {message.data.data}

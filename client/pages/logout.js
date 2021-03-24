@@ -35,6 +35,7 @@ const Logout = (props) => {
   useEffect(() => {
     setTimeout(() => {
       logout();
+      props.chatNotification.current = false;
       router.push("/");
     }, 7000);
   }, []);

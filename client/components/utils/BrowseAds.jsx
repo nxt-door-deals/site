@@ -21,7 +21,7 @@ const BrowseAds = (props) => {
 
   // Chat notification toast
   const chatNotificationToast = () =>
-    toast("You have new chat messages. Read them on your account page.", {
+    toast("You have new chat messages. Visit your account page.", {
       draggablePercent: 60,
       position: "top-center",
     });
@@ -37,6 +37,7 @@ const BrowseAds = (props) => {
   useEffect(() => {
     if (props.chatNotification.current === null) {
       if (sellerChats && buyerChats) {
+        // Check is someone has DM'ed the seller
         sellerChats &&
           sellerChats.some((chat) => {
             if (chat.new_chats && chat.last_sender !== user.id) {
@@ -61,7 +62,7 @@ const BrowseAds = (props) => {
   useEffect(() => {
     if (notification && !props.notificationDisplayed.current) {
       chatNotificationToast();
-      props.notificationDisplayed.current = true;
+      setTimeout(() => (props.chatNotification.current = true), 1000);
       setNotification(false);
     }
   }, [notification]);

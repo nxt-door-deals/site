@@ -7,7 +7,7 @@ const UserLoginHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Account Login | Log in to your nxtdoordeals.com account</title>
+        <title>Login | Log in to your nxtdoordeals.com account</title>
         <meta
           name="description"
           content="Log in to your nxtdoordeals.com account to post an ad, manage your account or chat with potential sellers"

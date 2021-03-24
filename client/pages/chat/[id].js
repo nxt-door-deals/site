@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import cookie from "../../utils/cookieInit";
 import axios from "axios";
-import { toast } from "react-toastify";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -52,6 +51,10 @@ const Chat = (props) => {
 
     return <div></div>;
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (isAuthenticated) {

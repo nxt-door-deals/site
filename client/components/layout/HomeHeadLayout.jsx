@@ -7,7 +7,7 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>The Home Your Neighbourhood Marketplace</title>
+        <title>Welcome To Your Neighbourhood Marketplace</title>
         <meta
           name="description"
           content="Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!"
@@ -16,7 +16,7 @@ const HomeHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="The Home Your Neighbourhood Marketplace"
+          content="Welcome To Your Neighbourhood Marketplace"
         />
         <meta
           property="og:description"
@@ -44,7 +44,7 @@ const HomeHeadLayout = (props) => {
                 "dateModified": "22-03-2021",
                 "url": "https://nxtdoordeals.com/",
                 "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
-                "name": "The Home Your Neighbourhood Marketplace",
+                "name": "Welcome To Your Neighbourhood Marketplace",
                 "inLanguage": "en",
                 "isPartOf": "https://nxtdoordeals.com",
                 "potentialAction": {

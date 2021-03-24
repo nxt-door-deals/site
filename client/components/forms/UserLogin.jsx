@@ -115,6 +115,7 @@ const UserLogin = (props) => {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
             loginUser(values.email, values.password);
+            setTimeout(() => setSubmitting(false), 500);
           }}
         >
           {(props) => (
