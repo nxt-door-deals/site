@@ -67,7 +67,7 @@ const Account = (props) => {
         />
       </div>
 
-      <div id="header" className="h-full font-axiforma">
+      <div id="header" className="h-full">
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-user-account-mobile-background md:bg-user-account-background bg-cover bg-no-repeat h-80"></div>
         {/* Container */}

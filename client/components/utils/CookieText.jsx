@@ -10,7 +10,9 @@ const CookieText = () => {
         This website uses cookies to run smoothly. Disabling cookies on your
         browser will lead to unexpected and unpredictable results such as the
         inability to log in to your{" "}
-        <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>{" "}
+        <span className="text-brand-purple font-semibold">
+          nxtdoordeals.com
+        </span>{" "}
         account. Below is the list of cookies that we use:
       </p>
 

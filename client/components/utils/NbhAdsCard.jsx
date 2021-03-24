@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import keys from "../../utils/keys";
 import { motion } from "framer-motion";
 
@@ -23,6 +24,7 @@ const buttonVariants = {
 };
 
 const NbhAdsCard = (props) => {
+  const router = useRouter();
   const [adLimit, setAdLimit] = useState(16);
   const siteContext = useContext(SiteContext);
   const {
@@ -64,80 +66,77 @@ const NbhAdsCard = (props) => {
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
-              className="pt-3 lg:px-1 rounded-2xl bg-white text-brand-purple shadow-adcardshadow"
+              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow"
+              onClick={() => router.push(`/ads/${ad.id}`)}
             >
-              <Link href={`/ads/${ad.id}`}>
-                <a className="focus-within:outline-none">
-                  {ad.images.length > 0 && (
-                    <div
-                      key={adIndex}
-                      className="carousel-container p-4 flex justify-center mr-0"
-                    >
-                      <Carousel
-                        dynamicHeight
-                        interval={3000}
-                        autoPlay
-                        transitionTime={150}
-                        showStatus={false}
-                        showThumbs={false}
-                        showIndicators={false}
-                        showArrows={false}
-                      >
-                        {ad.images.map((image, imgIndex) => (
-                          <div key={imgIndex} className="-z-20">
-                            <Image
-                              loader={`/images/loader/loager.gif/?w=${64}`}
-                              src={image}
-                              alt={`Carousel image-${imgIndex}`}
-                              layout="intrinsic"
-                              quality={100}
-                              height={250}
-                              width={300}
-                            />
-                          </div>
-                        ))}
-                      </Carousel>
-                    </div>
-                  )}
-                  {ad.images.length === 0 && (
-                    <div className="p-4 flex justify-center mr-0">
-                      <Image
-                        src={keys.DEFAULT_IMAGE}
-                        alt={"Carousel default image"}
-                        quality={100}
-                        height={250}
-                        width={300}
-                      />
-                    </div>
-                  )}
-                </a>
-              </Link>
-              <div className="outline-none focus:outline-none">
-                <Link href={`/ads/${ad.id}`}>
-                  <a className="focus-within:outline-none">
-                    {/* Card title */}
-                    <div className="text-left px-4 py-2">
-                      <p className="font-semibold">{ad.title}</p>
-                    </div>
+              {ad.images.length > 0 && (
+                <div
+                  key={adIndex}
+                  className="carousel-container p-4 flex justify-center mr-0"
+                >
+                  <Carousel
+                    dynamicHeight
+                    interval={3000}
+                    autoPlay
+                    transitionTime={150}
+                    showStatus={false}
+                    showThumbs={false}
+                    showIndicators={false}
+                    showArrows={false}
+                  >
+                    {ad.images.map((image, imgIndex) => (
+                      <div key={imgIndex} className="-z-20">
+                        <Image
+                          loader={`/images/loader/loager.gif/?w=${64}`}
+                          src={image}
+                          alt={`Carousel image-${imgIndex}`}
+                          layout="intrinsic"
+                          quality={100}
+                          height={250}
+                          width={300}
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
+                </div>
+              )}
+              {ad.images.length === 0 && (
+                <div className="p-4 flex justify-center mr-0">
+                  <Image
+                    src={keys.DEFAULT_IMAGE}
+                    alt={"Carousel default image"}
+                    quality={100}
+                    height={250}
+                    width={300}
+                  />
+                </div>
+              )}
 
-                    {/* Price and timeframe */}
-                    <div className="flex justify-between items-center p-4">
-                      {ad.ad_type === "sale" ? (
-                        <div className="font-semibold text-lg">
-                          <FontAwesomeIcon icon={faRupeeSign} /> {ad.price}
-                        </div>
-                      ) : (
-                        <div className="animate-pulse fa-layers fa-fw w-10 p-5">
-                          <FontAwesomeIcon icon={faCertificate} size="3x" />
-                          <span className="fa-layers-text fa-inverse mx-1 font-semibold uppercase text-xs">
-                            free
-                          </span>
-                        </div>
-                      )}
-                      <div className="text-sm">Posted {ad.date_posted}</div>
+              <div
+                className="outline-none focus:outline-none"
+                onClick={() => router.push(`/ads/${ad.id}`)}
+              >
+                {/* Card title */}
+                <div className="text-left px-4 py-2">
+                  <p className="font-semibold">{ad.title}</p>
+                </div>
+
+                {/* Price and timeframe */}
+                <div className="flex justify-between items-center p-4">
+                  {ad.ad_type === "sale" ? (
+                    <div className="font-semibold text-lg">
+                      <FontAwesomeIcon icon={faRupeeSign} /> {ad.price}
                     </div>
-                  </a>
-                </Link>
+                  ) : (
+                    <div className="animate-pulse fa-layers fa-fw w-10 p-5">
+                      <FontAwesomeIcon icon={faCertificate} size="3x" />
+                      <span className="fa-layers-text fa-inverse mx-1 font-semibold uppercase text-xs">
+                        free
+                      </span>
+                    </div>
+                  )}
+                  <div className="text-sm">Posted {ad.date_posted}</div>
+                </div>
               </div>
             </div>
           ))}

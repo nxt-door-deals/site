@@ -39,7 +39,7 @@ const UserAdsWrapper = (props) => {
             whileHover="hover"
             whileTap="tap"
             onClick={() => router.push("/postad")}
-            className="uppercase text-purple-100 font-semibold bg-ad-purple rounded-full shadow-xl focus:outline-none mt-10 px-10 py-3 text-lg"
+            className="uppercase text-white font-semibold bg-ad-purple rounded-full shadow-giveawayButtonShadow focus:outline-none mt-10 px-10 py-3 text-lg "
           >
             Post Ad
           </motion.button>

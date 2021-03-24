@@ -22,18 +22,17 @@ const FullPageAd = (props) => {
   navStylePurple["pathname"] = pathname;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 100);
   }, []);
 
   return (
     <AdsHeadLayout>
-      <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
-      </div>
-
       <div className="text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
         <Navbar
           navStyle={navStylePurple}
@@ -46,6 +45,12 @@ const FullPageAd = (props) => {
             setImgArray={setImgArray}
             showForm={props.showForm}
             setShowForm={props.setShowForm}
+          />
+        </div>
+        <div className="w-full">
+          <ScrollToTop
+            scrollToTop={scrollToTop}
+            setScrollToTop={setScrollToTop}
           />
         </div>
         <div>

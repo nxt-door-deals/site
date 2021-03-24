@@ -168,7 +168,7 @@ const Navbar = (props) => {
                 </span>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
-                <Link href="/#how-it-works">
+                <Link href="#how-it-works">
                   <a className="styled-link">How It Works</a>
                 </Link>
               </li>

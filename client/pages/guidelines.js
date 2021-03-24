@@ -27,10 +27,6 @@ const Guidelines = () => {
   const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = router.pathname;
 

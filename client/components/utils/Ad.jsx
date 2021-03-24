@@ -66,7 +66,6 @@ const Ad = (props) => {
 
   useEffect(() => {
     let mounted = true;
-    window.scrollTo(0, 0);
 
     if (mounted) {
       setLoading();
@@ -130,7 +129,8 @@ const Ad = (props) => {
                     variants={buttonVariants}
                     whileHover="editButtonHover"
                     whileTap="editButtonTap"
-                    className="bg-purple-700 text-white h-12 w-40 font-semibold uppercase lg:mr-5 rounded-xl focus:outline-none"
+                    className="h-12 w-40 font-semibold uppercase mb-7 text-white
+                    bg-purple-700 shadow-buttonShadowPurple lg:mb-0 lg:mr-5 rounded-xl focus:outline-none"
                     onClick={() => props.setShowForm(false)}
                   >
                     Edit Ad
@@ -141,7 +141,7 @@ const Ad = (props) => {
                     whileHover="deleteButtonHover"
                     whileTap="deleteButtonTap"
                     disabled={deleteButtonClicked}
-                    className="bg-red-500 text-white h-12 w-40 font-semibold uppercase mt-3 lg:mt-0 rounded-xl focus:outline-none"
+                    className="bg-red-500 shadow-cancelButtonShadow text-white h-12 w-40 font-semibold uppercase lg:mt-0 rounded-xl focus:outline-none"
                     onClick={() => {
                       setDeleteButtonClicked(true);
                       deleteAd(0, props.data.posted_by_id, props.data.id);

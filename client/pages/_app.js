@@ -1,6 +1,5 @@
 import "../styles/styles.css";
 import { useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";

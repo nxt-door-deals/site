@@ -168,7 +168,7 @@ const TermsAndConditionsText = () => {
           You must not use or allow anyone else to use{" "}
           <span className="brand-text">nxtdoordeals.com</span> to post any
           Items, content or other materials that:
-          <p className="pt-1">
+          <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
@@ -180,8 +180,8 @@ const TermsAndConditionsText = () => {
               </a>
             </Link>
             ; or
-          </p>
-          <p className="pt-1">
+          </span>
+          <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
@@ -192,11 +192,11 @@ const TermsAndConditionsText = () => {
                 nxtdoordeals.com/guidelines#banned
               </a>
             </Link>
-          </p>
-          <p className="pt-2">
+          </span>
+          <span className="pt-2">
             You undertake that any content posted by you will comply with those
             standards and you indemnify us for any breach of that undertaking.
-          </p>
+          </span>
         </p>
         <p>
           Any Content you post to{" "}
@@ -223,20 +223,20 @@ const TermsAndConditionsText = () => {
           We have the right (but not the obligation) to monitor any posting or
           content and we have the right to refuse, reclassify or remove any post
           or edit any content, for example (but without limitation) if:
-          <p className="pt-1">
+          <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
             />
             In our opinion, such material does not comply with our Terms; or{" "}
-          </p>
-          <p className="pt-1">
+          </span>
+          <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
               className="mr-2 text-brand-purple"
             />
             We are notified that it may be offensive, illegal or defamatory.
-          </p>
+          </span>
         </p>
         <p>
           Please note that content includes messages sent via our online
