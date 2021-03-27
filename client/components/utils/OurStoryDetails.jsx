@@ -23,7 +23,7 @@ const OurStoryDetails = () => {
         <div className="lg:flex-5">
           <h2 className="text-2xl font-semibold">
             <FontAwesomeIcon icon={faHeart} className="text-red-800" /> your
-            pre-loved items
+            preloved items
           </h2>
           <p className="pt-5">
             Today, everything, no matter how big or small, is delivered to our
@@ -161,10 +161,10 @@ const OurStoryDetails = () => {
           </p>
           <p className="pt-5">
             As our conversations progressed, we felt that an online marketplace
-            specially built for an apartment complex would be great for
-            pre-loved goodies of all kinds. Someone's pre-loved would then
-            become someone else’s treasure rather than ending up in an already
-            overcrowded landfill somewhere. Thus{" "}
+            specially built for an apartment complex would be great for preloved
+            goodies of all kinds. Someone's preloved would then become someone
+            else’s treasure rather than ending up in an already overcrowded
+            landfill somewhere. Thus{" "}
             <span className="text-brand-purple font-semibold">
               nxtdoordeals.com
             </span>{" "}
@@ -191,7 +191,7 @@ const OurStoryDetails = () => {
           <span className="text-brand-purple font-semibold">
             nxtdoordeals.com
           </span>{" "}
-          to be actively used to sell or giveaway pre-loved pet care goodies.
+          to be actively used to sell or giveaway preloved pet care goodies.
           While the law of the land does not permit pet sales or adoptions on
           the platform, we highly encourage ads for that doggie bed, chew toy,
           kitty litter tray or the fish bowl that is no longer in use. Why
