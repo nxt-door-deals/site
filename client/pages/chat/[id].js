@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import cookie from "../../utils/cookieInit";
 import axios from "axios";
+import keys from "../../utils/keys";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -38,7 +39,10 @@ const Chat = (props) => {
           _byrId: props.buyerId,
         },
         {
+          domain: keys.DOMAIN,
           path: "/",
+          sameSite: keys.SAME_SITE_COOKIE_SETTING,
+          secure: keys.SECURE_COOKIE,
         }
       );
     }
@@ -81,7 +85,10 @@ const Chat = (props) => {
               _byrId: props.buyerId,
             },
             {
+              domain: keys.DOMAIN,
               path: "/",
+              sameSite: keys.SAME_SITE_COOKIE_SETTING,
+              secure: keys.SECURE_COOKIE,
             }
           )
         : router.push("/404");

@@ -20,6 +20,7 @@ import {
   faFacebookSquare,
   faInstagramSquare,
   faLinkedin,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 // Component import
@@ -168,7 +169,10 @@ const Footer = (props) => {
                 <FontAwesomeIcon icon={faFacebookSquare} />
               </motion.a>
             </Link>{" "}
-            <Link href="https://instagram.com" passHref={true}>
+            <Link
+              href="https://www.instagram.com/nxtdoordeals/"
+              passHref={true}
+            >
               <motion.a
                 variants={variants}
                 whileHover="hover"
@@ -179,7 +183,10 @@ const Footer = (props) => {
                 <FontAwesomeIcon icon={faInstagramSquare} />
               </motion.a>
             </Link>{" "}
-            <Link href="https://linkedin.com" passHref={true}>
+            <Link
+              href="https://www.linkedin.com/company/nxtdoordeals/"
+              passHref={true}
+            >
               <motion.a
                 variants={variants}
                 whileHover="hover"
@@ -188,6 +195,20 @@ const Footer = (props) => {
                 aria-label="Link to our linkedin page"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
+              </motion.a>
+            </Link>{" "}
+            <Link
+              href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
+              passHref={true}
+            >
+              <motion.a
+                variants={variants}
+                whileHover="hover"
+                target="_blank"
+                className="mr-4"
+                aria-label="Link to our youtube channel"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
               </motion.a>
             </Link>{" "}
             <motion.div
@@ -233,8 +254,11 @@ const Footer = (props) => {
 
       <div className="flex justify-center items-center lg:pt-8 pb-2 text-sm tracking-wide">
         Made with{" "}
-        <span className="text-red-600 pl-1 pr-1">
-          <FontAwesomeIcon icon={faHeart} />
+        <span className="pl-1 pr-1">
+          <FontAwesomeIcon
+            icon={faHeart}
+            className="text-red-600 animate-pulse"
+          />
         </span>{" "}
         in Bangalore for
         <span className="pl-1.5 align-middle pt-1.75">

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { greeting } from "../../utils/greeting";
 import cookie from "../../utils/cookieInit";
+import keys from "../../utils/keys";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -69,7 +70,12 @@ const UserLogin = (props) => {
         let chatCookie = cookie.get("__redirChatCookie");
         chatCookie["_byrId"] = user.id;
 
-        cookie.set("__redirChatCookie", chatCookie);
+        cookie.set("__redirChatCookie", chatCookie, {
+          domain: keys.DOMAIN,
+          path: "/",
+          sameSite: keys.SAME_SITE_COOKIE_SETTING,
+          secure: keys.SECURE_COOKIE,
+        });
         setTimeout(
           () =>
             router.push(

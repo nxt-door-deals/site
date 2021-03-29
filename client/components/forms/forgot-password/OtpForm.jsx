@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import cookie from "../../../utils/cookieInit";
 import { toast } from "react-toastify";
+import keys from "../../../utils/keys";
 
 // Component Import
 import Alert from "../../utils/Alert";
@@ -63,9 +64,18 @@ const OtpForm = (props) => {
     let endTs = new Date();
     endTs = endTs.setMinutes(endTs.getMinutes() + 10);
 
-    cookie.set("__resetCookie", {
-      _endTs: endTs,
-    });
+    cookie.set(
+      "__resetCookie",
+      {
+        _endTs: endTs,
+      },
+      {
+        domain: keys.DOMAIN,
+        path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      }
+    );
   };
 
   useEffect(() => {

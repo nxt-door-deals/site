@@ -8,6 +8,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import cookie from "../../utils/cookieInit";
+import keys from "../../utils/keys";
 
 const variants = {
   chatButtonHover: {
@@ -96,7 +97,10 @@ const FullPageAdDetails = (props) => {
                   _byrId: props.buyerId && props.buyerId,
                 },
                 {
+                  domain: keys.DOMAIN,
                   path: "/",
+                  sameSite: keys.SAME_SITE_COOKIE_SETTING,
+                  secure: keys.SECURE_COOKIE,
                 }
               );
 

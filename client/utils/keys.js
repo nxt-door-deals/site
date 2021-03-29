@@ -5,17 +5,23 @@ const keys = {
     API_PROXY: "http://localhost:8000/api/v1",
     WS_PROXY: "ws://localhost:8000",
     FROM_EMAIL: "contact@nxtdoordeals.com",
+    DOMAIN: "",
     SERVER: "http://localhost:3001",
+    SECURE_COOKIE: false,
+    SAME_SITE_COOKIE_SETTING: "lax",
     ICON:
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/default.png",
   },
   production: {
-    API_PROXY: "http://api.nxtdoordeals.com/api/v1",
-    WS_PROXY: "ws://api.nxtdoordeals.com",
+    API_PROXY: "https://api.nxtdoordeals.com/api/v1",
+    WS_PROXY: "wss://api.nxtdoordeals.com",
     FROM_EMAIL: "contact@nxtdoordeals.com",
-    SERVER: "http://68.183.94.49",
+    DOMAIN: ".nxtdoordeals.com",
+    SERVER: "https://beta.nxtdoordeals.com",
+    SECURE_COOKIE: true,
+    SAME_SITE_COOKIE_SETTING: "strict",
     ICON:
       "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:

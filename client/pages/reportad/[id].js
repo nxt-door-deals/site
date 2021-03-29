@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import cookie from "../../utils/cookieInit";
+import keys from "../../utils/keys";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -21,7 +22,10 @@ const ReportAd = (props) => {
       "__adCookie",
       { _id: props.id },
       {
+        domain: keys.DOMAIN,
         path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
       }
     );
   }

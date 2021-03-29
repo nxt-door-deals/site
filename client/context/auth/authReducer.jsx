@@ -1,4 +1,7 @@
+import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import cookie from "../../utils/cookieInit";
+import keys from "../../utils/keys";
+import kys from "../../utils/keys";
 
 import {
   REGISTER_SUCCESS,
@@ -53,13 +56,16 @@ const authReducer = (state, action) => {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
+      console.log(keys);
       var d = new Date();
       d.setMinutes(d.getMinutes() + 1440);
 
       cookie.set("nddToken", action.payload.access_token, {
+        domain: keys.DOMAIN,
         path: "/",
         expires: d,
-        sameSite: "strict",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
       });
 
       return {
