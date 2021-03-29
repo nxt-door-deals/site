@@ -8,7 +8,7 @@ const keys = {
     DOMAIN: "",
     SERVER: "http://localhost:3001",
     SECURE_COOKIE: false,
-    SAME_SITE_COOKIE_SETTING: "lax",
+    SAME_SITE_COOKIE_SETTING: "Lax",
     ICON:
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:
@@ -21,7 +21,7 @@ const keys = {
     DOMAIN: ".nxtdoordeals.com",
     SERVER: "https://beta.nxtdoordeals.com",
     SECURE_COOKIE: true,
-    SAME_SITE_COOKIE_SETTING: "strict",
+    SAME_SITE_COOKIE_SETTING: "Strict",
     ICON:
       "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:

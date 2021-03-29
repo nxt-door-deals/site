@@ -1,7 +1,5 @@
-import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
-import kys from "../../utils/keys";
 
 import {
   REGISTER_SUCCESS,
@@ -56,7 +54,6 @@ const authReducer = (state, action) => {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      console.log(keys);
       var d = new Date();
       d.setMinutes(d.getMinutes() + 1440);
 
@@ -85,9 +82,24 @@ const authReducer = (state, action) => {
         ...state,
       };
     case LOGOUT:
-      cookie.remove("nddToken");
-      cookie.remove("__redirChatCookie");
-      cookie.remove("__adCookie");
+      cookie.remove("nddToken", {
+        domain: keys.DOMAIN,
+        path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      });
+      cookie.remove("__redirChatCookie", {
+        domain: keys.DOMAIN,
+        path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      });
+      cookie.remove("__adCookie", {
+        domain: keys.DOMAIN,
+        path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      });
 
       return {
         ...state,
