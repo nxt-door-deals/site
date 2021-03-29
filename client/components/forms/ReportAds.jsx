@@ -170,8 +170,7 @@ const ReportAds = (props) => {
               );
             }
 
-            if (cookie.get("__adCookie"))
-              cookie.remove("__adCookie", { path: "/" });
+            if (cookie.get("__adCookie")) cookie.remove("__adCookie");
 
             setTimeout(() => {
               router.push(`/neighbourhood/ads/${props.apartmentId}`);

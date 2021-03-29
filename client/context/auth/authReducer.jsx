@@ -85,9 +85,9 @@ const authReducer = (state, action) => {
         ...state,
       };
     case LOGOUT:
-      cookie.remove("nddToken", { path: "/" });
-      cookie.remove("__redirChatCookie", { path: "/" });
-      cookie.remove("__adCookie", { path: "/" });
+      cookie.remove("nddToken");
+      cookie.remove("__redirChatCookie");
+      cookie.remove("__adCookie");
 
       return {
         ...state,
