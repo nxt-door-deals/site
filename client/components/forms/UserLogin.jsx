@@ -60,8 +60,8 @@ const UserLogin = (props) => {
     isAuthenticated,
     loadUser,
     user,
-    authError,
     token,
+    authError,
   } = authContext;
 
   useEffect(() => {
