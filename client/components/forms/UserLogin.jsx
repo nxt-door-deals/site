@@ -66,18 +66,20 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      var d = new Date();
-      d.setMinutes(d.getMinutes() + 1440);
+      if (!cookie.get("nddToken")) {
+        let d = new Date();
+        d.setMinutes(d.getMinutes() + 1440);
 
-      cookie.set("nddToken", token, {
-        domain: keys.DOMAIN,
-        path: "/",
-        expires: d,
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
-      });
+        cookie.set("nddToken", token, {
+          domain: keys.DOMAIN,
+          path: "/",
+          expires: d,
+          sameSite: keys.SAME_SITE_COOKIE_SETTING,
+          secure: keys.SECURE_COOKIE,
+        });
+      }
 
-      // Delay user load until cookie is created (auth issue in Firefox mobile ios)
+      // Delay user load until cookie is created (auth issue in Firefox mobile ios
       setTimeout(() => loadUser(), 1000);
     }
   }, [isAuthenticated]);

@@ -120,6 +120,8 @@ const AuthState = (props) => {
   const loadUser = async () => {
     if (cookie.get("nddToken")) {
       setAuthToken(cookie.get("nddToken"));
+    } else {
+      setAuthToken(state.token);
     }
 
     try {
@@ -128,6 +130,7 @@ const AuthState = (props) => {
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
       dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
+      setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
 

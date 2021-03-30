@@ -148,9 +148,7 @@ const Ad = (props) => {
                       setTimeout(
                         () =>
                           router.push(
-                            `/ads/${apartmentData && apartmentData.name}/${
-                              props.data.apartment_id
-                            }`
+                            `neighbourhood/ads/${props.data.apartment_id}`
                           ),
                         5000
                       );
