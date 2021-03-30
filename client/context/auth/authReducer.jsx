@@ -54,17 +54,6 @@ const authReducer = (state, action) => {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      var d = new Date();
-      d.setMinutes(d.getMinutes() + 1440);
-
-      cookie.set("nddToken", action.payload.access_token, {
-        domain: keys.DOMAIN,
-        path: "/",
-        expires: d,
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
-      });
-
       return {
         ...state,
         token: action.payload.access_token,

@@ -55,10 +55,28 @@ const UserLogin = (props) => {
   const router = useRouter();
 
   const authContext = useContext(AuthContext);
-  const { loginUser, isAuthenticated, loadUser, user, authError } = authContext;
+  const {
+    loginUser,
+    isAuthenticated,
+    loadUser,
+    user,
+    authError,
+    token,
+  } = authContext;
 
   useEffect(() => {
     if (isAuthenticated) {
+      var d = new Date();
+      d.setMinutes(d.getMinutes() + 1440);
+
+      cookie.set("nddToken", token, {
+        domain: keys.DOMAIN,
+        path: "/",
+        expires: d,
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      });
+
       // Delay user load until cookie is created (auth issue in Firefox mobile ios)
       setTimeout(() => loadUser(), 1000);
     }

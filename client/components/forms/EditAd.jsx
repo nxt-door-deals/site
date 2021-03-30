@@ -173,9 +173,7 @@ const EditAd = (props) => {
                           touched.title && errors.title ? "true" : null
                         }
                         aria-describedby={
-                          touched.title && props.errors.title
-                            ? "title-error"
-                            : null
+                          touched.title && errors.title ? "title-error" : null
                         }
                         className="textbox-input w-full placeholder-gray-600 "
                       />
@@ -214,12 +212,12 @@ const EditAd = (props) => {
                         onBlur={() => setFieldTouched(true)}
                         aria-required="true"
                         aria-invalid={
-                          touched.description && props.errors.description
+                          touched.description && errors.description
                             ? "true"
                             : null
                         }
                         aria-describedby={
-                          touched.description && props.errors.description
+                          touched.description && errors.description
                             ? "description-error"
                             : null
                         }
@@ -268,12 +266,12 @@ const EditAd = (props) => {
                               className="mx-1 focus:outline-none"
                               aria-required="true"
                               aria-invalid={
-                                touched.typeOfSale && props.errors.typeOfSale
+                                touched.typeOfSale && errors.typeOfSale
                                   ? "true"
                                   : null
                               }
                               aria-describedby={
-                                touched.typeOfSale && props.errors.typeOfSale
+                                touched.typeOfSale && errors.typeOfSale
                                   ? "typeOfSale-error"
                                   : null
                               }
@@ -290,12 +288,12 @@ const EditAd = (props) => {
                               className="mx-1 focus:outline-none"
                               aria-required="true"
                               aria-invalid={
-                                touched.typeOfSale && props.errors.typeOfSale
+                                touched.typeOfSale && errors.typeOfSale
                                   ? "true"
                                   : null
                               }
                               aria-describedby={
-                                touched.typeOfSale && props.errors.typeOfSale
+                                touched.typeOfSale && errors.typeOfSale
                                   ? "typeOfSale-error"
                                   : null
                               }
@@ -342,12 +340,10 @@ const EditAd = (props) => {
                             onBlur={() => setFieldTouched(true)}
                             aria-required="true"
                             aria-invalid={
-                              touched.price && props.errors.price
-                                ? "true"
-                                : null
+                              touched.price && errors.price ? "true" : null
                             }
                             aria-describedby={
-                              touched.price && props.errors.price
+                              touched.price && errors.price
                                 ? "price-error"
                                 : null
                             }
