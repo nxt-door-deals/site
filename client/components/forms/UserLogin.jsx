@@ -59,7 +59,8 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      loadUser();
+      // Delay user load until cookie is created (auth issue in Firefox mobile ios)
+      setTimeout(() => loadUser(), 1000);
     }
   }, [isAuthenticated]);
 
@@ -121,7 +122,7 @@ const UserLogin = (props) => {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
             loginUser(values.email, values.password);
-            setTimeout(() => setSubmitting(false), 500);
+            setTimeout(() => setSubmitting(false), 1000);
           }}
         >
           {(props) => (
@@ -235,7 +236,7 @@ const UserLogin = (props) => {
                   >
                     {!props.isSubmitting ? (
                       "Login"
-                    ) : authError ? (
+                    ) : authError && authError ? (
                       "Login"
                     ) : (
                       <BouncingBalls />

@@ -205,7 +205,12 @@ const authReducer = (state, action) => {
     case LOGIN_FAIL:
     case REGISTER_FAIL:
     case AUTH_ERROR:
-      cookie.remove("nddToken");
+      cookie.remove("nddToken", {
+        domain: keys.DOMAIN,
+        path: "/",
+        sameSite: keys.SAME_SITE_COOKIE_SETTING,
+        secure: keys.SECURE_COOKIE,
+      });
 
       return {
         ...state,

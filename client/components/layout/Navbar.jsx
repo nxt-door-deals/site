@@ -17,6 +17,7 @@ import {
   faFacebookSquare,
   faInstagramSquare,
   faLinkedin,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 // Component imports
@@ -983,6 +984,7 @@ const Navbar = (props) => {
                   whileHover="hover"
                   target="_blank"
                   className="mr-4"
+                  aria-label="Link to our facebook page"
                 >
                   <FontAwesomeIcon
                     icon={faFacebookSquare}
@@ -990,12 +992,16 @@ const Navbar = (props) => {
                   />
                 </motion.a>
               </Link>{" "}
-              <Link href="https://instagram.com" passHref={true}>
+              <Link
+                href="https://www.instagram.com/nxtdoordeals/"
+                passHref={true}
+              >
                 <motion.a
                   variants={variants}
                   whileHover="hover"
                   target="_blank"
                   className="mr-4"
+                  aria-label="Link to our instagram page"
                 >
                   <FontAwesomeIcon
                     icon={faInstagramSquare}
@@ -1003,15 +1009,36 @@ const Navbar = (props) => {
                   />
                 </motion.a>
               </Link>{" "}
-              <Link href="https://linkedin.com" passHref={true}>
+              <Link
+                href="https://www.linkedin.com/company/nxtdoordeals/"
+                passHref={true}
+              >
                 <motion.a
                   variants={variants}
                   whileHover="hover"
                   target="_blank"
                   className="mr-4"
+                  aria-label="Link to our linkedin page"
                 >
                   <FontAwesomeIcon
                     icon={faLinkedin}
+                    className={props.navStyle.navOverlayTextColor}
+                  />
+                </motion.a>
+              </Link>{" "}
+              <Link
+                href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
+                passHref={true}
+              >
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  target="_blank"
+                  className="mr-4"
+                  aria-label="Link to our youtube channel"
+                >
+                  <FontAwesomeIcon
+                    icon={faYoutube}
                     className={props.navStyle.navOverlayTextColor}
                   />
                 </motion.a>

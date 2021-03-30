@@ -264,7 +264,7 @@ const ReportAds = (props) => {
                   id="description-error"
                 >
                   <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                  {errors.description}
+                  {props.errors.description}
                 </div>
               ) : null}
 

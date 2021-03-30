@@ -55,7 +55,7 @@ const ActiveChat = (props) => {
   useEffect(() => {
     setTimeout(() => {
       scrollToBottom();
-    }, 100);
+    }, 500);
   }, []);
 
   useEffect(() => {

@@ -16,7 +16,8 @@ const buy = [
     image: "/images/buy/buy-3.svg",
     alt: "Chat with the seller",
     heading: "Chat with the seller",
-    content: "Chat with the seller, finalize the deal and make a new friend.",
+    content:
+      "Create your account to chat with the seller, finalize the deal and make a new friend.",
   },
   {
     image: "/images/buy/buy-4.svg",
@@ -40,7 +41,7 @@ const sell = [
     alt: "Post ad",
     heading: "Post ad",
     content:
-      "Post an ad in your neighbourhood for the preloved or new item that you want to sell or giveaway.",
+      "Create your account and post an ad in your neighbourhood for the preloved or new item that you want to sell or giveaway.",
   },
   {
     image: "/images/sell/sell-3.svg",

@@ -27,7 +27,7 @@ const PostAdHeader = (props) => {
           />
         </motion.div>
         {props.step === "Category" && (
-          <p className="inline text-xs md:text-sm">
+          <p className="inline text-sm">
             Hey{props.userName !== null ? ", " + props.userName : ", there"}!
             Check out the sub-categories (
             <FontAwesomeIcon

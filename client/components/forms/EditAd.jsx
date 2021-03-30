@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
@@ -72,10 +72,6 @@ const EditAd = (props) => {
 
   // Price is formatted in the Formik component
   let price = props.data.price;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
 
   // Giveaway toast
   const giveawayToast = () =>
