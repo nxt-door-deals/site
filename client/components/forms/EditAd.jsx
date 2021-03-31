@@ -15,7 +15,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
   faExclamationTriangle,
-  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component import

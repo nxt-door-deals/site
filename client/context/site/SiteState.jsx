@@ -247,7 +247,7 @@ const SiteState = (props) => {
   const sortByDateCreatedAsc = async (nbhId) => {
     nbhId = encodeURIComponent(nbhId);
     try {
-      let res = await axios.get(
+      const res = await axios.get(
         `${keys.API_PROXY}/sort/ads/created_asc?nbh_id=${nbhId}`
       );
 
@@ -260,7 +260,7 @@ const SiteState = (props) => {
   const sortByDateCreatedDesc = async (nbhId) => {
     nbhId = encodeURIComponent(nbhId);
     try {
-      let res = await axios.get(
+      const res = await axios.get(
         `${keys.API_PROXY}/sort/ads/created_desc?nbh_id=${nbhId}`
       );
 
@@ -273,7 +273,7 @@ const SiteState = (props) => {
   const sortGiveawayAsc = async (nbhId) => {
     nbhId = encodeURIComponent(nbhId);
     try {
-      let res = await axios.get(
+      const res = await axios.get(
         `${keys.API_PROXY}/sort/ads/giveaway_asc?nbh_id=${nbhId}`
       );
 
@@ -286,7 +286,7 @@ const SiteState = (props) => {
   const sortGiveawayDesc = async (nbhId) => {
     nbhId = encodeURIComponent(nbhId);
     try {
-      let res = await axios.get(
+      const res = await axios.get(
         `${keys.API_PROXY}/sort/ads/giveaway_desc?nbh_id=${nbhId}`
       );
 
@@ -402,16 +402,17 @@ const SiteState = (props) => {
     };
 
     try {
-      await axios.post(
-        `${keys.API_PROXY}/email/send/nbhregistration_user`,
-        jsonPayload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+      await axios
+        .post(
+          `${keys.API_PROXY}/email/send/nbhregistration_user`,
+          jsonPayload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
@@ -446,16 +447,13 @@ const SiteState = (props) => {
     };
 
     try {
-      await axios.post(
-        `${keys.API_PROXY}/email/send/nbhregistration`,
-        jsonPayload,
-        {
+      await axios
+        .post(`${keys.API_PROXY}/email/send/nbhregistration`, jsonPayload, {
           headers: {
             "Content-Type": "application/json",
           },
-        }
-      );
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+        })
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
@@ -494,11 +492,9 @@ const SiteState = (props) => {
     };
 
     try {
-      await axios.post(
-        `${keys.API_PROXY}/email/send/nbhregistration_user`,
-        jsonPayload
-      );
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+      await axios
+        .post(`${keys.API_PROXY}/email/send/nbhregistration_user`, jsonPayload)
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }

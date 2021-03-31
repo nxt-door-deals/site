@@ -258,12 +258,13 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.post(`${keys.API_PROXY}/email/send`, jsonPayload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+      await axios
+        .post(`${keys.API_PROXY}/email/send`, jsonPayload, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (error) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
@@ -275,17 +276,13 @@ const AuthState = (props) => {
 
     setApiKey(projectKey);
     try {
-      await axios.put(
-        `${keys.API_PROXY}/email_timestamp/refresh`,
-        jsonPayload,
-        {
+      await axios
+        .put(`${keys.API_PROXY}/email_timestamp/refresh`, jsonPayload, {
           headers: {
             "Content-Type": "application/json",
           },
-        }
-      );
-
-      dispatch({ type: null });
+        })
+        .then(() => dispatch({ type: EMAIL_VERIFICATION_TIMESTAMP_UPDATED }));
     } catch (err) {
       dispatch({
         type: EMAIL_VERIFICATION_TIMESTAMP_UPDATED,
@@ -300,13 +297,13 @@ const AuthState = (props) => {
     const jsonPayload = { id: id };
 
     try {
-      await axios.put(`${keys.API_PROXY}/otp_timestamp/refresh`, jsonPayload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      dispatch({ type: null });
+      await axios
+        .put(`${keys.API_PROXY}/otp_timestamp/refresh`, jsonPayload, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then(() => dispatch({ type: OTP_VERIFICATION_TIMESTAMP_UPDATED }));
     } catch (err) {
       dispatch({
         type: OTP_VERIFICATION_TIMESTAMP_UPDATED,
@@ -327,12 +324,13 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.post(`${keys.API_PROXY}/email/send/otp`, jsonPayload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+      await axios
+        .post(`${keys.API_PROXY}/email/send/otp`, jsonPayload, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
@@ -389,8 +387,9 @@ const AuthState = (props) => {
     };
 
     try {
-      await axios.post(`${keys.API_PROXY}/email/reported_ad/`, jsonPayload);
-      dispatch({ type: EMAIL_SEND_SUCCESS });
+      await axios
+        .post(`${keys.API_PROXY}/email/reported_ad/`, jsonPayload)
+        .then(() => dispatch({ type: EMAIL_SEND_SUCCESS }));
     } catch (err) {
       dispatch({ type: EMAIL_SEND_FAILURE });
     }
@@ -466,11 +465,11 @@ const AuthState = (props) => {
     setApiKey(projectKey);
     const utcTime = new Date().toJSON();
     try {
-      await axios.get(
-        `${keys.API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
-      );
-
-      dispatch({ type: OTP_VALIDATED_SUCCESS });
+      await axios
+        .get(
+          `${keys.API_PROXY}/user/verify_otp/${id}?otp=${otp}&timestamp=${utcTime}`
+        )
+        .then(() => dispatch({ type: OTP_VALIDATED_SUCCESS }));
     } catch (err) {
       dispatch({
         type: OTP_VALIDATED_FAILURE,
@@ -489,17 +488,13 @@ const AuthState = (props) => {
     setApiKey(projectKey);
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/user/password/${userId}`,
-        jsonPayload,
-        {
+      await axios
+        .put(`${keys.API_PROXY}/user/password/${userId}`, jsonPayload, {
           headers: {
             "Content-Type": "application/json",
           },
-        }
-      );
-
-      dispatch({ type: PASSWORD_CHANGE_SUCCESS });
+        })
+        .then(() => dispatch({ type: PASSWORD_CHANGE_SUCCESS }));
     } catch (err) {
       dispatch({
         type: PASSWORD_CHANGE_FAILURE,
@@ -560,11 +555,11 @@ const AuthState = (props) => {
     setApiKey(projectKey);
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/seller/chat/delete/?seller_id=${userId}&chat_id=${chatId}`
-      );
-
-      dispatch({ type: MARK_DELETE_SELLER_CHAT });
+      await axios
+        .put(
+          `${keys.API_PROXY}/seller/chat/delete/?seller_id=${userId}&chat_id=${chatId}`
+        )
+        .then(() => dispatch({ type: MARK_DELETE_SELLER_CHAT }));
     } catch (err) {
       dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
@@ -574,11 +569,11 @@ const AuthState = (props) => {
     setApiKey(projectKey);
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/buyer/chat/delete/?buyer_id=${userId}&chat_id=${chatId}`
-      );
-
-      dispatch({ type: MARK_DELETE_BUYER_CHAT });
+      await axios
+        .put(
+          `${keys.API_PROXY}/buyer/chat/delete/?buyer_id=${userId}&chat_id=${chatId}`
+        )
+        .then(() => dispatch({ type: MARK_DELETE_BUYER_CHAT }));
     } catch (err) {
       dispatch({ type: CHAT_ERROR, payload: err.response.data.detail });
     }
