@@ -222,6 +222,7 @@ const CreateNeighbourhood = (props) => {
                   }}
                   validationSchema={createNeighbourhoodValidationSchema}
                   onSubmit={(values, { setSubmitting }) => {
+                    setSubmitting(true);
                     createApartment(
                       values.name,
                       values.address1,
@@ -231,14 +232,10 @@ const CreateNeighbourhood = (props) => {
                       values.pincode,
                       values.email
                     );
-                    setTimeout(
-                      () =>
-                        sendNbhRegistrationEmailToUser(
-                          values.name,
-                          values.email
-                        ),
-                      500
-                    );
+                    setTimeout(() => {
+                      sendNbhRegistrationEmailToUser(values.name, values.email);
+                      setSubmitting(false);
+                    }, 500);
                   }}
                 >
                   {(props) => (

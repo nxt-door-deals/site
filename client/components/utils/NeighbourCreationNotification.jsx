@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 const NeighbourCreationNotification = (props) => {
+  useEffect(() => window.scrollTo(0, 0));
+
   return (
     <div className="h-full pt-20 lg:pt-32">
       <div className="flex flex-col items-center px-8 lg:px-16 mb-16">

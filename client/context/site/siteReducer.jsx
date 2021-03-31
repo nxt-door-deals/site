@@ -102,6 +102,7 @@ const siteReducer = (state, action) => {
     case UPDATE_AD_SUCCESS:
       return {
         ...state,
+        adUpdated: true,
         loading: false,
       };
     case DELETE_AD_IMAGE_SUCCESS:

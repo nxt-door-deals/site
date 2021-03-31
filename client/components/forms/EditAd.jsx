@@ -69,7 +69,7 @@ const EditAd = (props) => {
   const router = useRouter();
   const siteContext = useContext(SiteContext);
 
-  const { deleteAdImage, updateAd } = siteContext;
+  const { deleteAdImage, updateAd, adUpdated } = siteContext;
 
   // Price is formatted in the Formik component
   let price = props.data.price;
@@ -97,6 +97,12 @@ const EditAd = (props) => {
       });
     }, 100);
   }, []);
+
+  useEffect(() => {
+    if (adUpdated) {
+      setTimeout(() => router.reload("/"), 5000);
+    }
+  }, [adUpdated]);
 
   return (
     <div className="font-axiforma text-brand-gray w-full h-full">
@@ -144,8 +150,6 @@ const EditAd = (props) => {
                 values.publishFlatNo,
                 files
               );
-
-              setTimeout(() => router.reload("/"), 1000);
             }}
           >
             {({

@@ -56,6 +56,7 @@ const SiteState = (props) => {
     apartmentCreated: false,
     apartmentCreationError: "",
     adCreated: false,
+    adUpdated: false,
     adError: "",
     emailSent: null,
     neighbourhoodVerified: null,
@@ -367,16 +368,17 @@ const SiteState = (props) => {
       : formData.set("images", images);
 
     try {
-      await axios.put(
-        `${keys.API_PROXY}/ads/update?ad_id=${adId}&posted_by_id=${userId}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      dispatch({ type: UPDATE_AD_SUCCESS });
+      await axios
+        .put(
+          `${keys.API_PROXY}/ads/update?ad_id=${adId}&posted_by_id=${userId}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then(() => dispatch({ type: UPDATE_AD_SUCCESS }));
     } catch (err) {
       dispatch({ type: UPDATE_AD_FAILURE, payload: err.response.data.detail });
     }
@@ -571,6 +573,7 @@ const SiteState = (props) => {
         adCreated: state.adCreated,
         adError: state.adError,
         apartmentCreated: state.apartmentCreated,
+        adUpdated: state.adUpdated,
         apartmentCreationError: state.apartmentCreationError,
         emailSent: state.emailSent,
         neighbourhoodVerified: state.neighbourhoodVerified,
