@@ -55,7 +55,10 @@ const Home = (props) => {
 
   return (
     <HomeHeadLayout>
-      <Navbar navStyle={navStylePurple} />
+      <Navbar
+        navStyle={navStylePurple}
+        chatNotification={props.chatNotification}
+      />
       <main>
         <section id="header">
           <Landing />

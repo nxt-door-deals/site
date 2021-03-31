@@ -164,44 +164,72 @@ const Navbar = (props) => {
                   }`}
                 >
                   <Link href="/postad">
-                    <a className="styled-link">Post Free Ad</a>
+                    <a className="pb-1 styled-link">Post Free Ad</a>
                   </Link>
                 </span>
               </li>
+
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a
+                    className={`pb-1 styled-link ${
+                      props.chatNotification.current && "pr-1"
+                    }`}
+                  >
+                    Our Story
+                  </a>
                 </Link>
               </li>
+              {user && user && (
+                <li className="nav-item lg:mr-4 hover:scale-110">
+                  <Link href="/account">
+                    <a className="relative pb-1 styled-link">
+                      {props.chatNotification.current && (
+                        <span className="absolute -left-3 -top-2 animate-pulse">
+                          <FontAwesomeIcon
+                            icon={faComment}
+                            className="text-xs"
+                          />
+                        </span>
+                      )}
+                      My Account
+                    </a>
+                  </Link>
+                </li>
+              )}
               <li className="nav-item lg:mr-4 hover:scale-110">
-                {user === null ? (
+                {user === null && (
                   <Link href="/login">
-                    <a className="styled-link">Login</a>
+                    <a className="pb-1 styled-link">Login</a>
                   </Link>
-                ) : (
-                  <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
-                  </Link>
+                )}
+                {user && user && (
+                  <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                    </Link>
+                  </span>
                 )}
               </li>
               <li className="nav-item lg:mr-3 hover:scale-110">
-                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
-                  {user === null && (
+                {user === null && (
+                  <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
-                  )}
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
-                    </Link>
-                  )}
-                </span>
+                  </span>
+                )}
+
+                {user && user && (
+                  <Link href="/logout" as="/">
+                    <a className="pb-1 styled-link">Logout</a>
+                  </Link>
+                )}
               </li>
             </ul>
           )}
@@ -211,22 +239,22 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
-                    <a className="styled-link">Login</a>
+                    <a className="pb-1 styled-link">Login</a>
                   </Link>
                 ) : (
                   <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
+                    <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 )}
               </li>
@@ -234,12 +262,12 @@ const Navbar = (props) => {
                 <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                   {user === null && (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </span>
@@ -253,28 +281,28 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user === null && (
                   <Link href="/registeruser">
-                    <a className="styled-link">Sign Up</a>
+                    <a className="pb-1 styled-link">Sign Up</a>
                   </Link>
                 )}
                 {user && user && (
                   <Link href="/account">
-                    <a className="relative styled-link">
+                    <a className="relative pb-1 styled-link">
                       {props.chatNotification.current && (
                         <span className="absolute -left-3 -top-2 animate-pulse">
                           <FontAwesomeIcon
@@ -291,11 +319,11 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
-                    <a className="styled-link">Login</a>
+                    <a className="pb-1 styled-link">Login</a>
                   </Link>
                 ) : (
                   <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
+                    <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 )}
               </li>
@@ -307,17 +335,17 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
             </ul>
@@ -332,17 +360,17 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
             </ul>
@@ -354,29 +382,29 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/account">
-                  <a className="styled-link">
+                  <a className="pb-1 styled-link">
                     <span className="text-brand-purple">My</span> Account
                   </a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/logout" as="/">
-                  <a className="styled-link">Logout</a>
+                  <a className="pb-1 styled-link">Logout</a>
                 </Link>
               </li>
             </ul>
@@ -390,27 +418,27 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
-                    <a className="styled-link">Login</a>
+                    <a className="pb-1 styled-link">Login</a>
                   </Link>
                 ) : (
                   <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
+                    <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 )}
               </li>
@@ -418,12 +446,12 @@ const Navbar = (props) => {
                 <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                   {user === null && (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </span>
@@ -436,30 +464,30 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/">
-                  <a className="styled-link">Home</a>
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
-                  <a className="styled-link">How It Works</a>
+                  <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
-                  <a className="styled-link">Our Story</a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user && user && (
                   <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                    <a className="styled-link">My Neighbourhood</a>
+                    <a className="pb-1 styled-link">My Neighbourhood</a>
                   </Link>
                 )}
               </li>
 
-              <li className="nav-item lg:mr-6 hover:scale-110 styled-link">
+              <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/logout" as="/">
-                  <a className="styled-link">Logout</a>
+                  <a className="pb-1 styled-link">Logout</a>
                 </Link>
               </li>
             </ul>
@@ -502,7 +530,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/postad">
-                    <a className="styled-link">Post Free Ad</a>
+                    <a className="pb-1 styled-link">Post Free Ad</a>
                   </Link>
                 </li>
                 <li
@@ -513,7 +541,7 @@ const Navbar = (props) => {
                 >
                   <Link href="#how-it-works">
                     <a
-                      className="styled-link"
+                      className="pb-1 styled-link"
                       onClick={() => setExpanded(false)}
                     >
                       How It Works
@@ -527,9 +555,31 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
+                {user && user && (
+                  <li
+                    className={
+                      "overlay-items md:text-xl hover:scale-125 " +
+                      props.navStyle.navOverlayTextColor
+                    }
+                  >
+                    <Link href="/account">
+                      <a className="pb-1 styled-link">
+                        {props.chatNotification.current && (
+                          <span className="absolute -left-3 -top-2 animate-pulse">
+                            <FontAwesomeIcon
+                              icon={faComment}
+                              className="text-xs"
+                            />
+                          </span>
+                        )}
+                        My Account
+                      </a>
+                    </Link>
+                  </li>
+                )}
                 <li
                   className={
                     "overlay-items md:text-xl hover:scale-125 " +
@@ -538,11 +588,11 @@ const Navbar = (props) => {
                 >
                   {user === null ? (
                     <Link href="/login">
-                      <a className="styled-link">Login</a>
+                      <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
                     <Link href="/logout" as="/">
-                      <a className="styled-link">Logout</a>
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -554,12 +604,12 @@ const Navbar = (props) => {
                 >
                   {user === null && (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>
@@ -576,7 +626,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -587,7 +637,7 @@ const Navbar = (props) => {
                 >
                   <Link href="/#how-it-works">
                     <a
-                      className="styled-link"
+                      className="pb-1 styled-link"
                       onClick={() => setExpanded(false)}
                     >
                       How It Works
@@ -603,11 +653,11 @@ const Navbar = (props) => {
                 >
                   {user === null ? (
                     <Link href="/login">
-                      <a className="styled-link">Login</a>
+                      <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
                     <Link href="/logout" as="/">
-                      <a className="styled-link">Logout</a>
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -619,12 +669,12 @@ const Navbar = (props) => {
                 >
                   {user === null && (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>
@@ -642,7 +692,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -652,7 +702,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -663,7 +713,7 @@ const Navbar = (props) => {
                 >
                   <Link href="/#how-it-works">
                     <a
-                      className="styled-link"
+                      className="pb-1 styled-link"
                       onClick={() => setExpanded(false)}
                     >
                       How It Works
@@ -678,11 +728,21 @@ const Navbar = (props) => {
                 >
                   {user === null ? (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   ) : (
                     <Link href="/account">
-                      <a className="styled-link">My Account</a>
+                      <a className="pb-1 styled-link">
+                        {props.chatNotification.current && (
+                          <span className="absolute -left-3 -top-2 animate-pulse">
+                            <FontAwesomeIcon
+                              icon={faComment}
+                              className="text-xs"
+                            />
+                          </span>
+                        )}
+                        My Account
+                      </a>
                     </Link>
                   )}
                 </li>
@@ -694,11 +754,11 @@ const Navbar = (props) => {
                 >
                   {user === null ? (
                     <Link href="/login">
-                      <a className="styled-link">Login</a>
+                      <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
                     <Link href="/logout" as="/">
-                      <a className="styled-link">Logout</a>
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -715,7 +775,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -725,7 +785,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -736,7 +796,7 @@ const Navbar = (props) => {
                 >
                   <Link href="/#how-it-works">
                     <a
-                      className="styled-link"
+                      className="pb-1 styled-link"
                       onClick={() => setExpanded(false)}
                     >
                       How It Works
@@ -760,7 +820,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -770,7 +830,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <a className="styled-link">How It Works</a>
+                    <a className="pb-1 styled-link">How It Works</a>
                   </Link>
                 </li>
                 <li
@@ -780,7 +840,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
               </Fragment>
@@ -797,7 +857,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -807,7 +867,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <a className="styled-link">How It Works</a>
+                    <a className="pb-1 styled-link">How It Works</a>
                   </Link>
                 </li>
                 <li
@@ -817,7 +877,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -827,7 +887,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/account">
-                    <a className="styled-link">
+                    <a className="pb-1 styled-link">
                       <span className="text-brand-purple">My</span> Account
                     </a>
                   </Link>
@@ -839,7 +899,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
+                    <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 </li>
               </Fragment>
@@ -855,7 +915,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -865,7 +925,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/#how-it-works">
-                    <a className="styled-link">How It Works</a>
+                    <a className="pb-1 styled-link">How It Works</a>
                   </Link>
                 </li>
                 <li
@@ -875,7 +935,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/ourstory">
-                    <a className="styled-link">Our Story</a>
+                    <a className="pb-1 styled-link">Our Story</a>
                   </Link>
                 </li>
                 <li
@@ -886,7 +946,7 @@ const Navbar = (props) => {
                 >
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>
@@ -898,7 +958,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/logout" as="/">
-                    <a className="styled-link">Logout</a>
+                    <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 </li>
               </Fragment>
@@ -917,7 +977,7 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/">
-                    <a className="styled-link">Home</a>
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li
@@ -928,7 +988,7 @@ const Navbar = (props) => {
                 >
                   <Link href="/#how-it-works">
                     <a
-                      className="styled-link"
+                      className="pb-1 styled-link"
                       onClick={() => setExpanded(false)}
                     >
                       How It Works
@@ -944,11 +1004,11 @@ const Navbar = (props) => {
                 >
                   {user === null ? (
                     <Link href="/login">
-                      <a className="styled-link">Login</a>
+                      <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
                     <Link href="/logout" as="/">
-                      <a className="styled-link">Logout</a>
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -960,12 +1020,12 @@ const Navbar = (props) => {
                 >
                   {user === null && (
                     <Link href="/registeruser">
-                      <a className="styled-link">Sign Up</a>
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>

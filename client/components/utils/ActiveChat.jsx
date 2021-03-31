@@ -106,7 +106,12 @@ const ActiveChat = (props) => {
 
         {/* Tooltip */}
         <div className="p-4 mt-4 mr-4">
-          <div className="tooltip">
+          <div
+            className="tooltip"
+            role="tooltip"
+            aria-hidden="true"
+            aria-label="Tooltip with ad summary for quick reference"
+          >
             <FontAwesomeIcon
               icon={faInfoCircle}
               className="text-2xl text-ad-purple"

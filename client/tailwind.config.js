@@ -171,6 +171,7 @@ module.exports = {
       },
       fontSize: {
         tiny: ".8rem",
+        navText: ".8125rem",
       },
       borderRadius: {
         "half-full": "4000px",

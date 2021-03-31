@@ -20,7 +20,8 @@ import {
   EMAIL_SEND_FAILURE,
   VERIFY_NEIGHBOURHOOD_SUCCESS,
   VERIFY_NEIGHBOURHOOD_FAILURE,
-  DELETE_AD_IMAGE,
+  DELETE_AD_IMAGE_SUCCESS,
+  DELETE_AD_IMAGE_FAILURE,
   CHAT_HISTORY_LOADED,
   CHAT_ERROR,
   REPORTED_AD_SUCCESS,
@@ -103,6 +104,11 @@ const siteReducer = (state, action) => {
         ...state,
         loading: false,
       };
+    case DELETE_AD_IMAGE_SUCCESS:
+      return {
+        ...state,
+        imageDeleteStatus: action.payload,
+      };
     case UPDATE_AD_FAILURE:
       return {
         ...state,
@@ -147,7 +153,7 @@ const siteReducer = (state, action) => {
         ...state,
         adsDataNbhFetched: false,
       };
-    case DELETE_AD_IMAGE:
+    case DELETE_AD_IMAGE_FAILURE:
       return {
         ...state,
         adError: action.payload,

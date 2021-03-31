@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
   faExclamationTriangle,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component import
@@ -86,6 +87,16 @@ const EditAd = (props) => {
       draggablePercent: 60,
       position: "top-center",
     });
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 100);
+  }, []);
 
   return (
     <div className="font-axiforma text-brand-gray w-full h-full">
@@ -493,15 +504,32 @@ const EditAd = (props) => {
                   >
                     {props.imgArray.length !== 0 ? (
                       <div>
-                        <p className="mt-2 mb-4 text-sm text-center">
-                          You can upload{" "}
-                          {props.imgArray.length !== 0
-                            ? props.imgArray.length === 10
-                              ? "no"
-                              : 10 - props.imgArray.length
-                            : 10}{" "}
-                          more photos.
-                        </p>
+                        <div className="flex justify-center items-center mt-2 mb-2">
+                          <p className="text-sm pr-1">
+                            You can upload{" "}
+                            {props.imgArray.length !== 0
+                              ? props.imgArray.length === 10
+                                ? "no"
+                                : 10 - props.imgArray.length
+                              : 10}{" "}
+                            more photos
+                          </p>
+                          <div
+                            className="tooltip bg-brand-gray rounded-full h-6 w-6 text-center cursor-pointer"
+                            role="tooltip"
+                            aria-hidden="true"
+                            aria-label="Tooltip to explain image deletion"
+                          >
+                            <FontAwesomeIcon
+                              icon={faTrashAlt}
+                              className="text-white text-xs p-0"
+                            />
+                            <span className="tooltiptext-delete">
+                              Deleting a photo will remove it from your ad
+                              permanently. The action cannot be undone.
+                            </span>
+                          </div>
+                        </div>
                         <div className="grid grid-cols-5 gap-5 mb-4">
                           {props.imgArray.map((image, index) => {
                             let imagesWithExt = image.split("/");
@@ -556,9 +584,10 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverSave"}
                     whileTap={fieldTouched && "editButtonTap"}
-                    className={`h-12 w-40 font-semibold uppercase mb-7 text-white
-                    bg-purple-700 shadow-buttonShadowPurple lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
-                      fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
+                    className={`h-12 w-40 font-semibold uppercase mb-7  lg:mb-0 lg:mr-5 rounded-xl focus:outline-none ${
+                      fieldTouched
+                        ? "text-white bg-purple-700 shadow-buttonShadowPurple cursor-pointer"
+                        : "bg-gray-300 text-gray-50 text-opacity-95 shadow-lg cursor-not-allowed"
                     } ${isSubmitting && "cursor-not-allowed"}`}
                     disabled={!fieldTouched || isSubmitting}
                   >
@@ -569,8 +598,10 @@ const EditAd = (props) => {
                     variants={editAdVariants}
                     whileHover={fieldTouched && "hoverCancel"}
                     whileTap={fieldTouched && "deleteButtonTap"}
-                    className={` h-12 w-40 font-semibold text-white bg-red-400 shadow-cancelButtonShadow uppercase lg:mt-0 rounded-xl focus:outline-none ${
-                      fieldTouched ? "cursor-pointer" : "cursor-not-allowed"
+                    className={` h-12 w-40 font-semibold uppercase lg:mt-0 rounded-xl focus:outline-none ${
+                      fieldTouched
+                        ? "text-white bg-red-400 shadow-cancelButtonShadow cursor-pointer"
+                        : "bg-gray-300 text-gray-50 text-opacity-95 shadow-lg cursor-not-allowed"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -579,7 +610,7 @@ const EditAd = (props) => {
                     }}
                     disabled={isSubmitting}
                   >
-                    Cancel
+                    Undo Changes
                   </motion.button>
                 </div>
               </Form>

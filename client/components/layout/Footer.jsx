@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../context/auth/authContext";
 import Image from "next/image";
 import Link from "next/link";
 import Modal from "react-modal";
@@ -15,6 +16,8 @@ import {
   faPlusCircle,
   faQuestionCircle,
   faBookOpen,
+  faUserNinja,
+  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
@@ -45,6 +48,9 @@ const variants = {
 
 const Footer = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const authContext = useContext(AuthContext);
+
+  const { user } = authContext;
 
   return (
     <div
@@ -221,11 +227,9 @@ const Footer = (props) => {
           </div>
         </div>
 
-        <div>
-          <h2 className="text-center text-xl pb-5 tracking-wide">
-            Get Started Today!
-          </h2>
-          <div className="flex flex-col items-center justify-center pb-16 tracking-wide">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-xl pb-5 tracking-wide">Get Started Today!</h2>
+          <div className="flex flex-col items-start justify-center pb-16 tracking-wide">
             <Link href="/#header">
               <motion.a
                 variants={variants}
@@ -241,13 +245,37 @@ const Footer = (props) => {
               <motion.a
                 variants={variants}
                 whileHover="hover"
-                className="pl-2"
+                className="px-2 pb-3"
                 aria-label="Link to the post a free ad page"
               >
                 <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
                 <span className="pb-1 styled-link">Post Free Ad</span>
               </motion.a>
             </Link>{" "}
+            <Link href="/account">
+              <motion.a
+                variants={variants}
+                whileHover="hover"
+                className="px-2 pb-3"
+                aria-label="Link to the user account page"
+              >
+                <FontAwesomeIcon icon={faUserNinja} className="mr-1" />
+                <span className="pb-1 styled-link">My Account</span>
+              </motion.a>
+            </Link>{" "}
+            {user && user && (
+              <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  className="px-2 pb-3"
+                  aria-label="Link to the user account page"
+                >
+                  <FontAwesomeIcon icon={faShoppingBag} className="mr-1" />
+                  <span className="pb-1 styled-link">My Neighbourhood</span>
+                </motion.a>
+              </Link>
+            )}
           </div>
         </div>
       </div>

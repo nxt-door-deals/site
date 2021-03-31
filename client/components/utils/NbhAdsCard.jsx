@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import keys from "../../utils/keys";
 import { motion } from "framer-motion";

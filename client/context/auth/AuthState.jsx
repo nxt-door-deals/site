@@ -5,6 +5,7 @@ import { setAuthToken, setApiKey } from "../../utils/setToken";
 import axios from "axios";
 import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
+import createCookie from "../../utils/createLoginCookie";
 
 import {
   SET_LOADING,
@@ -121,12 +122,13 @@ const AuthState = (props) => {
     if (cookie.get("nddToken")) {
       setAuthToken(cookie.get("nddToken"));
     } else {
-      setAuthToken(state.token);
+      createCookie(state.token);
+
+      setTimeout(() => setAuthToken(cookie.get("nddToken")), 500);
     }
 
     try {
       const res = await axios.get(`${keys.API_PROXY}/auth/current_user`);
-
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
       dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });

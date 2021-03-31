@@ -65,6 +65,16 @@ const Ad = (props) => {
   }
 
   useEffect(() => {
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 100);
+  }, []);
+
+  useEffect(() => {
     let mounted = true;
 
     if (mounted) {

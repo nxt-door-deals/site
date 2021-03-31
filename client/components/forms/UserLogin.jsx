@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { greeting } from "../../utils/greeting";
 import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
+import createCookie from "../../utils/createLoginCookie";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -67,16 +68,7 @@ const UserLogin = (props) => {
   useEffect(() => {
     if (isAuthenticated) {
       if (!cookie.get("nddToken")) {
-        let d = new Date();
-        d.setMinutes(d.getMinutes() + 1440);
-
-        cookie.set("nddToken", token, {
-          domain: keys.DOMAIN,
-          path: "/",
-          expires: d,
-          sameSite: keys.SAME_SITE_COOKIE_SETTING,
-          secure: keys.SECURE_COOKIE,
-        });
+        createCookie(token);
       }
 
       // Delay user load until cookie is created (auth issue in Firefox mobile ios
@@ -142,7 +134,7 @@ const UserLogin = (props) => {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
             loginUser(values.email, values.password);
-            setTimeout(() => setSubmitting(false), 1000);
+            setTimeout(() => setSubmitting(false), 2000);
           }}
         >
           {(props) => (

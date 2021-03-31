@@ -18,7 +18,7 @@ body {
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-sm font-axiforma tracking-wide font-semibold transform transition duration-300 ease-in-out focus-within:outline-none;
+  @apply mr-6 z-20 text-navText font-axiforma tracking-wide font-semibold transform transition  duration-300 ease-in-out focus-within:outline-none;
 }
 
 .menu-nav-item {
@@ -136,9 +136,9 @@ body {
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 15px solid #6D28D9;
+  border-left: 15px solid #6d28d9;
   border-right: 15px solid transparent;
-  border-top: 15px solid #6D28D9;
+  border-top: 15px solid #6d28d9;
   border-bottom: 15px solid transparent;
   right: -16px;
   top: 0px;
@@ -266,7 +266,7 @@ body {
   }
 }
 
-/* Tooltip - chat */
+/* Tooltip - chat and image deletion */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -289,7 +289,28 @@ body {
   z-index: 1;
 }
 
+.tooltiptext-delete {
+  font-size: 0.75rem;
+  visibility: hidden;
+  background: #333333;
+  width: 200px;
+  color: #fff;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -105px;
+  margin-top: 5px;
+  z-index: 1;
+}
+
 .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip:hover .tooltiptext-delete {
   visibility: visible;
 }
 
@@ -302,4 +323,15 @@ body {
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent transparent #292d34;
+}
+
+.tooltip .tooltiptext-delete::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #292d34 transparent;
 }

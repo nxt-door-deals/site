@@ -27,7 +27,8 @@ import {
   VERIFY_NEIGHBOURHOOD_FAILURE,
   FETCH_NBH_AD_SUCCESS,
   FETCH_NBH_AD_FAILURE,
-  DELETE_AD_IMAGE,
+  DELETE_AD_IMAGE_SUCCESS,
+  DELETE_AD_IMAGE_FAILURE,
   CHAT_HISTORY_LOADED,
   CHAT_ERROR,
   REPORTED_AD_SUCCESS,
@@ -62,6 +63,7 @@ const SiteState = (props) => {
     adsDataNbhFetched: false,
     verifiedNeighbourhoodDetails: null,
     reportedAd: null,
+    imageDeleteStatus: null,
   };
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
@@ -462,11 +464,15 @@ const SiteState = (props) => {
     setApiKey(projectKey);
 
     try {
-      await axios.delete(
-        `${keys.API_PROXY}/image/delete/?user_id=${userId}&ad_id=${adId}&image=${image}`
+      const res = await axios.delete(
+        `${keys.API_PROXY}/image/delete?user_id=${userId}&ad_id=${adId}&image=${image}`
       );
+      dispatch({ type: DELETE_AD_IMAGE_SUCCESS, payload: res.data });
     } catch (err) {
-      dispatch({ type: DELETE_AD_IMAGE, payload: err.response.data.detail });
+      dispatch({
+        type: DELETE_AD_IMAGE_FAILURE,
+        payload: err.response.data.detail,
+      });
     }
   };
 
@@ -575,6 +581,7 @@ const SiteState = (props) => {
         adError: state.adError,
         chatHistory: state.chatHistory,
         reportedAd: state.reportedAd,
+        imageDeleteStatus: state.imageDeleteStatus,
         loadAllApartments,
         fetchApartments,
         getNeighbourhoodFromId,
