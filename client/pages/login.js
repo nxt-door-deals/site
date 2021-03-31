@@ -63,12 +63,16 @@ const Login = (props) => {
     setTimeout(() => reportedAdToast(), 500);
   }
 
-  if (cookie.get("nddToken")) router.push("/alreadyloggedin", "/");
+  if (typeof window !== "undefined") {
+    if (localStorage.getItem("nddToken")) router.push("/alreadyloggedin", "/");
+  }
 
   return (
     <UserLoginHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      {!cookie.get("nddToken") && <UserLogin pathProp={pathProp} />}
+      {typeof window !== "undefined" && !localStorage.getItem("nddToken") && (
+        <UserLogin pathProp={pathProp} />
+      )}
     </UserLoginHeadLayout>
   );
 };

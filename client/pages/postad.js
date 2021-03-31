@@ -26,7 +26,7 @@ const PostAd = (props) => {
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
-  if (!cookie.get("nddToken")) {
+  if (typeof window !== "undefined" && !localStorage.getItem("nddToken")) {
     // Save the url (/postad) for redirect after login
     props.pathHistory.current = pathname;
     if (process.browser) {
@@ -40,7 +40,7 @@ const PostAd = (props) => {
     if (isAuthenticated) {
       loadUser();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   if (user && !user.email_verified) {
     setTimeout(() => router.push("/account"), 3000);

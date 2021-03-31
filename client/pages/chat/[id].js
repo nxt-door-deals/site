@@ -29,7 +29,7 @@ const Chat = (props) => {
     altUser,
   } = authContext;
 
-  if (!cookie.get("nddToken")) {
+  if (typeof window !== "undefined" && !localStorage.getItem("nddToken")) {
     if (!cookie.get("__redirChatCookie")) {
       cookie.set(
         "__redirChatCookie",

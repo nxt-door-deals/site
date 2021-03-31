@@ -119,12 +119,20 @@ const AuthState = (props) => {
 
   // Load user
   const loadUser = async () => {
-    if (cookie.get("nddToken")) {
-      setAuthToken(cookie.get("nddToken"));
-    } else {
-      createCookie(state.token);
+    // if (cookie.get("nddToken")) {
+    //   setAuthToken(cookie.get("nddToken"));
+    // } else {
+    //   createCookie(state.token);
 
-      setTimeout(() => setAuthToken(cookie.get("nddToken")), 500);
+    //   setTimeout(() => setAuthToken(cookie.get("nddToken")), 500);
+    // }
+
+    if (typeof window !== "undefined") {
+      setAuthToken(localStorage.getItem("nddToken"));
+    } else {
+      localStorage.setItem("nddToken", state.token);
+
+      setTimeout(() => setAuthToken(localStorage.getItem("nddToken")), 500);
     }
 
     try {

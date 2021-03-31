@@ -13,8 +13,10 @@ const Goodbye = () => {
   const { logout } = authContext;
 
   useEffect(() => {
-    if (cookie.get("nddToken")) {
-      logout();
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("nddToken")) {
+        logout();
+      }
     }
   }, []);
 

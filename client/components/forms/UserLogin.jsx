@@ -67,9 +67,9 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      if (!cookie.get("nddToken")) {
-        createCookie(token);
-      }
+      // if (!cookie.get("nddToken")) {
+      //   createCookie(token);
+      // }
 
       // Delay user load until cookie is created (auth issue in Firefox mobile ios
       setTimeout(() => loadUser(), 1000);
@@ -127,7 +127,7 @@ const UserLogin = (props) => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20">
-      <div className="font-axiforma rounded-3xl shadow-boxshadowlogin bg-white p-8 mb-4">
+      <div className="-mt-5 lg:mt-0 rounded-3xl shadow-boxshadowlogin bg-white p-8 mb-4">
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidationSchema}

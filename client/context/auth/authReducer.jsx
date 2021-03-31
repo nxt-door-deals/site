@@ -54,16 +54,20 @@ const authReducer = (state, action) => {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      let d = new Date();
-      d.setMinutes(d.getMinutes() + 1440);
+      // let d = new Date();
+      // d.setMinutes(d.getMinutes() + 1440);
 
-      cookie.set("nddToken", action.payload.access_token, {
-        domain: keys.DOMAIN,
-        path: "/",
-        expires: d,
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
-      });
+      // cookie.set("nddToken", action.payload.access_token, {
+      //   domain: keys.DOMAIN,
+      //   path: "/",
+      //   expires: d,
+      //   sameSite: keys.SAME_SITE_COOKIE_SETTING,
+      //   secure: keys.SECURE_COOKIE,
+      // });
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem("nddToken", action.payload.access_token);
+      }
 
       return {
         ...state,
@@ -82,12 +86,16 @@ const authReducer = (state, action) => {
         ...state,
       };
     case LOGOUT:
-      cookie.remove("nddToken", {
-        domain: keys.DOMAIN,
-        path: "/",
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
-      });
+      // cookie.remove("nddToken", {
+      //   domain: keys.DOMAIN,
+      //   path: "/",
+      //   sameSite: keys.SAME_SITE_COOKIE_SETTING,
+      //   secure: keys.SECURE_COOKIE,
+      // });
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("nddToken");
+      }
+
       cookie.remove("__redirChatCookie", {
         domain: keys.DOMAIN,
         path: "/",
@@ -205,12 +213,16 @@ const authReducer = (state, action) => {
     case LOGIN_FAIL:
     case REGISTER_FAIL:
     case AUTH_ERROR:
-      cookie.remove("nddToken", {
-        domain: keys.DOMAIN,
-        path: "/",
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
-      });
+      // cookie.remove("nddToken", {
+      //   domain: keys.DOMAIN,
+      //   path: "/",
+      //   sameSite: keys.SAME_SITE_COOKIE_SETTING,
+      //   secure: keys.SECURE_COOKIE,
+      // });
+
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("nddToken");
+      }
 
       return {
         ...state,

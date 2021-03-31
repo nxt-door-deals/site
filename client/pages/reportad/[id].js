@@ -30,7 +30,7 @@ const ReportAd = (props) => {
     );
   }
 
-  if (!cookie.get("nddToken")) {
+  if (typeof window !== "undefined" && !localStorage.getItem("nddToken")) {
     // Save the url (/postad) for redirect after login
     props.pathHistory.current = pathname;
     if (process.browser) {

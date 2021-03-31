@@ -44,7 +44,15 @@ const Navbar = (props) => {
 
   useEffect(() => {
     let mounted = true;
-    if (cookie.get("nddToken") && mounted) {
+    // if (cookie.get("nddToken") && mounted) {
+    //   loadUser();
+    // }
+
+    if (
+      typeof window !== "undefined" &&
+      localStorage.getItem("nddToken") &&
+      mounted
+    ) {
       loadUser();
     }
 

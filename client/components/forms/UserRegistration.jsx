@@ -517,7 +517,7 @@ const UserRegistration = () => {
                           <Link
                             href={`/register/neighbourhood/${props.values.apartment}`}
                           >
-                            <a className="text-blue-700 font-bold underline">
+                            <a className="text-blue-700 font-bold underline focus-within:outline-none">
                               {props.values.apartment}
                             </a>
                           </Link>{" "}

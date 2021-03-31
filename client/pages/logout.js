@@ -8,16 +8,12 @@ import LogoutHeadLayout from "../components/layout/LogoutHeadLayout";
 
 const variants = {
   initial: {
-    opacity: 0,
-    transition: {
-      sale: 0.6,
-    },
+    y: "200vh",
   },
 
   animate: {
-    opacity: 1,
+    y: "-5vh",
     transition: {
-      scale: 1,
       duration: 3,
       delay: 3,
     },
@@ -42,7 +38,7 @@ const Logout = (props) => {
 
   return (
     <LogoutHeadLayout>
-      <div className="h-screen w-screen flex flex-col justify-center items-center text-2xl lg:text-5xl bg-purple-50 text-brand-purple uppercase font-bold tracking-wider">
+      <div className="h-screen w-screen flex flex-col justify-center items-center text-3xl px-5 lg:text-5xl bg-purple-50 text-brand-purple uppercase font-bold tracking-wider">
         <ul className="smoke flex">
           <li className="smoke-item">l</li>
           <li className="smoke-item">o</li>

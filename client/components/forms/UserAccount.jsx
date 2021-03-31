@@ -421,7 +421,7 @@ const UserAccount = (props) => {
                         <Link
                           href={`register/neighbourhood/${props.values.neighbourhood}`}
                         >
-                          <a className="text-blue-700 font-bold underline">
+                          <a className="text-blue-700 font-bold underline focus-within:outline-none">
                             {props.values.neighbourhood}
                           </a>
                         </Link>{" "}

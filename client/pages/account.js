@@ -42,14 +42,16 @@ const Account = (props) => {
     { label: "Chats", value: 2 },
   ];
 
-  if (!cookie.get("nddToken")) {
-    // Save the url (/account) for redirect after login
-    props.pathHistory.current = props.pathname;
-    if (process.browser) {
-      router.push("/login");
-    }
+  if (typeof window !== "undefined") {
+    if (!localStorage.getItem("nddToken")) {
+      // Save the url (/account) for redirect after login
+      props.pathHistory.current = props.pathname;
+      if (process.browser) {
+        router.push("/login");
+      }
 
-    return <div></div>;
+      return <div></div>;
+    }
   }
 
   const tabStyle = {

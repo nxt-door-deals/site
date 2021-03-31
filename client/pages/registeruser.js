@@ -16,14 +16,16 @@ const RegisterUser = () => {
   navStyleBlue["navOverlayBgColor"] = "bg-indigo-100";
   navStyleBlue["pathname"] = pathname;
 
-  if (cookie.get("nddToken")) {
+  if (typeof window !== "undefined" && localStorage.getItem("nddToken")) {
     router.push("/alreadyloggedin", "/");
   }
 
   return (
     <UserRegistrationHeadLayout>
       <Navbar navStyle={navStyleBlue} />
-      {!cookie.get("nddToken") && <UserRegistration />}
+      {typeof window !== "undefined" && !localStorage.getItem("nddToken") && (
+        <UserRegistration />
+      )}
     </UserRegistrationHeadLayout>
   );
 };

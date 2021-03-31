@@ -402,7 +402,8 @@ const PageNotFound = () => {
         </p>
       </div>
       <div className="flex items-center justify-center mt-6">
-        {cookie.get("nddToken") ? (
+        {/* {cookie.get("nddToken") ? ( */}
+        {user && user ? (
           <div className="flex flex-col lg:flex-row">
             <motion.button
               initial={{ opacity: 0 }}
