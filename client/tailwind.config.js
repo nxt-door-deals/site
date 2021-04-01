@@ -56,6 +56,7 @@ module.exports = {
         "ghost-white": "#F8F8FF",
         "brand-purple": "#550052",
         "brand-gray": "#292d34",
+        "notification-red": "#FF3B30",
         // "footer-gradient-from": "#902393",
         // "footer-gradient-to": "#d04ed6",
         "footer-gradient-from": "#997BC0",
@@ -170,6 +171,7 @@ module.exports = {
         5: "5 5 0%",
       },
       fontSize: {
+        xxs: ".6875rem",
         tiny: ".8rem",
         navText: ".8125rem",
       },

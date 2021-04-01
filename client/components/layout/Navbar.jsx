@@ -11,7 +11,7 @@ import {
   faTimes,
   faEnvelope,
   faStream,
-  faComment,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
@@ -198,10 +198,10 @@ const Navbar = (props) => {
                   <Link href="/account">
                     <a className="relative pb-1 styled-link">
                       {props.chatNotification.current && (
-                        <span className="absolute -left-3 -top-2 animate-pulse">
+                        <span className="absolute -right-2.5 -top-2.5 animate-pulse">
                           <FontAwesomeIcon
-                            icon={faComment}
-                            className="text-xs"
+                            icon={faCircle}
+                            className="text-xxs text-notification-red"
                           />
                         </span>
                       )}
@@ -261,24 +261,25 @@ const Navbar = (props) => {
                     <a className="pb-1 styled-link">Login</a>
                   </Link>
                 ) : (
+                  <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                    </Link>
+                  </span>
+                )}
+              </li>
+              <li className="nav-item lg:mr-3 hover:scale-110">
+                {user === null ? (
+                  <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
+                    <Link href="/registeruser">
+                      <a className="pb-1 styled-link">Sign Up</a>
+                    </Link>
+                  </span>
+                ) : (
                   <Link href="/logout" as="/">
                     <a className="pb-1 styled-link">Logout</a>
                   </Link>
                 )}
-              </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
-                <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
-                  {user === null && (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
-                    </Link>
-                  )}
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
-                    </Link>
-                  )}
-                </span>
               </li>
             </ul>
           )}
@@ -303,19 +304,18 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
-                {user === null && (
-                  <Link href="/registeruser">
-                    <a className="pb-1 styled-link">Sign Up</a>
+                {user === null ? (
+                  <Link href="/login">
+                    <a className="pb-1 styled-link">Login</a>
                   </Link>
-                )}
-                {user && user && (
+                ) : (
                   <Link href="/account">
                     <a className="relative pb-1 styled-link">
                       {props.chatNotification.current && (
-                        <span className="absolute -left-3 -top-2 animate-pulse">
+                        <span className="absolute -right-2.5 -top-2.5 animate-pulse">
                           <FontAwesomeIcon
-                            icon={faComment}
-                            className="text-xs"
+                            icon={faCircle}
+                            className="text-xxs text-notification-red"
                           />
                         </span>
                       )}
@@ -326,8 +326,8 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user === null ? (
-                  <Link href="/login">
-                    <a className="pb-1 styled-link">Login</a>
+                  <Link href="/registeruser">
+                    <a className="pb-1 styled-link">Sign Up</a>
                   </Link>
                 ) : (
                   <Link href="/logout" as="/">
@@ -363,7 +363,7 @@ const Navbar = (props) => {
           {(props.navStyle.pathname === "/registeruser" ||
             props.navStyle.pathname === "/login" ||
             props.navStyle.pathname === "/forgotpassword" ||
-            props.navStyle.pathname.startsWith("/register//neighbourhood") ||
+            props.navStyle.pathname.startsWith("/register/neighbourhood") ||
             props.navStyle.pathname.includes("/verifyemail")) && (
             <ul className="flex">
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -576,10 +576,10 @@ const Navbar = (props) => {
                     <Link href="/account">
                       <a className="pb-1 styled-link">
                         {props.chatNotification.current && (
-                          <span className="absolute -left-3 -top-2 animate-pulse">
+                          <span className="absolute -right-2.5 -top-2.5 animate-pulse">
                             <FontAwesomeIcon
-                              icon={faComment}
-                              className="text-xs"
+                              icon={faCircle}
+                              className="text-xxs text-notification-red"
                             />
                           </span>
                         )}
@@ -599,8 +599,8 @@ const Navbar = (props) => {
                       <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>
@@ -610,14 +610,13 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {user === null && (
+                  {user === null ? (
                     <Link href="/registeruser">
                       <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
-                  )}
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                  ) : (
+                    <Link href="/logout" as="/">
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -664,8 +663,8 @@ const Navbar = (props) => {
                       <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
+                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                      <a className="pb-1 styled-link">My Neighbourhood</a>
                     </Link>
                   )}
                 </li>
@@ -675,14 +674,13 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  {user === null && (
+                  {user === null ? (
                     <Link href="/registeruser">
                       <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
-                  )}
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                  ) : (
+                    <Link href="/logout" as="/">
+                      <a className="pb-1 styled-link">Logout</a>
                     </Link>
                   )}
                 </li>
@@ -709,16 +707,6 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
                   <Link href="/#how-it-works">
                     <a
                       className="pb-1 styled-link"
@@ -734,18 +722,28 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
+                  <Link href="/ourstory">
+                    <a className="pb-1 styled-link">Our Story</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
                   {user === null ? (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
+                    <Link href="/login">
+                      <a className="pb-1 styled-link">Login</a>
                     </Link>
                   ) : (
                     <Link href="/account">
                       <a className="pb-1 styled-link">
                         {props.chatNotification.current && (
-                          <span className="absolute -left-3 -top-2 animate-pulse">
+                          <span className="absolute -right-2.5 -top-2.5 animate-pulse">
                             <FontAwesomeIcon
-                              icon={faComment}
-                              className="text-xs"
+                              icon={faCircle}
+                              className="text-xxs text-notification-red"
                             />
                           </span>
                         )}
@@ -761,8 +759,8 @@ const Navbar = (props) => {
                   }
                 >
                   {user === null ? (
-                    <Link href="/login">
-                      <a className="pb-1 styled-link">Login</a>
+                    <Link href="/registeruser">
+                      <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   ) : (
                     <Link href="/logout" as="/">

@@ -14,8 +14,8 @@ const variants = {
   animate: {
     y: "-5vh",
     transition: {
-      duration: 3,
-      delay: 3,
+      duration: 2,
+      delay: 2,
     },
   },
 };
@@ -33,7 +33,7 @@ const Logout = (props) => {
       logout();
       props.chatNotification.current = false;
       router.push("/");
-    }, 7000);
+    }, 4000);
   }, []);
 
   return (

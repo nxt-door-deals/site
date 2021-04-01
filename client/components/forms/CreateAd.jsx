@@ -539,7 +539,7 @@ const CreateAd = ({ categoryName, user }) => {
 
                   {/* Upload photos */}
                   <div className="flex flex-col items-center lg:pl-10 lg:border-l-2 border-gray-300 font-axiforma">
-                    <h1 className="my-4 text-gray-600 text-sm">
+                    <h1 className="my-4 text-gray-600 text-sm text-center">
                       {newFiles.length === 0
                         ? "Upload up to 10 photos"
                         : `Uploaded ${newFiles.length} of 10 photos`}

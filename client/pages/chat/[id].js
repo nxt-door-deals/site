@@ -161,6 +161,7 @@ export const getServerSideProps = async (context) => {
   const { id } = context.query;
   var ids = id && id.split("-");
 
+  // No seller id? Return 404
   if (ids[1] === "") {
     return {
       notFound: true,
@@ -200,6 +201,13 @@ export const getServerSideProps = async (context) => {
     );
 
     var ad = await axios.get(`${process.env.API_URL}/ads/${ids[0]}`);
+
+    // No ad? Return 404
+    if (!ad.data) {
+      return {
+        notFound: true,
+      };
+    }
 
     if (!res.data) {
       // If a wiseguy or gal tries to interchange the buyer and seller id's in the url

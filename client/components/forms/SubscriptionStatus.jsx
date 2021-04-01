@@ -45,9 +45,9 @@ const SubscriptionStatus = () => {
     });
 
   return (
-    <div className="rounded-3xl mx-5 px-12 py-12 lg:px-16 lg:py-16 bg-white shadow-boxshadowlogin">
+    <div className="rounded-3xl mx-5 px-10 py-12 lg:px-16 lg:py-16 bg-white shadow-boxshadowlogin">
       <div className="text-center">
-        <h1 className="font-semibold text-xl text-brand-gray tracking-wide">
+        <h1 className="font-semibold text-lg lg:text-xl text-brand-gray tracking-wide">
           Enter your registered email to <br />
           unsubscribe from our mailing list
         </h1>

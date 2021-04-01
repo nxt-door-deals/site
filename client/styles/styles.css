@@ -213,7 +213,7 @@ body {
 
 /* Logout */
 .smoke .smoke-item {
-  animation: animate-logout 5s forwards ease 2s;
+  animation: animate-logout 2s forwards ease 1s;
 }
 
 @keyframes animate-logout {

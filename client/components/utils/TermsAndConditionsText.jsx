@@ -168,6 +168,7 @@ const TermsAndConditionsText = () => {
           You must not use or allow anyone else to use{" "}
           <span className="brand-text">nxtdoordeals.com</span> to post any
           Items, content or other materials that:
+          <br />
           <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
@@ -181,6 +182,7 @@ const TermsAndConditionsText = () => {
             </Link>
             ; or
           </span>
+          <br />
           <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
@@ -193,6 +195,8 @@ const TermsAndConditionsText = () => {
               </a>
             </Link>
           </span>
+          <br />
+          <br />
           <span className="pt-2">
             You undertake that any content posted by you will comply with those
             standards and you indemnify us for any breach of that undertaking.
@@ -223,6 +227,7 @@ const TermsAndConditionsText = () => {
           We have the right (but not the obligation) to monitor any posting or
           content and we have the right to refuse, reclassify or remove any post
           or edit any content, for example (but without limitation) if:
+          <br />
           <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}
@@ -230,6 +235,7 @@ const TermsAndConditionsText = () => {
             />
             In our opinion, such material does not comply with our Terms; or{" "}
           </span>
+          <br />
           <span className="pt-1">
             <FontAwesomeIcon
               icon={faClipboardList}

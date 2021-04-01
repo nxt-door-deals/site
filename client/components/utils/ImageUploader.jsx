@@ -52,7 +52,7 @@ const ImageUploader = (props) => {
     <div>
       <div className="flex flex-col font-axiforma">
         {props.uploadedImages === 0 && (
-          <h1 className="my-4 text-sm">
+          <h1 className="my-4 text-sm text-center">
             {newFiles.length === 0
               ? "Upload up to 10 photos"
               : `Uploaded ${newFiles.length} of 10 photos`}
