@@ -17,7 +17,7 @@ const Policies = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   navStylePurple["navTextColor"] = "text-brand-purple";

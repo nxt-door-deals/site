@@ -18,6 +18,7 @@ import {
   faMapPin,
   faEnvelope,
   faExclamationTriangle,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
@@ -79,7 +80,7 @@ const CreateNeighbourhood = (props) => {
   } = siteContext;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
@@ -121,9 +122,13 @@ const CreateNeighbourhood = (props) => {
             <img src="/images/neighbourhood/skyline.svg" alt="City skyline" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
-            <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-10">
+            <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-5">
               Register Your Neighbourhood
             </h1>
+            <p className="text-blue-800 mb-5 text-center text-sm">
+              <FontAwesomeIcon icon={faStar} /> Pro tip: Providing the official
+              name of your apartment will ensure a smoother registration process
+            </p>
 
             {/* Flex container with form */}
             <div className="flex flex-col lg:flex-row lg:justify-center divide-y-2 lg:divide-y-0 lg:divide-x-2">
@@ -145,6 +150,17 @@ const CreateNeighbourhood = (props) => {
                       A neighbourhood needs to be registered only once. Anyone
                       can register a neighbourhood. It does not matter whether
                       you are an owner or a tenant.
+                    </p>
+                  </li>
+                  <li className="flex items-center pb-3">
+                    <FontAwesomeIcon
+                      icon={faHandPointRight}
+                      className="text-blue-800 text-3xl lg:text-3xl"
+                    />
+                    <p className="pl-2 text-sm cursor-default">
+                      Provide an email address that you have access to. The
+                      email address provided will be used to notify you about
+                      the status of the registration.
                     </p>
                   </li>
                   <li className="flex items-center pb-3">

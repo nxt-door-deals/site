@@ -12,7 +12,7 @@ const FrequentlyAskedQuestions = (props) => {
   const [scrollToTop, setScrollToTop] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   var faqType = "";

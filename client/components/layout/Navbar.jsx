@@ -384,7 +384,7 @@ const Navbar = (props) => {
             </ul>
           )}
 
-          {/* Navbar on the postad */}
+          {/* Navbar on the postad and chat */}
           {(props.navStyle.pathname === "/postad" ||
             props.navStyle.pathname.includes("/chat")) && (
             <ul className="flex">
@@ -401,6 +401,11 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
+                  <a className="pb-1 styled-link">My Neighbourhood</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -892,10 +897,20 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
+                  <Link
+                    href={`/neighbourhood/ads/${user && user.apartment_id}`}
+                  >
+                    <a className="pb-1 styled-link">My Neighbourhood</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
                   <Link href="/account">
-                    <a className="pb-1 styled-link">
-                      <span className="text-brand-purple">My</span> Account
-                    </a>
+                    <a className="pb-1 styled-link">My Account</a>
                   </Link>
                 </li>
                 <li

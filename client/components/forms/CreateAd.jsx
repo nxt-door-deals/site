@@ -72,7 +72,7 @@ const CreateAd = ({ categoryName, user }) => {
 
   // Make sure that we remain at the top of the page once component renders
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   // Giveaway toast
@@ -586,7 +586,7 @@ const CreateAd = ({ categoryName, user }) => {
                                 className="text-3xl text-red-800"
                               />
                               <p className="text-xs text-red-800 pt-2">
-                                Sorry! Ten is the limit.
+                                You have added 10 photos.
                               </p>
                             </div>
                           )}

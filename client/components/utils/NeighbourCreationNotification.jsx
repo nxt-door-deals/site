@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 
 const NeighbourCreationNotification = (props) => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => window.scroll({ top: 0, left: 0, behavior: "smooth" }), []);
 
   return (
     <div className="h-full pt-20 lg:pt-32">

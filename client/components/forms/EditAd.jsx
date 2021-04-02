@@ -14,6 +14,7 @@ import { selectStylePurple } from "../../utils/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
+  faInfoCircle,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -518,14 +519,14 @@ const EditAd = (props) => {
                             more photos
                           </p>
                           <div
-                            className="tooltip bg-brand-gray rounded-full h-6 w-6 text-center cursor-pointer"
+                            className="tooltip cursor-pointer"
                             role="tooltip"
                             aria-hidden="true"
                             aria-label="Tooltip to explain image deletion"
                           >
                             <FontAwesomeIcon
-                              icon={faTrashAlt}
-                              className="text-white text-xs p-0"
+                              icon={faInfoCircle}
+                              className="text-brand-gray"
                             />
                             <span className="tooltiptext-delete">
                               Deleting a photo will remove it from your ad

@@ -5,6 +5,13 @@ import { useRouter } from "next/router";
 import cookie from "../../utils/cookieInit";
 import axios from "axios";
 import keys from "../../utils/keys";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInfoCircle,
+  faRupeeSign,
+  faCheck,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -57,7 +64,7 @@ const Chat = (props) => {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
@@ -118,22 +125,64 @@ const Chat = (props) => {
       <div id="header" className="font-axiforma h-full">
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
-        <div className="pt-10 px-5 pb-20 lg:px-64">
-          <p className="text-center mb-5">
-            Your chat with{" "}
-            <span className="font-semibold text-purple-500">
-              {altUser && altUser.name}
-            </span>{" "}
-            for the ad,{" "}
-            <Link href={`/ads/${props.adId}`}>
-              <a
-                target="_blank"
-                className="font-semibold text-purple-500 hover:underline"
+        <div className="pt-10 px-7 pb-20 lg:px-64">
+          <div className="text-center mb-5">
+            <p className="text-purple-500">
+              <span className="text-brand-gray">Your chat with</span>{" "}
+              <span className="font-semibold">{altUser && altUser.name}</span>{" "}
+              <span className="text-brand-gray">for the ad,</span>{" "}
+              <Link href={`/ads/${props.adId}`}>
+                <a target="_blank" className="styled-link font-semibold">
+                  {props.ad.title}
+                </a>
+              </Link>
+              &nbsp;
+              <span
+                className="tooltip align-top"
+                role="tooltip"
+                aria-hidden="true"
+                aria-label="Tooltip with ad summary for quick reference"
               >
-                {props.ad.title}
-              </a>
-            </Link>
-          </p>
+                <FontAwesomeIcon
+                  icon={faInfoCircle}
+                  className="text-xl text-purple-500 cursor-pointer"
+                />
+                <span className="tooltiptext">
+                  <div className="py-1">
+                    Available {props.ad.available_from}
+                  </div>
+                  <div className="py-1">
+                    Price:{" "}
+                    {props.ad.ad_type === "giveaway" ? (
+                      <span className="animate-pulse">FREE</span>
+                    ) : (
+                      <span className="align-middle">
+                        <FontAwesomeIcon icon={faRupeeSign} /> {props.ad.price}
+                      </span>
+                    )}
+                  </div>
+                  <div className="py-1">Condition: {props.ad.condition}</div>
+                  {props.ad.ad_type === "sale" && (
+                    <div className="py-1">
+                      Negotiable:{" "}
+                      {props.ad.negotiable ? (
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          className="text-lg text-green-700 align-middle"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faTimes}
+                          className="text-lg text-red-800 align-middle"
+                        />
+                      )}
+                    </div>
+                  )}
+                </span>
+              </span>
+            </p>
+          </div>
+
           <div className="flex justify-center p-5 lg:p-20 rounded-3xl shadow-chatWindowShadow">
             <div className="w-full">
               {user && altUser && props.chatId && (

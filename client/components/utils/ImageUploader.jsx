@@ -106,16 +106,17 @@ const ImageUploader = (props) => {
                   />
                   {props.uploadedImages === 10 ? (
                     <div className="text-xs text-red-800 pt-2 text-center">
-                      <p className="py-2">Sorry! 10 is the limit.</p>
+                      <p className="py-2">You have added 10 photos.</p>
                       <p>You can delete existing photos to upload new one's.</p>
                     </div>
                   ) : (
                     <p className="text-xs text-red-800 pt-2">
-                      Sorry!{" "}
+                      {/* Sorry!{" "}
                       {!props.uploadedImages
                         ? "10"
                         : 10 - parseInt(props.uploadedImages)}{" "}
-                      is the limit.
+                      is the limit. */}
+                      You have added 10 photos.
                     </p>
                   )}
                 </div>

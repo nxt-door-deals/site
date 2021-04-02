@@ -139,6 +139,11 @@ const buyerFaqs = [
 
 const genericFaqs = [
   {
+    question: "What is your definition of a neighbourhood?",
+    answer:
+      "A neighbourhood can be an apartment, a gated community or a cooperative housing society. For instance, if one creates their user account for an apartment named ABC, then ABC becomes their neighbourhood.",
+  },
+  {
     question:
       'How do I register my apartment or gated community on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
@@ -148,6 +153,17 @@ const genericFaqs = [
     question: "How long does a neighbourhood registration take?",
     answer:
       "Typically 24-48 hours. This could be longer in case more information is needed.",
+  },
+  {
+    question:
+      "Does my account automatically get created if the neighbourhood I registered is approved?",
+    answer:
+      "No. Once the registration is approved, you will need to register yourself separately as a user.",
+  },
+  {
+    question:
+      "Since I initiated the registration for my neighbourhood, will my account have any additional privileges?",
+    answer: "No. All accounts when created have the same set of privileges.",
   },
   {
     question: "Should I verify my email?",

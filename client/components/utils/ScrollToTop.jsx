@@ -26,7 +26,7 @@ const ScrollToTop = (props) => {
       <div className="fixed right-3 bottom-3">
         <button
           className={`text-center tracking-wide cursor-pointer focus:outline-none rounded-xl text-white bg-brand-gray shadow-scrollToTopShadow p-2 uppercase text-sm`}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}
           aria-label="Scroll to top of the page"
         >
           <FontAwesomeIcon icon={faArrowUp} className="text-xl" />

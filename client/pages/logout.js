@@ -33,7 +33,7 @@ const Logout = (props) => {
       logout();
       props.chatNotification.current = false;
       router.push("/");
-    }, 4000);
+    }, 4500);
   }, []);
 
   return (

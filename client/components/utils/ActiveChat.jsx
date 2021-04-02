@@ -4,14 +4,7 @@ import SiteContext from "../../context/site/siteContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUserCircle,
-  faPaperPlane,
-  faInfoCircle,
-  faCheck,
-  faTimes,
-  faRupeeSign,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 import useChat from "../../hooks/useChat";
@@ -56,6 +49,11 @@ const ActiveChat = (props) => {
     setTimeout(() => {
       scrollToBottom();
     }, 500);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined")
+      chatRef.current.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   useEffect(() => {
@@ -105,7 +103,7 @@ const ActiveChat = (props) => {
         </div>
 
         {/* Tooltip */}
-        <div className="p-4 mt-4 mr-4">
+        {/* <div className="p-4 mt-4 mr-4">
           <div
             className="tooltip"
             role="tooltip"
@@ -147,7 +145,7 @@ const ActiveChat = (props) => {
               )}
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
       <div
         id="chat-window"

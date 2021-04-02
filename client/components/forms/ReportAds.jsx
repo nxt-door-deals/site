@@ -137,6 +137,8 @@ const ReportAds = (props) => {
             );
             adReportedToast();
 
+            console.log(reportedAd.users);
+
             // Email the ad owner and nxtdoordeals.com about the ad being reported
             if (reportedAd && reportedAd.users.length < 5) {
               // Notify seller about the ad being reported

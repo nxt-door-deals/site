@@ -1,11 +1,12 @@
 import "../styles/styles.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, Flip } from "react-toastify";
+import smoothscroll from "smoothscroll-polyfill";
 
 const pageVariants = {
   pageInitial: {
@@ -31,6 +32,10 @@ export default function MyApp({ Component, pageProps, router }) {
 
   // Show or hide banner
   const [showBanner, setShowBanner] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") smoothscroll.polyfill();
+  }, []);
 
   return (
     <motion.div
