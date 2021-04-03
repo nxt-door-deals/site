@@ -58,13 +58,14 @@ const Home = (props) => {
       <Navbar
         navStyle={navStylePurple}
         chatNotification={props.chatNotification}
+        hiwRef={props.hiwRef}
       />
       <main>
         <section id="header">
-          <Landing />
+          <Landing hiwRef={props.hiwRef} />
         </section>
 
-        <section id="how-it-works">
+        <section id="how-it-works" ref={props.hiwRef}>
           <HowItWorks pathname={pathname} />
         </section>
       </main>

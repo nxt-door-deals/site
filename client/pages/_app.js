@@ -24,6 +24,7 @@ const contextClass = {
 export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
   const chatNotification = useRef(null);
+  const hiwRef = useRef(null);
   const notificationDisplayed = useRef(false);
   const [scrollToTop, setScrollToTop] = useState(false);
 
@@ -57,6 +58,7 @@ export default function MyApp({ Component, pageProps, router }) {
             setShowBanner={setShowBanner}
             scrollToTop={scrollToTop}
             setScrollToTop={setScrollToTop}
+            hiwRef={hiwRef}
           />
           <ToastContainer
             autoClose={3000}

@@ -1,6 +1,7 @@
 import ApartmentSearch from "./forms/ApartmentSearch";
+import Link from "next/link";
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <div className="max-w-screen-xxl">
       <div className="flex flex-wrap items-center justify-center lg:flex-nowrap ">
@@ -17,6 +18,19 @@ const Landing = () => {
           </p>
 
           <ApartmentSearch />
+
+          <div className="mt-6 lg:hidden text-purple-700">
+            <Link href="/#how-it-works">
+              <a
+                className="uppercase font-semibold underline text-sm hover:no-underline styled-link"
+                onClick={() => {
+                  props.hiwRef.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                How it works
+              </a>
+            </Link>
+          </div>
         </div>
 
         {/* For large and xl screens */}
