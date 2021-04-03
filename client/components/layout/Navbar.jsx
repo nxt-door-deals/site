@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
-import cookie from "../../utils/cookieInit";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -37,7 +36,6 @@ const Navbar = (props) => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter();
 
   const authContext = useContext(AuthContext);
   const { loadUser, user } = authContext;
@@ -89,7 +87,6 @@ const Navbar = (props) => {
       <nav
         role="navigation"
         aria-label="navigation bar"
-        onClick={toggleNav}
         className={
           stickyNav
             ? props.navStyle.navBgColor +
@@ -100,7 +97,7 @@ const Navbar = (props) => {
       >
         <motion.div
           id="brand"
-          className="opacity-0 lg:opacity-100 relative ml-4 lg:pl-4 "
+          className="hidden lg:inline relative ml-4 lg:pl-4 "
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{
@@ -122,7 +119,10 @@ const Navbar = (props) => {
         </motion.div>
 
         {/* Menu icons - humburger or close */}
-        <div className="lg:hidden mt-2 mr-6 z-50" onClick={toggleNav}>
+        <div
+          className="lg:hidden absolute right-2 mt-2 mr-6 z-50"
+          onClick={toggleNav}
+        >
           {!expanded ? (
             !stickyNav ? (
               <FontAwesomeIcon
@@ -518,6 +518,7 @@ const Navbar = (props) => {
                 props.navStyle.navOverlayBgColor
               : "relative transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
           }
+          onClick={() => toggleNav()}
         >
           <ul className="flex flex-col items-center mt-12">
             <li className="flex items-center mb-10">
