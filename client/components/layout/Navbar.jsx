@@ -1059,7 +1059,10 @@ const Navbar = (props) => {
             <hr className={`${props.navStyle.hrStyle}`}></hr>
 
             <div className="flex justify-center pt-4 text-3xl">
-              <Link href="https://facebook.com" passHref={true}>
+              <Link
+                href="https://www.facebook.com/Nxtdoordeals-113561124163177"
+                passHref={true}
+              >
                 <motion.a
                   variants={variants}
                   whileHover="hover"

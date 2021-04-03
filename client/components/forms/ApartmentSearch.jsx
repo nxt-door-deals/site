@@ -223,7 +223,7 @@ const ApartmentSearch = () => {
                 </span>
               </div>
             </div>
-            <div className="mt-8">
+            <div className="mt-7 lg:mt-8">
               <motion.button
                 type="submit"
                 className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-700 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
