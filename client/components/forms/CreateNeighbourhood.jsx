@@ -123,7 +123,7 @@ const CreateNeighbourhood = (props) => {
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-5">
-              Register Your Neighbourhood
+              Register Your Apartment
             </h1>
             <p className="text-blue-800 mb-5 text-center text-sm">
               <FontAwesomeIcon icon={faStar} /> Pro tip: Providing the official
@@ -147,9 +147,9 @@ const CreateNeighbourhood = (props) => {
                       className="text-blue-900 text-3xl lg:text-3xl"
                     />
                     <p className="pl-2 text-sm cursor-default">
-                      A neighbourhood needs to be registered only once. Anyone
-                      can register a neighbourhood. It does not matter whether
-                      you are an owner or a tenant.
+                      An apartment needs to be registered only once. Anyone can
+                      register an apartment. It does not matter whether you are
+                      an owner or a tenant.
                     </p>
                   </li>
                   <li className="flex items-center pb-3">
@@ -158,9 +158,12 @@ const CreateNeighbourhood = (props) => {
                       className="text-blue-800 text-3xl lg:text-3xl"
                     />
                     <p className="pl-2 text-sm cursor-default">
-                      Provide an email address that you have access to. The
-                      email address provided will be used to notify you about
-                      the status of the registration.
+                      Provide an email address that you have access to.{" "}
+                      <span className="font-semibold text-notification-red">
+                        The email address provided will ONLY be used to notify
+                        you about the status of the registration
+                      </span>
+                      .
                     </p>
                   </li>
                   <li className="flex items-center pb-3">
@@ -169,10 +172,10 @@ const CreateNeighbourhood = (props) => {
                       className="text-blue-700 text-3xl lg:text-3xl"
                     />
                     <p className="pl-2 text-sm cursor-default">
-                      After you register a neighbourhood (for{" "}
+                      After you register an apartment (for{" "}
                       <span className="text-blue-800 font-bold">FREE!</span>),
                       our review process kicks off. The review ensures that the
-                      neighbourhood is genuine, trustworthy and not duplicated.
+                      apartment is genuine, trustworthy and not duplicated.
                     </p>
                   </li>
                   <li className="flex items-center pb-3">
@@ -191,7 +194,7 @@ const CreateNeighbourhood = (props) => {
                       className="text-blue-400 text-3xl lg:text-3xl"
                     />
                     <p className="pl-2 text-sm cursor-default">
-                      You will receive an email once the neighbourhood is
+                      You will receive an email once the apartment is
                       successfully verified.
                     </p>
                   </li>
@@ -202,7 +205,7 @@ const CreateNeighbourhood = (props) => {
                         className="text-blue-300 text-3xl lg:text-3xl"
                       />
                       <p className="pl-2 text-sm cursor-default">
-                        Residents of your neighbourhood can then sign up for a{" "}
+                        Residents of your apartment can then sign up for a{" "}
                         <Link href="/registeruser">
                           <a className="hover:underline">
                             <span className="text-blue-800 font-bold">
@@ -257,7 +260,7 @@ const CreateNeighbourhood = (props) => {
                   {(props) => (
                     <Form>
                       <h2 className="text-xl text-center font-semibold mb-6">
-                        Enter neighbourhood details
+                        Enter your apartment details
                       </h2>
 
                       {/* Apartment name */}
@@ -579,7 +582,7 @@ const CreateNeighbourhood = (props) => {
                           disabled={!enableFormSubmission ? true : false}
                         >
                           {!props.isSubmitting ? (
-                            "Register Neighbourhood"
+                            "Register Apartment"
                           ) : (
                             <BouncingBalls />
                           )}
