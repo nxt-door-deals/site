@@ -102,7 +102,7 @@ const Navbar = (props) => {
           animate={{ x: 0 }}
           transition={{
             duration: 1,
-            delay: 0.2,
+            delay: 1.2,
             type: "tween",
           }}
         >
@@ -153,7 +153,14 @@ const Navbar = (props) => {
         </div>
 
         {/* Nav items for lg and xl screens */}
-        <div
+        <motion.div
+          initial={{ x: "1000vw" }}
+          animate={{ x: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            type: "tween",
+          }}
           className={
             stickyNav
               ? "hidden lg:mt-10 lg:block uppercase " +
@@ -211,12 +218,11 @@ const Navbar = (props) => {
                 </li>
               )}
               <li className="nav-item lg:mr-4 hover:scale-110">
-                {user === null && (
+                {!user ? (
                   <Link href="/login">
                     <a className="pb-1 styled-link">Login</a>
                   </Link>
-                )}
-                {user && user && (
+                ) : (
                   <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                       <a className="pb-1 styled-link">My Apartment</a>
@@ -225,15 +231,13 @@ const Navbar = (props) => {
                 )}
               </li>
               <li className="nav-item lg:mr-3 hover:scale-110">
-                {user === null && (
+                {!user ? (
                   <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href="/registeruser">
                       <a className="pb-1 styled-link">Sign Up</a>
                     </Link>
                   </span>
-                )}
-
-                {user && user && (
+                ) : (
                   <Link href="/logout" as="/">
                     <a className="pb-1 styled-link">Logout</a>
                   </Link>
@@ -408,13 +412,23 @@ const Navbar = (props) => {
                   <a className="pb-1 styled-link">My Apartment</a>
                 </Link>
               </li>
+
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/account">
-                  <a className="pb-1 styled-link">
-                    <span className="text-brand-purple">My</span> Account
+                  <a className="relative pb-1 styled-link">
+                    {props.chatNotification.current && (
+                      <span className="absolute -right-2.5 -top-2.5 animate-pulse">
+                        <FontAwesomeIcon
+                          icon={faCircle}
+                          className="text-xxs text-notification-red"
+                        />
+                      </span>
+                    )}
+                    My Account
                   </a>
                 </Link>
               </li>
+
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/logout" as="/">
                   <a className="pb-1 styled-link">Logout</a>
@@ -505,7 +519,7 @@ const Navbar = (props) => {
               </li>
             </ul>
           )}
-        </div>
+        </motion.div>
 
         {/* ******* Menu overlay for small and medium screens  ******* */}
 
@@ -911,7 +925,17 @@ const Navbar = (props) => {
                   }
                 >
                   <Link href="/account">
-                    <a className="pb-1 styled-link">My Account</a>
+                    <a className="pb-1 styled-link">
+                      {props.chatNotification.current && (
+                        <span className="absolute -right-2.5 -top-2.5 animate-pulse">
+                          <FontAwesomeIcon
+                            icon={faCircle}
+                            className="text-xxs text-notification-red"
+                          />
+                        </span>
+                      )}
+                      My Account
+                    </a>
                   </Link>
                 </li>
                 <li

@@ -35,34 +35,32 @@ const BrowseAds = (props) => {
   }, [user]);
 
   useEffect(() => {
-    if (props.chatNotification.current === null) {
-      if (sellerChats && buyerChats) {
-        // Check is someone has DM'ed the seller
-        sellerChats &&
-          sellerChats.some((chat) => {
-            if (chat.new_chats && chat.last_sender !== user.id) {
-              props.chatNotification.current = true;
-              setNotification(true);
-            }
-          });
-
-        // Run this check only if there are no seller notifications
-        if (!props.chatNotification.current)
-          buyerChats &&
-            buyerChats.some((chat) => {
-              if (chat.new_chats && chat.last_sender !== user.id) {
-                props.chatNotification.current = true;
-                setNotification(true);
-              }
-            });
-      }
+    if (sellerChats && sellerChats) {
+      // Check is someone has DM'ed the seller
+      sellerChats.some((chat) => {
+        if (chat.new_chats && chat.last_sender !== user.id) {
+          props.chatNotification.current = true;
+          setNotification(true);
+        }
+      });
     }
-  }, [sellerChats, buyerChats]);
+  }, [sellerChats]);
+
+  useEffect(() => {
+    if (buyerChats && buyerChats) {
+      buyerChats.some((chat) => {
+        if (chat.new_chats && chat.last_sender !== user.id) {
+          props.chatNotification.current = true;
+          setNotification(true);
+        }
+      });
+    }
+  }, [buyerChats]);
 
   useEffect(() => {
     if (notification && !props.notificationDisplayed.current) {
       chatNotificationToast();
-      setTimeout(() => (props.chatNotification.current = true), 1000);
+      setTimeout(() => (props.notificationDisplayed.current = true), 1000);
       setNotification(false);
     }
   }, [notification]);
