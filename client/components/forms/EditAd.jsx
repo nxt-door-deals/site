@@ -60,7 +60,9 @@ const editAdVariants = {
 
 const EditAd = (props) => {
   const [files, setFiles] = useState([]);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(
+    new Date(props.data.available_from_date)
+  );
   const [fieldTouched, setFieldTouched] = useState(false);
   const [cancelClicked, setCancelClicked] = useState(false);
   const originalConditionValue = useRef(props.data.condition);
@@ -116,7 +118,7 @@ const EditAd = (props) => {
               price: price.includes(",") ? price.replace(",", "") : price,
               negotiable: props.data.negotiable,
               condition: props.data.condition,
-              availableFrom: props.data.available_from_date,
+              availableFrom: startDate,
               publishFlatNo: props.data.flat_no ? true : false,
               files: "",
             }}
@@ -127,7 +129,7 @@ const EditAd = (props) => {
               let formattedDate =
                 startDate.getFullYear() +
                 "-" +
-                (startDate.getMonth() + 1) +
+                parseInt(startDate.getMonth() + 1) +
                 "-" +
                 startDate.getDate() +
                 " 00:00:00";

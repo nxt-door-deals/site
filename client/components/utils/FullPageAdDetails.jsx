@@ -38,7 +38,7 @@ const FullPageAdDetails = (props) => {
   if (props.adData.available_from !== "immediately") {
     var d = new Date(props.adData.available_from);
     var availableFromDate =
-      d.getDate() + "-" + d.getMonth() + 1 + "-" + d.getFullYear();
+      d.getDate() + "-" + (parseInt(d.getMonth()) + 1) + "-" + d.getFullYear();
   }
 
   return (

@@ -61,7 +61,7 @@ const SearchNbhAds = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-16 px-10">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-16">
       <div>
         <Formik
           initialValues={{
@@ -137,23 +137,24 @@ const SearchNbhAds = (props) => {
         </Formik>
       </div>
 
-      <div className="flex mt-5 lg:mt-0 items-center">
+      <div className="flex mt-5 lg:mt-0 justify-between items-center px-2">
         {/* The giveaway button */}
         <div>
           <motion.button
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="lg:ml-5 px-2.5 py-4 lg:py-5 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
+            className="px-3 py-3 lg:ml-5 lg:px-4 lg:py-2.5 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
             onClick={() => searchGiveaways(props.nbhId)}
             aria-label="Giveaway sort button"
           >
-            Show me the Giveaways
+            Show Me The <br />
+            Giveaways
           </motion.button>
         </div>
 
         {/* Sort options */}
-        <div className="w-44 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-5 lg:mt-0 z-10">
+        <div className="w-60 lg:w-64 p-0 border-gray-300 border-2 rounded-xl font-axiforma focus-within:border-text-purple ml-3 lg:mt-0 z-10">
           <Select
             id="sort"
             name="sort"
@@ -161,7 +162,7 @@ const SearchNbhAds = (props) => {
             options={sortOptions}
             placeholder="Sort results"
             styles={selectStylePurple}
-            className="text-xs lg:text-sm p-2"
+            className="text-xs lg:text-sm p-1.5 lg:p-2"
             onChange={(option) => sortResults(option.value)}
             isSearchable={false}
             theme={(theme) => ({
