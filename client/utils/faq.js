@@ -67,9 +67,9 @@ const sellerFaqs = [
       "Only registered users who have verified their emails can use the `Chat With Seller' feature to contact you.",
   },
   {
-    question: "Can I be contacted by buyers from other neighbourhoods?",
+    question: "Can I be contacted by buyers from other apartments?",
     answer:
-      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we strongly recommend that you keep your transactions limited to your neighbourhood or ones in the immediate vicinity.",
+      "Yes, there is no restriction imposed by the platform. Any registred user can express interest in your ad. However, we strongly recommend that you keep your transactions limited to your apartment or ones in the immediate vicinity.",
   },
   {
     question: "What happens if my ad is reported?",
@@ -116,9 +116,9 @@ const buyerFaqs = [
       "All your chats will be displayed on your account page under the 'Chats' tab.",
   },
   {
-    question: "Can I chat with sellers from other neighbourhoods?",
+    question: "Can I chat with sellers from other apartments?",
     answer:
-      "Yes, one may chat with any seller irrespective of the neighbourhood. However, we strongly recommend that you keep transactions limited to your neighbourhood or neighbourhoods in the immediate vicinity.",
+      "Yes, one may chat with any seller irrespective of the apartment. However, we strongly recommend that you keep transactions limited to your apartment or apartments in the immediate vicinity.",
   },
   {
     question: "How do I report a fraud or a fake ad?",
@@ -139,30 +139,25 @@ const buyerFaqs = [
 
 const genericFaqs = [
   {
-    question: "What is your definition of a neighbourhood?",
-    answer:
-      "A neighbourhood can be an apartment, a gated community or a cooperative housing society. For instance, if one creates their user account for an apartment named ABC, then ABC becomes their neighbourhood.",
-  },
-  {
     question:
       'How do I register my apartment or gated community on <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>?',
     answer:
       'When you search for an apartment/gated community, you will immediately see a link to register it in case it is not found. Alternately, you may visit <a class="font-semibold text-purple-500 focus-within:outline-none underline" href="/register/neighbourhood">nxtdoordeals.com/register/neighbourhood</a> to get your apartment on the map!',
   },
   {
-    question: "How long does a neighbourhood registration take?",
+    question: "How long does an apartment registration take?",
     answer:
       "Typically 24-48 hours. This could be longer in case more information is needed.",
   },
   {
     question:
-      "Does my account automatically get created if the neighbourhood I registered is approved?",
+      "Does my account automatically get created if the apartment I registered is approved?",
     answer:
       "No. Once the registration is approved, you will need to register yourself separately as a user.",
   },
   {
     question:
-      "Since I initiated the registration for my neighbourhood, will my account have any additional privileges?",
+      "Since I initiated the registration for my apartment, will my account have any additional privileges?",
     answer: "No. All accounts when created have the same set of privileges.",
   },
   {

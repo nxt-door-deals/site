@@ -54,7 +54,7 @@ const Ad = (props) => {
   } = siteContext;
 
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, user, deleteAd } = authContext;
+  const { isAuthenticated, user, deleteAd, updateNumberSold } = authContext;
 
   // If the authenticated user is same as the one who posted the ad, we do not show the chat button
   if (isAuthenticated) {
@@ -154,6 +154,7 @@ const Ad = (props) => {
                     className="bg-red-500 shadow-cancelButtonShadow text-white h-12 w-40 font-semibold uppercase lg:mt-0 rounded-xl focus:outline-none"
                     onClick={() => {
                       setDeleteButtonClicked(true);
+                      updateNumberSold(user && user.id);
                       deleteAd(0, props.data.posted_by_id, props.data.id);
                       setTimeout(
                         () =>
@@ -164,7 +165,7 @@ const Ad = (props) => {
                       );
                     }}
                   >
-                    {deleteButtonClicked ? <BouncingBalls /> : "Delete Ad"}
+                    {deleteButtonClicked ? <BouncingBalls /> : "Mark As Sold"}
                   </motion.button>
                 </div>
               )}

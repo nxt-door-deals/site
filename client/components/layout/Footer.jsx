@@ -275,7 +275,7 @@ const Footer = (props) => {
                   aria-label="Link to the user account page"
                 >
                   <FontAwesomeIcon icon={faShoppingBag} className="mr-1" />
-                  <span className="pb-1 styled-link">My Neighbourhood</span>
+                  <span className="pb-1 styled-link">My Apartment</span>
                 </motion.a>
               </Link>
             )}

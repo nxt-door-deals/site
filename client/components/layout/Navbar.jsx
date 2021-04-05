@@ -219,7 +219,7 @@ const Navbar = (props) => {
                 {user && user && (
                   <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   </span>
                 )}
@@ -263,7 +263,7 @@ const Navbar = (props) => {
                 ) : (
                   <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   </span>
                 )}
@@ -405,7 +405,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
-                  <a className="pb-1 styled-link">My Neighbourhood</a>
+                  <a className="pb-1 styled-link">My Apartment</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -464,7 +464,7 @@ const Navbar = (props) => {
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   )}
                 </span>
@@ -493,7 +493,7 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 {user && user && (
                   <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                    <a className="pb-1 styled-link">My Neighbourhood</a>
+                    <a className="pb-1 styled-link">My Apartment</a>
                   </Link>
                 )}
               </li>
@@ -606,7 +606,7 @@ const Navbar = (props) => {
                     </Link>
                   ) : (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   )}
                 </li>
@@ -670,7 +670,7 @@ const Navbar = (props) => {
                     </Link>
                   ) : (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   )}
                 </li>
@@ -901,7 +901,7 @@ const Navbar = (props) => {
                   <Link
                     href={`/neighbourhood/ads/${user && user.apartment_id}`}
                   >
-                    <a className="pb-1 styled-link">My Neighbourhood</a>
+                    <a className="pb-1 styled-link">My Apartment</a>
                   </Link>
                 </li>
                 <li
@@ -968,7 +968,7 @@ const Navbar = (props) => {
                 >
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   )}
                 </li>
@@ -1047,7 +1047,7 @@ const Navbar = (props) => {
                   )}
                   {user && user && (
                     <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Neighbourhood</a>
+                      <a className="pb-1 styled-link">My Apartment</a>
                     </Link>
                   )}
                 </li>

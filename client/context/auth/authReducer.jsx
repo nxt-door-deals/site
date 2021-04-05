@@ -40,6 +40,8 @@ import {
   MARK_DELETE_BUYER_CHAT,
   USER_SUBSCRIPTION_UPDATE_SUCCESS,
   USER_SUBSCRIPTION_UPDATE_FAILURE,
+  UPDATE_NUMBER_SOLD,
+  UPDATE_NUMBER_SOLD_ERROR,
 } from "../Types";
 
 const authReducer = (state, action) => {
@@ -198,6 +200,10 @@ const authReducer = (state, action) => {
         ...state,
         userFlag: action.payload,
       };
+    case UPDATE_NUMBER_SOLD:
+      return {
+        ...state,
+      };
     case EMAIL_VERIFICATION_TIMESTAMP_UPDATED:
     case OTP_VERIFICATION_TIMESTAMP_UPDATED:
       return {
@@ -237,6 +243,7 @@ const authReducer = (state, action) => {
     case DELETE_AD:
     case USER_ADS_FETCHED_FAILURE:
     case USER_SUBSCRIPTION_UPDATE_FAILURE:
+    case UPDATE_NUMBER_SOLD_ERROR:
       return {
         ...state,
         authError: action.payload,

@@ -30,9 +30,9 @@ const GuidelinesHeadLayout = (props) => {
                 "@type": "WebSite",
                 "dateCreated": "22-03-2021",
                 "url": "https://nxtdoordeals.com",
-                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your apartment or post up to seven free ads today!",
                 "genre": "Website for an online marketplace",
-                "keywords": "marketplace, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
+                "keywords": "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },
               {
                 "@context": "https://schema.org",
@@ -46,7 +46,7 @@ const GuidelinesHeadLayout = (props) => {
                 "isPartOf": {
                   "@type": "WebSite",
                   "url": "https://nxtdoordeals.com",
-                  "name": "nxtdoordeals.com | Your Neighbourhood Marketplace",
+                  "name": "nxtdoordeals.com | Your  Apartment's Marketplace",
                   "inLanguage": "en"},
                 "potentialAction": {
                   "@type": "ReadAction",

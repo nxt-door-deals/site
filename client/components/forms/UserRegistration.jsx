@@ -175,7 +175,7 @@ const UserRegistration = () => {
 
                   if (!apartment) {
                     validateApartmentSelection(
-                      "Please select a neighbourhood from the list"
+                      "Please select an apartment from the list"
                     );
                     setHideResults(null);
                     setSubmitting(false);
@@ -513,7 +513,7 @@ const UserRegistration = () => {
                               : "hidden"
                           }
                         >
-                          Not found? You can create a neighbourhood for{" "}
+                          Not found? You can create a marketplace for{" "}
                           <Link
                             href={`/register/neighbourhood/${props.values.apartment}`}
                           >
