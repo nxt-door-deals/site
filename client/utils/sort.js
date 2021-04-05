@@ -25,14 +25,14 @@ const priceDesc = (
 const createdAsc = (
   <span className="flex items-center text-xs">
     <FontAwesomeIcon icon={faSortAmountDown} className="text-xl" />
-    &nbsp;Date (oldest ads first)
+    &nbsp;Date (oldest first)
   </span>
 );
 
 const createdDesc = (
   <span className="flex items-center text-xs">
     <FontAwesomeIcon icon={faSortAmountDownAlt} className="text-xl" />
-    &nbsp;Date (most recent ads first)
+    &nbsp;Date (recent first)
   </span>
 );
 
@@ -46,7 +46,7 @@ const giveawayAsc = (
 const giveawayDesc = (
   <span className="flex items-center text-xs">
     <FontAwesomeIcon icon={faSortAlphaDownAlt} className="text-xl" />
-    &nbsp;Giveaways (most recent first)
+    &nbsp;Giveaways (recent first)
   </span>
 );
 
