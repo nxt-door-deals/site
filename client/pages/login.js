@@ -70,9 +70,8 @@ const Login = (props) => {
   return (
     <UserLoginHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      {typeof window !== "undefined" && !localStorage.getItem("nddToken") && (
-        <UserLogin pathProp={pathProp} />
-      )}
+
+      <UserLogin pathProp={pathProp} />
     </UserLoginHeadLayout>
   );
 };

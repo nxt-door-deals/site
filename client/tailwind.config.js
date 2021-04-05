@@ -17,7 +17,7 @@ module.exports = {
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
         navshadow: "0px 1px 2px 2px rgba(221, 214, 254, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
-        boxshadowregister: "2px 5px 8px 6px rgba(151, 201, 251, 0.2)",
+        boxshadowregister: "0 25px 75px rgba(16, 30, 54, .25)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
         postadshadow: "0px 7px 29px 3px rgba(204, 179, 235, 0.4)",
@@ -74,6 +74,7 @@ module.exports = {
         "create-nbh-gradient-to": "#5B86E5",
         "ad-purple": "#902393",
         "ad-tab-purple": "#DC6BE0",
+        "alt-gray": "#FAFBFC",
       },
       screens: {
         tablet: "1366",

@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { navStyleBlue } from "../utils/styles";
-import cookie from "../utils/cookieInit";
 
 // Component import
 import UserRegistrationHeadLayout from "../components/layout/UserRegistrationHeadLayout";
 import UserRegistration from "../components/forms/UserRegistration";
 import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
 const RegisterUser = () => {
   const router = useRouter();
@@ -16,6 +16,9 @@ const RegisterUser = () => {
   navStyleBlue["navOverlayBgColor"] = "bg-indigo-100";
   navStyleBlue["pathname"] = pathname;
 
+  const footerGradientClassBlue =
+    "from-alt-footer-gradient-from to-alt-footer-gradient-to";
+
   if (typeof window !== "undefined" && localStorage.getItem("nddToken")) {
     router.push("/alreadyloggedin", "/");
   }
@@ -23,9 +26,8 @@ const RegisterUser = () => {
   return (
     <UserRegistrationHeadLayout>
       <Navbar navStyle={navStyleBlue} />
-      {typeof window !== "undefined" && !localStorage.getItem("nddToken") && (
-        <UserRegistration />
-      )}
+      <UserRegistration />
+      <Footer footerGradientClass={footerGradientClassBlue} />
     </UserRegistrationHeadLayout>
   );
 };

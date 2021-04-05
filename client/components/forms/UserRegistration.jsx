@@ -145,7 +145,7 @@ const UserRegistration = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="flex justify-center items-center h-full bg-user-registration-background bg-cover -z-20 pt-32">
+      <div className="flex justify-center items-center h-full bg-alt-gray -z-20 pt-32">
         <div className="ml-8 mr-8 mb-16">
           {showForm ? (
             <motion.div
