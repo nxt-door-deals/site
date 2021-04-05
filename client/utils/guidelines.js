@@ -5,10 +5,10 @@ const buyerGuidelines = [
   "If you deem a posted ad to be inappropriate for any reason, report it so that we may review it",
   "Report the seller if you notice multiple violations",
   "Be responsible when reporting an ad. Provide elaborate details about your complaint",
-  "For smaller items, try to meet the seller in a common area of your neighbourhood",
+  "For smaller items, try to meet the seller in a common area of your apartment",
   "If you plan to visit the seller's house for a purchase, make sure that you are accompanied by a friend or a family member",
   "While using the private chat feature, make sure to keep the conversation civil and respectful. Report the seller if you find the tone to be inappropriate. Read our chat guidelines for more details",
-  "Try to keep your purchases limited to your neighbourhood or neighbourhoods in the immediate vicinity",
+  "Try to keep your purchases limited to your apartment or neighbourhoods in the immediate vicinity",
 ];
 
 const sellerGuidelines = [
@@ -17,7 +17,7 @@ const sellerGuidelines = [
   "Giveaway's imply that you are giving an item away for free. Make sure you select the appropriate option when posting an ad",
   "For items with supporting accessories, make sure you highlight the presence or absence of any and all accessories",
   "Ads automatically expire after 30 days. However, if an item was sold, remember to delete the ad to avoid unnecessary chat messages",
-  "For smaller items, try to meet the buyer in a common area of your neighbourhood",
+  "For smaller items, try to meet the buyer in a common area of your apartment",
   "When inviting a buyer to your home, make sure there is a friend or a family member present",
   "While using the private chat feature, keep the conversation civil and respectful. Report the buyer by writing to us (contact@nxtdoordeals.com) if you find the tone of the conversation to be inappropriate. Read our chat guidelines for more details",
 ];

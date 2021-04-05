@@ -10,11 +10,11 @@ const Landing = (props) => {
           className="container mt-10 xl:mt-0 ml-4 mr-4 pl-4 pr-4 lg:w-1/2"
         >
           <h1 className="text-brand-gray text-2xl xl:text-3xl xxl:text-sm font-extrabold">
-            Your neighbourhood marketplace
+            Your apartment's marketplace
           </h1>
           <p className="text-base mt-5 text-gray-600 tracking-wide">
-            Buy and sell preloved items within your Apartment Complex, Gated
-            Community or Co-operative Housing Society.
+            Buy and sell preloved items within your Apartment, Apartment
+            Complex, Gated Community or Co-operative Housing Society.
           </p>
 
           <ApartmentSearch />

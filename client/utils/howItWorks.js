@@ -1,8 +1,8 @@
 const buy = [
   {
     image: "/images/buy/buy-1.svg",
-    alt: "Find neighbourhood",
-    heading: "Find your neighbourhood",
+    alt: "Find apartment",
+    heading: "Find your apartment",
     content:
       "Search for your apartment, gated community or co-operative housing society.",
   },
@@ -10,7 +10,7 @@ const buy = [
     image: "/images/buy/buy-2.svg",
     alt: "Browse ads",
     heading: "Browse ads",
-    content: "Find what's for sale or giveaway in your neighbourhood.",
+    content: "Find what's for sale or giveaway in your apartment.",
   },
   {
     image: "/images/buy/buy-3.svg",
@@ -31,8 +31,8 @@ const buy = [
 const sell = [
   {
     image: "/images/sell/sell-1.svg",
-    alt: "Find neighbourhood",
-    heading: "Find your neighbourhood",
+    alt: "Find apartment",
+    heading: "Find your apartment",
     content:
       "Search for your apartment, gated community or co-operative housing society. Register it if you don't find it.",
   },
@@ -41,7 +41,7 @@ const sell = [
     alt: "Post ad",
     heading: "Post ad",
     content:
-      "Create your account and post an ad in your neighbourhood for the preloved or new item that you want to sell or giveaway.",
+      "Create your account and post an ad in your apartment for the preloved or new item that you want to sell or giveaway.",
   },
   {
     image: "/images/sell/sell-3.svg",

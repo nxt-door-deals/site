@@ -7,7 +7,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Register your Neighbourhood for Free</title>
+        <title>Register your Apartment for Free</title>
         <meta
           name="description"
           content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"
@@ -16,7 +16,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Register your Neighbourhood for FREE and Start Posting Ads"
+          content="Register your Apartment for FREE and Start Posting Ads"
         />
         <meta
           property="og:description"
@@ -36,9 +36,9 @@ const CreateNeighbourhoodHeadLayout = (props) => {
                 "@type": "WebSite",
                 "dateCreated": "22-03-2021",
                 "url": "https://nxtdoordeals.com",
-                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your neighbourhood or post up to seven free ads today!",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your apartment or post up to seven free ads today!",
                 "genre": "Website for an online marketplace",
-                "keywords": "marketplace, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
+                "keywords": "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },
               {
                 "@context": "https://schema.org",
@@ -47,12 +47,12 @@ const CreateNeighbourhoodHeadLayout = (props) => {
                 "dateModified": "22-03-2021",
                 "url": "https://nxtdoordeals.com/register/neighbourhood",
                 "description": "Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval",
-                "name": "Register your Neighbourhood for FREE and Start Posting Ads",
+                "name": "Register your Apartment for FREE and Start Posting Ads",
                 "inLanguage": "en",
                 "isPartOf": {
                   "@type": "WebSite",
                   "url": "https://nxtdoordeals.com",
-                  "name": "nxtdoordeals.com | Your Neighbourhood Marketplace",
+                  "name": "nxtdoordeals.com | Your  Apartment's Marketplace",
                   "inLanguage": "en"},
                 "potentialAction": {
                   "@type": "ReadAction",

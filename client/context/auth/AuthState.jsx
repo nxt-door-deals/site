@@ -46,6 +46,8 @@ import {
   MARK_DELETE_BUYER_CHAT,
   MARK_DELETE_SELLER_CHAT,
   CHAT_ERROR,
+  UPDATE_NUMBER_SOLD,
+  UPDATE_NUMBER_SOLD_ERROR,
 } from "../Types";
 
 var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
@@ -587,6 +589,16 @@ const AuthState = (props) => {
     }
   };
 
+  const updateNumberSold = async (userId) => {
+    try {
+      await axios
+        .put(`${keys.API_PROXY}/update/sold/${userId}`)
+        .then(() => dispatch({ type: UPDATE_NUMBER_SOLD }));
+    } catch (err) {
+      dispatch({ type: UPDATE_NUMBER_SOLD_ERROR });
+    }
+  };
+
   const logout = () => {
     dispatch({ type: LOGOUT });
   };
@@ -640,6 +652,7 @@ const AuthState = (props) => {
         updateUserSubscription,
         markSellerChatForDeletion,
         markBuyerChatForDeletion,
+        updateNumberSold,
         logout,
         setLoading,
       }}

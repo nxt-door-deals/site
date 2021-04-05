@@ -36,7 +36,7 @@ const userAccountValidationSchema = Yup.object({
     .max(100)
     .trim(),
   mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
-  neighbourhood: Yup.string().required("Please select your apartment/property"),
+  neighbourhood: Yup.string().required("Please select your apartment"),
   apartmentNumber: Yup.string()
     .required("Please enter your apartment number")
     .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
@@ -145,7 +145,7 @@ const UserAccount = (props) => {
 
             if (!apartment) {
               validateApartmentSelection(
-                "Please select a neighbourhood from the list"
+                "Please select an apartment from the list"
               );
               setHideResults(null);
             } else {
@@ -417,7 +417,7 @@ const UserAccount = (props) => {
                             : "hidden"
                         }
                       >
-                        Not found? You can create a neighbourhood for{" "}
+                        Not found? You can a marketplace for{" "}
                         <Link
                           href={`register/neighbourhood/${props.values.neighbourhood}`}
                         >

@@ -18,7 +18,7 @@ import {
 import BouncingBalls from "../loaders/BouncingBalls";
 
 const apartmentSearchValidationSchema = Yup.object({
-  apartment: Yup.string().required("Please select your neighbourhood"),
+  apartment: Yup.string().required("Please select your apartment"),
 });
 
 const variants = {
@@ -209,7 +209,7 @@ const ApartmentSearch = () => {
                     : "hidden"
                 }
               >
-                Not found? Create a neighbourhood for{" "}
+                Not found? Create a marketplace for{" "}
                 <Link
                   href={`/register/neighbourhood/${props.values.apartment}`}
                 >
