@@ -50,6 +50,7 @@ const VerifyEmail = ({ user }) => {
     });
 
   useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
     sendEmail(name, email, verificationUrl);
     userLoggedInToast();
   }, []);

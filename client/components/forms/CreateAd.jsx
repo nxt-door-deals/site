@@ -42,6 +42,7 @@ const createAdValidationSchema = Yup.object({
       .required("Please enter the item's price")
       .matches(/^[\d]*[\.]?([\d]{1}|[\d]{2})$/, "Not a valid amount"),
   }),
+  condition: Yup.string().required("Please specify the condition"),
 });
 
 // These are passed to the PostAdHeader component
@@ -507,12 +508,12 @@ const CreateAd = ({ categoryName, user }) => {
                             aria-label="Drop down list to select the condition of the item"
                           />
                         </div>
-                        {/* {props.touched.condition && props.errors.condition ? (
+                        {props.touched.condition && props.errors.condition ? (
                           <div className="font-axiforma text-xs text-red-800 py-1 mb-2">
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {props.errors.condition}
                           </div>
-                        ) : null} */}
+                        ) : null}
                       </div>
 
                       <div className="font-axiforma lg:pl-6 lg:mt-3">

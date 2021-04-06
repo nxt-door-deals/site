@@ -7,7 +7,7 @@ const FAQHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>FAQs about Buying and Selling on nxtdoordeals.com</title>
+        <title>Frequently Asked Questions</title>
         <meta
           name="description"
           content="All the frequently asked questions about buying and selling on nxtdoordeals.com"

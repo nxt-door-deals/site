@@ -51,7 +51,7 @@ const PostAd = (props) => {
     );
   }
 
-  if (user && user.ad_count >= 7) {
+  if (user && user.ad_count === 7) {
     setTimeout(() => router.push("/account"), 5000);
     return (
       <PostAdHeadLayout>

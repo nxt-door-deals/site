@@ -5,7 +5,7 @@ const NeighbourCreationNotification = (props) => {
   useEffect(() => window.scroll({ top: 0, left: 0, behavior: "smooth" }), []);
 
   return (
-    <div className="h-full pt-20 lg:pt-32">
+    <div className="h-full pt-20 lg:pt-24">
       <div className="flex flex-col items-center px-8 lg:px-16 mb-16">
         <div className="mb-10">
           <Image

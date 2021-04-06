@@ -7,7 +7,7 @@ const LogoutHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>NXT Door Deals | Logging You Out...</title>
+        <title>NXT Door Deals | Adios, for now...</title>
       </Head>
       {props.children}
     </Fragment>

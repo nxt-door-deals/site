@@ -7,7 +7,7 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Welcome To Your Apartment's Marketplace</title>
+        <title>Welcome to Your Apartment's Marketplace</title>
         <meta
           name="description"
           content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to seven free ads today!"

@@ -7,7 +7,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Register your Apartment for Free</title>
+        <title>Register for Free</title>
         <meta
           name="description"
           content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or housing society"

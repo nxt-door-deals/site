@@ -179,10 +179,10 @@ const UserAds = (props) => {
                           props.currentUser.id,
                           props.ads[props.i].id
                         );
-                        setTimeout(
-                          () => fetchUserAds(props.currentUser.id),
-                          3000
-                        );
+                        setTimeout(() => {
+                          fetchUserAds(props.currentUser.id);
+                          setDeleteButtonClicked(false);
+                        }, 3000);
                       }}
                     >
                       {deleteButtonClicked ? (

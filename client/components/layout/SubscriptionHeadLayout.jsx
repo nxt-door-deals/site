@@ -7,7 +7,7 @@ const SubscriptionHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Manage Your Email Subscriptions</title>
+        <title>Manage Email Subscriptions</title>
         <meta
           name="description"
           content="Update your subscription status for promotional emails from nxtdoordeals.com"

@@ -51,9 +51,15 @@ const NbhAdsCard = (props) => {
 
   if (!loading && adsDataNbhFetched && adsDataNbh && adsDataNbh.length === 0) {
     return (
-      <div className="py-8 px-8 lg:px-0">
-        <p className="text-gray-600 text-xl text-center font-semibold">
-          Sorry! No results...
+      <div className="py-6 px-6 lg:px-0 text-center">
+        <Image
+          src={"/images/browseads/telescope.svg"}
+          alt={"No search results"}
+          height={200}
+          width={200}
+        />
+        <p className="text-brand-gray mt-5 text-xl font-semibold">
+          We looked everywhere, but found nothing...
         </p>
       </div>
     );

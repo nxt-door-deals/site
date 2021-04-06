@@ -32,7 +32,7 @@ const editAdValidationSchema = Yup.object({
     .trim()
     .matches(/^[^=<>`]+$/, "Title cannot contain ^ = < > or `"),
   typeOfSale: Yup.string().required("Is this a sale or a giveaway?"),
-  condition: Yup.string().required("Please select the item condition"),
+  condition: Yup.string().required("Please specify the condition"),
   price: Yup.string().when("typeOfSale", {
     is: "sale",
     then: Yup.string()
@@ -107,7 +107,7 @@ const EditAd = (props) => {
   }, [adUpdated]);
 
   return (
-    <div className="font-axiforma text-brand-gray w-full h-full">
+    <div className="text-brand-gray w-full h-full">
       <div>
         <div id="form" className="p-1 lg:p-5 w-full">
           <Formik
@@ -199,7 +199,7 @@ const EditAd = (props) => {
                     {/* Validation errors */}
                     {touched.title && errors.title ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="text-xs text-red-800 p-1 mb-2"
                         id="title-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -238,14 +238,14 @@ const EditAd = (props) => {
                             ? "description-error"
                             : null
                         }
-                        className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
+                        className="text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
                       />
                     </div>
 
                     {/* Validation errors */}
                     {touched.description && errors.description ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="text-xs text-red-800 p-1 mb-2"
                         id="description-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -256,7 +256,7 @@ const EditAd = (props) => {
                     {/* Type of ad and price. y margin is different due to the negotiable checkbox */}
                     <div className="lg:flex lg:justify-between mb-6">
                       <div
-                        className={`"flex-col font-axiforma mr-10 " ${
+                        className={`"flex-col mr-10 " ${
                           touched.typeOfSale && errors.typeOfSale
                             ? "mb-1"
                             : "my-4"
@@ -326,7 +326,7 @@ const EditAd = (props) => {
                         {/* Validation errors */}
                         {touched.typeOfSale && errors.typeOfSale ? (
                           <div
-                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            className="text-xs text-red-800 p-1 mb-2"
                             id="typeOfSale-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -373,7 +373,7 @@ const EditAd = (props) => {
                         {/* Validation errors */}
                         {touched.price && errors.price ? (
                           <div
-                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            className="text-xs text-red-800 p-1 mb-2"
                             id="price-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -382,7 +382,7 @@ const EditAd = (props) => {
                         ) : null}
 
                         {/* Negotiable checkbox */}
-                        <div className="mt-1 font-axiforma">
+                        <div className="mt-1">
                           <label
                             htmlFor="negotiable"
                             className={`${
@@ -459,9 +459,15 @@ const EditAd = (props) => {
                             aria-label="Drop down list to select the condition of the item"
                           />
                         </div>
+                        {touched.condition && errors.condition ? (
+                          <div className="text-xs text-red-800 py-1 mb-2">
+                            <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                            {errors.condition}
+                          </div>
+                        ) : null}
                       </div>
 
-                      <div className="font-axiforma lg:pl-6">
+                      <div className="lg:pl-6">
                         <label
                           htmlFor="availableFrom"
                           className="text-sm  text-gray-600"
@@ -483,7 +489,7 @@ const EditAd = (props) => {
                           }}
                           aria-label="Pick the date from when the item will be available"
                           aria-labelledBy="date-picker"
-                          className="w-28 border-b-2 border-gray-300 text-purple-700 text-center font-axiforma text-base cursor-pointer font-semibold focus:outline-none"
+                          className="w-28 border-b-2 border-gray-300 text-purple-700 text-center text-base cursor-pointer font-semibold focus:outline-none"
                         />
                       </div>
                     </div>

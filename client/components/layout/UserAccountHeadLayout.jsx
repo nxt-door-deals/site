@@ -7,7 +7,7 @@ const UserAccountHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>My Account | Manage User Profile, Ads and Chats</title>
+        <title>My Account</title>
         <meta
           name="description"
           content="Make changes to your NXT Door Deals account and manage your ads and chats"

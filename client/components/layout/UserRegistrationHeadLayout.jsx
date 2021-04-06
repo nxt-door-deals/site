@@ -7,7 +7,7 @@ const UserLoginHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Signup | Create Your nxtdoordeals.com Account</title>
+        <title>Signup | Create your free nxtdoordeals.com account</title>
         <meta
           name="description"
           content="Create your nxtdoordeals.com account and start posting ads for free today"

@@ -7,7 +7,7 @@ const PostAdHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Post a Free Ad | Start Selling your Preloved's Today</title>
+        <title>Post a Free Ad | Start selling or giving away today</title>
         <meta
           name="description"
           content="Post an ad for free. Choose from a wide range of categories and start selling today"

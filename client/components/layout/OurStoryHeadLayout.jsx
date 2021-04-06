@@ -7,7 +7,7 @@ const OurStoryHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Our Story | The Inspiration behind nxtdoordeals.com</title>
+        <title>Our Story | The inspiration behind nxtdoordeals.com</title>
         <meta
           name="description"
           content="Read about the inspiration behind nxtdoordeals.com"
