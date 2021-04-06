@@ -7,7 +7,7 @@ const LetsVerifyYourEmail = (props) => {
     <div className="text-brand-gray">
       <div className="flex flex-col justify-center items-center h-screen px-5">
         <h1 className="component-heading">
-          Let's verify your email before you can {props.message}{" "}
+          You can {props.message} after you verify your email.{" "}
         </h1>
         <h2 className="flex text-2xl my-5">Redirecting you shortly.</h2>
 

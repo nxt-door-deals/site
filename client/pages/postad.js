@@ -43,7 +43,7 @@ const PostAd = (props) => {
   }, [isAuthenticated]);
 
   if (user && !user.email_verified) {
-    setTimeout(() => router.push("/account"), 3000);
+    setTimeout(() => router.push("/account"), 10000);
     return (
       <PostAdHeadLayout>
         <LetsVerifyYourEmail message="post an ad" />;

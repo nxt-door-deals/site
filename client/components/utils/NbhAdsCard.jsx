@@ -39,6 +39,12 @@ const NbhAdsCard = (props) => {
     fetchAdsForNbh(props.nbhId);
   }, []);
 
+  useEffect(() => {
+    if (adsDataNbhFetched && adsDataNbh && adsDataNbh.length === 0) {
+      window.scrollBy({ top: 150, left: 0, behavior: "smooth" });
+    }
+  }, [adsDataNbh]);
+
   if (loading) {
     return (
       <div className="py-8 px-8 lg:px-0">
@@ -55,8 +61,8 @@ const NbhAdsCard = (props) => {
         <Image
           src={"/images/browseads/telescope.svg"}
           alt={"No search results"}
-          height={200}
-          width={200}
+          height={150}
+          width={150}
         />
         <p className="text-brand-gray mt-5 text-xl font-semibold">
           We looked everywhere, but found nothing...
