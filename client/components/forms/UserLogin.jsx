@@ -126,8 +126,8 @@ const UserLogin = (props) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-purple-50 overflow-hidden -z-20 lg:pt-16">
-      <div className="-mt-5 lg:mt-0 rounded-3xl shadow-boxshadowregister bg-white p-8 mb-10">
+    <div className="flex justify-center items-center h-screen bg-login-background bg-cover bg-no-repeat overflow-hidden -z-20 lg:pt-16">
+      <div className="mt-20 lg:mt-10 rounded-3xl shadow-boxshadowregister bg-white p-8 mb-10">
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidationSchema}

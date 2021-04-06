@@ -98,7 +98,7 @@ module.exports = {
         128: "32rem",
       },
       backgroundImage: (theme) => ({
-        "login-background": "url(/images/login/background.svg)",
+        "login-background": "url(/images/login/user-login.svg)",
         "user-registration-background":
           "url(/images/user_registration/user-registration.svg)",
         "email-verification-background":
