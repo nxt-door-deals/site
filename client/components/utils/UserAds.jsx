@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import keys from "../../utils/keys";
+import Modal from "react-modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +16,9 @@ import {
   faTrash,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
+
+// Component imports
+import BouncingBalls from "../loaders/BouncingBalls";
 
 const buttonVariants = {
   editButtonHover: {
@@ -32,9 +37,12 @@ const buttonVariants = {
   },
 };
 
+Modal.setAppElement("#__next");
+
 const UserAds = (props) => {
   const [editButtonClicked, setEditButtonClicked] = useState(false);
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const authContext = useContext(AuthContext);
   const router = useRouter();
 
@@ -173,29 +181,13 @@ const UserAds = (props) => {
                       whileTap="deleteButtonTap"
                       className="p-3 rounded-lg bg-red-400 shadow-cancelButtonShadow focus:outline-none"
                       onClick={() => {
-                        setDeleteButtonClicked(true);
-                        deleteAd(
-                          props.i,
-                          props.currentUser.id,
-                          props.ads[props.i].id
-                        );
-                        setTimeout(() => {
-                          fetchUserAds(props.currentUser.id);
-                          setDeleteButtonClicked(false);
-                        }, 3000);
+                        setModalOpen(true);
                       }}
                     >
-                      {deleteButtonClicked ? (
-                        <FontAwesomeIcon
-                          icon={faSpinner}
-                          className="text-lg text-white animate-spin"
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="text-lg text-white"
-                        />
-                      )}
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        className="text-lg text-white"
+                      />
                     </motion.button>
                   </div>
                 </div>
@@ -203,6 +195,64 @@ const UserAds = (props) => {
             </motion.section>
           )}
         </AnimatePresence>
+
+        <Modal
+          style={{
+            overlay: {
+              zIndex: 99999,
+              opacity: 1,
+            },
+          }}
+          isOpen={modalOpen}
+          shouldFocusAfterRender={true}
+          shouldCloseOnEsc={false}
+          shouldCloseOnOverlayClick={false}
+          onRequestClose={() => setModalOpen(false)}
+          className="flex justify-center items-center h-screen px-10"
+        >
+          <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
+            <p className="flex justify-center">
+              Deleting an ad will permanently remove it from your marketplace.
+              Ok to proceed?
+            </p>
+
+            <div className="mt-8">
+              <motion.button
+                variants={buttonVariants}
+                whileHover="deleteButtonHover"
+                whileTap="deleteButtonTap"
+                className="h-12 w-40 bg-red-400 p-3 rounded-xl uppercase text-base text-white focus-within:outline-none font-semibold"
+                onClick={() => {
+                  setDeleteButtonClicked(true);
+                  deleteAd(
+                    props.i,
+                    props.currentUser.id,
+                    props.ads[props.i].id
+                  );
+                  setTimeout(() => {
+                    setDeleteButtonClicked(false);
+                    fetchUserAds(props.currentUser.id);
+                  }, 3000);
+                  setTimeout(() => {
+                    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+                  }, 500);
+                }}
+              >
+                {deleteButtonClicked ? <BouncingBalls /> : "Yes, Continue"}
+              </motion.button>
+            </div>
+            <div className="mt-5 lg:mt-3 text-center lg:text-right text-sm underline text-purple-700">
+              <Link href="/account">
+                <a
+                  className="hover:no-underline styled-link"
+                  onClick={() => setModalOpen(false)}
+                >
+                  No, I changed my mind.
+                </a>
+              </Link>
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   );

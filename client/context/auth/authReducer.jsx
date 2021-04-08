@@ -42,6 +42,7 @@ import {
   USER_SUBSCRIPTION_UPDATE_FAILURE,
   UPDATE_NUMBER_SOLD,
   UPDATE_NUMBER_SOLD_ERROR,
+  INVALID_LOGIN_COUNTS,
 } from "../Types";
 
 const authReducer = (state, action) => {
@@ -77,6 +78,13 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         loading: false,
       };
+
+    case INVALID_LOGIN_COUNTS:
+      return {
+        ...state,
+        loginCount: action.payload,
+      };
+
     case ALT_USER_LOADED:
       return {
         ...state,

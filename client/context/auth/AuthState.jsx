@@ -3,9 +3,7 @@ import authReducer from "./authReducer";
 import AuthContext from "./authContext";
 import { setAuthToken, setApiKey } from "../../utils/setToken";
 import axios from "axios";
-import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
-import createCookie from "../../utils/createLoginCookie";
 
 import {
   SET_LOADING,
@@ -48,6 +46,7 @@ import {
   CHAT_ERROR,
   UPDATE_NUMBER_SOLD,
   UPDATE_NUMBER_SOLD_ERROR,
+  INVALID_LOGIN_COUNTS,
 } from "../Types";
 
 var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
@@ -79,6 +78,7 @@ const AuthState = (props) => {
     buyerChats: null,
     sellerChats: null,
     chatError: null,
+    loginCount: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -162,6 +162,21 @@ const AuthState = (props) => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     } catch (err) {
       dispatch({ type: LOGIN_FAIL, payload: err.response.data.detail });
+
+      if (state.loginCount < 5)
+        setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
+    }
+  };
+
+  const getLoginCount = async (email) => {
+    try {
+      const res = await axios.get(
+        `${keys.API_PROXY}/counts?email=${email.toLowerCase()}`
+      );
+
+      dispatch({ type: INVALID_LOGIN_COUNTS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: AUTH_ERROR, payload: err.response.data.detail });
       setTimeout(() => dispatch({ type: CLEAR_ERROR }), 3000);
     }
   };
@@ -627,6 +642,7 @@ const AuthState = (props) => {
         altUser: state.altUser,
         sellerChats: state.sellerChats,
         buyerChats: state.buyerChats,
+        loginCount: state.loginCount,
         chatError: state.chatError,
         getUserFromId,
         registerUser,
@@ -653,6 +669,7 @@ const AuthState = (props) => {
         markSellerChatForDeletion,
         markBuyerChatForDeletion,
         updateNumberSold,
+        getLoginCount,
         logout,
         setLoading,
       }}

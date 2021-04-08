@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import SiteContext from "../../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -37,6 +37,7 @@ const variants = {
 
 const Ads = (props) => {
   const [scrollToTop, setScrollToTop] = useState(false);
+  const headerRef = useRef(null);
   const siteContext = useContext(SiteContext);
   const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
 
@@ -88,7 +89,7 @@ const Ads = (props) => {
         />
       </div>
 
-      <div id="header">
+      <div id="header" ref={headerRef}>
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 font-axiforma w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar
             navStyle={navStylePurple}

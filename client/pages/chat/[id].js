@@ -123,7 +123,10 @@ const Chat = (props) => {
   return (
     <ChatHeadLayout>
       <div id="header" className="font-axiforma h-full">
-        <Navbar navStyle={navStylePurple} />
+        <Navbar
+          navStyle={navStylePurple}
+          chatNotification={props.chatNotification}
+        />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
         <div className="pt-10 px-7 pb-20 lg:px-64">
           <div className="text-center mb-5">
