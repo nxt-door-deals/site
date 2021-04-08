@@ -35,7 +35,9 @@ export default function MyApp({ Component, pageProps, router }) {
   const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
-    if (typeof window !== "undefined") smoothscroll.polyfill();
+    if (typeof window !== "undefined") {
+      smoothscroll.polyfill();
+    }
   }, []);
 
   return (

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { navStylePurple } from "../utils/styles";
 
 // Component imports
-import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
+import ForgotPasswordHeadLayout from "../components/layout/ForgotPasswordHeadLayout";
 import EnterEmailForm from "../components/forms/forgot-password/EnterEmailForm";
 import Navbar from "../components/layout/Navbar";
 
@@ -17,14 +17,14 @@ const ForgotPassword = () => {
   navStylePurple["pathname"] = pathname;
 
   return (
-    <UserLoginHeadLayout>
+    <ForgotPasswordHeadLayout>
       <div className="bg-forgot-password-background bg-cover bg-no-repeat bg-fixed -z-20 font-axiforma">
         <Navbar navStyle={navStylePurple} />
         <div className="flex justify-center items-center min-h-screen">
           <EnterEmailForm alertTheme={alertTheme} />
         </div>
       </div>
-    </UserLoginHeadLayout>
+    </ForgotPasswordHeadLayout>
   );
 };
 

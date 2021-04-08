@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Component imports
 import TabManager from "./TabManager";
@@ -16,6 +16,11 @@ const Tab = (props) => {
 
   const pathname = props.route;
   const tabs = props.tabs;
+
+  useEffect(() => {
+    () => window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <TabManager

@@ -7,6 +7,7 @@ import AuthContext from "../../context/auth/authContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import Modal from "react-modal";
 
 // Component imports
 import EditAd from "../forms/EditAd";
@@ -37,9 +38,12 @@ const linkVariants = {
   },
 };
 
+Modal.setAppElement("#__next");
+
 const Ad = (props) => {
   var showChatButton = true;
   var showOtherButtons = false;
+  const [modalOpen, setModalOpen] = useState(false);
   const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
   const router = useRouter();
 
@@ -153,19 +157,10 @@ const Ad = (props) => {
                     disabled={deleteButtonClicked}
                     className="bg-red-500 shadow-cancelButtonShadow text-white h-12 w-40 font-semibold uppercase lg:mt-0 rounded-xl focus:outline-none"
                     onClick={() => {
-                      setDeleteButtonClicked(true);
-                      updateNumberSold(user && user.id);
-                      deleteAd(0, props.data.posted_by_id, props.data.id);
-                      setTimeout(
-                        () =>
-                          router.push(
-                            `/neighbourhood/ads/${props.data.apartment_id}`
-                          ),
-                        5000
-                      );
+                      setModalOpen(true);
                     }}
                   >
-                    {deleteButtonClicked ? <BouncingBalls /> : "Mark As Sold"}
+                    Mark As Sold
                   </motion.button>
                 </div>
               )}
@@ -201,6 +196,68 @@ const Ad = (props) => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <Modal
+          style={{
+            overlay: {
+              zIndex: 99999,
+              opacity: 1,
+            },
+          }}
+          isOpen={modalOpen}
+          shouldFocusAfterRender={true}
+          shouldCloseOnEsc={false}
+          shouldCloseOnOverlayClick={false}
+          onRequestClose={() => setModalOpen(false)}
+          className="flex justify-center items-center h-screen px-10"
+        >
+          <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
+            <Image
+              src={"/images/fpa/sale-fireworks.gif"}
+              alt={"reset password"}
+              height={175}
+              width={175}
+            />
+            <p className="mt-5">Congratulations on the sale!</p>
+            <p className="flex mt-3 justify-center">
+              Once you mark your ad as sold, it will no longer be visible in
+              your marketplace. Sounds good?
+            </p>
+
+            <div className="mt-8">
+              <motion.button
+                variants={buttonVariants}
+                whileHover="editButtonHover"
+                whileTap="editButtonTap"
+                className="h-12 w-40 bg-purple-700 p-3 rounded-xl uppercase text-base text-white focus-within:outline-none font-semibold"
+                onClick={() => {
+                  setDeleteButtonClicked(true);
+                  updateNumberSold(user && user.id);
+                  deleteAd(0, props.data.posted_by_id, props.data.id);
+                  setTimeout(
+                    () =>
+                      router.push(
+                        `/neighbourhood/ads/${props.data.apartment_id}`
+                      ),
+                    5000
+                  );
+                }}
+              >
+                {deleteButtonClicked ? <BouncingBalls /> : "Yes, Continue"}
+              </motion.button>
+            </div>
+            <div className="mt-5 lg:mt-3 text-center lg:text-right text-sm underline text-purple-700">
+              <Link href={`/ads/${props.data.id}`}>
+                <a
+                  className="hover:no-underline styled-link"
+                  onClick={() => setModalOpen(false)}
+                >
+                  No, I changed my mind.
+                </a>
+              </Link>
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   );

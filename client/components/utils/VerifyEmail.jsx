@@ -77,8 +77,8 @@ const VerifyEmail = ({ user }) => {
       <br />
       <p className="text-base">
         Please verify your email using the link that was just sent to{" "}
-        <span className="font-semibold text-blue-600">{email}</span>. The link
-        is valid for 24 hours only.
+        <span className="font-semibold text-blue-600">{email}</span> (remember
+        to check your spam folder!). The link is valid for 24 hours only.
       </p>
       <br />
 
@@ -99,7 +99,7 @@ const VerifyEmail = ({ user }) => {
 
       <p className="text-xs">
         <FontAwesomeIcon icon={faInfoCircle} /> Please note that you will not be
-        able to post ad's without verifying your email.
+        able to post ad's or chat with sellers without verifying your email.
       </p>
       <br />
 

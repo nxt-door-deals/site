@@ -1,6 +1,6 @@
 const navStylePurple = {
   navBgColor: "lg:bg-white",
-  navOverlayBgColor: "bg-purple-100",
+  navOverlayBgColor: "bg-white",
   navOverlayTextColor: "text-brand-purple",
   hrStyle: "border-brand-purple bg-brand-purple border-dotted",
   navShadow: "lg:shadow-navshadow",

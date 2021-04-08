@@ -23,11 +23,15 @@ const Alert = (props) => {
         }
       >
         <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
-        {props.authError
-          ? props.authError
-          : props.genericMessage
-          ? props.genericMessage
-          : props.fetchError}{" "}
+        <span
+          dangerouslySetInnerHTML={{
+            __html: props.authError
+              ? props.authError
+              : props.genericMessage
+              ? props.genericMessage
+              : props.fetchError,
+          }}
+        />
       </p>
     </motion.div>
   );

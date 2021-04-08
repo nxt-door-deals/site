@@ -15,7 +15,7 @@ module.exports = {
         buttonShadowBlue: "0 10px 25px rgba(96,165,250,.5)",
         cancelButtonShadow: "0 10px 25px rgba(248,113,113,.3)",
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
-        navshadow: "0px 1px 2px 2px rgba(221, 214, 254, 0.3)",
+        navshadow: "0px 1px 3px 2px rgba(221, 214, 254, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
         boxshadowregister: "0 25px 75px rgba(16, 30, 54, .25)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",

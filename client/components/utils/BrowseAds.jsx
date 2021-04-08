@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 
 import { toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
+
 // Component imports
 import NbhAdsCard from "./NbhAdsCard";
 import SearchNbhAds from "../forms/SearchNbhAds";

@@ -34,7 +34,7 @@ const Account = (props) => {
 
   useEffect(() => {
     if (user) fetchUserAds(user.id);
-  }, [user]);
+  }, [user, userAds]);
 
   const userAccountTabs = [
     { label: "Profile", value: 0 },
