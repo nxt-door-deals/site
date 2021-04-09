@@ -112,12 +112,12 @@ const UserRegistration = () => {
   }, []);
 
   useEffect(() => {
-    if (fetchError) {
+    if (fetchError || authError) {
       window.scroll({ top: 0, left: 0, behavior: "smooth" });
     }
 
     return setHideResults("hidden");
-  }, [fetchError]);
+  }, [fetchError, authError]);
 
   useEffect(() => {
     if (isAuthenticated) {
