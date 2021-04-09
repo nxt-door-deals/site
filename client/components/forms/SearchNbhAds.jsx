@@ -83,7 +83,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
-                  <div className="w-44 lg:w-64 p-0 font-axiforma z-10">
+                  <div className="w-44 lg:w-64 p-0 font-axiforma z-20">
                     <Select
                       id="categoryList"
                       name="categoryList"
