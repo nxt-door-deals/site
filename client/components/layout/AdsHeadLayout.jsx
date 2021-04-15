@@ -10,7 +10,7 @@ const AdsHeadLayout = (props) => {
         <title>Browse Ads | See what's on sale or available for free</title>
         <meta
           name="description"
-          content="Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away"
+          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,9 +20,12 @@ const AdsHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away"
+          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
         />
-        <meta property="og:url" content="https://nxtdoordeals.com/" />
+        <meta
+          property="og:url"
+          content={`https://nxtdoordeals.com/ads/${props.adId}`}
+        />
         <meta property="og:site_name" content="nxtdoordeals.com" />
         <script
           type="application/ld+json"
@@ -42,8 +45,8 @@ const AdsHeadLayout = (props) => {
                 "@type": "WebPage",
                 "datePublished": "22-03-2021",
                 "dateModified": "22-03-2021",
-                "url": "https://nxtdoordeals.com/ads/(ad_id)",
-                "description": "Browse ads from across regisgtered neighbourhoods. Choose from items that are on sale or for giving away",
+                "url": "https://nxtdoordeals.com/ads/${props.adId}",
+                "description": "Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away",
                 "name": "Browse Ads | See what's on sale or available for free",
                 "inLanguage": "en",
                 "isPartOf": {
@@ -55,7 +58,7 @@ const AdsHeadLayout = (props) => {
                   "@type": "ReadAction",
                   "target": {
                     "@type": "EntryPoint",
-                    "urlTemplate": "https://nxtdoordeals.com/ads/(ad_id)"
+                    "urlTemplate": "https://nxtdoordeals.com/ads/${props.adId}"
                   }
                 }
               }

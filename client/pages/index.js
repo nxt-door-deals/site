@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+import axios from "axios";
+import fs from "fs";
 
 // Component imports
 import HomeHeadLayout from "../components/layout/HomeHeadLayout";
@@ -118,10 +120,27 @@ const Home = (props) => {
         )}
       </AnimatePresence>
       <section id="footer">
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </section>
     </HomeHeadLayout>
   );
+};
+
+// Generate the rss feed
+export const getStaticProps = async () => {
+  const rss = await axios.get(`${process.env.API_URL}/rss`);
+
+  fs.mkdirSync("./public/rss", { recursive: true });
+  fs.writeFileSync("./public/rss/feed.xml", rss.data);
+
+  return {
+    props: {
+      rss: rss.data,
+    },
+  };
 };
 
 export default Home;

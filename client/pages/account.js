@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import cookie from "../utils/cookieInit";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
@@ -23,7 +22,7 @@ const Account = (props) => {
   const pathname = router.pathname;
 
   const authContext = useContext(AuthContext);
-  const { loadUser, user, fetchUserAds, userAds } = authContext;
+  const { loadUser, user } = authContext;
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
@@ -31,10 +30,6 @@ const Account = (props) => {
   useEffect(() => {
     loadUser();
   }, []);
-
-  useEffect(() => {
-    if (user) fetchUserAds(user.id);
-  }, [user, userAds]);
 
   const userAccountTabs = [
     { label: "Profile", value: 0 },
@@ -61,7 +56,7 @@ const Account = (props) => {
   };
 
   return (
-    <UserAccountHeadLayout>
+    <UserAccountHeadLayout user={user && user}>
       <div className="w-full">
         <ScrollToTop
           scrollToTop={scrollToTop}
@@ -79,7 +74,6 @@ const Account = (props) => {
               route={props.pathname}
               tabs={userAccountTabs}
               currentUser={user && user}
-              ads={userAds && userAds}
               showForm={props.showForm}
               setShowForm={props.setShowForm}
               chatNotification={props.chatNotification}
@@ -89,7 +83,10 @@ const Account = (props) => {
         </div>
 
         <div>
-          <Footer footerGradientClass={footerGradientClassPurple} />
+          <Footer
+            footerGradientClass={footerGradientClassPurple}
+            pathname={pathname}
+          />
         </div>
       </div>
     </UserAccountHeadLayout>

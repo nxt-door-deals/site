@@ -27,7 +27,10 @@ const RegisterUser = () => {
     <UserRegistrationHeadLayout>
       <Navbar navStyle={navStyleBlue} />
       <UserRegistration />
-      <Footer footerGradientClass={footerGradientClassBlue} />
+      <Footer
+        footerGradientClass={footerGradientClassBlue}
+        pathname={pathname}
+      />
     </UserRegistrationHeadLayout>
   );
 };

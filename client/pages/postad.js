@@ -83,7 +83,10 @@ const PostAd = (props) => {
         <Categories />
       </div>
       <div>
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </PostAdHeadLayout>
   );

@@ -183,6 +183,11 @@ const Navbar = (props) => {
                   </Link>
                 </span>
               </li>
+              <li className="nav-item lg:mr-4 hover:scale-110">
+                <Link href="/blog">
+                  <a className="pb-1 styled-link">Blog</a>
+                </Link>
+              </li>
 
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="#how-it-works">
@@ -191,13 +196,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
-                  <a
-                    className={`pb-1 styled-link ${
-                      props.chatNotification.current && "pr-1"
-                    }`}
-                  >
-                    Our Story
-                  </a>
+                  <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
               {user && user && (
@@ -252,6 +251,11 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-4 hover:scale-110">
+                <Link href="/blog">
+                  <a className="pb-1 styled-link">Blog</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-4 hover:scale-110">
@@ -378,6 +382,22 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-6 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
+                </Link>
+              </li>
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/ourstory">
+                  <a className="pb-1 styled-link">Our Story</a>
+                </Link>
+              </li>
+            </ul>
+          )}
+
+          {/* Navbar on the blog page */}
+          {props.navStyle.pathname.includes("/blog") && (
+            <ul className="flex">
+              <li className="nav-item lg:mr-6 hover:scale-110">
+                <Link href="/">
+                  <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
               <li className="nav-item lg:mr-6 hover:scale-110">
@@ -567,6 +587,16 @@ const Navbar = (props) => {
                     props.navStyle.navOverlayTextColor
                   }
                 >
+                  <Link href="/blog">
+                    <a className="pb-1 styled-link">Blog</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
                   <Link href="#how-it-works">
                     <a
                       className="pb-1 styled-link"
@@ -576,6 +606,7 @@ const Navbar = (props) => {
                     </a>
                   </Link>
                 </li>
+
                 <li
                   className={
                     "overlay-items md:text-xl hover:scale-125 " +
@@ -654,6 +685,21 @@ const Navbar = (props) => {
                 >
                   <Link href="/">
                     <a className="pb-1 styled-link">Home</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/blog">
+                    <a
+                      className="pb-1 styled-link"
+                      onClick={() => setExpanded(false)}
+                    >
+                      Blog
+                    </a>
                   </Link>
                 </li>
                 <li
@@ -857,6 +903,32 @@ const Navbar = (props) => {
                 >
                   <Link href="/#how-it-works">
                     <a className="pb-1 styled-link">How It Works</a>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/ourstory">
+                    <a className="pb-1 styled-link">Our Story</a>
+                  </Link>
+                </li>
+              </Fragment>
+            )}
+
+            {/* Overlay items for the blog pge */}
+            {props.navStyle.pathname.includes("/blog") && (
+              <Fragment>
+                <li
+                  className={
+                    "overlay-items md:text-xl hover:scale-125 " +
+                    props.navStyle.navOverlayTextColor
+                  }
+                >
+                  <Link href="/">
+                    <a className="pb-1 styled-link">Home</a>
                   </Link>
                 </li>
                 <li

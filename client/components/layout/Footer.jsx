@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Modal from "react-modal";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +19,8 @@ import {
   faBookOpen,
   faUserNinja,
   faShoppingBag,
+  faBlog,
+  faRss,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
@@ -47,6 +50,7 @@ const variants = {
 };
 
 const Footer = (props) => {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const authContext = useContext(AuthContext);
 
@@ -74,10 +78,10 @@ const Footer = (props) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 pt-16">
-        <div className="flex justify-center items-center flex-col text-sm tracking-wide">
+        <div className="flex items-center flex-col text-sm tracking-wide">
           <h2 className="pb-5 text-xl">nxtdoordeals.com</h2>
 
-          <ul className="grid grid-cols-2 lg:grid-cols-1 gap-1">
+          <ul className="grid grid-cols-2 gap-1">
             <li className="pb-3 px-2">
               <Link href="/ourstory">
                 <motion.a
@@ -87,6 +91,32 @@ const Footer = (props) => {
                 >
                   <FontAwesomeIcon icon={faBook} className="mr-1" />{" "}
                   <span className="pb-1 styled-link">Our Story</span>
+                </motion.a>
+              </Link>
+            </li>
+
+            <li className="pb-3 px-2">
+              <Link href="/blog">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to our blog"
+                >
+                  <FontAwesomeIcon icon={faBlog} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">Blog</span>
+                </motion.a>
+              </Link>
+            </li>
+
+            <li className="pb-3 px-2">
+              <Link href="/rss/feed.xml">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  aria-label="Link to our rss feed"
+                >
+                  <FontAwesomeIcon icon={faRss} className="mr-1" />{" "}
+                  <span className="pb-1 styled-link">RSS</span>
                 </motion.a>
               </Link>
             </li>
@@ -244,35 +274,39 @@ const Footer = (props) => {
                 <span className="pb-1 styled-link">Browse Ads</span>
               </motion.a>
             </Link>{" "}
-            <Link href="/postad">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-                className="px-2 pb-3"
-                aria-label="Link to the post a free ad page"
-              >
-                <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
-                <span className="pb-1 styled-link">Post Free Ad</span>
-              </motion.a>
-            </Link>{" "}
-            <Link href="/account">
-              <motion.a
-                variants={variants}
-                whileHover="hover"
-                className="px-2 pb-3"
-                aria-label="Link to the user account page"
-              >
-                <FontAwesomeIcon icon={faUserNinja} className="mr-1" />
-                <span className="pb-1 styled-link">My Account</span>
-              </motion.a>
-            </Link>{" "}
-            {user && user && (
-              <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
+            {props.pathname !== "/postad" && (
+              <Link href="/postad">
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  className="px-2 pb-3"
+                  aria-label="Link to the post a free ad page"
+                >
+                  <FontAwesomeIcon icon={faPlusCircle} className="mr-1" />
+                  <span className="pb-1 styled-link">Post Free Ad</span>
+                </motion.a>
+              </Link>
+            )}{" "}
+            {props.pathname !== "/account" && (
+              <Link href="/account">
                 <motion.a
                   variants={variants}
                   whileHover="hover"
                   className="px-2 pb-3"
                   aria-label="Link to the user account page"
+                >
+                  <FontAwesomeIcon icon={faUserNinja} className="mr-1" />
+                  <span className="pb-1 styled-link">My Account</span>
+                </motion.a>
+              </Link>
+            )}{" "}
+            {!props.pathname.startsWith("/neighbourhood/ads") && user && user && (
+              <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
+                <motion.a
+                  variants={variants}
+                  whileHover="hover"
+                  className="px-2 pb-3"
+                  aria-label="Link to the my apartment page"
                 >
                   <FontAwesomeIcon icon={faShoppingBag} className="mr-1" />
                   <span className="pb-1 styled-link">My Apartment</span>

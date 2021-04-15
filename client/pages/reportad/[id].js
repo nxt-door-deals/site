@@ -44,7 +44,7 @@ const ReportAd = (props) => {
   navStylePurple["pathname"] = pathname;
 
   return (
-    <ReportAdHeadLayout>
+    <ReportAdHeadLayout adId={props.id}>
       <Navbar navStyle={navStylePurple} />
       <div id="header">
         <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-reported-ad-background bg-cover bg-no-repeat">
@@ -60,7 +60,10 @@ const ReportAd = (props) => {
       </div>
 
       <div>
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </ReportAdHeadLayout>
   );

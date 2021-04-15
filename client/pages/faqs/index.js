@@ -20,7 +20,10 @@ const FAQIndex = () => {
     <FAQHeadLayout>
       <Navbar navStyle={navStylePurple} />
       <FAQGuidelineList />
-      <Footer footerGradientClass={footerGradientClassPurple} />
+      <Footer
+        footerGradientClass={footerGradientClassPurple}
+        pathname={pathname}
+      />
     </FAQHeadLayout>
   );
 };

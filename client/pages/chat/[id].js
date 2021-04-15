@@ -203,7 +203,10 @@ const Chat = (props) => {
           </div>
         </div>
 
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </ChatHeadLayout>
   );

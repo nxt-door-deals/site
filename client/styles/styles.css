@@ -335,3 +335,12 @@ body {
   border-style: solid;
   border-color: transparent transparent #292d34 transparent;
 }
+
+/* Quote */
+.quote::before {
+  content: open-quote;
+}
+
+.quote::after {
+  content: close-quote;
+}

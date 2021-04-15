@@ -9,8 +9,6 @@ import Modal from "react-modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronDown,
-  faChevronUp,
   faRupeeSign,
   faEdit,
   faTrash,
@@ -47,20 +45,24 @@ const UserAds = (props) => {
   const router = useRouter();
 
   const { deleteAd, fetchUserAds } = authContext;
-  const isOpen = props.i === props.expanded;
+  // const isOpen = props.i === props.expanded;
+
+  // useEffect(() => {
+  //   fetchUserAds(props.currentUser.id);
+  // }, [props.userAds]);
 
   return (
     <div className="rounded-3xl shadow-chatListShadow bg-white p-4 lg:mb-0 lg:self-start">
       <div className="mb-2">
-        {props.ads[props.i].images.length > 0 && (
+        {props.ad.images.length > 0 && (
           <Image
-            src={props.ads[props.i].images[0]}
-            alt={props.ads[props.i].title}
+            src={props.ad.images[0]}
+            alt={props.ad.title}
             width={325}
             height={300}
           />
         )}
-        {props.ads[props.i].images.length === 0 && (
+        {props.ad.images.length === 0 && (
           <Image
             src={keys.DEFAULT_IMAGE}
             alt={"Default image"}
@@ -70,131 +72,79 @@ const UserAds = (props) => {
         )}
       </div>
 
-      <div className={`mb-2 text-center ${isOpen ? "hidden" : null}`}>
-        <p className="text-lg font-semibold truncate">
-          {props.ads[props.i].title}
-        </p>
-      </div>
-
       <div className="w-full text-center">
-        {!isOpen ? (
-          <FontAwesomeIcon
-            icon={faChevronDown}
-            onClick={() => props.setExpanded(isOpen ? false : props.i)}
-            className="text-xl text-brand-purple cursor-pointer mb-2"
-          />
-        ) : (
-          <FontAwesomeIcon
-            icon={faChevronUp}
-            className="text-xl text-brand-purple cursor-pointer mb-2"
-            onClick={() => props.setExpanded(isOpen ? false : props.i)}
-          />
-        )}
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.section
-              key="content"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: [0.17, 0.67, 0.83, 0.67],
-              }}
-            >
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="mb-2 text-center">
-                  <p className="text-base font-semibold">
-                    {props.ads[props.i].title}
-                  </p>
-                </div>
+        <div>
+          <div className="mb-2 text-center">
+            <p className="text-base font-semibold">{props.ad.title}</p>
+          </div>
 
-                <div className="text-sm text-left p-2 cursor-default">
-                  <p className="mb-2">
-                    Category:{" "}
-                    <span className="font-semibold">
-                      {props.ads[props.i].ad_category}
-                    </span>
-                  </p>
-                  {props.ads[props.i].ad_type === "sale" ? (
-                    <p className="mb-2">
-                      Price:{" "}
-                      <FontAwesomeIcon
-                        icon={faRupeeSign}
-                        className="text-xs mr-1"
-                      />
-                      <span className="font-semibold">
-                        {props.ads[props.i].price}
-                      </span>
-                    </p>
-                  ) : (
-                    <p className="mb-2">
-                      Type of sale:{" "}
-                      <span className="font-semibold">Giveaway</span>
-                    </p>
-                  )}
-                  <p className="mb-2">
-                    Condition:{" "}
-                    <span className="font-semibold">
-                      {props.ads[props.i].condition}
-                    </span>
-                  </p>
-                  <p className="mb-6">
-                    Posted{" "}
-                    <span className="font-semibold">
-                      {props.ads[props.i].date_posted}
-                    </span>
-                  </p>
-                  <div className="flex justify-around">
-                    <motion.button
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="editButtonHover"
-                      whileTap="editButtonTap"
-                      className="p-3 rounded-lg bg-purple-700 shadow-buttonShadowPurple focus:outline-none"
-                      onClick={() => {
-                        setEditButtonClicked(true);
-                        props.setShowForm(false);
-                        router.push(`/ads/${props.ads[props.i].id}`);
-                      }}
-                    >
-                      {editButtonClicked ? (
-                        <FontAwesomeIcon
-                          icon={faSpinner}
-                          className="text-lg text-white animate-spin"
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon={faEdit}
-                          className="text-lg text-white"
-                        />
-                      )}
-                    </motion.button>
-                    <motion.button
-                      type="button"
-                      variants={buttonVariants}
-                      whileHover="deleteButtonHover"
-                      whileTap="deleteButtonTap"
-                      className="p-3 rounded-lg bg-red-400 shadow-cancelButtonShadow focus:outline-none"
-                      onClick={() => {
-                        setModalOpen(true);
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="text-lg text-white"
-                      />
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.section>
-          )}
-        </AnimatePresence>
+          <div className="text-sm text-left p-2 cursor-default">
+            <p className="mb-2">
+              Category:{" "}
+              <span className="font-semibold">{props.ad.ad_category}</span>
+            </p>
+            {props.ad.ad_type === "sale" ? (
+              <p className="mb-2">
+                Price:{" "}
+                <FontAwesomeIcon icon={faRupeeSign} className="text-xs mr-1" />
+                <span className="font-semibold">{props.ad.price}</span>
+              </p>
+            ) : (
+              <p className="mb-2">
+                Type of sale: <span className="font-semibold">Giveaway</span>
+              </p>
+            )}
+            <p className="mb-2">
+              Condition:{" "}
+              <span className="font-semibold">{props.ad.condition}</span>
+            </p>
+            <p className="mb-6">
+              Posted{" "}
+              <span className="font-semibold">{props.ad.date_posted}</span>
+            </p>
+            <div className="flex justify-around">
+              <motion.button
+                type="button"
+                variants={buttonVariants}
+                whileHover="editButtonHover"
+                whileTap="editButtonTap"
+                className="p-3 rounded-lg bg-purple-700 shadow-buttonShadowPurple focus:outline-none"
+                onClick={() => {
+                  setEditButtonClicked(true);
+                  props.setShowForm(false);
+                  router.push(`/ads/${props.ad.id}`);
+                }}
+              >
+                {editButtonClicked ? (
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className="text-lg text-white animate-spin"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faEdit}
+                    className="text-lg text-white"
+                  />
+                )}
+              </motion.button>
+              <motion.button
+                type="button"
+                variants={buttonVariants}
+                whileHover="deleteButtonHover"
+                whileTap="deleteButtonTap"
+                className="p-3 rounded-lg bg-red-400 shadow-cancelButtonShadow focus:outline-none"
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="text-lg text-white"
+                />
+              </motion.button>
+            </div>
+          </div>
+        </div>
 
         <Modal
           style={{
@@ -224,18 +174,22 @@ const UserAds = (props) => {
                 className="h-12 w-40 bg-red-400 p-3 rounded-xl uppercase text-base text-white focus-within:outline-none font-semibold"
                 onClick={() => {
                   setDeleteButtonClicked(true);
-                  deleteAd(
-                    props.i,
-                    props.currentUser.id,
-                    props.ads[props.i].id
-                  );
+
+                  deleteAd(props.currentUser.id, props.ad.id);
+
                   setTimeout(() => {
-                    setDeleteButtonClicked(false);
                     fetchUserAds(props.currentUser.id);
-                  }, 3000);
-                  setTimeout(() => {
+                    setDeleteButtonClicked(false);
+                    setModalOpen(false);
                     window.scroll({ top: 0, left: 0, behavior: "smooth" });
-                  }, 500);
+                  }, 5000);
+                  {
+                    /* setTimeout(() => {
+                    setDeleteButtonClicked(false);
+                    setModalOpen(false);
+                    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+                  }, 1000); */
+                  }
                 }}
               >
                 {deleteButtonClicked ? <BouncingBalls /> : "Yes, Continue"}

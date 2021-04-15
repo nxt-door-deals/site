@@ -35,7 +35,10 @@ const Neighbourhood = (props) => {
       </div>
 
       <div>
-        <Footer footerGradientClass={footerGradientClassBlue} />
+        <Footer
+          footerGradientClass={footerGradientClassBlue}
+          pathname={pathname}
+        />
       </div>
     </CreateNeighbourhoodHeadLayout>
   );

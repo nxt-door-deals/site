@@ -77,11 +77,32 @@ const CreateAd = ({ categoryName, user }) => {
   }, []);
 
   // Giveaway toast
-  const giveawayToast = () =>
+  const giveawayToast = () => {
+    formatApartmentName();
     toast("Yay! You're awesome for giving this away for free!", {
       draggablePercent: 60,
       position: "top-center",
     });
+  };
+
+  // Pluraize the apartment name correctly
+  const formatApartmentName = () => {
+    let apartmentLength = user.apartment_name.split(" ").length;
+
+    let wrd = user.apartment_name.split(" ")[apartmentLength - 1];
+
+    return wrd.split("")[wrd.length - 1] === "s"
+      ? user.apartment_name + "'"
+      : user.apartment_name + "'s";
+  };
+
+  const confirmationToast = () => {
+    let apartmentName = formatApartmentName();
+    toast(`Your ad will be posted in ${apartmentName} marketplace.`, {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+  };
 
   // Dropzone
   // Copy the state to a new array and use that to update the changed state
@@ -165,7 +186,7 @@ const CreateAd = ({ categoryName, user }) => {
               user.apartment_id,
               files
             );
-
+            confirmationToast();
             setTimeout(() => {
               router.push(`/neighbourhood/ads/${user.apartment_id}`);
             }, 5000);

@@ -1,6 +1,7 @@
 module.exports = {
   images: {
     domains: [
+      "images.ctfassets.net",
       "nxt-door-deals.s3.ap-south-1.amazonaws.com",
       "nxt-door-deals-test.s3.ap-south-1.amazonaws.com",
       "68.183.94.49",
