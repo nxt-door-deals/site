@@ -153,6 +153,7 @@ const Contact = (props) => {
                     type="text"
                     placeholder="Message*"
                     maxLength="1000"
+                    rows="5"
                     autoComplete="off"
                     aria-required="true"
                     aria-invalid={
