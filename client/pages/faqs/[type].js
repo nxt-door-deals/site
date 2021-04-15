@@ -28,7 +28,10 @@ const FAQType = (props) => {
           <FrequentlyAskedQuestions type={props.type} />
         </div>
       </div>
-      <Footer footerGradientClass={footerGradientClassPurple} />
+      <Footer
+        footerGradientClass={footerGradientClassPurple}
+        pathname={pathname}
+      />
     </FAQHeadLayout>
   );
 };

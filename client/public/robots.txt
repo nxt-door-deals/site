@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /404
+Disallow: /verifyemail/
+Disallow: /alreadyloggedin
+Disallow: /goodbye
+Disallow: /logout
+
+Sitemap: https://beta.nxtdoordeals.com/sitemap.xml

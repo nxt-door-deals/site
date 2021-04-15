@@ -426,7 +426,7 @@ const PageNotFound = () => {
                   router.push(`/neighbourhood/ads/${user.apartment_id}`);
               }}
             >
-              My Neighbourhood
+              My Apartment
             </motion.button>
             <motion.button
               initial={{ opacity: 0 }}

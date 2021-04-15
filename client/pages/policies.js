@@ -15,13 +15,14 @@ import ScrollToTop from "../components/utils/ScrollToTop";
 const Policies = (props) => {
   const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
+  const pathname = router.pathname;
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   navStylePurple["navTextColor"] = "text-brand-purple";
-  navStylePurple["pathname"] = router.pathname;
+  navStylePurple["pathname"] = pathname;
   return (
     <PoliciesHeadLayout>
       <div className="w-full">
@@ -55,7 +56,10 @@ const Policies = (props) => {
             </div>
           </section>
         </div>
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </PoliciesHeadLayout>
   );

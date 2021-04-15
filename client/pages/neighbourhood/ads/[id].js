@@ -10,7 +10,7 @@ import {
 } from "../../../utils/styles";
 
 // Component imports
-import AdsHeadLayout from "../../../components/layout/AdsHeadLayout";
+import MarketplaceHeadLayout from "../../../components/layout/MarketplaceHeadLayout";
 import Navbar from "../../../components/layout/Navbar";
 // import Tab from "../../components/utils/Tab";
 import BrowseAds from "../../../components/utils/BrowseAds";
@@ -81,7 +81,7 @@ const Ads = (props) => {
   navStylePurple["pathname"] = pathname;
 
   return (
-    <AdsHeadLayout>
+    <MarketplaceHeadLayout aptId={props.aptId}>
       <div className="w-full">
         <ScrollToTop
           scrollToTop={scrollToTop}
@@ -90,7 +90,7 @@ const Ads = (props) => {
       </div>
 
       <div id="header" ref={headerRef}>
-        <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 font-axiforma w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
+        <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar
             navStyle={navStylePurple}
             chatNotification={props.chatNotification}
@@ -132,10 +132,13 @@ const Ads = (props) => {
           )}
         </div>
         <div className="mt-10">
-          <Footer footerGradientClass={footerGradientClassPurple} />
+          <Footer
+            footerGradientClass={footerGradientClassPurple}
+            pathname={pathname}
+          />
         </div>
       </div>
-    </AdsHeadLayout>
+    </MarketplaceHeadLayout>
   );
 };
 

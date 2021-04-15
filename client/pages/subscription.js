@@ -27,7 +27,10 @@ const Subscription = () => {
       </div>
 
       <div>
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </SubscriptionHeadLayout>
   );

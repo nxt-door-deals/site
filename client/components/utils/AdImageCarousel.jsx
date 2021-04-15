@@ -74,7 +74,7 @@ const AdImageCarousel = (props) => {
             {props.images.map((image, index) => (
               <div className="" key={index}>
                 <Image
-                  loader={`/images/loader/loager.gif/?w=${64}`}
+                  loader={`/images/loader/loader.gif/?w=${64}`}
                   src={image}
                   alt={`Ad image-${index}`}
                   quality={100}

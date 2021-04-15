@@ -2,42 +2,30 @@ import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
 
-const UserAccountHeadLayout = (props) => {
-  // Pluraize the user name correctly
-  const pluralizeName = () => {
-    let nameLength = props.user.name.split(" ").length;
-
-    let wrd = props.user.name.split(" ")[nameLength - 1];
-
-    return wrd.split("")[wrd.length - 1] === "s"
-      ? props.user.name + "'"
-      : props.user.name + "'s";
-  };
+const MarketplaceHeadLayout = (props) => {
   return (
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        {props.user ? (
-          <title>{pluralizeName()} Account</title>
-        ) : (
-          <title>My Account</title>
-        )}
-
+        <title>Browse Ads | See what's on sale or available for free</title>
         <meta
           name="description"
-          content="Make changes to your NXT Door Deals account and manage your ads and chats"
+          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="My Account | Manage User Profile, Ads and Chats"
+          content="Browse Ads | See what's on sale or available for free"
         />
         <meta
           property="og:description"
-          content="Make changes to your NXT Door Deals account and manage your ads and chats"
+          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
         />
-        <meta property="og:url" content="https://nxtdoordeals.com/account" />
+        <meta
+          property="og:url"
+          content={`https://nxtdoordeals.com/neighbourhood/ads/${props.aptId}`}
+        />
         <meta property="og:site_name" content="nxtdoordeals.com" />
         <script
           type="application/ld+json"
@@ -57,20 +45,20 @@ const UserAccountHeadLayout = (props) => {
                 "@type": "WebPage",
                 "datePublished": "22-03-2021",
                 "dateModified": "22-03-2021",
-                "url": "https://nxtdoordeals.com/account",
-                "description": "Make changes to your NXT Door Deals account and manage your ads and chats",
-                "name": "My Account | Manage User Profile, Ads and Chats",
+                "url": "https://nxtdoordeals.com/neighbourhood/ads/${props.aptId}",
+                "description": "Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away",
+                "name": "Browse Ads | See what's on sale or available for free",
                 "inLanguage": "en",
                 "isPartOf": {
                   "@type": "WebSite",
                   "url": "https://nxtdoordeals.com",
-                  "name": "nxtdoordeals.com | Your  Apartment's Marketplace",
+                  "name": "nxtdoordeals.com | Your Apartment's Marketplace",
                   "inLanguage": "en"},
                 "potentialAction": {
-                  "@type": "CreateAction",
+                  "@type": "ReadAction",
                   "target": {
                     "@type": "EntryPoint",
-                    "urlTemplate": "https://nxtdoordeals.com/account"
+                    "urlTemplate": "https://nxtdoordeals.com/neighbourhood/ads/${props.aptId}"
                   }
                 }
               }
@@ -83,4 +71,4 @@ const UserAccountHeadLayout = (props) => {
   );
 };
 
-export default UserAccountHeadLayout;
+export default MarketplaceHeadLayout;

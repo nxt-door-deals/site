@@ -74,7 +74,7 @@ const AuthState = (props) => {
     otpValidated: null,
     passwordChanged: null,
     genericMessage: null,
-    userAds: null,
+    userAds: [],
     buyerChats: null,
     sellerChats: null,
     chatError: null,
@@ -243,14 +243,16 @@ const AuthState = (props) => {
   };
 
   // Delete ad
-  const deleteAd = async (index, userId, adId) => {
+  const deleteAd = async (userId, adId) => {
     setApiKey(projectKey);
     try {
       await axios.delete(
         `${keys.API_PROXY}/userads/delete/?user_id=${userId}&ad_id=${adId}`
       );
 
-      if (state.userAds !== null) state.userAds.splice(index, 1);
+      // if (state.userAds !== []) state.userAds.splice(index, 1);
+
+      // state.user && state.fetchUserAds(state.user.id);
     } catch (err) {
       dispatch({ type: DELETE_AD, payload: err.response.data.detail });
     }

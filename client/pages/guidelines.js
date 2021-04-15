@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,9 +26,10 @@ import ScrollToTop from "../components/utils/ScrollToTop";
 const Guidelines = () => {
   const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
+  const pathname = router.pathname;
 
   navStylePurple["navTextColor"] = "text-brand-purple";
-  navStylePurple["pathname"] = router.pathname;
+  navStylePurple["pathname"] = pathname;
 
   return (
     <GuidelinesHeadLayout>
@@ -130,7 +131,10 @@ const Guidelines = () => {
             </div>
           </section>
         </div>
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </GuidelinesHeadLayout>
   );

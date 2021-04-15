@@ -59,7 +59,6 @@ const Tab = (props) => {
             ) : activeTab === 1 ? (
               <UserAdsWrapper
                 currentUser={props.currentUser}
-                ads={props.ads}
                 showForm={props.showForm}
                 setShowForm={props.setShowForm}
               />

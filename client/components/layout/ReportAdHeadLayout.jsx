@@ -21,7 +21,7 @@ const ReportAdHeadLayout = (props) => {
         />
         <meta
           property="og:url"
-          content="https://nxtdoordeals.com/reportad/[id]"
+          content={`https://nxtdoordeals.com/reportad/${props.adId}`}
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
         <script
@@ -42,7 +42,7 @@ const ReportAdHeadLayout = (props) => {
                 "@type": "WebPage",
                 "datePublished": "22-03-2021",
                 "dateModified": "22-03-2021",
-                "url": "https://nxtdoordeals.com/reportad/[id]",
+                "url": "https://nxtdoordeals.com/reportad/${props.adId}",
                 "description": "Report an ad that violates our community guidelines or terms of use",
                 "name": "Report an Ad",
                 "inLanguage": "en",
@@ -55,7 +55,7 @@ const ReportAdHeadLayout = (props) => {
                   "@type": "CreateAction",
                   "target": {
                     "@type": "EntryPoint",
-                    "urlTemplate": "https://nxtdoordeals.com/reportad/[id]"
+                    "urlTemplate": "https://nxtdoordeals.com/reportad/${props.adId}"
                   }
                 }
               }

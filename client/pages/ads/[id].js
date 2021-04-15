@@ -32,7 +32,7 @@ const FullPageAd = (props) => {
   }, []);
 
   return (
-    <AdsHeadLayout>
+    <AdsHeadLayout adId={props.data.id}>
       <div className="text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
         <Navbar
           navStyle={navStylePurple}
@@ -54,7 +54,10 @@ const FullPageAd = (props) => {
           />
         </div>
         <div>
-          <Footer footerGradientClass={footerGradientClassPurple} />
+          <Footer
+            footerGradientClass={footerGradientClassPurple}
+            pathname={pathname}
+          />
         </div>
       </div>
     </AdsHeadLayout>

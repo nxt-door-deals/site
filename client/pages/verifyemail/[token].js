@@ -82,7 +82,10 @@ const VerifyEmail = () => {
           </motion.button>
         </div>
       </div>
-      <Footer footerGradientClass={footerGradientClassPurple} />
+      <Footer
+        footerGradientClass={footerGradientClassPurple}
+        pathname={pathname}
+      />
     </VerifyEmailHeadLayout>
   );
 };

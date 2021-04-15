@@ -31,7 +31,10 @@ const OurStory = (props) => {
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-our-story-background-mobile md:bg-our-story-background-tablet lg:bg-our-story-background bg-cover bg-no-repeat h-100 md:h-128 relative"></div>
         <OurStoryDetails />
-        <Footer footerGradientClass={footerGradientClassPurple} />
+        <Footer
+          footerGradientClass={footerGradientClassPurple}
+          pathname={pathname}
+        />
       </div>
     </OurStoryHeadLayout>
   );
