@@ -199,6 +199,7 @@ const Footer = (props) => {
               passHref={true}
             >
               <motion.a
+                rel="noopener"
                 variants={variants}
                 whileHover="hover"
                 target="_blank"
@@ -213,6 +214,7 @@ const Footer = (props) => {
               passHref={true}
             >
               <motion.a
+                rel="noopener"
                 variants={variants}
                 whileHover="hover"
                 target="_blank"
@@ -227,6 +229,7 @@ const Footer = (props) => {
               passHref={true}
             >
               <motion.a
+                rel="noopener"
                 variants={variants}
                 whileHover="hover"
                 target="_blank"
@@ -241,6 +244,7 @@ const Footer = (props) => {
               passHref={true}
             >
               <motion.a
+                rel="noopener"
                 variants={variants}
                 whileHover="hover"
                 target="_blank"

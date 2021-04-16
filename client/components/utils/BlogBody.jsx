@@ -3,8 +3,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import options from "../../utils/contentfulRenderers";
 
 const BlogBody = (props) => {
-  console.log(props.content);
-
   return (
     <div className="pt-10 px-5 lg:px-20">
       {/* {props.content.map((text, index) => {
