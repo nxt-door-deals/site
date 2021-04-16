@@ -40,7 +40,7 @@ const UserLoggedIn = () => {
           animate="btn1Visible"
           whileHover="homeButtonHover"
           whileTap="homeButtonTap"
-          className="w-48 h-12 rounded-lg bg-purple-700 text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
+          className="w-48 h-12 rounded-lg bg-purple-700 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
           onClick={() => router.push("/")}
           aria-label="Home button"
         >
@@ -53,7 +53,7 @@ const UserLoggedIn = () => {
             animate="btn2Visible"
             whileHover="loginStatusButtonHover"
             whileTap="loginStatusButtonTap"
-            className="w-48 h-12 rounded-lg bg-ad-purple text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
+            className="w-48 h-12 rounded-lg bg-ad-purple shadow-giveawayButtonShadow text-white uppercase font-bold text-center tracking-wide cursor-pointer mr-4 focus:outline-none border-none"
             onClick={() => router.push("/logout")}
             aria-label="Logout button"
           >
