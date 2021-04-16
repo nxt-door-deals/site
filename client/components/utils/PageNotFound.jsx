@@ -1,9 +1,46 @@
 import { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import cookie from "../../utils/cookieInit";
 import AuthContext from "../../context/auth/authContext";
-import { toast } from "react-toastify";
+
+const button1Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { delay: 0.2, duration: 0.5 },
+  hover: {
+    backgroundColor: "#4C1D95",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#6D28D9",
+  },
+};
+
+const button2Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { delay: 0.4, duration: 0.5 },
+  hover: {
+    backgroundColor: "#550052",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#902393",
+  },
+};
+
+const button3Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { delay: 0.7, duration: 0.5 },
+  hover: {
+    backgroundColor: "#000000",
+  },
+  tap: {
+    y: "2px",
+    backgroundColor: "#333333",
+  },
+};
 
 const PageNotFound = () => {
   const router = useRouter();
@@ -16,7 +53,7 @@ const PageNotFound = () => {
 
   return (
     <div>
-      <div className="flex justify-center pt-8 -z-20">
+      <div className="flex justify-center pt-8 lg:pt-28 -z-20">
         <svg
           width="600"
           height="350"
@@ -392,11 +429,11 @@ const PageNotFound = () => {
           </g>
         </svg>
       </div>
-      <div className="font-axiforma text-brand-gray text-center mt-5 lg:mt-10 ml-2 mr-2">
+      <div className="font-axiforma text-brand-gray text-center mt-1 lg:mt-10 ml-2 mr-2">
         <h1 className="text-2xl font-bold pb-2">
-          This page does not exist yet!
+          This page does not exist yet...
         </h1>
-        <p className="text-base">
+        <p className="text-base pt-5">
           Sorry! The page you were looking for could not be found at this time.
           However, here are some pages you might be interested in.
         </p>
@@ -406,10 +443,13 @@ const PageNotFound = () => {
         {user && user ? (
           <div className="flex flex-col lg:flex-row">
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button1Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 shadow-buttonShadowPurple focus:outline-none"
               onClick={() => {
                 router.push("/");
               }}
@@ -417,10 +457,13 @@ const PageNotFound = () => {
               Home
             </motion.button>
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button2Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 shadow-giveawayButtonShadow focus:outline-none"
               onClick={() => {
                 user !== null &&
                   router.push(`/neighbourhood/ads/${user.apartment_id}`);
@@ -429,10 +472,13 @@ const PageNotFound = () => {
               My Apartment
             </motion.button>
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button3Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 shadow-lg focus:outline-none"
               onClick={() => router.push("/logout")}
             >
               Logout
@@ -441,10 +487,13 @@ const PageNotFound = () => {
         ) : (
           <div className="flex flex-col md:flex-row">
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button1Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-purple-700 mb-4 md:mr-6 md:mb-0 shadow-buttonShadowPurple focus:outline-none"
               onClick={() => {
                 router.push("/");
               }}
@@ -452,10 +501,13 @@ const PageNotFound = () => {
               Home
             </motion.button>
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button2Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-ad-purple mb-4 md:mr-6 md:mb-0 shadow-giveawayButtonShadow focus:outline-none"
               onClick={() => {
                 router.push("/registeruser");
               }}
@@ -463,10 +515,13 @@ const PageNotFound = () => {
               Register
             </motion.button>
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 focus:outline-none"
+              variants={button3Variants}
+              initial="initial"
+              animate="animate"
+              transition="transition"
+              whileHover="hover"
+              whileTap="tap"
+              className="btn-style bg-banner-color mb-4 md:mr-6 md:mb-0 shadow-lg focus:outline-none"
               onClick={() => {
                 router.push("/login");
               }}

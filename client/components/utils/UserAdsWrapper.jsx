@@ -36,19 +36,17 @@ const UserAdsWrapper = (props) => {
     return () => (mounted = false);
   }, []);
 
-  useEffect(() => {
-    let mounted = true;
+  // useEffect(() => {
+  //   let mounted = true;
 
-    if (mounted) setAds(userAds);
+  //   if (mounted) setAds(userAds);
 
-    return () => (mounted = false);
-  }, [userAds]);
-
-  console.log(ads);
+  //   return () => (mounted = false);
+  // }, [userAds]);
 
   // const userAdIndices = userAds && [...Array(userAds.length).keys()];
 
-  if (ads && ads.length === 0) {
+  if (userAds && userAds.length === 0) {
     return (
       <div className="py-16 lg:py-20 px-8">
         <p className="font-axiforma text-brand-gray text-xl text-center">
@@ -73,13 +71,11 @@ const UserAdsWrapper = (props) => {
       <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
         <h1 className="component-heading mt-10 pb-6">My Ads</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {ads &&
+          {userAds &&
             // [...Array(ads.length).keys()].map((i) => (
-            ads.map((ad, index) => (
+            userAds.map((ad, index) => (
               <UserAds
                 key={index}
-                ads={ads}
-                setAds={setAds}
                 ad={ad}
                 currentUser={props.currentUser}
                 showForm={props.showForm}

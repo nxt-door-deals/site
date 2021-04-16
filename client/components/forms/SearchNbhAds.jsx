@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { Formik, Form, Field } from "formik";
 import Select from "react-select";
@@ -20,6 +20,14 @@ const variants = {
     backgroundColor: "#902393",
     color: "#EDE9FE",
   },
+  resetHover: {
+    backgroundColor: "#000000",
+    color: "#FFFFFF",
+  },
+  resetTap: {
+    y: "2px",
+    backgroundColor: "#292d34",
+  },
 };
 
 const SearchNbhAds = (props) => {
@@ -33,6 +41,7 @@ const SearchNbhAds = (props) => {
     sortByDateCreatedDesc,
     sortGiveawayAsc,
     sortGiveawayDesc,
+    fetchAdsForNbh,
   } = siteContext;
 
   const sortResults = (value) => {
@@ -65,7 +74,7 @@ const SearchNbhAds = (props) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-16">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-12 lg:mb-16">
       <div>
         <Formik
           initialValues={{
@@ -83,7 +92,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
-                  <div className="w-44 lg:w-64 p-0 font-axiforma z-20">
+                  <div className="w-44 lg:w-64 p-0 z-20">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -141,14 +150,14 @@ const SearchNbhAds = (props) => {
         </Formik>
       </div>
 
-      <div className="flex mt-5 lg:mt-0 justify-between items-center px-2">
+      <div className="flex mt-5 lg:mt-0 justify-between items-center">
         {/* The giveaway button */}
         <div>
           <motion.button
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="px-3 py-3 lg:ml-5 lg:px-4 lg:py-2.5 bg-ad-purple text-white text-xs lg:text-sm rounded-lg uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
+            className="px-3 py-3 lg:ml-3 lg:px-4 lg:py-2.5 bg-ad-purple text-white text-xs lg:text-sm rounded-xl uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
             onClick={() => searchGiveaways(props.nbhId)}
             aria-label="Giveaway sort button"
           >
@@ -180,6 +189,16 @@ const SearchNbhAds = (props) => {
           />
         </div>
       </div>
+
+      <motion.button
+        variants={variants}
+        whileHover="resetHover"
+        whileTap="resetTap"
+        className="mt-5 lg:mt-0 px-10 lg:px-2.5 py-4 lg:ml-3 bg-banner-color text-white text-xs lg:text-sm rounded-xl uppercase font-semibold focus:outline-none shadow-lg tracking-wide"
+        onClick={() => fetchAdsForNbh(props.nbhId)}
+      >
+        Clear
+      </motion.button>
     </div>
   );
 };

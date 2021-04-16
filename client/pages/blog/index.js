@@ -20,10 +20,6 @@ const Blog = (props) => {
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
-  if (typeof window !== "undefined") {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  }
-
   useEffect(() => {
     window.scroll({ top: 1, left: 0, behavior: "smooth" });
   }, []);
@@ -31,7 +27,7 @@ const Blog = (props) => {
   return (
     <BlogHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div className="h-full bg-blog-background bg-fixed bg-cover bg-no-repeat">
+      <div className="h-full w-full bg-blog-background-mobile md:bg-blog-background lg:bg-fixed bg-cover bg-no-repeat">
         <div id="article" className="text-center pt-32 px-10 pb-20">
           <h1 className="component-heading">{greeting}! Welcome to our blog</h1>
           <p>
