@@ -11,7 +11,7 @@ Modal.setAppElement("#__next");
 const FraudAlert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div>
+    <div className="mt-2 lg:mt-0">
       <div className="flex text-red-700">
         <FontAwesomeIcon icon={faBullhorn} className="text-red-800 mr-2" />
         <p
