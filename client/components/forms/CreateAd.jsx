@@ -23,6 +23,7 @@ import {
 
 // Component imports
 import PostAdHeader from "../utils/PostAdHeader";
+import FraudAlert from "../utils/FraudAlert";
 import Terms from "../utils/Terms";
 
 const createAdValidationSchema = Yup.object({
@@ -142,8 +143,10 @@ const CreateAd = ({ categoryName, user }) => {
   });
 
   return (
-    <div className="flex flex-col items-center h-full w-full font-axiforma">
+    <div className="flex flex-col items-center h-full w-full">
+      <FraudAlert />
       <PostAdHeader heading={heading} step={step} />
+
       <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-2 lg:px-10 mx-2 mb-20">
         <Formik
           initialValues={{
@@ -229,7 +232,7 @@ const CreateAd = ({ categoryName, user }) => {
                     />
                   </div>
                   {props.values.categoryList === "Pets" && (
-                    <p className="text-sm pt-3">
+                    <p className="text-sm pt-3 text-red-700">
                       <FontAwesomeIcon
                         icon={faBan}
                         className="mr-1 text-red-800"

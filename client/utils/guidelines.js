@@ -69,6 +69,7 @@ const bannedItems = [
   "Police, army, navy and airforce related items",
   "Political propaganda",
   "Property for sale",
+  "Sanitisers, sanitiser sprays, used masks, PPE kits or any testing equipment related to COVID 19 or other diseases",
   "Stocks, shares and other securities",
   "Surrogacy",
   "Tickets, vouchers and passes for events of all kinds (example: sports, music, theatre)",

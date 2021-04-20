@@ -137,6 +137,8 @@ module.exports = {
         "faq-main-background": "url(/images/policy/faq-bg.svg)",
         "blog-background": "url(/images/blog/blog-bg.svg)",
         "blog-background-mobile": "url(/images/blog/blog-bg-mobile.svg)",
+        "covid-background": "url(/images/covid/bg-covid.svg)",
+        "covid-background-mobile": "url(/images/covid/bg-covid-mobile.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",
