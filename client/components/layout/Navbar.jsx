@@ -461,7 +461,8 @@ const Navbar = (props) => {
           {(props.navStyle.pathname.includes("/reportad") ||
             props.navStyle.pathname.includes("/faqs") ||
             props.navStyle.pathname === "/guidelines" ||
-            props.navStyle.pathname === "/policies") && (
+            props.navStyle.pathname === "/policies" ||
+            props.navStyle.pathname === "/covid") && (
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
@@ -1086,7 +1087,8 @@ const Navbar = (props) => {
             {(props.navStyle.pathname.includes("/reportad") ||
               props.navStyle.pathname.includes("/faqs") ||
               props.navStyle.pathname === "/guidelines" ||
-              props.navStyle.pathname === "/policies") && (
+              props.navStyle.pathname === "/policies" ||
+              props.navStyle.pathname === "/covid") && (
               <Fragment>
                 <li
                   className={

@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
-  faComments,
   faExclamationTriangle,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
