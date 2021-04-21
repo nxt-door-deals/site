@@ -9,6 +9,9 @@ module.exports = {
       padding: {
         1.75: "0.4375rem",
       },
+      fontWeight: {
+        nav: 550,
+      },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
         buttonShadowPurple: "0 10px 25px rgba(123,104,238,.5)",
@@ -77,6 +80,7 @@ module.exports = {
         "alt-gray": "#FAFBFC",
       },
       screens: {
+        lg: "1125px",
         tablet: "1366",
         xxl: "1500",
       },
@@ -178,7 +182,7 @@ module.exports = {
       fontSize: {
         xxs: ".6875rem",
         tiny: ".8rem",
-        navText: ".8125rem",
+        navText: "12px",
       },
       borderRadius: {
         "half-full": "4000px",
