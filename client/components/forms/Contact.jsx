@@ -68,12 +68,15 @@ const Contact = (props) => {
         className="bg-white w-90 lg:w-100 px-5 pt-5 shadow-modalShadow rounded-lg"
       >
         <div
-          className="absolute text-lg right-0 mr-4 text-brand-gray cursor-pointer"
+          className="absolute text-lg top-4 right-5 text-brand-gray cursor-pointer"
           onClick={() => props.setIsModalOpen(false)}
           alt="Close Menu"
         >
           <FontAwesomeIcon icon={faTimes} />
         </div>
+        <span className="invisible lg:visible text-xs absolute top-10 right-3.5 text-gray-500">
+          ESC
+        </span>
         <div className="flex justify-center">
           <Image
             src={"/images/contact/typewriter.svg"}

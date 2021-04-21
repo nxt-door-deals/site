@@ -1,17 +1,23 @@
 import React from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faFlag, faTimes, faMask } from "@fortawesome/free-solid-svg-icons";
 
 const FraudAlertText = (props) => {
   return (
     <div className="text-sm p-10 relative">
       <FontAwesomeIcon
         icon={faTimes}
-        className="absolute top-3 right-3 text-lg cursor-pointer"
+        className="absolute top-3 right-6 text-lg cursor-pointer"
         onClick={() => props.setIsModalOpen(false)}
       />
-      <h2 className="component-heading">Beware of fraudsters!</h2>
+      <span className="invisible lg:visible absolute text-xs top-8 right-4 text-gray-500">
+        ESC
+      </span>
+      <h2 className="component-heading">
+        Beware of fraudsters{" "}
+        <FontAwesomeIcon icon={faMask} className="align-middle" />
+      </h2>
       <p>
         While our platform aims at facilitating buying and selling between
         residents of your apartment, there are many fraudsters out there looking

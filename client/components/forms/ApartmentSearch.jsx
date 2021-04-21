@@ -124,7 +124,7 @@ const ApartmentSearch = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className="align-middle text-gray-400 cursor-pointer lg:mr-1"
+                className="lg:hidden align-middle text-gray-400 cursor-pointer lg:mr-1"
                 onClick={() => {
                   props.setFieldValue(apartment, (props.values.apartment = ""));
                   setparentDiv("invisible");

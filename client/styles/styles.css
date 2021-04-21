@@ -18,11 +18,11 @@ body {
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-navText font-axiforma tracking-wide font-semibold transform transition  duration-300 ease-in-out focus-within:outline-none;
+  @apply mr-6 z-20 text-navText tracking-wide transform transition font-nav duration-300 ease-in-out focus-within:outline-none;
 }
 
 .menu-nav-item {
-  @apply z-30 text-base uppercase font-axiforma font-bold mb-12 cursor-pointer;
+  @apply z-30 text-base uppercase font-nav mb-12 cursor-pointer;
 }
 
 .sm-flex {
