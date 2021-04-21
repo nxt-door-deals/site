@@ -233,7 +233,7 @@ const Ad = (props) => {
                 onClick={() => {
                   setDeleteButtonClicked(true);
                   updateNumberSold(user && user.id);
-                  deleteAd(0, props.data.posted_by_id, props.data.id);
+                  deleteAd(props.data.posted_by_id, props.data.id);
                   setTimeout(
                     () =>
                       router.push(
