@@ -10,7 +10,7 @@ module.exports = {
         1.75: "0.4375rem",
       },
       fontWeight: {
-        nav: 550,
+        nav: 590,
       },
       boxShadow: {
         buttonshadow: "0px 8px 15px rgba(270, 90, 56, 0.15)",
@@ -182,7 +182,7 @@ module.exports = {
       fontSize: {
         xxs: ".6875rem",
         tiny: ".8rem",
-        navText: "12px",
+        navText: "13px",
       },
       borderRadius: {
         "half-full": "4000px",

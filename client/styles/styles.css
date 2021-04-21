@@ -18,7 +18,7 @@ body {
 }
 
 .nav-item {
-  @apply mr-6 z-20 text-navText tracking-wide transform transition font-nav duration-300 ease-in-out focus-within:outline-none;
+  @apply mr-6 z-20 text-navText tracking-wide transform transition font-semibold duration-300 ease-in-out focus-within:outline-none;
 }
 
 .menu-nav-item {

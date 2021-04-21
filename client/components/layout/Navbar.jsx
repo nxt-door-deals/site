@@ -248,22 +248,22 @@ const Navbar = (props) => {
           {/* Navbar on the our story page */}
           {props.navStyle.pathname === "/ourstory" && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/blog">
                   <a className="pb-1 styled-link">Blog</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
                     <a className="pb-1 styled-link">Login</a>
@@ -276,7 +276,7 @@ const Navbar = (props) => {
                   </span>
                 )}
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                     <Link href="/registeruser">
@@ -296,22 +296,22 @@ const Navbar = (props) => {
           {(props.navStyle.pathname.startsWith("/ads") ||
             props.navStyle.pathname.startsWith("/neighbourhood/ads")) && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
                     <a className="pb-1 styled-link">Login</a>
@@ -332,7 +332,7 @@ const Navbar = (props) => {
                   </Link>
                 )}
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/registeruser">
                     <a className="pb-1 styled-link">Sign Up</a>
@@ -349,17 +349,17 @@ const Navbar = (props) => {
           {/* Navbar on the subscription page */}
           {props.navStyle.pathname === "/subscription" && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
@@ -374,17 +374,17 @@ const Navbar = (props) => {
             props.navStyle.pathname.startsWith("/register/neighbourhood") ||
             props.navStyle.pathname.includes("/verifyemail")) && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
@@ -395,12 +395,12 @@ const Navbar = (props) => {
           {/* Navbar on the blog page */}
           {props.navStyle.pathname.includes("/blog") && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
@@ -412,28 +412,28 @@ const Navbar = (props) => {
           {(props.navStyle.pathname === "/postad" ||
             props.navStyle.pathname.includes("/chat")) && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href={`/neighbourhood/ads/${user && user.apartment_id}`}>
                   <a className="pb-1 styled-link">My Apartment</a>
                 </Link>
               </li>
 
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/account">
                   <a className="relative pb-1 styled-link">
                     {props.chatNotification.current && (
@@ -449,7 +449,7 @@ const Navbar = (props) => {
                 </Link>
               </li>
 
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/logout" as="/">
                   <a className="pb-1 styled-link">Logout</a>
                 </Link>
@@ -464,22 +464,22 @@ const Navbar = (props) => {
             props.navStyle.pathname === "/policies" ||
             props.navStyle.pathname === "/covid") && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user === null ? (
                   <Link href="/login">
                     <a className="pb-1 styled-link">Login</a>
@@ -490,7 +490,7 @@ const Navbar = (props) => {
                   </Link>
                 )}
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <span className="hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl">
                   {user === null && (
                     <Link href="/registeruser">
@@ -510,22 +510,22 @@ const Navbar = (props) => {
           {/* Navbar on the user account page */}
           {props.navStyle.pathname === "/account" && (
             <ul className="flex">
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
                   <a className="pb-1 styled-link">Home</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/#how-it-works">
                   <a className="pb-1 styled-link">How It Works</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/ourstory">
                   <a className="pb-1 styled-link">Our Story</a>
                 </Link>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 {user && user && (
                   <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
                     <a className="pb-1 styled-link">My Apartment</a>
@@ -533,7 +533,7 @@ const Navbar = (props) => {
                 )}
               </li>
 
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/logout" as="/">
                   <a className="pb-1 styled-link">Logout</a>
                 </Link>

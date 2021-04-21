@@ -17,7 +17,7 @@ import {
   faQuestionCircle,
   faBookOpen,
   faUserNinja,
-  faShoppingBag,
+  faBuilding,
   faBlog,
   faRss,
   faShieldVirus,
@@ -278,7 +278,7 @@ const Footer = (props) => {
                   className="px-2 pb-3"
                   aria-label="Link to the my apartment page"
                 >
-                  <FontAwesomeIcon icon={faShoppingBag} className="mr-1" />
+                  <FontAwesomeIcon icon={faBuilding} className="mr-1" />
                   <span className="pb-1 styled-link">My Apartment</span>
                 </a>
               </Link>

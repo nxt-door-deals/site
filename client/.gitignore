@@ -70,6 +70,10 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+# RSS
+public/rss/feed.xml
+feed.xml
+
 # Yarn Integrity file
 .yarn-integrity
 
