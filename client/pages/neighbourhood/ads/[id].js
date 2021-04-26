@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import SiteContext from "../../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -36,7 +36,6 @@ const variants = {
 };
 
 const Ads = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const headerRef = useRef(null);
   const siteContext = useContext(SiteContext);
   const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
@@ -81,12 +80,9 @@ const Ads = (props) => {
   navStylePurple["pathname"] = pathname;
 
   return (
-    <MarketplaceHeadLayout aptId={props.aptId}>
+    <MarketplaceHeadLayout aptId={props.aptId} aptName={props.aptName}>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
 
       <div id="header" ref={headerRef}>
@@ -162,13 +158,7 @@ const Ads = (props) => {
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
 
-  const apartmentId = parseInt(id);
-
-  if (!Number.isInteger(apartmentId)) {
-    return {
-      notFound: true,
-    };
-  }
+  const apartmentId = id;
 
   const nbhAds = await axios.get(
     `${process.env.API_URL}/nbhads/get/${apartmentId}`
@@ -188,7 +178,7 @@ export const getServerSideProps = async (context) => {
     props: {
       aptName: aptName && aptName.data.name,
       aptId: apartmentId,
-      adsList: nbhAds && nbhAds.data,
+      adsList: (nbhAds && nbhAds.data) || [],
     },
   };
 };

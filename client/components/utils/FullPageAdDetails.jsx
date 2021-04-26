@@ -107,9 +107,9 @@ const FullPageAdDetails = (props) => {
               router.push(
                 `/chat/${
                   props.adData.id +
-                  "-" +
+                  "+" +
                   props.adData.posted_by_id +
-                  "-" +
+                  "+" +
                   props.buyerId
                 }`
               );

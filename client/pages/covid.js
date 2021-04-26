@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Component imports
 import CovidGuidelinesText from "../components/utils/CovidGuidelinesText";
@@ -6,14 +6,10 @@ import CovidGuidelinesHeadLayout from "../components/layout/CovidGuidelinesHeadL
 import ScrollToTop from "../components/utils/ScrollToTop";
 
 const CovidGuidelines = () => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   return (
     <CovidGuidelinesHeadLayout>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
 
       <CovidGuidelinesText />

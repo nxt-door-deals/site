@@ -104,6 +104,7 @@ const authReducer = (state, action) => {
       // });
       if (typeof window !== "undefined") {
         localStorage.removeItem("nddToken");
+        localStorage.removeItem("nddUser");
       }
 
       cookie.remove("__redirChatCookie", {

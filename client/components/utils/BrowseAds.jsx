@@ -34,7 +34,7 @@ const BrowseAds = (props) => {
   }, [user]);
 
   useEffect(() => {
-    if (sellerChats && sellerChats) {
+    if (sellerChats && sellerChats && !props.chatNotification.current) {
       // Check is someone has DM'ed the seller
       sellerChats.some((chat) => {
         if (chat.new_chats && chat.last_sender !== user.id) {
@@ -46,7 +46,7 @@ const BrowseAds = (props) => {
   }, [sellerChats]);
 
   useEffect(() => {
-    if (buyerChats && buyerChats) {
+    if (buyerChats && buyerChats && !props.chatNotification.current) {
       buyerChats.some((chat) => {
         if (chat.new_chats && chat.last_sender !== user.id) {
           props.chatNotification.current = true;

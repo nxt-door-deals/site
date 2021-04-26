@@ -9,7 +9,6 @@ import ScrollToTop from "./ScrollToTop";
 
 const FrequentlyAskedQuestions = (props) => {
   const [faqIndex, setFaqIndex] = useState(null);
-  const [scrollToTop, setScrollToTop] = useState(false);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
@@ -30,10 +29,7 @@ const FrequentlyAskedQuestions = (props) => {
   return (
     <div className="text-brand-gray px-1">
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
       <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
         {faqType} FAQs

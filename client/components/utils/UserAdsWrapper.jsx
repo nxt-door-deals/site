@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 // Component Imports
 import UserAds from "./UserAds";
+import AdQuotaIndicator from "../utils/AdQuotaIndicator";
 
 const buttonVariants = {
   hover: {
@@ -69,8 +70,9 @@ const UserAdsWrapper = (props) => {
   } else {
     return (
       <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
-        <h1 className="component-heading mt-10 pb-6">My Ads</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <h1 className="component-heading mt-10 pb-3">My Ads</h1>
+        <AdQuotaIndicator userAds={userAds && userAds} />
+        <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {userAds &&
             // [...Array(ads.length).keys()].map((i) => (
             userAds.map((ad, index) => (

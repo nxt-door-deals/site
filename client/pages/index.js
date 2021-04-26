@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,7 +46,6 @@ const buttonVariants = {
 const Home = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
-  const [scrollToTop, setScrollToTop] = useState(false);
 
   props.pathHistory.current = null;
 
@@ -71,13 +69,6 @@ const Home = (props) => {
           <HowItWorks pathname={pathname} />
         </section>
       </main>
-
-      <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
-      </div>
 
       <AnimatePresence exitBeforeEnter>
         {props.showBanner && (
@@ -125,6 +116,9 @@ const Home = (props) => {
           pathname={pathname}
         />
       </section>
+      <div className="w-full h-full">
+        <ScrollToTop />
+      </div>
     </HomeHeadLayout>
   );
 };

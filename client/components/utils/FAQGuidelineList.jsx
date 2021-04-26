@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -22,15 +22,10 @@ const variants = {
 };
 
 const FAQGuidelineList = () => {
-  const [scrollToTop, setScrollToTop] = useState(false);
-
   return (
     <div>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
       <section id="grid">
         <div

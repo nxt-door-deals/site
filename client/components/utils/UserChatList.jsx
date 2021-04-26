@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
@@ -36,6 +35,7 @@ const UserChatList = (props) => {
     buyerChats,
     loadBuyerChats,
     userAds,
+    fetchUserAds,
     user,
     markSellerChatForDeletion,
     markBuyerChatForDeletion,
@@ -43,6 +43,7 @@ const UserChatList = (props) => {
 
   useEffect(() => {
     props.chatNotification.current = null;
+    fetchUserAds(props.currentUser.id);
     loadBuyerChats(user.id);
     loadSellerChats(user.id);
   }, []);
@@ -139,9 +140,9 @@ const UserChatList = (props) => {
                                             router.push(
                                               `/chat/${
                                                 chat.ad_id +
-                                                "-" +
+                                                "+" +
                                                 chat.seller_id +
-                                                "-" +
+                                                "+" +
                                                 chat.buyer_id
                                               }`
                                             )
@@ -252,9 +253,9 @@ const UserChatList = (props) => {
                               router.push(
                                 `/chat/${
                                   chat.ad_id +
-                                  "-" +
+                                  "+" +
                                   chat.seller_id +
-                                  "-" +
+                                  "+" +
                                   chat.buyer_id
                                 }`
                               )

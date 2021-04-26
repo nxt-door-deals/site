@@ -92,8 +92,7 @@ const ReportAds = (props) => {
   useEffect(() => {
     if (userAds && userAds.length !== 0) {
       const matchAdWithUser =
-        userAds !== [] &&
-        userAds.filter((ad) => ad.id === parseInt(props.adId));
+        userAds !== [] && userAds.filter((ad) => ad.id === props.adId);
 
       if (matchAdWithUser.length > 0) router.push(`/ads/${props.adId}`);
     }

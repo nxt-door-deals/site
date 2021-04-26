@@ -14,7 +14,6 @@ import ScrollToTop from "../../components/utils/ScrollToTop";
 const FullPageAd = (props) => {
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
   const [imgArray, setImgArray] = useState(props.data.images);
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -22,13 +21,11 @@ const FullPageAd = (props) => {
   navStylePurple["pathname"] = pathname;
 
   useEffect(() => {
-    setTimeout(() => {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    }, 100);
+    window.scroll({
+      top: 1,
+      left: 0,
+      behavior: "smooth",
+    });
   }, []);
 
   return (
@@ -47,18 +44,16 @@ const FullPageAd = (props) => {
             setShowForm={props.setShowForm}
           />
         </div>
-        <div className="w-full">
-          <ScrollToTop
-            scrollToTop={scrollToTop}
-            setScrollToTop={setScrollToTop}
-          />
-        </div>
+
         <div>
           <Footer
             footerGradientClass={footerGradientClassPurple}
             pathname={pathname}
           />
         </div>
+      </div>
+      <div className="w-full">
+        <ScrollToTop />
       </div>
     </AdsHeadLayout>
   );
@@ -67,13 +62,7 @@ const FullPageAd = (props) => {
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
 
-  const adId = parseInt(id);
-
-  if (!Number.isInteger(adId)) {
-    return {
-      notFound: true,
-    };
-  }
+  const adId = id;
 
   const res = await axios.get(`${process.env.API_URL}/ads/${adId}`);
 

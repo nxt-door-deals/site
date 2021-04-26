@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +24,6 @@ import GuidelinesHeadLayout from "../components/layout/GuidelinesHeadLayout";
 import ScrollToTop from "../components/utils/ScrollToTop";
 
 const Guidelines = () => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -34,10 +33,7 @@ const Guidelines = () => {
   return (
     <GuidelinesHeadLayout>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
 
       <div id="header" className="text-brand-gray bg-purple-50">
@@ -115,9 +111,9 @@ const Guidelines = () => {
                 just these items. Any ads violating our Terms of Use will be
                 removed from the marketplace.
               </p>
-              {bannedItems.map((guideline) => {
+              {bannedItems.map((guideline, index) => {
                 return (
-                  <div>
+                  <div key={index}>
                     <p className="pb-2">
                       <FontAwesomeIcon
                         icon={faBan}
