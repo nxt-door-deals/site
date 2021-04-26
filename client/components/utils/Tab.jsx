@@ -63,7 +63,10 @@ const Tab = (props) => {
                 setShowForm={props.setShowForm}
               />
             ) : (
-              <UserChatList chatNotification={props.chatNotification} />
+              <UserChatList
+                currentUser={props.currentUser}
+                chatNotification={props.chatNotification}
+              />
             )}
           </div>
         )}

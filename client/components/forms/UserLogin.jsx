@@ -91,6 +91,10 @@ const UserLogin = (props) => {
 
   useEffect(() => {
     if (user && user !== null) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("nddUser", user.id);
+      }
+
       greetingToast(`${greeting}, ${user && user.name}!`);
       if (props.pathProp === "/chat/[id]") {
         let chatCookie = cookie.get("__redirChatCookie");
@@ -107,9 +111,9 @@ const UserLogin = (props) => {
             router.push(
               `/chat/${
                 chatCookie["_adId"] +
-                "-" +
+                "+" +
                 chatCookie["_slrId"] +
-                "-" +
+                "+" +
                 chatCookie["_byrId"]
               }`
             ),

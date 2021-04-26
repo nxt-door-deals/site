@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
@@ -11,7 +10,6 @@ import OurStoryDetails from "../components/utils/OurStoryDetails";
 import ScrollToTop from "../components/utils/ScrollToTop";
 
 const OurStory = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -21,10 +19,7 @@ const OurStory = (props) => {
   return (
     <OurStoryHeadLayout>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
 
       <div id="header" className="h-full">

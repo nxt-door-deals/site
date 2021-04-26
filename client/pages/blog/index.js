@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { createClient } from "contentful";
 import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
@@ -12,7 +12,6 @@ import BlogPreviewCard from "../../components/utils/BlogPreviewCard";
 import ScrollToTop from "../../components/utils/ScrollToTop";
 
 const Blog = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -39,10 +38,7 @@ const Blog = (props) => {
         </div>
       </div>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
       <Footer
         footerGradientClass={footerGradientClassPurple}

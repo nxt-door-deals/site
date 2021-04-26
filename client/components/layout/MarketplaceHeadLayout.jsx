@@ -7,7 +7,10 @@ const MarketplaceHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Browse Ads | See what's on sale or available for free</title>
+        <title>
+          {props.aptName || "Browse Ads"} | See what's on sale or available for
+          free
+        </title>
         <meta
           name="description"
           content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"

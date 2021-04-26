@@ -56,7 +56,7 @@ const Footer = (props) => {
     <div
       role="contentinfo"
       aria-label="Footer"
-      className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 shadow-footerShadow text-purple-50 "`}
+      className={`${props.footerGradientClass} + " bg-gradient-to-r p-5 text-purple-50 "`}
     >
       <div className="mt-14 text-center">
         <Image
@@ -73,7 +73,7 @@ const Footer = (props) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 pt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-4 pt-16">
         <div className="flex items-center flex-col text-sm tracking-wide">
           <h2 className="pb-5 text-xl">nxtdoordeals.com</h2>
 
@@ -152,7 +152,7 @@ const Footer = (props) => {
           </ul>
         </div>
 
-        <div className="pt-16 md:pt-0 flex items-center flex-col tracking-wide">
+        <div className="pt-16 lg:pt-0 flex items-center flex-col tracking-wide">
           <h2 className="pb-5 text-xl">COVID 19</h2>
           <Link href="/covid">
             <a aria-label="Link to the COVID 19 guidelines page text-lg">
@@ -162,7 +162,7 @@ const Footer = (props) => {
           </Link>
         </div>
 
-        <div className="py-16 md:pt-0">
+        <div className="py-16 lg:pt-0">
           <h2 className="text-center text-xl pb-5 tracking-wide">
             Feeling Social?
           </h2>

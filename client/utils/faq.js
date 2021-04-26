@@ -13,7 +13,7 @@ const sellerFaqs = [
   {
     question: "How long will my ad remain active?",
     answer:
-      "All ads remain active for a period of 30 days unless they are deleted by seller.",
+      "All ads remain active for a period of 30 days unless they are marked as sold or deleted by seller.",
   },
   {
     question: "Can an ad be auto-renewed?",
@@ -21,9 +21,13 @@ const sellerFaqs = [
       "No. At the moment, an ad will need to be posted again after 30 days if you would like it to remain active.",
   },
   {
+    question: "How do I mark my ad as sold?",
+    answer: "Use the 'Mark As Sold' button on the full ad page.",
+  },
+  {
     question: "How do I edit/delete my ad?",
     answer:
-      "Edit and delete options are available when viewing the full ad or on your account page under the 'Ads' tab.",
+      "Edit and delete options are available on your account page under the 'Ads' tab. The edit option is also available when viewing the full ad.",
   },
   {
     question: "Where can I see all my ads?",

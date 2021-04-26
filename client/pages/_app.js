@@ -5,8 +5,9 @@ import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, Flip } from "react-toastify";
+import { toast, ToastContainer, Flip } from "react-toastify";
 import smoothscroll from "smoothscroll-polyfill";
+import EventSource from "eventsource";
 
 const pageVariants = {
   pageInitial: {
@@ -20,6 +21,12 @@ const pageVariants = {
 const contextClass = {
   default: "bg-banner-color",
 };
+
+const chatNotificationToast = () =>
+  toast("💬 You have a new chat message! Visit your account page.", {
+    draggablePercent: 60,
+    position: "top-center",
+  });
 
 export default function MyApp({ Component, pageProps, router }) {
   const pathHistory = useRef(null);
@@ -37,6 +44,24 @@ export default function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       smoothscroll.polyfill();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("nddToken") && localStorage.getItem("nddUser")) {
+        var source = new EventSource(
+          `${
+            process.env.NEXT_PUBLIC_SSE_URL +
+            "?user_id=" +
+            localStorage.getItem("nddUser")
+          }`
+        );
+        source.onmessage = (e) => {
+          chatNotification.current = true;
+          chatNotificationToast();
+        };
+      }
     }
   }, []);
 
@@ -76,7 +101,7 @@ export default function MyApp({ Component, pageProps, router }) {
               " flex p-1 min-h-10 justify-center overflow-hidden cursor-pointer"
             }
             bodyClassName={() =>
-              "font-axiforma text-base text-white tracking-wide block p-3 text-center"
+              "text-base text-white tracking-wide block p-3 text-center"
             }
           />
         </SiteState>

@@ -121,7 +121,7 @@ const Chat = (props) => {
   }
 
   return (
-    <ChatHeadLayout>
+    <ChatHeadLayout altUser={altUser && altUser.name}>
       <div id="header" className="font-axiforma h-full">
         <Navbar
           navStyle={navStylePurple}
@@ -130,7 +130,7 @@ const Chat = (props) => {
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
         <div className="pt-10 px-7 pb-20 lg:px-64">
           <div className="text-center mb-5">
-            <p className="text-purple-500">
+            <div className="text-purple-500">
               <span className="text-brand-gray">Your chat with</span>{" "}
               <span className="font-semibold">{altUser && altUser.name}</span>{" "}
               <span className="text-brand-gray">for the ad,</span>{" "}
@@ -183,7 +183,7 @@ const Chat = (props) => {
                   )}
                 </span>
               </span>
-            </p>
+            </div>
           </div>
 
           <div className="flex justify-center p-5 lg:p-20 rounded-3xl shadow-chatWindowShadow">
@@ -214,7 +214,7 @@ const Chat = (props) => {
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
-  var ids = id && id.split("-");
+  var ids = id && id.split("+");
 
   // No seller id? Return 404
   if (ids[1] === "") {

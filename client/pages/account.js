@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -17,7 +17,6 @@ const UserAccountHeadLayout = dynamic(() =>
 );
 
 const Account = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -58,10 +57,7 @@ const Account = (props) => {
   return (
     <UserAccountHeadLayout user={user && user}>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
 
       <div id="header" className="h-full">

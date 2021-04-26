@@ -13,6 +13,7 @@ const keys = {
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/default.png",
+    AD_QUOTA: 7,
   },
   production: {
     API_PROXY: "https://api.nxtdoordeals.com/api/v1",
@@ -26,6 +27,7 @@ const keys = {
       "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:
       "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/default.png",
+    AD_QUOTA: 7,
   },
 }[env];
 

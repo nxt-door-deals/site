@@ -8,7 +8,9 @@ const ChatHeadLayout = (props) => {
       <CommonHeadLayout />
       <Head>
         <title>
-          Apartment Chat | Chat with your neighbours and seal the deal
+          {props.altUser
+            ? `Chat With ${props.altUser} and Seal the Deal`
+            : "Chat With your Neighbours and Seal the Deal"}
         </title>
         <meta
           name="description"

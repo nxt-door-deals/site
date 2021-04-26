@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
 import cookie from "../utils/cookieInit";
@@ -15,7 +15,6 @@ import AdQuotaReached from "../components/utils/AdQuotaReached";
 import ScrollToTop from "../components/utils/ScrollToTop";
 
 const PostAd = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -63,10 +62,7 @@ const PostAd = (props) => {
   return (
     <PostAdHeadLayout>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
       <div id="header">
         <Navbar

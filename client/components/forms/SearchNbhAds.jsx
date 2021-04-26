@@ -69,9 +69,9 @@ const SearchNbhAds = (props) => {
     }
   };
 
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  // }, []);
 
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-center mb-12 lg:mb-16">

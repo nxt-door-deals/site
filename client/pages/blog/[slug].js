@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { createClient } from "contentful";
 import { useRouter } from "next/router";
@@ -20,7 +20,6 @@ const client = createClient({
 });
 
 const Article = (props) => {
-  const [scrollToTop, setScrollToTop] = useState(false);
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -70,10 +69,7 @@ const Article = (props) => {
         </div>
       </div>
       <div className="w-full">
-        <ScrollToTop
-          scrollToTop={scrollToTop}
-          setScrollToTop={setScrollToTop}
-        />
+        <ScrollToTop />
       </div>
       <Footer
         footerGradientClass={footerGradientClassPurple}
