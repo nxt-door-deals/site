@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import AuthContext from "../context/auth/authContext";
 import { useRouter } from "next/router";
-import cookie from "../utils/cookieInit";
+import keys from "../utils/keys";
 
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
@@ -50,8 +50,8 @@ const PostAd = (props) => {
     );
   }
 
-  if (user && user.ad_count === 7) {
-    setTimeout(() => router.push("/account"), 5000);
+  if (user && user.ad_count === keys.AD_QUOTA) {
+    setTimeout(() => router.push("/account/ads"), 5000);
     return (
       <PostAdHeadLayout>
         <AdQuotaReached />;

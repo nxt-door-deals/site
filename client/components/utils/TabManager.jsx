@@ -12,14 +12,14 @@ const TabManager = (props) => {
             className={`text-sm lg:text-lg font-semibold cursor-pointer px-4 py-2 rounded-xl border-2 ${
               props.tabStyle.borderColor
             } mr-2 ${
-              value === props.activeTab
+              label.toLowerCase() === props.activeTab
                 ? `lg:font-bold text-white tracking-wide ` +
                   props.tabStyle.borderColor +
                   " " +
                   props.tabStyle.backgroundColor
                 : props.tabStyle.textColor
             }`}
-            onClick={() => props.setActiveTab(value)}
+            onClick={() => props.setActiveTab(label.toLowerCase())}
           >
             {label}
           </div>

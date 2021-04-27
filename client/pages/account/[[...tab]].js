@@ -1,19 +1,19 @@
 import React, { useContext, useEffect } from "react";
-import AuthContext from "../context/auth/authContext";
+import AuthContext from "../../context/auth/authContext";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
 // import UserAccountHeadLayout from "../components/layout/UserAccountHeadLayout";
-import Tab from "../components/utils/Tab";
-import ScrollToTop from "../components/utils/ScrollToTop";
+import Tab from "../../components/utils/Tab";
+import ScrollToTop from "../../components/utils/ScrollToTop";
 
 const UserAccountHeadLayout = dynamic(() =>
-  import("../components/layout/UserAccountHeadLayout")
+  import("../../components/layout/UserAccountHeadLayout")
 );
 
 const Account = (props) => {
@@ -68,6 +68,7 @@ const Account = (props) => {
           {user && (
             <Tab
               route={props.pathname}
+              tab={props.tab}
               tabs={userAccountTabs}
               currentUser={user && user}
               showForm={props.showForm}
@@ -90,9 +91,29 @@ const Account = (props) => {
 };
 
 export const getServerSideProps = (context) => {
+  const { tab } = context.params;
+
+  const path = context.resolvedUrl.split("/");
+
+  if (tab !== undefined && tab.length > 1)
+    return {
+      notFound: true,
+    };
+
+  if (
+    tab !== undefined &&
+    tab[0] !== "profile" &&
+    tab[0] !== "ads" &&
+    tab[0] !== "chats"
+  )
+    return {
+      notFound: true,
+    };
+
   return {
     props: {
-      pathname: context.resolvedUrl,
+      pathname: "/" + path[1],
+      tab: tab !== undefined ? tab[0] : null,
     },
   };
 };

@@ -137,6 +137,7 @@ const authReducer = (state, action) => {
     case USER_ADS_FETCHED_SUCCESS:
       return {
         ...state,
+        loading: false,
         userAds: action.payload,
       };
     case EMAIL_VERIFICATION_SUCCESS:
@@ -255,6 +256,7 @@ const authReducer = (state, action) => {
     case UPDATE_NUMBER_SOLD_ERROR:
       return {
         ...state,
+        loading: false,
         authError: action.payload,
       };
     case CLEAR_ERROR:

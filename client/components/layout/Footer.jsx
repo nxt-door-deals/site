@@ -106,7 +106,7 @@ const Footer = (props) => {
             </li>
 
             <li className="pb-3 px-2">
-              <Link href="/policies/#privacy">
+              <Link href="/policies#privacy">
                 <a aria-label="Link to the privacy policy page">
                   <FontAwesomeIcon icon={faUserSecret} className="mr-1" />
                   <span className="pb-1 styled-link">Privacy Policy</span>
@@ -115,7 +115,7 @@ const Footer = (props) => {
             </li>
 
             <li className="pb-3 px-2">
-              <Link href="/policies/#cookie">
+              <Link href="/policies#cookie">
                 <a aria-label="Link to the cookie policy page">
                   <FontAwesomeIcon icon={faCookieBite} className="mr-1" />{" "}
                   <span className="pb-1 styled-link">Cookie Policy</span>
@@ -124,7 +124,7 @@ const Footer = (props) => {
             </li>
 
             <li className="pb-3 px-2">
-              <Link href="/policies/#terms">
+              <Link href="/policies#terms">
                 <a aria-label="Link to the terms of use page">
                   <FontAwesomeIcon icon={faClipboardList} className="mr-1" />{" "}
                   <span className="pb-1 styled-link">Terms of Use</span>
