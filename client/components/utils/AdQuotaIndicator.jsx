@@ -13,7 +13,7 @@ const AdQuotaIndicator = (props) => {
         {keys.AD_QUOTA - parseInt(props.userAds.length)}
       </span> */}
       {remainingAds !== 0 && (
-        <p className="font-semibold text-xl">
+        <p className="font-semibold text-base lg:text-xl">
           <span className="text-ad-purple font-extrabold">
             {props.userAds.length}
           </span>{" "}
@@ -25,7 +25,7 @@ const AdQuotaIndicator = (props) => {
 
       {remainingAds === 0 && (
         <div>
-          <p className="font-semibold text-xl">
+          <p className="font-semibold text-base lg:text-xl">
             Oops! Looks like we are fresh out of ads :(
           </p>
           <p className="text-sm font-medium mt-2">
