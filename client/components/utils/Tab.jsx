@@ -12,10 +12,20 @@ import Buy from "./Buy";
 import Sell from "./Sell";
 
 const Tab = (props) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(null);
 
   const pathname = props.route;
   const tabs = props.tabs;
+
+  useEffect(() => {
+    if (props.route === "/") {
+      setActiveTab("sell");
+    }
+
+    if (props.route === "/account") {
+      props.tab === null ? setActiveTab("profile") : setActiveTab(props.tab);
+    }
+  }, []);
 
   useEffect(() => {
     () => window.scroll({ top: 0, left: 0, behavior: "smooth" });
@@ -25,6 +35,7 @@ const Tab = (props) => {
     <div>
       <TabManager
         tabs={tabs}
+        selectedTab={props.tab}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         tabStyle={props.tabStyle}
@@ -47,22 +58,27 @@ const Tab = (props) => {
 
       {/* Tabs on the home page */}
       <div>
-        {pathname === "/" && <div>{activeTab === 0 ? <Sell /> : <Buy />}</div>}
+        {pathname === "/" && (
+          <div>{activeTab === "sell" ? <Sell /> : <Buy />}</div>
+        )}
       </div>
 
       {/* Tabs on the account page */}
       <div>
         {pathname === "/account" && (
           <div>
-            {activeTab === 0 ? (
+            {activeTab === "profile" && (
               <UserAccount currentUser={props.currentUser} />
-            ) : activeTab === 1 ? (
+            )}
+            {activeTab === "ads" && (
               <UserAdsWrapper
                 currentUser={props.currentUser}
                 showForm={props.showForm}
                 setShowForm={props.setShowForm}
               />
-            ) : (
+            )}
+
+            {activeTab === "chats" && (
               <UserChatList
                 currentUser={props.currentUser}
                 chatNotification={props.chatNotification}

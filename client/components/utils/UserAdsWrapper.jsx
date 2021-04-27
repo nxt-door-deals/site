@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import Image from "next/image";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -25,12 +26,13 @@ const UserAdsWrapper = (props) => {
   const [ads, setAds] = useState([]);
   const authContext = useContext(AuthContext);
 
-  const { fetchUserAds, userAds } = authContext;
+  const { fetchUserAds, userAds, loading, setLoading } = authContext;
 
   useEffect(() => {
     let mounted = true;
 
     if (mounted) {
+      setLoading(true);
       fetchUserAds(props.currentUser.id);
     }
 
@@ -46,6 +48,14 @@ const UserAdsWrapper = (props) => {
   // }, [userAds]);
 
   // const userAdIndices = userAds && [...Array(userAds.length).keys()];
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start h-full py-32">
+        <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+      </div>
+    );
+  }
 
   if (userAds && userAds.length === 0) {
     return (
@@ -71,7 +81,10 @@ const UserAdsWrapper = (props) => {
     return (
       <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
         <h1 className="component-heading mt-10 pb-3">My Ads</h1>
-        <AdQuotaIndicator userAds={userAds && userAds} />
+        <AdQuotaIndicator
+          userAds={userAds && userAds}
+          currentUsername={props.currentUser.name}
+        />
         <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {userAds &&
             // [...Array(ads.length).keys()].map((i) => (

@@ -508,7 +508,7 @@ const Navbar = (props) => {
           )}
 
           {/* Navbar on the user account page */}
-          {props.navStyle.pathname === "/account" && (
+          {props.navStyle.pathname.includes("/account") && (
             <ul className="flex">
               <li className="nav-item lg:mr-4 hover:scale-110">
                 <Link href="/">
@@ -1025,7 +1025,7 @@ const Navbar = (props) => {
             )}
 
             {/* Overlay icons for the user account page */}
-            {props.navStyle.pathname === "/account" && (
+            {props.navStyle.pathname.includes("/account") && (
               <Fragment>
                 <li
                   className={
