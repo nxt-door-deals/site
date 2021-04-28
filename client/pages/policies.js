@@ -30,7 +30,7 @@ const Policies = (props) => {
 
       <div id="header" className="text-brand-gray bg-purple-50">
         <Navbar navStyle={navStylePurple} />
-        <div className="flex flex-col items-center h-full pt-28 lg:pt-36 px-5 lg:px-20 mb-20">
+        <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-5 lg:px-20 mb-20">
           <section id="terms">
             <div className="rounded-2xl p-10 shadow-md bg-white my-10">
               <h1 className="component-heading">Terms of Use</h1>
