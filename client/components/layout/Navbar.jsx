@@ -174,8 +174,10 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mr-3 hover:scale-110">
                 <span
-                  className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl border-2 ${
-                    stickyNav && "border-brand-purple"
+                  className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl  ${
+                    stickyNav
+                      ? "border-3 border-brand-purple"
+                      : "shadow-postFreeAdShadow"
                   }`}
                 >
                   <Link href="/postad">

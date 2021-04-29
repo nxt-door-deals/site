@@ -24,8 +24,9 @@ module.exports = {
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
         postadshadow: "0px 7px 29px 3px rgba(204, 179, 235, 0.4)",
-        adcardshadow:
-          "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 36px, rgba(241, 192, 234, 0.3) 0px -2px 15px",
+        // adcardshadow:
+        //   "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 36px, rgba(241, 192, 234, 0.3) 0px -2px 15px",
+        adcardshadow: "0 12px 64px rgba(102, 0, 102, .25)",
         chatListShadow:
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
@@ -38,6 +39,8 @@ module.exports = {
         giveawayButtonShadow:
           "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 24px, rgba(241, 192, 234, 0.2) 0px 16px 48px, rgba(241, 192, 234, 0.2) 0px 32px 96px",
         footerShadow: "rgba(206, 133, 213, 0.1) 0px -10px 7px 2px",
+        postFreeAdShadow:
+          "rgb(204, 153, 255) 0px 0px 0px 2px, rgb(153, 51, 255) 0px 0px 0px 4px",
       },
       zIndex: {
         "-10": "-10",
@@ -100,6 +103,9 @@ module.exports = {
         80: "20rem",
         100: "25rem",
         128: "32rem",
+      },
+      borderWidth: {
+        3: "3px",
       },
       backgroundImage: (theme) => ({
         "login-background": "url(/images/login/user-login.svg)",
