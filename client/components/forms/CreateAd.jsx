@@ -22,9 +22,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
-import PostAdHeader from "../utils/PostAdHeader";
-import FraudAlert from "../utils/FraudAlert";
-import Terms from "../utils/Terms";
+import PostAdHeader from "../page_components/post_ad/PostAdHeader";
+import FraudAlert from "../page_components/post_ad/FraudAlert";
+import Terms from "../page_components/common/Terms";
 
 const createAdValidationSchema = Yup.object({
   title: Yup.string()
@@ -235,7 +235,7 @@ const CreateAd = ({ categoryName, user }) => {
                     <p className="text-sm pt-3 text-red-700">
                       <FontAwesomeIcon
                         icon={faBan}
-                        className="mr-1 text-red-800"
+                        className="mr-1 error-text"
                       />
                       <strong>No</strong> ads for pet sales or pet adoptions
                       please.
@@ -250,7 +250,7 @@ const CreateAd = ({ categoryName, user }) => {
                     <div
                       className={`"flex items-center justify-center px-2 border-2 rounded-xl  " ${
                         props.touched.title && props.errors.title
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 border-gray-300 focus:outline-none focus-within:border-text-purple"
                       }`}
                     >
@@ -279,7 +279,7 @@ const CreateAd = ({ categoryName, user }) => {
                     {/* Validation errors */}
                     {props.touched.title && props.errors.title ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="font-axiforma text-xs error-text p-1 mb-2"
                         id="title-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -291,7 +291,7 @@ const CreateAd = ({ categoryName, user }) => {
                     <div
                       className={`"flex items-center justify-center border-2 px-2 rounded-xl  " ${
                         props.touched.description && props.errors.description
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 border-gray-300 focus-within:border-text-purple"
                       }`}
                     >
@@ -323,7 +323,7 @@ const CreateAd = ({ categoryName, user }) => {
                     {/* Validation errors */}
                     {props.touched.description && props.errors.description ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="font-axiforma text-xs error-text p-1 mb-2"
                         id="description-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -404,7 +404,7 @@ const CreateAd = ({ categoryName, user }) => {
                         {/* Validation errors */}
                         {props.touched.typeOfSale && props.errors.typeOfSale ? (
                           <div
-                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            className="font-axiforma text-xs error-text p-1 mb-2"
                             id="typeofsale-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -420,7 +420,7 @@ const CreateAd = ({ categoryName, user }) => {
                             props.touched.price &&
                             props.errors.price &&
                             props.values.typeOfSale === "sale"
-                              ? "mb-1 border-red-800 shadow-none"
+                              ? "mb-1 error-border shadow-none"
                               : "mb-2 border-gray-300 focus-within:border-text-purple"
                           }`}
                         >
@@ -454,7 +454,7 @@ const CreateAd = ({ categoryName, user }) => {
                         {/* Validation errors */}
                         {props.touched.price && props.errors.price ? (
                           <div
-                            className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                            className="font-axiforma text-xs error-text p-1 mb-2"
                             id="price-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -499,7 +499,7 @@ const CreateAd = ({ categoryName, user }) => {
                         <div
                           className={`${
                             props.touched.condition && props.errors.condition
-                              ? "mb-1  border-2 border-red-800 rounded-xl shadow-none"
+                              ? "mb-1  border-2 error-border rounded-xl shadow-none"
                               : "mb-8 border-2 border-gray-300 rounded-xl   focus-within:border-text-blue"
                           }`}
                         >
@@ -533,7 +533,7 @@ const CreateAd = ({ categoryName, user }) => {
                           />
                         </div>
                         {props.touched.condition && props.errors.condition ? (
-                          <div className="font-axiforma text-xs text-red-800 py-1 mb-2">
+                          <div className="font-axiforma text-xs error-text py-1 mb-2">
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {props.errors.condition}
                           </div>
@@ -605,12 +605,12 @@ const CreateAd = ({ categoryName, user }) => {
                               </div>
                             </div>
                           ) : (
-                            <div className=" flex flex-col items-center p-8 bg-gray-200 border-dashed rounded-xl border-red-800 border-2 cursor-not-allowed focus:outline-none">
+                            <div className=" flex flex-col items-center p-8 bg-gray-200 border-dashed rounded-xl error-border border-2 cursor-not-allowed focus:outline-none">
                               <FontAwesomeIcon
                                 icon={faBan}
-                                className="text-3xl text-red-800"
+                                className="text-3xl error-text"
                               />
-                              <p className="text-xs text-red-800 pt-2">
+                              <p className="text-xs error-text pt-2">
                                 You have added 10 photos.
                               </p>
                             </div>
@@ -621,7 +621,7 @@ const CreateAd = ({ categoryName, user }) => {
                           </div>
 
                           {isDragReject && (
-                            <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                            <div className="font-axiforma text-xs error-text p-1 mb-2">
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                               Accepted image formats - jpeg, bmp, tiff, png and
                               gif

@@ -109,7 +109,7 @@ const ChangePassword = (props) => {
                   <div
                     className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.password && props.errors.password
-                        ? "mb-1 border-red-800 shadow-none"
+                        ? "mb-1 error-border shadow-none"
                         : "mb-6 border-gray-300 focus-within:border-text-purple"
                     }`}
                   >
@@ -150,7 +150,7 @@ const ChangePassword = (props) => {
                   {/* Validation errors */}
                   {props.touched.password && props.errors.password ? (
                     <div
-                      className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                      className="font-axiforma text-xs error-text p-1 mb-2"
                       id="password-error"
                     >
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -163,7 +163,7 @@ const ChangePassword = (props) => {
                     className={`"flex items-center justify-center border-2 rounded-xl " ${
                       props.touched.confirmPassword &&
                       props.errors.confirmPassword
-                        ? "mb-1 border-red-800 shadow-none"
+                        ? "mb-1 error-border shadow-none"
                         : "mb-6 border-gray-300 focus-within:border-text-purple"
                     }`}
                   >
@@ -209,7 +209,7 @@ const ChangePassword = (props) => {
                   {props.touched.confirmPassword &&
                   props.errors.confirmPassword ? (
                     <div
-                      className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                      className="font-axiforma text-xs error-text p-1 mb-2"
                       id="confirmpassword-error"
                     >
                       <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

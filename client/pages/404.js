@@ -1,5 +1,5 @@
-import PageNotFound from "../components/utils/PageNotFound";
-import NotFoundHeadLayout from "../components/layout/NotFoundHeadLayout";
+import PageNotFound from "../components/page_components/common/PageNotFound";
+import NotFoundHeadLayout from "../components/layout/head/NotFoundHeadLayout";
 
 const Custom404 = () => {
   return (

@@ -16,11 +16,11 @@ import {
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
-import ChatHeadLayout from "../../components/layout/ChatHeadLayout";
-import ActiveChat from "../../components/utils/ActiveChat";
+import ChatHeadLayout from "../../components/layout/head/ChatHeadLayout";
+import ActiveChat from "../../components/page_components/ActiveChat";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import LetsVerifyYourEmail from "../../components/utils/LetsVerifyYourEmail";
+import LetsVerifyYourEmail from "../../components/page_components/LetsVerifyYourEmail";
 
 const Chat = (props) => {
   const router = useRouter();
@@ -28,13 +28,8 @@ const Chat = (props) => {
 
   const authContext = useContext(AuthContext);
 
-  const {
-    loadUser,
-    isAuthenticated,
-    user,
-    getUserFromId,
-    altUser,
-  } = authContext;
+  const { loadUser, isAuthenticated, user, getUserFromId, altUser } =
+    authContext;
 
   if (typeof window !== "undefined" && !localStorage.getItem("nddToken")) {
     if (!cookie.get("__redirChatCookie")) {
@@ -176,7 +171,7 @@ const Chat = (props) => {
                       ) : (
                         <FontAwesomeIcon
                           icon={faTimes}
-                          className="text-lg text-red-800 align-middle"
+                          className="close-button-animation text-lg error-text align-middle"
                         />
                       )}
                     </div>

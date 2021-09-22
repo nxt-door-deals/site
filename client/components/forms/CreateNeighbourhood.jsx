@@ -22,9 +22,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
-import Terms from "../utils/Terms";
+import Terms from "../page_components/common/Terms";
 import BouncingBalls from "../loaders/BouncingBalls";
-import NeighbourCreationNotification from "../utils/NeighbourCreationNotification";
+import NeighbourCreationNotification from "../page_components/NeighbourCreationNotification";
 
 const variants = {
   initial: {
@@ -267,7 +267,7 @@ const CreateNeighbourhood = (props) => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.name && props.errors.name
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -301,7 +301,7 @@ const CreateNeighbourhood = (props) => {
                       {/* Validation errors - apartment name */}
                       {props.touched.name && props.errors.name ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="name-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -313,7 +313,7 @@ const CreateNeighbourhood = (props) => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.address1 && props.errors.address1
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -346,7 +346,7 @@ const CreateNeighbourhood = (props) => {
                       {/* Validation errors - address 1 */}
                       {props.touched.address1 && props.errors.address1 ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="address1-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -379,7 +379,7 @@ const CreateNeighbourhood = (props) => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.city && props.errors.city
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -412,7 +412,7 @@ const CreateNeighbourhood = (props) => {
                       {/* Validation errors - city */}
                       {props.touched.city && props.errors.city ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="city-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -427,7 +427,7 @@ const CreateNeighbourhood = (props) => {
                           <div
                             className={`${
                               props.touched.state && props.errors.state
-                                ? "mb-1  border-2 border-red-800 rounded-xl shadow-none"
+                                ? "mb-1  border-2 error-border rounded-xl shadow-none"
                                 : "mb-8 border-2 border-gray-300 rounded-xl   focus-within:border-text-blue"
                             }`}
                           >
@@ -460,7 +460,7 @@ const CreateNeighbourhood = (props) => {
                             />
                           </div>
                           {props.touched.state && props.errors.state ? (
-                            <div className="font-axiforma text-xs text-red-800 py-1 mb-2">
+                            <div className="font-axiforma text-xs error-text py-1 mb-2">
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                               {props.errors.state}
                             </div>
@@ -472,7 +472,7 @@ const CreateNeighbourhood = (props) => {
                           <div
                             className={`"flex items-center justify-center border-2 rounded-xl  lg:w-64" ${
                               props.touched.pincode && props.errors.pincode
-                                ? "mb-1 border-red-800 shadow-none"
+                                ? "mb-1 error-border shadow-none"
                                 : "mb-8 border-gray-300 focus-within:border-text-blue"
                             }`}
                           >
@@ -505,7 +505,7 @@ const CreateNeighbourhood = (props) => {
                           {/* Validation errors - pincode */}
                           {props.touched.pincode && props.errors.pincode ? (
                             <div
-                              className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                              className="font-axiforma text-xs error-text p-1 mb-2"
                               id="pincode-error"
                             >
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -519,7 +519,7 @@ const CreateNeighbourhood = (props) => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  lg:w-128 " ${
                           props.touched.email && props.errors.email
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -552,7 +552,7 @@ const CreateNeighbourhood = (props) => {
                       {/* Validation errors - email */}
                       {props.touched.email && props.errors.email ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="email-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

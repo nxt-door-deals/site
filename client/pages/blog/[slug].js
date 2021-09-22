@@ -6,13 +6,11 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 import titleCase from "../../utils/titleCase";
 
 // Component imports
-import BlogArticleHeadLayout from "../../components/layout/BlogArticleHeadLayout";
-import BlogHeader from "../../components/utils/BlogHeader";
-import BlogBody from "../../components/utils/BlogBody";
+import BlogArticleHeadLayout from "../../components/layout/head/BlogArticleHeadLayout";
+import BlogHeader from "../../components/forms/blog/BlogHeader";
+import BlogBody from "../../components/forms/blog/BlogBody";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import ScrollToTop from "../../components/utils/ScrollToTop";
-import { redirect } from "next/dist/next-server/server/api-utils";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -68,9 +66,7 @@ const Article = (props) => {
           </article>
         </div>
       </div>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
+
       <Footer
         footerGradientClass={footerGradientClassPurple}
         pathname={pathname}

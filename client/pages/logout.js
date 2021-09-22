@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 // Component imports
-import LogoutHeadLayout from "../components/layout/LogoutHeadLayout";
+import LogoutHeadLayout from "../components/layout/head/LogoutHeadLayout";
 
 const variants = {
   initial: {

@@ -8,7 +8,7 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 // Component imports
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import VerifyEmailHeadLayout from "../../components/layout/VerifyEmailHeadLayout";
+import VerifyEmailHeadLayout from "../../components/layout/head/VerifyEmailHeadLayout";
 
 const variants = {
   hover: {

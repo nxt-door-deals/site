@@ -5,11 +5,10 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 import { greeting } from "../../utils/greeting";
 
 // Component imports
-import BlogHeadLayout from "../../components/layout/BlogHeadLayout";
+import BlogHeadLayout from "../../components/layout/head/BlogHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import BlogPreviewCard from "../../components/utils/BlogPreviewCard";
-import ScrollToTop from "../../components/utils/ScrollToTop";
+import BlogPreviewCard from "../../components/forms/blog/BlogPreviewCard";
 
 const Blog = (props) => {
   const router = useRouter();
@@ -26,7 +25,7 @@ const Blog = (props) => {
   return (
     <BlogHeadLayout>
       <Navbar navStyle={navStylePurple} />
-      <div className="h-full w-full bg-blog-background-mobile md:bg-blog-background lg:bg-fixed bg-cover bg-no-repeat">
+      <div className="h-full w-full">
         <div id="article" className="text-center pt-32 px-10 pb-20">
           <h1 className="component-heading">{greeting}! Welcome to our blog</h1>
           <p>
@@ -37,9 +36,7 @@ const Blog = (props) => {
           <BlogPreviewCard blogs={props.blogs} />
         </div>
       </div>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
+
       <Footer
         footerGradientClass={footerGradientClassPurple}
         pathname={pathname}

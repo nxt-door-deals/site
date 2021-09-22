@@ -27,7 +27,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
-import Alert from "../utils/Alert";
+import Alert from "../page_components/common/Alert";
 
 const userAccountValidationSchema = Yup.object({
   name: Yup.string()
@@ -184,7 +184,7 @@ const UserAccount = (props) => {
                           : "border-b-2 border-gray-100 "
                       } " flex items-center justify-center " ${
                         props.touched.name && props.errors.name
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 focus-within:border-text-blue"
                       }`}
                     >
@@ -227,7 +227,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.name && props.errors.name ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="font-axiforma text-xs error-text p-1 mb-2"
                         id="name-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -243,7 +243,7 @@ const UserAccount = (props) => {
                           : "border-b-2  border-gray-100 "
                       } " flex items-center justify-center  " ${
                         props.touched.mobile && props.errors.mobile
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 focus-within:border-text-blue"
                       }`}
                     >
@@ -284,7 +284,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.mobile && props.errors.mobile ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="font-axiforma text-xs error-text p-1 mb-2"
                         id="mobile-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -301,7 +301,7 @@ const UserAccount = (props) => {
                       } " flex items-center justify-center  " ${
                         props.touched.neighbourhood &&
                         props.errors.neighbourhood
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "focus-within:border-text-blue"
                       }`}
                     >
@@ -340,7 +340,7 @@ const UserAccount = (props) => {
                     {props.touched.neighbourhood &&
                     props.errors.neighbourhood ? (
                       <div
-                        className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                        className="font-axiforma text-xs error-text p-1 mb-2"
                         id="neighbourhood-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -441,7 +441,7 @@ const UserAccount = (props) => {
                       } " flex items-center justify-center mt-6  " ${
                         props.touched.apartmentNumber &&
                         props.errors.apartmentNumber
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 focus-within:border-text-blue"
                       }`}
                     >
@@ -471,7 +471,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.apartmentNumber &&
                     props.errors.apartmentNumber ? (
-                      <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                      <div className="font-axiforma text-xs error-text p-1 mb-2">
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.apartmentNumber}
                       </div>
@@ -551,7 +551,7 @@ const UserAccount = (props) => {
                         <div className="flex items-center">
                           <FontAwesomeIcon
                             icon={faTimes}
-                            className="text-red-900 text-xl"
+                            className="close-button-animation text-red-900 text-xl"
                           />
 
                           <div
@@ -585,7 +585,7 @@ const UserAccount = (props) => {
                         <div className="flex items-center">
                           <FontAwesomeIcon
                             icon={faTimes}
-                            className="text-red-900 text-xl"
+                            className="close-button-animation text-red-900 text-xl"
                           />
                         </div>
                       )}
@@ -609,7 +609,7 @@ const UserAccount = (props) => {
                       To confirm deletion, type <em>delete</em> in the field.
                     </p>
 
-                    <div className="relative border-2 w-60 border-red-800 rounded-xl flex items-center py-1">
+                    <div className="relative border-2 w-60 error-border rounded-xl flex items-center py-1">
                       <FontAwesomeIcon
                         icon={faTrash}
                         className="text-gray-400 text-sm invisible"
@@ -652,7 +652,7 @@ const UserAccount = (props) => {
                     </div>
 
                     {deactivateMessage ? (
-                      <div className="font-axiforma text-xs text-red-800 mt-1 p-1 mb-2">
+                      <div className="font-axiforma text-xs error-text mt-1 p-1 mb-2">
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {deactivateMessage}
                       </div>

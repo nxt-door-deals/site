@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
-import GoodbyeHeadLayout from "../components/layout/GoodbyeHeadLayout";
+import GoodbyeHeadLayout from "../components/layout/head/GoodbyeHeadLayout";
 
 const Goodbye = () => {
   const authContext = useContext(AuthContext);

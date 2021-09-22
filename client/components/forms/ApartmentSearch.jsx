@@ -91,7 +91,7 @@ const ApartmentSearch = () => {
             <div
               className={`"flex justify-around mt-6 border-2 rounded-xl " ${
                 props.touched.apartment && props.errors.apartment
-                  ? "border-red-800 shadow-none"
+                  ? "error-border shadow-none"
                   : "border-purple-900"
               }`}
             >
@@ -124,7 +124,7 @@ const ApartmentSearch = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className="lg:hidden align-middle text-gray-400 cursor-pointer lg:mr-1"
+                className="close-button-animation lg:hidden align-middle text-gray-400 cursor-pointer lg:mr-1"
                 onClick={() => {
                   props.setFieldValue(apartment, (props.values.apartment = ""));
                   setparentDiv("invisible");
@@ -135,7 +135,7 @@ const ApartmentSearch = () => {
             {/* Validation errors */}
             <div className="relative" id="apartment-error">
               {props.touched.apartment && props.errors.apartment ? (
-                <div className="text-xs text-red-800 p-1 absolute">
+                <div className="text-xs error-text p-1 absolute">
                   <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                   {props.errors.apartment}
                 </div>

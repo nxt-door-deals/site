@@ -19,7 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component import
-import ImageUploader from "../utils/ImageUploader";
+import ImageUploader from "../page_components/ImageUploader";
 import BouncingBalls from "../loaders/BouncingBalls";
 
 const editAdValidationSchema = Yup.object({
@@ -172,7 +172,7 @@ const EditAd = (props) => {
                     <div
                       className={`"flex items-center justify-center px-2 border-2 rounded-xl  " ${
                         touched.title && errors.title
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 border-gray-300 focus:outline-none focus-within:border-text-purple"
                       }`}
                     >
@@ -199,7 +199,7 @@ const EditAd = (props) => {
                     {/* Validation errors */}
                     {touched.title && errors.title ? (
                       <div
-                        className="text-xs text-red-800 p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="title-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -211,7 +211,7 @@ const EditAd = (props) => {
                     <div
                       className={`"flex items-center justify-center border-2 px-2 rounded-xl  " ${
                         touched.description && errors.description
-                          ? "mb-1 border-red-800 shadow-none"
+                          ? "mb-1 error-border shadow-none"
                           : "mb-6 border-gray-300 focus-within:border-text-purple"
                       }`}
                     >
@@ -245,7 +245,7 @@ const EditAd = (props) => {
                     {/* Validation errors */}
                     {touched.description && errors.description ? (
                       <div
-                        className="text-xs text-red-800 p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="description-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -326,7 +326,7 @@ const EditAd = (props) => {
                         {/* Validation errors */}
                         {touched.typeOfSale && errors.typeOfSale ? (
                           <div
-                            className="text-xs text-red-800 p-1 mb-2"
+                            className="text-xs error-text p-1 mb-2"
                             id="typeOfSale-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -342,7 +342,7 @@ const EditAd = (props) => {
                             touched.price &&
                             errors.price &&
                             values.typeOfSale === "sale"
-                              ? "mb-1 border-red-800 shadow-none"
+                              ? "mb-1 error-border shadow-none"
                               : "mb-2 border-gray-300 focus-within:border-text-purple"
                           }`}
                         >
@@ -373,7 +373,7 @@ const EditAd = (props) => {
                         {/* Validation errors */}
                         {touched.price && errors.price ? (
                           <div
-                            className="text-xs text-red-800 p-1 mb-2"
+                            className="text-xs error-text p-1 mb-2"
                             id="price-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -417,7 +417,7 @@ const EditAd = (props) => {
                         <div
                           className={`${
                             touched.condition && errors.condition
-                              ? "mb-1  border-2 border-red-800 rounded-xl shadow-none"
+                              ? "mb-1  border-2 error-border rounded-xl shadow-none"
                               : "mb-6 border-2 border-gray-300 rounded-xl   focus-within:border-text-blue"
                           }`}
                         >
@@ -460,7 +460,7 @@ const EditAd = (props) => {
                           />
                         </div>
                         {touched.condition && errors.condition ? (
-                          <div className="text-xs text-red-800 py-1 mb-2">
+                          <div className="text-xs error-text py-1 mb-2">
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {errors.condition}
                           </div>

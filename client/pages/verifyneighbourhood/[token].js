@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
 // Component Import
-import VerifyNeighbourhoodHeadLayout from "../../components/layout/VerifyNeighbourhoodHeadLayout";
+import VerifyNeighbourhoodHeadLayout from "../../components/layout/head/VerifyNeighbourhoodHeadLayout";
 
 const variants = {
   hover: {

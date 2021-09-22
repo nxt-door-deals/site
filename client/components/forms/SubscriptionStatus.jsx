@@ -74,7 +74,7 @@ const SubscriptionStatus = () => {
             <div
               className={`"flex items-center justify-center border-2 rounded-xl " ${
                 props.touched.email && props.errors.email
-                  ? "mb-1 border-red-800 shadow-none"
+                  ? "mb-1 error-border shadow-none"
                   : "mb-8 border-gray-300 focus-within:border-text-purple"
               }`}
             >
@@ -105,7 +105,7 @@ const SubscriptionStatus = () => {
             {/* Validation errors */}
             {props.touched.email && props.errors.email ? (
               <div
-                className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                className="font-axiforma text-xs error-text p-1 mb-2"
                 id="email-error"
               >
                 <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

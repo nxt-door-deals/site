@@ -6,11 +6,10 @@ import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 // Component imports
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import PoliciesHeadLayout from "../components/layout/PoliciesHeadLayout";
-import TermsAndConditionsText from "../components/utils/TermsAndConditionsText";
-import PrivacyText from "../components/utils/PrivacyText";
-import CookieText from "../components/utils/CookieText";
-import ScrollToTop from "../components/utils/ScrollToTop";
+import PoliciesHeadLayout from "../components/layout/head/PoliciesHeadLayout";
+import TermsAndConditionsText from "../components/page_components/policies/TermsAndConditionsText";
+import PrivacyText from "../components/page_components/policies/PrivacyText";
+import CookieText from "../components/page_components/policies/CookieText";
 
 const Policies = (props) => {
   const router = useRouter();
@@ -24,11 +23,10 @@ const Policies = (props) => {
   navStylePurple["pathname"] = pathname;
   return (
     <PoliciesHeadLayout>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
-
-      <div id="header" className="text-brand-gray bg-purple-50">
+      <div
+        id="header"
+        className="text-brand-gray bg-gradient-to-b from-purple-50 to-white"
+      >
         <Navbar navStyle={navStylePurple} />
         <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-5 lg:px-20 mb-20">
           <section id="terms">

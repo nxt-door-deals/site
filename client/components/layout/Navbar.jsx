@@ -1,23 +1,11 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import AuthContext from "../../context/auth/authContext";
 import { motion } from "framer-motion";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTimes,
-  faEnvelope,
-  faStream,
-  faCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookSquare,
-  faInstagramSquare,
-  faLinkedin,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { faTimes, faStream, faCircle } from "@fortawesome/free-solid-svg-icons";
 
 // Component imports
 import Contact from "../forms/Contact";
@@ -134,7 +122,7 @@ const Navbar = (props) => {
                 alt="Open Menu"
               />
             ) : (
-              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative opacity-90 cursor-pointer shadow-scrollToTopShadow">
+              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative opacity-90 cursor-pointer  shadow-scrollToTopShadow">
                 <FontAwesomeIcon
                   icon={faStream}
                   alt="Open Menu"
@@ -144,10 +132,13 @@ const Navbar = (props) => {
             )
           ) : (
             <div
-              className="cursor-pointer mt-4 text-brand-gray text-lg"
+              className="cursor-pointer text-brand-gray text-lg mt-4"
               alt="Close Menu"
             >
-              <FontAwesomeIcon icon={faTimes} />
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="close-button-animation"
+              />
             </div>
           )}
         </div>
@@ -551,7 +542,7 @@ const Navbar = (props) => {
           id="menu"
           className={
             expanded
-              ? "relative transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-hidden lg:hidden z-40 " +
+              ? "relative transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-scroll lg:hidden z-40 " +
                 props.navStyle.navOverlayBgColor
               : "relative transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
           }
@@ -1171,9 +1162,15 @@ const Navbar = (props) => {
                   className="mr-4"
                   aria-label="Link to our facebook page"
                 >
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon={faFacebookSquare}
                     className={props.navStyle.navOverlayTextColor}
+                  /> */}
+                  <Image
+                    src="/images/social/facebook.svg"
+                    alt="Facebook icon"
+                    height={30}
+                    width={30}
                   />
                 </motion.a>
               </Link>{" "}
@@ -1188,9 +1185,15 @@ const Navbar = (props) => {
                   className="mr-4"
                   aria-label="Link to our instagram page"
                 >
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon={faInstagramSquare}
                     className={props.navStyle.navOverlayTextColor}
+                  /> */}
+                  <Image
+                    src="/images/social/instagram.svg"
+                    alt="Instagram icon"
+                    height={30}
+                    width={30}
                   />
                 </motion.a>
               </Link>{" "}
@@ -1205,9 +1208,15 @@ const Navbar = (props) => {
                   className="mr-4"
                   aria-label="Link to our linkedin page"
                 >
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon={faLinkedin}
                     className={props.navStyle.navOverlayTextColor}
+                  /> */}
+                  <Image
+                    src="/images/social/linkedin.svg"
+                    alt="Linkedin icon"
+                    height={30}
+                    width={30}
                   />
                 </motion.a>
               </Link>{" "}
@@ -1222,9 +1231,15 @@ const Navbar = (props) => {
                   className="mr-4"
                   aria-label="Link to our youtube channel"
                 >
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon={faYoutube}
                     className={props.navStyle.navOverlayTextColor}
+                  /> */}
+                  <Image
+                    src="/images/social/youtube.svg"
+                    alt="Youtube icon"
+                    height={30}
+                    width={30}
                   />
                 </motion.a>
               </Link>{" "}
@@ -1237,7 +1252,13 @@ const Navbar = (props) => {
                 }}
                 className={props.navStyle.navOverlayTextColor}
               >
-                <FontAwesomeIcon icon={faEnvelope} />
+                {/* <FontAwesomeIcon icon={faEnvelope} /> */}
+                <Image
+                  src="/images/social/email.svg"
+                  alt="Email icon"
+                  height={30}
+                  width={30}
+                />
               </motion.div>
             </div>
           </div>

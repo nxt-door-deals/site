@@ -6,13 +6,12 @@ import keys from "../utils/keys";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
 // Component imports
-import PostAdHeadLayout from "../components/layout/PostAdHeadLayout";
+import PostAdHeadLayout from "../components/layout/head/PostAdHeadLayout";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import Categories from "../components/utils/Categories";
-import LetsVerifyYourEmail from "../components/utils/LetsVerifyYourEmail";
-import AdQuotaReached from "../components/utils/AdQuotaReached";
-import ScrollToTop from "../components/utils/ScrollToTop";
+import Categories from "../components/page_components/post_ad/Categories";
+import LetsVerifyYourEmail from "../components/page_components/LetsVerifyYourEmail";
+import AdQuotaReached from "../components/page_components/post_ad/AdQuotaReached";
 
 const PostAd = (props) => {
   const router = useRouter();
@@ -61,9 +60,6 @@ const PostAd = (props) => {
 
   return (
     <PostAdHeadLayout>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
       <div id="header">
         <Navbar
           navStyle={navStylePurple}

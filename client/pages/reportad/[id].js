@@ -7,7 +7,7 @@ import keys from "../../utils/keys";
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
-import ReportAdHeadLayout from "../../components/layout/ReportAdHeadLayout";
+import ReportAdHeadLayout from "../../components/layout/head/ReportAdHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 

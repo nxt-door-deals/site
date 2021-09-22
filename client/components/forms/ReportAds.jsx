@@ -183,7 +183,7 @@ const ReportAds = (props) => {
                 <div
                   className={`"flex items-center justify-center border-2 px-2 rounded-xl  " ${
                     props.touched.reason && props.errors.reason
-                      ? "mb-1 border-red-800 shadow-none"
+                      ? "mb-1 error-border shadow-none"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"
                   }`}
                 >
@@ -217,7 +217,7 @@ const ReportAds = (props) => {
 
               {/* Validation errors */}
               {props.touched.reason && props.errors.reason ? (
-                <div className="font-axiforma text-xs text-red-800 p-1 mb-2">
+                <div className="font-axiforma text-xs error-text p-1 mb-2">
                   <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                   {props.errors.reason}
                 </div>
@@ -227,7 +227,7 @@ const ReportAds = (props) => {
               <div
                 className={`"flex items-center justify-center border-2 px-2 rounded-xl  " ${
                   props.touched.description && props.errors.description
-                    ? "mb-1 border-red-800 shadow-none"
+                    ? "mb-1 error-border shadow-none"
                     : "mb-6 border-gray-300 focus-within:border-text-purple"
                 }`}
               >
@@ -259,7 +259,7 @@ const ReportAds = (props) => {
               {/* Validation errors */}
               {props.touched.description && props.errors.description ? (
                 <div
-                  className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                  className="font-axiforma text-xs error-text p-1 mb-2"
                   id="description-error"
                 >
                   <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

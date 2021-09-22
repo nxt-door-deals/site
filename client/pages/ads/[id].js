@@ -5,11 +5,10 @@ import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
-import AdsHeadLayout from "../../components/layout/AdsHeadLayout";
+import AdsHeadLayout from "../../components/layout/head/AdsHeadLayout";
 import Navbar from "../../components/layout/Navbar";
-import Ad from "../../components/utils/Ad";
+import Ad from "../../components/page_components/browse_ads/Ad";
 import Footer from "../../components/layout/Footer";
-import ScrollToTop from "../../components/utils/ScrollToTop";
 
 const FullPageAd = (props) => {
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
@@ -51,9 +50,6 @@ const FullPageAd = (props) => {
             pathname={pathname}
           />
         </div>
-      </div>
-      <div className="w-full">
-        <ScrollToTop />
       </div>
     </AdsHeadLayout>
   );

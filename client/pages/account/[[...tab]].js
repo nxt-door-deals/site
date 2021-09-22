@@ -9,11 +9,10 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 // import UserAccountHeadLayout from "../components/layout/UserAccountHeadLayout";
-import Tab from "../../components/utils/Tab";
-import ScrollToTop from "../../components/utils/ScrollToTop";
+import Tab from "../../components/page_components/common/Tab";
 
 const UserAccountHeadLayout = dynamic(() =>
-  import("../../components/layout/UserAccountHeadLayout")
+  import("../../components/layout/head/UserAccountHeadLayout")
 );
 
 const Account = (props) => {
@@ -56,10 +55,6 @@ const Account = (props) => {
 
   return (
     <UserAccountHeadLayout user={user && user}>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
-
       <div id="header" className="h-full">
         <Navbar navStyle={navStylePurple} />
         <div className="w-full bg-user-account-mobile-background md:bg-user-account-background bg-cover bg-no-repeat h-80"></div>

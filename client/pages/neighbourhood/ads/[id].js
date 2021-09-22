@@ -10,13 +10,12 @@ import {
 } from "../../../utils/styles";
 
 // Component imports
-import MarketplaceHeadLayout from "../../../components/layout/MarketplaceHeadLayout";
+import MarketplaceHeadLayout from "../../../components/layout/head/MarketplaceHeadLayout";
 import Navbar from "../../../components/layout/Navbar";
 // import Tab from "../../components/utils/Tab";
-import BrowseAds from "../../../components/utils/BrowseAds";
-import NoAdsForNeighbourhood from "../../../components/utils/NoAdsForNeighbourhood";
+import BrowseAds from "../../../components/page_components/browse_ads/BrowseAds";
+import NoAdsForNeighbourhood from "../../../components/page_components/browse_ads/NoAdsForNeighbourhood";
 import Footer from "../../../components/layout/Footer";
-import ScrollToTop from "../../../components/utils/ScrollToTop";
 
 // const adTabs = [
 //   { label: "Browse Ads", value: 0 },
@@ -81,10 +80,6 @@ const Ads = (props) => {
 
   return (
     <MarketplaceHeadLayout aptId={props.aptId} aptName={props.aptName}>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
-
       <div id="header" ref={headerRef}>
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar

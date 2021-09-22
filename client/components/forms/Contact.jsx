@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 // Component import
-import Alert from "../utils/Alert";
+import Alert from "../page_components/common/Alert";
 
 const contactValidationSchema = Yup.object({
   email: Yup.string()
@@ -72,7 +72,7 @@ const Contact = (props) => {
           onClick={() => props.setIsModalOpen(false)}
           alt="Close Menu"
         >
-          <FontAwesomeIcon icon={faTimes} />
+          <FontAwesomeIcon icon={faTimes} className="close-button-animation" />
         </div>
         <span className="invisible lg:visible text-xs absolute top-10 right-3.5 text-gray-500">
           ESC
@@ -114,7 +114,7 @@ const Contact = (props) => {
                 <div
                   className={`"relative border-2 rounded-xl " ${
                     props.touched.email && props.errors.email
-                      ? "mb-1 border-red-800"
+                      ? "mb-1 error-border"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"
                   }`}
                 >
@@ -135,7 +135,7 @@ const Contact = (props) => {
 
                 {/* Validation errors */}
                 {props.touched.email && props.errors.email ? (
-                  <div className=" text-xs text-red-800 p-1 mb-2">
+                  <div className=" text-xs error-text p-1 mb-2">
                     <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                     {props.errors.email}
                   </div>
@@ -144,7 +144,7 @@ const Contact = (props) => {
                 <div
                   className={`"relative border-2 rounded-xl " ${
                     props.touched.message && props.errors.message
-                      ? "mb-1 border-red-800"
+                      ? "mb-1 error-border"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"
                   }`}
                 >
@@ -175,7 +175,7 @@ const Contact = (props) => {
                 {/* Validation errors */}
                 {props.touched.message && props.errors.message ? (
                   <div
-                    className=" text-xs text-red-800 p-1 mb-2"
+                    className=" text-xs error-text p-1 mb-2"
                     id="message-error"
                   >
                     <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

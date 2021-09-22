@@ -6,11 +6,10 @@ import axios from "axios";
 import fs from "fs";
 
 // Component imports
-import HomeHeadLayout from "../components/layout/HomeHeadLayout";
+import HomeHeadLayout from "../components/layout/head/HomeHeadLayout";
 import Navbar from "../components/layout/Navbar";
-import Landing from "../components/Landing";
-import HowItWorks from "../components/HowItWorks";
-import ScrollToTop from "../components/utils/ScrollToTop";
+import Landing from "../components/page_components/home/Landing";
+import HowItWorks from "../components/page_components/home/HowItWorks";
 import Footer from "../components/layout/Footer";
 
 const bannerVariants = {
@@ -116,9 +115,6 @@ const Home = (props) => {
           pathname={pathname}
         />
       </section>
-      <div className="w-full h-full">
-        <ScrollToTop />
-      </div>
     </HomeHeadLayout>
   );
 };

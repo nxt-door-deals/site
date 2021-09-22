@@ -6,8 +6,8 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 // Component imports
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import FAQHeadLayout from "../../components/layout/FAQHeadLayout";
-import FrequentlyAskedQuestions from "../../components/utils/FrequentlyAskedQuestions";
+import FAQHeadLayout from "../../components/layout/head/FAQHeadLayout";
+import FrequentlyAskedQuestions from "../../components/page_components/policies/FrequentlyAskedQuestions";
 
 const FAQType = (props) => {
   const router = useRouter();

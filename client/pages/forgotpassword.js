@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { navStylePurple } from "../utils/styles";
 
 // Component imports
-import ForgotPasswordHeadLayout from "../components/layout/ForgotPasswordHeadLayout";
+import ForgotPasswordHeadLayout from "../components/layout/head/ForgotPasswordHeadLayout";
 import EnterEmailForm from "../components/forms/forgot-password/EnterEmailForm";
 import Navbar from "../components/layout/Navbar";
 

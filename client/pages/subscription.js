@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 
 // Component Imports
-import SubscriptionHeadLayout from "../components/layout/SubscriptionHeadLayout";
+import SubscriptionHeadLayout from "../components/layout/head/SubscriptionHeadLayout";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SubscriptionStatus from "../components/forms/SubscriptionStatus";

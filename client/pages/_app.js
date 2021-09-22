@@ -9,6 +9,9 @@ import { toast, ToastContainer, Flip } from "react-toastify";
 import smoothscroll from "smoothscroll-polyfill";
 import EventSource from "eventsource";
 
+// Component imports
+import PageLayout from "../components/layout/PageLayout";
+
 const pageVariants = {
   pageInitial: {
     opacity: 0,
@@ -74,19 +77,21 @@ export default function MyApp({ Component, pageProps, router }) {
     >
       <AuthState>
         <SiteState>
-          <Component
-            {...pageProps}
-            pathHistory={pathHistory}
-            chatNotification={chatNotification}
-            showForm={showForm}
-            setShowForm={setShowForm}
-            notificationDisplayed={notificationDisplayed}
-            showBanner={showBanner}
-            setShowBanner={setShowBanner}
-            scrollToTop={scrollToTop}
-            setScrollToTop={setScrollToTop}
-            hiwRef={hiwRef}
-          />
+          <PageLayout>
+            <Component
+              {...pageProps}
+              pathHistory={pathHistory}
+              chatNotification={chatNotification}
+              showForm={showForm}
+              setShowForm={setShowForm}
+              notificationDisplayed={notificationDisplayed}
+              showBanner={showBanner}
+              setShowBanner={setShowBanner}
+              scrollToTop={scrollToTop}
+              setScrollToTop={setScrollToTop}
+              hiwRef={hiwRef}
+            />
+          </PageLayout>
           <ToastContainer
             autoClose={3000}
             hideProgressBar={true}

@@ -4,11 +4,10 @@ import { useRouter } from "next/router";
 import { navStyleBlue } from "../../../utils/styles";
 
 // Component imports
-import CreateNeighbourhoodHeadLayout from "../../../components/layout/CreateNeighbourhoodHeadLayout";
+import CreateNeighbourhoodHeadLayout from "../../../components/layout/head/CreateNeighbourhoodHeadLayout";
 import Navbar from "../../../components/layout/Navbar";
 import CreateNeighbourhood from "../../../components/forms/CreateNeighbourhood";
 import Footer from "../../../components/layout/Footer";
-import ScrollToTop from "../../../components/utils/ScrollToTop";
 
 const Neighbourhood = (props) => {
   const router = useRouter();
@@ -24,8 +23,6 @@ const Neighbourhood = (props) => {
 
   return (
     <CreateNeighbourhoodHeadLayout>
-      <ScrollToTop />
-
       <div id="header">
         <Navbar navStyle={navStyleBlue} />
         <CreateNeighbourhood

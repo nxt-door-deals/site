@@ -77,6 +77,14 @@ body {
   @apply text-brand-purple font-semibold;
 }
 
+.error-border {
+  @apply border-pink-600;
+}
+
+.error-text {
+  @apply text-pink-600;
+}
+
 .modal-z-idx {
   z-index: 99999999;
 }
@@ -266,6 +274,15 @@ body {
   }
 }
 
+/* Times animation */
+.close-button-animation {
+  transition: transform 0.5s;
+}
+
+.close-button-animation:hover {
+  transform: rotate(180deg);
+}
+
 /* Tooltip - chat and image deletion */
 .tooltip {
   position: relative;
@@ -343,4 +360,46 @@ body {
 
 .quote::after {
   content: close-quote;
+}
+
+/* Wave on footer */
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 55px;
+}
+
+.wave .shape-fill {
+  fill: #ffffff;
+}
+
+/* Tile above how it works */
+.tilt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tilt svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 52px;
+}
+
+.tilt .shape-fill {
+  fill: #ffffff;
 }

@@ -23,9 +23,9 @@ import {
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 // Component import
-import VerifyEmail from "../utils/VerifyEmail";
-import Alert from "../utils/Alert";
-import Terms from "../utils/Terms";
+import VerifyEmail from "../page_components/VerifyEmail";
+import Alert from "../page_components/common/Alert";
+import Terms from "../page_components/common/Terms";
 import BouncingBalls from "../loaders/BouncingBalls";
 
 const userRegistrationValidationSchema = Yup.object({
@@ -99,13 +99,8 @@ const UserRegistration = () => {
   } = siteContext;
 
   const authContext = useContext(AuthContext);
-  const {
-    loadUser,
-    user,
-    registerUser,
-    isAuthenticated,
-    authError,
-  } = authContext;
+  const { loadUser, user, registerUser, isAuthenticated, authError } =
+    authContext;
 
   useEffect(() => {
     loadAllApartments();
@@ -126,7 +121,9 @@ const UserRegistration = () => {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    if (user) setShowForm(false);
+    if (user) {
+      setShowForm(false);
+    }
   }, [user]);
 
   const searchApartment = (e) => {
@@ -209,7 +206,7 @@ const UserRegistration = () => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl " ${
                           props.touched.name && props.errors.name
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -243,7 +240,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.name && props.errors.name ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="name-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -255,7 +252,7 @@ const UserRegistration = () => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  " ${
                           props.touched.email && props.errors.email
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -288,7 +285,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.email && props.errors.email ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="email-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -300,7 +297,7 @@ const UserRegistration = () => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  " ${
                           props.touched.mobile && props.errors.mobile
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -333,7 +330,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.mobile && props.errors.mobile ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="mobile-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -345,7 +342,7 @@ const UserRegistration = () => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  " ${
                           props.touched.password && props.errors.password
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -386,7 +383,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.password && props.errors.password ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="password-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -398,7 +395,7 @@ const UserRegistration = () => {
                       <div
                         className={`"flex items-center justify-center border-2 rounded-xl  " ${
                           props.touched.apartment && props.errors.apartment
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -433,7 +430,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.apartment && props.errors.apartment ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="apartment-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -535,7 +532,7 @@ const UserRegistration = () => {
                         } ${
                           props.touched.apartmentNumber &&
                           props.errors.apartmentNumber
-                            ? "mb-1 border-red-800 shadow-none"
+                            ? "mb-1 error-border shadow-none"
                             : "mb-8 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
@@ -571,7 +568,7 @@ const UserRegistration = () => {
                       {props.touched.apartmentNumber &&
                       props.errors.apartmentNumber ? (
                         <div
-                          className="font-axiforma text-xs text-red-800 p-1 mb-2"
+                          className="font-axiforma text-xs error-text p-1 mb-2"
                           id="apartmentNumber-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}

@@ -125,4 +125,7 @@ dist
 # Pre-commit
 .pre-commit-config.yaml
 
+# Config
+jsconfig.json
+
 # End of https://www.toptal.com/developers/gitignore/api/node

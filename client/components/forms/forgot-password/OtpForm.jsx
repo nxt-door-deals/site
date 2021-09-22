@@ -11,13 +11,13 @@ import { toast } from "react-toastify";
 import keys from "../../../utils/keys";
 
 // Component Import
-import Alert from "../../utils/Alert";
-import Progress from "../../utils/Progress";
+import Alert from "../../page_components/common/Alert";
+import Progress from "../../page_components/Progress";
 import ChangePassword from "./ChangePassword";
 import BouncingBalls from "../../loaders/BouncingBalls";
 
 // Dynamic import allows the cookie to be created before the component is loaded
-const Timer = dynamic(() => import("../../utils/Timer"));
+const Timer = dynamic(() => import("../../page_components/Timer"));
 
 const otpValidationSchema = Yup.object({
   otp1: Yup.string().required(),
@@ -195,7 +195,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp1 && props.errors.otp1
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                       onKeyUp={() => otp2.focus()}
@@ -208,7 +208,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp2 && props.errors.otp2
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                       onKeyUp={() => otp3.focus()}
@@ -221,7 +221,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp3 && props.errors.otp3
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                       onKeyUp={() => otp4.focus()}
@@ -234,7 +234,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp4 && props.errors.otp4
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                       onKeyUp={() => otp5.focus()}
@@ -247,7 +247,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp5 && props.errors.otp5
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                       onKeyUp={() => otp6.focus()}
@@ -260,7 +260,7 @@ const OtpForm = (props) => {
                       maxLength="1"
                       className={
                         props.touched.otp6 && props.errors.otp6
-                          ? "border-red-800 otp-text"
+                          ? "error-border otp-text"
                           : "border-gray-300 otp-text"
                       }
                     />

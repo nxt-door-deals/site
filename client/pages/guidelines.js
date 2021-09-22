@@ -20,8 +20,7 @@ import {
 // Component imports
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import GuidelinesHeadLayout from "../components/layout/GuidelinesHeadLayout";
-import ScrollToTop from "../components/utils/ScrollToTop";
+import GuidelinesHeadLayout from "../components/layout/head/GuidelinesHeadLayout";
 
 const Guidelines = () => {
   const router = useRouter();
@@ -32,10 +31,6 @@ const Guidelines = () => {
 
   return (
     <GuidelinesHeadLayout>
-      <div className="w-full">
-        <ScrollToTop />
-      </div>
-
       <div id="header" className="text-brand-gray bg-purple-50">
         <Navbar navStyle={navStylePurple} />
         <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-5 lg:px-20">
@@ -117,7 +112,7 @@ const Guidelines = () => {
                     <p className="pb-2">
                       <FontAwesomeIcon
                         icon={faBan}
-                        className="mr-1 text-red-800"
+                        className="mr-1 error-text"
                       />{" "}
                       {guideline}
                     </p>

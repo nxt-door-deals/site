@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
 // Component imports
-import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
-import UserLoggedIn from "../components/utils/UserLoggedIn";
+import UserLoginHeadLayout from "../components/layout/head/UserLoginHeadLayout";
+import UserLoggedIn from "../components/page_components/UserLoggedIn";
 
 const AlreadyLoggedIn = () => {
   return (

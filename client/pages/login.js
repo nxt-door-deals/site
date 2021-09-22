@@ -6,7 +6,7 @@ import cookie from "../utils/cookieInit";
 // Component import
 import Navbar from "../components/layout/Navbar";
 import UserLogin from "../components/forms/UserLogin";
-import UserLoginHeadLayout from "../components/layout/UserLoginHeadLayout";
+import UserLoginHeadLayout from "../components/layout/head/UserLoginHeadLayout";
 
 const Login = (props) => {
   const router = useRouter();
@@ -63,17 +63,19 @@ const Login = (props) => {
     setTimeout(() => reportedAdToast(), 500);
   }
 
-  if (typeof window !== "undefined") {
-    if (localStorage.getItem("nddToken")) router.push("/alreadyloggedin", "/");
+  if (localStorage.getItem("nddToken")) {
+    router.push("/alreadyloggedin", "/");
+
+    return null;
+  } else {
+    return (
+      <UserLoginHeadLayout>
+        <Navbar navStyle={navStylePurple} />
+
+        <UserLogin pathProp={pathProp} />
+      </UserLoginHeadLayout>
+    );
   }
-
-  return (
-    <UserLoginHeadLayout>
-      <Navbar navStyle={navStylePurple} />
-
-      <UserLogin pathProp={pathProp} />
-    </UserLoginHeadLayout>
-  );
 };
 
 export default Login;
