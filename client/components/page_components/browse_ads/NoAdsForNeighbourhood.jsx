@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AuthContext from "../../../context/auth/authContext";
 
 const NoAdsForNeighbourhood = () => {
+  const authContext = useContext(AuthContext);
+  const { user } = authContext;
+
   return (
-    <div className="py-16 px-8 text-center">
+    <div className="px-8 text-center">
       <Image
         src={"/images/browseads/empty_cart.svg"}
         alt={"empty cart"}
@@ -15,12 +19,19 @@ const NoAdsForNeighbourhood = () => {
         Looks like there are no ads for this apartment yet.
         <br />
         <br />
-        <Link href="/registeruser">
-          <a className="text-purple-500">
-            <span className="styled-link">Sign Up</span>
-          </a>
-        </Link>{" "}
-        today, be that trailblazer and get the ball rolling. It's{" "}
+        {!user ? (
+          <span>
+            <Link href="/registeruser">
+              <a className="text-purple-500">
+                <span className="styled-link">Sign Up</span>
+              </a>
+            </Link>{" "}
+            today, b
+          </span>
+        ) : (
+          "B"
+        )}
+        e that trailblazer and get the ball rolling. It's{" "}
         <span className="font-semibold">FREE</span>!
       </p>
     </div>

@@ -1,7 +1,5 @@
-import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { navStyleBlue } from "../utils/styles";
-import AuthContext from "../context/auth/authContext";
 
 // Component import
 import UserRegistrationHeadLayout from "../components/layout/head/UserRegistrationHeadLayout";
@@ -12,10 +10,6 @@ import Footer from "../components/layout/Footer";
 const RegisterUser = () => {
   const router = useRouter();
   const pathname = router.pathname;
-
-  const authContext = useContext(AuthContext);
-
-  const { isAuthenticated } = authContext;
 
   navStyleBlue["hrStyle"] = "border-blue-800 bg-blue-800 border-dotted";
   navStyleBlue["navBgColor"] = "lg:bg-indigo-100";
@@ -29,18 +23,18 @@ const RegisterUser = () => {
     router.push("/alreadyloggedin", "/");
 
     return null;
-  } else {
-    return (
-      <UserRegistrationHeadLayout>
-        <Navbar navStyle={navStyleBlue} />
-        <UserRegistration />
-        <Footer
-          footerGradientClass={footerGradientClassBlue}
-          pathname={pathname}
-        />
-      </UserRegistrationHeadLayout>
-    );
   }
+
+  return (
+    <UserRegistrationHeadLayout>
+      <Navbar navStyle={navStyleBlue} />
+      <UserRegistration />
+      <Footer
+        footerGradientClass={footerGradientClassBlue}
+        pathname={pathname}
+      />
+    </UserRegistrationHeadLayout>
+  );
 };
 
 export default RegisterUser;

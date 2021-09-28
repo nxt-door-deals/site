@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -29,7 +30,7 @@ const FullPageAd = (props) => {
 
   return (
     <AdsHeadLayout adId={props.data.id}>
-      <div className="text-brand-gray bg-fpa-background bg-cover bg-no-repeat">
+      <div className="text-brand-gray bg-gradient-to-b from-pink-50 via-white to-white">
         <Navbar
           navStyle={navStylePurple}
           chatNotification={props.chatNotification}

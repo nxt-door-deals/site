@@ -38,7 +38,7 @@ const linkVariants = {
   },
 };
 
-Modal.setAppElement("#__next");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#__next");
 
 const Ad = (props) => {
   var showChatButton = true;

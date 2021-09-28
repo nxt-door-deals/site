@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import cookie from "../../utils/cookieInit";
+import cookie from "../../../utils/cookieInit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHourglassHalf,

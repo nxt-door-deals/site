@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import SiteContext from "../../context/site/siteContext";
+import SiteContext from "../../../context/site/siteContext";
 
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-import useChat from "../../hooks/useChat";
-import keys from "../../utils/keys";
+import useChat from "../../../hooks/useChat";
+import keys from "../../../utils/keys";
 
 const validationSchema = Yup.object({
   message: Yup.string().required().trim(),
@@ -88,7 +88,7 @@ const ActiveChat = (props) => {
   };
 
   return (
-    <div className="border-2 border-purple-200 rounded-tl-2xl rounded-tr-2xl bg-purple-200">
+    <div className="border-2 border-purple-200 rounded-tl-2xl rounded-tr-2xl bg-gradient-to-br from bg-purple-100 via-pink-100 to-purple-200">
       <div className="flex justify-between">
         <div className="m-2 p-3 flex items-center">
           <p>
@@ -150,7 +150,7 @@ const ActiveChat = (props) => {
       <div
         id="chat-window"
         ref={chatRef}
-        className="relative h-96 p-6 overflow-auto overscroll-y-auto bg-white"
+        className={`relative h-96 p-6 overflow-auto overscroll-y-auto ${props.background}`}
       >
         {/* Display historical messages */}
         <div>
@@ -174,7 +174,7 @@ const ActiveChat = (props) => {
                   {message.data.data}
                 </p>
                 {message.ownedBySender ? (
-                  <p className="text-xs text-gray-400 p-1">You</p>
+                  <p className="text-xs text-gray-600 p-1">You</p>
                 ) : null}
               </div>
             ))}

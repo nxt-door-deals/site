@@ -8,7 +8,7 @@ const sellerFaqs = [
   {
     question: "How many ads can I post at a time?",
     answer:
-      "You may post a maximum of seven ads across all categories at any given point in time. ",
+      "You may post a maximum of five ads across all categories at any given point in time. ",
   },
   {
     question: "How long will my ad remain active?",

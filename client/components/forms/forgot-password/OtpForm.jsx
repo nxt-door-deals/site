@@ -12,12 +12,12 @@ import keys from "../../../utils/keys";
 
 // Component Import
 import Alert from "../../page_components/common/Alert";
-import Progress from "../../page_components/Progress";
+import Progress from "../../page_components/common/Progress";
 import ChangePassword from "./ChangePassword";
 import BouncingBalls from "../../loaders/BouncingBalls";
 
 // Dynamic import allows the cookie to be created before the component is loaded
-const Timer = dynamic(() => import("../../page_components/Timer"));
+const Timer = dynamic(() => import("../../page_components/common/Timer"));
 
 const otpValidationSchema = Yup.object({
   otp1: Yup.string().required(),

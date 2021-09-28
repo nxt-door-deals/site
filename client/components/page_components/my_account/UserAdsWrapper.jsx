@@ -61,8 +61,11 @@ const UserAdsWrapper = (props) => {
     return (
       <div className="py-16 lg:py-20 px-8">
         <p className="font-axiforma text-brand-gray text-xl text-center">
-          Hmm... No ads? Remember, you have seven free ads across all
-          categories. Start posting today!
+          Hmm... No ads? Remember, you have{" "}
+          <span className="font-semibold border-b-4 border-ad-purple pb-1">
+            five
+          </span>{" "}
+          free ads across all categories. Start posting today!
         </p>
         <div className="text-center">
           <motion.button

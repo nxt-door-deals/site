@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
-import Link from "next/link";
 import Select from "react-select";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -24,7 +23,8 @@ import {
 // Component imports
 import Terms from "../page_components/common/Terms";
 import BouncingBalls from "../loaders/BouncingBalls";
-import NeighbourCreationNotification from "../page_components/NeighbourCreationNotification";
+import NeighbourCreationNotification from "../page_components/neighbourhood_registration/NeighbourCreationNotification";
+import NeighbourhoodRegistrationProcedure from "../page_components/neighbourhood_registration/NeighbourhoodRegistrationProcedure";
 
 const variants = {
   initial: {
@@ -116,9 +116,9 @@ const CreateNeighbourhood = (props) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="pb-20 bg-purple-50 bg-opacity-40 -mt-1"
+          className="pb-20 bg-white -mt-1"
         >
-          <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-purple-50 lg:flex lg:justify-center">
+          <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-white lg:flex lg:justify-center">
             <img src="/images/neighbourhood/skyline.svg" alt="City skyline" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
@@ -133,99 +133,7 @@ const CreateNeighbourhood = (props) => {
             {/* Flex container with form */}
             <div className="flex flex-col lg:flex-row lg:justify-center divide-y-2 lg:divide-y-0 lg:divide-x-2">
               {/* Registration procedure */}
-              <div
-                id="information"
-                className="pb-4 lg:pr-4 lg:pb-0 text-brand-gray pt-6"
-              >
-                <h2 className="text-xl text-center font-semibold mb-6">
-                  How does it work?
-                </h2>
-                <ul>
-                  <li className="flex items-center pb-3">
-                    <FontAwesomeIcon
-                      icon={faHandPointRight}
-                      className="text-blue-900 text-3xl lg:text-3xl"
-                    />
-                    <p className="pl-2 text-sm cursor-default">
-                      An apartment needs to be registered only once. Anyone can
-                      register an apartment. It does not matter whether you are
-                      an owner or a tenant.
-                    </p>
-                  </li>
-                  <li className="flex items-center pb-3">
-                    <FontAwesomeIcon
-                      icon={faHandPointRight}
-                      className="text-blue-800 text-3xl lg:text-3xl"
-                    />
-                    <p className="pl-2 text-sm cursor-default">
-                      Provide an email address that you have access to.{" "}
-                      <span className="font-semibold text-notification-red">
-                        The email address provided will ONLY be used to notify
-                        you about the status of the registration
-                      </span>
-                      .
-                    </p>
-                  </li>
-                  <li className="flex items-center pb-3">
-                    <FontAwesomeIcon
-                      icon={faHandPointRight}
-                      className="text-blue-700 text-3xl lg:text-3xl"
-                    />
-                    <p className="pl-2 text-sm cursor-default">
-                      After you register an apartment (for{" "}
-                      <span className="text-blue-800 font-bold">FREE!</span>),
-                      our review process kicks off. The review ensures that the
-                      apartment is genuine, trustworthy and not duplicated.
-                    </p>
-                  </li>
-                  <li className="flex items-center pb-3">
-                    <FontAwesomeIcon
-                      icon={faHandPointRight}
-                      className="text-blue-500 text-3xl lg:text-3xl"
-                    />
-                    <p className="pl-2 text-sm cursor-default">
-                      In case additional details are required to complete
-                      verification, we will hit you up via email.
-                    </p>
-                  </li>
-                  <li className="flex items-center pb-3">
-                    <FontAwesomeIcon
-                      icon={faHandPointRight}
-                      className="text-blue-400 text-3xl lg:text-3xl"
-                    />
-                    <p className="pl-2 text-sm cursor-default">
-                      You will receive an email once the apartment is
-                      successfully verified.
-                    </p>
-                  </li>
-                  <li>
-                    <div className="flex items-center pb-3">
-                      <FontAwesomeIcon
-                        icon={faHandPointRight}
-                        className="text-blue-300 text-3xl lg:text-3xl"
-                      />
-                      <p className="pl-2 text-sm cursor-default">
-                        Residents of your apartment can then sign up for a{" "}
-                        <Link href="/registeruser">
-                          <a className="hover:underline">
-                            <span className="text-blue-800 font-bold">
-                              FREE
-                            </span>{" "}
-                            account
-                          </a>
-                        </Link>{" "}
-                        and enjoy all the{" "}
-                        <Link href="/">
-                          <a className="text-brand-purple font-semibold hover:underline">
-                            nxtdoordeals.com
-                          </a>
-                        </Link>{" "}
-                        awesomeness!
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <NeighbourhoodRegistrationProcedure />
 
               {/* The form for neighbourhood registration */}
               <div id="form" className="pt-6 lg:mt-0 lg:ml-2 md:px-16">
@@ -576,7 +484,7 @@ const CreateNeighbourhood = (props) => {
                           variants={variants}
                           whileHover="hover"
                           whileTap="tap"
-                          className={`"py-6 px-6 h-12 bg-blue-600 shadow-buttonShadowBlue text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
+                          className={`"w-64 px-6 h-12 bg-blue-600 shadow-buttonShadowBlue text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none " ${
                             !enableFormSubmission && "cursor-not-allowed"
                           } ${props.isSubmitting && "cursor-not-allowed"}`}
                           disabled={!enableFormSubmission ? true : false}

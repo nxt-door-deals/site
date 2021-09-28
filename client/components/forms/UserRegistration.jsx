@@ -23,7 +23,7 @@ import {
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 // Component import
-import VerifyEmail from "../page_components/VerifyEmail";
+import VerifyEmail from "../page_components/user_registration/VerifyEmail";
 import Alert from "../page_components/common/Alert";
 import Terms from "../page_components/common/Terms";
 import BouncingBalls from "../loaders/BouncingBalls";
@@ -117,14 +117,10 @@ const UserRegistration = () => {
   useEffect(() => {
     if (isAuthenticated) {
       loadUser();
+
+      setTimeout(() => setShowForm(false), 1000);
     }
   }, [isAuthenticated]);
-
-  useEffect(() => {
-    if (user) {
-      setShowForm(false);
-    }
-  }, [user]);
 
   const searchApartment = (e) => {
     setHideResults(null);
@@ -142,7 +138,7 @@ const UserRegistration = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="flex justify-center items-center h-full bg-user-registration-background bg-cover bg-no-repeat -z-20 pt-32">
+      <div className="flex justify-center items-center h-full pt-32 bg-gradient-to-b from-blue-50 to-white">
         <div className="ml-8 mr-8 mb-16">
           {showForm ? (
             <motion.div
@@ -189,7 +185,9 @@ const UserRegistration = () => {
                       values.apartmentNumber,
                       selectedApartment.current
                     );
-                    setTimeout(() => setSubmitting(false), 500);
+                    setTimeout(() => {
+                      setSubmitting(false);
+                    }, 1000);
                   }
                 }}
               >
@@ -599,12 +597,12 @@ const UserRegistration = () => {
                           disabled={
                             authError !== null ||
                             !enableFormSubmission ||
-                            props.isSubmitting
+                            (props.isSubmitting && isAuthenticated)
                           }
                         >
                           {authError ? (
                             "Register"
-                          ) : props.isSubmitting ? (
+                          ) : props.isSubmitting || isAuthenticated ? (
                             <BouncingBalls />
                           ) : (
                             "Register"

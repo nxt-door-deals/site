@@ -12,10 +12,10 @@ const FraudAlert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="mt-2 lg:mt-0">
-      <div className="flex text-red-700">
-        <FontAwesomeIcon icon={faBullhorn} className="error-text mr-2" />
+      <div className="error-text flex">
+        <FontAwesomeIcon icon={faBullhorn} className="mr-2" />
         <p
-          className="underline cursor-pointer"
+          className="cursor-pointer border-b-4 pb-0 border-pink-500"
           onClick={() => setIsModalOpen(true)}
         >
           Sellers beware!

@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import AuthContext from "../context/auth/authContext";
-import cookie from "../utils/cookieInit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { footerGradientClassPurple } from "../utils/styles";
 
 // Component imports
 import GoodbyeHeadLayout from "../components/layout/head/GoodbyeHeadLayout";
+import Footer from "../components/layout/Footer";
 
 const Goodbye = () => {
   const authContext = useContext(AuthContext);
@@ -22,7 +23,7 @@ const Goodbye = () => {
 
   return (
     <GoodbyeHeadLayout>
-      <div className="font-axiforma text-brand-gray border-4 h-screen bg-purple-50">
+      <div className="text-brand-gray bg-gradient-to-b from-purple-50 to-white mb-14">
         <div className="text-center pt-12 px-8 lg:px-16">
           <Image
             src={"/images/goodbye/sad.svg"}
@@ -52,6 +53,7 @@ const Goodbye = () => {
           </p>
         </div>
       </div>
+      <Footer footerGradientClass={footerGradientClassPurple} pathname="/" />
     </GoodbyeHeadLayout>
   );
 };

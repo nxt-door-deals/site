@@ -19,7 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component import
-import ImageUploader from "../page_components/ImageUploader";
+import ImageUploader from "../page_components/create_ad/ImageUploader";
 import BouncingBalls from "../loaders/BouncingBalls";
 
 const editAdValidationSchema = Yup.object({

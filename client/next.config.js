@@ -7,6 +7,7 @@ module.exports = {
       "68.183.94.49",
       "beta.nxtdoordeals.com",
       "nxtdoordeals.com",
+      "ik.imagekit.io",
     ],
   },
   webpack: (config, { isServer }) => {

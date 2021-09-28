@@ -91,7 +91,7 @@ const SearchNbhAds = (props) => {
           {(props) => (
             <Form>
               <div className="flex justify-center items-center">
-                <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple">
+                <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple m-0">
                   <div className="w-44 lg:w-64 p-0 z-20">
                     <Select
                       id="categoryList"
@@ -137,7 +137,7 @@ const SearchNbhAds = (props) => {
                       variants={variants}
                       whileHover="hover"
                       type="submit"
-                      className=" p-2.5 bg-ad-purple rounded-lg text-white focus:outline-none"
+                      className=" p-2.5 bg-ad-purple rounded-md text-white focus:outline-none"
                       aria-label="Search button"
                     >
                       <FontAwesomeIcon icon={faSearch} />

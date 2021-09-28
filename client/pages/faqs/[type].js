@@ -21,8 +21,7 @@ const FAQType = (props) => {
       <Navbar navStyle={navStylePurple} />
       <div
         id="header"
-        className="flex justify-center items-center h-full w-full pt-28 lg:pt-36 bg-purple-50
-      bg-opacity-25 mb-20"
+        className="flex justify-center items-center h-full w-full pt-28 lg:pt-36 bg-gradient-to-b from-purple-50 to-white bg-opacity-25 pb-20"
       >
         <div className="rounded-2xl bg-white py-8 px-6 lg:p-10 shadow-categorycardshadow">
           <FrequentlyAskedQuestions type={props.type} />

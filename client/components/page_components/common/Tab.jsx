@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import TabManager from "./TabManager";
 import UserAccount from "../../forms/UserAccount";
 import BrowseAds from "../browse_ads/BrowseAds";
-import BrowseRequests from "../BrowseRequests";
+import BrowseRequests from "../browse_ads/BrowseRequests";
 import NoAdsForNeighbourhood from "../browse_ads/NoAdsForNeighbourhood";
 import UserAdsWrapper from "../my_account/UserAdsWrapper";
 import UserChatList from "../my_account/UserChatList";

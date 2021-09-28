@@ -20,13 +20,13 @@ module.exports = {
         boxshadowlogin: "1px -5px 8px 2px rgba(207, 139, 207, 0.2)",
         navshadow: "0px 1px 3px 2px rgba(221, 214, 254, 0.3)",
         altNavShadow: "0px 1px 5px rgba(48, 136, 237, 0.36)",
-        boxshadowregister: "0 25px 75px rgba(16, 30, 54, .25)",
+        boxshadowregister: "0 10px 25px rgba(30, 64, 175, .2)",
         boxshadowemail: "0px -5px 8px 2px rgba(76, 150, 224, 0.15)",
         categorycardshadow: "0 5px 30px 3px rgba(102, 21, 182, 0.12)",
-        postadshadow: "0px 7px 29px 3px rgba(204, 179, 235, 0.4)",
+        postadshadow: "0px 7px 19px rgba(204, 179, 235, 0.6)",
         // adcardshadow:
         //   "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 36px, rgba(241, 192, 234, 0.3) 0px -2px 15px",
-        adcardshadow: "0 12px 64px rgba(102, 0, 102, .25)",
+        adcardshadow: "0 12px 27px rgba(102, 0, 102, 0.2)",
         chatListShadow:
           "0px 8px 12px rgba(222, 175, 232, 0.3), 0px -8px 8px rgba(222, 175, 232,0.2)",
         chatListShadowAlt:
@@ -149,6 +149,9 @@ module.exports = {
         "blog-background-mobile": "url(/images/blog/blog-bg-mobile.svg)",
         "covid-background": "url(/images/covid/bg-covid.svg)",
         "covid-background-mobile": "url(/images/covid/bg-covid-mobile.svg)",
+        "chat-window-background-1": "url(/images/chat/bg-chat-window-1.svg)",
+        "chat-window-background-2": "url(/images/chat/bg-chat-window-2.svg)",
+        "chat-window-background-3": "url(/images/chat/bg-chat-window-3.svg)",
       }),
       borderRadius: {
         xl: "0.75rem",

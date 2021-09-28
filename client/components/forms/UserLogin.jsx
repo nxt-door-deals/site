@@ -25,7 +25,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import Alert from "../page_components/common/Alert";
 import BouncingBalls from "../loaders/BouncingBalls";
 
-Modal.setAppElement("#__next");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#__next");
 
 const loginValidationSchema = Yup.object({
   email: Yup.string()
@@ -263,15 +263,17 @@ const UserLogin = (props) => {
                     variants={variants}
                     whileHover="hover"
                     whileTap="tap"
-                    className={`mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`mt-2 mb-8 w-80 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting ||
                       (loginCount && loginCount >= 5 && "cursor-not-allowed")
                     }`}
                     disabled={
-                      props.isSubmitting || (loginCount && loginCount >= 5)
+                      props.isSubmitting ||
+                      isAuthenticated ||
+                      (loginCount && loginCount >= 5)
                     }
                   >
-                    {!props.isSubmitting ? (
+                    {!props.isSubmitting && !isAuthenticated ? (
                       "Login"
                     ) : authError && authError ? (
                       "Login"

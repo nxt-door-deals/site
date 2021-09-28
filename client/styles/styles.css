@@ -39,12 +39,12 @@ body {
 
 /* Apartment search custom styles */
 .search-results {
-  @apply font-axiforma absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-xl  text-brand-gray;
+  @apply absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-xl  text-brand-gray;
 }
 
 /* Input style */
 .textbox-input {
-  @apply font-axiforma text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none;
+  @apply text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none;
 }
 
 /* Component headings */
@@ -59,7 +59,7 @@ body {
 
 /* 404 page buttons */
 .btn-style {
-  @apply w-40 h-12 text-sm text-white font-axiforma font-semibold rounded-xl uppercase tracking-wide;
+  @apply w-40 h-12 text-sm text-white font-semibold rounded-xl uppercase tracking-wide;
 }
 
 /* The OTP text box styles */

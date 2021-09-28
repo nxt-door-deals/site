@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Modal from "react-modal";
 import keys from "../../../utils/keys";
@@ -11,6 +11,22 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AdImageCarousel = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  console.log(selectedImage);
+
+  const onBackButtonEvent = (e) => {
+    e.preventDefault();
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.pathname);
+    window.addEventListener("popstate", onBackButtonEvent);
+    return () => {
+      window.removeEventListener("popstate", onBackButtonEvent);
+    };
+  }, []);
 
   return (
     <div>
@@ -20,13 +36,13 @@ const AdImageCarousel = (props) => {
             dynamicHeight
             showStatus={false}
             showArrows={false}
-            autoPlay
-            interval={3000}
             selectedItem={0}
-            onClickItem={() => setIsModalOpen(true)}
+            onClickItem={() => {
+              setIsModalOpen(true);
+            }}
           >
             {props.images.map((image, index) => (
-              <div key={index}>
+              <div key={index} onClick={() => setSelectedImage(index)}>
                 <img
                   src={image}
                   alt={`Ad image-${index}`}
@@ -69,12 +85,26 @@ const AdImageCarousel = (props) => {
         onRequestClose={() => setIsModalOpen(false)}
         className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
       >
+        <div className="absolute top-2 right-8 lg:top-5 font-bold z-50 ">
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="text-3xl lg:text-5xl cursor-pointer text-white bg-red-500 hover:bg-red-800 p-1 h-5 w-5 lg:h-7 lg:w-7 rounded-md"
+            onClick={() => setIsModalOpen(false)}
+          />
+        </div>
         <div className="carousel-container pt-20 lg:pt-32 mx-5 flex justify-center items-center">
-          <Carousel showStatus={false} selectedItem={0} showArrows={true}>
+          <Carousel
+            dynamicHeight
+            showStatus={false}
+            showArrows={true}
+            showThumbs={false}
+            showIndicators={false}
+            infiniteLoop
+            selectedItem={selectedImage}
+          >
             {props.images.map((image, index) => (
               <div className="" key={index}>
                 <Image
-                  loader={`/images/loader/loader.gif/?w=${64}`}
                   src={image}
                   alt={`Ad image-${index}`}
                   quality={100}
@@ -82,23 +112,10 @@ const AdImageCarousel = (props) => {
                   width={700}
                   height={600}
                 />
-                <div className="lg:hidden absolute top-2 right-8 lg:top-0 lg:right-0 text-2xl font-bold z-50 ">
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    className="close-button-animation text-3xl cursor-pointer text-white bg-red-500 hover:bg-red-800 p-1 h-5 w-5 rounded-md"
-                    onClick={() => setIsModalOpen(false)}
-                  />
-                </div>
               </div>
             ))}
           </Carousel>
         </div>
-        <button
-          className="hidden lg:block lg:-mt-5 rounded-xl text-white uppercase focus:outline-none bg-black text-sm p-2"
-          onClick={() => setIsModalOpen(false)}
-        >
-          Close
-        </button>
         {/* <button
           className="absolute bg-black right-20 top-10 p-2 rounded-xl text-white uppercase focus:outline-none"
           onClick={() => setIsModalOpen(false)}

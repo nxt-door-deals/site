@@ -79,6 +79,7 @@ const AuthState = (props) => {
     sellerChats: null,
     chatError: null,
     loginCount: null,
+    balanceUserAds: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);

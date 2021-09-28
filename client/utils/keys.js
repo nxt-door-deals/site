@@ -9,11 +9,10 @@ const keys = {
     SERVER: "http://localhost:3001",
     SECURE_COOKIE: false,
     SAME_SITE_COOKIE_SETTING: "Lax",
-    ICON:
-      "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/icon.png",
+    ICON: "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/icon.png",
     DEFAULT_IMAGE:
       "https://nxt-door-deals-test.s3.ap-south-1.amazonaws.com/site-images/default.png",
-    AD_QUOTA: 7,
+    AD_QUOTA: 5,
   },
   production: {
     API_PROXY: "https://api.nxtdoordeals.com/api/v1",
@@ -23,11 +22,10 @@ const keys = {
     SERVER: "https://beta.nxtdoordeals.com",
     SECURE_COOKIE: true,
     SAME_SITE_COOKIE_SETTING: "Strict",
-    ICON:
-      "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/icon.png",
+    ICON: "https://ik.imagekit.io/nxtdoordeals/site-images/icon.png",
     DEFAULT_IMAGE:
-      "https://nxt-door-deals.s3.ap-south-1.amazonaws.com/site-images/default.png",
-    AD_QUOTA: 7,
+      "https://ik.imagekit.io/nxtdoordeals/site-images/default.png",
+    AD_QUOTA: 5,
   },
 }[env];
 

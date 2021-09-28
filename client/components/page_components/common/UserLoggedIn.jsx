@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import AuthContext from "../../context/auth/authContext";
+import AuthContext from "../../../context/auth/authContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 

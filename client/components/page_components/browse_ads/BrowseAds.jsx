@@ -23,8 +23,8 @@ const BrowseAds = (props) => {
   useEffect(() => {
     if (user) {
       // Notify users if there are new chats
-      loadBuyerChats(user && parseInt(user.id));
-      loadSellerChats(user && parseInt(user.id));
+      loadBuyerChats(user && user.id);
+      loadSellerChats(user && user.id);
     }
   }, [user]);
 

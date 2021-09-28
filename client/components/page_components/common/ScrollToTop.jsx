@@ -24,7 +24,7 @@ const ScrollToTop = (props) => {
 
   if (scrollToTop)
     return (
-      <div className="fixed right-4 bottom-2">
+      <div className="fixed right-4 bottom-2 z-50">
         <button
           className={`text-center tracking-wide cursor-pointer focus:outline-none rounded-xl text-white bg-brand-gray shadow-scrollToTopShadow p-2 uppercase text-sm`}
           onClick={() => {

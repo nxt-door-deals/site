@@ -70,12 +70,16 @@ const CreateAd = ({ categoryName, user }) => {
   const router = useRouter();
 
   const siteContext = useContext(SiteContext);
-  const { createAd } = siteContext;
+  const { createAd, adCreated } = siteContext;
 
   // Make sure that we remain at the top of the page once component renders
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  useEffect(() => {
+    if (adCreated) router.push(`/neighbourhood/ads/${user.apartment_id}`);
+  }, [adCreated]);
 
   // Giveaway toast
   const giveawayToast = () => {
@@ -86,7 +90,7 @@ const CreateAd = ({ categoryName, user }) => {
     });
   };
 
-  // Pluraize the apartment name correctly
+  // Pluralize the apartment name correctly
   const formatApartmentName = () => {
     let apartmentLength = user.apartment_name.split(" ").length;
 
@@ -190,9 +194,6 @@ const CreateAd = ({ categoryName, user }) => {
               files
             );
             confirmationToast();
-            setTimeout(() => {
-              router.push(`/neighbourhood/ads/${user.apartment_id}`);
-            }, 5000);
           }}
         >
           {(props) => (
@@ -316,7 +317,7 @@ const CreateAd = ({ categoryName, user }) => {
                             ? "description-error"
                             : null
                         }
-                        className="font-axiforma text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 "
+                        className="text-sm p-2 leading-6 outline-none w-full placeholder-gray-600 whitespace-pre-wrap"
                       />
                     </div>
 

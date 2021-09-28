@@ -53,6 +53,7 @@ export default function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("nddToken") && localStorage.getItem("nddUser")) {
+        console.log("chat");
         var source = new EventSource(
           `${
             process.env.NEXT_PUBLIC_SSE_URL +

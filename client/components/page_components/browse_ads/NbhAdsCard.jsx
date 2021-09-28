@@ -72,7 +72,7 @@ const NbhAdsCard = (props) => {
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
-              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow cursor-pointer"
+              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow cursor-pointer max-w-sm md:max-w-md lg:max-w-lg"
               onClick={() => router.push(`/ads/${ad.id}`)}
             >
               {ad.images.length > 0 && (
@@ -93,13 +93,12 @@ const NbhAdsCard = (props) => {
                     {ad.images.map((image, imgIndex) => (
                       <div key={imgIndex} className="-z-20">
                         <Image
-                          loader={`/images/loader/loager.gif/?w=${64}`}
                           src={image}
                           alt={`Carousel image-${imgIndex}`}
                           layout="intrinsic"
                           quality={100}
                           height={250}
-                          width={300}
+                          width={275}
                         />
                       </div>
                     ))}

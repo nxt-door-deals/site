@@ -36,8 +36,8 @@ const variants = {
 
 const Ads = (props) => {
   const headerRef = useRef(null);
-  const siteContext = useContext(SiteContext);
-  const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
+  // const siteContext = useContext(SiteContext);
+  // const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
 
   const router = useRouter();
   const pathname = router.pathname;
@@ -47,39 +47,39 @@ const Ads = (props) => {
 
   const numOfAds = props.adsList.length;
 
-  useEffect(() => {
-    let mounted = true;
+  // useEffect(() => {
+  //   let mounted = true;
 
-    if (mounted) {
-      // Reset the global showForm prop so that the edit ad page is not displayed
-      props.setShowForm(true);
+  //   if (mounted) {
+  //     // Reset the global showForm prop so that the edit ad page is not displayed
+  //     props.setShowForm(true);
 
-      getNeighbourhoodFromId(apartmentId);
-      fetchAdsForNbh(apartmentId);
-    }
+  //     getNeighbourhoodFromId(apartmentId);
+  //     fetchAdsForNbh(apartmentId);
+  //   }
 
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  //   return () => {
+  //     mounted = false;
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    if (apartmentData === null) {
-      router.push("/404");
-    }
+  // useEffect(() => {
+  //   if (apartmentData === null) {
+  //     router.push("/404");
+  //   }
 
-    if (apartmentData) {
-      if (apartmentData.name !== apartmentName) {
-        router.push("/404");
-      }
-    }
-  }, [apartmentData]);
+  //   if (apartmentData) {
+  //     if (apartmentData.name !== apartmentName) {
+  //       router.push("/404");
+  //     }
+  //   }
+  // }, [apartmentData]);
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
   return (
-    <MarketplaceHeadLayout aptId={props.aptId} aptName={props.aptName}>
+    <MarketplaceHeadLayout aptId={apartmentId} aptName={apartmentName}>
       <div id="header" ref={headerRef}>
         <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar

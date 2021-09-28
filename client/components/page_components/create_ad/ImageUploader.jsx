@@ -32,7 +32,7 @@ const ImageUploader = (props) => {
     return (
       <div key={index}>
         <div>
-          <img src={file.preview} width="90px" alt={file.name} />
+          <img src={file.preview} width="90px" alt="image" />
           <p
             onClick={() => {
               newFiles.splice(newFiles.indexOf(file), 1);

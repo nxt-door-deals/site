@@ -28,7 +28,8 @@ const FrequentlyAskedQuestions = (props) => {
   return (
     <div className="text-brand-gray px-1">
       <h1 className="font-bold text-3xl text-center tracking-wide mb-10">
-        {faqType} FAQs
+        <span className="border-b-4 pb-1 border-purple-500">{faqType}</span>{" "}
+        FAQs
       </h1>
 
       {/* Seller */}
@@ -38,7 +39,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
+                className={`relative max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"
@@ -58,7 +59,7 @@ const FrequentlyAskedQuestions = (props) => {
                 </p>
 
                 <div
-                  className={`flex justify-center items-center absolute right-2 top-6 ${
+                  className={`flex justify-center items-center absolute right-2 top-3 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
                   }`}
                 >
@@ -89,7 +90,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
+                className={`relative max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"
@@ -120,7 +121,7 @@ const FrequentlyAskedQuestions = (props) => {
                   ) : (
                     <FontAwesomeIcon
                       icon={faTimes}
-                      className="close-button-animation cursor-pointer"
+                      className="cursor-pointer"
                       onClick={() => setFaqIndex(null)}
                     />
                   )}
@@ -138,7 +139,7 @@ const FrequentlyAskedQuestions = (props) => {
             return (
               <div
                 key={index}
-                className={`relative w-96 lg:w-128 rounded-lg shadow-lg p-5 mb-5 ${
+                className={`relative max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg p-5 mb-5 ${
                   faqIndex === index
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"

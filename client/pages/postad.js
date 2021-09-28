@@ -10,7 +10,7 @@ import PostAdHeadLayout from "../components/layout/head/PostAdHeadLayout";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import Categories from "../components/page_components/post_ad/Categories";
-import LetsVerifyYourEmail from "../components/page_components/LetsVerifyYourEmail";
+import LetsVerifyYourEmail from "../components/page_components/post_ad/LetsVerifyYourEmail";
 import AdQuotaReached from "../components/page_components/post_ad/AdQuotaReached";
 
 const PostAd = (props) => {
@@ -41,47 +41,44 @@ const PostAd = (props) => {
   }, [isAuthenticated]);
 
   if (user && !user.email_verified) {
-    setTimeout(() => router.push("/account"), 10000);
     return (
       <PostAdHeadLayout>
         <LetsVerifyYourEmail message="post an ad" />;
       </PostAdHeadLayout>
     );
-  }
-
-  if (user && user.ad_count === keys.AD_QUOTA) {
+  } else if (user && user.ad_count === keys.AD_QUOTA) {
     setTimeout(() => router.push("/account/ads"), 5000);
     return (
       <PostAdHeadLayout>
         <AdQuotaReached />;
       </PostAdHeadLayout>
     );
-  }
-
-  return (
-    <PostAdHeadLayout>
-      <div id="header">
-        <Navbar
-          navStyle={navStylePurple}
-          chatNotification={props.chatNotification}
-        />
-        <div className="w-full bg-post-ad-mobile-background lg:bg-post-ad-background bg-cover bg-no-repeat h-100 px-5 text-center">
-          {user && (
-            <span className="flex justify-center items-center h-80 text-2xl md:text-3xl text-brand-purple font-semibold">
-              Post your ad in {user.apartment_name}
-            </span>
-          )}
+  } else {
+    return (
+      <PostAdHeadLayout>
+        <div id="header">
+          <Navbar
+            navStyle={navStylePurple}
+            chatNotification={props.chatNotification}
+          />
+          <div className="w-full bg-post-ad-mobile-background lg:bg-post-ad-background bg-cover bg-no-repeat h-100 px-5 text-center">
+            {user && (
+              <span className="flex justify-center items-center h-80 text-2xl md:text-3xl text-brand-purple font-semibold">
+                Post your ad in {user.apartment_name}
+              </span>
+            )}
+          </div>
+          <Categories />
         </div>
-        <Categories />
-      </div>
-      <div>
-        <Footer
-          footerGradientClass={footerGradientClassPurple}
-          pathname={pathname}
-        />
-      </div>
-    </PostAdHeadLayout>
-  );
+        <div>
+          <Footer
+            footerGradientClass={footerGradientClassPurple}
+            pathname={pathname}
+          />
+        </div>
+      </PostAdHeadLayout>
+    );
+  }
 };
 
 export default PostAd;

@@ -17,10 +17,10 @@ import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
 // Component imports
 import ChatHeadLayout from "../../components/layout/head/ChatHeadLayout";
-import ActiveChat from "../../components/page_components/ActiveChat";
+import ActiveChat from "../../components/page_components/chat/ActiveChat";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import LetsVerifyYourEmail from "../../components/page_components/LetsVerifyYourEmail";
+import LetsVerifyYourEmail from "../../components/page_components/post_ad/LetsVerifyYourEmail";
 
 const Chat = (props) => {
   const router = useRouter();
@@ -95,19 +95,22 @@ const Chat = (props) => {
           )
         : router.push("/404");
 
-      getUserFromId(
-        user.id === parseInt(props.buyerId)
-          ? parseInt(props.sellerId)
-          : parseInt(props.buyerId)
-      );
+      getUserFromId(user.id === props.buyerId ? props.sellerId : props.buyerId);
     }
   }, [user]);
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
+  const backgrounds = [
+    "bg-chat-window-background-1",
+    "bg-chat-window-background-2",
+    "bg-chat-window-background-3",
+  ];
+
+  let randomBackground = backgrounds[Math.floor(Math.random() * 3)];
+
   if (user && !user.email_verified) {
-    setTimeout(() => router.push("/account"), 3000);
     return (
       <ChatHeadLayout>
         <LetsVerifyYourEmail message="start a conversation" />
@@ -181,7 +184,7 @@ const Chat = (props) => {
             </div>
           </div>
 
-          <div className="flex justify-center p-5 lg:p-20 rounded-3xl shadow-chatWindowShadow">
+          <div className="flex justify-center p-5 lg:p-14 rounded-3xl shadow-chatWindowShadow">
             <div className="w-full">
               {user && altUser && props.chatId && (
                 <ActiveChat
@@ -192,6 +195,7 @@ const Chat = (props) => {
                   senderId={user.id}
                   altUser={altUser}
                   ad={props.ad}
+                  background={randomBackground}
                 />
               )}
             </div>
@@ -247,7 +251,7 @@ export const getServerSideProps = async (context) => {
 
     // Check if the chat record exisis; if not, create it in the chat and chathistory tables
     var res = await axios.get(
-      `${process.env.API_URL}/chat/?ad_id=${ids[0]}&seller_id=${ids[1]}&buyer_id=${ids[2]}`
+      `${process.env.API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[1]}&buyer_id=${ids[2]}`
     );
 
     var ad = await axios.get(`${process.env.API_URL}/ads/${ids[0]}`);
@@ -262,7 +266,7 @@ export const getServerSideProps = async (context) => {
     if (!res.data) {
       // If a wiseguy or gal tries to interchange the buyer and seller id's in the url
       var additionalCheck = await axios.get(
-        `${process.env.API_URL}/chat/?ad_id=${ids[0]}&seller_id=${ids[2]}&buyer_id=${ids[1]}`
+        `${process.env.API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[2]}&buyer_id=${ids[1]}`
       );
 
       if (additionalCheck.data) {

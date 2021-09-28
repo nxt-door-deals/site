@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
-import AuthContext from "../../context/auth/authContext";
+import AuthContext from "../../../context/auth/authContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
-import keys from "../../utils/keys";
+import keys from "../../../utils/keys";
 
-import { greeting } from "../../utils/greeting";
+import { greeting } from "../../../utils/greeting";
 
 const buttonVariants = {
   hover: {
