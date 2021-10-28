@@ -67,13 +67,20 @@ const UserAccount = (props) => {
   const [deactivateMessage, setDeactivateMessage] = useState(null);
   const [deleteClicked, setDeleteClicked] = useState(false);
   const [enableDeactivateButton, setEnableDeactivateButton] = useState(false);
+  const [emailSentCount, setEmailSentCount] = useState(0);
+
   const router = useRouter();
   const authContext = useContext(AuthContext);
   const siteContext = useContext(SiteContext);
   const focusRef = useRef();
   const selectedApartment = useRef(null);
 
-  const { sendEmail, updateUserProfile, deleteUser } = authContext;
+  const {
+    sendEmail,
+    updateUserProfile,
+    updateEmailVerificationTimestamp,
+    deleteUser,
+  } = authContext;
   const {
     fetchApartments,
     apartmentData,
@@ -82,10 +89,13 @@ const UserAccount = (props) => {
     validateApartmentSelection,
     loadAllApartments,
     allApartments,
+    loading,
   } = siteContext;
 
   useEffect(() => {
-    loadAllApartments();
+    setTimeout(() => {
+      loadAllApartments();
+    }, 1500);
   }, []);
 
   const currentUser = props.currentUser;
@@ -102,6 +112,17 @@ const UserAccount = (props) => {
       draggablePercent: 60,
       position: "top-center",
     });
+
+  // Block verification email
+  const emailBlockToast = () => {
+    let message = `Too many attempts!! 😵
+    Please try again after sometime`;
+
+    toast(message, {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+  };
 
   const searchApartment = (e) => {
     setHideResults(null);
@@ -123,9 +144,33 @@ const UserAccount = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (emailSentCount >= 3) {
+      emailBlockToast();
+    } else if (emailSentCount > 0 && emailSentCount < 3) {
+      updateEmailVerificationTimestamp(currentUser.id);
+      sendEmail(
+        currentUser && currentUser.name,
+        currentUser && currentUser.email,
+        verificationUrl
+      );
+      emailVerificationToast();
+    }
+  }, [emailSentCount]);
+
+  if (loading) {
+    return (
+      <div className="py-8 px-8 lg:px-0">
+        <div className="text-center">
+          <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex justify-center items-center mb-20">
-      <div className="mt-12 font-axiforma rounded-3xl shadow-userAccountShadow bg-white py-6 px-4 text-brand-gray">
+      <div className="mt-12 rounded-3xl shadow-userAccountShadow bg-white py-6 px-4 text-brand-gray">
         <Formik
           initialValues={{
             name: currentUser.name,
@@ -227,7 +272,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.name && props.errors.name ? (
                       <div
-                        className="font-axiforma text-xs error-text p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="name-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -284,7 +329,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.mobile && props.errors.mobile ? (
                       <div
-                        className="font-axiforma text-xs error-text p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="mobile-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -340,7 +385,7 @@ const UserAccount = (props) => {
                     {props.touched.neighbourhood &&
                     props.errors.neighbourhood ? (
                       <div
-                        className="font-axiforma text-xs error-text p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="neighbourhood-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -471,7 +516,7 @@ const UserAccount = (props) => {
                     {/* Validation errors */}
                     {props.touched.apartmentNumber &&
                     props.errors.apartmentNumber ? (
-                      <div className="font-axiforma text-xs error-text p-1 mb-2">
+                      <div className="text-xs error-text p-1 mb-2">
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {props.errors.apartmentNumber}
                       </div>
@@ -533,9 +578,16 @@ const UserAccount = (props) => {
                   className="lg:border-l-2 border-purple-200 px-6"
                 >
                   <div className=" hidden lg:flex justify-center items-center mb-10">
-                    <div className="h-24 w-24 rounded-3xl ring-4 ring-offset-2 align-middle text-center relative bg-purple-500  text-white text-5xl uppercase">
+                    <div className="h-24 w-24 rounded-tr-2xl rounded-bl-2xl rounded-tl-sm rounded-br-sm ring-4 ring-offset-2 align-middle text-center relative bg-purple-500  text-white text-5xl uppercase">
                       <span className="absolute top-7 right-8">{initial}</span>
                     </div>
+                  </div>
+
+                  <div className="mb-6 flex items-center">
+                    Ads remaining:{" "}
+                    <span className="font-bold text-lg ml-1">
+                      {parseInt(keys.AD_QUOTA) - parseInt(currentUser.ad_count)}
+                    </span>
                   </div>
 
                   {/* Email verification link */}
@@ -556,12 +608,15 @@ const UserAccount = (props) => {
 
                           <div
                             onClick={() => {
-                              sendEmail(
+                              {
+                                /* sendEmail(
                                 currentUser && currentUser.name,
                                 currentUser && currentUser.email,
                                 verificationUrl
                               );
-                              setTimeout(() => emailVerificationToast(), 500);
+                              setTimeout(() => emailVerificationToast(), 500); */
+                              }
+                              setEmailSentCount(emailSentCount + 1);
                             }}
                             className="text-xs ml-2 underline cursor-pointer text-purple-500"
                           >
@@ -652,7 +707,7 @@ const UserAccount = (props) => {
                     </div>
 
                     {deactivateMessage ? (
-                      <div className="font-axiforma text-xs error-text mt-1 p-1 mb-2">
+                      <div className="text-xs error-text mt-1 p-1 mb-2">
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                         {deactivateMessage}
                       </div>

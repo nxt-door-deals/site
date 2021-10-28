@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import React, { useState, useEffect, useContext } from "react";
+import SiteContext from "../../context/site/siteContext";
+import AuthContext from "../../context/auth/authContext";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { sessionExpiredToast } from "../../utils/toasts";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -12,6 +14,12 @@ import Ad from "../../components/page_components/browse_ads/Ad";
 import Footer from "../../components/layout/Footer";
 
 const FullPageAd = (props) => {
+  const siteContext = useContext(SiteContext);
+  const authContext = useContext(AuthContext);
+
+  const { adError } = siteContext;
+  const { logout } = authContext;
+
   // imgArray will be used in the EditAd component to reset the state when an image is deleted
   const [imgArray, setImgArray] = useState(props.data.images);
   const router = useRouter();
@@ -19,6 +27,14 @@ const FullPageAd = (props) => {
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
+
+  useEffect(() => {
+    if (adError && adError === "Session Expired") {
+      sessionExpiredToast();
+      logout();
+      router.push("/login");
+    }
+  }, [adError]);
 
   useEffect(() => {
     window.scroll({

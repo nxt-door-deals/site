@@ -13,6 +13,17 @@ jest.mock("next/image", () => {
   return () => <></>;
 });
 
+jest.mock("next/router", () => ({
+  useRouter() {
+    return {
+      route: "/",
+      pathname: "",
+      query: "",
+      asPath: "",
+    };
+  },
+}));
+
 describe("test if the footer renders", () => {
   it("check random text on the footer", () => {
     render(

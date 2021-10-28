@@ -4,85 +4,110 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --scrollbar-thumb-color: #c4b5fd;
+  --scrollbar-track-color: #ede9fe;
+  --selection-background: #ddd6fe;
+}
+
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
 
 body {
   font-family: "Axiforma";
 }
 
-/* Navbar custom styles */
-.basic-nav {
-  @apply flex items-start justify-between w-full;
+html::-webkit-scrollbar {
+  width: 1vw;
 }
 
-.nav-item {
-  @apply mr-6 z-20 text-navText tracking-wide transform transition font-semibold duration-300 ease-in-out focus-within:outline-none;
+html::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
 }
 
-.menu-nav-item {
-  @apply z-30 text-base uppercase font-nav mb-12 cursor-pointer;
+html::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
 }
 
-.sm-flex {
-  @apply flex justify-center items-center;
+::selection {
+  background: var(--selection-background);
 }
 
-.overlay-toggle {
-  @apply top-0 right-0 fixed h-full duration-300;
-}
+@layer components {
+  /* Navbar custom styles */
+  .basic-nav {
+    @apply flex items-start justify-between w-full;
+  }
 
-.overlay-items {
-  @apply transition duration-300 ease-in-out menu-nav-item transform focus-within:outline-none;
-}
+  .nav-item {
+    @apply mr-6 z-20 text-navText tracking-wide transform transition font-semibold duration-300 ease-in-out focus-within:outline-none;
+  }
 
-/* Apartment search custom styles */
-.search-results {
-  @apply absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-xl  text-brand-gray;
-}
+  .menu-nav-item {
+    @apply z-30 text-base uppercase font-nav mb-12 cursor-pointer;
+  }
 
-/* Input style */
-.textbox-input {
-  @apply text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none;
-}
+  .sm-flex {
+    @apply flex justify-center items-center;
+  }
 
-/* Component headings */
-.component-heading {
-  @apply font-bold text-3xl text-brand-gray tracking-wide text-center mb-6;
-}
+  .overlay-toggle {
+    @apply top-0 right-0 fixed h-full duration-300;
+  }
 
-/* Component sub headings */
-.component-sub-heading {
-  @apply font-bold text-xl text-brand-gray mb-4;
-}
+  .overlay-items {
+    @apply transition duration-300 ease-in-out menu-nav-item transform focus-within:outline-none;
+  }
 
-/* 404 page buttons */
-.btn-style {
-  @apply w-40 h-12 text-sm text-white font-semibold rounded-xl uppercase tracking-wide;
-}
+  /* Apartment search custom styles */
+  .search-results {
+    @apply absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-xl  text-brand-gray;
+  }
 
-/* The OTP text box styles */
-.otp-text {
-  @apply align-middle p-1 leading-8 outline-none text-lg text-center w-10 border-2 rounded-md uppercase ml-2;
-}
+  /* Input style */
+  .textbox-input {
+    @apply text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none caret-ad-purple;
+  }
 
-/* FAQ box style */
-.faq-box {
-  @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-10 py-12 tracking-wide cursor-pointer bg-white;
-}
+  /* Component headings */
+  .component-heading {
+    @apply font-bold text-2xl lg:text-3xl text-brand-gray tracking-wide text-center mb-6;
+  }
 
-/* Brand text */
-.brand-text {
-  @apply text-brand-purple font-semibold;
-}
+  /* Component sub headings */
+  .component-sub-heading {
+    @apply font-bold text-xl text-brand-gray mb-4;
+  }
 
-.error-border {
-  @apply border-pink-600;
-}
+  /* 404 page buttons */
+  .btn-style {
+    @apply w-40 h-12 text-sm text-white font-semibold rounded-xl uppercase tracking-wide;
+  }
 
-.error-text {
-  @apply text-pink-600;
+  /* The OTP text box styles */
+  .otp-text {
+    @apply align-middle p-1 leading-8 outline-none text-lg text-center w-10 border-2 rounded-md uppercase ml-2;
+  }
+
+  /* FAQ box style */
+  .faq-box {
+    @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-10 py-12 tracking-wide cursor-pointer bg-white;
+  }
+
+  /* Brand text */
+  .brand-text {
+    @apply text-brand-purple font-semibold;
+  }
+
+  .error-border {
+    @apply border-pink-600;
+  }
+
+  .error-text {
+    @apply text-pink-600;
+  }
 }
 
 .modal-z-idx {
@@ -383,7 +408,7 @@ body {
   fill: #ffffff;
 }
 
-/* Tile above how it works */
+/* Tilt above how it works */
 .tilt {
   position: absolute;
   top: 0;
@@ -401,5 +426,49 @@ body {
 }
 
 .tilt .shape-fill {
+  fill: #ffffff;
+}
+
+/* Wave above the our story sections - top */
+.os-wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.os-wave-top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 30px;
+}
+
+.os-wave-top .shape-fill {
+  fill: #ffffff;
+}
+
+/* Wave above the our story sections - bottom */
+
+.os-wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.os-wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 27px;
+}
+
+.os-wave-bottom .shape-fill {
   fill: #ffffff;
 }

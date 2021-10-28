@@ -29,7 +29,7 @@ const AdQuotaIndicator = (props) => {
             Oops! Looks like we are fresh out of ads :(
           </p>
           <p className="text-sm font-medium mt-2">
-            To post more ads, you can delete ads or mark them as sold.
+            To post more ads, you can delete existing ads or mark them as sold.
           </p>
         </div>
       )}

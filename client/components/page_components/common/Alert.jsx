@@ -12,13 +12,13 @@ const Alert = (props) => {
         duration: 1,
         delay: 0.2,
       }}
-      className="p-1"
+      className="p-1 w-full"
     >
       <p
         className={
           props.authError || props.genericMessage || props.fetchError
             ? props.alertTheme +
-              " text-center p-2 mb-2 font-axiforma font-semibold rounded-md text-sm"
+              " text-center p-2 mb-2 font-semibold rounded-md text-sm"
             : "hidden"
         }
       >

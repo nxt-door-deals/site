@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import AuthContext from "../../context/auth/authContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Modal from "react-modal";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,14 +17,17 @@ import {
   faQuestionCircle,
   faBookOpen,
   faUserNinja,
+  faLightbulb,
   faBuilding,
   faBlog,
   faRss,
   faShieldVirus,
+  faSitemap,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Component import
 import Contact from "../forms/Contact";
+import FeatureRequest from "../forms/FeatureRequest";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#__next");
 
@@ -41,9 +45,20 @@ const variants = {
 
 const Footer = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState(null);
+  // const [modalButtonTheme, setModalButtonTheme] = useState(null);
+
+  const modalButtonTheme = useRef("");
+  const router = useRouter();
+
   const authContext = useContext(AuthContext);
 
   const { user } = authContext;
+
+  router.pathname === "/registeruser" ||
+  router.pathname.includes("/register/neighbourhood")
+    ? (modalButtonTheme.current = "blue")
+    : (modalButtonTheme.current = "purple");
 
   return (
     <div className="relative">
@@ -76,7 +91,11 @@ const Footer = (props) => {
 
         <div className="text-center">
           <p className="tracking-wide">
-            &copy; {currentYear} nxtdoordeals.com. All rights reserved.
+            &copy; {currentYear}{" "}
+            <Link href="/">
+              <a className="styled-link pb-1">nxtdoordeals.com</a>
+            </Link>
+            . All rights reserved.
           </p>
         </div>
 
@@ -156,6 +175,30 @@ const Footer = (props) => {
                   <a aria-label="Link to the guidelines page">
                     <FontAwesomeIcon icon={faBookOpen} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Guidelines</span>
+                  </a>
+                </Link>
+              </li>
+
+              <li className="pb-3 px-2">
+                <Link href="#">
+                  <a
+                    aria-label="Opens the feature request modal"
+                    onClick={() => {
+                      setModalType("feature");
+                      setIsModalOpen(true);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faLightbulb} className="mr-1" />{" "}
+                    <span className="pb-1 styled-link">Feature Request</span>
+                  </a>
+                </Link>
+              </li>
+
+              <li className="pb-3 px-2">
+                <Link href="/sitemap.xml">
+                  <a aria-label="Link to the sitemap xml">
+                    <FontAwesomeIcon icon={faSitemap} className="mr-1" />{" "}
+                    <span className="pb-1 styled-link">Sitemap</span>
                   </a>
                 </Link>
               </li>
@@ -265,7 +308,10 @@ const Footer = (props) => {
               <motion.div
                 variants={variants}
                 whileHover="hover"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  setModalType("contact");
+                  setIsModalOpen(true);
+                }}
               >
                 {/* <FontAwesomeIcon icon={faEnvelope} /> */}
                 <Image
@@ -365,7 +411,17 @@ const Footer = (props) => {
           shouldFocusAfterRender={true}
           className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none rounded-md"
         >
-          <Contact setIsModalOpen={setIsModalOpen} />
+          {modalType === "contact" ? (
+            <Contact
+              setIsModalOpen={setIsModalOpen}
+              modalButtonTheme={modalButtonTheme.current}
+            />
+          ) : (
+            <FeatureRequest
+              setIsModalOpen={setIsModalOpen}
+              modalButtonTheme={modalButtonTheme.current}
+            />
+          )}
         </Modal>
       </div>
     </div>

@@ -10,7 +10,7 @@ const ChatHeadLayout = (props) => {
         <title>
           {props.altUser
             ? `Chat With ${props.altUser} and Seal the Deal`
-            : "Chat With your Neighbours and Seal the Deal"}
+            : "Chat with your neighbours and seal the deal"}
         </title>
         <meta
           name="description"

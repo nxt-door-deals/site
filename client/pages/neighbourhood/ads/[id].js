@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import SiteContext from "../../../context/site/siteContext";
+import AuthContext from "../../../context/auth/authContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -8,6 +9,7 @@ import {
   navStylePurple,
   footerGradientClassPurple,
 } from "../../../utils/styles";
+import Cookies from "universal-cookie";
 
 // Component imports
 import MarketplaceHeadLayout from "../../../components/layout/head/MarketplaceHeadLayout";
@@ -36,8 +38,12 @@ const variants = {
 
 const Ads = (props) => {
   const headerRef = useRef(null);
-  // const siteContext = useContext(SiteContext);
-  // const { apartmentData, getNeighbourhoodFromId, fetchAdsForNbh } = siteContext;
+
+  const siteContext = useContext(SiteContext);
+  const { adError, authError } = siteContext;
+
+  const authContext = useContext(AuthContext);
+  const { logout } = authContext;
 
   const router = useRouter();
   const pathname = router.pathname;
@@ -46,6 +52,17 @@ const Ads = (props) => {
   const apartmentId = parseInt(props.aptId);
 
   const numOfAds = props.adsList.length;
+
+  useEffect(() => {
+    if (
+      (adError && adError === "Session Expired") ||
+      (authError && authError === "Session Expired")
+    ) {
+      sessionExpiredToast();
+      logout();
+      router.push("/login");
+    }
+  }, [adError]);
 
   // useEffect(() => {
   //   let mounted = true;

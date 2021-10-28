@@ -72,8 +72,9 @@ const EnterEmailForm = (props) => {
               Enter your registered email address
             </h2>
           </div>
-          <Alert authError={authError} alertTheme={props.alertTheme} />
+
           <div className="mt-3 w-full pl-4 pr-4">
+            <Alert authError={authError} alertTheme={props.alertTheme} />
             <Formik
               initialValues={{
                 email: "",

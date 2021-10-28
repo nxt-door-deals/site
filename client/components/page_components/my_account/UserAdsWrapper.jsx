@@ -57,7 +57,7 @@ const UserAdsWrapper = (props) => {
     );
   }
 
-  if (userAds && userAds.length === 0) {
+  if (!loading && userAds && userAds.length === 0) {
     return (
       <div className="py-16 lg:py-20 px-8">
         <p className="font-axiforma text-brand-gray text-xl text-center">
@@ -84,10 +84,12 @@ const UserAdsWrapper = (props) => {
     return (
       <div className=" text-brand-gray w-full mb-20 px-10 lg:px-16">
         <h1 className="component-heading mt-10 pb-3">My Ads</h1>
-        <AdQuotaIndicator
-          userAds={userAds && userAds}
-          currentUsername={props.currentUser.name}
-        />
+        {!loading && (
+          <AdQuotaIndicator
+            userAds={userAds && userAds}
+            currentUsername={props.currentUser.name}
+          />
+        )}
         <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {userAds &&
             // [...Array(ads.length).keys()].map((i) => (

@@ -1,18 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import AuthContext from "../../../context/auth/authContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
-import cookie from "../../../utils/cookieInit";
 import { toast } from "react-toastify";
-import keys from "../../../utils/keys";
 
 // Component Import
 import Alert from "../../page_components/common/Alert";
-import Progress from "../../page_components/common/Progress";
 import ChangePassword from "./ChangePassword";
 import BouncingBalls from "../../loaders/BouncingBalls";
 
@@ -42,8 +40,13 @@ const OtpForm = (props) => {
   const authContext = useContext(AuthContext);
   const [showForm, setShowForm] = useState(true);
 
-  const [minutes, setMinutes] = useState(10);
-  const [seconds, setSeconds] = useState(0);
+  const [regenerateOtp, setRegenerateOtp] = useState(false);
+  const [regenerateCount, setRegenerateCount] = useState(0);
+  const [renderKey, setRenderKey] = useState(0);
+  const [disableInput, setDisableInput] = useState(false);
+
+  const showTimer = useRef(false);
+  const router = useRouter();
 
   const {
     user,
@@ -56,36 +59,28 @@ const OtpForm = (props) => {
     updateOtpVerificationTimestamp,
   } = authContext;
 
-  const createTimerCookie = () => {
-    if (cookie.get("__resetCookie")) {
-      cookie.remove("__resetCookie");
-    }
-
-    let endTs = new Date();
-    endTs = endTs.setMinutes(endTs.getMinutes() + 10);
-
-    cookie.set(
-      "__resetCookie",
-      {
-        _endTs: endTs,
-      },
-      {
-        domain: keys.DOMAIN,
-        path: "/",
-        sameSite: keys.SAME_SITE_COOKIE_SETTING,
-        secure: keys.SECURE_COOKIE,
+  useEffect(() => {
+    setTimeout(() => {
+      if (regenerateOtp && user.count < 3) {
+        // showTimer.current = true;
+        setRenderKey(renderKey + 1);
+        updateOtpVerificationTimestamp(user.id);
+        sendOtpByEmail(user.email);
+        otpSentToast();
       }
-    );
-  };
+    }, 500);
+
+    return () => setRegenerateOtp(false);
+  }, [regenerateOtp]);
 
   useEffect(() => {
     generateOtp(user && user.email);
-    createTimerCookie();
   }, []);
 
   useEffect(() => {
     if (otpGenerated && otpGenerated) {
       sendOtpByEmail(user.email);
+      showTimer.current = true;
     }
   }, [otpGenerated]);
 
@@ -94,6 +89,25 @@ const OtpForm = (props) => {
       setShowForm(false);
     }
   }, [otpValidated]);
+
+  useEffect(() => {
+    if (authError && !authError) {
+      showTimer.current = true;
+    }
+  }, [authError]);
+
+  useEffect(() => {
+    if (
+      authError &&
+      (authError ===
+        "Too many otp requests. Please wait for 10 minutes before regenerating an otp" ||
+        authError === "Too many invalid otp's. Please enter your email again")
+    ) {
+      setDisableInput(true);
+
+      setTimeout(() => router.reload("/"), 6000);
+    }
+  }, [authError]);
 
   // Otp sent toast
   const otpSentToast = () =>
@@ -135,13 +149,9 @@ const OtpForm = (props) => {
                 <a
                   onClick={(e) => {
                     e.preventDefault();
+                    setRegenerateOtp(true);
+                    setRegenerateCount(regenerateCount + 1);
                     generateOtp(user.email);
-                    updateOtpVerificationTimestamp(user.id);
-                    sendOtpByEmail(user.email);
-                    createTimerCookie();
-                    otpSentToast();
-                    setMinutes(10);
-                    setSeconds(0);
                   }}
                 >
                   Regenerate OTP
@@ -193,6 +203,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp1 && props.errors.otp1
                           ? "error-border otp-text"
@@ -206,6 +217,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp2 && props.errors.otp2
                           ? "error-border otp-text"
@@ -219,6 +231,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp3 && props.errors.otp3
                           ? "error-border otp-text"
@@ -232,6 +245,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp4 && props.errors.otp4
                           ? "error-border otp-text"
@@ -245,6 +259,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp5 && props.errors.otp5
                           ? "error-border otp-text"
@@ -258,6 +273,7 @@ const OtpForm = (props) => {
                       type="text"
                       placeholder=""
                       maxLength="1"
+                      disabled={disableInput}
                       className={
                         props.touched.otp6 && props.errors.otp6
                           ? "error-border otp-text"
@@ -266,14 +282,9 @@ const OtpForm = (props) => {
                     />
                   </div>
                   <div className="flex flex-col items-center mb-3">
-                    <Progress minutes={minutes} seconds={seconds} />
+                    {/* <Progress minutes={minutes} seconds={seconds} /> */}
 
-                    <Timer
-                      minutes={minutes}
-                      seconds={seconds}
-                      setMinutes={setMinutes}
-                      setSeconds={setSeconds}
-                    />
+                    {showTimer.current && <Timer key={renderKey} />}
                   </div>
                   <div className="text-center">
                     <motion.button

@@ -47,10 +47,8 @@ import {
   UPDATE_NUMBER_SOLD,
   UPDATE_NUMBER_SOLD_ERROR,
   INVALID_LOGIN_COUNTS,
+  TOKEN_STATUS,
 } from "../Types";
-
-var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
-var projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
 
 // Will be used in the copyright section in the email footer
 var currentYear = new Date().getFullYear();
@@ -93,7 +91,6 @@ const AuthState = (props) => {
     apartmentNumber,
     apartment
   ) => {
-    setApiKey(projectKey);
     const jsonPayload = {
       name: name,
       email: email,
@@ -122,21 +119,15 @@ const AuthState = (props) => {
 
   // Load user
   const loadUser = async () => {
-    // if (cookie.get("nddToken")) {
-    //   setAuthToken(cookie.get("nddToken"));
+    // if (typeof window !== "undefined") {
+    //   setAuthToken(localStorage.getItem("nddToken"));
     // } else {
-    //   createCookie(state.token);
+    //   localStorage.setItem("nddToken", state.token);
 
-    //   setTimeout(() => setAuthToken(cookie.get("nddToken")), 500);
+    //   setTimeout(() => setAuthToken(localStorage.getItem("nddToken")), 500);
     // }
 
-    if (typeof window !== "undefined") {
-      setAuthToken(localStorage.getItem("nddToken"));
-    } else {
-      localStorage.setItem("nddToken", state.token);
-
-      setTimeout(() => setAuthToken(localStorage.getItem("nddToken")), 500);
-    }
+    setAuthToken("auth");
 
     try {
       const res = await axios.get(`${keys.API_PROXY}/auth/current_user`);
@@ -169,6 +160,14 @@ const AuthState = (props) => {
     }
   };
 
+  const verifyTokenStatus = async () => {
+    try {
+      await axios.get(`${keys.API_PROXY}/token/verify`);
+    } catch (err) {
+      dispatch({ type: TOKEN_STATUS, payload: err.response.data.detail });
+    }
+  };
+
   const getLoginCount = async (email) => {
     try {
       const res = await axios.get(
@@ -184,7 +183,8 @@ const AuthState = (props) => {
 
   // Get user from id
   const getUserFromId = async (userId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
+
     try {
       const res = await axios.get(`${keys.API_PROXY}/user/${userId}`);
       dispatch({ type: ALT_USER_LOADED, payload: res.data });
@@ -203,7 +203,8 @@ const AuthState = (props) => {
     apartmentNumber,
     neighbourhood
   ) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
+
     const jsonPayload = {
       name: name,
       email: email,
@@ -235,7 +236,8 @@ const AuthState = (props) => {
 
   // Delete user
   const deleteUser = async (userId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
+
     try {
       await axios.delete(`${keys.API_PROXY}/user/delete/${userId}`);
     } catch (err) {
@@ -245,7 +247,7 @@ const AuthState = (props) => {
 
   // Delete ad
   const deleteAd = async (userId, adId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
     try {
       await axios.delete(
         `${keys.API_PROXY}/userads/delete/?user_id=${userId}&ad_id=${adId}`
@@ -261,6 +263,8 @@ const AuthState = (props) => {
 
   // User ads
   const fetchUserAds = async (userId) => {
+    setAuthToken("auth");
+
     try {
       const res = await axios.get(`${keys.API_PROXY}/userads/get/${userId}`);
       dispatch({ type: USER_ADS_FETCHED_SUCCESS, payload: res.data });
@@ -274,7 +278,7 @@ const AuthState = (props) => {
 
   // Send email - user registration, welcome etc...
   const sendEmail = async (name, email, verificationUrl) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -302,7 +306,8 @@ const AuthState = (props) => {
   const updateEmailVerificationTimestamp = async (id) => {
     const jsonPayload = { id: id };
 
-    setApiKey(projectKey);
+    setAuthToken("auth");
+
     try {
       await axios
         .put(`${keys.API_PROXY}/email_timestamp/refresh`, jsonPayload, {
@@ -321,7 +326,8 @@ const AuthState = (props) => {
 
   // Refresh the otp verification timestamp
   const updateOtpVerificationTimestamp = async (id) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
+
     const jsonPayload = { id: id };
 
     try {
@@ -342,7 +348,7 @@ const AuthState = (props) => {
 
   // Email the otp to the user during password change
   const sendOtpByEmail = async (email) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -366,7 +372,7 @@ const AuthState = (props) => {
 
   // Send the contact us email
   const sendContactUsEmail = async (email, message) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     var emailBody = `${email} wrote: \n\n${message}`;
 
@@ -403,7 +409,7 @@ const AuthState = (props) => {
     toEmail,
     templateName
   ) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       ad_title: adTitle,
@@ -464,7 +470,6 @@ const AuthState = (props) => {
 
   // Method for forgot password - otp generation
   const generateOtp = async (email) => {
-    setApiKey(projectKey);
     const jsonPayload = {
       email: email,
     };
@@ -485,12 +490,13 @@ const AuthState = (props) => {
         type: OTP_GENERATED_FAILURE,
         payload: err.response.data.detail,
       });
+
+      // setTimeout(() => dispatch({ type: CLEAR_ERROR }), 5000);
     }
   };
 
   // Method for forgot password - otp generation
   const validateOtp = async (id, otp) => {
-    setApiKey(projectKey);
     const utcTime = new Date().toJSON();
     try {
       await axios
@@ -513,8 +519,6 @@ const AuthState = (props) => {
       password: password,
     };
 
-    setApiKey(projectKey);
-
     try {
       await axios
         .put(`${keys.API_PROXY}/user/password/${userId}`, jsonPayload, {
@@ -533,7 +537,7 @@ const AuthState = (props) => {
 
   // Chat related end-points
   const loadSellerChats = async (userId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     try {
       const res = await axios.get(`${keys.API_PROXY}/chats/seller/${userId}`);
@@ -544,7 +548,7 @@ const AuthState = (props) => {
   };
 
   const loadBuyerChats = async (userId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     try {
       const res = await axios.get(`${keys.API_PROXY}/chats/buyer/${userId}`);
@@ -555,8 +559,6 @@ const AuthState = (props) => {
   };
 
   const updateUserSubscription = async (email, subscriptionStatus) => {
-    setApiKey(projectKey);
-
     const jsonPayload = {
       subscription_status: subscriptionStatus,
       email: email,
@@ -580,7 +582,7 @@ const AuthState = (props) => {
   };
 
   const markSellerChatForDeletion = async (userId, chatId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     try {
       await axios
@@ -594,7 +596,7 @@ const AuthState = (props) => {
   };
 
   const markBuyerChatForDeletion = async (userId, chatId) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     try {
       await axios
@@ -608,6 +610,7 @@ const AuthState = (props) => {
   };
 
   const updateNumberSold = async (userId) => {
+    setAuthToken("auth");
     try {
       await axios
         .put(`${keys.API_PROXY}/update/sold/${userId}`)
@@ -651,6 +654,7 @@ const AuthState = (props) => {
         registerUser,
         loginUser,
         loadUser,
+        verifyTokenStatus,
         deleteUser,
         deleteAd,
         fetchUserAds,

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import AuthContext from "../../../context/auth/authContext";
 import Link from "next/link";
@@ -22,6 +22,8 @@ const buttonVariants = {
 };
 
 const VerifyEmail = ({ user }) => {
+  const [emailSentCount, setEmailSentCount] = useState(0);
+
   const router = useRouter();
   const authContext = useContext(AuthContext);
 
@@ -42,6 +44,17 @@ const VerifyEmail = ({ user }) => {
       position: "top-center",
     });
 
+  // Block verification email
+  const emailBlockToast = () => {
+    let message = `Too many attempts!! 😵
+  Please try again after sometime`;
+
+    toast(message, {
+      draggablePercent: 60,
+      position: "top-center",
+    });
+  };
+
   // User logged in message toast
   const userLoggedInToast = () =>
     toast(`${greeting}, ${name}!`, {
@@ -55,8 +68,22 @@ const VerifyEmail = ({ user }) => {
     userLoggedInToast();
   }, []);
 
+  useEffect(() => {
+    if (emailSentCount >= 3) {
+      emailBlockToast();
+    } else if (emailSentCount > 0 && emailSentCount < 3) {
+      updateEmailVerificationTimestamp(currentUser.id);
+      sendEmail(
+        currentUser && currentUser.name,
+        currentUser && currentUser.email,
+        verificationUrl
+      );
+      emailVerificationToast();
+    }
+  }, [emailSentCount]);
+
   return (
-    <div className="font-axiforma text-center text-brand-gray">
+    <div className="text-center text-brand-gray">
       <h2 className="font-semibold text-3xl tracking-wide mb-4">
         One final step...
       </h2>
@@ -110,9 +137,7 @@ const VerifyEmail = ({ user }) => {
             className="text-blue-600"
             onClick={(e) => {
               e.preventDefault();
-              updateEmailVerificationTimestamp(user.id);
-              sendEmail(name, email, verificationUrl);
-              emailSentToast();
+              setEmailSentCount(emailSentCount + 1);
             }}
           >
             Resend email

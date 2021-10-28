@@ -13,8 +13,6 @@ const AdImageCarousel = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  console.log(selectedImage);
-
   const onBackButtonEvent = (e) => {
     e.preventDefault();
     setIsModalOpen(false);
@@ -85,7 +83,7 @@ const AdImageCarousel = (props) => {
         onRequestClose={() => setIsModalOpen(false)}
         className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
       >
-        <div className="absolute top-2 right-8 lg:top-5 font-bold z-50 ">
+        <div className="absolute right-4 top-5 font-bold z-50 ">
           <FontAwesomeIcon
             icon={faTimes}
             className="text-3xl lg:text-5xl cursor-pointer text-white bg-red-500 hover:bg-red-800 p-1 h-5 w-5 lg:h-7 lg:w-7 rounded-md"

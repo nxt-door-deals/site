@@ -26,6 +26,7 @@ import {
   CHAT_ERROR,
   REPORTED_AD_SUCCESS,
   REPORTED_AD_FAILURE,
+  CLEAR_MESSAGE,
 } from "../Types";
 
 const siteReducer = (state, action) => {
@@ -121,10 +122,16 @@ const siteReducer = (state, action) => {
         ...state,
         fetchError: null,
       };
+    case CLEAR_MESSAGE:
+      return {
+        ...state,
+        genericMessage: null,
+      };
     case EMAIL_SEND_SUCCESS:
       return {
         ...state,
         emailSent: true,
+        genericMessage: action.payload,
       };
     case EMAIL_SEND_FAILURE:
       return {

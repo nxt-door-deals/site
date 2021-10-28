@@ -72,7 +72,7 @@ const NbhAdsCard = (props) => {
           {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
             <div
               key={adIndex}
-              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-purple shadow-adcardshadow cursor-pointer max-w-sm md:max-w-md lg:max-w-lg"
+              className="pt-3 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0"
               onClick={() => router.push(`/ads/${ad.id}`)}
             >
               {ad.images.length > 0 && (
@@ -123,7 +123,7 @@ const NbhAdsCard = (props) => {
               >
                 {/* Card title */}
                 <div className="text-left px-4 py-2">
-                  <p className="font-semibold">{ad.title}</p>
+                  <p className="font-semibold text-lg">{ad.title}</p>
                 </div>
 
                 {/* Price and timeframe */}
@@ -134,7 +134,11 @@ const NbhAdsCard = (props) => {
                     </div>
                   ) : (
                     <div className="animate-pulse fa-layers fa-fw w-10 p-5">
-                      <FontAwesomeIcon icon={faCertificate} size="3x" />
+                      <FontAwesomeIcon
+                        icon={faCertificate}
+                        size="3x"
+                        className="text-brand-purple"
+                      />
                       <span className="fa-layers-text fa-inverse mx-1 font-semibold uppercase text-xs">
                         free
                       </span>

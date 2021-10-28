@@ -222,7 +222,7 @@ const UserChatList = (props) => {
                     return (
                       <div
                         key={index}
-                        className="relative chat-bubble chat-list-buyer p-4 bg-gray-50 border-b-4 border-purple-500 shadow-userAccountShadow rounded-3xl rounded-tl-none text-center focus-within:outline-none"
+                        className="relative chat-bubble chat-list-buyer p-4 bg-gray-50 border-b-4 border-purple-500 hover:shadow-userAccountShadow rounded-3xl rounded-tl-none text-center focus-within:outline-none"
                       >
                         {chat.new_chats && chat.last_sender !== user.id ? (
                           <div className="animate-pulse absolute h-3 w-3 rounded-full bg-notification-red"></div>

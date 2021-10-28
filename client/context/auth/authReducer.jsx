@@ -43,6 +43,7 @@ import {
   UPDATE_NUMBER_SOLD,
   UPDATE_NUMBER_SOLD_ERROR,
   INVALID_LOGIN_COUNTS,
+  TOKEN_STATUS,
 } from "../Types";
 
 const authReducer = (state, action) => {
@@ -289,6 +290,11 @@ const authReducer = (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case TOKEN_STATUS:
+      return {
+        ...state,
+        authError: action.payload,
       };
     default:
       return state;

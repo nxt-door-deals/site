@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import AuthContext from "../../context/auth/authContext";
+import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
+import { sessionExpiredToast } from "../../utils/toasts";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -16,6 +19,20 @@ import ReportAds from "../../components/forms/ReportAds";
 const ReportAd = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
+
+  const authContext = useContext(AuthContext);
+  const { authError, logout } = authContext;
+
+  const siteContext = useContext(SiteContext);
+  const { adError } = siteContext;
+
+  useEffect(() => {
+    if (adError && adError === "Session Expired") {
+      sessionExpiredToast();
+      logout();
+      router.push("/login");
+    }
+  }, [authError]);
 
   if (!cookie.get("__adCookie")) {
     cookie.set(

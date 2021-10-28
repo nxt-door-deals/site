@@ -5,15 +5,33 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import SiteContext from "../context/site/siteContext";
+import AuthContext from "../context/auth/authContext";
 
 // Component imports
 import NoAdsForNeighbourhood from "../components/page_components/browse_ads/NoAdsForNeighbourhood";
 import SearchNbhAds from "../components/forms/SearchNbhAds";
 import NbhAdsCard from "../components/page_components/browse_ads/NbhAdsCard";
 
+jest.mock("next/router", () => ({
+  useRouter() {
+    return {
+      route: "/",
+      pathname: "",
+      query: "",
+      asPath: "",
+    };
+  },
+}));
+
 describe("test if the browse ads page renders", () => {
   it("test if the no ads component is rendered", () => {
-    render(<NoAdsForNeighbourhood />);
+    const user = "";
+
+    render(
+      <AuthContext.Provider value={{ user }}>
+        <NoAdsForNeighbourhood />
+      </AuthContext.Provider>
+    );
 
     const message = screen.getByText(
       /looks like there are no ads for this apartment yet/i

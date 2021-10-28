@@ -19,10 +19,19 @@ const PostAd = (props) => {
 
   const authContext = useContext(AuthContext);
 
-  const { loadUser, isAuthenticated, user } = authContext;
+  const { loadUser, isAuthenticated, user, authError, logout } = authContext;
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
+
+  useEffect(() => {
+    if (authError && authError === "Session Expired") {
+      sessionExpiredToast();
+      setTimeout(() => {
+        logout();
+      }, 2000);
+    }
+  }, [authError]);
 
   if (typeof window !== "undefined" && !localStorage.getItem("nddToken")) {
     // Save the url (/postad) for redirect after login

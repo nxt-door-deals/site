@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
+import Script from "next/script";
 import axios from "axios";
 import fs from "fs";
 
@@ -63,17 +64,17 @@ const Home = (props) => {
 };
 
 // Generate the rss feed
-export const getStaticProps = async () => {
-  const rss = await axios.get(`${process.env.API_URL}/rss`);
+// export const getStaticProps = async () => {
+//   const rss = await axios.get(`${process.env.API_URL}/rss`);
 
-  fs.mkdirSync("./public/rss", { recursive: true });
-  fs.writeFileSync("./public/rss/feed.xml", rss.data);
+//   fs.mkdirSync("./public/rss", { recursive: true });
+//   fs.writeFileSync("./public/rss/feed.xml", rss.data);
 
-  return {
-    props: {
-      rss: rss.data,
-    },
-  };
-};
+//   return {
+//     props: {
+//       rss: rss.data,
+//     },
+//   };
+// };
 
 export default Home;

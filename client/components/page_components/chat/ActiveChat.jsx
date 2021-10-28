@@ -1,11 +1,14 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import SiteContext from "../../../context/site/siteContext";
+import AuthContext from "../../../context/auth/authContext";
+import { useRouter } from "next/router";
 
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import { sessionExpiredToast } from "../../../utils/toasts";
 
 import useChat from "../../../hooks/useChat";
 import keys from "../../../utils/keys";
@@ -27,6 +30,11 @@ const variants = {
 const ActiveChat = (props) => {
   const siteContext = useContext(SiteContext);
   const { chatHistory, getChatHistory, markChatsAsRead } = siteContext;
+
+  const authContext = useContext(AuthContext);
+  const { verifyTokenStatus, authError, logout } = authContext;
+
+  const router = useRouter();
 
   const chatId = props.chatId;
   const senderId = props.senderId;
@@ -50,6 +58,16 @@ const ActiveChat = (props) => {
       scrollToBottom();
     }, 500);
   }, []);
+
+  useEffect(() => {
+    if (authError && authError === "Session Expired") {
+      sessionExpiredToast();
+      logout();
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
+    }
+  }, [authError]);
 
   useEffect(() => {
     if (typeof window !== "undefined")
@@ -76,7 +94,9 @@ const ActiveChat = (props) => {
     }
   }, [chatHistory]);
 
-  useEffect(() => scrollToBottom, [messages]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleNewMessageChange = (e) => {
     setNewMessage(e.target.value);
@@ -213,6 +233,7 @@ const ActiveChat = (props) => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values) => {
+            verifyTokenStatus();
             handleSendMessage();
             values.message = "";
           }}

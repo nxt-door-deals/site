@@ -33,10 +33,8 @@ import {
   CHAT_ERROR,
   REPORTED_AD_SUCCESS,
   REPORTED_AD_FAILURE,
+  CLEAR_MESSAGE,
 } from "../Types";
-
-var sendgridKey = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
-var projectKey = process.env.NEXT_PUBLIC_PROJECT_API_KEY;
 
 // Will be used in the copyright section in the email footer
 var currentYear = new Date().getFullYear();
@@ -50,7 +48,7 @@ const SiteState = (props) => {
     numApartmentsFetched: "",
     chatHistory: [],
     fetchError: null,
-    loading: false,
+    loading: true,
     apartmentData: "",
     submittedNeighbourhood: null,
     apartmentCreated: false,
@@ -65,6 +63,7 @@ const SiteState = (props) => {
     verifiedNeighbourhoodDetails: null,
     reportedAd: null,
     imageDeleteStatus: null,
+    genericMessage: null,
   };
 
   const [state, dispatch] = useReducer(siteReducer, initialState);
@@ -91,7 +90,6 @@ const SiteState = (props) => {
     pincode,
     email
   ) => {
-    setApiKey(projectKey);
     const jsonPayload = {
       name: name,
       address1: address1,
@@ -119,7 +117,6 @@ const SiteState = (props) => {
         type: CREATE_APARTMENT_ERROR,
         payload: err.response.data.detail,
       });
-      console.error(err);
     }
   };
 
@@ -136,7 +133,6 @@ const SiteState = (props) => {
   };
 
   const verifyNeighbourhood = async (token) => {
-    setApiKey(projectKey);
     token = encodeURIComponent(token);
     try {
       const res = await axios.put(
@@ -353,6 +349,7 @@ const SiteState = (props) => {
     publishFlatNo,
     images
   ) => {
+    setAuthToken("auth");
     const formData = new FormData();
 
     formData.set("title", title);
@@ -380,6 +377,7 @@ const SiteState = (props) => {
         )
         .then(() => dispatch({ type: UPDATE_AD_SUCCESS }));
     } catch (err) {
+      console.log(err);
       dispatch({ type: UPDATE_AD_FAILURE, payload: err.response.data.detail });
     }
   };
@@ -390,7 +388,7 @@ const SiteState = (props) => {
     email,
     currentYear
   ) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -429,7 +427,7 @@ const SiteState = (props) => {
     verificationUrl,
     currentYear
   ) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -461,7 +459,7 @@ const SiteState = (props) => {
 
   // Delete ad image from the Edit Ad screen
   const deleteAdImage = async (userId, adId, image) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     try {
       const res = await axios.delete(
@@ -480,7 +478,7 @@ const SiteState = (props) => {
     apartmentName,
     email
   ) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,
@@ -524,7 +522,6 @@ const SiteState = (props) => {
   };
 
   const getReportedAdUsers = async (adId) => {
-    setApiKey(projectKey);
     try {
       const res = await axios.get(`${keys.API_PROXY}/reported/${adId}`);
 
@@ -538,7 +535,7 @@ const SiteState = (props) => {
   };
 
   const reportAd = async (adId, userId, reason, description) => {
-    setApiKey(projectKey);
+    setAuthToken("auth");
 
     const jsonPayload = {
       ad_id: adId,
@@ -555,6 +552,34 @@ const SiteState = (props) => {
         type: REPORTED_AD_FAILURE,
         payload: err.response.data.detail,
       });
+    }
+  };
+
+  const sendFeatureRequestEmail = async (message) => {
+    setAuthToken(sendgridKey);
+
+    const jsonPayload = {
+      from_email: fromEmail,
+      to_email: fromEmail,
+      body: message,
+    };
+
+    try {
+      const res = await axios.post(
+        `${keys.API_PROXY}/email/send/feature`,
+        jsonPayload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      dispatch({ type: EMAIL_SEND_SUCCESS, payload: res.data });
+      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 4000);
+    } catch (error) {
+      dispatch({ type: EMAIL_SEND_FAILURE, payload: res.data });
+      setTimeout(() => dispatch({ type: CLEAR_MESSAGE }), 4000);
     }
   };
 
@@ -581,6 +606,7 @@ const SiteState = (props) => {
         chatHistory: state.chatHistory,
         reportedAd: state.reportedAd,
         imageDeleteStatus: state.imageDeleteStatus,
+        genericMessage: state.genericMessage,
         loadAllApartments,
         fetchApartments,
         getNeighbourhoodFromId,
@@ -609,6 +635,7 @@ const SiteState = (props) => {
         markChatsAsRead,
         getReportedAdUsers,
         reportAd,
+        sendFeatureRequestEmail,
       }}
     >
       {props.children}

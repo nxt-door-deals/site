@@ -33,7 +33,7 @@ const Login = (props) => {
       position: "top-center",
     });
 
-  // User account toast
+  // Chat toast
   const chatToast = () =>
     toast("Please login to start chatting", {
       draggablePercent: 60,

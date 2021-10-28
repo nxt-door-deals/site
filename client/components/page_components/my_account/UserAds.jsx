@@ -52,7 +52,7 @@ const UserAds = (props) => {
   // }, [props.userAds]);
 
   return (
-    <div className="rounded-3xl shadow-chatListShadow bg-white p-4 lg:mb-0 lg:self-start">
+    <div className="rounded-3xl border-3 hover:shadow-chatListShadow hover:border-0 bg-white p-4 lg:mb-0 lg:self-start">
       <div className="mb-2">
         {props.ad.images.length > 0 && (
           <Image

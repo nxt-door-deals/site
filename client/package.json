@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development NEXT_PUBLIC_ENV=development next -p 3001",
     "build": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next build",
-    "start": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next start -p 3001"
+    "start": "cross-env NODE_ENV=production NEXT_PUBLIC_ENV=production next start -p 3001",
+    "test": "jest --silent"
   },
   "keywords": [],
   "author": "",
@@ -25,11 +26,11 @@
     "eventsource": "^1.1.0",
     "formik": "^2.2.5",
     "framer-motion": "^2.9.4",
-    "next": "^10.0.3",
+    "next": "^12.0.1",
     "object-path": "^0.11.5",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "react-datepicker": "^3.3.0",
-    "react-dom": "^16.14.0",
+    "react-dom": "^17.0.2",
     "react-dropzone": "^11.2.4",
     "react-google-recaptcha": "^2.1.0",
     "react-modal": "^3.12.1",
@@ -42,10 +43,15 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.0",
-    "autoprefixer": "^9.8.6",
-    "globby": "^11.0.2",
-    "postcss": "^7.0.35",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "autoprefixer": "^10.3.7",
+    "babel-jest": "^27.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.2.1",
+    "postcss": "^8.3.9",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
+    "react-test-renderer": "^17.0.2",
+    "tailwindcss": "^2.2.17"
   }
 }

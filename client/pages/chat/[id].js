@@ -120,7 +120,7 @@ const Chat = (props) => {
 
   return (
     <ChatHeadLayout altUser={altUser && altUser.name}>
-      <div id="header" className="font-axiforma h-full">
+      <div id="header" className="h-full">
         <Navbar
           navStyle={navStylePurple}
           chatNotification={props.chatNotification}

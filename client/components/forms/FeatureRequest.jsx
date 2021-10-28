@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import AuthContext from "../../context/auth/authContext";
+import SiteContext from "../../context/site/siteContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faEnvelope,
   faExclamationTriangle,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,13 +14,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Alert from "../page_components/common/Alert";
 import BouncingBalls from "../loaders/BouncingBalls";
 
-const contactValidationSchema = Yup.object({
-  email: Yup.string()
-    .required("Please enter your email id")
-    .email("Please enter a valid email id")
-    .trim(),
+const featureValidationSchema = Yup.object({
   message: Yup.string()
-    .required("Please type in your message (1000 characters max!)")
+    .required("Please type in your feature request (go nuts!)")
     .trim(),
 });
 
@@ -64,9 +59,9 @@ const blueButtonVariants = {
 
 const alertTheme = "bg-purple-200 text-brand-purple";
 
-const Contact = (props) => {
-  const authContext = useContext(AuthContext);
-  const { sendContactUsEmail, genericMessage } = authContext;
+const FeatureRequest = (props) => {
+  const siteContext = useContext(SiteContext);
+  const { sendFeatureRequestEmail, genericMessage } = siteContext;
 
   let buttonColor =
     props.modalButtonTheme === "purple" ? "bg-purple-700 " : "bg-blue-600 ";
@@ -84,7 +79,7 @@ const Contact = (props) => {
         animate="animate"
         transition="transition"
         exit="exit"
-        className="bg-white w-90 lg:w-100 px-5 pt-5 shadow-modalShadow rounded-lg"
+        className="bg-white w-90 lg:w-100 px-5 shadow-modalShadow rounded-lg"
       >
         <div
           className="absolute text-lg top-4 right-5 text-brand-gray cursor-pointer"
@@ -98,28 +93,28 @@ const Contact = (props) => {
         </span>
         <div className="flex justify-center">
           <Image
-            src={"/images/contact/typewriter.svg"}
-            alt={"Typewriter"}
-            height={100}
-            width={100}
+            src={"/images/contact/feature.svg"}
+            alt={"Feature request"}
+            height={200}
+            width={200}
           />
         </div>
-        <h1 className="font-semibold text-center text-xl text-brand-gray mt-6 mb-6">
-          We're great listeners, talk to us...
+        <h1 className="font-semibold text-center text-lg text-brand-gray mb-3">
+          Have a feature idea in mind that you would like to see on the website?
         </h1>
+        <p className="text-center mb-3">We are all ears...</p>
         <Alert genericMessage={genericMessage} alertTheme={alertTheme} />
         <div>
           <Formik
             initialValues={{
-              email: "",
               message: "",
             }}
-            validationSchema={contactValidationSchema}
+            validationSchema={featureValidationSchema}
             onSubmit={(values, { setSubmitting }) => {
               setSubmitting(true);
+
               setTimeout(() => {
-                sendContactUsEmail(values.email, values.message);
-                values.email = "";
+                sendFeatureRequestEmail(values.message);
                 values.message = "";
               }, 1000);
               setTimeout(() => {
@@ -132,36 +127,6 @@ const Contact = (props) => {
               <Form>
                 <div
                   className={`"relative border-2 rounded-xl " ${
-                    props.touched.email && props.errors.email
-                      ? "mb-1 error-border"
-                      : "mb-6 border-gray-300 focus-within:border-text-purple"
-                  }`}
-                >
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="inline align-middle fill-current text-gray-400 text-lg opacity-50 ml-2"
-                  />
-                  <Field
-                    id="email"
-                    name="email"
-                    type="text"
-                    placeholder="Email*"
-                    maxLength="50"
-                    autoComplete="off"
-                    className="textbox-input w-10/12 placeholder-gray-600 text-brand-gray"
-                  />
-                </div>
-
-                {/* Validation errors */}
-                {props.touched.email && props.errors.email ? (
-                  <div className=" text-xs error-text p-1 mb-2">
-                    <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                    {props.errors.email}
-                  </div>
-                ) : null}
-
-                <div
-                  className={`"relative border-2 rounded-xl " ${
                     props.touched.message && props.errors.message
                       ? "mb-1 error-border"
                       : "mb-6 border-gray-300 focus-within:border-text-purple"
@@ -172,7 +137,7 @@ const Contact = (props) => {
                     as="textarea"
                     name="message"
                     type="text"
-                    placeholder="Message*"
+                    placeholder="Feature Request*"
                     maxLength="1000"
                     rows="5"
                     autoComplete="off"
@@ -213,7 +178,7 @@ const Contact = (props) => {
                     whileHover="buttonHover"
                     whileTap="buttonTap"
                   >
-                    {props.isSubmitting ? <BouncingBalls /> : "Send"}
+                    {props.isSubmitting ? <BouncingBalls /> : "Request Feature"}
                   </motion.button>
                 </div>
               </Form>
@@ -225,4 +190,4 @@ const Contact = (props) => {
   );
 };
 
-export default Contact;
+export default FeatureRequest;

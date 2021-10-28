@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { sessionExpiredToast } from "../../utils/toasts";
 
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
 
@@ -20,7 +21,7 @@ const Account = (props) => {
   const pathname = router.pathname;
 
   const authContext = useContext(AuthContext);
-  const { loadUser, user } = authContext;
+  const { loadUser, user, authError, logout } = authContext;
 
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
@@ -28,6 +29,14 @@ const Account = (props) => {
   useEffect(() => {
     loadUser();
   }, []);
+
+  useEffect(() => {
+    if (authError && authError === "Session Expired") {
+      sessionExpiredToast();
+      logout();
+      router.push("/login");
+    }
+  }, [authError]);
 
   const userAccountTabs = [
     { label: "Profile", value: 0 },

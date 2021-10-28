@@ -1,5 +1,5 @@
 import "../styles/styles.css";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import SiteState from "../context/site/SiteState";
 import AuthState from "../context/auth/AuthState";
 import { motion } from "framer-motion";
@@ -26,7 +26,7 @@ const contextClass = {
 };
 
 const chatNotificationToast = () =>
-  toast("💬 You have a new chat message! Visit your account page.", {
+  toast("💬 You have a new chat message!", {
     draggablePercent: 60,
     position: "top-center",
   });
@@ -53,7 +53,6 @@ export default function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("nddToken") && localStorage.getItem("nddUser")) {
-        console.log("chat");
         var source = new EventSource(
           `${
             process.env.NEXT_PUBLIC_SSE_URL +

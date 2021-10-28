@@ -7,25 +7,55 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Timer = (props) => {
-  var endTs = cookie.get("__resetCookie")._endTs;
+  // var endTs = cookie.get("__resetCookie")._endTs;
+  var endTs = localStorage.getItem("timer");
+
+  // useEffect(() => {
+  //   var timer = setTimeout(() => {
+  //     let utcMs = new Date().getTime();
+
+  //     var timeRemaining = endTs - utcMs;
+
+  //     if (timeRemaining > 0) {
+  //       props.setMinutes(
+  //         Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60))
+  //       );
+
+  //       props.setSeconds(Math.floor((timeRemaining % (1000 * 60)) / 1000));
+  //     }
+  //   }, 1000);
+
+  //   return () => clearTimeout(timer);
+  // }, [props.seconds]);
+
+  const [second, setSecond] = useState("00");
+  const [minute, setMinute] = useState("10");
+  const [counter, setCounter] = useState(600);
 
   useEffect(() => {
-    var timer = setTimeout(() => {
-      let utcMs = new Date().getTime();
+    let intervalId;
 
-      var timeRemaining = endTs - utcMs;
+    intervalId = setInterval(() => {
+      const secondCounter = counter % 60;
+      const minuteCounter = Math.floor(counter / 60);
 
-      if (timeRemaining > 0) {
-        props.setMinutes(
-          Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60))
-        );
+      let computedSecond =
+        String(secondCounter).length === 1
+          ? `0${secondCounter}`
+          : secondCounter;
+      let computedMinute =
+        String(minuteCounter).length === 1
+          ? `0${minuteCounter}`
+          : minuteCounter;
 
-        props.setSeconds(Math.floor((timeRemaining % (1000 * 60)) / 1000));
-      }
+      setSecond(computedSecond);
+      setMinute(computedMinute);
+
+      setCounter((counter) => counter - 1);
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [props.seconds]);
+    return () => clearInterval(intervalId);
+  }, [counter]);
 
   return (
     <div className="flex flex-col items-center">
@@ -37,12 +67,8 @@ const Timer = (props) => {
           </p>
         ) : (
           <p>
-            {props.minutes < 1 && <FontAwesomeIcon icon={faHourglassHalf} />}
-            {props.minutes < 1 &&
-              ` Time remaining: ${
-                props.minutes +
-                (props.seconds < 10 ? ":0" + props.seconds : props.seconds)
-              }`}
+            <FontAwesomeIcon icon={faHourglassHalf} />
+            {` Time remaining: ${minute}:${second}`}
           </p>
         )}
       </div>
