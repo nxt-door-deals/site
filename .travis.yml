@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - "12.16"
+  - "16.13"
 addons:
-  ssh_known_hosts: 68.183.94.49
+  ssh_known_hosts: 157.245.101.118
 cache:
   directories:
     - $HOME/.cache/npm
