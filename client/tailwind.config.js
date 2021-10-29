@@ -110,8 +110,6 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "login-background": "url(/images/login/user-login.svg)",
-        "user-registration-background":
-          "url(/images/user_registration/user-registration.svg)",
         "email-verification-background":
           "url(/images/email/email-verification.svg)",
         "forgot-password-background":
@@ -121,12 +119,6 @@ module.exports = {
         "ads-background": "url(/images/browseads/bg-ads.svg)",
         "ads-mobile-background": "url(/images/browseads/bg-ads-mobile.svg)",
         "ads-tablet-background": "url(/images/browseads/bg-ads-tablet.svg)",
-        "create-neighbourhood-background":
-          "url(/images/neighbourhood/bg-create-neighbourhood.svg)",
-        "create-neighbourhood-background-mobile":
-          "url(/images/neighbourhood/bg-create-neighbourhood-mobile.svg)",
-        "create-neighbourhood-background-tablet":
-          "url(/images/neighbourhood/bg-create-neighbourhood-tablet.svg)",
         "post-ad-mobile-background":
           "url(/images/postad/bg-post-ads-mobile.svg)",
         "post-ad-background": "url(/images/postad/bg-post-ads.svg)",
@@ -146,8 +138,6 @@ module.exports = {
         "faq-background": "url(/images/policy/faq.svg)",
         "faq2-background": "url(/images/policy/faq-2.svg)",
         "faq-main-background": "url(/images/policy/faq-bg.svg)",
-        "blog-background": "url(/images/blog/blog-bg.svg)",
-        "blog-background-mobile": "url(/images/blog/blog-bg-mobile.svg)",
         "covid-background": "url(/images/covid/bg-covid.svg)",
         "covid-background-mobile": "url(/images/covid/bg-covid-mobile.svg)",
         "chat-window-background-1": "url(/images/chat/bg-chat-window-1.svg)",

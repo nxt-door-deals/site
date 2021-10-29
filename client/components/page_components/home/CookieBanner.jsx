@@ -45,7 +45,7 @@ const CookieBanner = (props) => {
             animate="animate"
             transition="transition"
             exit="exit"
-            className="flex justify-center items-center fixed left-0 right-0 bottom-0 h-auto w-full px-1 bg-banner-color text-white z-40 shadow-banner-shadow"
+            className="flex justify-center items-center fixed left-0 right-0 bottom-0 h-auto w-full px-1 bg-banner-color text-white z-50 shadow-banner-shadow"
           >
             <div className="py-5 px-5 lg-px-0 text-sm lg:text-base">
               <p className="font-semibold pb-1">

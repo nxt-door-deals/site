@@ -173,9 +173,7 @@ const Navbar = (props) => {
               <li className="nav-item lg:mr-3 hover:scale-110">
                 <span
                   className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl  ${
-                    stickyNav
-                      ? "border-3 border-brand-purple"
-                      : "shadow-postFreeAdShadow"
+                    stickyNav ? "border-3 border-brand-purple" : ""
                   }`}
                 >
                   <Link href="/postad">
