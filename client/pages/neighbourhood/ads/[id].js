@@ -151,7 +151,7 @@ const Ads = (props) => {
 };
 
 // export const getStaticPaths = async () => {
-//   const res = await axios.get(`${process.env.API_URL}/apartments/all`);
+//   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/apartments/all`);
 
 //   const apartments = res.data;
 
@@ -173,11 +173,11 @@ export const getServerSideProps = async (context) => {
   const apartmentId = id;
 
   const nbhAds = await axios.get(
-    `${process.env.API_URL}/nbhads/get/${apartmentId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/nbhads/get/${apartmentId}`
   );
 
   const aptName = await axios.get(
-    `${process.env.API_URL}/apartments/${apartmentId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/apartments/${apartmentId}`
   );
 
   if (!nbhAds.data || !aptName.data) {

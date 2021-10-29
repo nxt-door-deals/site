@@ -381,7 +381,7 @@ const UserRegistration = () => {
                       {/* Validation errors */}
                       {props.touched.password && props.errors.password ? (
                         <div
-                          className="font-axiforma text-xs error-text p-1 mb-2"
+                          className="text-xs error-text p-1 mb-2"
                           id="password-error"
                         >
                           <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -525,8 +525,10 @@ const UserRegistration = () => {
 
                       {/* Apartment number */}
                       <div
-                        className={`"flex items-center justify-center border-2 mt-8 rounded-xl " ${
-                          props.errors.apartment && " mt-0 "
+                        className={`"flex items-center justify-center border-2 rounded-xl " ${
+                          props.touched.apartment && props.errors.apartment
+                            ? " mt-1 "
+                            : " mt-8"
                         } ${
                           props.touched.apartmentNumber &&
                           props.errors.apartmentNumber

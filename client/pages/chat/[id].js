@@ -231,17 +231,23 @@ export const getServerSideProps = async (context) => {
     }
 
     // Check if both buyer and seller are legit users
-    var user1 = await axios.get(`${process.env.API_URL}/user/${ids[1]}`, {
-      headers: {
-        "api-key": `${process.env.PROJECT_API_KEY}`,
-      },
-    });
+    var user1 = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/${ids[1]}`,
+      {
+        headers: {
+          "api-key": `${process.env.PROJECT_API_KEY}`,
+        },
+      }
+    );
 
-    var user2 = await axios.get(`${process.env.API_URL}/user/${ids[2]}`, {
-      headers: {
-        "api-key": `${process.env.PROJECT_API_KEY}`,
-      },
-    });
+    var user2 = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/${ids[2]}`,
+      {
+        headers: {
+          "api-key": `${process.env.PROJECT_API_KEY}`,
+        },
+      }
+    );
 
     if (!user1.data || !user2.data) {
       return {
@@ -251,10 +257,12 @@ export const getServerSideProps = async (context) => {
 
     // Check if the chat record exisis; if not, create it in the chat and chathistory tables
     var res = await axios.get(
-      `${process.env.API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[1]}&buyer_id=${ids[2]}`
+      `${process.env.NEXT_PUBLIC_API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[1]}&buyer_id=${ids[2]}`
     );
 
-    var ad = await axios.get(`${process.env.API_URL}/ads/${ids[0]}`);
+    var ad = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/ads/${ids[0]}`
+    );
 
     // No ad? Return 404
     if (!ad.data) {
@@ -266,7 +274,7 @@ export const getServerSideProps = async (context) => {
     if (!res.data) {
       // If a wiseguy or gal tries to interchange the buyer and seller id's in the url
       var additionalCheck = await axios.get(
-        `${process.env.API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[2]}&buyer_id=${ids[1]}`
+        `${process.env.NEXT_PUBLIC_API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[2]}&buyer_id=${ids[1]}`
       );
 
       if (additionalCheck.data) {
@@ -284,7 +292,7 @@ export const getServerSideProps = async (context) => {
 
       try {
         res = await axios.post(
-          `${process.env.API_URL}/chat/create`,
+          `${process.env.NEXT_PUBLIC_API_URL}/chat/create`,
           jsonPayload
         );
       } catch (error) {

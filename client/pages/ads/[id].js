@@ -77,7 +77,7 @@ export const getServerSideProps = async (context) => {
 
   const adId = id;
 
-  const res = await axios.get(`${process.env.API_URL}/ads/${adId}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${adId}`);
 
   if (!res.data) {
     return {
@@ -93,7 +93,7 @@ export const getServerSideProps = async (context) => {
 };
 
 // export const getStaticPaths = async () => {
-//   const res = await axios.get(`${process.env.API_URL}/ads/all`);
+//   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/all`);
 
 //   const ads = res.data;
 

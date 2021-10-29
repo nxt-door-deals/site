@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useContext } from "react";
+import { Fragment, useState, useEffect, useContext, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import AuthContext from "../../context/auth/authContext";
@@ -25,8 +25,15 @@ const Navbar = (props) => {
   const [stickyNav, setStickyNav] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const modalButtonTheme = useRef("");
+
   const authContext = useContext(AuthContext);
   const { loadUser, user } = authContext;
+
+  props.navStyle.pathname === "/registeruser" ||
+  props.navStyle.pathname.includes("/register/neighbourhood")
+    ? (modalButtonTheme.current = "blue")
+    : (modalButtonTheme.current = "purple");
 
   useEffect(() => {
     let mounted = true;
@@ -542,9 +549,9 @@ const Navbar = (props) => {
           id="menu"
           className={
             expanded
-              ? "relative transform w-2/3 md:w-1/2 -translate-x-0 overlay-toggle opacity-98 shadow-lg overflow-scroll lg:hidden z-40 " +
+              ? "relative transform w-2/3 md:w-1/2 translate-x-1/2 overlay-toggle opacity-98 shadow-lg overflow-y-scroll h-screen lg:hidden z-40 " +
                 props.navStyle.navOverlayBgColor
-              : "relative transform translate-x-full overlay-toggle overflow-scroll lg:hidden"
+              : "relative transform translate-x-off-screen overlay-toggle overflow-scroll lg:hidden"
           }
           onClick={() => toggleNav()}
         >
@@ -1276,7 +1283,10 @@ const Navbar = (props) => {
           shouldFocusAfterRender={true}
           className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none rounded-md"
         >
-          <Contact setIsModalOpen={setIsModalOpen} />
+          <Contact
+            setIsModalOpen={setIsModalOpen}
+            modalButtonTheme={modalButtonTheme.current}
+          />
         </Modal>
       </nav>
     </Fragment>

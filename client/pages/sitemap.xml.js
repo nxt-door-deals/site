@@ -28,7 +28,9 @@ const Sitemap = (props) => {
 };
 
 export const getServerSideProps = async (context) => {
-  let dynamicUrls = await axios.get(`${process.env.API_URL}/sitemap`);
+  let dynamicUrls = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/sitemap`
+  );
   return {
     props: {
       urls: dynamicUrls.data,

@@ -1,5 +1,6 @@
 import ApartmentSearch from "../../forms/ApartmentSearch";
 import Link from "next/link";
+import Image from "next/image";
 
 const Landing = (props) => {
   return (
@@ -39,7 +40,7 @@ const Landing = (props) => {
           className="hidden lg:inline lg:order-last lg:-mt-4 xl:mt-0  lg:top-0 flex-auto"
         >
           <img
-            src="/images/landing/landing-page-illustration.svg"
+            src="/images/landing/landing-page-illustration.png"
             alt="Landing page illustration"
             width="100%"
             height="100%"
@@ -49,7 +50,7 @@ const Landing = (props) => {
         {/* For medium screens and below */}
         <div id="image-container" className="order-first w-full lg:hidden">
           <img
-            src="/images/landing/landing-page-illustration-mobile.svg"
+            src="/images/landing/landing-page-illustration-mobile.png"
             alt="Landing page illustration"
             width="100%"
           />

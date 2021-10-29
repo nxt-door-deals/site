@@ -198,6 +198,9 @@ module.exports = {
         "half-full": "4000px",
         "large-mobile": "150px",
       },
+      translate: {
+        "off-screen": "500%",
+      },
     },
   },
   variants: {},

@@ -89,7 +89,7 @@ const ReportAd = (props) => {
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
 
-  const res = await axios.get(`${process.env.API_URL}/ads/${id}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${id}`);
 
   if (!res.data) {
     return {

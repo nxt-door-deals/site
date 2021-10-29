@@ -65,7 +65,7 @@ const Home = (props) => {
 
 // Generate the rss feed
 // export const getStaticProps = async () => {
-//   const rss = await axios.get(`${process.env.API_URL}/rss`);
+//   const rss = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/rss`);
 
 //   fs.mkdirSync("./public/rss", { recursive: true });
 //   fs.writeFileSync("./public/rss/feed.xml", rss.data);
