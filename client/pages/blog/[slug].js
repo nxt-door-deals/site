@@ -7,8 +7,8 @@ import titleCase from "../../utils/titleCase";
 
 // Component imports
 import BlogArticleHeadLayout from "../../components/layout/head/BlogArticleHeadLayout";
-import BlogHeader from "../../components/forms/blog/BlogHeader";
-import BlogBody from "../../components/forms/blog/BlogBody";
+import BlogHeader from "../../components/page_components/blog/BlogHeader";
+import BlogBody from "../../components/page_components/blog/BlogBody";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 

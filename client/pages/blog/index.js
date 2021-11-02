@@ -8,7 +8,7 @@ import { greeting } from "../../utils/greeting";
 import BlogHeadLayout from "../../components/layout/head/BlogHeadLayout";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
-import BlogPreviewCard from "../../components/forms/blog/BlogPreviewCard";
+import BlogPreviewCard from "../../components/page_components/blog/BlogPreviewCard";
 
 const Blog = (props) => {
   const router = useRouter();
@@ -47,8 +47,8 @@ const Blog = (props) => {
 
 export const getStaticProps = async () => {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
 
   const res = await client.getEntries({ content_type: "blog" });

@@ -35,7 +35,7 @@ const PostHeader = (props) => {
         <Image
           src={`https:${props.heroImage}`}
           alt={props.heroImageDescription}
-          width={1200}
+          width={750}
           height={450}
         />
 
