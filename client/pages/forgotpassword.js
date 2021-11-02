@@ -18,7 +18,7 @@ const ForgotPassword = () => {
 
   return (
     <ForgotPasswordHeadLayout>
-      <div className="bg-forgot-password-background bg-cover bg-no-repeat bg-fixed -z-20 font-axiforma">
+      <div className="lg:bg-forgot-password-background lg:bg-cover lg:bg-no-repeat lg:bg-fixed -z-20">
         <Navbar navStyle={navStylePurple} />
         <div className="flex justify-center items-center min-h-screen">
           <EnterEmailForm alertTheme={alertTheme} />
