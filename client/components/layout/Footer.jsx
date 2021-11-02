@@ -61,8 +61,8 @@ const Footer = (props) => {
     : (modalButtonTheme.current = "purple");
 
   return (
-    <div className="relative z-40">
-      <div className="wave">
+    <div className="relative">
+      <div className="wave z-0">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

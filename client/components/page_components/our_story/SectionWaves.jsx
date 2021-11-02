@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionWaveTop = () => {
   return (
-    <div className="os-wave-top">
+    <div className="os-wave-top z-0">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const SectionWaveTop = () => {
 
 const SectionWaveBottom = () => {
   return (
-    <div className="os-wave-bottom">
+    <div className="os-wave-bottom z-0">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

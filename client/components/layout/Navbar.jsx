@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect, useContext, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import AuthContext from "../../context/auth/authContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faStream, faCircle } from "@fortawesome/free-solid-svg-icons";
@@ -20,10 +20,23 @@ const variants = {
   },
 };
 
+const overlayModalVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
 const Navbar = (props) => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const modalButtonTheme = useRef("");
 
@@ -34,6 +47,21 @@ const Navbar = (props) => {
   props.navStyle.pathname.includes("/register/neighbourhood")
     ? (modalButtonTheme.current = "blue")
     : (modalButtonTheme.current = "purple");
+
+  const updateCurrentWindowWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCurrentWindowWidth);
+    return () => window.removeEventListener("resize", updateCurrentWindowWidth);
+  }, []);
+
+  useEffect(() => {
+    if (width > 1023) {
+      setExpanded(false);
+    }
+  }, [width]);
 
   useEffect(() => {
     let mounted = true;
@@ -85,9 +113,9 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-30 lg:shadow-lg opacity-95 transition duration-500 ease-in-out  " +
+              " fixed basic-nav z-10 lg:shadow-lg opacity-100 transition duration-500 ease-in-out " +
               props.navStyle.navShadow
-            : "fixed basic-nav bg-none z-30"
+            : "fixed basic-nav bg-none"
         }
       >
         <motion.div
@@ -118,33 +146,21 @@ const Navbar = (props) => {
           className="lg:hidden absolute right-2 mt-2 mr-6 z-50"
           onClick={toggleNav}
         >
-          {!expanded ? (
-            !stickyNav ? (
+          {!stickyNav ? (
+            <FontAwesomeIcon
+              icon={faStream}
+              className={
+                "cursor-pointer text-brand-gray text-lg mt-4 " +
+                props.navStyle.faIconTextColor
+              }
+              alt="Open Menu"
+            />
+          ) : (
+            <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative opacity-90 cursor-pointer  shadow-scrollToTopShadow">
               <FontAwesomeIcon
                 icon={faStream}
-                className={
-                  "cursor-pointer text-brand-gray text-lg mt-4 " +
-                  props.navStyle.faIconTextColor
-                }
                 alt="Open Menu"
-              />
-            ) : (
-              <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative opacity-90 cursor-pointer  shadow-scrollToTopShadow">
-                <FontAwesomeIcon
-                  icon={faStream}
-                  alt="Open Menu"
-                  className="absolute top-4 right-4"
-                />
-              </div>
-            )
-          ) : (
-            <div
-              className="cursor-pointer text-brand-gray text-lg mt-4"
-              alt="Close Menu"
-            >
-              <FontAwesomeIcon
-                icon={faTimes}
-                className="close-button-animation"
+                className="absolute top-4 right-4"
               />
             </div>
           )}
@@ -543,730 +559,767 @@ const Navbar = (props) => {
         {/* ******* Menu overlay for small and medium screens  ******* */}
 
         {/* Check styles.css for definition of overlay-toggle and overlay-items */}
-        <div
-          id="menu"
-          className={
-            expanded
-              ? "relative transform w-2/3 md:w-1/2 translate-x-1/2 overlay-toggle opacity-98 shadow-lg overflow-y-scroll h-screen lg:hidden z-40 " +
-                props.navStyle.navOverlayBgColor
-              : "relative transform translate-x-off-screen overlay-toggle overflow-scroll lg:hidden"
-          }
-          onClick={() => toggleNav()}
-        >
-          <ul className="flex flex-col items-center mt-12">
-            <li className="flex items-center mb-10">
-              <Link href="/">
-                <a className="focus-within:outline-none">
-                  <Image
-                    src={"/images/nav/brand.svg"}
-                    alt={"Logo for the NXT Door Deals brand"}
-                    height={120}
-                    width={120}
-                  />
-                </a>
-              </Link>
-            </li>
-
-            {/* Overlay items for landing page */}
-            {props.navStyle.pathname === "/" && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/postad">
-                    <a className="pb-1 styled-link">Post Free Ad</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/blog">
-                    <a className="pb-1 styled-link">Blog</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="#how-it-works">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      How It Works
-                    </a>
-                  </Link>
-                </li>
-
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                {user && user && (
-                  <li
-                    className={
-                      "overlay-items md:text-xl hover:scale-125 " +
-                      props.navStyle.navOverlayTextColor
-                    }
-                  >
-                    <Link href="/account">
-                      <a className="pb-1 styled-link">
-                        {props.chatNotification.current && (
-                          <span className="absolute -right-2.5 -top-2.5 animate-pulse">
-                            <FontAwesomeIcon
-                              icon={faCircle}
-                              className="text-xxs text-notification-red"
-                            />
-                          </span>
-                        )}
-                        My Account
-                      </a>
-                    </Link>
-                  </li>
-                )}
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/login">
-                      <a className="pb-1 styled-link">Login</a>
-                    </Link>
-                  ) : (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Apartment</a>
-                    </Link>
-                  )}
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
-                    </Link>
-                  ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
-                    </Link>
-                  )}
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the our story page */}
-            {props.navStyle.pathname === "/ourstory" && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/blog">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      Blog
-                    </a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      How It Works
-                    </a>
-                  </Link>
-                </li>
-
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/login">
-                      <a className="pb-1 styled-link">Login</a>
-                    </Link>
-                  ) : (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Apartment</a>
-                    </Link>
-                  )}
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
-                    </Link>
-                  ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
-                    </Link>
-                  )}
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the browse ads page */}
-            {(props.navStyle.pathname.startsWith("/ads") ||
-              props.navStyle.pathname.startsWith("/neighbourhood/ads")) && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      How It Works
-                    </a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/login">
-                      <a className="pb-1 styled-link">Login</a>
-                    </Link>
-                  ) : (
-                    <Link href="/account">
-                      <a className="pb-1 styled-link">
-                        {props.chatNotification.current && (
-                          <span className="absolute -right-2.5 -top-2.5 animate-pulse">
-                            <FontAwesomeIcon
-                              icon={faCircle}
-                              className="text-xxs text-notification-red"
-                            />
-                          </span>
-                        )}
-                        My Account
-                      </a>
-                    </Link>
-                  )}
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
-                    </Link>
-                  ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
-                    </Link>
-                  )}
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the subscriptions page */}
-            {props.navStyle.pathname.includes("/subscription") && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      How It Works
-                    </a>
-                  </Link>
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the login and register pages */}
-            {(props.navStyle.pathname === "/registeruser" ||
-              props.navStyle.pathname === "/login" ||
-              props.navStyle.pathname === "/forgotpassword" ||
-              props.navStyle.pathname.startsWith("/register/neighbourhood") ||
-              props.navStyle.pathname.includes("/verifyemail")) && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a className="pb-1 styled-link">How It Works</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the blog pge */}
-            {props.navStyle.pathname.includes("/blog") && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay icons for the post ad and chat pages */}
-            {(props.navStyle.pathname === "/postad" ||
-              props.navStyle.pathname.includes("/chat")) && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a className="pb-1 styled-link">How It Works</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link
-                    href={`/neighbourhood/ads/${user && user.apartment_id}`}
-                  >
-                    <a className="pb-1 styled-link">My Apartment</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/account">
-                    <a className="pb-1 styled-link">
-                      {props.chatNotification.current && (
-                        <span className="absolute -right-2.5 -top-2.5 animate-pulse">
-                          <FontAwesomeIcon
-                            icon={faCircle}
-                            className="text-xxs text-notification-red"
-                          />
-                        </span>
-                      )}
-                      My Account
-                    </a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/logout" as="/">
-                    <a className="pb-1 styled-link">Logout</a>
-                  </Link>
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay icons for the user account page */}
-            {props.navStyle.pathname.includes("/account") && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a className="pb-1 styled-link">How It Works</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/ourstory">
-                    <a className="pb-1 styled-link">Our Story</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Apartment</a>
-                    </Link>
-                  )}
-                </li>
-
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/logout" as="/">
-                    <a className="pb-1 styled-link">Logout</a>
-                  </Link>
-                </li>
-              </Fragment>
-            )}
-
-            {/* Overlay items for the report ads page */}
-            {(props.navStyle.pathname.includes("/reportad") ||
-              props.navStyle.pathname.includes("/faqs") ||
-              props.navStyle.pathname === "/guidelines" ||
-              props.navStyle.pathname === "/policies" ||
-              props.navStyle.pathname === "/covid") && (
-              <Fragment>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/">
-                    <a className="pb-1 styled-link">Home</a>
-                  </Link>
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  <Link href="/#how-it-works">
-                    <a
-                      className="pb-1 styled-link"
-                      onClick={() => setExpanded(false)}
-                    >
-                      How It Works
-                    </a>
-                  </Link>
-                </li>
-
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null ? (
-                    <Link href="/login">
-                      <a className="pb-1 styled-link">Login</a>
-                    </Link>
-                  ) : (
-                    <Link href="/logout" as="/">
-                      <a className="pb-1 styled-link">Logout</a>
-                    </Link>
-                  )}
-                </li>
-                <li
-                  className={
-                    "overlay-items md:text-xl hover:scale-125 " +
-                    props.navStyle.navOverlayTextColor
-                  }
-                >
-                  {user === null && (
-                    <Link href="/registeruser">
-                      <a className="pb-1 styled-link">Sign Up</a>
-                    </Link>
-                  )}
-                  {user && user && (
-                    <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
-                      <a className="pb-1 styled-link">My Apartment</a>
-                    </Link>
-                  )}
-                </li>
-              </Fragment>
-            )}
-          </ul>
-
-          {/* Social icons */}
-          <div className="px-4 py-2">
-            <hr className={`${props.navStyle.hrStyle}`}></hr>
-
-            <div className="flex justify-center pt-4 text-3xl">
-              <Link
-                href="https://www.facebook.com/Nxtdoordeals-113561124163177"
-                passHref={true}
+        <div id="menu" className="lg:hidden">
+          <Modal
+            style={{
+              overlay: {
+                background: "rgba(0, 0, 0, 0.8)",
+                zIndex: 99999,
+                width: "100vw",
+                height: "100vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              },
+              content: {
+                top: "50%",
+                left: "50%",
+                height: width < 767 ? "80vh" : "70vh",
+                width: width < 767 ? "80vw" : "70vw",
+                marginRight: "-50%",
+                transform: "translate(-50%, -50%)",
+                overflowY: "scroll",
+                borderRadius: "3%",
+              },
+            }}
+            isOpen={expanded}
+            onRequestClose={() => setIsModalOpen(false)}
+            shouldCloseOnEsc={true}
+            shouldFocusAfterRender={true}
+          >
+            <motion.div
+              variants={overlayModalVariant}
+              initial="initial"
+              animate="animate"
+              className="lg:hidden opacity-100 bg-white focus-within:outline-none "
+            >
+              <div
+                className="cursor-pointer text-brand-gray text-lg mt-4 absolute right-4 top-2"
+                alt="Close Menu"
               >
-                <motion.a
-                  variants={variants}
-                  whileHover="hover"
-                  target="_blank"
-                  className="mr-4"
-                  aria-label="Link to our facebook page"
-                >
-                  {/* <FontAwesomeIcon
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className="close-button-animation"
+                  onClick={() => toggleNav()}
+                />
+              </div>
+              <ul className="flex flex-col items-center mt-6">
+                <li className="flex items-center mb-10">
+                  <Link href="/">
+                    <a className="focus-within:outline-none">
+                      <Image
+                        src={"/images/nav/brand.svg"}
+                        alt={"Logo for the NXT Door Deals brand"}
+                        height={120}
+                        width={120}
+                      />
+                    </a>
+                  </Link>
+                </li>
+
+                {/* Overlay items for landing page */}
+                {props.navStyle.pathname === "/" && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/postad">
+                        <a className="pb-1 styled-link">Post Free Ad</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/blog">
+                        <a className="pb-1 styled-link">Blog</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="#how-it-works">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </Link>
+                    </li>
+
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                    {user && user && (
+                      <li
+                        className={
+                          "overlay-items md:text-xl hover:scale-125 " +
+                          props.navStyle.navOverlayTextColor
+                        }
+                      >
+                        <Link href="/account">
+                          <a className="pb-1 styled-link">
+                            {props.chatNotification.current && (
+                              <span className="absolute -right-2.5 -top-2.5 animate-pulse">
+                                <FontAwesomeIcon
+                                  icon={faCircle}
+                                  className="text-xxs text-notification-red"
+                                />
+                              </span>
+                            )}
+                            My Account
+                          </a>
+                        </Link>
+                      </li>
+                    )}
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/login">
+                          <a className="pb-1 styled-link">Login</a>
+                        </Link>
+                      ) : (
+                        <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                          <a className="pb-1 styled-link">My Apartment</a>
+                        </Link>
+                      )}
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/registeruser">
+                          <a className="pb-1 styled-link">Sign Up</a>
+                        </Link>
+                      ) : (
+                        <Link href="/logout" as="/">
+                          <a className="pb-1 styled-link">Logout</a>
+                        </Link>
+                      )}
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the our story page */}
+                {props.navStyle.pathname === "/ourstory" && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/blog">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          Blog
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </Link>
+                    </li>
+
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/login">
+                          <a className="pb-1 styled-link">Login</a>
+                        </Link>
+                      ) : (
+                        <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                          <a className="pb-1 styled-link">My Apartment</a>
+                        </Link>
+                      )}
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/registeruser">
+                          <a className="pb-1 styled-link">Sign Up</a>
+                        </Link>
+                      ) : (
+                        <Link href="/logout" as="/">
+                          <a className="pb-1 styled-link">Logout</a>
+                        </Link>
+                      )}
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the browse ads page */}
+                {(props.navStyle.pathname.startsWith("/ads") ||
+                  props.navStyle.pathname.startsWith("/neighbourhood/ads")) && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/login">
+                          <a className="pb-1 styled-link">Login</a>
+                        </Link>
+                      ) : (
+                        <Link href="/account">
+                          <a className="pb-1 styled-link">
+                            {props.chatNotification.current && (
+                              <span className="absolute -right-2.5 -top-2.5 animate-pulse">
+                                <FontAwesomeIcon
+                                  icon={faCircle}
+                                  className="text-xxs text-notification-red"
+                                />
+                              </span>
+                            )}
+                            My Account
+                          </a>
+                        </Link>
+                      )}
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/registeruser">
+                          <a className="pb-1 styled-link">Sign Up</a>
+                        </Link>
+                      ) : (
+                        <Link href="/logout" as="/">
+                          <a className="pb-1 styled-link">Logout</a>
+                        </Link>
+                      )}
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the subscriptions page */}
+                {props.navStyle.pathname.includes("/subscription") && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </Link>
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the login and register pages */}
+                {(props.navStyle.pathname === "/registeruser" ||
+                  props.navStyle.pathname === "/login" ||
+                  props.navStyle.pathname === "/forgotpassword" ||
+                  props.navStyle.pathname.startsWith(
+                    "/register/neighbourhood"
+                  ) ||
+                  props.navStyle.pathname.includes("/verifyemail")) && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a className="pb-1 styled-link">How It Works</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the blog pge */}
+                {props.navStyle.pathname.includes("/blog") && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay icons for the post ad and chat pages */}
+                {(props.navStyle.pathname === "/postad" ||
+                  props.navStyle.pathname.includes("/chat")) && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a className="pb-1 styled-link">How It Works</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link
+                        href={`/neighbourhood/ads/${user && user.apartment_id}`}
+                      >
+                        <a className="pb-1 styled-link">My Apartment</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/account">
+                        <a className="pb-1 styled-link">
+                          {props.chatNotification.current && (
+                            <span className="absolute -right-2.5 -top-2.5 animate-pulse">
+                              <FontAwesomeIcon
+                                icon={faCircle}
+                                className="text-xxs text-notification-red"
+                              />
+                            </span>
+                          )}
+                          My Account
+                        </a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/logout" as="/">
+                        <a className="pb-1 styled-link">Logout</a>
+                      </Link>
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay icons for the user account page */}
+                {props.navStyle.pathname.includes("/account") && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a className="pb-1 styled-link">How It Works</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/ourstory">
+                        <a className="pb-1 styled-link">Our Story</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user && user && (
+                        <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                          <a className="pb-1 styled-link">My Apartment</a>
+                        </Link>
+                      )}
+                    </li>
+
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/logout" as="/">
+                        <a className="pb-1 styled-link">Logout</a>
+                      </Link>
+                    </li>
+                  </Fragment>
+                )}
+
+                {/* Overlay items for the report ads page */}
+                {(props.navStyle.pathname.includes("/reportad") ||
+                  props.navStyle.pathname.includes("/faqs") ||
+                  props.navStyle.pathname === "/guidelines" ||
+                  props.navStyle.pathname === "/policies" ||
+                  props.navStyle.pathname === "/covid") && (
+                  <Fragment>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/">
+                        <a className="pb-1 styled-link">Home</a>
+                      </Link>
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      <Link href="/#how-it-works">
+                        <a
+                          className="pb-1 styled-link"
+                          onClick={() => setExpanded(false)}
+                        >
+                          How It Works
+                        </a>
+                      </Link>
+                    </li>
+
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null ? (
+                        <Link href="/login">
+                          <a className="pb-1 styled-link">Login</a>
+                        </Link>
+                      ) : (
+                        <Link href="/logout" as="/">
+                          <a className="pb-1 styled-link">Logout</a>
+                        </Link>
+                      )}
+                    </li>
+                    <li
+                      className={
+                        "overlay-items md:text-xl hover:scale-125 " +
+                        props.navStyle.navOverlayTextColor
+                      }
+                    >
+                      {user === null && (
+                        <Link href="/registeruser">
+                          <a className="pb-1 styled-link">Sign Up</a>
+                        </Link>
+                      )}
+                      {user && user && (
+                        <Link href={`/neighbourhood/ads/${user.apartment_id}`}>
+                          <a className="pb-1 styled-link">My Apartment</a>
+                        </Link>
+                      )}
+                    </li>
+                  </Fragment>
+                )}
+              </ul>
+              {/* Social icons */}
+              <div className="px-4 py-2">
+                <hr className={`${props.navStyle.hrStyle}`}></hr>
+
+                <div className="flex justify-center pt-4 text-3xl">
+                  <Link
+                    href="https://www.facebook.com/Nxtdoordeals-113561124163177"
+                    passHref={true}
+                  >
+                    <motion.a
+                      variants={variants}
+                      whileHover="hover"
+                      target="_blank"
+                      className="mr-4"
+                      aria-label="Link to our facebook page"
+                    >
+                      {/* <FontAwesomeIcon
                     icon={faFacebookSquare}
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
-                  <Image
-                    src="/images/social/facebook.svg"
-                    alt="Facebook icon"
-                    height={30}
-                    width={30}
-                  />
-                </motion.a>
-              </Link>{" "}
-              <Link
-                href="https://www.instagram.com/nxtdoordeals/"
-                passHref={true}
-              >
-                <motion.a
-                  variants={variants}
-                  whileHover="hover"
-                  target="_blank"
-                  className="mr-4"
-                  aria-label="Link to our instagram page"
-                >
-                  {/* <FontAwesomeIcon
+                      <Image
+                        src="/images/social/facebook.svg"
+                        alt="Facebook icon"
+                        height={30}
+                        width={30}
+                      />
+                    </motion.a>
+                  </Link>{" "}
+                  <Link
+                    href="https://www.instagram.com/nxtdoordeals/"
+                    passHref={true}
+                  >
+                    <motion.a
+                      variants={variants}
+                      whileHover="hover"
+                      target="_blank"
+                      className="mr-4"
+                      aria-label="Link to our instagram page"
+                    >
+                      {/* <FontAwesomeIcon
                     icon={faInstagramSquare}
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
-                  <Image
-                    src="/images/social/instagram.svg"
-                    alt="Instagram icon"
-                    height={30}
-                    width={30}
-                  />
-                </motion.a>
-              </Link>{" "}
-              <Link
-                href="https://www.linkedin.com/company/nxtdoordeals/"
-                passHref={true}
-              >
-                <motion.a
-                  variants={variants}
-                  whileHover="hover"
-                  target="_blank"
-                  className="mr-4"
-                  aria-label="Link to our linkedin page"
-                >
-                  {/* <FontAwesomeIcon
+                      <Image
+                        src="/images/social/instagram.svg"
+                        alt="Instagram icon"
+                        height={30}
+                        width={30}
+                      />
+                    </motion.a>
+                  </Link>{" "}
+                  <Link
+                    href="https://www.linkedin.com/company/nxtdoordeals/"
+                    passHref={true}
+                  >
+                    <motion.a
+                      variants={variants}
+                      whileHover="hover"
+                      target="_blank"
+                      className="mr-4"
+                      aria-label="Link to our linkedin page"
+                    >
+                      {/* <FontAwesomeIcon
                     icon={faLinkedin}
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
-                  <Image
-                    src="/images/social/linkedin.svg"
-                    alt="Linkedin icon"
-                    height={30}
-                    width={30}
-                  />
-                </motion.a>
-              </Link>{" "}
-              <Link
-                href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
-                passHref={true}
-              >
-                <motion.a
-                  variants={variants}
-                  whileHover="hover"
-                  target="_blank"
-                  className="mr-4"
-                  aria-label="Link to our youtube channel"
-                >
-                  {/* <FontAwesomeIcon
+                      <Image
+                        src="/images/social/linkedin.svg"
+                        alt="Linkedin icon"
+                        height={30}
+                        width={30}
+                      />
+                    </motion.a>
+                  </Link>{" "}
+                  <Link
+                    href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
+                    passHref={true}
+                  >
+                    <motion.a
+                      variants={variants}
+                      whileHover="hover"
+                      target="_blank"
+                      className="mr-4"
+                      aria-label="Link to our youtube channel"
+                    >
+                      {/* <FontAwesomeIcon
                     icon={faYoutube}
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
-                  <Image
-                    src="/images/social/youtube.svg"
-                    alt="Youtube icon"
-                    height={30}
-                    width={30}
-                  />
-                </motion.a>
-              </Link>{" "}
-              <motion.div
-                variants={variants}
-                whileHover="hover"
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setExpanded(false);
-                }}
-                className={props.navStyle.navOverlayTextColor}
-              >
-                {/* <FontAwesomeIcon icon={faEnvelope} /> */}
-                <Image
-                  src="/images/social/email.svg"
-                  alt="Email icon"
-                  height={30}
-                  width={30}
-                />
-              </motion.div>
-            </div>
-          </div>
+                      <Image
+                        src="/images/social/youtube.svg"
+                        alt="Youtube icon"
+                        height={30}
+                        width={30}
+                      />
+                    </motion.a>
+                  </Link>{" "}
+                  <motion.div
+                    variants={variants}
+                    whileHover="hover"
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setExpanded(false);
+                    }}
+                    className={props.navStyle.navOverlayTextColor}
+                  >
+                    {/* <FontAwesomeIcon icon={faEnvelope} /> */}
+                    <Image
+                      src="/images/social/email.svg"
+                      alt="Email icon"
+                      height={30}
+                      width={30}
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </Modal>
         </div>
 
         <Modal
