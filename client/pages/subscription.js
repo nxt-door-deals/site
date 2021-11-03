@@ -21,7 +21,7 @@ const Subscription = () => {
       <Navbar navStyle={navStylePurple} />
       <div
         id="header"
-        className="h-full w-full pt-36 lg:pt-36 pb-20 flex justify-center items-center bg-reported-ad-background bg-cover bg-no-repeat"
+        className="h-full w-full pt-36 lg:pt-36 pb-20 flex justify-center items-center bg-gradient-to-b from-purple-200 via-white to-white"
       >
         <SubscriptionStatus />
       </div>

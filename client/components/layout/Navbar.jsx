@@ -559,7 +559,7 @@ const Navbar = (props) => {
         {/* ******* Menu overlay for small and medium screens  ******* */}
 
         {/* Check styles.css for definition of overlay-toggle and overlay-items */}
-        <div id="menu" className="lg:hidden">
+        <div id="menu" className="lg:hidden focus-within:outline-none">
           <Modal
             style={{
               overlay: {
@@ -579,7 +579,6 @@ const Navbar = (props) => {
                 marginRight: "-50%",
                 transform: "translate(-50%, -50%)",
                 overflowY: "scroll",
-                borderRadius: "3%",
               },
             }}
             isOpen={expanded}

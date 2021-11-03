@@ -68,15 +68,12 @@ const ImageUploader = (props) => {
 
         <p className="my-3 text-xs text-center">
           Accepted image formats - <span className="text-purple-700">jpeg</span>
-          , <span className="text-purple-700">bmp</span>,{" "}
-          <span className="text-purple-700">tiff</span>,{" "}
-          <span className="text-purple-700">webp</span>,{" "}
-          <span className="text-purple-700">png</span> and{" "}
-          <span className="text-purple-700">gif</span>.
+          <span className="text-purple-700">webp</span> and{" "}
+          <span className="text-purple-700">png</span>.
         </p>
 
         <Dropzone
-          accept="image/jpg, image/jpeg, image/bmp, image/tiff, image/png, image/gif, image/webp"
+          accept="image/jpg, image/jpeg, image/png, image/webp"
           onDrop={onDrop}
           maxFiles={
             props.uploadedImages ? 10 - parseInt(props.uploadedImages) : 10
@@ -129,7 +126,7 @@ const ImageUploader = (props) => {
               {isDragReject && (
                 <div className="font-axiforma text-xs error-text p-1 mb-2">
                   <FontAwesomeIcon icon={faExclamationTriangle} /> Accepted
-                  image formats - jpeg, bmp, tiff, png and gif
+                  image formats - jpeg, webp and png
                 </div>
               )}
             </section>
