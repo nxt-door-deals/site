@@ -8,13 +8,16 @@ const NoAdsForNeighbourhood = () => {
   const { user } = authContext;
 
   return (
-    <div className="px-8 text-center">
-      <Image
-        src={"/images/browseads/empty_cart.svg"}
-        alt={"empty cart"}
-        height={250}
-        width={250}
-      />
+    <div className="px-8 lg:text-center">
+      <div className="text-center">
+        <Image
+          src={"/images/browseads/empty_cart.svg"}
+          alt={"empty cart"}
+          height={250}
+          width={250}
+        />
+      </div>
+
       <p className="pt-5 text-gray-600 text-xl ">
         Looks like there are no ads for this apartment yet.
         <br />

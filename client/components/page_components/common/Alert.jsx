@@ -18,7 +18,7 @@ const Alert = (props) => {
         className={
           props.authError || props.genericMessage || props.fetchError
             ? props.alertTheme +
-              " text-center p-2 mb-2 font-semibold rounded-md text-sm"
+              " lg:text-center p-2 mb-2 font-semibold rounded-md text-sm leading-6"
             : "hidden"
         }
       >

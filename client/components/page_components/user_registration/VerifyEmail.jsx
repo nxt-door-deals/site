@@ -83,8 +83,8 @@ const VerifyEmail = ({ user }) => {
   }, [emailSentCount]);
 
   return (
-    <div className="text-center text-brand-gray">
-      <h2 className="font-semibold text-3xl tracking-wide mb-4">
+    <div className="lg:text-center text-brand-gray">
+      <h2 className="text-center font-semibold text-3xl tracking-wide mb-4">
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
@@ -96,8 +96,11 @@ const VerifyEmail = ({ user }) => {
         />
       </div>
 
-      <p className="text-base">
+      <p className="text-lg text-center">
         {greeting}, <span className="font-semibold text-blue-600">{name}</span>.
+      </p>
+      <br />
+      <p>
         Thank you for signing up! You are now logged in as{" "}
         <span className="font-semibold text-blue-600">{email}</span>.
       </p>
@@ -109,20 +112,22 @@ const VerifyEmail = ({ user }) => {
       </p>
       <br />
 
-      <p className="text-xs mb-2">Want to verify later?</p>
-      <motion.button
-        variants={buttonVariants}
-        whileHover="hover"
-        whileTap="tap"
-        className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500
+      <p className="text-xs mb-2 text-center">Want to verify later?</p>
+      <div className="text-center mb-3">
+        <motion.button
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          className="font-semibold text-sm text-white p-3 rounded-md bg-blue-500
         uppercase mb-4 focus:outline-none"
-        onClick={() => {
-          user !== null &&
-            router.push(`/neighbourhood/ads/${user.apartment_id}`);
-        }}
-      >
-        Continue to site
-      </motion.button>
+          onClick={() => {
+            user !== null &&
+              router.push(`/neighbourhood/ads/${user.apartment_id}`);
+          }}
+        >
+          Continue to site
+        </motion.button>
+      </div>
 
       <p className="text-xs">
         <FontAwesomeIcon icon={faInfoCircle} /> Please note that you will not be
@@ -132,17 +137,19 @@ const VerifyEmail = ({ user }) => {
 
       <p className="text-sm text-center ">
         Didn't receive our email?{" "}
-        <Link href="">
-          <a
-            className="text-blue-600"
-            onClick={(e) => {
-              e.preventDefault();
-              setEmailSentCount(emailSentCount + 1);
-            }}
-          >
-            Resend email
-          </a>
-        </Link>
+        <span className="text-blue-600">
+          <Link href="">
+            <a
+              className="styled-link "
+              onClick={(e) => {
+                e.preventDefault();
+                setEmailSentCount(emailSentCount + 1);
+              }}
+            >
+              Resend email
+            </a>
+          </Link>
+        </span>
       </p>
     </div>
   );

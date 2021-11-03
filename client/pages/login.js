@@ -28,7 +28,7 @@ const Login = (props) => {
 
   // User account toast
   const userAccountToast = () =>
-    toast("Please login to view your user profile", {
+    toast("Please login to view your account details", {
       draggablePercent: 60,
       position: "top-center",
     });

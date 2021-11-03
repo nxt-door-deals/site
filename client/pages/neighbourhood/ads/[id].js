@@ -104,7 +104,7 @@ const Ads = (props) => {
             chatNotification={props.chatNotification}
           />
           <div className="flex flex-col items-center pt-14 md:pt-24">
-            <h1 className="text-2xl md:text-3xl text-brand-purple font-semibold px-5 py-7 text-center">
+            <h1 className="text-2xl md:text-3xl leading-9 text-brand-purple font-semibold px-5 py-7 text-center">
               Personal Marketplace for&nbsp;
               <span className="text-brand-purple">{apartmentName}</span>
             </h1>

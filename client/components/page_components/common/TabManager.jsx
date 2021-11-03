@@ -9,7 +9,7 @@ const TabManager = (props) => {
         {props.tabs.map(({ label, value }) => (
           <div
             key={value}
-            className={`text-sm lg:text-lg font-semibold cursor-pointer px-4 py-2 rounded-xl border-2 ${
+            className={`lg:text-lg font-semibold cursor-pointer px-4 py-2 rounded-xl border-2 ${
               props.tabStyle.borderColor
             } mr-2 ${
               label.toLowerCase() === props.activeTab

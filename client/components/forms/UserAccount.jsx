@@ -170,7 +170,7 @@ const UserAccount = (props) => {
 
   return (
     <div className="flex justify-center items-center mb-20">
-      <div className="mt-12 rounded-3xl shadow-userAccountShadow bg-white py-6 px-4 text-brand-gray">
+      <div className="mt-12 rounded-3xl shadow-userAccountShadow bg-white py-6 px-1 lg:px-4 text-brand-gray">
         <Formik
           initialValues={{
             name: currentUser.name,
@@ -603,7 +603,7 @@ const UserAccount = (props) => {
                         <div className="flex items-center">
                           <FontAwesomeIcon
                             icon={faTimes}
-                            className="close-button-animation text-red-900 text-xl"
+                            className="text-red-900 text-xl"
                           />
 
                           <div

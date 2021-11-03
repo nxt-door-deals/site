@@ -15,8 +15,8 @@ const NeighbourCreationNotification = (props) => {
             width={350}
           />
         </div>
-        <div className="text-center px-5 lg:px-32">
-          <p className="mb-4">
+        <div className="lg:text-center px-5 lg:px-32">
+          <p className="text-center mb-4 text-lg">
             Welcome to{" "}
             <span className="text-brand-purple font-semibold">
               nxtdoordeals.com
@@ -33,7 +33,7 @@ const NeighbourCreationNotification = (props) => {
             You are just one step away from creating your user account and
             posting ads in your neighbourhood.
           </p>
-          <p>YAAY!!!</p>
+          <p className="text-center text-lg font-semibold">YAAY!!!</p>
         </div>
       </div>
     </div>

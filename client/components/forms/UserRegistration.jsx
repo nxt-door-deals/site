@@ -639,7 +639,7 @@ const UserRegistration = () => {
               variants={variants}
               initial="initial"
               animate="animate"
-              className="rounded-3xl shadow-boxshadowregister bg-white p-12"
+              className="rounded-3xl shadow-boxshadowregister bg-white p-6 lg:p-12"
             >
               <VerifyEmail user={user && user} />
             </motion.div>

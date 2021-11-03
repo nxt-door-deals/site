@@ -35,7 +35,7 @@ module.exports = {
         modalShadow: "0px -6px 22px 8px rgba(33, 33, 33, 0.1)",
         chatWindowShadow: "0 6px 22px 6px rgba(139, 92, 246, 0.12)",
         userAccountShadow:
-          "rgba(223, 170, 225, 0.2) 0px 8px 24px, rgba(223, 170, 225, 0.2) 0px 16px 56px, rgba(223, 170, 225, 0.2) 0px 24px 80px",
+          "rgba(223, 170, 225, 0.2) 0px 8px 24px, rgba(223, 170, 225, 0.2) 0px 16px 56px",
         scrollToTopShadow: "rgba(0, 0, 0, 0.2) 0px 20px 20px 5px",
         giveawayButtonShadow:
           "rgba(241, 192, 234, 0.2) 0px 1px 0px, rgba(241, 192, 234, 0.3) 0px 8px 24px, rgba(241, 192, 234, 0.2) 0px 16px 48px, rgba(241, 192, 234, 0.2) 0px 32px 96px",
