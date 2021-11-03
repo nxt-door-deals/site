@@ -75,7 +75,7 @@ const Category = () => {
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center pt-3 lg:px-1 rounded-xl bg-white text-brand-purple border-3 hover:shadow-categorycardshadow hover:border-0"
+                className="flex flex-col items-center pt-3 lg:px-1 rounded-xl bg-white text-brand-purple border-2 border-purple-200 hover:shadow-categorycardshadow hover:border-0"
               >
                 <div className="items-center py-4 w-40 h-40">
                   <img

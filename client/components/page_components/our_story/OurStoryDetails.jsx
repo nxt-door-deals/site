@@ -8,7 +8,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const OurStoryDetails = () => {
   return (
     <div className="h-full w-full text-brand-gray">
-      <div className="text-center px-10 mt-6 lg:px-44 mb-20 bg-transparent">
+      <div className="lg:text-center px-10 mt-6 lg:px-44 mb-20 bg-transparent">
         <h1 className="component-heading">Our Story</h1>
         <p className="text-lg">
           At{" "}

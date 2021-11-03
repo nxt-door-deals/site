@@ -72,7 +72,7 @@ const PostAd = (props) => {
           />
           <div className="w-full bg-post-ad-mobile-background lg:bg-post-ad-background bg-cover bg-no-repeat h-100 px-5 text-center">
             {user && (
-              <span className="flex justify-center items-center h-80 text-2xl md:text-3xl text-brand-purple font-semibold">
+              <span className="flex justify-center items-center h-80 text-2xl md:text-3xl text-brand-purple font-semibold leading-10">
                 Post your ad in {user.apartment_name}
               </span>
             )}

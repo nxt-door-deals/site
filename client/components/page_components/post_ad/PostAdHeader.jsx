@@ -17,19 +17,24 @@ const variants = {
 
 const PostAdHeader = (props) => {
   return (
-    <div className="text-center mb-10 px-5 mt-7">
+    <div className="lg:text-center mb-10 px-5 mt-7">
       <h1 className="component-heading">{props.heading}</h1>
-      <div className="pt-2 flex justify-center">
+      <div className="pt-2 flex lg:justify-center">
         <motion.div variants={variants} animate="bounce">
           <FontAwesomeIcon
             icon={faHandPointRight}
-            className="text-xl text-brand-purple mr-2 lg:mr-3 -z-20"
+            className="text-xl text-brand-purple mr-3 -z-20"
           />
         </motion.div>
         {props.step === "Category" && (
-          <p className="inline text-sm">
-            Hey{props.userName !== null ? ", " + props.userName : ", there"}!
-            Check out the sub-categories (
+          <p className="inline">
+            Hey,{" "}
+            {props.userName !== null ? (
+              <span className="font-bold">{props.userName}</span>
+            ) : (
+              "there"
+            )}
+            ! Check out the sub-categories (
             <FontAwesomeIcon
               icon={faStar}
               className="text-brand-purple text-xs"
