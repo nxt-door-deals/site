@@ -22,7 +22,7 @@ const OurStoryDetails = () => {
 
       <section className="relative">
         <SectionWaveTop />
-        <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-10 lg:px-44 mb-20 lg:mb-10 bg-purple-100">
+        <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-10 lg:px-44 mb-20 lg:mb-10 bg-purple-50">
           <div className="lg:flex-5">
             <h2 className="text-2xl font-semibold">
               <FontAwesomeIcon icon={faHeart} className="error-text" /> your
@@ -83,7 +83,7 @@ const OurStoryDetails = () => {
 
       <section className="relative">
         <SectionWaveTop />
-        <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 pb-10 mb-20 bg-purple-100">
+        <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 pb-10 mb-20 bg-purple-50">
           <div className="lg:flex-5">
             <h2 className="text-2xl font-semibold">Save the environment</h2>
             <p className="pt-5">

@@ -8,6 +8,7 @@ import {
   faEnvelope,
   faExclamationTriangle,
   faTimes,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -105,7 +106,8 @@ const Contact = (props) => {
           />
         </div>
         <h1 className="font-semibold text-center text-xl text-brand-gray mt-6 mb-6">
-          We're great listeners, talk to us...
+          We <FontAwesomeIcon icon={faHeart} className="text-pink-600" /> mail!
+          Write to us...
         </h1>
         <Alert genericMessage={genericMessage} alertTheme={alertTheme} />
         <div>

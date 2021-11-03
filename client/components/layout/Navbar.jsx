@@ -197,11 +197,11 @@ const Navbar = (props) => {
                   </Link>
                 </span>
               </li>
-              <li className="nav-item lg:mr-3 hover:scale-110">
+              {/* <li className="nav-item lg:mr-3 hover:scale-110">
                 <Link href="/blog">
                   <a className="pb-1 styled-link">Blog</a>
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item lg:mr-3 hover:scale-110">
                 <Link href="#how-it-works">
@@ -629,7 +629,7 @@ const Navbar = (props) => {
                         <a className="pb-1 styled-link">Post Free Ad</a>
                       </Link>
                     </li>
-                    <li
+                    {/* <li
                       className={
                         "overlay-items md:text-xl hover:scale-125 " +
                         props.navStyle.navOverlayTextColor
@@ -638,7 +638,7 @@ const Navbar = (props) => {
                       <Link href="/blog">
                         <a className="pb-1 styled-link">Blog</a>
                       </Link>
-                    </li>
+                    </li> */}
                     <li
                       className={
                         "overlay-items md:text-xl hover:scale-125 " +

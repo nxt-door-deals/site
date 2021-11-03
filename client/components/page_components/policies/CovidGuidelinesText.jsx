@@ -53,6 +53,10 @@ const CovidGuidelinesText = () => {
               office bearers about the current scenario in your apartment
               premises.
             </li>
+            <li className="pb-3">
+              💉 Tread with caution even if all concerned parties have been
+              fully vaccinated
+            </li>
           </ul>
         </div>
 
