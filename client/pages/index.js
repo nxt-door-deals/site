@@ -17,8 +17,8 @@ const Home = (props) => {
   const pathname = router.pathname;
 
   if (typeof window !== "undefined") {
-    if (!sessionStorage.getItem("ndd__user__preferences")) {
-      sessionStorage.setItem(
+    if (!localStorage.getItem("ndd__user__preferences")) {
+      localStorage.setItem(
         "ndd__user__preferences",
         JSON.stringify({ showBanner: "true" })
       );

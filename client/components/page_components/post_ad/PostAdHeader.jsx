@@ -43,7 +43,7 @@ const PostAdHeader = (props) => {
           </p>
         )}
         {props.step === "Form" && (
-          <p className="inline text-sm">
+          <p className="inline">
             Would you like to change the ad category? No worries! You can do
             that here.
           </p>

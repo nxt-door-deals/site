@@ -35,7 +35,7 @@ const buttonVariants = {
 const CookieBanner = (props) => {
   return (
     <AnimatePresence exitBeforeEnter>
-      {JSON.parse(sessionStorage.getItem("ndd__user__preferences"))[
+      {JSON.parse(localStorage.getItem("ndd__user__preferences"))[
         "showBanner"
       ] &&
         props.showBanner && (
@@ -71,7 +71,7 @@ const CookieBanner = (props) => {
                 className="p-2 rounded-md bg-yellow-500 text-banner-color focus-within:outline-none align-middle font-semibold"
                 onClick={() => {
                   props.setShowBanner(false);
-                  sessionStorage.setItem(
+                  localStorage.setItem(
                     "ndd__user__preferences",
                     JSON.stringify({ showBanner: "false" })
                   );

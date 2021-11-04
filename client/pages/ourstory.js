@@ -19,7 +19,7 @@ const OurStory = (props) => {
     <OurStoryHeadLayout>
       <div id="header" className="h-full">
         <Navbar navStyle={navStylePurple} />
-        <div className="w-full bg-our-story-background-mobile md:bg-our-story-background-tablet lg:bg-our-story-background bg-cover bg-no-repeat h-100 md:h-128 relative"></div>
+        <div className="w-full bg-our-story-background-mobile md:bg-our-story-background-tablet lg:bg-our-story-background bg-cover bg-no-repeat h-100 md:h-128 relative -z-10"></div>
         <OurStoryDetails />
         <Footer
           footerGradientClass={footerGradientClassPurple}

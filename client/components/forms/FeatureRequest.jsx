@@ -99,10 +99,11 @@ const FeatureRequest = (props) => {
             width={200}
           />
         </div>
-        <h1 className="font-semibold text-center text-lg text-brand-gray mb-3">
-          Have a feature idea in mind that you would like to see on the website?
+        <h1 className="font-semibold lg:text-center text-lg text-brand-gray mb-3">
+          Have a feature idea in mind that you would like to see on the website?{" "}
+          <span className="lg:hidden">We're all ears...</span>
         </h1>
-        <p className="text-center mb-3">We are all ears...</p>
+        <p className="text-center mb-3 hidden lg:block">We're all ears...</p>
         <Alert genericMessage={genericMessage} alertTheme={alertTheme} />
         <div>
           <Formik

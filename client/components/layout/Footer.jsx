@@ -122,14 +122,14 @@ const Footer = (props) => {
                 </Link>
               </li>
 
-              <li className="pb-3 px-2">
+              {/* <li className="pb-3 px-2">
                 <Link href="/rss/feed.xml">
                   <a aria-label="Link to our rss feed">
                     <FontAwesomeIcon icon={faRss} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">RSS</span>
                   </a>
                 </Link>
-              </li>
+              </li> */}
 
               <li className="pb-3 px-2">
                 <a
@@ -194,14 +194,14 @@ const Footer = (props) => {
                 </Link>
               </li>
 
-              <li className="pb-3 px-2">
+              {/* <li className="pb-3 px-2">
                 <Link href="/sitemap.xml">
                   <a aria-label="Link to the sitemap xml">
                     <FontAwesomeIcon icon={faSitemap} className="mr-1" />{" "}
                     <span className="pb-1 styled-link">Sitemap</span>
                   </a>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
