@@ -27,7 +27,7 @@ const CovidGuidelinesText = () => {
       <div className="bg-covid-background-mobile lg:bg-covid-background h-100 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
         <Navbar navStyle={navStyleBlue} />
       </div>
-      <div className="text-brand-gray px-10 lg:px-40 pt-10 mb-20">
+      <div className="text-brand-gray px-5 lg:px-40 pt-10 mb-20">
         <h1 className="component-heading">COVID 19 Guidelines</h1>
         <div className="my-10">
           <p className="pb-10">

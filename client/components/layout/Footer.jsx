@@ -56,7 +56,8 @@ const Footer = (props) => {
   const { user } = authContext;
 
   router.pathname === "/registeruser" ||
-  router.pathname.includes("/register/neighbourhood")
+  router.pathname.includes("/register/neighbourhood") ||
+  router.pathname === "/covid"
     ? (modalButtonTheme.current = "blue")
     : (modalButtonTheme.current = "purple");
 

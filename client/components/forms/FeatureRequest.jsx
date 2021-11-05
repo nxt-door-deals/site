@@ -173,7 +173,11 @@ const FeatureRequest = (props) => {
                     variants={buttonVariant}
                     type="submit"
                     disabled={props.isSubmitting}
-                    className={`${buttonColor} w-56 h-12 mt-3 shadow-buttonShadowPurple text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none $ ${
+                    className={`${buttonColor} w-56 h-12 mt-3 ${
+                      buttonColor.includes("purple")
+                        ? "shadow-buttonShadowPurple"
+                        : "shadow-buttonShadowBlue"
+                    } text-white  font-bold rounded-xl uppercase tracking-wide focus:outline-none $ ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                     whileHover="buttonHover"

@@ -93,7 +93,7 @@ html::-webkit-scrollbar-track {
 
   /* FAQ box style */
   .faq-box {
-    @apply text-xl font-bold rounded-lg shadow-categorycardshadow text-center px-10 py-12 tracking-wide cursor-pointer bg-white;
+    @apply text-xl font-bold rounded-lg border-2 border-purple-100 hover:border-0 hover:shadow-categorycardshadow text-center px-10 py-12 tracking-wide cursor-pointer bg-white;
   }
 
   /* Brand text */

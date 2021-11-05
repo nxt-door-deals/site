@@ -36,9 +36,9 @@ const Guidelines = () => {
         className="text-brand-gray bg-gradient-to-b from-purple-50 to-white"
       >
         <Navbar navStyle={navStylePurple} />
-        <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-5 lg:px-20">
+        <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-2 lg:px-20">
           <section id="buyer">
-            <div className="rounded-2xl p-10 shadow-lg bg-white mt-10 mb-20">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mt-10 mb-20">
               <h1 className="component-heading">
                 Buyer Guidelines & Responsibilities
               </h1>
@@ -59,7 +59,7 @@ const Guidelines = () => {
           </section>
 
           <section id="seller">
-            <div className="rounded-2xl p-10 shadow-lg bg-white mb-20">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
               <h1 className="component-heading">
                 Seller Guidelines & Responsibilities
               </h1>
@@ -80,7 +80,7 @@ const Guidelines = () => {
           </section>
 
           <section id="chat">
-            <div className="rounded-2xl p-10 shadow-lg bg-white mb-20">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
               <h1 className="component-heading">Chat Guidelines</h1>
               {chatGuidelines.map((guideline, index) => {
                 return (
@@ -99,7 +99,7 @@ const Guidelines = () => {
           </section>
 
           <section id="banned">
-            <div className="rounded-2xl p-10 shadow-lg bg-white mb-20">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
               <h1 className="component-heading">
                 Ads not allowed on{" "}
                 <span className="text-brand-purple">nxtdoordeals.com</span>

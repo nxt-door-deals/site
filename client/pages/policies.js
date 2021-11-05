@@ -24,23 +24,23 @@ const Policies = (props) => {
         className="text-brand-gray bg-gradient-to-b from-purple-50 to-white"
       >
         <Navbar navStyle={navStylePurple} />
-        <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-5 lg:px-20 mb-20">
+        <div className="flex flex-col items-center h-full pt-16 lg:pt-28 px-2 lg:px-20 mb-20">
           <section id="terms" className="pt-10">
-            <div className="rounded-2xl p-10 shadow-md bg-white my-10">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-md bg-white my-10">
               <h1 className="component-heading">Terms of Use</h1>
               <TermsAndConditionsText />
             </div>
           </section>
 
           <section id="privacy" className="pt-10">
-            <div className="rounded-2xl p-10 shadow-md bg-white my-10">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-md bg-white my-10">
               <h1 className="component-heading">Privacy Policy</h1>
               <PrivacyText />
             </div>
           </section>
 
           <section id="cookie" className="pt-10">
-            <div className="rounded-2xl p-10 shadow-md bg-white my-10">
+            <div className="rounded-2xl p-5 lg:p-10 shadow-md bg-white my-10">
               <h1 className="component-heading">Cookie Policy</h1>
               <CookieText />
             </div>

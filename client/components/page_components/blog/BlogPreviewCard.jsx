@@ -15,7 +15,7 @@ const cardVariants = {
 
 const BlogPreviewCard = (props) => {
   return (
-    <div className="px-5 mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10">
+    <div className="px-5 mt-10 lg:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
       {props.blogs.map((blog, index) => {
         return (
           <Link key={index} href={`/blog/${blog.fields.slug}`}>
@@ -25,7 +25,7 @@ const BlogPreviewCard = (props) => {
                 initial="initial"
                 whileHover="animate"
                 key={blog.sys.id}
-                className="rounded-2xl shadow-xl px-5 py-7 mb-5 lg:mb-0 bg-white"
+                className="rounded-2xl shadow-2xl px-5 py-7 mb-5 lg:mb-0 bg-white"
               >
                 <Image
                   src={`https:${blog.fields.thumbnail.fields.file.url}`}

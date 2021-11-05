@@ -147,7 +147,7 @@ const UserRegistration = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="rounded-3xl shadow-boxshadowregister bg-white p-8 mb-4"
+              className="rounded-3xl shadow-boxshadowregister bg-white px-4 lg:px-0 p-8 mb-4"
             >
               <Formik
                 initialValues={{

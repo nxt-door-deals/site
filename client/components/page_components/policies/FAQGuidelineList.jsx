@@ -28,12 +28,12 @@ const FAQGuidelineList = () => {
           id="header"
           className="h-80 bg-faq-main-background bg-cover bg-no-repeat text-brand-gray"
         >
-          <h1 className="pt-20 md:pt-24 px-10 lg:px-0 lg:pt-28 text-center font-bold text-3xl">
+          <h1 className="pt-20 md:pt-24 px-10 lg:px-0 lg:pt-28 text-center font-bold text-2xl lg:text-3xl leading-10">
             {greeting}! How may we assist?
           </h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center items-center h-full w-full bg-gradient-to-b from-white via-purple-50 bg-opacity-50 to-white text-brand-gray px-10 md:px-20 py-10 lg:pt-10 lg:pb-20">
+        <div className="flex flex-col lg:flex-row justify-center items-center h-full w-full bg-gradient-to-b from-white via-white bg-opacity-50 to-white text-brand-gray px-10 md:px-20 py-10 lg:pt-10 lg:pb-20">
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <Link href="/faqs/buyer">

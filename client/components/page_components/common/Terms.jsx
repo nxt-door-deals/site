@@ -3,9 +3,8 @@ import Link from "next/link";
 
 const Terms = (props) => {
   return (
-    <div className="font-axiforma text-brand-gray text-center text-xs">
-      By registering, you acknowledge that you have read and understood our
-      <br /> {"  "}
+    <div className="text-brand-gray lg:text-center text-xs">
+      By registering, you acknowledge that you have read and understood our{" "}
       <a href="/policies#terms" className={props.termsLinksStyle}>
         Terms of Use
       </a>
