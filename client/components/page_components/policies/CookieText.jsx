@@ -20,13 +20,13 @@ const CookieText = () => {
         <li className="pb-2">
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />
           <span className="font-semibold">nddToken</span>: this is a unique
-          token stored in the browser's local storage and only tracks a user's
-          logged in state. Retention period - active until logout
+          token stored in the browser's local storage to determine who has
+          logged in. Normal retention period - 15 days
         </li>
         <li className="pb-2">
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />
           <span className="font-semibold">__redirChatCookie</span>: used for
-          chat related setup. Retention period - session
+          chat related setup. Normal retention period - session
         </li>
         <li className="pb-2">
           <FontAwesomeIcon
@@ -34,7 +34,7 @@ const CookieText = () => {
             className="text-brand-purple mr-2 "
           />
           <span className="font-semibold">__adCookie</span>: used to report ads.
-          Retention period - session
+          Normal retention period - session
         </li>
       </ul>
     </div>

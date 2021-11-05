@@ -143,7 +143,7 @@ const ApartmentSearch = () => {
             </div>
 
             {/* Menu to display search results */}
-            <div className="relative ">
+            <div className="relative">
               <div
                 className={
                   numApartmentsFetched > 0
@@ -205,7 +205,7 @@ const ApartmentSearch = () => {
                   props.values.apartment === ""
                     ? "hidden"
                     : numApartmentsFetched === 0
-                    ? "absolute p-2 pt-5 mt-1 border-2 border-solid border-purple-400 bg-white z-20 rounded-lg  text-brand-gray; w-full h-20 align-middle overflow-auto"
+                    ? "absolute p-2 pt-5 mt-1 border-2 border-solid border-purple-400 bg-white  rounded-lg  text-brand-gray; w-full h-20 align-middle overflow-auto"
                     : "hidden"
                 }
               >

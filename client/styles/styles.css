@@ -63,7 +63,7 @@ html::-webkit-scrollbar-track {
 
   /* Apartment search custom styles */
   .search-results {
-    @apply absolute mt-1 p-2 border-2 border-solid bg-white z-20 rounded-xl  text-brand-gray;
+    @apply absolute mt-1 p-2 border-2 border-solid bg-white rounded-xl  text-brand-gray;
   }
 
   /* Input style */
