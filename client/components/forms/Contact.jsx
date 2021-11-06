@@ -11,6 +11,7 @@ import {
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { typewriter } from "../../utils/siteImages";
 
 // Component import
 import Alert from "../page_components/common/Alert";
@@ -98,12 +99,7 @@ const Contact = (props) => {
           ESC
         </span>
         <div className="flex justify-center">
-          <Image
-            src={"/images/contact/typewriter.svg"}
-            alt={"Typewriter"}
-            height={100}
-            width={100}
-          />
+          <Image src={typewriter} alt={"Typewriter"} height={100} width={100} />
         </div>
         <h1 className="font-semibold text-center text-xl text-brand-gray mt-6 mb-6">
           We <FontAwesomeIcon icon={faHeart} className="text-pink-600" /> mail!

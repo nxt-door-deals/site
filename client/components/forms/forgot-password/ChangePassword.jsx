@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import cookie from "../../../utils/cookieInit";
+import { forgotPasswordNewPassword } from "../../../utils/siteImages";
 
 // Component imports
 import PasswordChangeSuccess from "./PasswordChangeSuccess";
@@ -74,7 +75,7 @@ const ChangePassword = (props) => {
         >
           <div className="flex justify-center">
             <Image
-              src={"/images/forgotpassword/password.svg"}
+              src={forgotPasswordNewPassword}
               alt={"Update password"}
               height={200}
               width={200}

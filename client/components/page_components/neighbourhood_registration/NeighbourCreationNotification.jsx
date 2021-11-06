@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { neighbourhoodWelcome } from "../../../utils/siteImages";
 
 const NeighbourCreationNotification = (props) => {
   useEffect(() => window.scroll({ top: 0, left: 0, behavior: "smooth" }), []);
@@ -9,7 +10,7 @@ const NeighbourCreationNotification = (props) => {
       <div className="flex flex-col items-center px-8 lg:px-16 mb-16">
         <div className="mb-10">
           <Image
-            src={"/images/neighbourhood/neighbourhood.svg"}
+            src={neighbourhoodWelcome}
             alt={"neighbourhood"}
             height={350}
             width={350}

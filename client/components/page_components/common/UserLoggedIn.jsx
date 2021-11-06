@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from "react";
 import AuthContext from "../../../context/auth/authContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { alreadyLoggedIn } from "../../../utils/siteImages";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -64,7 +65,7 @@ const UserLoggedIn = () => {
 
       <div className="flex justify-center mt-12">
         <img
-          src="/images/logout/detective.svg"
+          src={alreadyLoggedIn}
           alt="Exploring the site"
           width="300px"
           height="300px"

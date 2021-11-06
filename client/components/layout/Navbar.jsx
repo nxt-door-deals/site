@@ -6,6 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faStream, faCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  brand,
+  facebook,
+  instagram,
+  youtube,
+  linkedin,
+  email,
+} from "../../utils/siteImages";
 
 // Component imports
 import Contact from "../forms/Contact";
@@ -132,7 +140,7 @@ const Navbar = (props) => {
           <Link href="/">
             <a className="focus-within:outline-none">
               <Image
-                src="/images/nav/brand.svg"
+                src={brand}
                 alt="Logo for the nxtdoordeals.com brand. Redirects to the home page."
                 width={100}
                 height={100}
@@ -607,7 +615,7 @@ const Navbar = (props) => {
                   <Link href="/">
                     <a className="focus-within:outline-none">
                       <Image
-                        src={"/images/nav/brand.svg"}
+                        src={brand}
                         alt={"Logo for the NXT Door Deals brand"}
                         height={120}
                         width={120}
@@ -1222,7 +1230,7 @@ const Navbar = (props) => {
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
                       <Image
-                        src="/images/social/facebook.svg"
+                        src={facebook}
                         alt="Facebook icon"
                         height={30}
                         width={30}
@@ -1245,7 +1253,7 @@ const Navbar = (props) => {
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
                       <Image
-                        src="/images/social/instagram.svg"
+                        src={instagram}
                         alt="Instagram icon"
                         height={30}
                         width={30}
@@ -1268,7 +1276,7 @@ const Navbar = (props) => {
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
                       <Image
-                        src="/images/social/linkedin.svg"
+                        src={linkedin}
                         alt="Linkedin icon"
                         height={30}
                         width={30}
@@ -1291,7 +1299,7 @@ const Navbar = (props) => {
                     className={props.navStyle.navOverlayTextColor}
                   /> */}
                       <Image
-                        src="/images/social/youtube.svg"
+                        src={youtube}
                         alt="Youtube icon"
                         height={30}
                         width={30}
@@ -1309,7 +1317,7 @@ const Navbar = (props) => {
                   >
                     {/* <FontAwesomeIcon icon={faEnvelope} /> */}
                     <Image
-                      src="/images/social/email.svg"
+                      src={email}
                       alt="Email icon"
                       height={30}
                       width={30}

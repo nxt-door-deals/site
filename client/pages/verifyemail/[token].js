@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import AuthContext from "../../context/auth/authContext";
 import { navStylePurple, footerGradientClassPurple } from "../../utils/styles";
+import { approveCheck, errorTimes } from "../../utils/siteImages";
 
 // Component imports
 import Navbar from "../../components/layout/Navbar";
@@ -46,7 +47,7 @@ const VerifyEmail = () => {
         <div className="flex flex-col items-center m-5">
           {emailVerified !== null && emailVerified ? (
             <Image
-              src={"/images/email/check.gif"}
+              src={approveCheck}
               height={150}
               width={150}
               alt={"email verified"}
@@ -55,7 +56,7 @@ const VerifyEmail = () => {
             emailVerified !== null &&
             !emailVerified && (
               <Image
-                src={"/images/email/error.gif"}
+                src={errorTimes}
                 height={150}
                 width={150}
                 alt={"email not verified"}

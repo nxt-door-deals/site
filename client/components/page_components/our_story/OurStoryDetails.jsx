@@ -1,6 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import { SectionWaveTop, SectionWaveBottom } from "./SectionWaves";
+import {
+  babyItems,
+  idea,
+  marketplace,
+  meet,
+  nature,
+} from "../../../utils/siteImages";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -49,7 +56,7 @@ const OurStoryDetails = () => {
           </div>
           <div className="lg:flex-2 px-5">
             <Image
-              src="/images/our-story/marketplace.svg"
+              src={marketplace}
               height={300}
               width={300}
               alt="marketplace"
@@ -61,12 +68,7 @@ const OurStoryDetails = () => {
 
       <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 mb-20 lg:mb-10">
         <div className="lg:flex-2 px-5 pb-2 lg:pb-0">
-          <Image
-            src="/images/our-story/meet.svg"
-            height={300}
-            width={300}
-            alt="meet"
-          />
+          <Image src={meet} height={300} width={300} alt="meet" />
         </div>
         <div className="lg:flex-5">
           <h2 className="text-2xl font-semibold">Meet thy neighbour</h2>
@@ -100,12 +102,7 @@ const OurStoryDetails = () => {
             </p>
           </div>
           <div className="lg:flex-2 px-5 pb-2 lg:pb-0">
-            <Image
-              src="/images/our-story/nature.svg"
-              height={350}
-              width={350}
-              alt="nature"
-            />
+            <Image src={nature} height={350} width={350} alt="nature" />
           </div>
         </div>
         <SectionWaveBottom />
@@ -113,12 +110,7 @@ const OurStoryDetails = () => {
 
       <div className="flex flex-col items-center lg:flex-row lg:justify-center px-10 lg:px-44  lg:mb-0">
         <div className="px-5 lg:flex">
-          <Image
-            src="/images/our-story/baby-items.svg"
-            height={300}
-            width={300}
-            alt="baby-items"
-          />
+          <Image src={babyItems} height={300} width={300} alt="baby-items" />
         </div>
         <div className="lg:flex-4">
           <h2 className="text-2xl font-semibold">How we got here</h2>
@@ -185,12 +177,7 @@ const OurStoryDetails = () => {
           </p>
         </div>
         <div className="flex-1 px-5">
-          <Image
-            src="/images/our-story/idea.svg"
-            height={200}
-            width={200}
-            alt="idea"
-          />
+          <Image src={idea} height={200} width={200} alt="idea" />
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import AuthContext from "../context/auth/authContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { footerGradientClassPurple } from "../utils/styles";
+import { accountDeletion } from "../utils/siteImages";
 
 // Component imports
 import GoodbyeHeadLayout from "../components/layout/head/GoodbyeHeadLayout";
@@ -25,12 +26,7 @@ const Goodbye = () => {
     <GoodbyeHeadLayout>
       <div className="text-brand-gray bg-gradient-to-b from-purple-50 to-white mb-14">
         <div className="text-center pt-12 px-8 lg:px-16">
-          <Image
-            src={"/images/goodbye/sad.svg"}
-            alt="Goodbye"
-            width={350}
-            height={350}
-          />
+          <Image src={accountDeletion} alt="Goodbye" width={350} height={350} />
           <h1 className="text-2xl lg:text-3xl pt-12">
             We're sorry to see you go
           </h1>

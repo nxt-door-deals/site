@@ -3,6 +3,7 @@ import Image from "next/image";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { approveCheck, errorTimes } from "../../utils/siteImages";
 
 // Component Import
 import VerifyNeighbourhoodHeadLayout from "../../components/layout/head/VerifyNeighbourhoodHeadLayout";
@@ -50,7 +51,7 @@ const VerifyNeighbourhood = (props) => {
         <div className="flex flex-col items-center m-5">
           {neighbourhoodVerified !== null && neighbourhoodVerified ? (
             <Image
-              src={"/images/email/check.gif"}
+              src={approveCheck}
               height={150}
               width={150}
               alt={"Neighbourhood Verified"}
@@ -59,7 +60,7 @@ const VerifyNeighbourhood = (props) => {
             neighbourhoodVerified !== null &&
             !neighbourhoodVerified && (
               <Image
-                src={"/images/email/error.gif"}
+                src={errorTimes}
                 height={150}
                 width={150}
                 alt={"neighbourhood unverified"}

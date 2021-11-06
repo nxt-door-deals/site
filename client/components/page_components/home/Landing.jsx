@@ -1,6 +1,6 @@
 import ApartmentSearch from "../../forms/ApartmentSearch";
 import Link from "next/link";
-import Image from "next/image";
+import { landing, landingMobile } from "../../../utils/siteImages";
 
 const Landing = (props) => {
   return (
@@ -20,7 +20,7 @@ const Landing = (props) => {
 
           <ApartmentSearch />
 
-          <div className="mt-6 lg:hidden text-purple-700">
+          <div className="mt-10 lg:hidden text-purple-700">
             <Link href="/#how-it-works">
               <a
                 className="uppercase font-semibold underline text-sm hover:no-underline styled-link"
@@ -40,7 +40,7 @@ const Landing = (props) => {
           className="hidden lg:inline lg:order-last lg:-mt-4 xl:mt-0  lg:top-0 flex-auto"
         >
           <img
-            src="/images/landing/landing-page-illustration.png"
+            src={landing}
             alt="Landing page illustration"
             width="100%"
             height="100%"
@@ -50,7 +50,7 @@ const Landing = (props) => {
         {/* For medium screens and below */}
         <div id="image-container" className="order-first w-full lg:hidden">
           <img
-            src="/images/landing/landing-page-illustration-mobile.png"
+            src={landingMobile}
             alt="Landing page illustration"
             width="100%"
           />

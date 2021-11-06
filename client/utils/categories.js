@@ -1,7 +1,22 @@
+import {
+  categoryAppliances,
+  categoryBaby,
+  categoryBooks,
+  categoryCars,
+  categoryDecor,
+  categoryEnvironment,
+  categoryFashion,
+  categoryHobbies,
+  categoryKitchen,
+  categoryMobile,
+  categoryPets,
+  categorySports,
+} from "./siteImages";
+
 const categories = [
   {
     name: "Cars & Bikes",
-    icon: "/images/categories/cars_and_bikes.svg",
+    icon: categoryCars,
     subCategories: [
       "Bikes & Scooters",
       "Cars",
@@ -11,12 +26,12 @@ const categories = [
   },
   {
     name: "Mobiles & Tablets",
-    icon: "/images/categories/mobiles_and_tablets.svg",
+    icon: categoryMobile,
     subCategories: ["Mobile Phones", "Tablets", "Accessories", "Wearables"],
   },
   {
     name: "Electronics & Appliances",
-    icon: "/images/categories/appliances.svg",
+    icon: categoryAppliances,
     subCategories: [
       "Home Appliances",
       "Kitchen Appliances",
@@ -29,7 +44,7 @@ const categories = [
   },
   {
     name: "Furniture, Decor & Lighting",
-    icon: "/images/categories/decor.svg",
+    icon: categoryDecor,
     subCategories: [
       "Home Furniture",
       "Kids Furniture",
@@ -40,7 +55,7 @@ const categories = [
   },
   {
     name: "Kitchen & Tableware",
-    icon: "/images/categories/kitchen.svg",
+    icon: categoryKitchen,
     subCategories: [
       "Bakeware",
       "Cookware",
@@ -52,7 +67,7 @@ const categories = [
   },
   {
     name: "Babies & Kids",
-    icon: "/images/categories/baby.svg",
+    icon: categoryBaby,
     subCategories: [
       "Toys & Games",
       "Baby Gear",
@@ -63,12 +78,12 @@ const categories = [
   },
   {
     name: "Books",
-    icon: "/images/categories/books.svg",
+    icon: categoryBooks,
     subCategories: ["Books", "Magazines", "Text Books", "Stationery"],
   },
   {
     name: "Hobbies",
-    icon: "/images/categories/hobbies.svg",
+    icon: categoryHobbies,
     subCategories: [
       "Musical Instruments",
       "Art",
@@ -80,7 +95,7 @@ const categories = [
   },
   {
     name: "Sports & Fitness",
-    icon: "/images/categories/sports.svg",
+    icon: categorySports,
     subCategories: [
       "Bicycles & Accessories",
       "Fitness Euipment",
@@ -89,7 +104,7 @@ const categories = [
   },
   {
     name: "Travel & Fashion",
-    icon: "/images/categories/fashion.svg",
+    icon: categoryFashion,
     subCategories: [
       "Garments",
       "Watches",
@@ -102,12 +117,12 @@ const categories = [
   },
   {
     name: "Pets",
-    icon: "/images/categories/pets.svg",
+    icon: categoryPets,
     subCategories: ["Pet Care", "Pet Food", "Pet Toys & Accessories"],
   },
   {
     name: "Garden",
-    icon: "/images/categories/environment.svg",
+    icon: categoryEnvironment,
     subCategories: ["Plants", "Planters", "Gardening Tools & Accessories"],
   },
 ];

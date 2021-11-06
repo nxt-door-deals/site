@@ -9,6 +9,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { forgotPasswordEmail } from "../../../utils/siteImages";
 
 // Component import
 import Alert from "../../page_components/common/Alert";
@@ -56,7 +57,7 @@ const EnterEmailForm = (props) => {
         >
           <div className="flex justify-center">
             <Image
-              src={"/images/forgotpassword/forgot-password.svg"}
+              src={forgotPasswordEmail}
               alt={"Forgot Password"}
               height={200}
               width={200}

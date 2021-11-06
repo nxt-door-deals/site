@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { adsQuotaReached } from "../../../utils/siteImages";
 
 const AdQuotaReached = (props) => {
   return (
@@ -9,7 +10,7 @@ const AdQuotaReached = (props) => {
         <Image
           height={300}
           width={300}
-          src={"/images/postad/quota.svg"}
+          src={adsQuotaReached}
           alt={"Reached Ad Quota"}
         />
         <h1 className="text-2xl pt-5 text-brand-gray text-center">

@@ -24,6 +24,14 @@ import {
   faShieldVirus,
   faSitemap,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  flag,
+  facebook,
+  instagram,
+  youtube,
+  linkedin,
+  email,
+} from "../../utils/siteImages";
 
 // Component import
 import Contact from "../forms/Contact";
@@ -236,7 +244,7 @@ const Footer = (props) => {
                 >
                   {/* <FontAwesomeIcon icon={faFacebookSquare} /> */}
                   <Image
-                    src="/images/social/facebook.svg"
+                    src={facebook}
                     alt="Facebook icon"
                     height={30}
                     width={30}
@@ -257,7 +265,7 @@ const Footer = (props) => {
                 >
                   {/* <FontAwesomeIcon icon={faInstagramSquare} /> */}
                   <Image
-                    src="/images/social/instagram.svg"
+                    src={instagram}
                     alt="Instagram icon"
                     height={30}
                     width={30}
@@ -278,7 +286,7 @@ const Footer = (props) => {
                 >
                   {/* <FontAwesomeIcon icon={faLinkedin} /> */}
                   <Image
-                    src="/images/social/linkedin.svg"
+                    src={linkedin}
                     alt="Linkedin icon"
                     height={30}
                     width={30}
@@ -299,7 +307,7 @@ const Footer = (props) => {
                 >
                   {/* <FontAwesomeIcon icon={faYoutube} /> */}
                   <Image
-                    src="/images/social/youtube.svg"
+                    src={youtube}
                     alt="Youtube icon"
                     height={30}
                     width={30}
@@ -315,12 +323,7 @@ const Footer = (props) => {
                 }}
               >
                 {/* <FontAwesomeIcon icon={faEnvelope} /> */}
-                <Image
-                  src="/images/social/email.svg"
-                  alt="Email icon"
-                  height={30}
-                  width={30}
-                />
+                <Image src={email} alt="Email icon" height={30} width={30} />
               </motion.div>
             </div>
           </div>
@@ -388,12 +391,7 @@ const Footer = (props) => {
           </span>{" "}
           in Bangalore for
           <span className="pl-1.5 align-middle pt-1.75">
-            <Image
-              src={"/images/misc/flag.svg"}
-              alt="Indian flag"
-              width={16}
-              height={16}
-            />
+            <Image src={flag} alt="Indian flag" width={16} height={16} />
           </span>
         </div>
 

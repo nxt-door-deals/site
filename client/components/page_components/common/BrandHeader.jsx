@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { brand } from "../../../utils/siteImages";
 
 const BrandHeader = () => {
   return (
@@ -19,7 +20,7 @@ const BrandHeader = () => {
           <Link href="/">
             <a>
               <img
-                src="/brand.svg"
+                src={brand}
                 alt="Logo for the NXT Door Deals brand"
                 className="w-24 h-24 xl:w-28 xl:h-28 z-50"
               />

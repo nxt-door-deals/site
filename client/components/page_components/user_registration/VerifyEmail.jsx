@@ -8,6 +8,7 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import keys from "../../../utils/keys";
+import { welcome } from "../../../utils/siteImages";
 
 import { greeting } from "../../../utils/greeting";
 
@@ -88,12 +89,7 @@ const VerifyEmail = ({ user }) => {
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
-        <Image
-          src={"/images/user_registration/welcome-register.svg"}
-          height={300}
-          width={300}
-          alt={"Mailbox"}
-        />
+        <Image src={welcome} height={300} width={300} alt={"Mailbox"} />
       </div>
 
       <p className="text-lg text-center">

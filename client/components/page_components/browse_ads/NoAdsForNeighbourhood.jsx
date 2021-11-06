@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AuthContext from "../../../context/auth/authContext";
+import { noAdsPosted } from "../../../utils/siteImages";
 
 const NoAdsForNeighbourhood = () => {
   const authContext = useContext(AuthContext);
@@ -10,12 +11,7 @@ const NoAdsForNeighbourhood = () => {
   return (
     <div className="px-8 lg:text-center">
       <div className="text-center">
-        <Image
-          src={"/images/browseads/empty_cart.svg"}
-          alt={"empty cart"}
-          height={250}
-          width={250}
-        />
+        <Image src={noAdsPosted} alt={"empty cart"} height={250} width={250} />
       </div>
 
       <p className="pt-5 text-gray-600 text-xl ">

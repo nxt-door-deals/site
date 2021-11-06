@@ -8,6 +8,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
+import { forgotPasswordOtp } from "../../../utils/siteImages";
 
 // Component Import
 import Alert from "../../page_components/common/Alert";
@@ -127,7 +128,7 @@ const OtpForm = (props) => {
         >
           <div className="flex justify-center">
             <Image
-              src={"/images/forgotpassword/otp.svg"}
+              src={forgotPasswordOtp}
               alt={"Otp sent"}
               height={200}
               width={200}

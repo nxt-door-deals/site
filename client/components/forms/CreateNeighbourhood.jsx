@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import keys from "../../utils/keys";
 import { selectStyleBlue } from "../../utils/styles";
+import { skyline } from "../../utils/siteImages";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -119,7 +120,7 @@ const CreateNeighbourhood = (props) => {
           className="pb-20 bg-white -mt-1"
         >
           <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-white lg:flex lg:justify-center">
-            <img src="/images/neighbourhood/skyline.svg" alt="City skyline" />
+            <img src={skyline} alt="City skyline" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">
             <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mb-5">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import keys from "../../../utils/keys";
 import { motion } from "framer-motion";
+import { noAdsFound } from "../../../utils/siteImages";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRupeeSign, faCertificate } from "@fortawesome/free-solid-svg-icons";
@@ -54,7 +55,7 @@ const NbhAdsCard = (props) => {
     return (
       <div className="py-6 px-6 lg:px-0 text-center">
         <Image
-          src={"/images/browseads/telescope.svg"}
+          src={noAdsFound}
           alt={"No search results"}
           height={150}
           width={150}

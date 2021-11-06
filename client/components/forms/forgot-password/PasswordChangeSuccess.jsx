@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { forgotPasswordChanged } from "../../../utils/siteImages";
 
 const buttonVariants = {
   hover: {
@@ -20,7 +21,7 @@ const PasswordChangeSuccess = () => {
     <div>
       <div className="flex justify-center">
         <Image
-          src={"/images/forgotpassword/password-changed.svg"}
+          src={forgotPasswordChanged}
           alt={"Password changed"}
           height={200}
           width={200}

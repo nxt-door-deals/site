@@ -8,6 +8,30 @@
   --scrollbar-thumb-color: #c4b5fd;
   --scrollbar-track-color: #ede9fe;
   --selection-background: #ddd6fe;
+
+  /* Images - will be referenced in the tailwind config*/
+  --login-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/login/user-login.svg);
+  --forgot-password-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/forgot-password/fp-background.svg);
+  --browse-ads: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/marketplace/bg-ads.svg);
+  --browse-ads-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/marketplace/bg-ads-mobile.svg);
+  --browse-ads-tablet: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/marketplace/bg-ads-tablet.svg);
+  --post-ads: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/post-ad/bg-post-ads.svg);
+  --post-ads-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/post-ad/bg-post-ads-mobile.svg);
+  --user-account: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/user-account/user-account-background.svg);
+  --user-account-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/user-account/user-account-mobile-background.svg);
+  --chat-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/chat/bg-chat.svg);
+  --chat-background-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/chat/bg-chat-mobile.svg);
+  --chat-background-1: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/chat/bg-chat-window-1.svg);
+  --chat-background-2: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/chat/bg-chat-window-2.svg);
+  --chat-background-3: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/chat/bg-chat-window-3.svg);
+  --our-story-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/our-story/bg-our-story.svg);
+  --our-story-background-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/our-story/bg-our-story-mobile.svg);
+  --our-story-background-tablet: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/our-story/bg-our-story-tablet.svg);
+  --faq-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/faq/faq-bg.svg);
+  --faq-question: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/faq/faq-ques.svg);
+  --faq-answer: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/faq/faq-ans.svg);
+  --covid-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/covid/bg-covid.svg);
+  --covid-background-mobile: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/covid/bg-covid-mobile.svg);
 }
 
 html {

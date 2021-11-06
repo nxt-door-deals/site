@@ -9,6 +9,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { feature } from "../../utils/siteImages";
 
 // Component import
 import Alert from "../page_components/common/Alert";
@@ -93,7 +94,7 @@ const FeatureRequest = (props) => {
         </span>
         <div className="flex justify-center">
           <Image
-            src={"/images/contact/feature.svg"}
+            src={feature}
             alt={"Feature request"}
             height={200}
             width={200}

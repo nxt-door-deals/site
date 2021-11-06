@@ -11,6 +11,7 @@ import { greeting } from "../../utils/greeting";
 import cookie from "../../utils/cookieInit";
 import keys from "../../utils/keys";
 import Modal from "react-modal";
+import { forgotPassword } from "../../utils/siteImages";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -325,7 +326,7 @@ const UserLogin = (props) => {
       >
         <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
           <Image
-            src={"/images/login/forgot-password.svg"}
+            src={forgotPassword}
             alt={"reset password"}
             height={150}
             width={150}
