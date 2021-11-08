@@ -28,7 +28,7 @@ const HowItWorks = (props) => {
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="relative">
-        <div className="tilt z-0">
+        <div className="tilt">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"

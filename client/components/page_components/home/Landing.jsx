@@ -18,9 +18,7 @@ const Landing = (props) => {
             Complex, Gated Community or Co-operative Housing Society.
           </p>
 
-          <ApartmentSearch />
-
-          <div className="mt-10 lg:hidden text-purple-700">
+          <div className="mt-5 lg:hidden text-purple-700">
             <Link href="/#how-it-works">
               <a
                 className="uppercase font-semibold underline text-sm hover:no-underline styled-link"
@@ -32,6 +30,8 @@ const Landing = (props) => {
               </a>
             </Link>
           </div>
+
+          <ApartmentSearch />
         </div>
 
         {/* For large and xl screens */}

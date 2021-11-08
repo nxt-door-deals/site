@@ -143,7 +143,7 @@ const ApartmentSearch = () => {
             </div>
 
             {/* Menu to display search results */}
-            <div className="relative">
+            <div className="relative z-10 h-auto">
               <div
                 className={
                   numApartmentsFetched > 0

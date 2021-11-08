@@ -97,7 +97,7 @@ html::-webkit-scrollbar-track {
 
   /* Component headings */
   .component-heading {
-    @apply font-bold text-2xl lg:text-3xl text-brand-gray tracking-wide text-center mb-6;
+    @apply font-bold text-3xl text-brand-gray tracking-wide text-center mb-6;
   }
 
   /* Component sub headings */

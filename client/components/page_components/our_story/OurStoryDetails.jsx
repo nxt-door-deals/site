@@ -31,7 +31,7 @@ const OurStoryDetails = () => {
         <SectionWaveTop />
         <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-10 lg:px-44 mb-20 lg:mb-10 bg-purple-50">
           <div className="lg:flex-5">
-            <h2 className="text-2xl font-semibold">
+            <h2 className="text-2xl font-semibold pt-2 lg:pt-0">
               <FontAwesomeIcon icon={faHeart} className="error-text" /> your
               preloved items
             </h2>
@@ -71,7 +71,9 @@ const OurStoryDetails = () => {
           <Image src={meet} height={300} width={300} alt="meet" />
         </div>
         <div className="lg:flex-5">
-          <h2 className="text-2xl font-semibold">Meet thy neighbour</h2>
+          <h2 className="text-2xl font-semibold pt-2 lg:pt-0">
+            Meet thy neighbour
+          </h2>
           <p className="pt-5">
             The easier it becomes to communicate with people, the lesser we do
             it in person! While we provide a platform for residents to shop
@@ -87,7 +89,9 @@ const OurStoryDetails = () => {
         <SectionWaveTop />
         <div className="flex flex-col-reverse items-center lg:flex-row lg:justify-center px-10 py-5 lg:px-44 pb-10 mb-20 bg-purple-50">
           <div className="lg:flex-5">
-            <h2 className="text-2xl font-semibold">Save the environment</h2>
+            <h2 className="text-2xl font-semibold pt-2 lg:pt-0">
+              Save the environment
+            </h2>
             <p className="pt-5">
               We currently live in a world ravaged by climate change and other
               severe environmental problems. We owe it to mother nature to do

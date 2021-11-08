@@ -127,7 +127,7 @@ const Navbar = (props) => {
         className={
           stickyNav
             ? props.navStyle.navBgColor +
-              " fixed basic-nav z-10 lg:shadow-lg opacity-100 transition duration-500 ease-in-out " +
+              " fixed basic-nav z-20 lg:shadow-lg opacity-100 transition duration-500 ease-in-out " +
               props.navStyle.navShadow
             : "fixed basic-nav bg-none"
         }
@@ -157,7 +157,7 @@ const Navbar = (props) => {
 
         {/* Menu icons - humburger or close */}
         <div
-          className="lg:hidden absolute right-2 mt-2 mr-6 z-50"
+          className="lg:hidden absolute right-2 mt-2 mr-6"
           onClick={toggleNav}
         >
           {!stickyNav ? (
@@ -170,7 +170,7 @@ const Navbar = (props) => {
               alt="Open Menu"
             />
           ) : (
-            <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative opacity-90 cursor-pointer  shadow-scrollToTopShadow">
+            <div className="mt-4 w-12 h-12 rounded-full text-lg bg-purple-100 text-brand-gray p-4 relative cursor-pointer shadow-scrollToTopShadow">
               <FontAwesomeIcon
                 icon={faStream}
                 alt="Open Menu"

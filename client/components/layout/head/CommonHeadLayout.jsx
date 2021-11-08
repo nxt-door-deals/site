@@ -105,6 +105,18 @@ const CommonHeadLayout = () => {
       <meta property="og:image" content={keys.ICON} />
       <meta property="og:image:width" content="256" />
       <meta property="og:image:height" content="256" />
+
+      <meta name="twitter:card" content={keys.ICON} />
+      <meta
+        name="twitter:description"
+        content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!"
+      />
+      <meta
+        name="twitter:title"
+        content="Welcome To Your Apartment's Marketplace"
+      />
+      <meta name="twitter:image" content={keys.ICON} />
+
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"
