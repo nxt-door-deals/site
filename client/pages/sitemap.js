@@ -1,5 +1,9 @@
+// This site was formerly sitemap.xml.js but google did not accept it since the sitemap was in html
+// Switched to the next-sitemap plugin now
+
 import axios from "axios";
 import keys from "../utils/keys";
+import fs from "fs";
 
 const Sitemap = (props) => {
   var priority;
@@ -24,6 +28,7 @@ const Sitemap = (props) => {
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urlSet}</urlset>`;
 
+  fs.writeFileSync("./public/sitemap.xml", sitemap);
   return <div className="font-sans">{sitemap}</div>;
 };
 
