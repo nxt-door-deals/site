@@ -31,6 +31,7 @@ import {
   youtube,
   linkedin,
   email,
+  brand,
 } from "../../utils/siteImages";
 
 // Component import
@@ -91,7 +92,7 @@ const Footer = (props) => {
       >
         <div className="mt-14 text-center">
           <Image
-            src={"/images/site/icon.png"}
+            src={brand}
             width={150}
             height={80}
             alt={"Logo for the nxtdoordeals.com brand"}
@@ -99,7 +100,7 @@ const Footer = (props) => {
         </div>
 
         <div className="text-center">
-          <p className="tracking-wide">
+          <p className="tracking-wide pt-2">
             &copy; {currentYear}{" "}
             <Link href="/">
               <a className="styled-link pb-1">nxtdoordeals.com</a>

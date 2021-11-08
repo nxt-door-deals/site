@@ -41,9 +41,6 @@ export default function MyApp({ Component, pageProps, router }) {
   // Use this in the Ad component to show either the ad or the edit form
   const [showForm, setShowForm] = useState(true);
 
-  // Show or hide banner
-  const [showBanner, setShowBanner] = useState(true);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       smoothscroll.polyfill();
@@ -85,13 +82,12 @@ export default function MyApp({ Component, pageProps, router }) {
               showForm={showForm}
               setShowForm={setShowForm}
               notificationDisplayed={notificationDisplayed}
-              showBanner={showBanner}
-              setShowBanner={setShowBanner}
               scrollToTop={scrollToTop}
               setScrollToTop={setScrollToTop}
               hiwRef={hiwRef}
             />
           </PageLayout>
+
           <ToastContainer
             autoClose={3000}
             hideProgressBar={true}

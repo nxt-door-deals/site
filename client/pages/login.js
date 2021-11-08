@@ -63,7 +63,7 @@ const Login = (props) => {
     setTimeout(() => reportedAdToast(), 500);
   }
 
-  if (localStorage.getItem("nddToken")) {
+  if (typeof window !== "undefined" && localStorage.getItem("nddToken")) {
     router.push("/alreadyloggedin", "/");
 
     return null;

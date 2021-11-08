@@ -44,7 +44,7 @@ const Navbar = (props) => {
   const [expanded, setExpanded] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState();
 
   const modalButtonTheme = useRef("");
 
@@ -59,6 +59,12 @@ const Navbar = (props) => {
   const updateCurrentWindowWidth = () => {
     setWidth(window.innerWidth);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWidth(window.innerWidth);
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", updateCurrentWindowWidth);

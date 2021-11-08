@@ -48,10 +48,7 @@ const Home = (props) => {
         </section>
       </main>
 
-      <CookieBanner
-        showBanner={props.showBanner}
-        setShowBanner={props.setShowBanner}
-      />
+      <CookieBanner />
 
       <section id="footer">
         <Footer

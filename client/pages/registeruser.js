@@ -19,7 +19,7 @@ const RegisterUser = () => {
   const footerGradientClassBlue =
     "from-alt-footer-gradient-from to-alt-footer-gradient-to";
 
-  if (localStorage.getItem("nddToken")) {
+  if (typeof window !== "undefined" && localStorage.getItem("nddToken")) {
     router.push("/alreadyloggedin", "/");
 
     return null;

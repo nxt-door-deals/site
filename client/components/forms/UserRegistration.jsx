@@ -139,7 +139,7 @@ const UserRegistration = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="flex justify-center items-center h-full pt-32 bg-gradient-to-b from-blue-50 to-white">
-        <div className="ml-8 mr-8 mb-16">
+        <div className="ml-8 mr-8 mb-16 lg:w-1/3">
           {showForm ? (
             <motion.div
               key="form"
@@ -147,7 +147,7 @@ const UserRegistration = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="rounded-3xl shadow-boxshadowregister bg-white px-4 lg:px-0 p-8 mb-4"
+              className="rounded-3xl shadow-boxshadowregister bg-white px-4 py-8 lg:p-8  mb-4"
             >
               <Formik
                 initialValues={{
