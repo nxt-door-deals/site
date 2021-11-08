@@ -6,4 +6,4 @@ Disallow: /alreadyloggedin
 Disallow: /goodbye
 Disallow: /logout
 
-Sitemap: https://beta.nxtdoordeals.com/sitemap.xml
+Sitemap: https://nxtdoordeals.com/sitemap.xml
