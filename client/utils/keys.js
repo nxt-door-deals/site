@@ -9,9 +9,9 @@ const keys = {
     SERVER: process.env.NEXT_PUBLIC_SERVER,
     SECURE_COOKIE: false,
     SAME_SITE_COOKIE_SETTING: "Lax",
-    ICON: "https://ik.imagekit.io/nxtdoordeals/nddtest/site-images/icon.png",
+    ICON: "https://ik.imagekit.io/nxtdoordeals/nddcommon/common/icon.png",
     DEFAULT_IMAGE:
-      "https://ik.imagekit.io/nxtdoordeals/nddtest/site-images/default.png",
+      "https://ik.imagekit.io/nxtdoordeals/nddcommon/common/default.png",
     AD_QUOTA: 5,
   },
   production: {
@@ -22,9 +22,9 @@ const keys = {
     SERVER: process.env.NEXT_PUBLIC_SERVER,
     SECURE_COOKIE: true,
     SAME_SITE_COOKIE_SETTING: "Strict",
-    ICON: "https://ik.imagekit.io/nxtdoordeals/ndd/site-images/icon.png",
+    ICON: "https://ik.imagekit.io/nxtdoordeals/nddcommon/common/icon.png",
     DEFAULT_IMAGE:
-      "https://ik.imagekit.io/nxtdoordeals/ndd/site-images/default.png",
+      "https://ik.imagekit.io/nxtdoordeals/nddcommon/common/default.png",
     AD_QUOTA: 5,
   },
 }[env];
