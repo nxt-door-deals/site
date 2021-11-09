@@ -1,4 +1,6 @@
-module.exports = {
+const { withSentryConfig } = require("@sentry/nextjs");
+
+const moduleExports = {
   images: {
     domains: [
       "images.ctfassets.net",
@@ -20,3 +22,9 @@ module.exports = {
     return config;
   },
 };
+
+const SentryWebpackPluginOptions = {
+  silent: true,
+};
+
+module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions);

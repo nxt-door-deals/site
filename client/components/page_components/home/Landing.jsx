@@ -1,4 +1,5 @@
 import ApartmentSearch from "../../forms/ApartmentSearch";
+import Image from "next/image";
 import Link from "next/link";
 import { landing, landingMobile } from "../../../utils/siteImages";
 
@@ -37,22 +38,34 @@ const Landing = (props) => {
         {/* For large and xl screens */}
         <div
           id="image-container"
-          className="hidden lg:inline lg:order-last lg:-mt-4 xl:mt-0  lg:top-0 flex-auto"
+          className="hidden relative lg:inline lg:order-last lg:-mt-4 xl:mt-0 lg:-z-10 lg:top-0 flex-auto lg:w-2/3"
         >
-          <img
+          <Image
             src={landing}
             alt="Landing page illustration"
-            width="100%"
-            height="100%"
+            width={900}
+            height={720}
+            blurDataURL={`${landing} + ?tr=bl-6`}
+            placeholder="blur"
+            layout="responsive"
+            priority={true}
           />
         </div>
 
         {/* For medium screens and below */}
-        <div id="image-container" className="order-first w-full lg:hidden">
-          <img
+        <div
+          id="image-container"
+          className="order-first w-full lg:hidden -z-10"
+        >
+          <Image
             src={landingMobile}
             alt="Landing page illustration"
-            width="100%"
+            blurDataURL={`${landingMobile} + ?tr=bl-6`}
+            placeholder="blur"
+            layout="responsive"
+            priority={true}
+            width={500}
+            height={350}
           />
         </div>
       </div>
