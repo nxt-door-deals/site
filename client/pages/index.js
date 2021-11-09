@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 import Script from "next/script";
@@ -16,10 +15,6 @@ import CookieBanner from "../components/page_components/home/CookieBanner";
 const Home = (props) => {
   const router = useRouter();
   const pathname = router.pathname;
-
-  useEffect(() => {
-    window.scroll({ top: 1, left: 0, behavior: "smooth" });
-  }, []);
 
   if (typeof window !== "undefined") {
     if (!localStorage.getItem("ndd__user__preferences")) {

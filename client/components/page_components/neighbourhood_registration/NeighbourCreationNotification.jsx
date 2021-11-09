@@ -25,14 +25,14 @@ const NeighbourCreationNotification = (props) => {
             !
           </p>
           <p className="mb-4">
-            Thank you for choosing to register your neigbourhood with us. We
-            will send you an email on{" "}
+            Thank you for choosing to register your apartment with us. We will
+            send you an email on{" "}
             <span className="text-blue-600 font-semibold">{props.email}</span>{" "}
-            once your neighbourhood has been verified.
+            once your apartment has been verified.
           </p>
           <p className="mb-4">
             You are just one step away from creating your user account and
-            posting ads in your neighbourhood.
+            posting ads in your apartment.
           </p>
           <p className="text-center text-lg font-semibold">YAAY!!!</p>
         </div>

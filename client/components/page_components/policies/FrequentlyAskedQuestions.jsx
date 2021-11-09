@@ -9,9 +9,9 @@ import { sellerFaqs, buyerFaqs, genericFaqs } from "../../../utils/faq";
 const FrequentlyAskedQuestions = (props) => {
   const [faqIndex, setFaqIndex] = useState(null);
 
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  // }, []);
 
   var faqType = "";
 

@@ -18,9 +18,9 @@ const Blog = (props) => {
   navStylePurple["navTextColor"] = "text-brand-purple";
   navStylePurple["pathname"] = pathname;
 
-  useEffect(() => {
-    window.scroll({ top: 1, left: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 1, left: 0, behavior: "smooth" });
+  // }, []);
 
   return (
     <BlogHeadLayout>

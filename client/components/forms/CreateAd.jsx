@@ -73,9 +73,9 @@ const CreateAd = ({ categoryName, user }) => {
   const { createAd, adCreated } = siteContext;
 
   // Make sure that we remain at the top of the page once component renders
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  // }, []);
 
   useEffect(() => {
     if (adCreated) router.push(`/neighbourhood/ads/${user.apartment_id}`);
