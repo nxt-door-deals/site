@@ -13,12 +13,12 @@ const sellerFaqs = [
   {
     question: "How long will my ad remain active?",
     answer:
-      "All ads remain active for a period of 30 days unless they are marked as sold or deleted by seller.",
+      "All ads remain active for a period of 15 days unless they are marked as sold or deleted by seller.",
   },
   {
     question: "Can an ad be auto-renewed?",
     answer:
-      "No. At the moment, an ad will need to be posted again after 30 days if you would like it to remain active.",
+      "No. At the moment, an ad will need to be posted again after 15 days if you would like it to remain active.",
   },
   {
     question: "How do I mark my ad as sold?",
