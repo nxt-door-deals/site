@@ -16,11 +16,11 @@ const PostAdHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Post a Free Ad | Start Selling your Preloved's Today"
+          content="Post Free Ad | Start Selling your Preloved's Today"
         />
         <meta
           property="og:description"
-          content="Post an ad for free. Choose from a wide range of categories and start selling today"
+          content="Post free ad. Choose from a wide range of categories and start selling today"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/postad" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -33,7 +33,7 @@ const PostAdHeadLayout = (props) => {
                 "@type": "WebSite",
                 "dateCreated": "22-03-2021",
                 "url": "https://nxtdoordeals.com",
-                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 "genre": "Website for an online marketplace",
                 "keywords": "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },

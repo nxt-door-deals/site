@@ -65,7 +65,7 @@ const UserAds = (props) => {
         {props.ad.images.length === 0 && (
           <Image
             src={keys.DEFAULT_IMAGE}
-            alt={"Default image"}
+            alt="Default image"
             width={325}
             height={300}
           />

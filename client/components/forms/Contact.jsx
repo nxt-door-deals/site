@@ -99,7 +99,7 @@ const Contact = (props) => {
           ESC
         </span>
         <div className="flex justify-center">
-          <Image src={typewriter} alt={"Typewriter"} height={100} width={100} />
+          <Image src={typewriter} alt="Typewriter" height={100} width={100} />
         </div>
         <h1 className="font-semibold text-center text-xl text-brand-gray mt-6 mb-6">
           We <FontAwesomeIcon icon={faHeart} className="text-pink-600" /> mail!

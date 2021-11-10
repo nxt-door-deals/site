@@ -50,7 +50,7 @@ const VerifyEmail = () => {
               src={approveCheck}
               height={150}
               width={150}
-              alt={"email verified"}
+              alt="Email verified"
             />
           ) : (
             emailVerified !== null &&
@@ -59,7 +59,7 @@ const VerifyEmail = () => {
                 src={errorTimes}
                 height={150}
                 width={150}
-                alt={"email not verified"}
+                alt="Email not verified"
               />
             )
           )}

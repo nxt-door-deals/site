@@ -11,7 +11,7 @@ const AdQuotaReached = (props) => {
           height={300}
           width={300}
           src={adsQuotaReached}
-          alt={"Reached Ad Quota"}
+          alt="Reached Ad Quota"
         />
         <h1 className="text-2xl pt-5 text-brand-gray text-center">
           Oops... Looks like you've reached your quota of{" "}

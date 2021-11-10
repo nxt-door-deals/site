@@ -76,7 +76,7 @@ const ChangePassword = (props) => {
           <div className="flex justify-center">
             <Image
               src={forgotPasswordNewPassword}
-              alt={"Update password"}
+              alt="Update password"
               height={200}
               width={200}
             />

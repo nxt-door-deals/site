@@ -52,7 +52,12 @@ const UserAdsWrapper = (props) => {
   if (loading) {
     return (
       <div className="flex justify-center items-start h-full py-32">
-        <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+        <Image
+          src={"/images/loader/loader.gif"}
+          alt="Loading..."
+          height={100}
+          width={100}
+        />
       </div>
     );
   }

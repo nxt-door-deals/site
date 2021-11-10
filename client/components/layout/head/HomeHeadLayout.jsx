@@ -10,7 +10,7 @@ const HomeHeadLayout = (props) => {
         <title>Welcome to Your Apartment's Marketplace</title>
         <meta
           name="description"
-          content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!"
+          content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const HomeHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!"
+          content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -34,7 +34,7 @@ const HomeHeadLayout = (props) => {
                 dateCreated: "22-03-2021",
                 url: "https://nxtdoordeals.com",
                 description:
-                  "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!",
+                  "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 genre: "Website for an online marketplace",
                 keywords:
                   "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand",
@@ -46,7 +46,7 @@ const HomeHeadLayout = (props) => {
                 dateModified: "22-03-2021",
                 url: "https://nxtdoordeals.com/",
                 description:
-                  "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!",
+                  "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 name: "Welcome To Your Apartment's Marketplace",
                 inLanguage: "en",
                 isPartOf: "https://nxtdoordeals.com",

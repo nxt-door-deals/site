@@ -93,7 +93,12 @@ const Ad = (props) => {
   if (loading) {
     return (
       <div className="flex justify-center items-start h-full py-32">
-        <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+        <Image
+          src={"/images/loader/loader.gif"}
+          alt="Loading..."
+          height={100}
+          width={100}
+        />
       </div>
     );
   }
@@ -214,7 +219,7 @@ const Ad = (props) => {
           <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
             <Image
               src={"/images/fpa/sale-fireworks.gif"}
-              alt={"reset password"}
+              alt="Fireworks"
               height={175}
               width={175}
             />

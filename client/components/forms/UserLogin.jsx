@@ -327,7 +327,7 @@ const UserLogin = (props) => {
         <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
           <Image
             src={forgotPassword}
-            alt={"reset password"}
+            alt="Reset Password"
             height={150}
             width={150}
           />

@@ -109,7 +109,7 @@ const CommonHeadLayout = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:description"
-        content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!"
+        content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
       />
       <meta
         name="twitter:title"

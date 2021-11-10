@@ -47,7 +47,7 @@ const createAdValidationSchema = Yup.object({
 });
 
 // These are passed to the PostAdHeader component
-const heading = "Create Ad";
+const heading = "Post Free Ad";
 const step = "Form";
 
 // Framer variants

@@ -89,7 +89,7 @@ const VerifyEmail = ({ user }) => {
         One final step...
       </h2>
       <div className="flex justify-center items-center p-5">
-        <Image src={welcome} height={300} width={300} alt={"Mailbox"} />
+        <Image src={welcome} height={300} width={300} alt="Mailbox" />
       </div>
 
       <p className="text-lg text-center">

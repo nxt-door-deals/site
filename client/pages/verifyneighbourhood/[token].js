@@ -54,7 +54,7 @@ const VerifyNeighbourhood = (props) => {
               src={approveCheck}
               height={150}
               width={150}
-              alt={"Neighbourhood Verified"}
+              alt="Neighbourhood Verified"
             />
           ) : (
             neighbourhoodVerified !== null &&
@@ -63,7 +63,7 @@ const VerifyNeighbourhood = (props) => {
                 src={errorTimes}
                 height={150}
                 width={150}
-                alt={"neighbourhood unverified"}
+                alt="Neighbourhood unverified"
               />
             )
           )}

@@ -33,7 +33,7 @@ const UserLoginHeadLayout = (props) => {
                 "@type": "WebSite",
                 "dateCreated": "22-03-2021",
                 "url": "https://nxtdoordeals.com",
-                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or housing society. Browse ads from your apartment or post up to five free ads today!",
+                "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 "genre": "Website for an online marketplace",
                 "keywords": "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },

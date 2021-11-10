@@ -162,7 +162,12 @@ const UserAccount = (props) => {
     return (
       <div className="py-8 px-8 lg:px-0">
         <div className="text-center">
-          <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+          <Image
+            src="/images/loader/loader.gif"
+            alt="Loading..."
+            height={100}
+            width={100}
+          />
         </div>
       </div>
     );

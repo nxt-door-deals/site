@@ -147,7 +147,7 @@ const Navbar = (props) => {
             <a className="focus-within:outline-none">
               <Image
                 src={brand}
-                alt="Logo for the nxtdoordeals.com brand. Redirects to the home page."
+                alt="Logo for the nxtdoordeals.com brand"
                 width={100}
                 height={100}
               />
@@ -622,7 +622,7 @@ const Navbar = (props) => {
                     <a className="focus-within:outline-none">
                       <Image
                         src={brand}
-                        alt={"Logo for the NXT Door Deals brand"}
+                        alt="Logo for the NXT Door Deals brand"
                         height={120}
                         width={120}
                       />

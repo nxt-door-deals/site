@@ -95,7 +95,7 @@ const Footer = (props) => {
             src={brand}
             width={150}
             height={80}
-            alt={"Logo for the nxtdoordeals.com brand"}
+            alt="Logo for the nxtdoordeals.com brand"
           />
         </div>
 

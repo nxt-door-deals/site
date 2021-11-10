@@ -129,7 +129,7 @@ const OtpForm = (props) => {
           <div className="flex justify-center">
             <Image
               src={forgotPasswordOtp}
-              alt={"Otp sent"}
+              alt="Otp sent"
               height={200}
               width={200}
             />

@@ -22,7 +22,7 @@ const PasswordChangeSuccess = () => {
       <div className="flex justify-center">
         <Image
           src={forgotPasswordChanged}
-          alt={"Password changed"}
+          alt="Password changed"
           height={200}
           width={200}
         />

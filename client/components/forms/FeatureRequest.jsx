@@ -93,12 +93,7 @@ const FeatureRequest = (props) => {
           ESC
         </span>
         <div className="flex justify-center">
-          <Image
-            src={feature}
-            alt={"Feature request"}
-            height={200}
-            width={200}
-          />
+          <Image src={feature} alt="Feature request" height={200} width={200} />
         </div>
         <h1 className="font-semibold lg:text-center text-lg text-brand-gray mb-3">
           Have a feature idea in mind that you would like to see on the website?{" "}

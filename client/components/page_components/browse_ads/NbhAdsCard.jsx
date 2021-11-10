@@ -45,7 +45,12 @@ const NbhAdsCard = (props) => {
     return (
       <div className="py-8 px-8 lg:px-0">
         <div className="text-center">
-          <Image src={"/images/loader/loader.gif"} height={100} width={100} />
+          <Image
+            src={"/images/loader/loader.gif"}
+            alt="Loading..."
+            height={100}
+            width={100}
+          />
         </div>
       </div>
     );
@@ -56,7 +61,7 @@ const NbhAdsCard = (props) => {
       <div className="py-6 px-6 lg:px-0 text-center">
         <Image
           src={noAdsFound}
-          alt={"No search results"}
+          alt="No search results"
           height={150}
           width={150}
         />
@@ -110,7 +115,7 @@ const NbhAdsCard = (props) => {
                 <div className="p-4 flex justify-center mr-0">
                   <Image
                     src={keys.DEFAULT_IMAGE}
-                    alt={"Carousel default image"}
+                    alt="Carousel default image"
                     quality={100}
                     height={250}
                     width={300}

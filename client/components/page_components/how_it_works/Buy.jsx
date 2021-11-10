@@ -16,9 +16,9 @@ const variants = {
 const Buy = () => {
   return (
     <div>
-      <h1 className="py-12 text-center text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-bold">
+      <h2 className="py-12 text-center text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-bold">
         Buying on <span className="text-purple-700">nxtdoordeals.com</span>
-      </h1>
+      </h2>
 
       <div
         id="buy"

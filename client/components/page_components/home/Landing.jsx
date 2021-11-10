@@ -45,7 +45,7 @@ const Landing = (props) => {
             alt="Landing page illustration"
             width={900}
             height={720}
-            blurDataURL={`${landing} + ?tr=bl-6`}
+            blurDataURL={`${landing}?tr=bl-6`}
             placeholder="blur"
             layout="responsive"
             priority={true}
@@ -60,7 +60,7 @@ const Landing = (props) => {
           <Image
             src={landingMobile}
             alt="Landing page illustration"
-            blurDataURL={`${landingMobile} + ?tr=bl-6`}
+            blurDataURL={`${landingMobile}?tr=bl-6`}
             placeholder="blur"
             layout="responsive"
             priority={true}

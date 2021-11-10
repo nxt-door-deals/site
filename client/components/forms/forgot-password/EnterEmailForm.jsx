@@ -58,7 +58,7 @@ const EnterEmailForm = (props) => {
           <div className="flex justify-center">
             <Image
               src={forgotPasswordEmail}
-              alt={"Forgot Password"}
+              alt="Forgot Password"
               height={200}
               width={200}
             />

@@ -60,9 +60,9 @@ const Guidelines = () => {
 
           <section id="seller">
             <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
-              <h1 className="component-heading">
+              <h2 className="component-heading">
                 Seller Guidelines & Responsibilities
-              </h1>
+              </h2>
               {sellerGuidelines.map((guideline, index) => {
                 return (
                   <div key={index}>
@@ -81,7 +81,7 @@ const Guidelines = () => {
 
           <section id="chat">
             <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
-              <h1 className="component-heading">Chat Guidelines</h1>
+              <h2 className="component-heading">Chat Guidelines</h2>
               {chatGuidelines.map((guideline, index) => {
                 return (
                   <div key={index}>
@@ -100,10 +100,10 @@ const Guidelines = () => {
 
           <section id="banned">
             <div className="rounded-2xl p-5 lg:p-10 shadow-lg bg-white mb-20">
-              <h1 className="component-heading">
+              <h2 className="component-heading">
                 Ads not allowed on{" "}
                 <span className="text-brand-purple">nxtdoordeals.com</span>
-              </h1>
+              </h2>
               <p className="text-sm mb-6">
                 While this list is exhaustive, prohibited ads are not limited to
                 just these items. Any ads violating our Terms of Use will be

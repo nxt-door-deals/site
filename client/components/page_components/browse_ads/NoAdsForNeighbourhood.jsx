@@ -11,7 +11,7 @@ const NoAdsForNeighbourhood = () => {
   return (
     <div className="px-8 lg:text-center">
       <div className="text-center">
-        <Image src={noAdsPosted} alt={"empty cart"} height={250} width={250} />
+        <Image src={noAdsPosted} alt="Empty cart" height={250} width={250} />
       </div>
 
       <p className="pt-5 text-gray-600 text-xl ">

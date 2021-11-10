@@ -551,7 +551,12 @@ const EditAd = (props) => {
 
                             return (
                               <div key={index}>
-                                <Image src={image} width={75} height={75} />
+                                <Image
+                                  src={image}
+                                  alt="Image small"
+                                  width={75}
+                                  height={75}
+                                />
 
                                 <FontAwesomeIcon
                                   icon={faTrashAlt}

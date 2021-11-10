@@ -34,14 +34,14 @@ const Policies = (props) => {
 
           <section id="privacy" className="pt-10">
             <div className="rounded-2xl p-5 lg:p-10 shadow-md bg-white my-10">
-              <h1 className="component-heading">Privacy Policy</h1>
+              <h2 className="component-heading">Privacy Policy</h2>
               <PrivacyText />
             </div>
           </section>
 
           <section id="cookie" className="pt-10">
             <div className="rounded-2xl p-5 lg:p-10 shadow-md bg-white my-10">
-              <h1 className="component-heading">Cookie Policy</h1>
+              <h2 className="component-heading">Cookie Policy</h2>
               <CookieText />
             </div>
           </section>

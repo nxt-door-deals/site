@@ -11,7 +11,7 @@ const NeighbourCreationNotification = (props) => {
         <div className="mb-10">
           <Image
             src={neighbourhoodWelcome}
-            alt={"neighbourhood"}
+            alt="Neighbourhood"
             height={350}
             width={350}
           />

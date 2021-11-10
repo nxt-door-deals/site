@@ -30,7 +30,7 @@ const Article = (props) => {
       <div className="h-screen flex justify-center items-center">
         <Image
           src={"/images/loader/loader.gif"}
-          alt={"Loader"}
+          alt="Loading..."
           height={100}
           width={100}
         />
