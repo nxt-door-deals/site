@@ -108,7 +108,7 @@ const ActiveChat = (props) => {
   };
 
   return (
-    <div className="border-2 border-purple-200 rounded-tl-2xl rounded-tr-2xl bg-gradient-to-br from bg-purple-100 via-pink-100 to-purple-200">
+    <div className="border-2 border-purple-300 rounded-tl-2xl rounded-tr-2xl bg-gradient-to-br from-purple-100 via-pink-50 to-purple-200">
       <div className="flex justify-between">
         <div className="m-2 p-3 flex items-center">
           <p>

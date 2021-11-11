@@ -64,7 +64,7 @@ const ReportAd = (props) => {
     <ReportAdHeadLayout adId={props.id}>
       <Navbar navStyle={navStylePurple} />
       <div id="header">
-        <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-gradient-to-b bg-purple-100 via-white to-white">
+        <div className="h-full pt-28 lg:pt-36 pb-20 flex flex-col items-center justify-center bg-gradient-to-b from-purple-200 via-purple-50 to-white">
           <ReportAds
             adId={props.id}
             modifiedId={props.modifiedId}

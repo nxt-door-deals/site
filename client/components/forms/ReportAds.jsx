@@ -111,7 +111,7 @@ const ReportAds = (props) => {
         </Link>
         <p className="pl-2">Back to ad</p>
       </div>
-      <div className="rounded-3xl px-8 py-12 lg:px-20 lg:py-16 bg-white shadow-boxshadowlogin">
+      <div className="rounded-3xl px-8 py-12 lg:px-20 lg:py-16 bg-white shadow-userAccountShadow">
         <h1 className="component-heading">Report Ad</h1>
         <h2 className="text-sm text-center mb-6">
           ID:{" "}

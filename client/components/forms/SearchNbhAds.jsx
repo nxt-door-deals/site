@@ -92,13 +92,13 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple m-0">
-                  <div className="w-44 lg:w-64 p-0 z-20">
+                  <div className="w-40 lg:w-64 p-0 z-20">
                     <Select
                       id="categoryList"
                       name="categoryList"
                       instanceId="categoryList"
                       options={extendedCategoryListOptions}
-                      placeholder="Select Category"
+                      placeholder="Category"
                       styles={selectStylePurple}
                       className="text-xs lg:text-sm p-2"
                       autoFocus
@@ -128,7 +128,7 @@ const SearchNbhAds = (props) => {
                       placeholder="Search Ads..."
                       maxLength="250"
                       autoComplete="off"
-                      className="textbox-input w-40 lg:w-64 placeholder-gray-600 "
+                      className="textbox-input w-36 lg:w-64 placeholder-gray-600 "
                       aria-label="Enter search text"
                     />
                   </div>
@@ -150,14 +150,14 @@ const SearchNbhAds = (props) => {
         </Formik>
       </div>
 
-      <div className="flex mt-5 lg:mt-0 justify-between items-center">
+      <div className="flex mt-5 lg:mt-0 justify-between items-center mx-2">
         {/* The giveaway button */}
         <div>
           <motion.button
             variants={variants}
             whileHover="hover"
             whileTap="tap"
-            className="px-3 py-3 lg:ml-3 lg:px-4 lg:py-2.5 bg-ad-purple text-white text-xs lg:text-sm rounded-xl uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
+            className="px-3 py-3 lg:ml-3 lg:px-4 lg:py-2.5 bg-ad-purple text-white text-xxs lg:text-sm rounded-xl uppercase font-semibold focus:outline-none shadow-giveawayButtonShadow"
             onClick={() => searchGiveaways(props.nbhId)}
             aria-label="Giveaway sort button"
           >

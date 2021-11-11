@@ -69,6 +69,10 @@ const Ad = (props) => {
   }
 
   useEffect(() => {
+    props.setShowForm(true);
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       window.scroll({
         top: 0,

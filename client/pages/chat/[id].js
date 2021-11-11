@@ -126,7 +126,7 @@ const Chat = (props) => {
           chatNotification={props.chatNotification}
         />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
-        <div className="pt-10 px-7 pb-20 lg:px-64">
+        <div className="pt-10 px-3 pb-20 lg:px-64">
           <div className="text-center mb-5">
             <div className="text-purple-500">
               <span className="text-brand-gray">Your chat with</span>{" "}

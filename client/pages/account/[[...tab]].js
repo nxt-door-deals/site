@@ -65,7 +65,10 @@ const Account = (props) => {
   return (
     <UserAccountHeadLayout user={user && user}>
       <div id="header" className="h-full">
-        <Navbar navStyle={navStylePurple} />
+        <Navbar
+          navStyle={navStylePurple}
+          chatNotification={props.chatNotification}
+        />
         <div className="w-full bg-user-account-mobile-background md:bg-user-account-background bg-cover bg-no-repeat h-80"></div>
         {/* Container */}
         <div className="mt-6">

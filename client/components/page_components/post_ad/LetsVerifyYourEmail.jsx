@@ -49,10 +49,22 @@ const LetsVerifyYourEmail = (props) => {
             sendEmail(user && user.name, user && user.email, verificationUrl);
             setTimeout(() => emailVerificationToast(), 500);
           }}
-          className="my-8 w-64 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
+          className="my-8 w-72 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
         >
-          Verify Email
+          Resend Verification Email
         </button>
+
+        <div className="flex items-center mt-8">
+          <p className="mr-2">Already verified?</p>
+          <button
+            onClick={() => {
+              router.reload("/");
+            }}
+            className="w-36 h-12 bg-ad-purple shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide text-sm focus:outline-none"
+          >
+            Post A Free Ad
+          </button>
+        </div>
       </div>
     </div>
   );

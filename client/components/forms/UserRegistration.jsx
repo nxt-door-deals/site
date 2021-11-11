@@ -139,7 +139,9 @@ const UserRegistration = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="flex justify-center items-center h-full pt-32 bg-gradient-to-b from-blue-50 to-white">
-        <div className="ml-8 mr-8 mb-16 lg:w-1/3">
+        <div
+          className={`ml-8 mr-8 mb-16 ${showForm ? "lg:w-1/3" : "lg:w-2/3"}`}
+        >
           {showForm ? (
             <motion.div
               key="form"

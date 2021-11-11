@@ -145,6 +145,10 @@ const UserAccount = (props) => {
   };
 
   useEffect(() => {
+    setparentDiv("invisible");
+  }, []);
+
+  useEffect(() => {
     if (emailSentCount >= 3) {
       emailBlockToast();
     } else if (emailSentCount > 0 && emailSentCount < 3) {

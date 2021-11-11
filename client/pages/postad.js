@@ -52,6 +52,10 @@ const PostAd = (props) => {
   if (user && !user.email_verified) {
     return (
       <PostAdHeadLayout>
+        <Navbar
+          navStyle={navStylePurple}
+          chatNotification={props.chatNotification}
+        />
         <LetsVerifyYourEmail message="post an ad" />;
       </PostAdHeadLayout>
     );
