@@ -32,7 +32,8 @@ const ActiveChat = (props) => {
   const { chatHistory, getChatHistory, markChatsAsRead } = siteContext;
 
   const authContext = useContext(AuthContext);
-  const { verifyTokenStatus, authError, logout } = authContext;
+  const { verifyTokenStatus, authError, logout, notifySellerAboutChatMessage } =
+    authContext;
 
   const router = useRouter();
 
@@ -104,6 +105,18 @@ const ActiveChat = (props) => {
 
   const handleSendMessage = () => {
     sendMessage(newMessage);
+    if (messageHistory.length === 0) {
+      notifySellerAboutChatMessage(
+        props.sellerId,
+        props.sellerName,
+        props.sellerEmail,
+        props.buyerId,
+        props.buyerName,
+        props.adId,
+        props.ad.title
+      );
+    }
+
     setNewMessage("");
   };
 

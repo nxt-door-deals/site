@@ -429,6 +429,41 @@ const AuthState = (props) => {
     }
   };
 
+  const notifySellerAboutChatMessage = async (
+    sellerId,
+    sellerName,
+    sellerEmail,
+    buyerId,
+    buyerName,
+    adId,
+    adName
+  ) => {
+    const jsonPayload = {
+      seller_id: sellerId,
+      seller_name: sellerName,
+      seller_email: sellerEmail,
+      buyer_id: buyerId,
+      buyer_name: buyerName,
+      ad_id: adId,
+      ad_name: adName,
+    };
+
+    console.log(jsonPayload);
+
+    try {
+      const res = axios.post(
+        `${keys.API_PROXY}/email/chat_notification`,
+        jsonPayload
+      );
+      dispatch({ type: EMAIL_VERIFICATION_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: EMAIL_VERIFICATION_FAIL,
+        payload: err.response.data.detail,
+      });
+    }
+  };
+
   // Complete the user's email verification process
   const verifyEmail = async (token) => {
     const utcTime = new Date().toJSON();
@@ -662,6 +697,7 @@ const AuthState = (props) => {
         sendEmail,
         sendReportAdEmail,
         sendOtpByEmail,
+        notifySellerAboutChatMessage,
         verifyEmail,
         validateEmail,
         updateEmailVerificationTimestamp,

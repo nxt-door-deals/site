@@ -113,6 +113,10 @@ const Chat = (props) => {
   if (user && !user.email_verified) {
     return (
       <ChatHeadLayout>
+        <Navbar
+          navStyle={navStylePurple}
+          chatNotification={props.chatNotification}
+        />
         <LetsVerifyYourEmail message="start a conversation" />
       </ChatHeadLayout>
     );
@@ -188,14 +192,17 @@ const Chat = (props) => {
             <div className="w-full">
               {user && altUser && props.chatId && (
                 <ActiveChat
-                  adId={props.adId && props.adId}
-                  sellerId={props.slrId && props.slrId}
-                  buyerId={props.byrId && props.byrId}
-                  chatId={props.chatId && props.chatId}
+                  adId={props.adId}
+                  sellerId={props.sellerId}
+                  buyerId={props.buyerId}
+                  chatId={props.chatId}
                   senderId={user.id}
                   altUser={altUser}
                   ad={props.ad}
                   background={randomBackground}
+                  sellerName={props.sellerName}
+                  sellerEmail={props.sellerEmail}
+                  buyerName={props.buyerName}
                 />
               )}
             </div>
@@ -308,6 +315,9 @@ export const getServerSideProps = async (context) => {
       buyerId: !ids.includes("") ? ids[2] : null,
       chatId: !ids.includes("") ? res.data : null,
       ad: !ids.includes("") ? ad.data : null,
+      sellerName: user1.data.name,
+      sellerEmail: user1.data.email,
+      buyerName: user2.data.name,
     },
   };
 };

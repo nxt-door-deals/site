@@ -1,12 +1,27 @@
 import React, { useEffect, useContext } from "react";
+import { motion } from "framer-motion";
 import AuthContext from "../../../context/auth/authContext";
 import { useRouter } from "next/router";
 import keys from "../../../utils/keys";
 import { toast } from "react-toastify";
 
+const variants = {
+  hoverPurple: {
+    backgroundColor: "#5B21B6",
+  },
+  hoverViolet: {
+    backgroundColor: "#550052",
+  },
+  tap: {
+    y: "2px",
+  },
+};
+
 const LetsVerifyYourEmail = (props) => {
   const authContext = useContext(AuthContext);
   const router = useRouter();
+
+  const pathname = router.pathname;
 
   const { user, sendEmail, emailSent } = authContext;
 
@@ -44,7 +59,10 @@ const LetsVerifyYourEmail = (props) => {
           alt={"Verify Email"}
         /> */}
 
-        <button
+        <motion.button
+          variants={variants}
+          whileHover="hoverPurple"
+          whileTap="tap"
           onClick={() => {
             sendEmail(user && user.name, user && user.email, verificationUrl);
             setTimeout(() => emailVerificationToast(), 500);
@@ -52,18 +70,27 @@ const LetsVerifyYourEmail = (props) => {
           className="my-8 w-72 h-12 bg-purple-700 shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide focus:outline-none"
         >
           Resend Verification Email
-        </button>
+        </motion.button>
 
         <div className="flex items-center mt-8">
           <p className="mr-2">Already verified?</p>
-          <button
+          <motion.button
+            variants={variants}
+            whileHover="hoverViolet"
+            whileTap="tap"
             onClick={() => {
               router.reload("/");
             }}
-            className="w-36 h-12 bg-ad-purple shadow-buttonShadowPurple text-white font-bold rounded-xl uppercase tracking-wide text-sm focus:outline-none"
+            className={`${
+              pathname === "/postad" ? "w-36" : "w-40"
+            } h-12 bg-ad-purple shadow-adcardshadow text-white font-bold rounded-xl uppercase tracking-wide text-sm focus:outline-none`}
           >
-            Post A Free Ad
-          </button>
+            {pathname === "/postad"
+              ? "Post A Free Ad"
+              : pathname.includes("/chat")
+              ? "Continue Chat"
+              : null}
+          </motion.button>
         </div>
       </div>
     </div>
