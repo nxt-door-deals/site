@@ -59,7 +59,7 @@ const Chat = (props) => {
   }
 
   useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+    window.scroll({ top: 1, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {

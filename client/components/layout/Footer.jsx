@@ -382,7 +382,7 @@ const Footer = (props) => {
           </div>
         </div>
 
-        <div className="flex justify-center items-center lg:pt-8 pb-2 text-sm tracking-wide">
+        <div className="flex justify-center items-center lg:pt-8 pb-2 tracking-wide">
           Made with{" "}
           <span className="pl-1 pr-1">
             <FontAwesomeIcon
@@ -392,7 +392,7 @@ const Footer = (props) => {
           </span>{" "}
           in Bangalore for
           <span className="pl-1.5 align-middle pt-1.75">
-            <Image src={flag} alt="Indian flag" width={16} height={16} />
+            <Image src={flag} alt="Indian flag" width={20} height={20} />
           </span>
         </div>
 

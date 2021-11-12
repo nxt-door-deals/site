@@ -59,8 +59,8 @@ const PostAd = (props) => {
         <LetsVerifyYourEmail message="post an ad" />;
       </PostAdHeadLayout>
     );
-  } else if (user && user.ad_count === keys.AD_QUOTA) {
-    setTimeout(() => router.push("/account/ads"), 5000);
+  } else if (user && user.ad_count >= keys.AD_QUOTA) {
+    setTimeout(() => router.push("/account/ads"), 7000);
     return (
       <PostAdHeadLayout>
         <AdQuotaReached />;
