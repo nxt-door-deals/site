@@ -20,7 +20,7 @@ const Home = (props) => {
     if (!localStorage.getItem("ndd__user__preferences")) {
       localStorage.setItem(
         "ndd__user__preferences",
-        JSON.stringify({ showBanner: "true" })
+        JSON.stringify({ showBanner: true })
       );
     }
   }

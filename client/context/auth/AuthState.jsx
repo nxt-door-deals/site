@@ -448,8 +448,6 @@ const AuthState = (props) => {
       ad_name: adName,
     };
 
-    console.log(jsonPayload);
-
     try {
       const res = axios.post(
         `${keys.API_PROXY}/email/chat_notification`,

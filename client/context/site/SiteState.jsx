@@ -377,7 +377,6 @@ const SiteState = (props) => {
         )
         .then(() => dispatch({ type: UPDATE_AD_SUCCESS }));
     } catch (err) {
-      console.log(err);
       dispatch({ type: UPDATE_AD_FAILURE, payload: err.response.data.detail });
     }
   };

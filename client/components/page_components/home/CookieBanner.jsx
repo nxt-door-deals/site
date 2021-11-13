@@ -33,17 +33,22 @@ const buttonVariants = {
 };
 
 const CookieBanner = (props) => {
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState(
+    typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("ndd__user__preferences"))["showBanner"]
+  );
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      JSON.parse(localStorage.getItem("ndd__user__preferences"))["showBanner"];
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     setShowBanner(
+  //       JSON.parse(localStorage.getItem("ndd__user__preferences"))["showBanner"]
+  //     );
+  //   }
+  // }, []);
 
-  return (
-    <AnimatePresence exitBeforeEnter>
-      {showBanner && (
+  if (showBanner) {
+    return (
+      <AnimatePresence exitBeforeEnter>
         <motion.div
           variants={bannerVariants}
           initial="initial"
@@ -78,7 +83,7 @@ const CookieBanner = (props) => {
                 setShowBanner(false);
                 localStorage.setItem(
                   "ndd__user__preferences",
-                  JSON.stringify({ showBanner: "false" })
+                  JSON.stringify({ showBanner: false })
                 );
               }}
             >
@@ -86,9 +91,9 @@ const CookieBanner = (props) => {
             </motion.button>
           </div>
         </motion.div>
-      )}
-    </AnimatePresence>
-  );
+      </AnimatePresence>
+    );
+  } else return null;
 };
 
 export default CookieBanner;

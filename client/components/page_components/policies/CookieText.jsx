@@ -21,7 +21,7 @@ const CookieText = () => {
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />
           <span className="font-semibold">nddToken</span>: this is a unique
           token stored in the browser's local storage to determine who has
-          logged in. Normal retention period - 15 days
+          logged in. Token is valid for 15 days.
         </li>
         <li className="pb-2">
           <FontAwesomeIcon icon={faCookie} className="text-brand-purple mr-2" />
@@ -35,6 +35,22 @@ const CookieText = () => {
           />
           <span className="font-semibold">__adCookie</span>: used to report ads.
           Normal retention period - session
+        </li>
+        <li className="pb-2">
+          <FontAwesomeIcon
+            icon={faCookie}
+            className="text-brand-purple mr-2 "
+          />
+          <span className="font-semibold">ndd__user__preferences</span>: used to
+          save user choices and preferences
+        </li>
+        <li className="pb-2">
+          <FontAwesomeIcon
+            icon={faCookie}
+            className="text-brand-purple mr-2 "
+          />
+          <span className="font-semibold">nddUser</span>: store generic data
+          about the logged in user
         </li>
       </ul>
     </div>
