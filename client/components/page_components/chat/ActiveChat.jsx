@@ -32,8 +32,14 @@ const ActiveChat = (props) => {
   const { chatHistory, getChatHistory, markChatsAsRead } = siteContext;
 
   const authContext = useContext(AuthContext);
-  const { verifyTokenStatus, authError, logout, notifySellerAboutChatMessage } =
-    authContext;
+  const {
+    verifyTokenStatus,
+    authError,
+    logout,
+    notifySellerAboutChatMessage,
+    user,
+    smsSellerAboutChatMessage,
+  } = authContext;
 
   const router = useRouter();
 
@@ -115,13 +121,25 @@ const ActiveChat = (props) => {
         props.adId,
         props.ad.title
       );
+
+      if (user && user.mobile) {
+        smsSellerAboutChatMessage(
+          props.sellerId,
+          props.sellerName,
+          props.buyerId,
+          props.buyerName,
+          props.adId,
+          props.ad.title,
+          user.mobile
+        );
+      }
     }
 
     setNewMessage("");
   };
 
   return (
-    <div className="border-2 border-purple-300 rounded-tl-2xl rounded-tr-2xl bg-gradient-to-br from-purple-100 via-pink-50 to-purple-200">
+    <div className="border-2 border-purple-300 rounded-tl-2xl rounded-tr-2xl bg-gradient-to-br from-purple-100 via-pink-50 to-purple-200 shadow-xl">
       <div className="flex justify-between">
         <div className="m-2 p-3 flex items-center">
           <p>
@@ -183,7 +201,7 @@ const ActiveChat = (props) => {
       <div
         id="chat-window"
         ref={chatRef}
-        className={`relative h-96 p-6 overflow-auto overscroll-y-auto ${props.background}`}
+        className={`relative h-96 p-6 overflow-auto overscroll-y-auto bg-gradient-to-br from-white to-pink-50`}
       >
         {/* Display historical messages */}
         <div>
