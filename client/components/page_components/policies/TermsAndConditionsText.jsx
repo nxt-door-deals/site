@@ -145,13 +145,23 @@ const TermsAndConditionsText = () => {
 
       <div className="mb-10">
         <h2 className="component-sub-heading">Your Account</h2>
-        <p>
+        <p className="pb-5">
           You are responsible for any use of{" "}
           <span className="brand-text">nxtdoordeals.com</span> under your
           password and login details. We have no responsibility for such use. If
           you become aware of any unauthorized use of your password or login
           details please contact us immediately at{" "}
-          <span className="font-semibold">contact@nxtdoordeals.com</span>
+          <span className="font-semibold">contact@nxtdoordeals.com</span>.
+        </p>
+        <p>
+          Your registered email address will be the default channel for{" "}
+          <span className="brand-text">nxtdoordeals.com</span> to send you
+          notifications. These include password reset tokens, notifications
+          related to your ads or any other required communication. By providing
+          your mobile number, you are consenting to receive certain
+          notifications via SMS. You may opt out from receiving SMS
+          notifications by deleting your mobile number in your user account
+          page.
         </p>
       </div>
 

@@ -7,6 +7,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
+import Modal from "react-modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,6 +28,7 @@ import VerifyEmail from "../page_components/user_registration/VerifyEmail";
 import Alert from "../page_components/common/Alert";
 import Terms from "../page_components/common/Terms";
 import BouncingBalls from "../loaders/BouncingBalls";
+import MobileInfo from "../page_components/user_registration/MobileInfo";
 
 const userRegistrationValidationSchema = Yup.object({
   name: Yup.string()
@@ -84,6 +86,7 @@ const UserRegistration = () => {
   const [hideResults, setHideResults] = useState(null);
   const [showForm, setShowForm] = useState(true);
   const selectedApartment = useRef(null);
+  const [mobileModal, setMobileModal] = useState(false);
   const [enableFormSubmission, setEnableFormSubmission] = useState(false);
   const router = useRouter();
 
@@ -298,7 +301,7 @@ const UserRegistration = () => {
                         className={`"flex items-center justify-center border-2 rounded-xl  " ${
                           props.touched.mobile && props.errors.mobile
                             ? "mb-1 error-border shadow-none"
-                            : "mb-8 border-gray-300 focus-within:border-text-blue"
+                            : "mb-1 border-gray-300 focus-within:border-text-blue"
                         }`}
                       >
                         <FontAwesomeIcon
@@ -325,6 +328,24 @@ const UserRegistration = () => {
                           }
                           className="textbox-input w-10/12 placeholder-gray-600 "
                         />
+                      </div>
+
+                      {/* Note about the mobile number */}
+                      <div
+                        className={`mb-6 ml-1 ${
+                          props.touched.mobile && props.errors.mobile && "mb-1"
+                        }`}
+                      >
+                        <Link href="#">
+                          <a
+                            className="text-blue-800 pb-1 text-xs cursor-pointer max-w-max focus-within:outline-none"
+                            onClick={() => setMobileModal(true)}
+                          >
+                            <span className="styled-link pb-1">
+                              Why do we ask for your mobile number?
+                            </span>
+                          </a>
+                        </Link>
                       </div>
 
                       {/* Validation errors */}
@@ -635,6 +656,28 @@ const UserRegistration = () => {
                   </div>
                 )}
               </Formik>
+
+              <Modal
+                style={{
+                  overlay: {
+                    zIndex: 99999,
+                    opacity: 1,
+                  },
+                }}
+                isOpen={mobileModal}
+                shouldFocusAfterRender={true}
+                shouldCloseOnEsc={true}
+                shouldCloseOnOverlayClick={false}
+                onRequestClose={() => setMobileModal(false)}
+                className="flex justify-center items-center h-screen px-10"
+              >
+                <div>
+                  <MobileInfo
+                    mobileModal={mobileModal}
+                    setMobileModal={setMobileModal}
+                  />
+                </div>
+              </Modal>
             </motion.div>
           ) : (
             <motion.div

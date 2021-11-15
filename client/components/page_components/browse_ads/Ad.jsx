@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
+import { saleFireworks } from "../../../utils/siteImages";
 
 // Component imports
 import EditAd from "../../forms/EditAd";
@@ -222,7 +223,7 @@ const Ad = (props) => {
         >
           <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
             <Image
-              src={"/images/fpa/sale-fireworks.gif"}
+              src={saleFireworks}
               alt="Fireworks"
               height={175}
               width={175}

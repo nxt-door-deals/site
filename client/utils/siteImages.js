@@ -134,3 +134,6 @@ export const alreadyLoggedIn =
 
 export const neighbourhoodWelcome =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/create-apartment/neighbourhood-welcome.svg";
+
+export const saleFireworks =
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/fpa/sale-fireworks.gif";

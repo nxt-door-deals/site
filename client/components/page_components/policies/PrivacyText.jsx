@@ -13,8 +13,14 @@ const PrivacyText = () => {
           operate the marketplace. Your email remains invisible to other
           registered users or site visitors at all times. Your apartment/house
           number is visible on your ad only if you consent to display it.
-          Providing your mobile number is optional. We collect it for features
-          we plan to roll out in future.
+        </p>
+        <p className="pt-2">
+          Providing your mobile number is optional. If provided, we will use it
+          to send password reset tokens and notifications to sellers related to
+          their ad's. <span className="brand-text">nxtdoordeals.com</span> will
+          never use your mobile number for any marketing campaigns. As an
+          additional security measure, your mobile number is always encrypted in
+          our database.
         </p>
       </div>
 
