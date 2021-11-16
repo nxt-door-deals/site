@@ -215,7 +215,7 @@ const UserRegistration = () => {
                       >
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="inline fill-current text-gray-400 text-lg  ml-4"
+                          className="inline fill-current text-gray-400 text-lg ml-4"
                         />
                         <Field
                           id="name"
