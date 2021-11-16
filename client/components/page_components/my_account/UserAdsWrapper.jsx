@@ -65,7 +65,7 @@ const UserAdsWrapper = (props) => {
   if (!loading && userAds && userAds.length === 0) {
     return (
       <div className="py-16 lg:py-20 px-8">
-        <p className="text-brand-gray text-lg leading-8 lg:text-center">
+        <p className="text-brand-gray text-lg leading-8 md:text-center">
           Hmm... No ads? Remember, you have{" "}
           <span className="font-semibold border-b-4 border-ad-purple pb-1">
             five

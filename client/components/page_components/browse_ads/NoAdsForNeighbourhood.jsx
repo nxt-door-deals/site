@@ -9,7 +9,7 @@ const NoAdsForNeighbourhood = () => {
   const { user } = authContext;
 
   return (
-    <div className="px-8 lg:text-center">
+    <div className="px-8 md:text-center">
       <div className="text-center">
         <Image src={noAdsPosted} alt="Empty cart" height={250} width={250} />
       </div>
