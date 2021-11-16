@@ -10,7 +10,7 @@ import smoothscroll from "smoothscroll-polyfill";
 import EventSource from "eventsource";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
-// import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 // Component imports

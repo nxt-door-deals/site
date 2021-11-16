@@ -179,7 +179,7 @@ const UserAccount = (props) => {
 
   return (
     <div className="flex justify-center items-center mb-20">
-      <div className="mt-12 rounded-3xl shadow-userAccountShadow bg-white py-6 px-1 lg:px-4 text-brand-gray">
+      <div className="mt-12 rounded-3xl shadow-userAccountShadow bg-white py-6 px-1 md:px-6 lg:px-4 text-brand-gray">
         <Formik
           initialValues={{
             name: currentUser.name,
@@ -234,7 +234,7 @@ const UserAccount = (props) => {
                     <div
                       className={`${
                         profileUpdate
-                          ? "border-2 rounded-xl border-gray-300 "
+                          ? "border-2 rounded-xl border-gray-300 mx-2 lg:mx-0 "
                           : "border-b-2 border-gray-100 "
                       } " flex items-center justify-center " ${
                         props.touched.name && props.errors.name
@@ -293,7 +293,7 @@ const UserAccount = (props) => {
                     <div
                       className={`${
                         profileUpdate
-                          ? "border-2 rounded-xl border-gray-300 "
+                          ? "border-2 rounded-xl border-gray-300 mx-2 lg:mx-0 "
                           : "border-b-2  border-gray-100 "
                       } " flex items-center justify-center  " ${
                         props.touched.mobile && props.errors.mobile
@@ -350,7 +350,7 @@ const UserAccount = (props) => {
                     <div
                       className={`${
                         profileUpdate
-                          ? "border-2 rounded-xl border-gray-300 "
+                          ? "border-2 rounded-xl border-gray-300 mx-2 lg:mx-0 "
                           : "border-b-2 border-gray-100 "
                       } " flex items-center justify-center  " ${
                         props.touched.neighbourhood &&
@@ -490,7 +490,7 @@ const UserAccount = (props) => {
                     <div
                       className={`${
                         profileUpdate
-                          ? "border-2 rounded-xl border-gray-300 "
+                          ? "border-2 rounded-xl border-gray-300 mx-2 lg:mx-0 "
                           : "border-b-2 border-gray-100 "
                       } " flex items-center justify-center mt-6  " ${
                         props.touched.apartmentNumber &&

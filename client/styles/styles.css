@@ -92,7 +92,7 @@ html::-webkit-scrollbar-track {
 
   /* Input style */
   .textbox-input {
-    @apply text-sm align-middle pt-3 pr-5 pb-2 pl-2 leading-8 outline-none caret-ad-purple;
+    @apply text-sm align-middle pt-2 pr-5 pb-2 pl-2 leading-8 outline-none caret-ad-purple;
   }
 
   /* Component headings */

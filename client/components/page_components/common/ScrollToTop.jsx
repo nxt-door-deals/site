@@ -26,13 +26,13 @@ const ScrollToTop = (props) => {
     return (
       <div className="fixed right-4 bottom-2 z-50">
         <div
-          className={`h-10 w-10 text-center tracking-wide cursor-pointer focus:outline-none rounded-full text-white bg-brand-gray shadow-scrollToTopShadow p-2 uppercase text-sm`}
+          className={`h-9 w-9 text-center tracking-wide cursor-pointer focus:outline-none rounded-full text-white bg-brand-gray shadow-scrollToTopShadow p-2 uppercase text-sm`}
           onClick={() => {
             window.scroll({ top: 0, left: 0, behavior: "smooth" });
           }}
           aria-label="Scroll to top of the page"
         >
-          <FontAwesomeIcon icon={faChevronUp} className="text-2xl" />
+          <FontAwesomeIcon icon={faChevronUp} size="lg" />
         </div>
       </div>
     );
