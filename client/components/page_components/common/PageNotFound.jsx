@@ -60,7 +60,13 @@ const PageNotFound = () => {
           viewBox="0 0 600 350"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-labelledby="notFoundTitle notFoundDesc"
         >
+          <title id="notFoundTitle">Page not found</title>
+          <desc id="notFoundDesc">
+            This page is displayed when a site visitor enters the url for a page
+            that does not exist on nxtdoordeals.com
+          </desc>
           <g id="404">
             <g id="cart">
               <path

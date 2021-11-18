@@ -31,33 +31,33 @@ const HomeHeadLayout = (props) => {
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                dateCreated: "18-11-2021",
-                url: "https://nxtdoordeals.com",
-                description:
+                "dateCreated": "22-03-2021",
+                "url": "https://nxtdoordeals.com",
+                "description":
                   "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
-                genre: "Website for an online marketplace",
-                keywords:
-                  "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand",
+                "genre": "Website for an online marketplace",
+                "keywords":
+                  "marketplace, apartment, post free ad, neighbourhood, buy, sell, preloved, giveaway, second hand"
               },
               {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
-                datePublished: "18-11-2021",
-                dateModified: "18-11-2021",
-                url: "https://nxtdoordeals.com/",
-                description:
+                "datePublished": "22-03-2021",
+                "dateModified": "22-03-2021",
+                "url": "https://nxtdoordeals.com/",
+                "description":
                   "Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
-                name: "Welcome To Your Apartment's Marketplace",
-                inLanguage: "en",
-                isPartOf: "https://nxtdoordeals.com",
-                potentialAction: {
+                "name": "Welcome To Your Apartment's Marketplace",
+                "inLanguage": "en",
+                "isPartOf": "https://nxtdoordeals.com",
+                "potentialAction": {
                   "@type": "ReadAction",
-                  target: {
+                  "target": {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://nxtdoordeals.com",
-                  },
-                },
-              },
+                    "urlTemplate": "https://nxtdoordeals.com"
+                  }
+                }
+              }
             ]`,
           }}
         />
