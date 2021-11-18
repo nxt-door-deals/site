@@ -34,7 +34,7 @@ const FrequentlyAskedQuestions = (props) => {
 
       {/* Seller */}
       {props.type.toLowerCase() === "seller" && (
-        <div id="faq-container">
+        <div id="faq-container" itemScope itemType="https://schema.org/FAQPage">
           {sellerFaqs.map((faq, index) => {
             return (
               <div
@@ -44,19 +44,30 @@ const FrequentlyAskedQuestions = (props) => {
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"
                 }`}
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
               >
                 <h2
                   className="font-bold my-2"
                   dangerouslySetInnerHTML={{ __html: faq.question }}
+                  itemProp="name"
                 ></h2>
-                <p
-                  className={`text-sm mt-5 font-medium ${
-                    faqIndex === index ? "block" : "hidden"
-                  }`}
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                <div
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
                 >
-                  {/* {faq.answer} */}
-                </p>
+                  <p
+                    className={`text-sm mt-5 font-medium ${
+                      faqIndex === index ? "block" : "hidden"
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    itemProp="text"
+                  >
+                    {/* {faq.answer} */}
+                  </p>
+                </div>
 
                 <div
                   className={`flex justify-center items-center absolute right-2 top-3 ${
@@ -85,7 +96,7 @@ const FrequentlyAskedQuestions = (props) => {
 
       {/* Buyer */}
       {props.type.toLowerCase() === "buyer" && (
-        <div id="faq-container">
+        <div id="faq-container" itemScope itemType="https://schema.org/FAQPage">
           {buyerFaqs.map((faq, index) => {
             return (
               <div
@@ -95,18 +106,28 @@ const FrequentlyAskedQuestions = (props) => {
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"
                 }`}
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
               >
                 <h2
                   className="font-bold my-2"
                   dangerouslySetInnerHTML={{ __html: faq.question }}
+                  itemProp="name"
                 ></h2>
-                <p
-                  className={`text-sm mt-5 font-medium ${
-                    faqIndex === index ? "block" : "hidden"
-                  }`}
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}
-                ></p>
-
+                <div
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
+                >
+                  <p
+                    className={`text-sm mt-5 font-medium ${
+                      faqIndex === index ? "block" : "hidden"
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    itemProp="text"
+                  ></p>
+                </div>
                 <div
                   className={`flex justify-center items-center absolute right-2 top-6 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
@@ -134,7 +155,7 @@ const FrequentlyAskedQuestions = (props) => {
 
       {/* Generic */}
       {props.type.toLowerCase() === "generic" && (
-        <div id="faq-container">
+        <div id="faq-container" itemScope itemType="https://schema.org/FAQPage">
           {genericFaqs.map((faq, index) => {
             return (
               <div
@@ -144,18 +165,28 @@ const FrequentlyAskedQuestions = (props) => {
                     ? "bg-faq-background bg-cover bg-no-repeat"
                     : "bg-gray-50"
                 }`}
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
               >
                 <h2
                   className="font-bold my-2"
                   dangerouslySetInnerHTML={{ __html: faq.question }}
+                  itemProp="name"
                 ></h2>
-                <p
-                  className={`text-sm mt-5 font-medium ${
-                    faqIndex === index ? "block" : "hidden"
-                  }`}
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}
-                ></p>
-
+                <div
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
+                >
+                  <p
+                    className={`text-sm mt-5 font-medium ${
+                      faqIndex === index ? "block" : "hidden"
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    itemProp="text"
+                  ></p>
+                </div>
                 <div
                   className={`flex justify-center items-center absolute right-2 top-6 ${
                     faqIndex === index ? "bg-red-200 p-1" : null
