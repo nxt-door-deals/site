@@ -78,7 +78,9 @@ const Footer = (props) => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
+          aria-labelledby="svg-description"
         >
+          <title id="svg-description">Wave image for the footer</title>
           <path
             d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
             className="shape-fill"
@@ -111,7 +113,7 @@ const Footer = (props) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 pt-16">
           <div className="flex items-center flex-col text-sm tracking-wide">
-            <h2 className="pb-5 text-xl">nxtdoordeals.com</h2>
+            <h3 className="pb-5 text-xl">nxtdoordeals.com</h3>
 
             <ul className="grid grid-cols-2 gap-1">
               <li className="pb-3 px-2">
@@ -216,7 +218,7 @@ const Footer = (props) => {
           </div>
 
           <div className="pt-16 lg:pt-0 flex items-center flex-col tracking-wide">
-            <h2 className="pb-5 text-xl">COVID 19</h2>
+            <h4 className="pb-5 text-xl">COVID 19</h4>
             <Link href="/covid">
               <a aria-label="Link to the COVID 19 guidelines page text-lg">
                 <FontAwesomeIcon icon={faShieldVirus} className="mr-1" />
@@ -226,9 +228,9 @@ const Footer = (props) => {
           </div>
 
           <div className="py-16 lg:pt-0">
-            <h2 className="text-center text-xl pb-5 tracking-wide">
+            <h4 className="text-center text-xl pb-5 tracking-wide">
               Feeling Social?
-            </h2>
+            </h4>
             {/* Social icons */}
             <div className="flex justify-center text-3xl">
               <Link
@@ -330,7 +332,7 @@ const Footer = (props) => {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-xl pb-5 tracking-wide">Get Started Today!</h2>
+            <h4 className="text-xl pb-5 tracking-wide">Get Started Today!</h4>
             <div className="flex flex-col items-start justify-center pb-16 tracking-wide">
               <Link href="/#header">
                 <a

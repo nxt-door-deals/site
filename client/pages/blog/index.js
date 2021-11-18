@@ -28,10 +28,10 @@ const Blog = (props) => {
       <div className="h-full w-full">
         <div id="article" className="text-center pt-32 px-10 pb-20">
           <h1 className="component-heading">{greeting}! Welcome to our blog</h1>
-          <p>
+          <h2>
             A compendium of articles ranging from preloved's and pets to kids
             and all things DIY!
-          </p>
+          </h2>
 
           <BlogPreviewCard blogs={props.blogs} />
         </div>
