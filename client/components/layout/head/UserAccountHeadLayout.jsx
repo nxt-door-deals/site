@@ -46,7 +46,7 @@ const UserAccountHeadLayout = (props) => {
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "dateCreated": "22-03-2021",
+                "dateCreated": "18-11-2021",
                 "url": "https://nxtdoordeals.com",
                 "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 "genre": "Website for an online marketplace",
@@ -55,8 +55,8 @@ const UserAccountHeadLayout = (props) => {
               {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
-                "datePublished": "22-03-2021",
-                "dateModified": "22-03-2021",
+                "datePublished": "18-11-2021",
+                "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/account",
                 "description": "Make changes to your NXT Door Deals account and manage your ads and chats",
                 "name": "My Account | Manage User Profile, Ads and Chats",

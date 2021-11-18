@@ -31,7 +31,7 @@ const PostAdHeadLayout = (props) => {
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "dateCreated": "22-03-2021",
+                "dateCreated": "18-11-2021",
                 "url": "https://nxtdoordeals.com",
                 "description": "Your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!",
                 "genre": "Website for an online marketplace",
@@ -40,8 +40,8 @@ const PostAdHeadLayout = (props) => {
               {
                 "@context": "https://schema.org",
                 "@type": "WebPage",
-                "datePublished": "22-03-2021",
-                "dateModified": "22-03-2021",
+                "datePublished": "18-11-2021",
+                "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/postad",
                 "description": "Post an ad for free. Choose from a wide range of categories and start selling today",
                 "name": "Post a Free Ad | Start Selling your Preloved's Today",
