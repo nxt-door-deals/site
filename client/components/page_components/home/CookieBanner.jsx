@@ -59,7 +59,7 @@ const CookieBanner = (props) => {
         >
           <div className="py-5 px-5 lg-px-0 text-sm lg:text-base">
             <p className="font-semibold pb-1">
-              &#127850; About cookies on this site &#127850;
+              🍪 About cookies on this site 🍪
             </p>
             <p className="font-extralight">
               This site uses cookies to provide you the best possible
