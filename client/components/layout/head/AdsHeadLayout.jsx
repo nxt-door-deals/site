@@ -10,7 +10,7 @@ const AdsHeadLayout = (props) => {
         <title>Browse Ads | See what's on sale or available for free</title>
         <meta
           name="description"
-          content="Browse ads from across registered apartments. Choose from items that are on sale or for giving away"
+          content="Browse ads and buy second hand/preloved items on sale from across registered apartments. Choose from items that are on sale or for giving away."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const AdsHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Browse ads from across registered apartments. Choose from items that are on sale or for giving away"
+          content="Browse ads and buy second hand/preloved items on sale from across registered apartments. Choose from items that are on sale or for giving away."
         />
         <meta
           property="og:url"
@@ -46,7 +46,7 @@ const AdsHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/ads/${props.adId}",
-                "description": "Browse ads from across registered apartments. Choose from items that are on sale or for giving away",
+                "description": "Browse ads and buy second hand/preloved items on sale from across registered apartments. Choose from items that are on sale or for giving away.",
                 "name": "Browse Ads | See what's on sale or available for free",
                 "inLanguage": "en",
                 "isPartOf": {

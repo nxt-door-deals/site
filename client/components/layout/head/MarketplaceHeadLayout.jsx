@@ -22,7 +22,7 @@ const MarketplaceHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Browse ads from your or other registered neighbourhoods to find out what's for sale or giveaway."
+          content="Browse ads from your or other registered apartments to find second hand/preloved items for sale or giveaway."
         />
         <meta
           property="og:url"
