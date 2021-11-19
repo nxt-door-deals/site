@@ -10,7 +10,7 @@ const UserLoginHeadLayout = (props) => {
         <title>Login | Log in to your nxtdoordeals.com account</title>
         <meta
           name="description"
-          content="Log in to your nxtdoordeals.com account to post an ad, manage your account or chat with potential sellers"
+          content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const UserLoginHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Log in to your nxtdoordeals.com account to post an ad, manage your account or chat with potential sellers"
+          content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/login" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -43,7 +43,7 @@ const UserLoginHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/login",
-                "description": "Log in to your nxtdoordeals.com account to post an ad, manage your account or chat with potential sellers",
+                "description": "Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats.",
                 "name": "Login | Log in to your nxtdoordeals.com account",
                 "inLanguage": "en",
                 "isPartOf": {

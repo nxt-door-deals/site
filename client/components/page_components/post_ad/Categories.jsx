@@ -68,7 +68,6 @@ const Category = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="font-axiforma"
         >
           <PostAdHeader heading={heading} step={step} userName={userName} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-20 lg:gap-12 px-12 mb-20">

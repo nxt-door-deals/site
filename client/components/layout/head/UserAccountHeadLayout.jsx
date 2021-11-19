@@ -18,14 +18,14 @@ const UserAccountHeadLayout = (props) => {
       <CommonHeadLayout />
       <Head>
         {props.user ? (
-          <title>{pluralizeName()} Account</title>
+          <title>{pluralizeName()} nxtdoordeals.com Dashboard</title>
         ) : (
           <title>My Account</title>
         )}
 
         <meta
           name="description"
-          content="Make changes to your NXT Door Deals account and manage your ads and chats"
+          content="Manage your nxtdoordeals.com user dashboard. Update your user profile and edit or delete your ads and chats."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -35,7 +35,7 @@ const UserAccountHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Make changes to your NXT Door Deals account and manage your ads and chats"
+          content="Manage your nxtdoordeals.com user dashboard. Update your user profile and edit or delete your ads and chats."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/account" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -58,7 +58,7 @@ const UserAccountHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/account",
-                "description": "Make changes to your NXT Door Deals account and manage your ads and chats",
+                "description": "Manage your nxtdoordeals.com user dashboard. Update your user profile and edit or delete your ads and chats.",
                 "name": "My Account | Manage User Profile, Ads and Chats",
                 "inLanguage": "en",
                 "isPartOf": {

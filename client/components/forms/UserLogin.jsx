@@ -162,7 +162,7 @@ const UserLogin = (props) => {
         >
           {(props) => (
             <div>
-              <h2 className="component-heading">Welcome Back!</h2>
+              <h1 className="component-heading">Welcome Back!</h1>
               <Alert authError={authError} alertTheme={alertTheme} />
               <Form>
                 <div

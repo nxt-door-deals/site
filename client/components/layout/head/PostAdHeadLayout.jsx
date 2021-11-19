@@ -10,7 +10,7 @@ const PostAdHeadLayout = (props) => {
         <title>Post a Free Ad | Start selling or giving away today</title>
         <meta
           name="description"
-          content="Post an ad for free. Choose from a wide range of categories and start selling today"
+          content="Post free ad. Choose from a wide range of categories and start selling today. Post up to five free ads at any given time."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const PostAdHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Post free ad. Choose from a wide range of categories and start selling today"
+          content="Post free ad. Choose from a wide range of categories and start selling today. Post up to five free ads at any given time."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/postad" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -43,7 +43,7 @@ const PostAdHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/postad",
-                "description": "Post an ad for free. Choose from a wide range of categories and start selling today",
+                "description": "Post free ad. Choose from a wide range of categories and start selling today. Post up to five free ads at any given time.",
                 "name": "Post a Free Ad | Start Selling your Preloved's Today",
                 "inLanguage": "en",
                 "isPartOf": {

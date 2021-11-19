@@ -10,7 +10,7 @@ const UserLoginHeadLayout = (props) => {
         <title>Signup | Create your free nxtdoordeals.com account</title>
         <meta
           name="description"
-          content="Create your nxtdoordeals.com account and start posting ads for free today"
+          content="Create your nxtdoordeals.com account to start posting ads for free today. Give your preloved's a new home and do your part to save the environment."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const UserLoginHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Create your nxtdoordeals.com account and start posting ads for free today"
+          content="Create your nxtdoordeals.com account to start posting ads for free today. Give your preloved's a new home and do your part to save the environment."
         />
         <meta
           property="og:url"
@@ -47,7 +47,7 @@ const UserLoginHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/registeruser",
-                "description": "Create your nxtdoordeals.com account and start posting ads for free today",
+                "description": "Create your nxtdoordeals.com account to start posting ads for free today. Give your preloved's a new home and do your part to save the environment.",
                 "name": "Signup | Create Your nxtdoordeals.com Account",
                 "inLanguage": "en",
                 "isPartOf": {

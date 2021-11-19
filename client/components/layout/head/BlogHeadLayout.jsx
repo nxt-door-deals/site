@@ -10,7 +10,7 @@ const BlogHeadLayout = (props) => {
         <title>Preloved and More! | The nxtdoordeals.com Blog</title>
         <meta
           name="description"
-          content="The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more"
+          content="The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more. The collection contains a buffet of posts from the nxtdoordeals.com team and a host of guest bloggers."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const BlogHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more"
+          content="The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more. The collection contains a buffet of posts from the nxtdoordeals.com team and a host of guest bloggers."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/blog" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -43,7 +43,7 @@ const BlogHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/blog",
-                "description": "The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more",
+                "description": "The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more. The collection contains a buffet of posts from the nxtdoordeals.com team and a host of guest bloggers.",
                 "name": "Preloved and More! | The nxtdoordeals.com Blog",
                 "inLanguage": "en",
                 "isPartOf": {

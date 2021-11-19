@@ -10,7 +10,7 @@ const OurStoryHeadLayout = (props) => {
         <title>Our Story | The inspiration behind nxtdoordeals.com</title>
         <meta
           name="description"
-          content="Read about the inspiration behind nxtdoordeals.com"
+          content="Learn about the inspiration behind nxtdoordeals.com. We shed light on what led us to create an online marketplace. We also discuss the specific problems we aim to solve with the website and our aims and objectives."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@ const OurStoryHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Read about the inspiration behind nxtdoordeals.com"
+          content="Learn about the inspiration behind nxtdoordeals.com. We shed light on what led us to create an online marketplace. We also discuss the specific problems we aim to solve with the website and our aims and objectives."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/ourstory" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -43,7 +43,7 @@ const OurStoryHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/ourstory",
-                "description": "Read about the inspiration behind nxtdoordeals.com.",
+                "description": "Learn about the inspiration behind nxtdoordeals.com. We shed light on what led us to create an online marketplace. We also discuss the specific problems we aim to solve with the website and our aims and objectives.",
                 "name": "Our Story | The Inspiration behind nxtdoordeals.com",
                 "inLanguage": "en",
                 "isPartOf": {

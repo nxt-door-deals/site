@@ -7,17 +7,17 @@ const CovidGuidelinesHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>COVID 19 Guidelines</title>
+        <title>Our COVID 19 Guidelines | Stay Safe!</title>
         <meta
           name="description"
-          content="Read our COVID 19 guidelines and tips"
+          content="Read our COVID 19 guidelines and tips. Your safety is paramount. Even with a chunk of the population already vaccinated, this is not the time to let your guard down. Follow these simple buying and selling tips and stay safe."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="COVID 19 Guidelines" />
         <meta
           property="og:description"
-          content="Read our COVID 19 guidelines and tips"
+          content="Read our COVID 19 guidelines and tips. Your safety is paramount. Even with a chunk of the population already vaccinated, this is not the time to let your guard down. Follow these simple buying and selling tips and stay safe."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
@@ -40,7 +40,7 @@ const CovidGuidelinesHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/covid",
-                "description": "Read our COVID 19 guidelines and tips",
+                "description": "Read our COVID 19 guidelines and tips. Your safety is paramount. Even with a chunk of the population already vaccinated, this is not the time to let your guard down. Follow these simple buying and selling tips and stay safe.",
                 "name": "COVID 19 Guidelines",
                 "inLanguage": "en",
                 "isPartOf": {

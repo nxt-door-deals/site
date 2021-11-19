@@ -27,7 +27,7 @@ const PostAdHeader = (props) => {
           />
         </motion.div>
         {props.step === "Category" && (
-          <p className="inline">
+          <h2 className="inline">
             Hey,{" "}
             {props.userName !== null ? (
               <span className="font-bold">{props.userName}</span>
@@ -40,7 +40,7 @@ const PostAdHeader = (props) => {
               className="text-brand-purple text-xs"
             />
             ) to know under what category your item falls.
-          </p>
+          </h2>
         )}
         {props.step === "Form" && (
           <p className="inline">

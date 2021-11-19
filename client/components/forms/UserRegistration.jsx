@@ -198,7 +198,7 @@ const UserRegistration = () => {
               >
                 {(props) => (
                   <div>
-                    <h2 className="component-heading">Let's begin!</h2>
+                    <h1 className="component-heading">Let's begin!</h1>
                     <Alert
                       authError={authError}
                       fetchError={fetchError}

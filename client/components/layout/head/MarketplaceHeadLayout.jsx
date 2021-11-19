@@ -8,12 +8,11 @@ const MarketplaceHeadLayout = (props) => {
       <CommonHeadLayout />
       <Head>
         <title>
-          {props.aptName || "Browse Ads"} | See what's on sale or available for
-          free
+          {props.aptName || "Browse Ads"} | Your Personal Marketplace
         </title>
         <meta
           name="description"
-          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
+          content="Browse ads from your or other registered neighbourhoods to find out what's for sale or giveaway."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -23,7 +22,7 @@ const MarketplaceHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away"
+          content="Browse ads from your or other registered neighbourhoods to find out what's for sale or giveaway."
         />
         <meta
           property="og:url"
@@ -49,7 +48,7 @@ const MarketplaceHeadLayout = (props) => {
                 "datePublished": "18-11-2021",
                 "dateModified": "18-11-2021",
                 "url": "https://nxtdoordeals.com/neighbourhood/ads/${props.aptId}",
-                "description": "Browse ads from across registered neighbourhoods. Choose from items that are on sale or for giving away",
+                "description": "Browse ads from your or other registered neighbourhoods to find out what's for sale or giveaway.",
                 "name": "Browse Ads | See what's on sale or available for free",
                 "inLanguage": "en",
                 "isPartOf": {
