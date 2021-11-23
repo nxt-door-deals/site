@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { navStylePurple, footerGradientClassPurple } from "../utils/styles";
 import Script from "next/script";
@@ -11,19 +12,27 @@ import Landing from "../components/page_components/home/Landing";
 import HowItWorks from "../components/page_components/home/HowItWorks";
 import Footer from "../components/layout/Footer";
 import CookieBanner from "../components/page_components/home/CookieBanner";
+import { AnimatePresence } from "framer-motion";
 
 const Home = (props) => {
+  const [showBanner, setShowBanner] = useState();
   const router = useRouter();
   const pathname = router.pathname;
 
-  if (typeof window !== "undefined") {
-    if (!localStorage.getItem("ndd__user__preferences")) {
-      localStorage.setItem(
-        "ndd__user__preferences",
-        JSON.stringify({ showBanner: true })
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (!localStorage.getItem("ndd__user__preferences")) {
+        localStorage.setItem(
+          "ndd__user__preferences",
+          JSON.stringify({ showBanner: true })
+        );
+      }
+
+      setShowBanner(
+        JSON.parse(localStorage.getItem("ndd__user__preferences"))["showBanner"]
       );
     }
-  }
+  }, []);
 
   props.pathHistory.current = null;
 
@@ -48,7 +57,11 @@ const Home = (props) => {
         </section>
       </main>
 
-      <CookieBanner />
+      <AnimatePresence exitBeforeEnter>
+        {showBanner && (
+          <CookieBanner showBanner={showBanner} setShowBanner={setShowBanner} />
+        )}
+      </AnimatePresence>
 
       <section id="footer">
         <Footer
