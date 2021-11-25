@@ -28,6 +28,7 @@
     "eventsource": "^1.1.0",
     "formik": "^2.2.5",
     "framer-motion": "^2.9.4",
+    "lodash.debounce": "^4.0.8",
     "next": "^11.1.2",
     "object-path": "^0.11.5",
     "react": "^17.0.2",

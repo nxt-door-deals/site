@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect, useRef, useMemo } from "react";
 import { useRouter } from "next/router";
 import SiteContext from "../../context/site/siteContext";
 import AuthContext from "../../context/auth/authContext";
@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import Modal from "react-modal";
+import debounce from "lodash.debounce";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -134,6 +135,15 @@ const UserRegistration = () => {
       e.preventDefault();
     }
   };
+
+  const debouncedApartmentSearch = useMemo(
+    () => debounce(searchApartment, 300),
+    []
+  );
+
+  useEffect(() => {
+    debouncedApartmentSearch.cancel();
+  }, []);
 
   const setPasswordDisplay = () => {
     setDisplayPassword(!displayPassword);
@@ -432,7 +442,7 @@ const UserRegistration = () => {
                           maxLength="100"
                           autoComplete="off"
                           autoFocus=""
-                          onKeyUp={searchApartment}
+                          onKeyUp={debouncedApartmentSearch}
                           aria-required="true"
                           aria-invalid={
                             props.touched.apartment && props.errors.apartment

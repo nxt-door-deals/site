@@ -1,4 +1,4 @@
-import { useContext, useState, useRef, Fragment } from "react";
+import { useContext, useState, useRef, useMemo, useEffect } from "react";
 import SiteContext from "../../context/site/siteContext";
 import { Formik, Field, Form } from "formik";
 import { useRouter } from "next/router";
@@ -13,6 +13,7 @@ import {
   faExclamationTriangle,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import debounce from "lodash.debounce";
 
 // Component imports
 import BouncingBalls from "../loaders/BouncingBalls";
@@ -63,6 +64,15 @@ const ApartmentSearch = () => {
       e.preventDefault();
     }
   };
+
+  const debouncedApartmentSearch = useMemo(
+    () => debounce(searchApartment, 300),
+    []
+  );
+
+  useEffect(() => {
+    debouncedApartmentSearch.cancel();
+  }, []);
 
   return (
     <div>
@@ -120,7 +130,7 @@ const ApartmentSearch = () => {
                     : null
                 }
                 className="textbox-input w-10/12 md:w-11/12 placeholder-gray-600 rounded-xl"
-                onKeyUp={searchApartment}
+                onKeyUp={debouncedApartmentSearch}
               />
               <FontAwesomeIcon
                 icon={faTimes}

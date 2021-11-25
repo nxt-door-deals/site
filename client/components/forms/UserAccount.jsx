@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, { useState, useContext, useRef, useEffect, useMemo } from "react";
 import AuthContext from "../../context/auth/authContext";
 import SiteContext from "../../context/site/siteContext";
 import { useRouter } from "next/router";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import * as Yup from "yup";
 import keys from "../../utils/keys";
 import { toast } from "react-toastify";
+import debounce from "lodash.debounce";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -137,6 +138,15 @@ const UserAccount = (props) => {
       e.preventDefault();
     }
   };
+
+  const debouncedApartmentSearch = useMemo(
+    () => debounce(searchApartment, 300),
+    []
+  );
+
+  useEffect(() => {
+    debouncedApartmentSearch.cancel();
+  }, []);
 
   const checkDeactivateValue = (e) => {
     if (e.target.value === "delete") {
@@ -382,7 +392,7 @@ const UserAccount = (props) => {
                         disabled={!profileUpdate}
                         placeholder="Neighbourhood*"
                         value={props.values.neighbourhood}
-                        onKeyUp={searchApartment}
+                        onKeyUp={debouncedApartmentSearch}
                         aria-required="true"
                         aria-invalid={
                           props.touched.neighbourhood &&
