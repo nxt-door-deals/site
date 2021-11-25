@@ -140,7 +140,7 @@ const Navbar = (props) => {
           transition={{
             duration: 1,
             delay: 1.2,
-            type: "tween",
+            type: "spring",
           }}
         >
           <Link href="/">
@@ -164,7 +164,7 @@ const Navbar = (props) => {
             <FontAwesomeIcon
               icon={faStream}
               className={
-                "cursor-pointer text-brand-gray text-lg mt-4 " +
+                "cursor-pointer text-brand-gray text-xl mt-4 " +
                 props.navStyle.faIconTextColor
               }
               alt="Open Menu"

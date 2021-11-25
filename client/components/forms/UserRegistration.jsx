@@ -45,7 +45,7 @@ const userRegistrationValidationSchema = Yup.object({
     .required("Please enter your password")
     .min(8, "Your password should have at least 8 characters")
     .trim(),
-  mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
+  mobile: Yup.string().matches(/^\d{10}$/, "Must be a valid mobile number"),
   apartment: Yup.string().required("Please select your apartment/property"),
   apartmentNumber: Yup.string()
     .required("Please enter your apartment number")
@@ -330,10 +330,21 @@ const UserRegistration = () => {
                         />
                       </div>
 
+                      {/* Validation errors */}
+                      {props.touched.mobile && props.errors.mobile ? (
+                        <div
+                          className="text-xs error-text p-1 mb-1"
+                          id="mobile-error"
+                        >
+                          <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
+                          {props.errors.mobile}
+                        </div>
+                      ) : null}
+
                       {/* Note about the mobile number */}
                       <div
                         className={`mb-6 ml-1 ${
-                          props.touched.mobile && props.errors.mobile && "mb-1"
+                          props.touched.mobile && props.errors.mobile && "mb-5"
                         }`}
                       >
                         <Link href="#">
@@ -347,17 +358,6 @@ const UserRegistration = () => {
                           </a>
                         </Link>
                       </div>
-
-                      {/* Validation errors */}
-                      {props.touched.mobile && props.errors.mobile ? (
-                        <div
-                          className="font-axiforma text-xs error-text p-1 mb-2"
-                          id="mobile-error"
-                        >
-                          <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
-                          {props.errors.mobile}
-                        </div>
-                      ) : null}
 
                       {/* Password Field */}
                       <div

@@ -22,7 +22,7 @@ const Landing = (props) => {
           <div className="mt-5 lg:hidden text-purple-700">
             <Link href="/#how-it-works">
               <a
-                className="uppercase font-semibold underline text-sm hover:no-underline styled-link"
+                className="uppercase font-semibold text-sm pb-1 styled-link"
                 onClick={() => {
                   props.hiwRef.current.scrollIntoView({ behavior: "smooth" });
                 }}
@@ -44,7 +44,7 @@ const Landing = (props) => {
             src={landing}
             alt="Landing page illustration"
             width={900}
-            height={720}
+            height={750}
             blurDataURL={`${landing}?tr=bl-6`}
             placeholder="blur"
             layout="responsive"

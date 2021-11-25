@@ -73,13 +73,9 @@ const VerifyEmail = ({ user }) => {
     if (emailSentCount >= 3) {
       emailBlockToast();
     } else if (emailSentCount > 0 && emailSentCount < 3) {
-      updateEmailVerificationTimestamp(currentUser.id);
-      sendEmail(
-        currentUser && currentUser.name,
-        currentUser && currentUser.email,
-        verificationUrl
-      );
-      emailVerificationToast();
+      updateEmailVerificationTimestamp(user.id);
+      sendEmail(user && user.name, user && user.email, verificationUrl);
+      emailSentToast();
     }
   }, [emailSentCount]);
 

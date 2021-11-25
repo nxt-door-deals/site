@@ -224,6 +224,7 @@ const AuthState = (props) => {
       state.user.apartment_id = apartmentId;
       state.user.apartment_number = apartmentNumber;
       state.user.apartment_name = neighbourhood;
+      state.user.initial = res.data.initial;
 
       dispatch({ type: USER_UPDATE_SUCCESS, payload: res.data });
     } catch (err) {

@@ -35,7 +35,10 @@ const userAccountValidationSchema = Yup.object({
     .required("Please enter your name")
     .max(100)
     .trim(),
-  mobile: Yup.string().matches(/^[0-9]+$/, "Must be a number"),
+  mobile: Yup.string().matches(
+    /^(\+91)\d{10}$/,
+    "Must be a valid mobile number with country code (+91xxxxxxxxxx)"
+  ),
   neighbourhood: Yup.string().required("Please select your apartment"),
   apartmentNumber: Yup.string()
     .required("Please enter your apartment number")
@@ -80,6 +83,7 @@ const UserAccount = (props) => {
     updateUserProfile,
     updateEmailVerificationTimestamp,
     deleteUser,
+    loadUser,
   } = authContext;
   const {
     fetchApartments,
@@ -225,6 +229,12 @@ const UserAccount = (props) => {
                 {currentUser && currentUser.email}
               </h2>
 
+              <div className="lg:hidden flex justify-center items-center mb-10">
+                <div className="h-24 w-24 flex items-center justify-center rounded-tr-2xl rounded-bl-2xl rounded-tl-sm rounded-br-sm ring-4 ring-offset-2 text-center bg-purple-500  text-white text-5xl uppercase pt-1">
+                  {currentUser.initial}
+                </div>
+              </div>
+
               {/* The form starts here */}
               <div className="lg:flex lg:justify-center">
                 <div id="form" className="mx-0 lg:mx-10 w-88">
@@ -310,7 +320,7 @@ const UserAccount = (props) => {
                         name="mobile"
                         type="text"
                         maxLength="15"
-                        placeholder="Mobile"
+                        placeholder="Mobile (with country code)"
                         autoComplete="off"
                         disabled={!profileUpdate}
                         onFocus={() =>
@@ -532,7 +542,7 @@ const UserAccount = (props) => {
                     ) : null}
 
                     {/* Buttons */}
-                    <div className="my-10">
+                    <div className="mx-2 lg:mx-0 my-10">
                       {!profileUpdate ? (
                         <motion.button
                           variants={userAccountVariants}
@@ -548,7 +558,7 @@ const UserAccount = (props) => {
                           Edit Profile
                         </motion.button>
                       ) : (
-                        <div className="flex justify-around">
+                        <div className="flex justify-between">
                           <motion.button
                             variants={userAccountVariants}
                             whileHover="saveEditButtonHover"
@@ -586,9 +596,9 @@ const UserAccount = (props) => {
                   id="admin-options"
                   className="lg:border-l-2 border-purple-200 px-6"
                 >
-                  <div className=" hidden lg:flex justify-center items-center mb-10">
-                    <div className="h-24 w-24 rounded-tr-2xl rounded-bl-2xl rounded-tl-sm rounded-br-sm ring-4 ring-offset-2 align-middle text-center relative bg-purple-500  text-white text-5xl uppercase">
-                      <span className="absolute top-7 right-8">{initial}</span>
+                  <div className="hidden lg:flex justify-center items-center mb-10">
+                    <div className="h-24 w-24 flex items-center justify-center rounded-tr-2xl rounded-bl-2xl rounded-tl-sm rounded-br-sm ring-4 ring-offset-2 text-center bg-purple-500  text-white text-5xl uppercase pt-1">
+                      {currentUser.initial}
                     </div>
                   </div>
 

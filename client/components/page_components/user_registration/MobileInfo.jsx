@@ -22,7 +22,7 @@ const MobileInfo = (props) => {
           <span className="text-blue-800 underline font-semibold">
             highly recommend
           </span>{" "}
-          it.
+          it (especially if you plan to post ads).
         </p>
 
         <div className="pb-5">

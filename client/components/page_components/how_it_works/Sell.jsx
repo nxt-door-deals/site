@@ -17,7 +17,8 @@ const Sell = () => {
   return (
     <div>
       <h2 className="py-12 text-center text-2xl xl:text-3xl text-brand-gray xxl:text-sm font-bold">
-        Selling on <span className="text-purple-700">nxtdoordeals.com</span>
+        <span className="border-b-4 pb-1 border-purple-500">Se</span>lling on{" "}
+        <span className="text-purple-700">nxtdoordeals.com</span>
       </h2>
       <div
         id="sell"

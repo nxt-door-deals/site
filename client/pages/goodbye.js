@@ -15,6 +15,10 @@ const Goodbye = () => {
   const { logout } = authContext;
 
   useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("nddToken")) {
         logout();
