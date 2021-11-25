@@ -40,6 +40,17 @@ const variants = {
     backgroundColor: "#5B21B6",
     color: "#FFFFFF",
   },
+  buttonContainerInitial: {
+    opacity: 0,
+    scale: 0,
+  },
+  buttonContainerAnimate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
 };
 
 const ApartmentSearch = () => {
@@ -233,7 +244,12 @@ const ApartmentSearch = () => {
                 </span>
               </div>
             </div>
-            <div className="mt-7 lg:mt-8">
+            <motion.div
+              className="mt-7 lg:mt-8"
+              variants={variants}
+              initial="buttonContainerInitial"
+              animate="buttonContainerAnimate"
+            >
               <motion.button
                 type="submit"
                 className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-700 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
@@ -247,7 +263,7 @@ const ApartmentSearch = () => {
               >
                 {!props.isSubmitting ? "Browse Ads" : <BouncingBalls />}
               </motion.button>
-            </div>
+            </motion.div>
           </Form>
         )}
       </Formik>
