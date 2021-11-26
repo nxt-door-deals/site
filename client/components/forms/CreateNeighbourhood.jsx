@@ -117,9 +117,9 @@ const CreateNeighbourhood = (props) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="pb-20 bg-white -mt-1"
+          className="pb-20 bg-white -mt-1 pt-24"
         >
-          <div className="invisible lg:visible lg:opacity-50 pt-10 lg:pt-20 lg:mx-10 lg:bg-white lg:flex lg:justify-center">
+          <div className="invisible lg:visible lg:mx-10 lg:bg-white lg:flex lg:justify-center lg:opacity-80">
             <img src={skyline} alt="City skyline" />
           </div>
           <div className="rounded-3xl shadow-boxshadowregister text-brand-gray bg-white py-10 px-6 lg:px-8 mx-4 overflow-x-hidden lg:mx-20">

@@ -95,7 +95,7 @@ const NeighbourhoodRegistrationProcedure = () => {
               Anonymity guarantee:
             </span>
             Your registration request will forever remain a secret between you
-            and us 😇. We will not reveal your name as the hero who put their
+            and us 😇. You will always remain that anonymous hero who put their
             apartment on the map (unless you decide to tell your friends over a
             cup of chai ☕)!
           </p>
