@@ -9,7 +9,7 @@ const NoAdsForNeighbourhood = () => {
   const { user } = authContext;
 
   return (
-    <div className="px-8 md:text-center">
+    <div className="px-8 md:text-center md:pb-6">
       <div className="text-center">
         <Image src={noAdsPosted} alt="Empty cart" height={250} width={250} />
       </div>
@@ -22,7 +22,7 @@ const NoAdsForNeighbourhood = () => {
           <span>
             <Link href="/registeruser">
               <a className="text-purple-500">
-                <span className="styled-link">Sign Up</span>
+                <span className="styled-link pb-1">Sign Up</span>
               </a>
             </Link>{" "}
             today, b
