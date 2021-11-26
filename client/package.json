@@ -21,7 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "@sentry/nextjs": "^6.14.1",
-    "axios": "^0.20.0",
+    "axios": "^0.24.0",
     "caniuse-lite": "^1.0.30001258",
     "contentful": "^8.2.1",
     "cross-env": "^7.0.2",
