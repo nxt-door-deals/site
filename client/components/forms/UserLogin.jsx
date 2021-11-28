@@ -325,7 +325,7 @@ const UserLogin = (props) => {
         onRequestClose={() => setModalOpen(false)}
         className="flex justify-center items-center h-screen px-10"
       >
-        <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
+        <div className="bg-white border-2 border-purple-700 p-5 lg:p-10 lg:text-lg text-center tracking-wide rounded-2xl">
           <Image
             src={forgotPassword}
             alt="Reset Password"

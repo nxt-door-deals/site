@@ -413,7 +413,7 @@ const Footer = (props) => {
           onRequestClose={() => setIsModalOpen(false)}
           shouldCloseOnEsc={true}
           shouldFocusAfterRender={true}
-          className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none rounded-md"
+          className="absolute right-0 bottom-0 mb-5 mr-3 ml-3 outline-none"
         >
           {modalType === "contact" ? (
             <Contact

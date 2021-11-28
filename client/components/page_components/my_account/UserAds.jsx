@@ -161,7 +161,7 @@ const UserAds = (props) => {
           onRequestClose={() => setModalOpen(false)}
           className="flex justify-center items-center h-screen px-10"
         >
-          <div className="bg-white border-2 p-5 lg:p-10 lg:text-lg text-center tracking-wide">
+          <div className="bg-white border-2 border-red-400 px-4 py-5 lg:p-10 lg:text-lg text-center tracking-wide rounded-2xl">
             <p className="flex justify-center">
               Deleting an ad will permanently remove it from your marketplace.
               Ok to proceed?
@@ -196,13 +196,16 @@ const UserAds = (props) => {
                 {deleteButtonClicked ? <BouncingBalls /> : "Yes, Continue"}
               </motion.button>
             </div>
-            <div className="mt-5 lg:mt-3 text-center lg:text-right text-sm underline text-purple-700">
+
+            <div className="pt-5 lg:pt-3 text-center lg:text-right text-sm  text-purple-700">
               <Link href="/account">
                 <a
-                  className="hover:no-underline styled-link"
+                  className="hover:no-underline styled-link pb-1"
                   onClick={() => setModalOpen(false)}
                 >
-                  No, I changed my mind.
+                  <span className="border-b-2 border-purple-700">
+                    No, I changed my mind.
+                  </span>
                 </a>
               </Link>
             </div>

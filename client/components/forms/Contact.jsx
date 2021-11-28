@@ -86,7 +86,7 @@ const Contact = (props) => {
         animate="animate"
         transition="transition"
         exit="exit"
-        className="bg-white w-80 lg:w-100 px-5 pt-5 shadow-modalShadow rounded-lg"
+        className="bg-white w-80 lg:w-100 px-5 pt-5 shadow-modalShadow rounded-2xl"
       >
         <div
           className="absolute text-lg top-4 right-5 text-brand-gray cursor-pointer"

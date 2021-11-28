@@ -14,7 +14,7 @@ const Landing = (props) => {
           <h1 className="text-brand-gray text-2xl lg:text-3xl xxl:text-sm font-extrabold">
             Your apartment's marketplace
           </h1>
-          <h2 className="text-base mt-5 text-gray-600 leading-relaxed">
+          <h2 className="text-base mt-3 md:mt-5 text-gray-600 leading-relaxed">
             Buy and sell preloved items within your Apartment, Apartment
             Complex, Gated Community or Co-operative Housing Society.
           </h2>
@@ -65,7 +65,7 @@ const Landing = (props) => {
             layout="responsive"
             priority={true}
             width={500}
-            height={350}
+            height={325}
           />
         </div>
       </div>
