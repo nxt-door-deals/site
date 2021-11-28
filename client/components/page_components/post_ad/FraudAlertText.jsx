@@ -5,10 +5,10 @@ import { faFlag, faTimes, faMask } from "@fortawesome/free-solid-svg-icons";
 
 const FraudAlertText = (props) => {
   return (
-    <div className="text-sm p-10 relative">
+    <div className="text-sm p-8 md:p-10 relative">
       <FontAwesomeIcon
         icon={faTimes}
-        className="close-button-animation absolute top-3 right-6 text-lg cursor-pointer"
+        className="close-button-animation absolute top-3 right-4 text-lg cursor-pointer"
         onClick={() => props.setIsModalOpen(false)}
       />
       <span className="invisible lg:visible absolute text-xs top-8 right-4 text-gray-500">
@@ -63,12 +63,22 @@ const FraudAlertText = (props) => {
           in person.
         </li>
       </ul>
+
+      <p className="mt-5 text-base">
+        <span class="text-brand-purple font-semibold">nxtdoordeals.com</span>{" "}
+        will <span className="underline font-bold">NEVER</span> contact you
+        asking for your password, otp or details of any monetary transactions
+        between buyers and sellers.
+      </p>
+
       <p className="mt-10 text-center text-blue-800">
         <span className="text-brand-gray">
           For more information, please read our
         </span>{" "}
         <Link href="/guidelines/#seller">
-          <a className="styled-link cursor-pointer">seller guidelines</a>
+          <a className="styled-link cursor-pointer">
+            <span className="pb-1">seller guidelines</span>
+          </a>
         </Link>
         .
       </p>

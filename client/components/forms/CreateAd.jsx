@@ -147,11 +147,11 @@ const CreateAd = ({ categoryName, user }) => {
   });
 
   return (
-    <div className="flex flex-col items-center h-full w-full">
+    <div className="flex flex-col mx-2">
       <FraudAlert />
       <PostAdHeader heading={heading} step={step} />
 
-      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-2 lg:px-10 mx-2 mb-20">
+      <div className="rounded-3xl shadow-postadshadow text-brand-gray py-10 px-2 lg:px-10 mb-20">
         <Formik
           initialValues={{
             categoryList: categoryName,
@@ -201,7 +201,7 @@ const CreateAd = ({ categoryName, user }) => {
               <div>
                 {/* The category dropdown */}
                 <div className="flex flex-col items-center mb-10">
-                  <div className="w-64 font-axiforma border-b-2 border-gray-300  focus-within:border-text-purple">
+                  <div className="w-64 border-b-2 border-gray-300  focus-within:border-text-purple">
                     <Select
                       id="categoryList"
                       name="categoryList"
@@ -233,7 +233,7 @@ const CreateAd = ({ categoryName, user }) => {
                     />
                   </div>
                   {props.values.categoryList === "Pets" && (
-                    <p className="text-sm pt-3 text-red-700">
+                    <p className="text-sm pt-3 error-text">
                       <FontAwesomeIcon
                         icon={faBan}
                         className="mr-1 error-text"
@@ -280,7 +280,7 @@ const CreateAd = ({ categoryName, user }) => {
                     {/* Validation errors */}
                     {props.touched.title && props.errors.title ? (
                       <div
-                        className="font-axiforma text-xs error-text p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="title-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -324,7 +324,7 @@ const CreateAd = ({ categoryName, user }) => {
                     {/* Validation errors */}
                     {props.touched.description && props.errors.description ? (
                       <div
-                        className="font-axiforma text-xs error-text p-1 mb-2"
+                        className="text-xs error-text p-1 mb-2"
                         id="description-error"
                       >
                         <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -335,7 +335,7 @@ const CreateAd = ({ categoryName, user }) => {
                     {/* Type of ad and price. y margin is different due to the negotiable checkbox */}
                     <div className="lg:flex lg:justify-between mb-6">
                       <div
-                        className={`"flex-col font-axiforma mr-10 " ${
+                        className={`"flex-col mr-10 " ${
                           props.touched.typeOfSale && props.errors.typeOfSale
                             ? "mb-1"
                             : "my-4"
@@ -405,7 +405,7 @@ const CreateAd = ({ categoryName, user }) => {
                         {/* Validation errors */}
                         {props.touched.typeOfSale && props.errors.typeOfSale ? (
                           <div
-                            className="font-axiforma text-xs error-text p-1 mb-2"
+                            className="text-xs error-text p-1 mb-2"
                             id="typeofsale-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -455,7 +455,7 @@ const CreateAd = ({ categoryName, user }) => {
                         {/* Validation errors */}
                         {props.touched.price && props.errors.price ? (
                           <div
-                            className="font-axiforma text-xs error-text p-1 mb-2"
+                            className="text-xs error-text p-1 mb-2"
                             id="price-error"
                           >
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
@@ -534,14 +534,14 @@ const CreateAd = ({ categoryName, user }) => {
                           />
                         </div>
                         {props.touched.condition && props.errors.condition ? (
-                          <div className="font-axiforma text-xs error-text py-1 mb-2">
+                          <div className="text-xs error-text py-1 mb-2">
                             <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                             {props.errors.condition}
                           </div>
                         ) : null}
                       </div>
 
-                      <div className="font-axiforma lg:pl-6 lg:mt-3">
+                      <div className="lg:pl-6 lg:mt-3 pb-3 lg:pb-0">
                         <label
                           htmlFor="availableFrom"
                           className="text-sm  text-gray-600"
@@ -555,7 +555,7 @@ const CreateAd = ({ categoryName, user }) => {
                           dateFormat="dd/MM/yyyy"
                           selected={startDate}
                           onChange={(date) => setStartDate(date)}
-                          className="w-28 border-b-2 border-gray-300 text-purple-700 text-center font-axiforma text-base cursor-pointer font-semibold focus:outline-none"
+                          className="w-28 border-b-2 border-gray-300 text-purple-700 text-center text-base cursor-pointer font-semibold focus:outline-none"
                           aria-label="Pick the date from when the item will be available"
                           aria-labelledby="date-picker"
                         />
@@ -564,7 +564,7 @@ const CreateAd = ({ categoryName, user }) => {
                   </div>
 
                   {/* Upload photos */}
-                  <div className="flex flex-col items-center lg:pl-10 lg:border-l-2 border-gray-300 font-axiforma">
+                  <div className="flex flex-col items-center border-t-2 lg:border-t-0 pt-4 lg:pt-0 lg:pl-10 lg:border-l-2 border-gray-300">
                     <h1 className="my-4 text-gray-600 text-sm text-center">
                       {newFiles.length === 0
                         ? "Upload up to 10 photos"
@@ -590,16 +590,13 @@ const CreateAd = ({ categoryName, user }) => {
                             <div className="">
                               <div
                                 {...getRootProps()}
-                                className="text-center px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
+                                className="text-center px-36 md:px-40 py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
                               >
                                 <input
                                   {...getInputProps()}
                                   aria-label="Drop zone for images"
                                 />
-                                <FontAwesomeIcon
-                                  icon={faCamera}
-                                  className="text-3xl"
-                                />
+                                <FontAwesomeIcon icon={faCamera} size="2x" />
                               </div>
                             </div>
                           ) : (
@@ -619,7 +616,7 @@ const CreateAd = ({ categoryName, user }) => {
                           </div>
 
                           {isDragReject && (
-                            <div className="font-axiforma text-xs error-text p-1 mb-2">
+                            <div className="text-xs error-text p-1 mb-2">
                               <FontAwesomeIcon icon={faExclamationTriangle} />{" "}
                               Accepted image formats - jpeg, webp and png
                             </div>
@@ -631,7 +628,7 @@ const CreateAd = ({ categoryName, user }) => {
                 </div>
 
                 {/* Publish flat number */}
-                <div className="mt-4 font-axiforma text-center">
+                <div className="mt-4 text-center">
                   <label htmlFor="publishFlatNo" className="text-sm">
                     <Field
                       type="checkbox"
@@ -651,7 +648,7 @@ const CreateAd = ({ categoryName, user }) => {
                     whileHover="hover"
                     whileTap="tap"
                     disabled={props.isSubmitting}
-                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white text-center font-axiforma font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
+                    className={`mt-4 mb-8 w-64 md:w-100 h-12 bg-purple-700 shadow-buttonShadowPurple text-white text-center font-bold rounded-xl uppercase tracking-wide focus:outline-none ${
                       props.isSubmitting && "cursor-not-allowed"
                     }`}
                   >
@@ -660,7 +657,7 @@ const CreateAd = ({ categoryName, user }) => {
                 </div>
 
                 {/* T&C */}
-                <Terms termsLinksStyle={termsLinksStyle} />
+                <Terms termsLinksStyle={termsLinksStyle} termsReason="creating an ad" />
               </div>
             </Form>
           )}

@@ -68,7 +68,7 @@ const ImageUploader = (props) => {
 
         <p className="my-3 text-xs text-center">
           Accepted image formats - <span className="text-purple-700">jpeg</span>
-          <span className="text-purple-700">webp</span> and{" "}
+          , <span className="text-purple-700">webp</span> and{" "}
           <span className="text-purple-700">png</span>.
         </p>
 
@@ -92,7 +92,7 @@ const ImageUploader = (props) => {
                     className="text-center py-8 bg-gray-200 border-dashed border-purple-700 rounded-xl border-2 cursor-pointer focus:outline-none"
                   >
                     <input {...getInputProps()} />
-                    <FontAwesomeIcon icon={faCamera} className="text-3xl" />
+                    <FontAwesomeIcon icon={faCamera} size="2x" />
                   </div>
                 </div>
               ) : (

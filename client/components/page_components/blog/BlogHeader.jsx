@@ -25,7 +25,8 @@ const PostHeader = (props) => {
           <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}
-              className="text-4xl text-brand-purple cursor-pointer"
+              className="text-brand-purple cursor-pointer"
+              size="2x"
             />
           </motion.a>
         </Link>

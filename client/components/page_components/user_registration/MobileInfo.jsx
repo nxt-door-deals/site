@@ -6,7 +6,7 @@ import { faMobileAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 const MobileInfo = (props) => {
   return (
     <div className="flex justify-center ">
-      <div className="relative lg:w-2/3 bg-white p-5 border-2 border-blue-600 rounded-2xl">
+      <div className="relative md:w-2/3 bg-white p-5 border-2 border-blue-600 rounded-2xl">
         <div
           className="absolute text-lg top-2 right-3 text-brand-gray cursor-pointer"
           onClick={() => props.setMobileModal(false)}

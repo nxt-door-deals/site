@@ -498,7 +498,10 @@ const CreateNeighbourhood = (props) => {
                         </motion.button>
                       </div>
 
-                      <Terms termsLinksStyle={termsLinksStyle} />
+                      <Terms
+                        termsLinksStyle={termsLinksStyle}
+                        termsReason="registering an apartment"
+                      />
                     </Form>
                   )}
                 </Formik>

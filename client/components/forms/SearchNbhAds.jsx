@@ -128,7 +128,7 @@ const SearchNbhAds = (props) => {
                       placeholder="Search Ads..."
                       maxLength="250"
                       autoComplete="off"
-                      className="textbox-input w-36 lg:w-64 placeholder-gray-600 "
+                      className="textbox-input w-36 lg:w-64 placeholder-gray-600 pt-3 "
                       aria-label="Enter search text"
                     />
                   </div>

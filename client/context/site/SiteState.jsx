@@ -555,7 +555,7 @@ const SiteState = (props) => {
   };
 
   const sendFeatureRequestEmail = async (message) => {
-    setAuthToken(sendgridKey);
+    setAuthToken("sendgrid");
 
     const jsonPayload = {
       from_email: fromEmail,

@@ -39,6 +39,7 @@ const ActiveChat = (props) => {
     notifySellerAboutChatMessage,
     user,
     smsSellerAboutChatMessage,
+    altUser,
   } = authContext;
 
   const router = useRouter();
@@ -122,7 +123,7 @@ const ActiveChat = (props) => {
         props.ad.title
       );
 
-      if (user && user.mobile) {
+      if (altUser && altUser.mobile) {
         smsSellerAboutChatMessage(
           props.sellerId,
           props.sellerName,
@@ -130,7 +131,7 @@ const ActiveChat = (props) => {
           props.buyerName,
           props.adId,
           props.ad.title,
-          user.mobile
+          altUser.mobile
         );
       }
     }
@@ -146,6 +147,7 @@ const ActiveChat = (props) => {
             <FontAwesomeIcon
               icon={faUserCircle}
               className="rounded-full text-5xl text-ad-purple"
+              size="2x"
             />
           </p>
           <p className="ml-2 font-semibold tracking-wide text-brand-gray">

@@ -110,7 +110,7 @@ const ApartmentSearch = () => {
             }}
           >
             <div
-              className={`"flex justify-around mt-6 border-2 rounded-xl " ${
+              className={`"flex justify-around mt-4 md:mt-6 border-2 rounded-xl " ${
                 props.touched.apartment && props.errors.apartment
                   ? "error-border shadow-none"
                   : "border-purple-900"
@@ -245,7 +245,7 @@ const ApartmentSearch = () => {
               </div>
             </div>
             <motion.div
-              className="mt-7 lg:mt-8"
+              className="mt-5 lg:mt-8"
               variants={variants}
               initial="buttonContainerInitial"
               animate="buttonContainerAnimate"

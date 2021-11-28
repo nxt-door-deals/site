@@ -8,6 +8,7 @@
   --scrollbar-thumb-color: #c4b5fd;
   --scrollbar-track-color: #ede9fe;
   --selection-background: #ddd6fe;
+  --modal-overlay-color: rgba(107, 114, 128, 0.8);
 
   /* Images - will be referenced in the tailwind config*/
   --login-background: url(https://ik.imagekit.io/nxtdoordeals/nddcommon/login/user-login.svg);

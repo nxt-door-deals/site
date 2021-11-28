@@ -9,7 +9,7 @@ const Landing = (props) => {
       <div className="flex flex-wrap items-center justify-center lg:flex-nowrap ">
         <div
           id="text-container"
-          className="container mt-10 xl:mt-0 ml-4 mr-4 pl-4 pr-4 lg:w-1/2"
+          className="container mt-7 lg:mt-10 xl:mt-0 ml-4 mr-4 px-3 md:px-4 lg:w-1/2"
         >
           <h1 className="text-brand-gray text-2xl lg:text-3xl xxl:text-sm font-extrabold">
             Your apartment's marketplace
@@ -19,7 +19,7 @@ const Landing = (props) => {
             Complex, Gated Community or Co-operative Housing Society.
           </h2>
 
-          <div className="mt-5 lg:hidden text-purple-700">
+          <div className="mt-3 lg:hidden text-purple-700">
             <Link href="/#how-it-works">
               <a
                 className="uppercase font-semibold text-sm pb-1 styled-link"

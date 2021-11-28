@@ -51,8 +51,9 @@ const Account = (props) => {
       if (process.browser) {
         router.push("/login");
       }
-
       return <div></div>;
+    } else {
+      props.pathHistory.current = props.pathname;
     }
   }
 

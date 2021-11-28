@@ -153,7 +153,7 @@ const UserRegistration = () => {
     <AnimatePresence exitBeforeEnter>
       <div className="flex justify-center items-center h-full pt-32 bg-gradient-to-b from-blue-50 to-white">
         <div
-          className={`ml-8 mr-8 mb-16 ${showForm ? "lg:w-1/3" : "lg:w-2/3"}`}
+          className={`mx-2 md:mx-8 mb-16 ${showForm ? "lg:w-1/3" : "lg:w-2/3"}`}
         >
           {showForm ? (
             <motion.div
@@ -647,7 +647,10 @@ const UserRegistration = () => {
                     </Form>
 
                     {/* T&C */}
-                    <Terms termsLinksStyle={termsLinksStyle} />
+                    <Terms
+                      termsLinksStyle={termsLinksStyle}
+                      termsReason="registering"
+                    />
 
                     <div className="font-axiforma text-center mt-4">
                       Already have an account?{" "}
@@ -672,6 +675,7 @@ const UserRegistration = () => {
                   overlay: {
                     zIndex: 99999,
                     opacity: 1,
+                    background: "var(--modal-overlay-color)",
                   },
                 }}
                 isOpen={mobileModal}
@@ -680,6 +684,8 @@ const UserRegistration = () => {
                 shouldCloseOnOverlayClick={false}
                 onRequestClose={() => setMobileModal(false)}
                 className="flex justify-center items-center h-screen px-10"
+                scrollable={true}
+                className="h-full py-10 lg:flex overflow-scroll lg:items-center lg:justify-center lg:overflow-hidden lg:pt-0 px-2"
               >
                 <div>
                   <MobileInfo

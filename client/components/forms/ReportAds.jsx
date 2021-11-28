@@ -105,7 +105,8 @@ const ReportAds = (props) => {
           <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}
-              className="text-4xl text-brand-purple focus-within:outline-none cursor-pointer"
+              className="text-brand-purple focus-within:outline-none cursor-pointer"
+              size="2x"
             />
           </motion.a>
         </Link>

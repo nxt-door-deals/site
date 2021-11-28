@@ -13,7 +13,7 @@ const AdQuotaIndicator = (props) => {
         {keys.AD_QUOTA - parseInt(props.userAds.length)}
       </span> */}
       {remainingAds !== 0 && (
-        <p className="font-semibold text-base lg:text-xl">
+        <p className="text-base lg:text-xl">
           <span className="text-ad-purple font-extrabold">
             {props.userAds.length}
           </span>{" "}

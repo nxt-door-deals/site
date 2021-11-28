@@ -117,7 +117,7 @@ const FeatureRequest = (props) => {
               setTimeout(() => {
                 props.setIsModalOpen(false);
                 setSubmitting(false);
-              }, 2500);
+              }, 4000);
             }}
           >
             {(props) => (

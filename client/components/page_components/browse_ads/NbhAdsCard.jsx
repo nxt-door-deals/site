@@ -65,7 +65,7 @@ const NbhAdsCard = (props) => {
           height={150}
           width={150}
         />
-        <p className="text-brand-gray mt-5 text-xl font-semibold">
+        <p className="text-brand-gray mt-5 text-xl">
           We looked everywhere, but found nothing...
         </p>
       </div>

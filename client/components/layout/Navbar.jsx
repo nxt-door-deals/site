@@ -577,7 +577,7 @@ const Navbar = (props) => {
           <Modal
             style={{
               overlay: {
-                background: "rgba(0, 0, 0, 0.8)",
+                background: "var(--modal-overlay-color)",
                 zIndex: 99999,
                 width: "100vw",
                 height: "100vh",
@@ -1339,6 +1339,8 @@ const Navbar = (props) => {
           style={{
             overlay: {
               zIndex: 99999,
+              opacity: 1,
+              background: "var(--modal-overlay-color)",
             },
           }}
           isOpen={isModalOpen}

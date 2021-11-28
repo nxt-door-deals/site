@@ -38,7 +38,7 @@ const Logout = (props) => {
 
   return (
     <LogoutHeadLayout>
-      <div className="h-screen w-screen flex flex-col justify-center items-center text-3xl px-5 lg:text-5xl bg-purple-50 text-brand-purple uppercase font-bold tracking-wider">
+      <div className="h-screen w-screen flex flex-col justify-center items-center text-2xl md:text-3xl px-5 lg:text-5xl bg-purple-50 text-brand-purple uppercase font-bold tracking-wider">
         <ul className="smoke flex">
           <li className="smoke-item">l</li>
           <li className="smoke-item">o</li>
@@ -53,12 +53,7 @@ const Logout = (props) => {
           <li className="smoke-item">t</li>
         </ul>
 
-        <motion.p
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          className="LogoutHeadLayout-message"
-        >
+        <motion.p variants={variants} initial="initial" animate="animate">
           {" "}
           Have a nice day 😊
         </motion.p>

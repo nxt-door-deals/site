@@ -109,7 +109,7 @@ const EditAd = (props) => {
   return (
     <div className="text-brand-gray w-full h-full">
       <div>
-        <div id="form" className="p-1 lg:p-5 w-full">
+        <div id="form" className="p-1 lg:p-5">
           <Formik
             initialValues={{
               title: props.data.title,
@@ -515,8 +515,8 @@ const EditAd = (props) => {
                     className="p-1 lg:p-5 mt-6 lg:mt-0 w-full"
                   >
                     {props.imgArray.length !== 0 ? (
-                      <div>
-                        <div className="flex justify-center items-center mt-2 mb-2">
+                      <div className="border-t-2 lg:border-t-0 pt-4 lg:pt-0">
+                        <div className="flex justify-center items-center mt-2 mb-4">
                           <p className="text-sm pr-1">
                             You can upload{" "}
                             {props.imgArray.length !== 0
@@ -526,7 +526,7 @@ const EditAd = (props) => {
                               : 10}{" "}
                             more photos
                           </p>
-                          <div
+                          {/* <div
                             className="tooltip cursor-pointer"
                             role="tooltip"
                             aria-hidden="true"
@@ -540,7 +540,7 @@ const EditAd = (props) => {
                               Deleting a photo will remove it from your ad
                               permanently. The action cannot be undone.
                             </span>
-                          </div>
+                          </div> */}
                         </div>
                         <div className="grid grid-cols-5 gap-5 mb-4">
                           {props.imgArray.map((image, index) => {

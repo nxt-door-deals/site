@@ -115,7 +115,8 @@ const Ad = (props) => {
           <motion.a variants={linkVariants} whileHover="hover">
             <FontAwesomeIcon
               icon={faChevronCircleLeft}
-              className="text-4xl text-brand-purple cursor-pointer"
+              className="text-brand-purple cursor-pointer"
+              size="2x"
             />
           </motion.a>
         </Link>
@@ -125,7 +126,7 @@ const Ad = (props) => {
         </p>
       </div>
 
-      <div className="shadow-postadshadow rounded-3xl p-10 bg-white">
+      <div className="shadow-postadshadow rounded-3xl px-3 py-10 lg:p-10 overflow-x-hidden bg-white">
         <AnimatePresence exitBeforeEnter>
           {props.showForm ? (
             <motion.div
@@ -181,7 +182,7 @@ const Ad = (props) => {
                 !reportedAd.users.includes(user.id) && (
                   <div className="text-right pt-5 lg:pt-0">
                     <Link href={`/reportad/${props.data.id}`}>
-                      <a className="uppercase styled-link font-semibold text-brand-gray focus-within:outline-none">
+                      <a className="uppercase styled-link pb-1 font-semibold text-brand-gray focus-within:outline-none">
                         Report this ad
                       </a>
                     </Link>
@@ -212,6 +213,7 @@ const Ad = (props) => {
             overlay: {
               zIndex: 99999,
               opacity: 1,
+              background: "var(--modal-overlay-color)",
             },
           }}
           isOpen={modalOpen}

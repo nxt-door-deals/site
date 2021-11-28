@@ -151,6 +151,7 @@ const UserAds = (props) => {
             overlay: {
               zIndex: 99999,
               opacity: 1,
+              background: "var(--modal-overlay-color)",
             },
           }}
           isOpen={modalOpen}
