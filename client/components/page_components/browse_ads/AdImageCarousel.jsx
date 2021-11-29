@@ -114,15 +114,15 @@ const AdImageCarousel = (props) => {
                     image.image_width < 800
                       ? image.image_width
                       : image.image_width > 1900
-                      ? image.image_width / 2.3
-                      : image.image_width / 1.3
+                      ? image.image_width / 2.5
+                      : image.image_width / 1.5
                   }
                   height={
                     image.image_height < 800
                       ? image.image_height
                       : image.image_height > 1900
-                      ? image.image_height / 2.3
-                      : image.image_height / 1.3
+                      ? image.image_height / 2.5
+                      : image.image_height / 1.5
                   }
                 />
               </div>

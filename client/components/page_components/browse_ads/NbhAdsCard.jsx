@@ -80,7 +80,7 @@ const NbhAdsCard = (props) => {
             {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
               <div
                 key={adIndex}
-                className="shadow-md pt-2 lg:px-1 rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0"
+                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0"
                 onClick={() => router.push(`/ads/${ad.id}`)}
               >
                 {ad.images.length > 0 && (
