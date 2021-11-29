@@ -98,7 +98,7 @@ const Ads = (props) => {
   return (
     <MarketplaceHeadLayout aptId={apartmentId} aptName={apartmentName}>
       <div id="header" ref={headerRef}>
-        <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-100 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
+        <div className="bg-ads-mobile-background md:bg-ads-tablet-background lg:bg-ads-background h-88 md:h-128 w-full lg:rounded-none lg:h-100  bg-cover bg-no-repeat text-center">
           <Navbar
             navStyle={navStylePurple}
             chatNotification={props.chatNotification}
