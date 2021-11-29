@@ -46,6 +46,7 @@ const AdImageCarousel = (props) => {
                   alt={`Ad image-${index}`}
                   height={image.image_height}
                   width={image.image_width}
+                  className="rounded-tl-2xl"
                 />
               </div>
             ))}
@@ -110,8 +111,16 @@ const AdImageCarousel = (props) => {
                   alt={`Ad image-${index}`}
                   quality={100}
                   layout="intrinsic"
-                  width={image.image_width}
-                  height={image.image_height}
+                  width={
+                    image.image_width < 600
+                      ? image.image_width
+                      : image.image_width / 1.2
+                  }
+                  height={
+                    image.image_height < 800
+                      ? image.image_height
+                      : image.image_height / 1.3
+                  }
                 />
               </div>
             ))}
