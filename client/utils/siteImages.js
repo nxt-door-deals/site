@@ -1,8 +1,8 @@
 export const landing =
-  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration.png?tr:w-900";
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration.png/tr:w-900";
 
 export const landingMobile =
-  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration-mobile.png?tr:5-500";
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration-mobile.png/tr:w-500";
 
 export const buy1 =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/how-it-works/buy-1.svg";
@@ -50,7 +50,7 @@ export const noAdsFound =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/marketplace/telescope.svg";
 
 export const adsQuotaReached =
-  "https://ik.imagekit.io/nxtdoordeals/nddcommon/post-ad/quota.svg?tr:w-300";
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/post-ad/quota.svg/tr:w-300";
 
 export const babyItems =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/our-story/baby-items.svg";

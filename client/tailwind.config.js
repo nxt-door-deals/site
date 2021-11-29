@@ -132,6 +132,7 @@ module.exports = {
         "faq-main-background": "var(--faq-background)",
         "covid-background": "var(--covid-background)",
         "covid-background-mobile": "var(--covid-background-mobile)",
+        "brush-stroke": "url(/brush-stroke.jpg)",
       }),
       borderRadius: {
         xl: "0.75rem",

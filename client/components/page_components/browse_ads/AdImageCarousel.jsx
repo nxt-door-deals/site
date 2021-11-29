@@ -42,10 +42,10 @@ const AdImageCarousel = (props) => {
             {props.images.map((image, index) => (
               <div key={index} onClick={() => setSelectedImage(index)}>
                 <img
-                  src={image}
+                  src={image.image_path}
                   alt={`Ad image-${index}`}
-                  height={600}
-                  width={650}
+                  height={image.image_height}
+                  width={image.image_width}
                 />
               </div>
             ))}
@@ -83,7 +83,7 @@ const AdImageCarousel = (props) => {
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
         onRequestClose={() => setIsModalOpen(false)}
-        className="flex flex-col justify-center items-center h-full pb-20 bg-gray-500 bg-opacity-50"
+        className="flex flex-col justify-center items-center h-screen bg-gray-500 bg-opacity-50"
       >
         <div className="absolute right-4 top-5 font-bold z-50">
           <FontAwesomeIcon
@@ -93,7 +93,7 @@ const AdImageCarousel = (props) => {
             onClick={() => setIsModalOpen(false)}
           />
         </div>
-        <div className="carousel-container pt-20 lg:pt-32 mx-5 flex justify-center items-center">
+        <div className="carousel-container mx-5 my-2 lg:mx-36 flex justify-center items-center md:overflow-y-scroll bg-gray-700">
           <Carousel
             dynamicHeight
             showStatus={false}
@@ -106,12 +106,12 @@ const AdImageCarousel = (props) => {
             {props.images.map((image, index) => (
               <div className="" key={index}>
                 <Image
-                  src={image}
+                  src={image.image_path}
                   alt={`Ad image-${index}`}
                   quality={100}
                   layout="intrinsic"
-                  width={700}
-                  height={600}
+                  width={image.image_width}
+                  height={image.image_height}
                 />
               </div>
             ))}

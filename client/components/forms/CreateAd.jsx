@@ -147,7 +147,7 @@ const CreateAd = ({ categoryName, user }) => {
   });
 
   return (
-    <div className="flex flex-col mx-2">
+    <div className="flex flex-col mx-2 md:mx-28 lg:mx-44">
       <FraudAlert />
       <PostAdHeader heading={heading} step={step} />
 
@@ -245,7 +245,7 @@ const CreateAd = ({ categoryName, user }) => {
                 </div>
 
                 {/* Rest of the form */}
-                <div className="lg:flex">
+                <div className="lg:flex lg:justify-center">
                   <div className="lg:pr-10 px-2">
                     {/* Title */}
                     <div
@@ -657,7 +657,10 @@ const CreateAd = ({ categoryName, user }) => {
                 </div>
 
                 {/* T&C */}
-                <Terms termsLinksStyle={termsLinksStyle} termsReason="creating an ad" />
+                <Terms
+                  termsLinksStyle={termsLinksStyle}
+                  termsReason="creating an ad"
+                />
               </div>
             </Form>
           )}

@@ -61,6 +61,8 @@ const Ad = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, user, deleteAd, updateNumberSold } = authContext;
 
+  console.log(props.data);
+
   // If the authenticated user is same as the one who posted the ad, we do not show the chat button
   if (isAuthenticated) {
     if (props.data.posted_by_id === (user && user.id)) {

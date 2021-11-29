@@ -544,15 +544,15 @@ const EditAd = (props) => {
                         </div>
                         <div className="grid grid-cols-5 gap-5 mb-4">
                           {props.imgArray.map((image, index) => {
-                            let imagesWithExt = image.split("/");
+                            let imagesWithExt = image.image_path.split("/");
                             let imageFilenameWithExt =
-                              imagesWithExt[imagesWithExt.length - 1];
+                              imagesWithExt[imagesWithExt.length - 2];
                             let imageFilename = imageFilenameWithExt.split(".");
 
                             return (
                               <div key={index}>
                                 <Image
-                                  src={image}
+                                  src={image.image_path}
                                   alt="Image small"
                                   width={75}
                                   height={75}

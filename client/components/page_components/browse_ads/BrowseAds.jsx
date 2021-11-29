@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../../context/auth/authContext";
-
 import { toast } from "react-toastify";
 
 // Component imports
