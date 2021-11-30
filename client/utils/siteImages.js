@@ -137,3 +137,6 @@ export const neighbourhoodWelcome =
 
 export const saleFireworks =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/fpa/sale-fireworks.gif";
+
+export const serverError =
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/common/500.svg";
