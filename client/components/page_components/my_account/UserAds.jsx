@@ -52,14 +52,15 @@ const UserAds = (props) => {
   // }, [props.userAds]);
 
   return (
-    <div className="rounded-3xl border-3 hover:shadow-chatListShadow hover:border-0 bg-white p-4 lg:mb-0 lg:self-start">
-      <div className="mb-2">
+    <div className="rounded-2xl border-3 hover:shadow-chatListShadow hover:border-0 bg-white lg:mb-0 lg:self-start">
+      <div className="mb-2 p-2 flex justify-center">
         {props.ad.images.length > 0 && (
           <Image
-            src={props.ad.images[0]}
+            src={props.ad.images[0].image_path}
             alt={props.ad.title}
-            width={325}
-            height={300}
+            height={props.ad.images[0].image_height}
+            width={props.ad.images[0].image_width}
+            className="rounded-xl"
           />
         )}
         {props.ad.images.length === 0 && (
@@ -72,7 +73,7 @@ const UserAds = (props) => {
         )}
       </div>
 
-      <div className="w-full text-center">
+      <div className="w-full text-center p-2">
         <div>
           <div className="mb-2 text-center">
             <p className="text-base font-semibold">{props.ad.title}</p>

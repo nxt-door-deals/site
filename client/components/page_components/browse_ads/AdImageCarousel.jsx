@@ -40,7 +40,11 @@ const AdImageCarousel = (props) => {
             }}
           >
             {props.images.map((image, index) => (
-              <div key={index} onClick={() => setSelectedImage(index)}>
+              <div
+                className="p-1"
+                key={index}
+                onClick={() => setSelectedImage(index)}
+              >
                 <Image
                   src={image.image_path}
                   alt={`Ad image-${index}`}
