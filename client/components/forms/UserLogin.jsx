@@ -100,7 +100,7 @@ const UserLogin = (props) => {
       if (props.pathProp === "/chat/[id]") {
         let chatCookie = cookie.get("__redirChatCookie");
 
-        if (!chatCookie["_byrId"]) chatCookie["_byrId"] = user.id;
+        if (chatCookie["_byrId"] === "") chatCookie["_byrId"] = user.id;
 
         cookie.set("__redirChatCookie", chatCookie, {
           domain: keys.DOMAIN,

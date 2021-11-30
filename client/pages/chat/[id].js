@@ -131,13 +131,13 @@ const Chat = (props) => {
         />
         <div className="w-full bg-chat-mobile-background lg:bg-chat-background bg-cover bg-no-repeat h-80"></div>
         <div className="pt-10 px-3 pb-20 lg:px-64">
-          <div className="text-center mb-5">
-            <div className="text-purple-500">
+          <div className="text-left md:text-center mb-5">
+            <div className="text-purple-500 px-2">
               <span className="text-brand-gray">Your chat with</span>{" "}
               <span className="font-semibold">{altUser && altUser.name}</span>{" "}
               <span className="text-brand-gray">for the ad,</span>{" "}
               <Link href={`/ads/${props.adId}`}>
-                <a target="_blank" className="styled-link font-semibold">
+                <a target="_blank" className="styled-link pb-1 font-semibold">
                   {props.ad.title}
                 </a>
               </Link>
@@ -188,7 +188,7 @@ const Chat = (props) => {
             </div>
           </div>
 
-          <div className="flex justify-center p-5 lg:p-14 rounded-3xl shadow-chatWindowShadow">
+          <div className="flex justify-center p-1 lg:p-10 rounded-2xl shadow-chatWindowShadow">
             <div className="w-full">
               {user && altUser && props.chatId && (
                 <ActiveChat
@@ -229,6 +229,27 @@ export const getServerSideProps = async (context) => {
     };
   }
 
+  // Check if buyer is legit
+  var user1 = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/user/${ids[1]}`,
+    {
+      headers: {
+        "api-key": `${process.env.PROJECT_API_KEY}`,
+      },
+    }
+  );
+
+  // Check if ad is legit
+  var ad = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${ids[0]}`);
+
+  // No ad? Return 404
+  if (!ad.data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // Run this section only if buyer id is in the url
   if (!ids.includes("")) {
     // If a wiseguy or gal tries to change the url to have the same id's
     if (ids[1] === ids[2]) {
@@ -236,16 +257,6 @@ export const getServerSideProps = async (context) => {
         notFound: true,
       };
     }
-
-    // Check if both buyer and seller are legit users
-    var user1 = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${ids[1]}`,
-      {
-        headers: {
-          "api-key": `${process.env.PROJECT_API_KEY}`,
-        },
-      }
-    );
 
     var user2 = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/${ids[2]}`,
@@ -266,17 +277,6 @@ export const getServerSideProps = async (context) => {
     var res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/chat?ad_id=${ids[0]}&seller_id=${ids[1]}&buyer_id=${ids[2]}`
     );
-
-    var ad = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/ads/${ids[0]}`
-    );
-
-    // No ad? Return 404
-    if (!ad.data) {
-      return {
-        notFound: true,
-      };
-    }
 
     if (!res.data) {
       // If a wiseguy or gal tries to interchange the buyer and seller id's in the url
@@ -314,10 +314,10 @@ export const getServerSideProps = async (context) => {
       sellerId: ids[1],
       buyerId: !ids.includes("") ? ids[2] : null,
       chatId: !ids.includes("") ? res.data : null,
-      ad: !ids.includes("") ? ad.data : null,
+      ad: ad.data,
       sellerName: user1.data.name,
       sellerEmail: user1.data.email,
-      buyerName: user2.data.name,
+      buyerName: !ids.includes("") ? user2.data.name : null,
     },
   };
 };
