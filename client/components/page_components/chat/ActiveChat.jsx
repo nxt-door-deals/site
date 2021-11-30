@@ -272,12 +272,13 @@ const ActiveChat = (props) => {
           }}
         >
           {(props) => (
-            <Form>
+            <Form autoComplete="off">
               <Field
                 name="message"
                 type="text"
                 className="w-full rounded-md mb-2 bg-white overflow-auto p-2 text-sm placeholder-gray-600 focus-within:outline-none"
                 placeholder="Your Message"
+                autoComplete="off"
                 spellCheck={true}
                 value={props.values.message}
                 onKeyUp={handleNewMessageChange}

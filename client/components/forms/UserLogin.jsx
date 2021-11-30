@@ -99,7 +99,8 @@ const UserLogin = (props) => {
       greetingToast(`${greeting}, ${user && user.name}!`);
       if (props.pathProp === "/chat/[id]") {
         let chatCookie = cookie.get("__redirChatCookie");
-        chatCookie["_byrId"] = user.id;
+
+        if (!chatCookie["_byrId"]) chatCookie["_byrId"] = user.id;
 
         cookie.set("__redirChatCookie", chatCookie, {
           domain: keys.DOMAIN,
