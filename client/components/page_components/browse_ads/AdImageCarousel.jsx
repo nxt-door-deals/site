@@ -41,11 +41,14 @@ const AdImageCarousel = (props) => {
           >
             {props.images.map((image, index) => (
               <div key={index} onClick={() => setSelectedImage(index)}>
-                <img
+                <Image
                   src={image.image_path}
                   alt={`Ad image-${index}`}
+                  quality={100}
+                  layout="responsive"
                   height={image.image_height}
                   width={image.image_width}
+                  className="rounded-xl"
                 />
               </div>
             ))}
@@ -93,7 +96,7 @@ const AdImageCarousel = (props) => {
             onClick={() => setIsModalOpen(false)}
           />
         </div>
-        <div className="carousel-container mx-5 my-2 lg:mx-36 flex justify-center items-center md:overflow-y-scroll bg-gray-700">
+        <div className="carousel-container mx-5 my-2 lg:p-2 lg:mx-36 flex justify-center items-center md:overflow-y-scroll bg-gray-700">
           <Carousel
             dynamicHeight
             showStatus={false}
@@ -114,15 +117,15 @@ const AdImageCarousel = (props) => {
                     image.image_width < 800
                       ? image.image_width
                       : image.image_width > 1900
-                      ? image.image_width / 2.5
-                      : image.image_width / 1.5
+                      ? image.image_width / 3
+                      : image.image_width / 1.6
                   }
                   height={
                     image.image_height < 800
                       ? image.image_height
                       : image.image_height > 1900
-                      ? image.image_height / 2.5
-                      : image.image_height / 1.5
+                      ? image.image_height / 3
+                      : image.image_height / 1.6
                   }
                 />
               </div>

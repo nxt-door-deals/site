@@ -92,7 +92,7 @@ const SearchNbhAds = (props) => {
             <Form>
               <div className="flex justify-center items-center">
                 <div className="flex border-gray-300 border-2 rounded-xl focus-within:border-text-purple m-0">
-                  <div className="w-40 lg:w-64 p-0 z-20">
+                  <div className="w-40 lg:w-64 p-0 z-10">
                     <Select
                       id="categoryList"
                       name="categoryList"

@@ -127,17 +127,19 @@ const FullPageAdDetails = (props) => {
           <span className="font-semibold">{props.adData.condition}</span>
         </p>
         {props.adData.ad_type === "sale" && (
-          <p className="bg-purple-200 p-3 text-sm">
+          <p className="bg-purple-200 p-3 text-sm flex items-center">
             Negotiable:{" "}
             {props.adData.negotiable ? (
               <FontAwesomeIcon
                 icon={faCheck}
-                className="text-lg text-green-700"
+                className="text-green-700 ml-1"
+                size="2x"
               />
             ) : (
               <FontAwesomeIcon
                 icon={faTimes}
-                className="close-button-animation text-lg text-red-900 align-middle"
+                className="text-red-900 ml-1"
+                size="2x"
               />
             )}
           </p>

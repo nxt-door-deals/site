@@ -168,17 +168,17 @@ const Chat = (props) => {
                   </div>
                   <div className="py-1">Condition: {props.ad.condition}</div>
                   {props.ad.ad_type === "sale" && (
-                    <div className="py-1">
+                    <div className="py-1 flex items-center">
                       Negotiable:{" "}
                       {props.ad.negotiable ? (
                         <FontAwesomeIcon
                           icon={faCheck}
-                          className="text-lg text-green-700 align-middle"
+                          className="text-lg text-green-700 "
                         />
                       ) : (
                         <FontAwesomeIcon
                           icon={faTimes}
-                          className="close-button-animation text-lg error-text align-middle"
+                          className="text-lg error-text"
                         />
                       )}
                     </div>

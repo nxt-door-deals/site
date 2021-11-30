@@ -80,13 +80,19 @@ const NbhAdsCard = (props) => {
             {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
               <div
                 key={adIndex}
-                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0"
+                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 relative"
                 onClick={() => router.push(`/ads/${ad.id}`)}
               >
+                {ad.date_posted === "today" && (
+                  <span className="absolute top-4 right-4 bg-white z-10 text-xs text-brand-purple p-1 rounded-sm border-2 motion-safe:animate-pulse">
+                    NEW
+                  </span>
+                )}
+
                 {ad.images.length > 0 && (
                   <div
                     key={adIndex}
-                    className="carousel-container flex justify-center mr-0 pb-3"
+                    className="carousel-container flex justify-center mr-0 p-1 pb-3"
                   >
                     {/* <Carousel
                     dynamicHeight
@@ -105,7 +111,7 @@ const NbhAdsCard = (props) => {
                       alt="Preview image"
                       height={ad.images[0].image_height}
                       width={ad.images[0].image_width}
-                      className="rounded-t-2xl"
+                      className="rounded-t-xl"
                     />
                     {/* </div> */}
                     {/* ))} */}
@@ -123,7 +129,7 @@ const NbhAdsCard = (props) => {
                     />
                   </div>
                 )}
-                <hr className="border-purple-300 text-2xl mx-10" />
+
                 <div
                   className="outline-none focus:outline-none cursor-pointer pt-2 "
                   onClick={() => router.push(`/ads/${ad.id}`)}
@@ -140,7 +146,7 @@ const NbhAdsCard = (props) => {
                         <FontAwesomeIcon icon={faRupeeSign} /> {ad.price}
                       </div>
                     ) : (
-                      <div className="animate-pulse fa-layers fa-fw w-10 p-5">
+                      <div className="fa-layers fa-fw w-10 p-5">
                         <FontAwesomeIcon
                           icon={faCertificate}
                           size="3x"
@@ -151,7 +157,13 @@ const NbhAdsCard = (props) => {
                         </span>
                       </div>
                     )}
-                    <div className="text-sm font-semibold border-b-3 border-purple-400">
+                    <div
+                      className={`text-sm font-semibold border-b-3 ${
+                        ad.date_posted === "today"
+                          ? "border-pink-600"
+                          : "border-purple-400"
+                      }`}
+                    >
                       Posted {ad.date_posted}
                     </div>
                   </div>
