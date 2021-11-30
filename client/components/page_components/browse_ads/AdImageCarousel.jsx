@@ -114,18 +114,18 @@ const AdImageCarousel = (props) => {
                   quality={100}
                   layout="intrinsic"
                   width={
-                    image.image_width < 800
-                      ? image.image_width
+                    image.image_width < 900
+                      ? Math.ceil(image.image_width)
                       : image.image_width > 1900
-                      ? image.image_width / 3
-                      : image.image_width / 1.6
+                      ? Math.ceil(image.image_width) / 3
+                      : Math.ceil(image.image_width) / 1.5
                   }
                   height={
-                    image.image_height < 800
-                      ? image.image_height
+                    image.image_height < 900
+                      ? Math.ceil(image.image_height)
                       : image.image_height > 1900
-                      ? image.image_height / 3
-                      : image.image_height / 1.6
+                      ? Math.ceil(image.image_height) / 3
+                      : Math.ceil(image.image_height) / 1.5
                   }
                 />
               </div>
