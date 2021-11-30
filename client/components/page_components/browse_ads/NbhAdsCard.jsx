@@ -76,11 +76,11 @@ const NbhAdsCard = (props) => {
       <div className="mx-5 lg:mx-16">
         {/* The cards grid */}
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
-          <Masonry gutter="25px">
+          <Masonry gutter={25}>
             {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
               <div
                 key={adIndex}
-                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 relative"
+                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 relative mb-7 md:mb-0"
                 onClick={() => router.push(`/ads/${ad.id}`)}
               >
                 {ad.date_posted === "today" && (
