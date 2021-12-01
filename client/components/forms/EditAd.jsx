@@ -152,6 +152,8 @@ const EditAd = (props) => {
                 values.publishFlatNo,
                 files
               );
+
+              props.setShowForm(true);
             }}
           >
             {({

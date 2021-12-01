@@ -61,7 +61,7 @@ const BrowseAds = (props) => {
   return (
     <div className="mt-8 mb-20">
       <SearchNbhAds nbhId={props.nbhId} />
-      <NbhAdsCard nbhId={props.nbhId} />
+      <NbhAdsCard nbhId={props.nbhId} setShowForm={props.setShowForm} />
     </div>
   );
 };

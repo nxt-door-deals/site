@@ -35,6 +35,7 @@ const AdImageCarousel = (props) => {
             showStatus={false}
             showArrows={false}
             selectedItem={0}
+            showThumbs={true}
             onClickItem={() => {
               setIsModalOpen(true);
             }}
@@ -45,11 +46,9 @@ const AdImageCarousel = (props) => {
                 key={index}
                 onClick={() => setSelectedImage(index)}
               >
-                <Image
+                <img
                   src={image.image_path}
                   alt={`Ad image-${index}`}
-                  quality={100}
-                  layout="responsive"
                   height={image.image_height}
                   width={image.image_width}
                   className="rounded-xl"

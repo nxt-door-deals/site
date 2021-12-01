@@ -51,6 +51,15 @@ const UserAds = (props) => {
   //   fetchUserAds(props.currentUser.id);
   // }, [props.userAds]);
 
+  useEffect(() => {
+    if (editButtonClicked) {
+      setTimeout(() => {
+        props.setShowForm(false);
+        router.push(`/ads/${props.ad.id}`);
+      }, 1000);
+    }
+  }, [editButtonClicked]);
+
   return (
     <div className="rounded-2xl border-3 hover:shadow-chatListShadow hover:border-0 bg-white lg:mb-0 lg:self-start">
       <div className="mb-2 p-2 flex justify-center">
@@ -112,8 +121,6 @@ const UserAds = (props) => {
                 className="p-3 rounded-lg bg-purple-700 shadow-buttonShadowPurple focus:outline-none"
                 onClick={() => {
                   setEditButtonClicked(true);
-                  props.setShowForm(false);
-                  router.push(`/ads/${props.ad.id}`);
                 }}
               >
                 {editButtonClicked ? (

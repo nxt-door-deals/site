@@ -29,14 +29,6 @@ const FullPageAd = (props) => {
   navStylePurple["pathname"] = pathname;
 
   useEffect(() => {
-    if (props.pathHistory.current === "/account") {
-      props.setShowForm(false);
-    }
-
-    return (props.pathHistory.current = "");
-  }, []);
-
-  useEffect(() => {
     if (adError && adError === "Session Expired") {
       sessionExpiredToast();
       logout();

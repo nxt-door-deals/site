@@ -136,6 +136,7 @@ const Ads = (props) => {
               nbhId={apartmentId}
               chatNotification={props.chatNotification}
               notificationDisplayed={props.notificationDisplayed}
+              setShowForm={props.setShowForm}
             />
           )}
         </div>

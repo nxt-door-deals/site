@@ -69,9 +69,9 @@ const Ad = (props) => {
     }
   }
 
-  useEffect(() => {
-    props.setShowForm(true);
-  }, []);
+  // useEffect(() => {
+  //   props.setShowForm(true);
+  // }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -190,21 +190,24 @@ const Ad = (props) => {
                 )}
             </motion.div>
           ) : (
-            <motion.div
-              key="form2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mt-2 mb-5">
-                Update Your Ad
-              </h1>
-              <EditAd
-                data={props.data && props.data}
-                imgArray={props.imgArray}
-                setImgArray={props.setImgArray}
-              />
-            </motion.div>
+            props.data.posted_by_id === (user && user.id) && (
+              <motion.div
+                key="form2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h1 className="font-bold text-3xl text-center text-brand-gray tracking-wide mt-2 mb-5">
+                  Update Your Ad
+                </h1>
+                <EditAd
+                  data={props.data && props.data}
+                  imgArray={props.imgArray}
+                  setImgArray={props.setImgArray}
+                  setShowForm={props.setShowForm}
+                />
+              </motion.div>
+            )
           )}
         </AnimatePresence>
 

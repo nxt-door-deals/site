@@ -39,6 +39,8 @@ const UserAdsWrapper = (props) => {
     return () => (mounted = false);
   }, []);
 
+  console.log(props.showForm);
+
   // useEffect(() => {
   //   let mounted = true;
 

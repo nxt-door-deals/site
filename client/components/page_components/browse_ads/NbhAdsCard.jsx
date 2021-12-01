@@ -81,7 +81,10 @@ const NbhAdsCard = (props) => {
               <div
                 key={adIndex}
                 className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 relative mb-7 md:mb-0"
-                onClick={() => router.push(`/ads/${ad.id}`)}
+                onClick={() => {
+                  router.push(`/ads/${ad.id}`);
+                  props.setShowForm(true);
+                }}
               >
                 {ad.date_posted === "today" && (
                   <span className="absolute top-4 right-4 bg-white z-10 text-xs text-brand-purple p-1 rounded-sm border-2 motion-safe:animate-pulse">
@@ -132,7 +135,10 @@ const NbhAdsCard = (props) => {
 
                 <div
                   className="outline-none focus:outline-none cursor-pointer pt-2 "
-                  onClick={() => router.push(`/ads/${ad.id}`)}
+                  onClick={() => {
+                    router.push(`/ads/${ad.id}`);
+                    props.setShowForm(true);
+                  }}
                 >
                   {/* Card title */}
                   <div className="text-left px-4 py-2">
