@@ -61,15 +61,18 @@ const UserAds = (props) => {
   }, [editButtonClicked]);
 
   return (
-    <div className="rounded-2xl border-3 hover:shadow-chatListShadow hover:border-0 bg-white lg:mb-0 lg:self-start">
-      <div className="mb-2 p-2 flex justify-center">
+    <div className="rounded-2xl border-3 hover:shadow-chatListShadow hover:border-0 transition-all duration-75 ease-in-out bg-white lg:mb-0 lg:self-start">
+      <div className="mb-2 flex justify-center relative h-[300px]">
         {props.ad.images.length > 0 && (
           <Image
             src={props.ad.images[0].image_path}
             alt={props.ad.title}
-            height={props.ad.images[0].image_height}
-            width={props.ad.images[0].image_width}
-            className="rounded-xl"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            placeholder="blur"
+            blurDataURL={props.ad.images[0].image_path + "/tr:bl-10"}
+            className="rounded-t-xl"
           />
         )}
         {props.ad.images.length === 0 && (

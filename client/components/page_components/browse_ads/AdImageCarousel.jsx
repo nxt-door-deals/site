@@ -30,32 +30,39 @@ const AdImageCarousel = (props) => {
     <div>
       <div className="carousel-container p-0 w-100 md:w-128 cursor-pointer relative z-0">
         {props.images.length !== 0 ? (
-          <Carousel
-            dynamicHeight
-            showStatus={false}
-            showArrows={false}
-            selectedItem={0}
-            showThumbs={true}
-            onClickItem={() => {
-              setIsModalOpen(true);
-            }}
-          >
-            {props.images.map((image, index) => (
-              <div
-                className="p-1 relative h-[300px]"
-                key={index}
-                onClick={() => setSelectedImage(index)}
-              >
-                <Image
-                  src={image.image_path}
-                  alt={`Ad image-${index}`}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="center"
-                />
-              </div>
-            ))}
-          </Carousel>
+          <div>
+            <Carousel
+              dynamicHeight
+              showStatus={false}
+              showArrows={false}
+              selectedItem={0}
+              showThumbs={false}
+              onClickItem={() => {
+                setIsModalOpen(true);
+              }}
+            >
+              {props.images.map((image, index) => (
+                <div
+                  className="p-1 relative h-[300px]"
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                >
+                  <Image
+                    src={image.image_path}
+                    alt={`Ad image-${index}`}
+                    layout="fill"
+                    placeholder="blur"
+                    blurDataURL={image.image_path + "/tr:bl-10"}
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <p className="text-sm text-center my-5">
+              Click on image to view gallery
+            </p>
+          </div>
         ) : (
           <Carousel
             dynamicHeight

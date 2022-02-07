@@ -217,14 +217,32 @@ const Footer = (props) => {
             </ul>
           </div>
 
-          <div className="pt-16 lg:pt-0 flex items-center flex-col tracking-wide">
-            <h4 className="pb-5 text-xl">COVID 19</h4>
-            <Link href="/covid">
-              <a aria-label="Link to the COVID 19 guidelines page text-lg">
-                <FontAwesomeIcon icon={faShieldVirus} className="mr-1" />
-                <span className="pb-1 styled-link">Safety Guidelines</span>
-              </a>
-            </Link>
+          <div className="grid grid-cols-1 justify-center">
+            <div className="pt-16 lg:pt-0 flex items-center flex-col tracking-wide">
+              <h4 className="pb-5 text-xl">COVID 19</h4>
+              <Link href="/covid">
+                <a aria-label="Link to the COVID 19 guidelines page text-lg">
+                  <FontAwesomeIcon icon={faShieldVirus} className="mr-1" />
+                  <span className="pb-1 styled-link">Safety Guidelines</span>
+                </a>
+              </Link>
+            </div>
+
+            <div className="pt-16 lg:pt-0 flex items-center flex-col tracking-wide">
+              <h4 className="pb-5 text-xl">Other Offerings</h4>
+              <Link href="https://rentorsale.apartments" passHref={true}>
+                <a
+                  aria-label="Link to rentorsale.apartments"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={faBuilding} className="mr-1" />
+                  <span className="pb-1 styled-link">
+                    rentorsale.apartments
+                  </span>
+                </a>
+              </Link>
+            </div>
           </div>
 
           <div className="py-16 lg:pt-0">

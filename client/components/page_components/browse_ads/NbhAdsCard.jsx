@@ -80,7 +80,7 @@ const NbhAdsCard = (props) => {
             {adsDataNbh.slice(0, adLimit).map((ad, adIndex) => (
               <div
                 key={adIndex}
-                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-100 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 relative mb-7 md:mb-0"
+                className="shadow-md rounded-2xl focus-within:outline-none bg-white text-brand-gray  cursor-pointer border-3 border-purple-300 max-h-128 max-w-sm md:max-w-md lg:max-w-lg hover:shadow-adcardshadow hover:border-0 transition-all duration-100 ease-in-out relative mb-7 md:mb-0"
                 onClick={() => {
                   router.push(`/ads/${ad.id}`);
                   props.setShowForm(true);
@@ -115,6 +115,8 @@ const NbhAdsCard = (props) => {
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
+                      placeholder="blur"
+                      blurDataURL={ad.images[0].image_path + "/tr:bl-10"}
                       className="rounded-t-xl"
                     />
                     {/* </div> */}

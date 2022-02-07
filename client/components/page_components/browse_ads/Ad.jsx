@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 import { saleFireworks } from "../../../utils/siteImages";
+import { toast } from "react-toastify";
 
 // Component imports
 import EditAd from "../../forms/EditAd";
@@ -23,6 +24,9 @@ const buttonVariants = {
   deleteButtonHover: {
     backgroundColor: "#991B1B",
   },
+  copyButtonHover: {
+    backgroundColor: "#701A75",
+  },
   editButtonTap: {
     y: "2px",
     backgroundColor: "#6D28D9",
@@ -30,6 +34,10 @@ const buttonVariants = {
   deleteButtonTap: {
     y: "2px",
     backgroundColor: "#EF4444",
+  },
+  copyButtonTap: {
+    y: "2px",
+    backgroundColor: "#902393",
   },
 };
 
@@ -40,6 +48,12 @@ const linkVariants = {
 };
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#__next");
+
+const copyToClipboardToast = () =>
+  toast("Copied", {
+    draggablePercent: 60,
+    position: "top-center",
+  });
 
 const Ad = (props) => {
   var showChatButton = true;
@@ -95,6 +109,12 @@ const Ad = (props) => {
     return () => (mounted = false);
   }, []);
 
+  const handleLinkCopy = () => {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => copyToClipboardToast());
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-start h-full py-32">
@@ -147,6 +167,21 @@ const Ad = (props) => {
                   />
                 </div>
               </div>
+              {!showOtherButtons && (
+                <div className="flex justify-center mt-10">
+                  <motion.button
+                    variants={buttonVariants}
+                    whileHover="copyButtonHover"
+                    whileTap="copyButtonTap"
+                    className="h-12 w-56 font-semibold uppercase mb-7 text-white
+                    bg-ad-purple shadow-adcardshadow lg:mb-0 lg:mr-5 rounded-xl focus:outline-none"
+                    onClick={() => handleLinkCopy()}
+                  >
+                    Copy Ad Link
+                  </motion.button>
+                </div>
+              )}
+
               {/* Buttons for the ad owner */}
               {showOtherButtons && (
                 <div className="pt-10 flex flex-col items-center lg:flex-row lg:justify-center">

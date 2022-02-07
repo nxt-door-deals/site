@@ -32,12 +32,14 @@ const Sell = () => {
               whileHover="hover"
               animate="animate"
               key={index}
-              className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-white"
+              className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-75  ease-in-out bg-white"
             >
               <div className="flex items-center justify-center">
                 <Image
                   src={item.image}
                   alt={item.alt}
+                  placeholder="blur"
+                  blurDataURL={item.image + "/tr:bl-10"}
                   width={250}
                   height={250}
                 />
