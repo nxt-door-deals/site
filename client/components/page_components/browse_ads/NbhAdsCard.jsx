@@ -95,7 +95,7 @@ const NbhAdsCard = (props) => {
                 {ad.images.length > 0 && (
                   <div
                     key={adIndex}
-                    className="carousel-container flex justify-center mr-0 p-1 pb-3"
+                    className="carousel-container relative flex justify-center mr-0 pb-3 h-[250px]"
                   >
                     {/* <Carousel
                     dynamicHeight
@@ -112,8 +112,9 @@ const NbhAdsCard = (props) => {
                     <Image
                       src={ad.images[0].image_path}
                       alt="Preview image"
-                      height={ad.images[0].image_height}
-                      width={ad.images[0].image_width}
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
                       className="rounded-t-xl"
                     />
                     {/* </div> */}

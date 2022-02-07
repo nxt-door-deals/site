@@ -96,7 +96,7 @@ const ImageUploader = (props) => {
                   </div>
                 </div>
               ) : (
-                <div className=" flex flex-col items-center p-8 bg-gray-200 border-dashed rounded-xl error-border border-2 cursor-not-allowed focus:outline-none">
+                <div className=" flex flex-col items-center justify-center p-8 bg-gray-200 border-dashed rounded-xl error-border border-2 cursor-not-allowed focus:outline-none">
                   <FontAwesomeIcon
                     icon={faBan}
                     className="text-3xl error-text"

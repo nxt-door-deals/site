@@ -126,7 +126,7 @@ const Ad = (props) => {
         </p>
       </div>
 
-      <div className="shadow-postadshadow rounded-3xl px-3 py-10 lg:p-10 overflow-x-hidden bg-white">
+      <div className="shadow-postadshadow rounded-3xl px-3 pb-10 md:pt-5 lg:p-10 overflow-x-hidden bg-white">
         <AnimatePresence exitBeforeEnter>
           {props.showForm ? (
             <motion.div

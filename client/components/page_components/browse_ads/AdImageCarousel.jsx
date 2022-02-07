@@ -28,7 +28,7 @@ const AdImageCarousel = (props) => {
 
   return (
     <div>
-      <div className="carousel-container p-4 w-88 lg:w-128 cursor-pointer relative z-0">
+      <div className="carousel-container p-0 w-100 md:w-128 cursor-pointer relative z-0">
         {props.images.length !== 0 ? (
           <Carousel
             dynamicHeight
@@ -42,16 +42,16 @@ const AdImageCarousel = (props) => {
           >
             {props.images.map((image, index) => (
               <div
-                className="p-1"
+                className="p-1 relative h-[300px]"
                 key={index}
                 onClick={() => setSelectedImage(index)}
               >
-                <img
+                <Image
                   src={image.image_path}
                   alt={`Ad image-${index}`}
-                  height={image.image_height}
-                  width={image.image_width}
-                  className="rounded-xl"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
                 />
               </div>
             ))}
@@ -99,7 +99,7 @@ const AdImageCarousel = (props) => {
             onClick={() => setIsModalOpen(false)}
           />
         </div>
-        <div className="carousel-container mx-5 my-2 lg:p-2 lg:mx-36 flex justify-center items-center md:overflow-y-scroll bg-gray-700">
+        <div className="carousel-container md:overflow-y-scroll m-5">
           <Carousel
             dynamicHeight
             showStatus={false}
@@ -111,25 +111,11 @@ const AdImageCarousel = (props) => {
           >
             {props.images.map((image, index) => (
               <div className="" key={index}>
-                <Image
+                <img
                   src={image.image_path}
                   alt={`Ad image-${index}`}
                   quality={100}
-                  layout="intrinsic"
-                  width={
-                    image.image_width < 900
-                      ? Math.ceil(image.image_width)
-                      : image.image_width > 1900
-                      ? Math.ceil(image.image_width) / 3
-                      : Math.ceil(image.image_width) / 1.5
-                  }
-                  height={
-                    image.image_height < 900
-                      ? Math.ceil(image.image_height)
-                      : image.image_height > 1900
-                      ? Math.ceil(image.image_height) / 3
-                      : Math.ceil(image.image_height) / 1.5
-                  }
+                  width={image.image_width}
                 />
               </div>
             ))}
