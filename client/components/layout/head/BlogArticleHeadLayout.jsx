@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import { useRouter } from "next/router";
 import CommonHeadLayout from "./CommonHeadLayout";
-import { contextType } from "react-modal";
+import keys from "../../../utils/keys";
 
 const BlogArticleHeadLayout = (props) => {
   return (
@@ -15,7 +14,7 @@ const BlogArticleHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Preloved and More! | The nxtdoordeals.com Blog"
+          content={`${props.title} | The nxtdoordeals.com Blog`}
         />
         <meta property="og:description" content={props.description} />
         <meta
@@ -23,6 +22,14 @@ const BlogArticleHeadLayout = (props) => {
           content={`https://nxtdoordeals.com/blog/${props.slug}`}
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description" content={props.description} />
+        <meta name="twitter:title" content={props.title} />
+        <meta name="twitter:image" content={keys.ICON} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

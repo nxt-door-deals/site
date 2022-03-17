@@ -45,8 +45,8 @@ const FullPageAd = (props) => {
   }, []);
 
   return (
-    <AdsHeadLayout adId={props.data.id}>
-      <div className="text-brand-gray bg-gradient-to-b from-pink-50 via-white to-white">
+    <AdsHeadLayout ad={props.data}>
+      <div className="text-brand-gray">
         <Navbar
           navStyle={navStylePurple}
           chatNotification={props.chatNotification}

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const OurStoryHeadLayout = (props) => {
   return (
@@ -24,6 +25,21 @@ const OurStoryHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/ourstory" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Learn about the inspiration behind nxtdoordeals.com. We shed light on what led us to create an online marketplace. We also discuss the specific problems we aim to solve with the website and our aims and objectives."
+        />
+        <meta
+          name="twitter:title"
+          content="Our Story | The Inspiration behind nxtdoordeals.com"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

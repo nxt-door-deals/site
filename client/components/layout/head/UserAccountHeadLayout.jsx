@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const UserAccountHeadLayout = (props) => {
   // Pluraize the user name correctly
@@ -39,6 +40,21 @@ const UserAccountHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/account" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Manage your nxtdoordeals.com user dashboard. Update your user profile and edit or delete your ads and chats."
+        />
+        <meta
+          name="twitter:title"
+          content="My Account | Manage User Profile, Ads and Chats"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

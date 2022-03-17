@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const GuidelinesHeadLayout = (props) => {
   return (
@@ -21,6 +22,18 @@ const GuidelinesHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Read our community, buying and selling guidelines"
+        />
+        <meta name="twitter:title" content="Our Marketplace Guidelines" />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -37,12 +37,12 @@ const HowItWorks = (props) => {
           >
             <path
               d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-              class="shape-fill"
+              className="shape-fill"
             ></path>
           </svg>
         </div>
 
-        <div className="bg-gradient-to-b from-purple-50 to-white pb-20">
+        <div className="bg-gradient-to-b from-purple-200 via-purple-100 to-white pb-20">
           <div className="flex justify-center mt-16 pt-32">
             <Tab
               route={props.pathname}

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const CovidGuidelinesHeadLayout = (props) => {
   return (
@@ -21,6 +22,21 @@ const CovidGuidelinesHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Read our COVID 19 guidelines and tips. Your safety is paramount. Even with a chunk of the population already vaccinated, this is not the time to let your guard down. Follow these simple buying and selling tips and stay safe."
+        />
+        <meta
+          name="twitter:title"
+          content="Our COVID 19 Guidelines | Stay Safe!"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

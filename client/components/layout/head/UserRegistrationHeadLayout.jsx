@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const UserLoginHeadLayout = (props) => {
   return (
@@ -28,6 +29,21 @@ const UserLoginHeadLayout = (props) => {
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
         <meta property="og:image" content="/favicon.png" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Create your nxtdoordeals.com account to start posting ads for free today. Give your preloved's a new home and do your part to save the environment."
+        />
+        <meta
+          name="twitter:title"
+          content="Signup | Create Your nxtdoordeals.com Account"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

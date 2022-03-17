@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const ReportAdHeadLayout = (props) => {
   return (
@@ -10,20 +11,32 @@ const ReportAdHeadLayout = (props) => {
         <title>Report an Ad</title>
         <meta
           name="description"
-          content="Report an ad that violates our community guidelines or terms of use"
+          content="Report an ad that violates our community guidelines or terms of use."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Report an Ad" />
         <meta
           property="og:description"
-          content="Report an ad that violates our community guidelines or terms of use"
+          content="Report an ad that violates our community guidelines or terms of use."
         />
         <meta
           property="og:url"
           content={`https://nxtdoordeals.com/reportad/${props.adId}`}
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Report an ad that violates our community guidelines or terms of use."
+        />
+        <meta name="twitter:title" content="Report an Ad" />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

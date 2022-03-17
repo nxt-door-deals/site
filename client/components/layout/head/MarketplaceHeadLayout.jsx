@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const MarketplaceHeadLayout = (props) => {
   return (
@@ -29,6 +30,21 @@ const MarketplaceHeadLayout = (props) => {
           content={`https://nxtdoordeals.com/neighbourhood/ads/${props.aptId}`}
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Browse ads from your or other registered apartments to find second hand/preloved items for sale or giveaway."
+        />
+        <meta
+          name="twitter:title"
+          content="Browse Ads | See what's on sale or available for free"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const UserLoginHeadLayout = (props) => {
   return (
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Login | Log in to your nxtdoordeals.com account</title>
+        <title>Log in to your nxtdoordeals.com account</title>
         <meta
           name="description"
           content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
@@ -16,14 +17,27 @@ const UserLoginHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Login | Log in to your nxtdoordeals.com account"
+          content="Log in to your nxtdoordeals.com account"
         />
         <meta
           property="og:description"
           content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
         />
         <meta property="og:url" content="https://nxtdoordeals.com/login" />
-        <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:site_name" content="nxtdoordeals.com" />{" "}
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
+        />
+        <meta
+          name="twitter:title"
+          content="Log in to your nxtdoordeals.com account"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import keys from "../../../utils/keys";
 
 const CommonHeadLayout = () => {
   return (
@@ -101,22 +100,6 @@ const CommonHeadLayout = () => {
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#00aba9" />
       <meta name="theme-color" content="#DDD6FE" />
-
-      <meta property="og:image" content={keys.ICON} />
-      <meta property="og:image:width" content="256" />
-      <meta property="og:image:height" content="256" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:description"
-        content="Your one-stop shop to find amazing deals within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
-      />
-      <meta
-        name="twitter:title"
-        content="Welcome To Your Apartment's Marketplace"
-      />
-      <meta name="twitter:image" content={keys.ICON} />
-
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css"

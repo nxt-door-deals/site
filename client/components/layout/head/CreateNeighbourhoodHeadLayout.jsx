@@ -1,16 +1,17 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const CreateNeighbourhoodHeadLayout = (props) => {
   return (
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Register for Free</title>
+        <title>Register your Apartment for FREE and Start Posting Ads</title>
         <meta
           name="description"
-          content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society"
+          content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society."
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -20,13 +21,28 @@ const CreateNeighbourhoodHeadLayout = (props) => {
         />
         <meta
           property="og:description"
-          content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society"
+          content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society."
         />
         <meta
           property="og:url"
           content="https://nxtdoordeals.com/register/neighbourhood"
         />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society."
+        />
+        <meta
+          name="twitter:title"
+          content="Register your Apartment for FREE and Start Posting Ads"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

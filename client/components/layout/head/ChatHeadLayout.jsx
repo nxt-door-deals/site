@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const ChatHeadLayout = (props) => {
   return (
@@ -28,6 +29,25 @@ const ChatHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Chat directly with members of your apartment and close deals faster"
+        />
+        <meta
+          name="twitter:title"
+          content={
+            props.altUser
+              ? `Chat With ${props.altUser} and Seal the Deal`
+              : "Chat with your neighbours and seal the deal"
+          }
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

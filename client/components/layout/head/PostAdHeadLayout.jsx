@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import CommonHeadLayout from "./CommonHeadLayout";
+import keys from "../../../utils/keys";
 
 const PostAdHeadLayout = (props) => {
   return (
@@ -24,6 +25,21 @@ const PostAdHeadLayout = (props) => {
         />
         <meta property="og:url" content="https://nxtdoordeals.com/postad" />
         <meta property="og:site_name" content="nxtdoordeals.com" />
+        <meta property="og:image" content={keys.ICON} />
+        <meta property="og:image:width" content="256" />
+        <meta property="og:image:height" content="256" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:description"
+          content="Post free ad for your second hand/preloved item. Choose from a wide range of categories and start selling today. Post up to five free ads at any given time."
+        />
+        <meta
+          name="twitter:title"
+          content="Post Free Ad | Start Selling your Preloved's Today"
+        />
+        <meta name="twitter:image" content={keys.ICON} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

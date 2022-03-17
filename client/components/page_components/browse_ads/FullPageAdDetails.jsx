@@ -42,12 +42,12 @@ const FullPageAdDetails = (props) => {
   }
 
   return (
-    <div>
+    <div itemScope itemType="https://schema.org/Product">
       <h1 className="text-lg lg:text-2xl">
         <span className="text-purple-700 uppercase">
           {props.adData.condition}
         </span>
-        : {props.adData.title}
+        : <span itemProp="name">{props.adData.title}</span>
       </h1>
       <p className="py-3 text-xs lg:text-sm text-gray-500">
         Ad id: {props.adData.modified_id} &nbsp;
@@ -57,15 +57,38 @@ const FullPageAdDetails = (props) => {
           : `Available from ${availableFromDate}`}
       </p>
       <hr></hr>
-      <p className="pt-5 text-sm">
-        Posted by <strong>{props.adData.posted_by_name}</strong>&nbsp;
+      <p
+        itemProp="offers"
+        itemScope
+        itemType="https://schema.org/Offer"
+        className="pt-5 text-sm"
+      >
+        Posted by{" "}
+        <span itemProp="seller" itemScope itemType="https://schema.org/Person">
+          <span itemProp="givenName" className="font-bold">
+            {props.adData.posted_by_name}
+          </span>
+        </span>
+        &nbsp;
         {props.adData.flat_no !== null &&
           "(apartment number: " + props.adData.flat_no + ")"}
       </p>
       <div className="pt-5 text-2xl">
         {props.adData.ad_type === "sale" ? (
-          <p className="text-purple-700 font-bold">
-            <FontAwesomeIcon icon={faRupeeSign} /> {props.adData.price}
+          <p
+            itemProp="offers"
+            itemScope
+            itemType="https://schema.org/Offer"
+            className="text-purple-700 font-bold"
+          >
+            <FontAwesomeIcon
+              itemProp="priceCurrency"
+              content="INR"
+              icon={faRupeeSign}
+            />{" "}
+            <span itemProp="price" content={props.adData.price}>
+              {props.adData.price}
+            </span>
           </p>
         ) : (
           <p className="text-purple-700 font-bold animate-pulse text-2xl">
@@ -122,9 +145,24 @@ const FullPageAdDetails = (props) => {
 
       <div className="pt-5">
         <p className="pb-3 font-semibold">Item Details:</p>
-        <p className="bg-purple-100 p-3 text-sm">
+        <p
+          itemProp="offers"
+          itemScope
+          itemType="https://schema.org/Offer"
+          className="bg-purple-100 p-3 text-sm"
+        >
           Condition:{" "}
-          <span className="font-semibold">{props.adData.condition}</span>
+          <span
+            className="font-semibold"
+            itemProp="itemCondition"
+            content={
+              props.adData.condition === "New"
+                ? "https://schema.org/NewCondition"
+                : "https://schema.org/UsedCondition"
+            }
+          >
+            {props.adData.condition}
+          </span>
         </p>
         {props.adData.ad_type === "sale" && (
           <p className="bg-purple-200 p-3 text-sm flex items-center">
@@ -148,7 +186,10 @@ const FullPageAdDetails = (props) => {
 
       <div className="pt-7">
         <p className="pb-3 font-semibold">Description:</p>
-        <p className="text-sm md:text-base tracking-wide whitespace-pre-wrap">
+        <p
+          itemProp="description"
+          className="text-sm md:text-base tracking-wide whitespace-pre-wrap"
+        >
           {props.adData.description}
         </p>
       </div>
