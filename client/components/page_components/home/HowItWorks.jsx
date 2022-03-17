@@ -42,7 +42,7 @@ const HowItWorks = (props) => {
           </svg>
         </div>
 
-        <div className="bg-gradient-to-b from-purple-200 via-purple-100 to-white pb-20">
+        <div className="bg-gradient-to-b from-fuchsia-100 to-white pb-20">
           <div className="flex justify-center mt-16 pt-32">
             <Tab
               route={props.pathname}

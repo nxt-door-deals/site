@@ -60,6 +60,12 @@ html::-webkit-scrollbar-track {
   background: var(--selection-background);
 }
 
+@layer base {
+  button {
+    @apply tracking-wide;
+  }
+}
+
 @layer components {
   /* Navbar custom styles */
   .basic-nav {

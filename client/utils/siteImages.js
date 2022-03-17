@@ -1,5 +1,5 @@
 export const landing =
-  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration.png?tr=w-900";
+  "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration.svg";
 
 export const landingMobile =
   "https://ik.imagekit.io/nxtdoordeals/nddcommon/landing/landing-page-illustration-mobile.png?tr=w-500";
