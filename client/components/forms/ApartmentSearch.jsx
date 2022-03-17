@@ -244,12 +244,7 @@ const ApartmentSearch = () => {
                 </span>
               </div>
             </div>
-            <motion.div
-              className="mt-5 lg:mt-8"
-              variants={variants}
-              initial="buttonContainerInitial"
-              animate="buttonContainerAnimate"
-            >
+            <div className="mt-5 lg:mt-8" variants={variants}>
               <motion.button
                 type="submit"
                 className={`p-0 w-48 h-12 md:mr-5 rounded-xl bg-purple-700 shadow-buttonShadowPurple text-white uppercase font-bold text-center tracking-wide cursor-pointer focus:outline-none ${
@@ -263,7 +258,7 @@ const ApartmentSearch = () => {
               >
                 {!props.isSubmitting ? "Browse Ads" : <BouncingBalls />}
               </motion.button>
-            </motion.div>
+            </div>
           </Form>
         )}
       </Formik>
