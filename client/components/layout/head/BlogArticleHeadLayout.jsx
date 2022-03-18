@@ -10,7 +10,7 @@ const BlogArticleHeadLayout = (props) => {
       <Head>
         <title>{props.title} | The nxtdoordeals.com Blog</title>
         <meta name="description" content={props.description} />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

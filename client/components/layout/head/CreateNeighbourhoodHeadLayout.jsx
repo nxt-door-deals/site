@@ -13,7 +13,7 @@ const CreateNeighbourhoodHeadLayout = (props) => {
           name="description"
           content="Register your Apartment Complex, Gated Community or Co-operative Housing Society for free. All registrations are subject to verification and approval. NXT Door Deals is your one-stop shop to find amazing deals within your apartment complex, gated community or co-operative housing society."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

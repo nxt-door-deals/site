@@ -15,7 +15,7 @@ const MarketplaceHeadLayout = (props) => {
           name="description"
           content="Browse ads from your or other registered neighbourhoods to find out what's for sale or giveaway."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

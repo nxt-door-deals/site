@@ -13,7 +13,7 @@ const UserLoginHeadLayout = (props) => {
           name="description"
           content="Create your nxtdoordeals.com account to start posting ads for free today. Give your preloved's a new home and do your part to save the environment."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

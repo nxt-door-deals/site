@@ -8,7 +8,7 @@ const navStylePurple = {
 };
 
 const footerGradientClassPurple =
-  "from-footer-gradient-from to-footer-gradient-to";
+  "from-footer-gradient-from via-footer-gradient-via to-footer-gradient-to";
 
 const navStyleBlue = {
   navTextColor: "text-blue-800",

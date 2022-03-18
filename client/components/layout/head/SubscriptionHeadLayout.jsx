@@ -12,7 +12,7 @@ const SubscriptionHeadLayout = (props) => {
           name="description"
           content="Update your subscription status for promotional emails from nxtdoordeals.com"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Manage Your Email Subscriptions" />
         <meta

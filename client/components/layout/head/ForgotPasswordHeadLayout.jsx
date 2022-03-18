@@ -13,7 +13,7 @@ const UserLoginHeadLayout = (props) => {
           name="description"
           content="Reset the password to your nxtdoordeals.com account"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Reset Your Password" />
         <meta

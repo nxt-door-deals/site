@@ -13,7 +13,7 @@ const BlogHeadLayout = (props) => {
           name="description"
           content="The nxtdoordeals.com blog is a catalogue of articles on buying, selling, DIY ideas and a whole lot more. The collection contains a buffet of posts from the nxtdoordeals.com team and a host of guest bloggers."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

@@ -13,7 +13,7 @@ const FAQHeadLayout = (props) => {
           name="description"
           content="All the frequently asked questions about buying and selling on nxtdoordeals.com"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

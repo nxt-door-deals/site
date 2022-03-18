@@ -17,7 +17,7 @@ const ChatHeadLayout = (props) => {
           name="description"
           content="Chat directly with members of your apartment and close deals faster"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

@@ -13,7 +13,7 @@ const OurStoryHeadLayout = (props) => {
           name="description"
           content="Learn about the inspiration behind nxtdoordeals.com. We shed light on what led us to create an online marketplace. We also discuss the specific problems we aim to solve with the website and our aims and objectives."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

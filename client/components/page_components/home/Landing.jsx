@@ -12,11 +12,12 @@ const Landing = (props) => {
           className="container mt-7 lg:mt-10 xl:mt-0 ml-4 mr-4 px-3 md:px-4 lg:w-1/2"
         >
           <h1 className="text-brand-gray text-2xl lg:text-3xl xxl:text-sm font-extrabold">
-            Your apartment's marketplace
+            Buy and sell used Items in your apartment with ease
           </h1>
           <h2 className="text-base mt-3 md:mt-5 text-gray-600 leading-relaxed">
-            Buy and sell preloved items within your Apartment, Apartment
-            Complex, Gated Community or Co-operative Housing Society.
+            We make it hassle free to buy and sell used or preloved items within
+            your apartment, apartment complex, gated community or co-operative
+            housing society.
           </h2>
 
           <div className="mt-3 lg:hidden text-purple-700">
@@ -49,6 +50,7 @@ const Landing = (props) => {
             placeholder="blur"
             layout="responsive"
             priority={true}
+            title="Buy and see used items in your apartment with ease"
           />
         </div>
 
@@ -66,6 +68,7 @@ const Landing = (props) => {
             priority={true}
             width={500}
             height={325}
+            title="Buy and see used items in your apartment with ease"
           />
         </div>
       </div>

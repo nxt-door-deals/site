@@ -13,7 +13,7 @@ const PoliciesHeadLayout = (props) => {
           name="description"
           content="Read our terms & conditions, privacy and cookie policies"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

@@ -13,7 +13,7 @@ const ReportAdHeadLayout = (props) => {
           name="description"
           content="Report an ad that violates our community guidelines or terms of use."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Report an Ad" />
         <meta

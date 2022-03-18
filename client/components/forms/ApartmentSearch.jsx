@@ -125,7 +125,7 @@ const ApartmentSearch = () => {
                 id="apartment"
                 name="apartment"
                 type="text"
-                placeholder="Your apartment"
+                placeholder="Your apartment name"
                 maxLength="50"
                 autoComplete="off"
                 autoFocus=""

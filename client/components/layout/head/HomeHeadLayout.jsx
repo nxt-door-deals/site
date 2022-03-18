@@ -8,20 +8,20 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Welcome to Your Apartment's Marketplace</title>
+        <title>Buy and sell used Items in your apartment</title>
         <meta
           name="description"
-          content="Buy and sell second hand/preloved items within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
+          content="Buy and sell used/preloved items within your apartment, apartment complex, gated community or co-operative housing society with ease. Browse ads from your apartment or post a free ad today!"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Welcome To Your Apartment's Marketplace"
+          content="Buy and sell used Items in your apartment"
         />
         <meta
           property="og:description"
-          content="Buy and sell second hand/preloved items within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post up to five free ads today!"
+          content="Buy and sell used/preloved items within your apartment, apartment complex, gated community or co-operative housing society. Browse ads from your apartment or post a free ad today!"
         />
         <meta property="og:url" content="https://nxtdoordeals.com/" />
         <meta property="og:site_name" content="nxtdoordeals.com" />

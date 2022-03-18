@@ -28,7 +28,7 @@ const UserAccountHeadLayout = (props) => {
           name="description"
           content="Manage your nxtdoordeals.com user dashboard. Update your user profile and edit or delete your ads and chats."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

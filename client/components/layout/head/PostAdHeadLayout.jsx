@@ -13,7 +13,7 @@ const PostAdHeadLayout = (props) => {
           name="description"
           content="Post free ad for your second hand/preloved item. Choose from a wide range of categories and start selling today. Post up to five free ads at any given time."
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

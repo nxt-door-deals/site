@@ -13,7 +13,7 @@ const GuidelinesHeadLayout = (props) => {
           name="description"
           content="Read our community, buying and selling guidelines"
         />
-        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale" content="en_IN" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Our Marketplace Guidelines" />
         <meta
