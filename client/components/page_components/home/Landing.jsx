@@ -12,7 +12,7 @@ const Landing = (props) => {
           className="container mt-7 lg:mt-10 xl:mt-0 ml-4 mr-4 px-3 md:px-4 lg:w-1/2"
         >
           <h1 className="text-brand-gray text-2xl lg:text-3xl xxl:text-sm font-extrabold">
-            Buy and sell used Items in your apartment with ease
+            Your apartment's online marketplace
           </h1>
           <h2 className="text-base mt-3 md:mt-5 text-gray-600 leading-relaxed">
             We make it hassle free to buy and sell used or preloved items within
