@@ -8,7 +8,7 @@ const UserLoginHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Log in to your nxtdoordeals.com account</title>
+        <title>Log in to your nxtdoordeals.com Account</title>
         <meta
           name="description"
           content="Log in to your nxtdoordeals.com account to post free ads and chat with potential sellers. You can also manage your user dashboard to edit or delete ads and chats."
@@ -17,7 +17,7 @@ const UserLoginHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Log in to your nxtdoordeals.com account"
+          content="Log in to your nxtdoordeals.com Account"
         />
         <meta
           property="og:description"

@@ -10,6 +10,9 @@ import {
 import cookie from "../../../utils/cookieInit";
 import keys from "../../../utils/keys";
 
+// Component imports
+import SocialShare from "./SocialShare";
+
 const variants = {
   chatButtonHover: {
     backgroundColor: "#4C1D95",
@@ -22,6 +25,8 @@ const variants = {
 
 const FullPageAdDetails = (props) => {
   const router = useRouter();
+
+  console.log(props);
 
   useEffect(() => {
     let mounted = true;
@@ -56,6 +61,11 @@ const FullPageAdDetails = (props) => {
           ? "Available immediately"
           : `Available from ${availableFromDate}`}
       </p>
+      <SocialShare
+        title={props.adData.title}
+        condition={props.adData.condition}
+        apartmentName={props.adData.apartment_name}
+      />
       <hr></hr>
       <p
         itemProp="offers"

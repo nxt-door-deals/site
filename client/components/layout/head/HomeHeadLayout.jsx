@@ -8,7 +8,7 @@ const HomeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Buy and sell used Items in your apartment</title>
+        <title>Buy and Sell Used Items in Your Apartment</title>
         <meta
           name="description"
           content="Buy and sell used/preloved items within your apartment, apartment complex, gated community or co-operative housing society with ease. Browse ads from your apartment or post a free ad today!"
@@ -17,7 +17,7 @@ const HomeHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Buy and sell used Items in your apartment"
+          content="Buy and Sell Used Items in Your Apartment"
         />
         <meta
           property="og:description"

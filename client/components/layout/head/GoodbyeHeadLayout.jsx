@@ -7,7 +7,7 @@ const GoodbyeHeadLayout = (props) => {
     <Fragment>
       <CommonHeadLayout />
       <Head>
-        <title>Thanks & Adieu | We wish you good health & happiness</title>
+        <title>Thanks & Adieu | We Wish You Good Health & Happiness</title>
       </Head>
       {props.children}
     </Fragment>

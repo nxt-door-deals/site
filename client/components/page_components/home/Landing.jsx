@@ -12,7 +12,7 @@ const Landing = (props) => {
           className="container mt-7 lg:mt-10 xl:mt-0 ml-4 mr-4 px-3 md:px-4 lg:w-1/2"
         >
           <h1 className="text-brand-gray text-2xl lg:text-3xl xxl:text-sm font-extrabold">
-            Your apartment's online marketplace
+            Your apartment's marketplace
           </h1>
           <h2 className="text-base mt-3 md:mt-5 text-gray-600 leading-relaxed">
             We make it hassle free to buy and sell used or preloved items within
@@ -42,7 +42,7 @@ const Landing = (props) => {
           className="hidden relative lg:inline lg:order-last lg:-mt-4 xl:mt-0 lg:-z-10 lg:top-0 flex-auto lg:w-2/3"
         >
           <Image
-            src={landing}
+            src="https://ik.imagekit.io/nxtdoordeals/ndd-landing/landing-page-illustration_91Zgb6L_C.png"
             alt="Landing page illustration"
             width={900}
             height={750}
@@ -60,7 +60,7 @@ const Landing = (props) => {
           className="order-first w-full lg:hidden -z-10"
         >
           <Image
-            src={landingMobile}
+            src="https://ik.imagekit.io/nxtdoordeals/ndd-landing/landing-page-illustration-mobile_AqCQ4T_W7.png"
             alt="Landing page illustration"
             blurDataURL={`${landingMobile}?tr=bl-6`}
             placeholder="blur"

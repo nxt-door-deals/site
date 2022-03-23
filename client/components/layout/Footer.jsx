@@ -294,7 +294,7 @@ const Footer = (props) => {
                   />
                 </motion.a>
               </Link>{" "}
-              <Link
+              {/* <Link
                 href="https://www.linkedin.com/company/nxtdoordeals/"
                 passHref={true}
               >
@@ -306,7 +306,6 @@ const Footer = (props) => {
                   className="mr-4"
                   aria-label="Link to our linkedin page"
                 >
-                  {/* <FontAwesomeIcon icon={faLinkedin} /> */}
                   <Image
                     src={linkedin}
                     alt="Linkedin icon"
@@ -314,7 +313,7 @@ const Footer = (props) => {
                     width={30}
                   />
                 </motion.a>
-              </Link>{" "}
+              </Link> */}
               <Link
                 href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
                 passHref={true}

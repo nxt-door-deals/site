@@ -117,7 +117,7 @@ const NbhAdsCard = (props) => {
                       objectPosition="center"
                       placeholder="blur"
                       blurDataURL={ad.images[0].image_path + "/tr:bl-10"}
-                      className="rounded-t-xl"
+                      className="rounded-t-xl hover:scale-110 overflow-hidden transition-all duration-300"
                     />
                     {/* </div> */}
                     {/* ))} */}

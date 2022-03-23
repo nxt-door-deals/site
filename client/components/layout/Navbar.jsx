@@ -202,7 +202,7 @@ const Navbar = (props) => {
             <ul className="flex">
               <li className="nav-item lg:mx-3 hover:scale-110">
                 <span
-                  className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl  ${
+                  className={`hidden lg:inline lg:bg-opacity-25 lg:bg-purple-400 p-3 rounded-xl ${
                     stickyNav ? "border-3 border-brand-purple" : ""
                   }`}
                 >
@@ -1266,7 +1266,7 @@ const Navbar = (props) => {
                       />
                     </motion.a>
                   </Link>{" "}
-                  <Link
+                  {/* <Link
                     href="https://www.linkedin.com/company/nxtdoordeals/"
                     passHref={true}
                   >
@@ -1277,10 +1277,6 @@ const Navbar = (props) => {
                       className="mr-4"
                       aria-label="Link to our linkedin page"
                     >
-                      {/* <FontAwesomeIcon
-                    icon={faLinkedin}
-                    className={props.navStyle.navOverlayTextColor}
-                  /> */}
                       <Image
                         src={linkedin}
                         alt="Linkedin icon"
@@ -1288,7 +1284,7 @@ const Navbar = (props) => {
                         width={30}
                       />
                     </motion.a>
-                  </Link>{" "}
+                  </Link> */}
                   <Link
                     href="https://www.youtube.com/channel/UCSivOzzPcsER8DZbByEniBw"
                     passHref={true}

@@ -9,7 +9,8 @@ const MarketplaceHeadLayout = (props) => {
       <CommonHeadLayout />
       <Head>
         <title>
-          {props.aptName || "Browse Ads"} | Your Personal Marketplace
+          {props.aptName || "Browse Ads"} | See what's for Sale or available for
+          FREE
         </title>
         <meta
           name="description"
@@ -19,7 +20,7 @@ const MarketplaceHeadLayout = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Browse Ads | See what's on sale or available for free"
+          content="Browse Ads | See what's for Sale or available for FREE"
         />
         <meta
           property="og:description"

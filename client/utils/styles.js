@@ -8,7 +8,7 @@ const navStylePurple = {
 };
 
 const footerGradientClassPurple =
-  "from-footer-gradient-from via-footer-gradient-via to-footer-gradient-to";
+  "bg-gradient-to-b from-footer-gradient-from via-footer-gradient-via to-footer-gradient-to";
 
 const navStyleBlue = {
   navTextColor: "text-blue-800",
@@ -18,7 +18,7 @@ const navStyleBlue = {
 };
 
 const footerGradientClassBlue =
-  "from-alt-footer-gradient-from to-alt-footer-gradient-to";
+  "bg-gradient-to-b from-alt-footer-gradient-from to-alt-footer-gradient-to";
 
 // Styles for the Select component
 const selectStylePurple = {
